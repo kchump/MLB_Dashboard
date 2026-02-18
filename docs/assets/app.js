@@ -181,7 +181,6 @@ function set_search_mode(is_searching) {
   });
 }
 
-
 function is_visible(el) {
   if (!el) return false;
   return (el.style.display !== 'none');
