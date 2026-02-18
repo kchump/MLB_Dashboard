@@ -9,6 +9,40 @@
       --accent: #2f6fed;
     }
 
+  --team-ATH: #003831;
+  --team-OAK: #003831;
+  --team-SAC: #003831;
+
+  --team-ARI: #A71930;
+  --team-ATL: #13274F;
+  --team-BAL: #000000;
+  --team-BOS: #BD3039;
+  --team-CHC: #0E3386;
+  --team-CHW: #27251F;
+  --team-CIN: #C6011F;
+  --team-CLE: #00385D;
+  --team-COL: #333366;
+  --team-DET: #0C2340;
+  --team-HOU: #002D62;
+  --team-KC:  #004687;
+  --team-LAA: #BA0021;
+  --team-LAD: #005A9C;
+  --team-MIA: #000000;
+  --team-MIL: #12284b;
+  --team-MIN: #002B5C;
+  --team-NYM: #002D72;
+  --team-NYY: #0C2340;
+  --team-PHI: #E81828;
+  --team-PIT: #27251F;
+  --team-SD:  #2F241D;
+  --team-SEA: #0C2C56;
+  --team-SF:  #27251F;
+  --team-STL: #C41E3A;
+  --team-TB:  #092C5C;
+  --team-TEX: #003278;
+  --team-TOR: #134A8E;
+  --team-WAS: #AB0003;
+
 .search_row {
   display: flex;
   align-items: center;
@@ -452,6 +486,42 @@
 .sidebar.hidden {
   display: none;
 }
+
+
+.team_name[data-team] { font-weight: 800; }
+
+.team_name[data-team="ARI"] { color: var(--team-ARI); }
+.team_name[data-team="ATL"] { color: var(--team-ATL); }
+.team_name[data-team="BAL"] { color: var(--team-BAL); }
+.team_name[data-team="BOS"] { color: var(--team-BOS); }
+.team_name[data-team="CHC"] { color: var(--team-CHC); }
+.team_name[data-team="CHW"] { color: var(--team-CHW); }
+.team_name[data-team="CIN"] { color: var(--team-CIN); }
+.team_name[data-team="CLE"] { color: var(--team-CLE); }
+.team_name[data-team="COL"] { color: var(--team-COL); }
+.team_name[data-team="DET"] { color: var(--team-DET); }
+.team_name[data-team="HOU"] { color: var(--team-HOU); }
+.team_name[data-team="KC"]  { color: var(--team-KC); }
+.team_name[data-team="LAA"] { color: var(--team-LAA); }
+.team_name[data-team="LAD"] { color: var(--team-LAD); }
+.team_name[data-team="MIA"] { color: var(--team-MIA); }
+.team_name[data-team="MIL"] { color: var(--team-MIL); }
+.team_name[data-team="MIN"] { color: var(--team-MIN); }
+.team_name[data-team="NYM"] { color: var(--team-NYM); }
+.team_name[data-team="NYY"] { color: var(--team-NYY); }
+.team_name[data-team="OAK"] { color: var(--team-OAK); }
+.team_name[data-team="ATH"] { color: var(--team-ATH); }
+.team_name[data-team="PHI"] { color: var(--team-PHI); }
+.team_name[data-team="PIT"] { color: var(--team-PIT); }
+.team_name[data-team="SAC"] { color: var(--team-SAC); }
+.team_name[data-team="SD"]  { color: var(--team-SD); }
+.team_name[data-team="SEA"] { color: var(--team-SEA); }
+.team_name[data-team="SF"]  { color: var(--team-SF); }
+.team_name[data-team="STL"] { color: var(--team-STL); }
+.team_name[data-team="TB"]  { color: var(--team-TB); }
+.team_name[data-team="TEX"] { color: var(--team-TEX); }
+.team_name[data-team="TOR"] { color: var(--team-TOR); }
+.team_name[data-team="WAS"] { color: var(--team-WAS); }
 
 @media (max-width: 900px) {
   .sidebar.hidden {
