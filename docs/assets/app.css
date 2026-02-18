@@ -115,7 +115,8 @@
   margin: 0 0 10px 0;
 }
 
-@media (max-width: 900px) {
+/* show only on touch-style devices, not just narrow windows */
+@media (max-width: 900px) and (pointer: coarse) {
   .toggle_sidebar {
     display: inline-flex;
     align-items: center;
@@ -426,11 +427,6 @@
   .content {
     width: 100%;
     padding: 10px 10px;
-  }
-
-  /* Prevent accidental horizontal scroll */
-  body {
-    overflow-x: hidden;
   }
 
   /* Plotly figures tend to be wider than the viewport in your setup */
