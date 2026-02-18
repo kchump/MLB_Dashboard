@@ -17,6 +17,7 @@
 
 .key_table_wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border: 1px solid var(--border);
   border-radius: 10px;
   background: white;
@@ -25,6 +26,7 @@
 
 .key_table {
   width: 100%;
+  min-width: 720px;
   border-collapse: collapse;
   font-size: 12.5px;
 }
@@ -34,6 +36,8 @@
   padding: 8px 10px;
   border-bottom: 1px solid var(--border);
   vertical-align: top;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 .key_table th {
@@ -46,6 +50,18 @@
 .key_table tr:last-child td {
   border-bottom: 0;
 }
+
+/* keep formulas readable */
+.key_table th:nth-child(2),
+.key_table td:nth-child(2) {
+  white-space: nowrap;
+}
+
+.key_table th:nth-child(1),
+.key_table td:nth-child(1) {
+  min-width: 180px;
+}
+
 
 .search_clear {
   display: inline-flex;
@@ -206,7 +222,44 @@
       font-size: 16px;
       margin: 4px 0 10px 2px;
     }
+.division_block {
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 10px;
+  padding: 10px 10px 8px 10px;
+  margin-bottom: 10px;
+}
 
+.division_title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 14px;
+  margin-bottom: 8px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.division_arrow {
+  display: inline-block;
+  width: 14px;
+  transform: rotate(0deg);
+  transition: transform 120ms ease;
+  color: rgba(96,103,112,0.95);
+}
+
+.division_block.collapsed .division_body {
+  display: none;
+}
+
+.division_block:not(.collapsed) .division_arrow {
+  transform: rotate(90deg);
+}
     .team_block {
       border: 1px solid var(--border);
       background: white;
