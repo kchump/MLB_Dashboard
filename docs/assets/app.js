@@ -1,17 +1,53 @@
 
+const page_cache = new Map();
+
 async function load_page(file, page_id) {
   const content = document.getElementById('content_root');
   if (!content) return;
+  content.innerHTML = '<div style="padding:12px;color:rgba(96,103,112,0.95);">Loading…</div>';
 
-  const r = await fetch(file, { cache: 'no-store' });
-  const html = await r.text();
+  let html = page_cache.get(file);
+  if (!html) {
+    const r = await fetch(file); // let the browser cache normally
+    html = await r.text();
+    page_cache.set(file, html);
+  }
+
   content.innerHTML = html;
+
+  // Plotly fragments include inline <script> tags; scripts inserted via innerHTML do not run.
+  // Re-create those script tags so the browser executes them.
+  const scripts = Array.from(content.querySelectorAll('script'));
+  scripts.forEach(old => {
+    const s = document.createElement('script');
+    if (old.type) s.type = old.type;
+    if (old.src) {
+      s.src = old.src;
+    } else {
+      s.text = old.textContent || '';
+    }
+    content.appendChild(s);
+    old.remove();
+  });
 
   // Keep the “active” highlight in the sidebar
   const links = document.querySelectorAll('.toc_link');
   links.forEach(a => a.classList.toggle('active', a.dataset.page === page_id));
 
   try { localStorage.setItem('mlb_dash_active_page', page_id); } catch (e) {}
+  // Warm a couple pages ahead (best-effort)
+  const active = document.querySelector(`.toc_link[data-page="${page_id}"]`);
+  if (active) {
+    const lis = Array.from(active.closest('.player_list')?.querySelectorAll('.toc_link') || []);
+    const i = lis.indexOf(active);
+    [i + 1, i + 2].forEach(j => {
+      const a = lis[j];
+      if (!a) return;
+      const f = a.dataset.file;
+      if (!f || page_cache.has(f)) return;
+      fetch(f).then(r => r.text()).then(t => page_cache.set(f, t)).catch(() => {});
+    });
+  }
 }
 
 function set_team_role_tab(team, role) {
@@ -224,6 +260,24 @@ document.addEventListener('DOMContentLoaded', () => {
   function team_storage_key(team) {
     return 'mlb_dash_team_open__' + team;
   }
+  const toggle_sidebar_btn = document.getElementById('toggle_sidebar');
+  const sidebar = document.querySelector('.sidebar');
+
+  function set_sidebar_hidden(hidden) {
+    if (!sidebar) return;
+    sidebar.classList.toggle('hidden', hidden);
+
+    if (toggle_sidebar_btn) {
+      toggle_sidebar_btn.textContent = hidden ? '☰ Teams' : 'Hide Teams';
+    }
+  }
+
+  if (toggle_sidebar_btn) {
+    toggle_sidebar_btn.addEventListener('click', () => {
+      const hidden = sidebar && sidebar.classList.contains('hidden');
+      set_sidebar_hidden(!hidden);
+    });
+  }
 
   function set_team_collapsed(team, collapsed) {
     const block = document.querySelector(`.team_block[data-team="${team}"]`);
@@ -238,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      localStorage.setItem(team_storage_key(team), collapsed ? '0' : '1');
+      localStorage.setItem(team_storage_key(team), collapsed ? '1' : '0');
     } catch (e) {}
   }
 
@@ -249,8 +303,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       try {
         const v = localStorage.getItem(team_storage_key(team));
-        if (v === '1') collapsed = false;
-        if (v === '0') collapsed = true;
+        if (v === '1') collapsed = true;
+        if (v === '0') collapsed = false;
       } catch (e) {}
 
       set_team_collapsed(team, collapsed);
@@ -281,6 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!page_id || !file) return;
 
     a.addEventListener('click', (e) => {
+    if (window.innerWidth <= 900) set_sidebar_hidden(true);
       e.preventDefault();
       activate_page(page_id);
     });

@@ -104,6 +104,25 @@
       background: white;
     }
 
+    .toggle_sidebar {
+  display: none;
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  margin: 0 0 10px 0;
+}
+
+@media (max-width: 900px) {
+  .toggle_sidebar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
     .hint {
       color: var(--muted);
       font-size: 12px;
@@ -375,4 +394,53 @@
       background: rgba(35, 85, 210, 0.10);
       border-color: rgba(35, 85, 210, 0.22);
     }
+
+.sidebar.hidden {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .sidebar.hidden {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --sidebar-w: 100%;
+  }
+
+  .app {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    max-height: 52vh;
+  }
+
+  .content {
+    width: 100%;
+    padding: 10px 10px;
+  }
+
+  /* Prevent accidental horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Plotly figures tend to be wider than the viewport in your setup */
+  .player_page {
+    max-width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .content {
+    overflow-x: auto;
+  }
+}
     
