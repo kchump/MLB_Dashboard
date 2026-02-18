@@ -1,6 +1,5 @@
 
 const page_cache = new Map();
-
 async function load_page(file, page_id) {
   const content = document.getElementById('content_root');
   if (!content) return;
@@ -51,26 +50,28 @@ async function load_page(file, page_id) {
 }
 
 function set_team_role_tab(team, role) {
-  const tabs = document.querySelectorAll(`.role_tab[data-team="${team}"]`);
-  tabs.forEach(t => t.classList.toggle('active', t.dataset.role === role));
-
-  const lists = document.querySelectorAll(`.role_list[data-team="${team}"]`);
-  lists.forEach(l => {
-    l.style.display = (l.dataset.role === role) ? '' : 'none';
+  document.querySelectorAll('.role_tab').forEach(btn => {
+    if (btn.dataset.team === team) {
+      btn.classList.toggle('active', btn.dataset.role === role);
+    }
   });
 
-  // re-run cleanup for the now-visible list so subheaders don't hang around
-  const active_list = document.querySelector(`.role_list[data-team="${team}"][data-role="${role}"]`);
-  if (active_list) cleanup_role_list(active_list);
+  document.querySelectorAll('.role_list').forEach(list => {
+    if (list.dataset.team === team) {
+      list.style.display = (list.dataset.role === role) ? '' : 'none';
+    }
+  });
 
-  // keep filters/search applied when switching tabs
   const search = document.getElementById('player_search');
   apply_search_and_filters((search && search.value) ? search.value : '');
 }
 
 function activate_page(page_id) {
-  const a = document.querySelector(`.toc_link[data-page="${page_id}"]`);
-  if (!a) return;
+let a = null;
+document.querySelectorAll('.toc_link').forEach(x => {
+  if (x.dataset.page === page_id) a = x;
+});
+if (!a) return;
 
   const file = a.dataset.file;
   if (!file) return;
@@ -102,7 +103,10 @@ function on_hash_change() {
 function set_search_mode(is_searching) {
   document.querySelectorAll('.team_block').forEach(tb => {
     const team = tb.dataset.team || '';
-    const btn = document.querySelector(`.team_title[data-team="${team}"]`);
+let btn = null;
+document.querySelectorAll('.team_title').forEach(b => {
+  if (b.dataset.team === team) btn = b;
+});
 
     if (is_searching) {
       // remember prior state once, then force open for search
@@ -141,7 +145,10 @@ function set_search_mode(is_searching) {
       list.style.display = '';
     } else {
       const team = list.dataset.team;
-      const active_tab = document.querySelector(`.role_tab.active[data-team="${team}"]`);
+let active_tab = null;
+document.querySelectorAll('.role_tab.active').forEach(t => {
+  if (t.dataset.team === team) active_tab = t;
+});
       const active_role = active_tab ? active_tab.dataset.role : 'batters';
       list.style.display = (list.dataset.role === active_role) ? '' : 'none';
     }
@@ -159,7 +166,10 @@ function cleanup_role_list(role_list) {
   // Determine whether this list is hidden only because it's not the active tab.
   const in_search = (document.body.dataset.is_searching === '1');
   const team = role_list.dataset.team || '';
-  const active_tab = document.querySelector(`.role_tab.active[data-team="${team}"]`);
+let active_tab = null;
+document.querySelectorAll('.role_tab.active').forEach(t => {
+  if (t.dataset.team === team) active_tab = t;
+});
   const active_role = active_tab ? (active_tab.dataset.role || 'batters') : 'batters';
 
   const hidden_by_tab = (!in_search && (role_list.dataset.role !== active_role));
@@ -282,8 +292,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function set_team_collapsed(team, collapsed) {
-    const block = document.querySelector(`.team_block[data-team="${team}"]`);
-    const btn = document.querySelector(`.team_title[data-team="${team}"]`);
+let block = null;
+let btn = null;
+
+document.querySelectorAll('.team_block').forEach(b => {
+  if (b.dataset.team === team) block = b;
+});
+
+document.querySelectorAll('.team_title').forEach(b => {
+  if (b.dataset.team === team) btn = b;
+});
     if (!block || !btn) return;
 
     block.classList.toggle('collapsed', collapsed);
@@ -315,8 +333,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.team_title').forEach(btn => {
     btn.addEventListener('click', () => {
-      const team = btn.dataset.team || '';
-      const block = document.querySelector(`.team_block[data-team="${team}"]`);
+const team = btn.dataset.team || '';
+let block = null;
+
+document.querySelectorAll('.team_block').forEach(b => {
+  if (b.dataset.team === team) block = b;
+});
       const collapsed = block ? block.classList.contains('collapsed') : true;
       set_team_collapsed(team, !collapsed);
     });
