@@ -1,5 +1,29 @@
 
 const page_cache = new Map();
+
+function team_storage_key(team) {
+  return 'mlb_dash_team_open__' + team;
+}
+
+function division_storage_key(div_id) {
+  return 'mlb_dash_div_open__' + div_id;
+}
+
+function read_collapsed(key, default_collapsed) {
+  try {
+    const v = localStorage.getItem(key);
+    if (v === '1') return true;
+    if (v === '0') return false;
+  } catch (e) {}
+  return default_collapsed;
+}
+
+function write_collapsed(key, collapsed) {
+  try {
+    localStorage.setItem(key, collapsed ? '1' : '0');
+  } catch (e) {}
+}
+
 async function load_page(file, page_id) {
   const content = document.getElementById('content_root');
   if (!content) return;
@@ -119,11 +143,8 @@ function set_search_mode(is_searching) {
         collapsed = (db.dataset.prev_collapsed === '1');
         delete db.dataset.prev_collapsed;
       } else {
-        try {
-          const v = localStorage.getItem('mlb_dash_div_open__' + div_id);
-          if (v === '1') collapsed = true;
-          if (v === '0') collapsed = false;
-        } catch (e) {}
+collapsed = read_collapsed(division_storage_key(div_id), false);
+
       }
 
       db.classList.toggle('collapsed', collapsed);
@@ -150,11 +171,7 @@ function set_search_mode(is_searching) {
         collapsed = (tb.dataset.prev_collapsed === '1');
         delete tb.dataset.prev_collapsed;
       } else {
-        try {
-          const v = localStorage.getItem('mlb_dash_team_open__' + team);
-          if (v === '1') collapsed = true;
-          if (v === '0') collapsed = false;
-        } catch (e) {}
+collapsed = read_collapsed(team_storage_key(team), true);
       }
 
       tb.classList.toggle('collapsed', collapsed);
@@ -272,12 +289,13 @@ function apply_search_and_filters(q) {
       const name = a.dataset.name || '';
       const is_minors = (a.dataset.is_minors === '1');
       const is_hurt = (a.dataset.is_hurt === '1');
+    const is_susp = (a.dataset.is_susp === '1');
 
       let show = true;
 
       if (searching && !name.includes(query)) show = false;
       if (f.hide_minors && is_minors) show = false;
-      if (f.hide_hurt && is_hurt) show = false;
+      if (f.hide_hurt && (is_hurt || is_susp)) show = false;
 
       const li = a.closest('.player_li');
       if (li) li.style.display = show ? '' : 'none';
@@ -298,9 +316,6 @@ function apply_search_and_filters(q) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  function team_storage_key(team) {
-    return 'mlb_dash_team_open__' + team;
-  }
   const toggle_sidebar_btn = document.getElementById('toggle_sidebar');
   const is_touch_mobile = window.matchMedia('(max-width: 900px) and (pointer: coarse)').matches;
   if (toggle_sidebar_btn && !is_touch_mobile) toggle_sidebar_btn.style.display = 'none';
@@ -322,10 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function division_storage_key(div_id) {
-    return 'mlb_dash_div_open__' + div_id;
-  }
-
   function set_division_collapsed(div_id, collapsed) {
     const blocks = Array.from(document.querySelectorAll('.division_block'));
     const btns = Array.from(document.querySelectorAll('.division_title'));
@@ -337,22 +348,13 @@ document.addEventListener('DOMContentLoaded', () => {
     block.classList.toggle('collapsed', collapsed);
     btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
 
-    try {
-      localStorage.setItem(division_storage_key(div_id), collapsed ? '1' : '0');
-    } catch (e) {}
+write_collapsed(division_storage_key(div_id), collapsed);
   }
 
   function init_division_collapsed_defaults() {
     document.querySelectorAll('.division_block').forEach(db => {
       const div_id = db.dataset.division || '';
-      let collapsed = false;
-
-      try {
-        const v = localStorage.getItem(division_storage_key(div_id));
-        if (v === '1') collapsed = true;
-        if (v === '0') collapsed = false;
-      } catch (e) {}
-
+      const collapsed = read_collapsed(division_storage_key(div_id), false);
       set_division_collapsed(div_id, collapsed);
     });
   }
@@ -378,22 +380,13 @@ document.querySelectorAll('.team_title').forEach(b => {
       set_team_role_tab(team, 'batters');
     }
 
-    try {
-      localStorage.setItem(team_storage_key(team), collapsed ? '1' : '0');
-    } catch (e) {}
+write_collapsed(team_storage_key(team), collapsed);
   }
 
   function init_team_collapsed_defaults() {
     document.querySelectorAll('.team_block').forEach(tb => {
       const team = tb.dataset.team || '';
-      let collapsed = true;
-
-      try {
-        const v = localStorage.getItem(team_storage_key(team));
-        if (v === '1') collapsed = true;
-        if (v === '0') collapsed = false;
-      } catch (e) {}
-
+      const collapsed = read_collapsed(team_storage_key(team), true);
       set_team_collapsed(team, collapsed);
     });
   }

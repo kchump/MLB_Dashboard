@@ -64,7 +64,6 @@
 
 
 .search_clear {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0;
@@ -88,6 +87,7 @@
     .sub_role_label.sub_minors  { color: rgba(35, 85, 210, 0.90); }
     .sub_role_label.sub_injured { color: rgba(210, 35, 35, 0.85); }
     .sub_role_label.sub_oos     { color: rgba(170, 10, 10, 0.95); }
+    .sub_role_label.sub_susp     { color: rgba(0, 60, 65, .95); }
 
     html, body {
       margin: 0;
@@ -444,6 +444,11 @@
       font-weight: 800;
     }
 
+    .tag_susp {
+      color: rgba(0, 60, 65, .88);
+      font-weight: 800;
+    }
+
     .tag_minors {
       color: rgba(35, 85, 210, 0.70);
       font-weight: 700;
@@ -456,6 +461,11 @@
 
     .player_tag.tag_oos {
       color: rgba(170, 10, 10, 0.88);
+      font-weight: 800;
+    }
+
+    .player_tag.tag_susp {
+      color: rgba(0, 60, 65, .88);
       font-weight: 800;
     }
 
@@ -502,6 +512,12 @@
       color: rgba(170, 10, 10, 0.95);
       background: rgba(170, 10, 10, 0.12);
       border-color: rgba(170, 10, 10, 0.26);
+    }
+
+    .player_tag.tag_susp {
+      color: rgba(0, 60, 65, .95);
+      background: rgba(0, 60, 65, 0.12);
+      border-color: rgba(0, 60, 65, 0.26);
     }
 
     .player_tag.tag_minors {
