@@ -87,7 +87,7 @@
     .sub_role_label.sub_minors  { color: rgba(35, 85, 210, 0.90); }
     .sub_role_label.sub_injured { color: rgba(210, 35, 35, 0.85); }
     .sub_role_label.sub_oos     { color: rgba(170, 10, 10, 0.95); }
-    .sub_role_label.sub_susp     { color: rgba(0, 60, 65, .95); }
+    .sub_role_label.sub_susp     { color: rgba(20, 90, 95, .95); }
 
     html, body {
       margin: 0;
@@ -445,7 +445,7 @@
     }
 
     .tag_susp {
-      color: rgba(0, 60, 65, .88);
+      color: rgba(20, 90, 95, .88);
       font-weight: 800;
     }
 
@@ -465,7 +465,7 @@
     }
 
     .player_tag.tag_susp {
-      color: rgba(0, 60, 65, .88);
+      color: rgba(20, 90, 95, .88);
       font-weight: 800;
     }
 
@@ -515,9 +515,9 @@
     }
 
     .player_tag.tag_susp {
-      color: rgba(0, 60, 65, .95);
-      background: rgba(0, 60, 65, 0.12);
-      border-color: rgba(0, 60, 65, 0.26);
+      color: rgba(20, 90, 95, .95);
+      background: rgba(20, 90, 95, 0.12);
+      border-color: rgba(20, 90, 95, 0.26);
     }
 
     .player_tag.tag_minors {
