@@ -489,26 +489,32 @@ document.querySelectorAll('.team_title').forEach(b => {
   window.addEventListener('hashchange', on_hash_change);
 
   on_hash_change();
-  function apply_mobile_scale() {
-    const is_touch_mobile = window.matchMedia('(max-width: 900px) and (pointer: coarse)').matches;
-    const content = document.getElementById('content_root');
-    if (!content) return;
+function apply_mobile_scale() {
+  const is_touch_mobile = window.matchMedia('(max-width: 900px) and (pointer: coarse)').matches;
+  const content = document.getElementById('content_root');
+  if (!content) return;
 
-    // scale the rendered dashboard to fit viewport width (keeps your desktop layout)
-    if (!is_touch_mobile) {
-      content.style.transform = '';
-      content.style.transformOrigin = '';
-      content.style.width = '';
-      return;
-    }
+  const page = content.querySelector('.player_page');
+  if (!page) return;
 
-    const pad = 20;
-    const target_w = Math.max(320, window.innerWidth - pad);
-    const scale = Math.min(1, target_w / 1350); // 1350 = panel_width
-    content.style.transform = `scale(${scale})`;
-    content.style.transformOrigin = 'top left';
-    content.style.width = `${Math.ceil(1350 * scale)}px`;
+  // Do NOT scale static pages (Home / Key)
+  const has_static = page.querySelector('.static_page');
+
+  if (!is_touch_mobile || has_static) {
+    content.style.transform = '';
+    content.style.transformOrigin = '';
+    content.style.width = '';
+    return;
   }
+
+  const pad = 20;
+  const target_w = Math.max(320, window.innerWidth - pad);
+  const scale = Math.min(1, target_w / 1350);
+
+  content.style.transform = `scale(${scale})`;
+  content.style.transformOrigin = 'top left';
+  content.style.width = `${Math.ceil(1350 * scale)}px`;
+}
 
   window.addEventListener('resize', apply_mobile_scale);
   apply_mobile_scale();
