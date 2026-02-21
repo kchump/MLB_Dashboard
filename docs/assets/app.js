@@ -345,10 +345,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = btns.find(b => (b.dataset.division || '') === div_id);
     if (!block || !btn) return;
 
+    write_collapsed(division_storage_key(div_id), collapsed);
     block.classList.toggle('collapsed', collapsed);
     btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-
-write_collapsed(division_storage_key(div_id), collapsed);
   }
 
   function init_division_collapsed_defaults() {
@@ -360,28 +359,28 @@ write_collapsed(division_storage_key(div_id), collapsed);
   }
 
 
-  function set_team_collapsed(team, collapsed) {
-let block = null;
-let btn = null;
+function set_team_collapsed(team, collapsed) {
+  let block = null;
+  let btn = null;
 
-document.querySelectorAll('.team_block').forEach(b => {
-  if (b.dataset.team === team) block = b;
-});
+  document.querySelectorAll('.team_block').forEach(b => {
+    if (b.dataset.team === team) block = b;
+  });
 
-document.querySelectorAll('.team_title').forEach(b => {
-  if (b.dataset.team === team) btn = b;
-});
-    if (!block || !btn) return;
+  document.querySelectorAll('.team_title').forEach(b => {
+    if (b.dataset.team === team) btn = b;
+  });
 
-    block.classList.toggle('collapsed', collapsed);
-    btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+  if (!block || !btn) return;
 
-    if (!collapsed && document.body.dataset.is_searching !== '1') {
-      set_team_role_tab(team, 'batters');
-    }
+    write_collapsed(team_storage_key(team), collapsed);
+  block.classList.toggle('collapsed', collapsed);
+  btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
 
-write_collapsed(team_storage_key(team), collapsed);
+  if (!collapsed && document.body.dataset.is_searching !== '1') {
+    set_team_role_tab(team, 'batters');
   }
+}
 
   function init_team_collapsed_defaults() {
     document.querySelectorAll('.team_block').forEach(tb => {
