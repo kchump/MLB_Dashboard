@@ -477,23 +477,27 @@
 /* Top 100 — gold */
 .toc_tag.tag_prospect_gold {
   color: rgba(150,110,10,0.95);
+  font-weight: 700;
 }
 
 .player_tag.tag_prospect_gold {
   color: rgba(150,110,10,0.95);
-  background: rgba(210,170,35,0.16);
-  border-color: rgba(210,170,35,0.35);
+  background: rgba(150,110,10,0.10);
+  border-color: rgba(150,110,10,0.22);
+  font-weight: 700;
 }
 
 /* Team Prospect — Light Teal 3 */
 .toc_tag.tag_prospect_teal {
   color: rgba(0,120,120,0.95);
+  font-weight: 700;
 }
 
 .player_tag.tag_prospect_teal {
   color: rgba(0,120,120,0.95);
-  background: rgba(0,120,120,0.14);
-  border-color: rgba(0,120,120,0.30);
+  background: rgba(0,120,120,0.10);
+  border-color: rgba(0,120,120,0.22);
+  font-weight: 700;
 }
     .player_page {
       max-width: 1200px;
