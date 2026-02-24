@@ -1,13 +1,75 @@
+/* =============================================================================
+   MLB Dashboard CSS (assets/app.css)
+   - Sections are ordered to match the app layout:
+     1) Theme tokens
+     2) App shell layout
+     3) Sidebar UI (search, filters, TOC)
+     4) Tags + labels
+     5) Page content
+     6) Key tables
+     7) Responsive rules
+   ============================================================================= */
 
-    :root {
-      --sidebar-w: 340px;
-      --bg: #ffffff;
-      --panel: #f6f8fc;
-      --text: #1c1c1c;
-      --muted: #606770;
-      --border: #d7dde7;
-      --accent: #2f6fed;
-    }
+/* =============================================================================
+   1) Theme tokens
+   ============================================================================= */
+:root {
+  --sidebar-w: 340px;
+  --bg: #ffffff;
+  --panel: #f6f8fc;
+  --text: #1c1c1c;
+  --muted: #606770;
+  --border: #d7dde7;
+  --accent: #2f6fed;
+}
+
+/* =============================================================================
+   2) Base + app shell layout
+   ============================================================================= */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  border-right: 1px solid var(--border);
+  background: #fbfcff;
+  overflow-y: auto;
+  padding: 14px 12px;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 18px;
+  background: white;
+}
+
+/* =============================================================================
+   3) Sidebar UI: updated blurb, search, filters, meta links
+   ============================================================================= */
+.updated_blurb {
+  font-size: 12px;
+  color: rgba(80, 80, 80, 0.85);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.search_wrap {
+  margin: 10px 0 12px 0;
+}
 
 .search_row {
   display: flex;
@@ -15,6 +77,339 @@
   gap: 8px;
 }
 
+.search_box {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 13px;
+  outline: none;
+  background: white;
+}
+
+.search_box:focus {
+  border-color: rgba(47,111,237,0.55);
+  box-shadow: 0 0 0 3px rgba(47,111,237,0.10);
+}
+
+.search_clear {
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: white;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  color: rgba(96,103,112,0.95);
+  display: none;
+}
+
+.search_clear:hover {
+  background: var(--panel);
+}
+
+.filters_wrap {
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 10px;
+  padding: 10px 10px;
+  margin: 0 0 12px 0;
+  display: grid;
+  gap: 8px;
+}
+
+.filter_row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--muted);
+  user-select: none;
+}
+
+.meta_links {
+  display: grid;
+  gap: 6px;
+  margin: 2px 0 12px 0;
+}
+
+.meta_link {
+  border: 1px solid var(--border);
+  background: white;
+}
+
+/* =============================================================================
+   4) TOC: divisions, teams, role tabs, player links
+   ============================================================================= */
+.toc_link {
+  display: block;
+  text-decoration: none;
+  color: #1f2d3d;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 12.5px;
+  line-height: 1.25em;
+}
+
+.toc_link:hover {
+  background: var(--panel);
+}
+
+.toc_link.active {
+  background: rgba(47,111,237,0.10);
+  border: 1px solid rgba(47,111,237,0.25);
+  font-weight: 700;
+}
+
+.division_block {
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 10px;
+  padding: 10px 10px 8px 10px;
+  margin-bottom: 10px;
+}
+
+.division_title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 14px;
+  margin-bottom: 8px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.division_arrow {
+  display: inline-block;
+  width: 14px;
+  transform: rotate(0deg);
+  transition: transform 120ms ease;
+  color: rgba(96,103,112,0.95);
+}
+
+.division_logos {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.division_logo {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.division_block.collapsed .division_body {
+  display: none;
+}
+
+.division_block:not(.collapsed) .division_arrow {
+  transform: rotate(90deg);
+}
+
+.team_block {
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 10px;
+  padding: 10px 10px 8px 10px;
+  margin-bottom: 10px;
+}
+
+.team_title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.team_arrow {
+  display: inline-block;
+  width: 14px;
+  transform: rotate(0deg);
+  transition: transform 120ms ease;
+  color: rgba(96,103,112,0.95);
+}
+
+.team_logo {
+  width: 18px;
+  height: 18px;
+  margin-left: auto;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.team_block.collapsed .team_body,
+.team_block.collapsed .role_list {
+  display: none;
+}
+
+.team_block:not(.collapsed) .team_arrow {
+  transform: rotate(90deg);
+}
+
+.role_tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.role_tab {
+  flex: 1;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.role_tab.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.role_label {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 6px 0 6px 0;
+  font-weight: 700;
+}
+
+.player_list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.player_list li {
+  margin: 0;
+  padding: 0;
+}
+
+.sub_role_label {
+  font-size: 11px;
+  color: rgba(96,103,112,0.95);
+  margin: 8px 0 4px 8px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.sub_role_label.sub_minors  { color: rgba(35, 85, 210, 0.90); }
+.sub_role_label.sub_injured { color: rgba(210, 35, 35, 0.85); }
+.sub_role_label.sub_oos     { color: rgba(170, 10, 10, 0.95); }
+.sub_role_label.sub_susp    { color: rgba(20, 90, 95, 0.95); }
+
+/* =============================================================================
+   5) Tags (sidebar + player header)
+   ============================================================================= */
+.tag_injury { color: rgba(210, 35, 35, 0.70); font-weight: 700; }
+.tag_oos    { color: rgba(170, 10, 10, 0.88); font-weight: 800; }
+.tag_susp   { color: rgba(20, 90, 95, 0.88); font-weight: 800; }
+.tag_minors { color: rgba(35, 85, 210, 0.70); font-weight: 700; }
+
+/* Top 100 — gold */
+.toc_tag.tag_prospect_gold { color: rgba(150,110,10,0.95); font-weight: 700; }
+/* Team Prospect — teal */
+.toc_tag.tag_prospect_teal { color: rgba(0,120,120,0.95); font-weight: 700; }
+
+.player_tag {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: rgba(96,103,112,0.95);
+  font-weight: 700;
+  vertical-align: middle;
+  background: rgba(96,103,112,0.10);
+  border: 1px solid rgba(96,103,112,0.18);
+}
+
+.player_tag.tag_injury { color: rgba(210, 35, 35, 0.85); background: rgba(210, 35, 35, 0.10); border-color: rgba(210, 35, 35, 0.22); }
+.player_tag.tag_oos    { color: rgba(170, 10, 10, 0.95); background: rgba(170, 10, 10, 0.12); border-color: rgba(170, 10, 10, 0.26); }
+.player_tag.tag_susp   { color: rgba(20, 90, 95, 0.95); background: rgba(20, 90, 95, 0.12); border-color: rgba(20, 90, 95, 0.26); }
+.player_tag.tag_minors { color: rgba(35, 85, 210, 0.85); background: rgba(35, 85, 210, 0.10); border-color: rgba(35, 85, 210, 0.22); }
+
+.player_tag.tag_prospect_gold {
+  color: rgba(150,110,10,0.95);
+  background: rgba(150,110,10,0.10);
+  border-color: rgba(150,110,10,0.22);
+  font-weight: 700;
+}
+
+.player_tag.tag_prospect_teal {
+  color: rgba(0,120,120,0.95);
+  background: rgba(0,120,120,0.10);
+  border-color: rgba(0,120,120,0.22);
+  font-weight: 700;
+}
+
+/* =============================================================================
+   6) Page content (Home / Key / Player pages)
+   ============================================================================= */
+.player_page {
+  max-width: 1200px;
+}
+
+.player_header {
+  margin: 0 0 6px 2px;
+}
+
+.player_name {
+  font-weight: 800;
+  font-size: 20px;
+  margin: 0;
+  line-height: 1.05em;
+}
+
+.static_page {
+  max-width: 1200px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  line-height: 1.45em;
+  color: #1f2d3d;
+}
+
+.static_page h3 {
+  margin: 10px 0 6px 0;
+  font-size: 14px;
+}
+
+.static_page ul {
+  margin: 8px 0 10px 18px;
+  padding: 0;
+}
+
+/* =============================================================================
+   7) Key tables
+   ============================================================================= */
 .key_table_wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -51,7 +446,6 @@
   border-bottom: 0;
 }
 
-/* keep formulas readable */
 .key_table th:nth-child(2),
 .key_table td:nth-child(2) {
   white-space: nowrap;
@@ -62,65 +456,10 @@
   min-width: 180px;
 }
 
-
-.search_clear {
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  text-align: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: white;
-  cursor: pointer;
-  font-size: 18px;
-  line-height: 1;
-  color: rgba(96,103,112,0.95);
-  display: none;
-}
-
-.search_clear:hover {
-  background: var(--panel);
-}
-
-    .sub_role_label.sub_minors  { color: rgba(35, 85, 210, 0.90); }
-    .sub_role_label.sub_injured { color: rgba(210, 35, 35, 0.85); }
-    .sub_role_label.sub_oos     { color: rgba(170, 10, 10, 0.95); }
-    .sub_role_label.sub_susp     { color: rgba(20, 90, 95, .95); }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, sans-serif;
-    }
-
-    .app {
-      display: flex;
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
-    }
-
-    .sidebar {
-      width: var(--sidebar-w);
-      border-right: 1px solid var(--border);
-      background: #fbfcff;
-      overflow-y: auto;
-      padding: 14px 12px;
-    }
-
-    .content {
-      flex: 1;
-      overflow-y: auto;
-      padding: 10px 18px;
-      background: white;
-    }
-
-    .toggle_sidebar {
+/* =============================================================================
+   8) Mobile/touch behaviors
+   ============================================================================= */
+.toggle_sidebar {
   display: none;
   border: 1px solid var(--border);
   background: white;
@@ -131,7 +470,6 @@
   margin: 0 0 10px 0;
 }
 
-/* show only on touch-style devices, not just narrow windows */
 @media (max-width: 900px) and (pointer: coarse) {
   .toggle_sidebar {
     display: inline-flex;
@@ -140,425 +478,8 @@
   }
 }
 
-    .hint {
-      color: var(--muted);
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
-
-    .updated_blurb {
-  font-size: 12px;
-  color: rgba(80, 80, 80, 0.85);
-  margin-bottom: 8px;
-  font-weight: 500;
-}
-
-    .search_wrap {
-      margin: 10px 0 12px 0;
-    }
-
-    .meta_links {
-      display: grid;
-      gap: 6px;
-      margin: 2px 0 12px 0;
-    }
-
-    .meta_link {
-      border: 1px solid var(--border);
-      background: white;
-    }
-
-    .filters_wrap {
-      border: 1px solid var(--border);
-      background: white;
-      border-radius: 10px;
-      padding: 10px 10px;
-      margin: 0 0 12px 0;
-      display: grid;
-      gap: 8px;
-    }
-
-    .filter_row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12.5px;
-      color: var(--muted);
-      user-select: none;
-    }
-
-    .static_page {
-      max-width: 1200px;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 16px;
-      line-height: 1.45em;
-      color: #1f2d3d;
-    }
-
-    .static_page h3 {
-      margin: 10px 0 6px 0;
-      font-size: 14px;
-    }
-
-    .static_page ul {
-      margin: 8px 0 10px 18px;
-      padding: 0;
-    }
-
-.search_box {
-      flex: 1;
-      min-width: 0;
-      box-sizing: border-box;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 8px 10px;
-      font-size: 13px;
-      outline: none;
-      background: white;
-    }
-
-    .search_box:focus {
-      border-color: rgba(47,111,237,0.55);
-      box-shadow: 0 0 0 3px rgba(47,111,237,0.10);
-    }
-
-    .toc_header {
-      font-weight: 700;
-      font-size: 16px;
-      margin: 4px 0 10px 2px;
-    }
-.division_block {
-  border: 1px solid var(--border);
-  background: white;
-  border-radius: 10px;
-  padding: 10px 10px 8px 10px;
-  margin-bottom: 10px;
-}
-
-.division_title {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 800;
-  font-size: 14px;
-  margin-bottom: 8px;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  text-align: left;
-}
-
-.division_arrow {
-  display: inline-block;
-  width: 14px;
-  transform: rotate(0deg);
-  transition: transform 120ms ease;
-  color: rgba(96,103,112,0.95);
-}
-
-.division_block.collapsed .division_body {
-  display: none;
-}
-
-.division_block:not(.collapsed) .division_arrow {
-  transform: rotate(90deg);
-}
-    .team_block {
-      border: 1px solid var(--border);
-      background: white;
-      border-radius: 10px;
-      padding: 10px 10px 8px 10px;
-      margin-bottom: 10px;
-    }
-
-    .team_title {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 700;
-    font-size: 14px;
-    margin-bottom: 8px;
-    border: 0;
-    background: transparent;
-    padding: 0;
-    cursor: pointer;
-    text-align: left;
-    }
-
-    .team_arrow {
-    display: inline-block;
-    width: 14px;
-    transform: rotate(0deg);
-    transition: transform 120ms ease;
-    color: rgba(96,103,112,0.95);
-    }
-
-.team_title {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 14px;
-  margin-bottom: 8px;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  text-align: left;
-}
-
-.team_logo {
-  width: 18px;
-  height: 18px;
-  margin-left: auto;
-  object-fit: contain;
-  flex: 0 0 auto;
-}
-
-.division_title {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 800;
-  font-size: 14px;
-  margin-bottom: 8px;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  text-align: left;
-}
-
-.division_logos {
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: nowrap;
-}
-
-.division_logo {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-  flex: 0 0 auto;
-}
-
-
-.team_block.collapsed .team_body,
-.team_block.collapsed .role_list {
-  display: none;
-}
-
-    .team_block.collapsed .team_arrow {
-    transform: rotate(0deg);
-    }
-
-    .team_block:not(.collapsed) .team_arrow {
-    transform: rotate(90deg);
-    }
-
-    .role_tabs {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-
-    .role_tab {
-      flex: 1;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 6px 8px;
-      font-size: 12px;
-      cursor: pointer;
-      color: var(--muted);
-    }
-
-    .role_tab.active {
-      border-color: var(--accent);
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .role_label {
-      font-size: 12px;
-      color: var(--muted);
-      margin: 6px 0 6px 0;
-      font-weight: 700;
-    }
-
-    .sub_role_label {
-      font-size: 11px;
-      color: rgba(96,103,112,0.95);
-      margin: 8px 0 4px 8px;
-      font-weight: 700;
-      text-transform: none;
-    }
-
-    .player_list {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
-
-    .player_list li {
-      margin: 0;
-      padding: 0;
-    }
-
-    .toc_link {
-      display: block;
-      text-decoration: none;
-      color: #1f2d3d;
-      border-radius: 8px;
-      padding: 6px 8px;
-      font-size: 12.5px;
-      line-height: 1.25em;
-    }
-
-    .toc_link:hover {
-      background: var(--panel);
-    }
-
-    .toc_link.active {
-      background: rgba(47,111,237,0.10);
-      border: 1px solid rgba(47,111,237,0.25);
-      font-weight: 700;
-    }
-
-    .tag_injury {
-      color: rgba(210, 35, 35, 0.70);
-      font-weight: 700;
-    }
-
-    .tag_oos {
-      color: rgba(170, 10, 10, 0.88);
-      font-weight: 800;
-    }
-
-    .tag_susp {
-      color: rgba(20, 90, 95, .88);
-      font-weight: 800;
-    }
-
-    .tag_minors {
-      color: rgba(35, 85, 210, 0.70);
-      font-weight: 700;
-    }
-
-    .player_tag.tag_injury {
-      color: rgba(210, 35, 35, 0.70);
-      font-weight: 700;
-    }
-
-    .player_tag.tag_oos {
-      color: rgba(170, 10, 10, 0.88);
-      font-weight: 800;
-    }
-
-    .player_tag.tag_susp {
-      color: rgba(20, 90, 95, .88);
-      font-weight: 800;
-    }
-
-    .player_tag.tag_minors {
-      color: rgba(35, 85, 210, 0.70);
-      font-weight: 700;
-    }
-
-/* Top 100 — gold */
-.toc_tag.tag_prospect_gold {
-  color: rgba(150,110,10,0.95);
-  font-weight: 700;
-}
-
-.player_tag.tag_prospect_gold {
-  color: rgba(150,110,10,0.95);
-  background: rgba(150,110,10,0.10);
-  border-color: rgba(150,110,10,0.22);
-  font-weight: 700;
-}
-
-/* Team Prospect — Light Teal 3 */
-.toc_tag.tag_prospect_teal {
-  color: rgba(0,120,120,0.95);
-  font-weight: 700;
-}
-
-.player_tag.tag_prospect_teal {
-  color: rgba(0,120,120,0.95);
-  background: rgba(0,120,120,0.10);
-  border-color: rgba(0,120,120,0.22);
-  font-weight: 700;
-}
-    .player_page {
-      max-width: 1200px;
-    }
-
-    .player_header {
-      margin: 0 0 6px 2px;
-    }
-
-    .player_name {
-      font-weight: 800;
-      font-size: 20px;
-      margin: 0;
-      line-height: 1.05em;
-    }
-
-    .player_tag {
-      display: inline-block;
-      margin-left: 10px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: rgba(96,103,112,0.95);
-      font-weight: 700;
-      vertical-align: middle;
-      background: rgba(96,103,112,0.10);
-      border: 1px solid rgba(96,103,112,0.18);
-    }
-
-    .player_tag.tag_injury {
-      color: rgba(210, 35, 35, 0.85);
-      background: rgba(210, 35, 35, 0.10);
-      border-color: rgba(210, 35, 35, 0.22);
-    }
-
-    .player_tag.tag_oos {
-      color: rgba(170, 10, 10, 0.95);
-      background: rgba(170, 10, 10, 0.12);
-      border-color: rgba(170, 10, 10, 0.26);
-    }
-
-    .player_tag.tag_susp {
-      color: rgba(20, 90, 95, .95);
-      background: rgba(20, 90, 95, 0.12);
-      border-color: rgba(20, 90, 95, 0.26);
-    }
-
-    .player_tag.tag_minors {
-      color: rgba(35, 85, 210, 0.85);
-      background: rgba(35, 85, 210, 0.10);
-      border-color: rgba(35, 85, 210, 0.22);
-    }
-
 .sidebar.hidden {
   display: none;
-}
-
-@media (max-width: 900px) {
-  .sidebar.hidden {
-    display: none;
-  }
 }
 
 @media (max-width: 900px) {
@@ -582,16 +503,10 @@
   .content {
     width: 100%;
     padding: 10px 10px;
+    overflow-x: auto;
   }
 
-  /* Plotly figures tend to be wider than the viewport in your setup */
   .player_page {
     max-width: 100%;
   }
 }
-@media (max-width: 900px) {
-  .content {
-    overflow-x: auto;
-  }
-}
-    
