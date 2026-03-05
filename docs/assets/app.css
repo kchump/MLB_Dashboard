@@ -370,8 +370,159 @@ html, body {
 }
 
 /* =============================================================================
+   Matchups form sizing
+   ============================================================================= */
+
+  #matchups .matchup_block {
+  margin: 10px 0 12px 0;
+  padding: 10px 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: white;
+}
+
+#matchups .matchup_title {
+  font-weight: 800;
+  font-size: 13px;
+  margin: 0 0 8px 0;
+  color: rgba(40,40,40,0.95);
+}
+
+.matchup_table td.cell_dash {
+  color: rgba(60,60,60,0.55);
+  text-align: center;
+}
+
+#matchups .matchup_table_wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+}
+
+#matchups table.matchup_table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  min-width: 720px;
+}
+
+#matchups table.matchup_table th,
+#matchups table.matchup_table td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+#matchups table.matchup_table th {
+  background: var(--panel);
+  font-weight: 800;
+}
+
+#matchups table.matchup_table tbody tr:nth-child(even) td {
+  background: rgba(246,248,252,0.65);
+}
+#matchups #matchups_form_root select {
+  color: #1c1c1c;
+}
+
+#matchups .matchups_submit {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+  cursor: pointer;
+  font-weight: 400;
+  color: #1c1c1c;
+}
+
+#matchups .matchups_submit:hover {
+  background: var(--panel);
+}
+#matchups #matchups_form_root select {
+  width: auto;
+  max-width: 100%;
+}
+
+/* year should fit 4 digits */
+#matchups #matchups_form_root select[data-field="year"] {
+  width: 12ch;
+}
+
+/* vs./@ should fit 4 chars */
+#matchups #matchups_form_root select[data-field^="side"] {
+  width: 12ch;
+}
+
+/* names: ~40 chars */
+#matchups #matchups_form_root select[data-field^="hitter"],
+#matchups #matchups_form_root select[data-field^="pitcher"] {
+  width: 42ch;
+  max-width: 100%;
+}
+
+/* team can be medium */
+#matchups #matchups_form_root select[data-field^="team"] {
+  width: 18ch;
+  max-width: 100%;
+}
+
+/* =============================================================================
    6) Page content (Home / Key / Player pages)
    ============================================================================= */
+.key_gradient_block {
+  max-width: 520px;
+  margin: 14px 0;
+}
+
+.key_gradient_label_row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(96,103,112,0.95);
+  margin-bottom: 6px;
+}
+
+.key_gradient_bar {
+  height: 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+
+  /* blue -> grey -> red */
+  background: linear-gradient(
+    90deg,
+    rgba(35,85,210,0.90) 0%,
+    rgba(35,85,210,0.45) 25%,
+    rgba(160,160,160,0.35) 50%,
+    rgba(210,35,35,0.45) 75%,
+    rgba(210,35,35,0.90) 100%
+  );
+}
+.year_select_wrap {
+  display: inline-grid;
+  gap: 4px;
+}
+
+.year_select_label {
+  font-size: 11px;
+  color: rgba(96,103,112,0.95);
+  font-weight: 700;
+}
+
+.year_select {
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 10px;
+  padding: 6px 8px;
+  font-size: 12px;
+  color: rgba(96,103,112,0.95);
+  font-weight: 400;
+}
+
 .player_page {
   max-width: 1200px;
 }
@@ -405,6 +556,47 @@ html, body {
 .static_page ul {
   margin: 8px 0 10px 18px;
   padding: 0;
+}
+
+/* .player_name_row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+} */
+
+.player_name_row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.year_buttons {
+  width: 100%;
+  margin: 6px 0 0 0;
+  display: block;
+}
+
+.year_btn {
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 10px;
+  padding: 5px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  color: rgba(96,103,112,0.95);
+  font-weight: 700;
+}
+
+.year_btn:hover {
+  background: var(--panel);
+}
+
+.year_btn.active {
+  border-color: rgba(47,111,237,0.45);
+  background: rgba(47,111,237,0.08);
+  color: #1f2d3d;
 }
 
 /* =============================================================================
@@ -508,5 +700,75 @@ html, body {
 
   .player_page {
     max-width: 100%;
+  }
+}
+
+/* =============================================================================
+   Mobile adjustments
+   ============================================================================= */
+
+/* Avoid iOS auto-zoom quirks and keep font sizing stable */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Bigger tap targets + prevent iOS zoom on inputs */
+@media (max-width: 900px) and (pointer: coarse) {
+  .toc_link,
+  .role_tab,
+  .year_btn,
+  .toggle_sidebar,
+  .search_clear {
+    min-height: 40px;
+  }
+
+  .search_box {
+    min-height: 40px;
+    font-size: 16px;
+  }
+}
+
+/* Let ONLY the table wrappers scroll horizontally, not the whole page */
+@media (max-width: 900px) {
+  .content {
+    overflow-x: hidden;
+  }
+}
+
+/* Matchups form: selects/buttons go full-width on narrow screens */
+@media (max-width: 650px) {
+  #matchups #matchups_form_root select {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #matchups .matchups_submit {
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
+/* Tables + matchups tables: reduce forced minimum width a bit */
+@media (max-width: 650px) {
+  .key_table {
+    min-width: 560px;
+  }
+
+  .key_table th:nth-child(2),
+  .key_table td:nth-child(2) {
+    white-space: normal;
+  }
+
+  #matchups table.matchup_table {
+    min-width: 560px;
+  }
+}
+
+/* Plotly: clamp injected widths so charts don't blow out the page */
+@media (max-width: 650px) {
+  .player_page .js-plotly-plot,
+  .player_page .plotly-graph-div {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
