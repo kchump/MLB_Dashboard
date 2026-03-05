@@ -370,8 +370,58 @@ html, body {
 }
 
 /* =============================================================================
-   Matchups form sizing
+   Matchups
    ============================================================================= */
+
+   /* MATCHUPS UI */
+
+.matchups_header{
+  padding:6px 2px 0 2px;
+  font-size:12px;
+  font-weight:800;
+  color:rgba(96,103,112,0.95);
+}
+
+.matchups_card{
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:white;
+  padding:10px;
+}
+
+.matchups_title{
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:8px;
+  color:rgba(96,103,112,0.95);
+}
+
+.matchups_grid_2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.matchups_row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:flex-end;
+}
+
+.matchups_label{
+  font-size:12px;
+  font-weight:700;
+  color:rgba(96,103,112,0.95);
+}
+
+.matchups_select{
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:8px 10px;
+  font-size:13px;
+  background:white;
+}
 
   #matchups .matchup_block {
   margin: 10px 0 12px 0;
