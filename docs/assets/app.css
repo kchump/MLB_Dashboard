@@ -253,6 +253,13 @@ html, body {
   color: rgba(96,103,112,0.95);
 }
 
+.matchups_team_logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
+
 .team_logo {
   width: 18px;
   height: 18px;
@@ -423,7 +430,7 @@ html, body {
   background:white;
 }
 
-  #matchups .matchup_block {
+#matchups .matchup_block {
   margin: 10px 0 12px 0;
   padding: 10px 10px;
   border: 1px solid var(--border);
@@ -455,16 +462,39 @@ html, body {
   width: 100%;
   border-collapse: collapse;
   font-size: 12.5px;
-  min-width: 720px;
+  min-width: 620px;
+}
+
+#matchups table.matchup_table.compact_matchup_table {
+  width: auto;
+  min-width: 0;
+  table-layout: fixed;
+}
+
+#matchups table.matchup_table.compact_matchup_table th,
+#matchups table.matchup_table.compact_matchup_table td {
+  padding: 8px 8px;
+}
+
+#matchups table.matchup_table.compact_matchup_table th:first-child,
+#matchups table.matchup_table.compact_matchup_table td:first-child {
+  width: 140px;
+}
+
+#matchups table.matchup_table.compact_matchup_table th:not(:first-child),
+#matchups table.matchup_table.compact_matchup_table td:not(:first-child) {
+  width: 74px;
 }
 
 #matchups table.matchup_table th,
 #matchups table.matchup_table td {
   border: 1px solid var(--border);
-  padding: 8px 10px;
+  padding: 8px 8px;
   text-align: center;
   white-space: nowrap;
   font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #matchups table.matchup_table th {
@@ -477,6 +507,8 @@ html, body {
 }
 #matchups #matchups_form_root select {
   color: #1c1c1c;
+  width: auto;
+  max-width: 100%;
 }
 
 #matchups .matchups_submit {
@@ -491,10 +523,6 @@ html, body {
 
 #matchups .matchups_submit:hover {
   background: var(--panel);
-}
-#matchups #matchups_form_root select {
-  width: auto;
-  max-width: 100%;
 }
 
 /* year should fit 4 digits */
@@ -520,6 +548,30 @@ html, body {
   max-width: 100%;
 }
 
+#matchups .matchups_best_worst_cell table.matchup_table {
+  table-layout: fixed;
+}
+
+#matchups .matchups_best_worst_cell table.matchup_table th:nth-child(1),
+#matchups .matchups_best_worst_cell table.matchup_table td:nth-child(1) {
+  width: 34%;
+}
+
+#matchups .matchups_best_worst_cell table.matchup_table th:nth-child(2),
+#matchups .matchups_best_worst_cell table.matchup_table td:nth-child(2) {
+  width: 14%;
+}
+
+#matchups .matchups_best_worst_cell table.matchup_table th:nth-child(3),
+#matchups .matchups_best_worst_cell table.matchup_table td:nth-child(3) {
+  width: 32%;
+}
+
+#matchups .matchups_best_worst_cell table.matchup_table th:nth-child(4),
+#matchups .matchups_best_worst_cell table.matchup_table td:nth-child(4) {
+  width: 12%;
+}
+
 /* =============================================================================
    6) Page content (Home / Key / Player pages)
    ============================================================================= */
@@ -542,15 +594,16 @@ html, body {
   border-radius: 999px;
   border: 1px solid var(--border);
 
-  /* blue -> grey -> red */
-  background: linear-gradient(
-    90deg,
-    rgba(35,85,210,0.90) 0%,
-    rgba(35,85,210,0.45) 25%,
-    rgba(160,160,160,0.35) 50%,
-    rgba(210,35,35,0.45) 75%,
-    rgba(210,35,35,0.90) 100%
-  );
+background: linear-gradient(
+  90deg,
+  rgba(35,85,210,0.95) 0%,
+  rgba(35,85,210,0.75) 15%,
+  rgba(35,85,210,0.45) 35%,
+  rgba(160,160,160,0.35) 50%,
+  rgba(210,35,35,0.45) 65%,
+  rgba(210,35,35,0.75) 85%,
+  rgba(210,35,35,0.95) 100%
+);
 }
 .year_select_wrap {
   display: inline-grid;
@@ -574,7 +627,7 @@ html, body {
 }
 
 .player_page {
-  max-width: 1200px;
+  max-width: 1400px;
 }
 
 .player_header {
@@ -589,13 +642,21 @@ html, body {
 }
 
 .static_page {
-  max-width: 1200px;
+  max-width: 1400px;
   background: white;
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 14px 16px;
   line-height: 1.45em;
   color: #1f2d3d;
+}
+
+#matchups.player_page {
+  max-width: 2000px;
+}
+
+#matchups .static_page {
+  max-width: 2000px;
 }
 
 .static_page h3 {
@@ -663,7 +724,7 @@ html, body {
 
 .key_table {
   width: 100%;
-  min-width: 720px;
+  min-width: 620px;
   border-collapse: collapse;
   font-size: 12.5px;
 }
