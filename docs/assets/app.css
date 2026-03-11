@@ -52,16 +52,16 @@ body.soft_theme .player_page .plotly-graph-div svg text {
   fill: var(--muted) !important;
 }
 
+body.soft_theme .player_page .plotly-graph-div svg text {
+  fill: var(--muted) !important;
+}
+
 body.soft_theme .player_page .plotly-graph-div .plotbg {
-  fill: var(--panel_1) !important;
+  fill: var(--panel_2) !important;
 }
 
 body.soft_theme .player_page .plotly-graph-div .bg {
   fill: transparent !important;
-}
-
-body.soft_theme .player_page .plotly-graph-div .table {
-  background: var(--panel_1);
 }
 /* =============================================================================
    Base layout
@@ -1010,13 +1010,17 @@ background: linear-gradient(
 }
 
 /* Plotly: clamp injected widths so charts shrink on phones */
-@media (max-width: 900px) {
-  .player_page .js-plotly-plot,
-  .player_page .plotly-graph-div {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-  }
+.player_page .js-plotly-plot,
+.player_page .plotly-graph-div {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.player_page .plot-container,
+.player_page .svg-container {
+  width: 100% !important;
+  max-width: 100% !important;
 }
 .player_name {
   font-weight: 800;

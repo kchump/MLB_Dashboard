@@ -359,6 +359,7 @@ async function load_page(file, page_id) {
 
   await load_year_page_lookup();
   render_year_select_in_content(content);
+  install_player_page_plot_resizing(content);
   install_plotly_tick_popovers(content);
 
   init_matchups_page_if_present(content);
@@ -817,6 +818,66 @@ function stat_key_from_label(plot_el, label_text) {
   return null;
 }
 /* ################# */
+function resize_player_page_plots(root) {
+  const scope = root || document;
+  const plots = Array.from(scope.querySelectorAll('.player_page .js-plotly-plot'));
+
+  plots.forEach(plot => {
+    if (!window.Plotly) return;
+
+    const wrap = plot.closest('.plotly-graph-div') || plot.parentElement || plot;
+    const page = plot.closest('.player_page') || wrap;
+
+    if (!wrap || !page) return;
+
+    const available_w = Math.max(320, Math.floor(page.clientWidth - 24));
+    if (!available_w) return;
+
+    const full_w = Number(plot.dataset.baseWidth || plot.layout?.width || plot._fullLayout?.width || 1400);
+    const full_h = Number(plot.dataset.baseHeight || plot.layout?.height || plot._fullLayout?.height || 1000);
+
+    if (!plot.dataset.baseWidth) plot.dataset.baseWidth = String(full_w);
+    if (!plot.dataset.baseHeight) plot.dataset.baseHeight = String(full_h);
+
+    const ratio = full_h / full_w;
+    const next_h = Math.max(520, Math.round(available_w * ratio));
+
+    const font_size = available_w <= 500 ? 9 : available_w <= 700 ? 10 : available_w <= 950 ? 11 : 12;
+    const title_size = available_w <= 500 ? 12 : available_w <= 700 ? 13 : 14;
+
+    Plotly.relayout(plot, {
+      autosize: true,
+      width: available_w,
+      height: next_h,
+      font: { size: font_size },
+      title: plot.layout?.title ? { ...plot.layout.title, font: { size: title_size } } : undefined,
+    }).catch(() => {});
+  });
+}
+/* ################# */
+function install_player_page_plot_resizing(root) {
+  const scope = root || document;
+  const pages = Array.from(scope.querySelectorAll('.player_page'));
+
+  pages.forEach(page => {
+    if (page.dataset.plot_resize_inited === '1') return;
+    page.dataset.plot_resize_inited = '1';
+
+    const run = () => resize_player_page_plots(page);
+
+    if ('ResizeObserver' in window) {
+      const ro = new ResizeObserver(() => run());
+      ro.observe(page);
+      page._plot_resize_observer = ro;
+    } else {
+      window.addEventListener('resize', run);
+    }
+
+    setTimeout(run, 0);
+    setTimeout(run, 120);
+  });
+}
+/* ################# */
 function install_plotly_tick_popovers(root) {
   const scope = root || document;
 
@@ -870,6 +931,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   install_stat_glossary_popovers();
+  install_player_page_plot_resizing(document);
   install_plotly_tick_popovers(document);
   const sidebar = document.querySelector('.sidebar');
 
@@ -2189,7 +2251,7 @@ function init_matchups_page_if_present(content_root) {
         side_text,
         paths: [path],
         opts: {
-          drop_cols: ['Team', 'Opp', 'Away'],
+          drop_cols: ['Team', 'Opp', 'Away', 'bats', 'throws'],
           compact_table: true
         }
       };
@@ -2506,7 +2568,7 @@ function init_matchups_page_if_present(content_root) {
         title: title_matchup,
         paths: sorted_matchup_paths,
         opts: {
-          drop_cols: ['Team', 'Pitcher', 'Opp', 'Away', 'IP']
+          drop_cols: ['Team', 'Pitcher', 'Opp', 'Away', 'IP', 'bats', 'throws']
         }
       });
     }
@@ -4420,7 +4482,7 @@ function init_matchups_page_if_present(content_root) {
         const paths = resolved_rows.map(x => x.path);
         const override_rows = resolved_rows.map(x => ({ Away: x.requested_side }));
 
-        await render_many(paths, {invert_stats: true, override_rows, drop_cols: ['Pitcher', 'IP', 'Away']});
+        await render_many(paths, {invert_stats: true, override_rows, drop_cols: ['Pitcher', 'IP', 'Away', 'bats', 'throws']});
       }
       //#################
       function clear_mode() {
