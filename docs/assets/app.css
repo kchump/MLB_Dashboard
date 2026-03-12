@@ -52,16 +52,18 @@ body.soft_theme .player_page .plotly-graph-div svg text {
   fill: var(--muted) !important;
 }
 
-body.soft_theme .player_page .plotly-graph-div svg text {
-  fill: var(--muted) !important;
-}
-
 body.soft_theme .player_page .plotly-graph-div .plotbg {
   fill: var(--panel_2) !important;
 }
 
 body.soft_theme .player_page .plotly-graph-div .bg {
   fill: transparent !important;
+}
+
+
+/* TABLE DARK MODE? */
+body.soft_theme .player_page .plotly-graph-div g.table text {
+  fill: var(--muted) !important;
 }
 /* =============================================================================
    Base layout
@@ -958,18 +960,18 @@ html, body {
   height: 14px;
   border-radius: 999px;
   border: 1px solid var(--border);
-background: linear-gradient(
-  90deg,
-  rgba(15,65,230,1.00) 0%,
-  rgba(24,76,222,1.00) 12%,
-  rgba(35,85,210,0.80) 24%,
-  rgba(35,85,210,0.40) 39%,
-  rgba(160,160,160,0.26) 50%,
-  rgba(210,35,35,0.40) 61%,
-  rgba(210,35,35,0.80) 76%,
-  rgba(208,24,24,1.00) 88%,
-  rgba(190,18,18,1.00) 100%
-);
+  background: linear-gradient(
+    90deg,
+    rgba(15,65,230,1.00) 0%,
+    rgba(24,76,222,1.00) 12%,
+    rgba(35,85,210,0.80) 24%,
+    rgba(35,85,210,0.40) 39%,
+    rgba(160,160,160,0.26) 50%,
+    rgba(210,35,35,0.40) 61%,
+    rgba(210,35,35,0.80) 76%,
+    rgba(208,24,24,1.00) 88%,
+    rgba(190,18,18,1.00) 100%
+  );
 }
 
 .year_select_wrap {
@@ -993,6 +995,26 @@ background: linear-gradient(
   font-weight: 400;
 }
 
+.player_page_scale_wrap {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.player_page_scale_inner {
+  width: fit-content;
+  min-width: 0;
+  transform-origin: top left;
+}
+
+.player_page.player_page_compact .player_page_scale_inner {
+  transform: scale(0.74);
+}
+
+.player_page.player_page_compact .player_page_scale_wrap {
+  min-height: calc(1000px * 0.74);
+}
+
 .player_page {
   width: 100%;
   max-width: 1400px;
@@ -1009,19 +1031,17 @@ background: linear-gradient(
   margin: 0 0 10px 2px;
 }
 
-/* Plotly: clamp injected widths so charts shrink on phones */
-.player_page .js-plotly-plot,
 .player_page .plotly-graph-div {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
+  max-width: none !important;
+  min-width: 0;
 }
 
+.player_page .js-plotly-plot,
 .player_page .plot-container,
 .player_page .svg-container {
-  width: 100% !important;
-  max-width: 100% !important;
+  max-width: none !important;
 }
+
 .player_name {
   font-weight: 800;
   font-size: 20px;

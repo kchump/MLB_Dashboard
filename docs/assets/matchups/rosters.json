@@ -1030,6 +1030,7 @@
     "Bennett Sousa": "HOU",
     "Blake Treinen": "LAD",
     "Brad Keller": "PHI",
+    "Brad Lord": "WAS",
     "Bradgley Rodriguez": "SD",
     "Brandon Eisert": "CHW",
     "Brandyn Garcia": "ARI",
@@ -1041,6 +1042,7 @@
     "Brennan Bernardino": "COL",
     "Brent Suter": "LAA",
     "Brock Burke": "CIN",
+    "Brock Stewart": "LAD",
     "Brooks Raley": "NYM",
     "Brusdar Graterol": "LAD",
     "Bryan Abreu": "HOU",
@@ -1191,6 +1193,7 @@
     "Kyle Backhus": "PHI",
     "Kyle Finnegan": "DET",
     "Kyle Hart": "SD",
+    "Kyle Hurt": "LAD",
     "Lake Bachar": "MIA",
     "Louie Varland": "TOR",
     "Lucas Erceg": "KC",
@@ -1480,12 +1483,14 @@
       "Alex Vesia",
       "Ben Casparius",
       "Blake Treinen",
+      "Brock Stewart",
       "Brusdar Graterol",
       "Edgardo Henriquez",
       "Edwin Diaz",
       "Evan Phillips",
       "Jack Dreyer",
       "Justin Wrobleski",
+      "Kyle Hurt",
       "Tanner Scott",
       "Will Klein"
     ],
@@ -1665,6 +1670,7 @@
       "Yimi Garcia"
     ],
     "WAS": [
+      "Brad Lord",
       "Clayton Beeter",
       "Cole Henry",
       "Griff McGarry",
@@ -1731,6 +1737,7 @@
     "Corbin Burnes": "ARI",
     "Cristian Javier": "HOU",
     "Cristopher Sanchez": "PHI",
+    "DJ Herz": "WAS",
     "David Festa": "MIN",
     "David Peterson": "NYM",
     "Davis Martin": "CHW",
@@ -1891,6 +1898,7 @@
     "Tomoyuki Sugano": "COL",
     "Trevor McDonald": "SF",
     "Trevor Rogers": "BAL",
+    "Trevor Williams": "WAS",
     "Trey Yesavage": "TOR",
     "Troy Melton": "DET",
     "Tyler Glasnow": "LAD",
@@ -1902,6 +1910,7 @@
     "Yusei Kikuchi": "LAA",
     "Zac Gallen": "ARI",
     "Zach Eflin": "BAL",
+    "Zack Littell": "WAS",
     "Zack Wheeler": "PHI",
     "Zebby Matthews": "MIN"
   },
@@ -2190,9 +2199,12 @@
     "WAS": [
       "Brad Lord",
       "Cade Cavalli",
+      "DJ Herz",
       "Foster Griffin",
       "Jake Irvin",
-      "Miles Mikolas"
+      "Miles Mikolas",
+      "Trevor Williams",
+      "Zack Littell"
     ]
   }
 }

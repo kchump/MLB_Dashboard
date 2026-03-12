@@ -167,7 +167,7 @@ function render_year_select_in_content(content_root) {
       const y = n ? String(n.last_played_year || '').trim() : '';
 
       if (y) {
-        disclaimer.textContent = `No data since: ${y}`;
+        disclaimer.textContent = `No data since ${y}`;
         disclaimer.style.display = '';
       } else {
         disclaimer.textContent = '';
@@ -197,11 +197,11 @@ function render_year_select_in_content(content_root) {
       add_opt(label_text, file, is_selected);
     });
 
-// If the currently-loaded file isn't one of the year options, just show the top option.
-// Navigation is handled earlier (pre-DOM) in load_page to avoid flicker.
-if (!any_selected && sel.options.length) {
-  sel.selectedIndex = 0;
-}
+    // If the currently-loaded file isn't one of the year options, just show the top option.
+    // Navigation is handled earlier (pre-DOM) in load_page to avoid flicker.
+    if (!any_selected && sel.options.length) {
+      sel.selectedIndex = 0;
+    }
 
     sync_year_fallback_disclaimer();
 
@@ -271,6 +271,7 @@ function set_soft_theme(enabled) {
   if (btn) btn.textContent = enabled ? 'Light' : 'Dark-ish';
 
   write_soft_theme(!!enabled);
+  repaint_standard_stats_tables(document);
 }
 /* ################# */
 function set_division_collapsed(div_id, collapsed) {
@@ -359,8 +360,10 @@ async function load_page(file, page_id) {
 
   await load_year_page_lookup();
   render_year_select_in_content(content);
-  install_player_page_plot_resizing(content);
+  wrap_player_page_scale_shell(content);
+  apply_player_page_compact_mode(content);
   install_plotly_tick_popovers(content);
+  repaint_standard_stats_tables(content);
 
   init_matchups_page_if_present(content);
 
@@ -553,8 +556,8 @@ function cleanup_role_list(role_list) {
 function current_filters() {
   const hide_minors = !!(document.getElementById('filter_hide_minors') && document.getElementById('filter_hide_minors').checked);
   const hide_non_top_100_prospects = !!(document.getElementById('filter_hide_non_top_100_prospects') && document.getElementById('filter_hide_non_top_100_prospects').checked);
-  const hide_hurt = !!(document.getElementById('filter_hide_hurt') && document.getElementById('filter_hide_hurt').checked);
-  return { hide_minors, hide_non_top_100_prospects, hide_hurt };
+  const hide_oos = !!(document.getElementById('filter_hide_oos') && document.getElementById('filter_hide_oos').checked);
+  return { hide_minors, hide_non_top_100_prospects, hide_oos };
 }
 /* ################# */
 function apply_search_and_filters(q) {
@@ -576,27 +579,27 @@ function apply_search_and_filters(q) {
   team_blocks.forEach(tb => {
     let any_visible_in_team = false;
 
-  tb.querySelectorAll('.toc_link').forEach(a => {
-    const name = a.dataset.name || '';
-    const is_minors = (a.dataset.is_minors === '1');
-    const is_oos = (a.dataset.is_oos === '1');
-    const is_susp = (a.dataset.is_susp === '1');
-    const is_prospect = (a.dataset.is_prospect === '1');
-    const is_top_100 = (a.dataset.is_top_100 === '1');
-    const skip_search = (a.dataset.skip_search === '1');
+    tb.querySelectorAll('.toc_link').forEach(a => {
+      const name = a.dataset.name || '';
+      const is_minors = (a.dataset.is_minors === '1');
+      const is_oos = (a.dataset.is_oos === '1');
+      const is_susp = (a.dataset.is_susp === '1');
+      const is_prospect = (a.dataset.is_prospect === '1');
+      const is_top_100 = (a.dataset.is_top_100 === '1');
+      const skip_search = (a.dataset.skip_search === '1');
 
-    let show = true;
+      let show = true;
 
-    if (searching && !skip_search && !name.includes(query)) show = false;
-    if (searching && skip_search) show = false;
-    if (f.hide_minors && is_minors) show = false;
-    if (f.hide_non_top_100_prospects && is_prospect && !is_top_100) show = false;
-    if (f.hide_oos && (is_oos || is_susp)) show = false;
+      if (searching && !skip_search && !name.includes(query)) show = false;
+      if (searching && skip_search) show = false;
+      if (f.hide_minors && is_minors) show = false;
+      if (f.hide_non_top_100_prospects && is_minors && is_prospect && !is_top_100) show = false;
+      if (f.hide_oos && (is_oos || is_susp)) show = false;
 
-    const li = a.closest('.player_li');
-    if (li) li.style.display = show ? '' : 'none';
-    if (show) any_visible_in_team = true;
-  });
+      const li = a.closest('.player_li');
+      if (li) li.style.display = show ? '' : 'none';
+      if (show) any_visible_in_team = true;
+    });
 
     tb.querySelectorAll('.role_list').forEach(role_list => {
       cleanup_role_list(role_list);
@@ -818,63 +821,34 @@ function stat_key_from_label(plot_el, label_text) {
   return null;
 }
 /* ################# */
-function resize_player_page_plots(root) {
-  const scope = root || document;
-  const plots = Array.from(scope.querySelectorAll('.player_page .js-plotly-plot'));
-
-  plots.forEach(plot => {
-    if (!window.Plotly) return;
-
-    const wrap = plot.closest('.plotly-graph-div') || plot.parentElement || plot;
-    const page = plot.closest('.player_page') || wrap;
-
-    if (!wrap || !page) return;
-
-    const available_w = Math.max(320, Math.floor(page.clientWidth - 24));
-    if (!available_w) return;
-
-    const full_w = Number(plot.dataset.baseWidth || plot.layout?.width || plot._fullLayout?.width || 1400);
-    const full_h = Number(plot.dataset.baseHeight || plot.layout?.height || plot._fullLayout?.height || 1000);
-
-    if (!plot.dataset.baseWidth) plot.dataset.baseWidth = String(full_w);
-    if (!plot.dataset.baseHeight) plot.dataset.baseHeight = String(full_h);
-
-    const ratio = full_h / full_w;
-    const next_h = Math.max(520, Math.round(available_w * ratio));
-
-    const font_size = available_w <= 500 ? 9 : available_w <= 700 ? 10 : available_w <= 950 ? 11 : 12;
-    const title_size = available_w <= 500 ? 12 : available_w <= 700 ? 13 : 14;
-
-    Plotly.relayout(plot, {
-      autosize: true,
-      width: available_w,
-      height: next_h,
-      font: { size: font_size },
-      title: plot.layout?.title ? { ...plot.layout.title, font: { size: title_size } } : undefined,
-    }).catch(() => {});
-  });
-}
-/* ################# */
-function install_player_page_plot_resizing(root) {
+function wrap_player_page_scale_shell(root) {
   const scope = root || document;
   const pages = Array.from(scope.querySelectorAll('.player_page'));
 
   pages.forEach(page => {
-    if (page.dataset.plot_resize_inited === '1') return;
-    page.dataset.plot_resize_inited = '1';
+    if (page.querySelector(':scope > .player_page_scale_wrap')) return;
 
-    const run = () => resize_player_page_plots(page);
+    const kids = Array.from(page.childNodes);
+    const wrap = document.createElement('div');
+    wrap.className = 'player_page_scale_wrap';
 
-    if ('ResizeObserver' in window) {
-      const ro = new ResizeObserver(() => run());
-      ro.observe(page);
-      page._plot_resize_observer = ro;
-    } else {
-      window.addEventListener('resize', run);
-    }
+    const inner = document.createElement('div');
+    inner.className = 'player_page_scale_inner';
 
-    setTimeout(run, 0);
-    setTimeout(run, 120);
+    kids.forEach(node => inner.appendChild(node));
+    wrap.appendChild(inner);
+    page.appendChild(wrap);
+  });
+}
+/* ################# */
+function apply_player_page_compact_mode(root) {
+  const scope = root || document;
+  const pages = Array.from(scope.querySelectorAll('.player_page'));
+
+  const use_compact = window.innerWidth <= 900;
+
+  pages.forEach(page => {
+    page.classList.toggle('player_page_compact', use_compact);
   });
 }
 /* ################# */
@@ -917,6 +891,77 @@ function install_plotly_tick_popovers(root) {
     bind_once();
   });
 }
+/*#################################################################### Plotly standard-stats table theme repaint ####################################################################*/
+function normalize_svg_fill(fill) {
+  return String(fill || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '');
+}
+/* ################# */
+function is_stat_fill(fill) {
+  const f = normalize_svg_fill(fill);
+  return (
+    f.includes('rgb(210,35,35)') ||
+    f.includes('rgb(35,85,210)') ||
+    f.includes('rgba(210,35,35,') ||
+    f.includes('rgba(35,85,210,')
+  );
+}
+/* ################# */
+function repaint_standard_stats_tables(root) {
+  const scope = root || document;
+  const is_dark = document.body.classList.contains('soft_theme');
+
+  const plots = Array.from(scope.querySelectorAll('.player_page .js-plotly-plot, .player_page .plotly-graph-div'));
+
+  plots.forEach(plot => {
+    const table_group = plot.querySelector('g.table');
+    if (!table_group) return;
+
+    const rects = Array.from(table_group.querySelectorAll('rect'));
+    const texts = Array.from(table_group.querySelectorAll('text'));
+
+    texts.forEach(t => {
+      t.style.fill = is_dark ? 'var(--muted)' : '';
+    });
+
+    rects.forEach(r => {
+      const original_fill_attr = r.getAttribute('fill') || '';
+      const original_style_fill = r.style.fill || '';
+      const fill_raw = original_fill_attr || original_style_fill;
+      const fill = normalize_svg_fill(fill_raw);
+
+      if (!is_dark) {
+        r.style.fill = '';
+        return;
+      }
+
+      if (!fill || fill === 'none' || fill === 'transparent') {
+        return;
+      }
+
+      if (is_stat_fill(fill)) {
+        return;
+      }
+
+      if (fill === 'rgb(205,215,230)' || fill === 'rgba(205,215,230,1)') {
+        r.style.fill = 'var(--panel)';
+        return;
+      }
+
+      if (fill === 'rgb(235,240,248)' || fill === 'rgba(235,240,248,1)') {
+        r.style.fill = 'var(--panel_2)';
+        return;
+      }
+
+      if (fill === 'rgba(35,85,210,0.18)' || fill === 'rgb(35,85,210)') {
+        r.style.fill = 'rgba(35,85,210,0.35)';
+        return;
+      }
+    });
+  });
+}
 /*#################################################################### DOMContentLoaded wiring (events + initial state) ####################################################################*/
 document.addEventListener('DOMContentLoaded', () => {
   const toggle_sidebar_btn = document.getElementById('toggle_sidebar');
@@ -931,7 +976,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   install_stat_glossary_popovers();
-  install_player_page_plot_resizing(document);
+  wrap_player_page_scale_shell(document);
+  apply_player_page_compact_mode(document);
   install_plotly_tick_popovers(document);
   const sidebar = document.querySelector('.sidebar');
 
@@ -1046,10 +1092,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const cb_non_top_100 = document.getElementById('filter_hide_non_top_100_prospects');
   if (cb_non_top_100) cb_non_top_100.addEventListener('change', () => apply_search_and_filters((search && search.value) ? search.value : ''));
 
-  const cb_hurt = document.getElementById('filter_hide_hurt');
-  if (cb_hurt) cb_hurt.addEventListener('change', () => apply_search_and_filters((search && search.value) ? search.value : ''));
+  const cb_oos = document.getElementById('filter_hide_oos');
+  if (cb_oos) cb_oos.addEventListener('change', () => apply_search_and_filters((search && search.value) ? search.value : ''));
 
   window.addEventListener('hashchange', on_hash_change);
+  window.addEventListener('resize', () => apply_player_page_compact_mode(document));
 
   // window.addEventListener('resize', apply_mobile_scale);
   // apply_mobile_scale();
@@ -3929,7 +3976,7 @@ function init_matchups_page_if_present(content_root) {
           .map(x => x.path);
 
         const best_worst_drop_cols = [
-          'Away', 'Opp', '+FB', '+SI', '+CT', '+SL', '+SW', '+CB', '+CH', '+SP', '+KN'
+          'Away', 'Opp', '+FB', '+SI', '+CT', '+SL', '+SW', '+CB', '+CH', '+SP', '+KN', 'bats', 'throws'
         ];
 
         await render_multiple_fragments([
