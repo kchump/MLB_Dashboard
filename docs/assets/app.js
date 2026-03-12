@@ -272,6 +272,8 @@ function set_soft_theme(enabled) {
 
   write_soft_theme(!!enabled);
   repaint_standard_stats_tables(document);
+  requestAnimationFrame(() => repaint_standard_stats_tables(document));
+  setTimeout(() => repaint_standard_stats_tables(document), 60);
 }
 /* ################# */
 function set_division_collapsed(div_id, collapsed) {
@@ -360,12 +362,26 @@ async function load_page(file, page_id) {
 
   await load_year_page_lookup();
   render_year_select_in_content(content);
-  wrap_player_page_scale_shell(content);
-  apply_player_page_compact_mode(content);
+    wrap_player_page_scroll_shell(content);
   install_plotly_tick_popovers(content);
-  repaint_standard_stats_tables(content);
+  const plots = Array.from(content.querySelectorAll('.js-plotly-plot'));
+  plots.forEach(plot => {
+    if (plot.dataset.table_repaint_bound === '1') return;
+    plot.dataset.table_repaint_bound = '1';
+
+    const repaint = () => repaint_standard_stats_tables(content);
+
+    plot.on?.('plotly_afterplot', repaint);
+    plot.on?.('plotly_relayout', repaint);
+    plot.on?.('plotly_restyle', repaint);
+  });
+  requestAnimationFrame(() => {
+    repaint_standard_stats_tables(content);
+    requestAnimationFrame(() => repaint_standard_stats_tables(content));
+  });
 
   init_matchups_page_if_present(content);
+    apply_mobile_scale();
 
   const active = document.querySelector(`.toc_link[data-page="${pid}"]`);
   if (active) {
@@ -821,34 +837,50 @@ function stat_key_from_label(plot_el, label_text) {
   return null;
 }
 /* ################# */
-function wrap_player_page_scale_shell(root) {
-  const scope = root || document;
-  const pages = Array.from(scope.querySelectorAll('.player_page'));
+function apply_mobile_scale() {
+  const content = document.getElementById('content_root');
+  if (!content) return;
 
-  pages.forEach(page => {
-    if (page.querySelector(':scope > .player_page_scale_wrap')) return;
+  const is_touch_mobile = window.matchMedia('(max-width: 900px) and (pointer: coarse)').matches;
+  const page = content.querySelector('.player_page');
+  const has_static = !!page && !!page.querySelector('.static_page');
 
-    const kids = Array.from(page.childNodes);
-    const wrap = document.createElement('div');
-    wrap.className = 'player_page_scale_wrap';
+  if (!is_touch_mobile || !page || has_static) {
+    content.style.transform = '';
+    content.style.transformOrigin = '';
+    content.style.width = '';
+    content.style.maxWidth = '';
+    return;
+  }
 
-    const inner = document.createElement('div');
-    inner.className = 'player_page_scale_inner';
+  const pad = 20;
+  const base_width = 1350;
+  const target_w = Math.max(320, window.innerWidth - pad);
+  const scale = Math.min(1, target_w / base_width);
 
-    kids.forEach(node => inner.appendChild(node));
-    wrap.appendChild(inner);
-    page.appendChild(wrap);
-  });
+  content.style.transform = `scale(${scale})`;
+  content.style.transformOrigin = 'top left';
+  content.style.width = `${Math.ceil(base_width * scale)}px`;
+  content.style.maxWidth = 'none';
 }
 /* ################# */
-function apply_player_page_compact_mode(root) {
+function wrap_player_page_scroll_shell(root) {
   const scope = root || document;
   const pages = Array.from(scope.querySelectorAll('.player_page'));
 
-  const use_compact = window.innerWidth <= 900;
-
   pages.forEach(page => {
-    page.classList.toggle('player_page_compact', use_compact);
+    if (page.querySelector(':scope > .player_page_scroll')) return;
+
+    const kids = Array.from(page.childNodes);
+    const scroll = document.createElement('div');
+    scroll.className = 'player_page_scroll';
+
+    const inner = document.createElement('div');
+    inner.className = 'player_page_inner';
+
+    kids.forEach(node => inner.appendChild(node));
+    scroll.appendChild(inner);
+    page.appendChild(scroll);
   });
 }
 /* ################# */
@@ -899,14 +931,53 @@ function normalize_svg_fill(fill) {
     .replace(/\s+/g, '');
 }
 /* ################# */
-function is_stat_fill(fill) {
+function parse_svg_fill(fill) {
   const f = normalize_svg_fill(fill);
-  return (
-    f.includes('rgb(210,35,35)') ||
-    f.includes('rgb(35,85,210)') ||
-    f.includes('rgba(210,35,35,') ||
-    f.includes('rgba(35,85,210,')
-  );
+  if (!f || f === 'none' || f === 'transparent') return null;
+
+  let m = f.match(/^rgba?\(([\d.]+),([\d.]+),([\d.]+)(?:,([\d.]+))?\)$/);
+  if (m) {
+    return {
+      r: Number(m[1]),
+      g: Number(m[2]),
+      b: Number(m[3]),
+      a: m[4] == null ? 1 : Number(m[4]),
+    };
+  }
+
+  m = f.match(/^#([0-9a-f]{6})$/);
+  if (m) {
+    const hex = m[1];
+    return {
+      r: parseInt(hex.slice(0, 2), 16),
+      g: parseInt(hex.slice(2, 4), 16),
+      b: parseInt(hex.slice(4, 6), 16),
+      a: 1,
+    };
+  }
+
+  return null;
+}
+/* ################# */
+function is_neutral_fill(fill) {
+  const c = parse_svg_fill(fill);
+  if (!c) return false;
+
+  const spread = Math.max(c.r, c.g, c.b) - Math.min(c.r, c.g, c.b);
+  return spread <= 14;
+}
+/* ################# */
+function is_stat_fill(fill) {
+  const c = parse_svg_fill(fill);
+  if (!c || c.a === 0) return false;
+
+  const spread = Math.max(c.r, c.g, c.b) - Math.min(c.r, c.g, c.b);
+  if (spread < 18) return false;
+
+  const blue_like = (c.b - c.r >= 30) && (c.b - c.g >= 18);
+  const red_like = (c.r - c.g >= 30) && (c.r - c.b >= 18);
+
+  return blue_like || red_like;
 }
 /* ################# */
 function repaint_standard_stats_tables(root) {
@@ -923,41 +994,53 @@ function repaint_standard_stats_tables(root) {
     const texts = Array.from(table_group.querySelectorAll('text'));
 
     texts.forEach(t => {
-      t.style.fill = is_dark ? 'var(--muted)' : '';
+      if (t.dataset.orig_fill === undefined) {
+        t.dataset.orig_fill = t.style.fill || t.getAttribute('fill') || '';
+      }
+
+      if (is_dark) {
+        t.style.fill = '#cdd2da';
+      } else if (t.dataset.orig_fill) {
+        t.style.fill = t.dataset.orig_fill;
+      } else {
+        t.style.removeProperty('fill');
+      }
     });
 
     rects.forEach(r => {
-      const original_fill_attr = r.getAttribute('fill') || '';
-      const original_style_fill = r.style.fill || '';
-      const fill_raw = original_fill_attr || original_style_fill;
-      const fill = normalize_svg_fill(fill_raw);
+      if (r.dataset.orig_fill === undefined) {
+        r.dataset.orig_fill = r.style.fill || r.getAttribute('fill') || '';
+      }
+
+      const orig_fill = r.dataset.orig_fill || '';
+      const parsed = parse_svg_fill(orig_fill);
 
       if (!is_dark) {
-        r.style.fill = '';
+        if (orig_fill) {
+          r.style.fill = orig_fill;
+        } else {
+          r.style.removeProperty('fill');
+        }
         return;
       }
 
-      if (!fill || fill === 'none' || fill === 'transparent') {
+      if (!parsed || parsed.a === 0) return;
+
+      if (is_stat_fill(orig_fill)) {
+        r.style.fill = orig_fill;
         return;
       }
 
-      if (is_stat_fill(fill)) {
-        return;
-      }
+      const luminance = 0.2126 * parsed.r + 0.7152 * parsed.g + 0.0722 * parsed.b;
 
-      if (fill === 'rgb(205,215,230)' || fill === 'rgba(205,215,230,1)') {
-        r.style.fill = 'var(--panel)';
-        return;
-      }
-
-      if (fill === 'rgb(235,240,248)' || fill === 'rgba(235,240,248,1)') {
-        r.style.fill = 'var(--panel_2)';
-        return;
-      }
-
-      if (fill === 'rgba(35,85,210,0.18)' || fill === 'rgb(35,85,210)') {
-        r.style.fill = 'rgba(35,85,210,0.35)';
-        return;
+      if (luminance >= 225) {
+        r.style.fill = '#4a5462';
+      } else if (luminance >= 160) {
+        r.style.fill = '#3e4652';
+      } else if (luminance >= 95) {
+        r.style.fill = '#353c47';
+      } else {
+        r.style.fill = orig_fill;
       }
     });
   });
@@ -966,7 +1049,7 @@ function repaint_standard_stats_tables(root) {
 document.addEventListener('DOMContentLoaded', () => {
   const toggle_sidebar_btn = document.getElementById('toggle_sidebar');
   const theme_toggle_btn = document.getElementById('theme_toggle');
-  set_soft_theme(read_soft_theme());
+  requestAnimationFrame(() => repaint_standard_stats_tables(document));
 
   if (theme_toggle_btn) {
     theme_toggle_btn.addEventListener('click', () => {
@@ -976,8 +1059,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   install_stat_glossary_popovers();
-  wrap_player_page_scale_shell(document);
-  apply_player_page_compact_mode(document);
+    wrap_player_page_scroll_shell(document);
   install_plotly_tick_popovers(document);
   const sidebar = document.querySelector('.sidebar');
 
@@ -1096,10 +1178,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (cb_oos) cb_oos.addEventListener('change', () => apply_search_and_filters((search && search.value) ? search.value : ''));
 
   window.addEventListener('hashchange', on_hash_change);
-  window.addEventListener('resize', () => apply_player_page_compact_mode(document));
 
-  // window.addEventListener('resize', apply_mobile_scale);
-  // apply_mobile_scale();
+  window.addEventListener('resize', apply_mobile_scale);
+  apply_mobile_scale();
 
   on_hash_change();
   apply_search_and_filters((search && search.value) ? search.value : '');
