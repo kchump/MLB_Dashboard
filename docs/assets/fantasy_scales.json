@@ -1,0 +1,1408 @@
+{
+  "panel_scale_lookup": {
+    "90ft": {
+      "best": 3.7,
+      "fmt": "num",
+      "higher_is_better": false,
+      "label": "90ft Speed",
+      "neutral_hi": 3.95,
+      "neutral_lo": 4.05,
+      "worst": 4.3
+    },
+    "All": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "All Pitches",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "Arm INF": {
+      "best": 92,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Infield Arm",
+      "neutral_hi": 85,
+      "neutral_lo": 84,
+      "worst": 77
+    },
+    "Arm OF": {
+      "best": 93,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Outfield Arm",
+      "neutral_hi": 90,
+      "neutral_lo": 89,
+      "worst": 85
+    },
+    "Arm Runs": {
+      "best": 8,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Arm Value",
+      "neutral_hi": 1,
+      "neutral_lo": -1,
+      "worst": -8
+    },
+    "BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "BB%",
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "Bad": {
+      "best": -20,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Bad Pitches",
+      "neutral_hi": -38,
+      "neutral_lo": -40,
+      "worst": -60
+    },
+    "Bad%": {
+      "best": 0.28,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "% Bad",
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.37,
+      "worst": 0.44
+    },
+    "Bar/PA": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "Barrel Con",
+      "neutral_hi": 0.075,
+      "neutral_lo": 0.085,
+      "worst": 0.12
+    },
+    "Baserunning": {
+      "best": 10,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Baserunning Value",
+      "neutral_hi": 2,
+      "neutral_lo": -2,
+      "worst": -10
+    },
+    "Blast%": {
+      "best": 0.27,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "□ + ≥75",
+      "neutral_hi": 0.19,
+      "neutral_lo": 0.18,
+      "worst": 0.1
+    },
+    "Blocking Runs": {
+      "best": 10,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Blocking",
+      "neutral_hi": 2,
+      "neutral_lo": -2,
+      "worst": -10
+    },
+    "Blocks Above Avg": {
+      "best": 15,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Blocks Above Avg",
+      "neutral_hi": 2,
+      "neutral_lo": -2,
+      "worst": -15
+    },
+    "CB Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "CB Stuff",
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "CH Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "CH Stuff",
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "CSW%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "CS + Whiffs%",
+      "neutral_hi": 0.29,
+      "neutral_lo": 0.28,
+      "worst": 0.23
+    },
+    "CT Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "CT Stuff",
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "Catcher Arm Strength": {
+      "best": 83,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Catcher Arm",
+      "neutral_hi": 80,
+      "neutral_lo": 79,
+      "worst": 76
+    },
+    "Caught Stealing Above Avg": {
+      "best": 10,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Catcher CS",
+      "neutral_hi": 2,
+      "neutral_lo": -2,
+      "worst": -10
+    },
+    "Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Contact",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "Consistency",
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Discipline",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "FB Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "FB Stuff",
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "Framing Runs": {
+      "best": 15,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Framing",
+      "neutral_hi": 2,
+      "neutral_lo": -2,
+      "worst": -15
+    },
+    "Good": {
+      "best": 65,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Good Pitches",
+      "neutral_hi": 41,
+      "neutral_lo": 39,
+      "worst": -20
+    },
+    "ICR/PA": {
+      "best": 0.24,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "Ideal Con",
+      "neutral_hi": 0.32,
+      "neutral_lo": 0.33,
+      "worst": 0.41
+    },
+    "K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "K%",
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "KN": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Knuckleball",
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "L CB": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Curveball",
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "L CH": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Changeup",
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "L CT": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Cutter",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "L Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "L Eye",
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "L FB": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Fastball",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "L Hit": {
+      "best": 2.3,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "LH Swing Hit",
+      "neutral_hi": 1.5,
+      "neutral_lo": 1.4,
+      "worst": 0.05
+    },
+    "L Pwr": {
+      "best": 3.0,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "LH Swing Power",
+      "neutral_hi": 1.7,
+      "neutral_lo": 1.4,
+      "worst": 0.05
+    },
+    "L SI": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Sinker",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "L SL": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Slider",
+      "neutral_hi": 20,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "L SP": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Splitter",
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "L SW": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Sweeper",
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "L swCon": {
+      "best": 0.65,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "L Good Swings",
+      "neutral_hi": 0.54,
+      "neutral_lo": 0.53,
+      "worst": 0.45
+    },
+    "L swDisc": {
+      "best": 0.35,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "L Bad Swings",
+      "neutral_hi": 0.48,
+      "neutral_lo": 0.49,
+      "worst": 0.57
+    },
+    "L ≥75": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "LH ≥75mph",
+      "neutral_hi": 0.21,
+      "neutral_lo": 0.2,
+      "worst": 0.05
+    },
+    "LCon": {
+      "best": 3,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Loc for Contact",
+      "neutral_hi": -5,
+      "neutral_lo": -6,
+      "worst": -14
+    },
+    "LDisc": {
+      "best": 60,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Loc for K/BB",
+      "neutral_hi": 38,
+      "neutral_lo": 37,
+      "worst": 20
+    },
+    "LHB": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Lefties",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "LHP": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Lefties",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "Minors Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Contact",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "Minors Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "Consistency",
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "Minors Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Discipline",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "Minors L Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "L Eye",
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "Minors LCon": {
+      "best": 3,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Loc for Contact",
+      "neutral_hi": -5,
+      "neutral_lo": -6,
+      "worst": -14
+    },
+    "Minors LDisc": {
+      "best": 60,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Loc for K/BB",
+      "neutral_hi": 38,
+      "neutral_lo": 37,
+      "worst": 20
+    },
+    "Minors R Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "R Eye",
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "Minors Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Stuff",
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "Minors SwSp%": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "Sweet Spot%",
+      "neutral_hi": 0.41,
+      "neutral_lo": 0.4,
+      "worst": 0.3
+    },
+    "Minors SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "SwStr%",
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "Minors Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "pVelocity",
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "Minors Whiff%": {
+      "best": 0.15,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "Whiff%",
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.26,
+      "worst": 0.4
+    },
+    "Minors ≥100": {
+      "best": 0.4,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "≥100mph",
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.24,
+      "worst": 0.12
+    },
+    "Net Bases Prevented": {
+      "best": 10,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Running Game",
+      "neutral_hi": 2,
+      "neutral_lo": -2,
+      "worst": -10
+    },
+    "Outfield Jump": {
+      "best": 4,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Outfield Jump",
+      "neutral_hi": 1,
+      "neutral_lo": -1,
+      "worst": -4
+    },
+    "Outs Above Average": {
+      "best": 15,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Outs Above Average",
+      "neutral_hi": 2,
+      "neutral_lo": -2,
+      "worst": -10
+    },
+    "P/IP": {
+      "best": 14.7,
+      "fmt": "num",
+      "higher_is_better": false,
+      "label": "Pitches/IP",
+      "neutral_hi": 16.3,
+      "neutral_lo": 16.4,
+      "worst": 17.5
+    },
+    "P/PA": {
+      "best": 4.3,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Pitches/PA",
+      "neutral_hi": 3.9,
+      "neutral_lo": 3.8,
+      "worst": 3.4
+    },
+    "PPG": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "PPG",
+      "neutral_hi": 17,
+      "neutral_lo": 15,
+      "worst": 10
+    },
+    "Pop Time": {
+      "best": 1.85,
+      "fmt": "num",
+      "higher_is_better": false,
+      "label": "Time to 2B",
+      "neutral_hi": 1.95,
+      "neutral_lo": 2.0,
+      "worst": 2.1
+    },
+    "Prev Minors Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Contact",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "Prev Minors Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "Consistency",
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "Prev Minors Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Discipline",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "Prev Minors L Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "L Eye",
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "Prev Minors LCon": {
+      "best": 3,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Loc for Contact",
+      "neutral_hi": -5,
+      "neutral_lo": -6,
+      "worst": -14
+    },
+    "Prev Minors LDisc": {
+      "best": 60,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Loc for K/BB",
+      "neutral_hi": 38,
+      "neutral_lo": 37,
+      "worst": 20
+    },
+    "Prev Minors R Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "R Eye",
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "Prev Minors Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Stuff",
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "Prev Minors SwSp%": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "Sweet Spot%",
+      "neutral_hi": 0.41,
+      "neutral_lo": 0.4,
+      "worst": 0.3
+    },
+    "Prev Minors SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "SwStr%",
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "Prev Minors Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "pVelocity",
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "Prev Minors Whiff%": {
+      "best": 0.15,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "Whiff%",
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.26,
+      "worst": 0.4
+    },
+    "Prev Minors ≥100": {
+      "best": 0.4,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "≥100mph",
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.24,
+      "worst": 0.12
+    },
+    "Pts": {
+      "best": 700,
+      "fmt": "int",
+      "higher_is_better": true,
+      "label": "Points",
+      "neutral_hi": 300,
+      "neutral_lo": 0,
+      "worst": -20
+    },
+    "Pts +/-": {
+      "best": 0.3,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "Consistency",
+      "neutral_hi": 0.1,
+      "neutral_lo": 0.05,
+      "worst": -0.2
+    },
+    "Pwr/PA": {
+      "best": 0.16,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "Power Con",
+      "neutral_hi": 0.22,
+      "neutral_lo": 0.23,
+      "worst": 0.31
+    },
+    "R CB": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Curveball",
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "R CH": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Changeup",
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "R CT": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Cutter",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "R Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "R Eye",
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "R FB": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Fastball",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "R Hit": {
+      "best": 2.3,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "RH Swing Hit",
+      "neutral_hi": 1.5,
+      "neutral_lo": 1.4,
+      "worst": 0.5
+    },
+    "R Pwr": {
+      "best": 3.0,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "RH Swing Power",
+      "neutral_hi": 1.7,
+      "neutral_lo": 1.4,
+      "worst": 0.05
+    },
+    "R SI": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Sinker",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "R SL": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Slider",
+      "neutral_hi": 20,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "R SP": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Splitter",
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "R SW": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Sweeper",
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "R swCon": {
+      "best": 0.65,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "R Good Swings",
+      "neutral_hi": 0.54,
+      "neutral_lo": 0.53,
+      "worst": 0.45
+    },
+    "R swDisc": {
+      "best": 0.35,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "R Bad Swing",
+      "neutral_hi": 0.48,
+      "neutral_lo": 0.49,
+      "worst": 0.57
+    },
+    "R ≥75": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "RH ≥75mph",
+      "neutral_hi": 0.21,
+      "neutral_lo": 0.2,
+      "worst": 0.05
+    },
+    "RHB": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Righties",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "RHP": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Righties",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "Range Runs": {
+      "best": 15,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Range Value",
+      "neutral_hi": 2,
+      "neutral_lo": -2,
+      "worst": -10
+    },
+    "S All": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "All Pitches",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "S Bad%": {
+      "best": 0.28,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "% Bad",
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.37,
+      "worst": 0.44
+    },
+    "S Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Contact",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "S Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "Consistency",
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "S Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Discipline",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "S ERA": {
+      "best": 2.5,
+      "fmt": "num",
+      "higher_is_better": false,
+      "label": "ERA",
+      "neutral_hi": 3.7,
+      "neutral_lo": 4,
+      "worst": 5.5
+    },
+    "S L Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "L Eye",
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "S LCon": {
+      "best": 3,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Loc for Contact",
+      "neutral_hi": -5,
+      "neutral_lo": -6,
+      "worst": -14
+    },
+    "S LDisc": {
+      "best": 60,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Loc for K/BB",
+      "neutral_hi": 38,
+      "neutral_lo": 37,
+      "worst": 20
+    },
+    "S OPS": {
+      "best": 0.98,
+      "fmt": "avg",
+      "higher_is_better": true,
+      "label": "OPS",
+      "neutral_hi": 0.77,
+      "neutral_lo": 0.73,
+      "worst": 0.6
+    },
+    "S PPG": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "S PPG",
+      "neutral_hi": 17,
+      "neutral_lo": 15,
+      "worst": 10
+    },
+    "S Pts +/-": {
+      "best": 0.3,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "Consistency",
+      "neutral_hi": 0.1,
+      "neutral_lo": 0.05,
+      "worst": -0.2
+    },
+    "S R Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "R Eye",
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "S Score": {
+      "best": 100,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Score",
+      "neutral_hi": 10,
+      "neutral_lo": 0,
+      "worst": -100
+    },
+    "S Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Stuff",
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "S Val": {
+      "best": 500,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "S Fan Val",
+      "neutral_hi": 100,
+      "neutral_lo": -50,
+      "worst": -300
+    },
+    "S WHIP": {
+      "best": 1.0,
+      "fmt": "num",
+      "higher_is_better": false,
+      "label": "WHIP",
+      "neutral_hi": 1.2,
+      "neutral_lo": 1.25,
+      "worst": 1.5
+    },
+    "SI Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "SI Stuff",
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "SL Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "SL Stuff",
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "SP Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "SP Stuff",
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "SW Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "SW Stuff",
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "Score": {
+      "best": 100,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Score",
+      "neutral_hi": 10,
+      "neutral_lo": 0,
+      "worst": -100
+    },
+    "Spd": {
+      "best": 8,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Speed",
+      "neutral_hi": 5,
+      "neutral_lo": 4,
+      "worst": 1
+    },
+    "Spring Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Contact",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "Spring Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "Consistency",
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "Spring Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Discipline",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "Spring L Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "L Eye",
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "Spring R Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "R Eye",
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "Spring Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Stuff",
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "Spring SwSp%": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "Sweet Spot%",
+      "neutral_hi": 0.41,
+      "neutral_lo": 0.4,
+      "worst": 0.3
+    },
+    "Spring SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "SwStr%",
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "Spring Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "pVelocity",
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "Spring Whiff%": {
+      "best": 0.15,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "Whiff%",
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.26,
+      "worst": 0.4
+    },
+    "Spring ≥100": {
+      "best": 0.4,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "≥100mph",
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.24,
+      "worst": 0.12
+    },
+    "Sprint Speed": {
+      "best": 30,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Sprint Speed",
+      "neutral_hi": 27.5,
+      "neutral_lo": 26.5,
+      "worst": 24
+    },
+    "Square%": {
+      "best": 0.24,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "Squared",
+      "neutral_hi": 0.32,
+      "neutral_lo": 0.33,
+      "worst": 0.41
+    },
+    "Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Stuff",
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "Strike%": {
+      "best": 0.72,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "Strike%",
+      "neutral_hi": 0.64,
+      "neutral_lo": 0.63,
+      "worst": 0.58
+    },
+    "SwSp%": {
+      "best": 0.32,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "Sweet Spot%",
+      "neutral_hi": 0.41,
+      "neutral_lo": 0.42,
+      "worst": 0.5
+    },
+    "SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "SwStr%",
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "Throwing Runs": {
+      "best": 10,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Throwing Value",
+      "neutral_hi": 1,
+      "neutral_lo": -1,
+      "worst": -10
+    },
+    "Total Runs": {
+      "best": 15,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Fielding Value",
+      "neutral_hi": 2,
+      "neutral_lo": -2,
+      "worst": -10
+    },
+    "Val": {
+      "best": 500,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Fan Val",
+      "neutral_hi": 100,
+      "neutral_lo": -50,
+      "worst": -300
+    },
+    "Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "pVelocity",
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "Whiff%": {
+      "best": 0.15,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "Whiff%",
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.26,
+      "worst": 0.4
+    },
+    "Wk/PA": {
+      "best": 0.36,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "label": "Weak",
+      "neutral_hi": 0.28,
+      "neutral_lo": 0.27,
+      "worst": 0.2
+    },
+    "mAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "All Pitches",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "mAll -1": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "All Pitches",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "pAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Playoffs",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "pERA": {
+      "best": 2.5,
+      "fmt": "num",
+      "higher_is_better": false,
+      "label": "pERA",
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 5.5
+    },
+    "qCon Bad%": {
+      "best": 0.35,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "% Bad for Con",
+      "neutral_hi": 0.44,
+      "neutral_lo": 0.45,
+      "worst": 0.55
+    },
+    "qDisc Bad%": {
+      "best": 0.21,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "% Bad for K/BB",
+      "neutral_hi": 0.3,
+      "neutral_lo": 0.31,
+      "worst": 0.4
+    },
+    "rAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Recent",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "sAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "All Pitches",
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "vSzn": {
+      "best": 500,
+      "fmt": "num",
+      "higher_is_better": true,
+      "label": "Fan Val (Season)",
+      "neutral_hi": 100,
+      "neutral_lo": -50,
+      "worst": -300
+    },
+    "xOPS": {
+      "best": 1.0,
+      "fmt": "avg",
+      "higher_is_better": true,
+      "label": "xOPS",
+      "neutral_hi": 0.77,
+      "neutral_lo": 0.73,
+      "worst": 0.6
+    },
+    "≥100": {
+      "best": 0.2,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "label": "≥100mph",
+      "neutral_hi": 0.29,
+      "neutral_lo": 0.3,
+      "worst": 0.4
+    }
+  }
+}
