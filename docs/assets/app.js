@@ -1001,6 +1001,43 @@ function is_dark_text_fill(fill) {
   );
 }
 /* ################# */
+function clamp_byte(v) {
+  return Math.max(0, Math.min(255, Math.round(v)));
+}
+/* ################# */
+function rgba_string(c) {
+  const a = c.a == null ? 1 : c.a;
+  return `rgba(${clamp_byte(c.r)},${clamp_byte(c.g)},${clamp_byte(c.b)},${a})`;
+}
+/* ################# */
+function dark_mode_stat_fill(fill) {
+  const c = parse_svg_fill(fill);
+  if (!c || c.a === 0) return fill;
+
+  const spread = Math.max(c.r, c.g, c.b) - Math.min(c.r, c.g, c.b);
+  const lum = (0.2126 * c.r) + (0.7152 * c.g) + (0.0722 * c.b);
+
+  if (spread < 18) return fill;
+
+  const blue_like = (c.b - c.r >= 30) && (c.b - c.g >= 18);
+  const red_like = (c.r - c.g >= 30) && (c.r - c.b >= 18);
+
+  if (!blue_like && !red_like) return fill;
+
+  // Only darken the pale end of the gradient.
+  // Stronger colors already read fine with light text.
+  if (lum < 150) return fill;
+
+  const strength = Math.min(0.35, Math.max(0.12, (lum - 150) / 220));
+
+  return rgba_string({
+    r: c.r * (1 - strength),
+    g: c.g * (1 - strength),
+    b: c.b * (1 - strength),
+    a: c.a,
+  });
+}
+/* ################# */
 function repaint_standard_stats_tables(root) {
   const scope = root || document;
   const is_dark = document.body.classList.contains('soft_theme');
@@ -1086,7 +1123,7 @@ function repaint_standard_stats_tables(root) {
         if (!parsed || parsed.a === 0) return;
 
         if (is_stat_fill(orig_fill)) {
-          r.style.fill = orig_fill;
+          r.style.fill = dark_mode_stat_fill(orig_fill);
           return;
         }
 
@@ -2780,23 +2817,23 @@ function init_matchups_page_if_present(content_root) {
       });
     }
 
-    if (fallback_hitters.length) {
-      const fallback_dummy_rows = build_personalized_hitter_fallback_rows(
-        year_lists_obj,
-        fallback_hitters,
-        pitcher_name,
-        year_val
-      );
+if (fallback_hitters.length) {
+  const fallback_dummy_rows = build_personalized_hitter_fallback_rows(
+    year_lists_obj,
+    fallback_hitters,
+    pitcher_name,
+    year_val
+  );
 
-      sections.push({
-        title: sorted_matchup_paths.length ? title_fallback : '',
-        hide_title: !sorted_matchup_paths.length,
-        paths: [],
-        opts: {
-          dummy_rows: fallback_dummy_rows
-        }
-      });
+  sections.push({
+    title: title_fallback,
+    hide_title: false,
+    paths: [],
+    opts: {
+      dummy_rows: fallback_dummy_rows
     }
+  });
+}
 
     return sections;
   }
@@ -3776,22 +3813,31 @@ function init_matchups_page_if_present(content_root) {
 
       let gd_req_id = 0;
       //#################
-      async function refresh_team_choices(){
-        const offset = day_offset_from_label(day_obj.sel.value);
-        const d = add_days_local(new Date(),offset);
-        const date_str = to_yyyy_mm_dd_local(d);
+async function refresh_team_choices() {
+  const prev_team = String(team_obj.sel.value || '').trim();
 
-        const games = await fetch_matchups_for_date(date_str);
+  const offset = day_offset_from_label(day_obj.sel.value);
+  const d = add_days_local(new Date(), offset);
+  const date_str = to_yyyy_mm_dd_local(d);
 
-        const playing=new Set();
+  const games = await fetch_matchups_for_date(date_str);
 
-        games.forEach(g=>{
-          if(g.home_team) playing.add(g.home_team);
-          if(g.away_team) playing.add(g.away_team);
-        });
+  const playing = new Set();
 
-        set_select_options(team_obj.sel,[...playing].sort(),'Select team');
-      }
+  games.forEach(g => {
+    if (g.home_team) playing.add(g.home_team);
+    if (g.away_team) playing.add(g.away_team);
+  });
+
+  const options = [...playing].sort();
+  set_select_options(team_obj.sel, options, 'Select team');
+
+  if (prev_team && options.includes(prev_team)) {
+    team_obj.sel.value = prev_team;
+  }
+
+  sync_select_placeholder_class(team_obj.sel);
+}
 
       day_obj.sel.addEventListener('change',()=>{
         clear_results();
@@ -4765,25 +4811,31 @@ const fantasy_state = {
   sort_desc: true,
   data_cache: new Map(),
   scales: null,
+  show_gradients: false,
 };
-
 /* ################# */
-/* display columns: edit these arrays to add/remove shown columns */
 const fantasy_display_columns = {
   majors: {
     hitters: [
       'Name', 'Pos', '2nd Pos', 'Team',
-      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'PA', 'R', 'HR', 'RBI', 'SB',
-      'AVG', 'OBP', 'SLG', 'OPS', 'Pts +/-', 'Whiff%', 'SwSp%', '≥100', 'R Eye', 'L Eye', 'BB%', 'K%'
+      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'RHP', 'LHP', 'R Hit', 'R Pwr', 'L Hit', 'L Pwr', 'PA', 'H', '2B', '3B', 'R', 'HR', 'RBI', 'SB', 'BB', 'SO',
+      'AVG', 'OBP', 'SLG', 'OPS', 'Pts +/-', 'Whiff%', 'SwSp%', '≥100', 'R Eye', 'L Eye', 'BB%', 'K%', 'FB R', 'SI R', 'CT R', 'SL R', 'SW R', 'CB R', 'CH R', 'SP R', 'FB L', 'SI L', 'CT L', 'SL L', 'SW L', 'CB L', 'CH L', 'SP L'
     ],
     sp: [
       'Name', 'Team',
-      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'IP', 'K', 'QS/SV', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual'
+      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
+      'FB Stf', 'FB R', 'FB L', 'SI Stf', 'SI R', 'SI L', 'CT Stf', 'CT R', 'CT L', 'SL Stf', 'SL R', 'SL L', 'SW Stf', 'SW R', 'SW L', 'CB Stf', 'CB R', 'CB L', 'CH Stf', 'CH R', 'CH L', 'SP Stf', 'SP R', 'SP L'
     ],
     rp: [
       'Name', 'Team',
-      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'IP', 'K', 'QS/SV', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual'
+      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'BS', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
+      'FB Stf', 'FB R', 'FB L', 'SI Stf', 'SI R', 'SI L', 'CT Stf', 'CT R', 'CT L', 'SL Stf', 'SL R', 'SL L', 'SW Stf', 'SW R', 'SW L', 'CB Stf', 'CB R', 'CB L', 'CH Stf', 'CH R', 'CH L', 'SP Stf', 'SP R', 'SP L'
     ],
+  },
+  playoffs: {
+    hitters: ['Name', 'Pos', '2nd Pos', 'Team', 'PA', 'All', 'Con', 'Disc', 'SwSp%', '≥100', 'Whiff%', 'R Eye', 'L Eye'],
+    sp: ['Name', 'Team', 'IP', 'Velo', 'Stf', 'All', 'Con', 'Disc', 'SwStr%', 'Strike%', 'Days +/-', 'BB%', 'K%'],
+    rp: ['Name', 'Team', 'IP', 'Velo', 'Stf', 'All', 'Con', 'Disc', 'SwStr%', 'Strike%', 'Days +/-', 'BB%', 'K%'],
   },
   spring: {
     hitters: ['Name', 'Pos', '2nd Pos', 'Team', 'PA', 'All', 'Con', 'Disc', 'SwSp%', '≥100', 'Whiff%', 'R Eye', 'L Eye'],
@@ -4800,15 +4852,22 @@ const fantasy_display_columns = {
 const fantasy_sort_columns = {
   majors: {
     hitters: [
-      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'PA', 'R', 'HR', 'RBI', 'SB',
-      'AVG', 'OBP', 'SLG', 'OPS', 'Pts +/-', 'Whiff%', 'SwSp%', '≥100', 'R Eye', 'L Eye', 'BB%', 'K%'
+      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'RHP', 'LHP', 'R Hit', 'R Pwr', 'L Hit', 'L Pwr', 'PA', 'H', '2B', '3B', 'R', 'HR', 'RBI', 'SB', 'BB', 'SO',
+      'AVG', 'OBP', 'SLG', 'OPS', 'Pts +/-', 'Whiff%', 'SwSp%', '≥100', 'R Eye', 'L Eye', 'BB%', 'K%', 'FB R', 'SI R', 'CT R', 'SL R', 'SW R', 'CB R', 'CH R', 'SP R', 'FB L', 'SI L', 'CT L', 'SL L', 'SW L', 'CB L', 'CH L', 'SP L'
     ],
     sp: [
-      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'IP', 'K', 'QS/SV', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual'
+      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
+      'FB Stf', 'FB R', 'FB L', 'SI Stf', 'SI R', 'SI L', 'CT Stf', 'CT R', 'CT L', 'SL Stf', 'SL R', 'SL L', 'SW Stf', 'SW R', 'SW L', 'CB Stf', 'CB R', 'CB L', 'CH Stf', 'CH R', 'CH L', 'SP Stf', 'SP R', 'SP L'
     ],
     rp: [
-      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'IP', 'K', 'QS/SV', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual'
+      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'BS', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
+      'FB Stf', 'FB R', 'FB L', 'SI Stf', 'SI R', 'SI L', 'CT Stf', 'CT R', 'CT L', 'SL Stf', 'SL R', 'SL L', 'SW Stf', 'SW R', 'SW L', 'CB Stf', 'CB R', 'CB L', 'CH Stf', 'CH R', 'CH L', 'SP Stf', 'SP R', 'SP L'
     ],
+  },
+  playoffs: {
+    hitters: ['PA', 'All', 'Con', 'Disc', 'SwSp%', '≥100', 'Whiff%', 'R Eye', 'L Eye'],
+    sp: ['IP', 'Velo', 'Stf', 'All', 'Con', 'Disc', 'SwStr%', 'Strike%', 'Days +/-', 'BB%', 'K%'],
+    rp: ['IP', 'Velo', 'Stf', 'All', 'Con', 'Disc', 'SwStr%', 'Strike%', 'Days +/-', 'BB%', 'K%'],
   },
   spring: {
     hitters: ['PA', 'All', 'Con', 'Disc', 'SwSp%', '≥100', 'Whiff%', 'R Eye', 'L Eye'],
@@ -4822,7 +4881,7 @@ const fantasy_sort_columns = {
   },
 };
 /* ################# */
-const fantasy_hitter_positions = ['All', 'C', '1B', '2B', '3B', 'SS', 'OF'];
+const fantasy_hitter_positions = ['All', 'C', '1B', '2B', '3B', 'SS', 'OF', 'DH'];
 /* ################# */
 const fantasy_qual_options = {
   hitters: ['', '25', '50', '100', '200', '300', '400', '500'],
@@ -4940,7 +4999,7 @@ function fantasy_fmt(key, v) {
 
   const two_dec_keys = new Set([
     'PPG', 'S PPG',
-    'ERA', 'WHIP',
+    'ERA', 'WHIP', 'LDisc', 'LCon'
   ]);
 
     const three_dec_keys = new Set([
@@ -5057,7 +5116,9 @@ function fantasy_team_options(data) {
     new Set(
       rows
         .map(row => String(row.team || '').trim())
-        .filter(Boolean)
+        .filter(team => team && team.toUpperCase() !== 'FA')
+        .filter(team => team.toUpperCase() !== 'FREE AGENTS')
+        .filter(team => team.toUpperCase() !== 'FREE AGENT')
     )
   ).sort((a, b) => a.localeCompare(b));
 
@@ -5156,6 +5217,7 @@ function fantasy_build_controls_html(data) {
 
   const scope_options = [
     ['majors', 'MLB'],
+    ['playoffs', 'Playoffs'],
     ['spring', 'Spring'],
     ['minors', 'Minor Leagues'],
   ].map(([value, label]) => `<option value="${value}" ${value === fantasy_state.scope ? 'selected' : ''}>${label}</option>`).join('');
@@ -5228,6 +5290,13 @@ function fantasy_build_controls_html(data) {
       </div>
     </div>
 
+      <div class="fantasy_checkbox_wrap">
+        <label class="fantasy_filter_row" for="fantasy_show_gradients">
+          <input id="fantasy_show_gradients" type="checkbox" ${fantasy_state.show_gradients ? 'checked' : ''} />
+          <span>Show Heat Mapping</span>
+        </label>
+      </div>
+
       <div class="fantasy_clear_wrap">
         <div class="matchups_label">&nbsp;</div>
         <button id="fantasy_undo_removals" type="button" class="matchups_submit fantasy_clear_btn">Undo Removals</button>
@@ -5245,77 +5314,214 @@ function fantasy_display_label(col) {
 }
 /* ################# */
 function fantasy_gradient_source_key(row, col) {
-  const role_prefix = fantasy_state.section === 'hitters' ? 'hitter' : 'pitcher';
+  const scope = String(fantasy_state.scope || '');
+  const section = String(fantasy_state.section || '');
 
-  if (fantasy_state.scope === 'majors') {
-    return `${role_prefix}|${col}`;
+  if (!col || col === 'Name' || col === 'Pos' || col === '2nd Pos' || col === 'Team') {
+    return '';
   }
 
-  if (fantasy_state.scope === 'spring') {
-    const spring_map = {
-      'All': 'sAll',
-      'Con': 'Spring Con',
-      'Disc': 'Spring Disc',
-      'SwSp%': 'Spring SwSp%',
-      '≥100': 'Spring ≥100',
-      'Whiff%': 'Spring Whiff%',
-      'R Eye': 'Spring R Eye',
-      'L Eye': 'Spring L Eye',
-      'Velo': 'Spring Velo',
-      'Stf': 'Spring Stf',
-      'SwStr%': 'Spring SwStr%',
-      'Strike%': 'Spring Strike%',
-      'Days +/-': 'Spring Days +/-',
-    };
+  const shared_pitch_type_cols = new Set([
+    'FB R', 'FB L',
+    'SI R', 'SI L',
+    'CT R', 'CT L',
+    'SL R', 'SL L',
+    'SW R', 'SW L',
+    'CB R', 'CB L',
+    'CH R', 'CH L',
+    'SP R', 'SP L',
+  ]);
 
-    return `${role_prefix}|${spring_map[col] || col}`;
+  const shared_pitch_type_key_map = {
+    'FB R': 'FB',
+    'FB L': 'FB',
+    'SI R': 'SI',
+    'SI L': 'SI',
+    'CT R': 'CT',
+    'CT L': 'CT',
+    'SL R': 'SL',
+    'SL L': 'SL',
+    'SW R': 'SW',
+    'SW L': 'SW',
+    'CB R': 'CB',
+    'CB L': 'CB',
+    'CH R': 'CH',
+    'CH L': 'CH',
+    'SP R': 'SP',
+    'SP L': 'SP',
+  };
+
+  if (scope === 'majors' && section === 'hitters' && shared_pitch_type_cols.has(col)) {
+    return `${scope}|${section}|${shared_pitch_type_key_map[col]}`;
   }
 
-  if (fantasy_state.scope === 'minors') {
+  const base_map = {
+    playoffs: {
+      hitters: {
+        'All': 'pAll',
+        'Con': 'Playoff Con',
+        'Disc': 'Playoff Disc',
+        'SwSp%': 'Playoff SwSp%',
+        '≥100': 'Playoff ≥100',
+        'Whiff%': 'Playoff Whiff%',
+        'R Eye': 'Playoff R Eye',
+        'L Eye': 'Playoff L Eye',
+      },
+      sp: {
+        'All': 'pAll',
+        'Con': 'Playoff Con',
+        'Disc': 'Playoff Disc',
+        'Velo': 'Playoff Velo',
+        'Stf': 'Playoff Stf',
+        'SwStr%': 'Playoff SwStr%',
+        'Strike%': 'Playoff Strike%',
+        'Days +/-': 'Playoff Days +/-',
+        'BB%': 'Playoff BB%',
+        'K%': 'Playoff K%',
+      },
+      rp: {
+        'All': 'pAll',
+        'Con': 'Playoff Con',
+        'Disc': 'Playoff Disc',
+        'Velo': 'Playoff Velo',
+        'Stf': 'Playoff Stf',
+        'SwStr%': 'Playoff SwStr%',
+        'Strike%': 'Playoff Strike%',
+        'Days +/-': 'Playoff Days +/-',
+        'BB%': 'Playoff BB%',
+        'K%': 'Playoff K%',
+      },
+    },
+
+    spring: {
+      hitters: {
+        'All': 'sAll',
+        'Con': 'Spring Con',
+        'Disc': 'Spring Disc',
+        'SwSp%': 'Spring SwSp%',
+        '≥100': 'Spring ≥100',
+        'Whiff%': 'Spring Whiff%',
+        'R Eye': 'Spring R Eye',
+        'L Eye': 'Spring L Eye',
+      },
+      sp: {
+        'All': 'sAll',
+        'Con': 'Spring Con',
+        'Disc': 'Spring Disc',
+        'Velo': 'Spring Velo',
+        'Stf': 'Spring Stf',
+        'SwStr%': 'Spring SwStr%',
+        'Strike%': 'Spring Strike%',
+        'Days +/-': 'Spring Days +/-',
+        'BB%': 'Spring BB%',
+        'K%': 'Spring K%',
+      },
+      rp: {
+        'All': 'sAll',
+        'Con': 'Spring Con',
+        'Disc': 'Spring Disc',
+        'Velo': 'Spring Velo',
+        'Stf': 'Spring Stf',
+        'SwStr%': 'Spring SwStr%',
+        'Strike%': 'Spring Strike%',
+        'Days +/-': 'Spring Days +/-',
+        'BB%': 'Spring BB%',
+        'K%': 'Spring K%',
+      },
+    },
+
+    minors: {
+      hitters: {
+        'All': 'mAll',
+        'Con': 'Minors Con',
+        'Disc': 'Minors Disc',
+        'SwSp%': 'Minors SwSp%',
+        '≥100': 'Minors ≥100',
+        'Whiff%': 'Minors Whiff%',
+        'R Eye': 'Minors R Eye',
+        'L Eye': 'Minors L Eye',
+      },
+      sp: {
+        'All': 'mAll',
+        'Con': 'Minors Con',
+        'Disc': 'Minors Disc',
+        'Velo': 'Minors Velo',
+        'Stf': 'Minors Stf',
+        'SwStr%': 'Minors SwStr%',
+        'Strike%': 'Minors Strike%',
+        'Days +/-': 'Minors Days +/-',
+        'BB%': 'Minors BB%',
+        'K%': 'Minors K%',
+        'LCon': 'Minors LCon',
+        'LDisc': 'Minors LDisc',
+      },
+      rp: {
+        'All': 'mAll',
+        'Con': 'Minors Con',
+        'Disc': 'Minors Disc',
+        'Velo': 'Minors Velo',
+        'Stf': 'Minors Stf',
+        'SwStr%': 'Minors SwStr%',
+        'Strike%': 'Minors Strike%',
+        'Days +/-': 'Minors Days +/-',
+        'BB%': 'Minors BB%',
+        'K%': 'Minors K%',
+        'LCon': 'Minors LCon',
+        'LDisc': 'Minors LDisc',
+      },
+    },
+  };
+
+  if (scope === 'minors') {
     const selected_year = Number(fantasy_state.year);
     const prev_minors_year = Number(row.prev_minors_year);
     const use_prev = !Number.isNaN(selected_year) && !Number.isNaN(prev_minors_year) && selected_year === prev_minors_year;
 
     if (use_prev) {
       const prev_map = {
-        'All': 'mAll -1',
-        'Con': 'Prev Minors Con',
-        'Disc': 'Prev Minors Disc',
-        'SwSp%': 'Prev Minors SwSp%',
-        '≥100': 'Prev Minors ≥100',
-        'Whiff%': 'Prev Minors Whiff%',
-        'R Eye': 'Prev Minors R Eye',
-        'L Eye': 'Prev Minors L Eye',
-        'Velo': 'Prev Minors Velo',
-        'Stf': 'Prev Minors Stf',
-        'SwStr%': 'Prev Minors SwStr%',
-        'Strike%': 'Prev Minors Strike%',
-        'Days +/-': 'Prev Minors Days +/-',
+        hitters: {
+          'All': 'mAll -1',
+          'Con': 'Prev Minors Con',
+          'Disc': 'Prev Minors Disc',
+          'SwSp%': 'Prev Minors SwSp%',
+          '≥100': 'Prev Minors ≥100',
+          'Whiff%': 'Prev Minors Whiff%',
+          'R Eye': 'Prev Minors R Eye',
+          'L Eye': 'Prev Minors L Eye',
+        },
+        sp: {
+          'All': 'mAll -1',
+          'Con': 'Prev Minors Con',
+          'Disc': 'Prev Minors Disc',
+          'Velo': 'Prev Minors Velo',
+          'Stf': 'Prev Minors Stf',
+          'SwStr%': 'Prev Minors SwStr%',
+          'Strike%': 'Prev Minors Strike%',
+          'Days +/-': 'Prev Minors Days +/-',
+          'LCon': 'Prev Minors LCon',
+          'LDisc': 'Prev Minors LDisc',
+        },
+        rp: {
+          'All': 'mAll -1',
+          'Con': 'Prev Minors Con',
+          'Disc': 'Prev Minors Disc',
+          'Velo': 'Prev Minors Velo',
+          'Stf': 'Prev Minors Stf',
+          'SwStr%': 'Prev Minors SwStr%',
+          'Strike%': 'Prev Minors Strike%',
+          'Days +/-': 'Prev Minors Days +/-',
+          'LCon': 'Prev Minors LCon',
+          'LDisc': 'Prev Minors LDisc',
+        },
       };
 
-      return `${role_prefix}|${prev_map[col] || col}`;
+      const mapped_prev = (prev_map[section] || {})[col] || col;
+      return `${scope}|${section}|${mapped_prev}`;
     }
-
-    const minors_map = {
-      'All': 'mAll',
-      'Con': 'Minors Con',
-      'Disc': 'Minors Disc',
-      'SwSp%': 'Minors SwSp%',
-      '≥100': 'Minors ≥100',
-      'Whiff%': 'Minors Whiff%',
-      'R Eye': 'Minors R Eye',
-      'L Eye': 'Minors L Eye',
-      'Velo': 'Minors Velo',
-      'Stf': 'Minors Stf',
-      'SwStr%': 'Minors SwStr%',
-      'Strike%': 'Minors Strike%',
-      'Days +/-': 'Minors Days +/-',
-    };
-
-    return `${role_prefix}|${minors_map[col] || col}`;
   }
 
-  return `${role_prefix}|${col}`;
+  const mapped = (((base_map[scope] || {})[section] || {})[col]) || col;
+  return `${scope}|${section}|${mapped}`;
 }
 /* ################# */
 function fantasy_blend_rgba_on_rgb(rgba_str, base_rgb = [235, 240, 248]) {
@@ -5410,9 +5616,9 @@ function fantasy_graph_bar_fill(v, spec) {
   const t = Math.max(0, Math.min(1, (value - mid) / denom));
   return 0.5 + 0.5 * t;
 }
-
 /* ################# */
 function fantasy_gradient_style(row, col, value) {
+  if (!fantasy_state.show_gradients) return '';
   if (value == null) return '';
 
   const scales = fantasy_state.scales || {};
@@ -5422,26 +5628,96 @@ function fantasy_gradient_style(row, col, value) {
 
   if (!spec) return '';
 
-  const lo_n = Math.min(Number(spec.neutral_lo), Number(spec.neutral_hi));
-  const hi_n = Math.max(Number(spec.neutral_lo), Number(spec.neutral_hi));
+  const num_value = Number(value);
+  if (Number.isNaN(num_value)) return '';
 
-  if (value >= lo_n && value <= hi_n) {
+  let worst = Number(spec.worst);
+  let neutral_lo = Number(spec.neutral_lo);
+  let neutral_hi = Number(spec.neutral_hi);
+  let best = Number(spec.best);
+  const higher_is_better = spec.higher_is_better !== false;
+
+  if (!higher_is_better) {
+    worst = -worst;
+    best = -best;
+    neutral_lo = -Number(spec.neutral_hi);
+    neutral_hi = -Number(spec.neutral_lo);
+  }
+
+  const lo_n = Math.min(neutral_lo, neutral_hi);
+  const hi_n = Math.max(neutral_lo, neutral_hi);
+
+  let adj_value = num_value;
+  if (!higher_is_better) {
+    adj_value = -adj_value;
+  }
+
+  if (adj_value >= lo_n && adj_value <= hi_n) {
     return '';
   }
 
-  const frac = fantasy_graph_bar_fill(value, spec);
+  const frac = fantasy_graph_bar_fill(num_value, spec);
   const bg = fantasy_blend_rgba_on_rgb(fantasy_standard_stats_gradient(frac));
+  if (!bg) return '';
 
-  return bg ? `background:${bg};` : '';
+let text_shadow = '';
+const is_dark_mode = document.body.classList.contains('soft_theme');
+
+const low_span = Math.max(1e-12, neutral_lo - worst);
+const high_span = Math.max(1e-12, best - neutral_hi);
+
+// const low_outline_cutoff = neutral_lo - (0.10 * low_span);
+// const high_outline_cutoff = neutral_hi + (0.10 * high_span);
+const low_outline_cutoff = neutral_lo - (0.30 * low_span);
+const high_outline_cutoff = neutral_hi + (0.30 * high_span);
+
+if (
+  is_dark_mode &&
+  (
+    (adj_value < neutral_lo && adj_value >= low_outline_cutoff) ||
+    (adj_value > neutral_hi && adj_value <= high_outline_cutoff)
+  )
+) {
+  text_shadow = '0 0 0.6px rgba(0,0,0,0.95)';
 }
+
+  return `background:${bg};${text_shadow ? `text-shadow:${text_shadow};` : ''}`;
+}
+/* ################# */
+// function fantasy_gradient_style(row, col, value) {
+//   if (!fantasy_state.show_gradients) return '';
+//   if (value == null) return '';
+
+//   const scales = fantasy_state.scales || {};
+//   const panel_lookup = scales.panel_scale_lookup || {};
+//   const source_key = fantasy_gradient_source_key(row, col);
+//   const spec = panel_lookup[source_key];
+
+//   if (!spec) return '';
+
+//   const lo_n = Math.min(Number(spec.neutral_lo), Number(spec.neutral_hi));
+//   const hi_n = Math.max(Number(spec.neutral_lo), Number(spec.neutral_hi));
+
+//   if (value >= lo_n && value <= hi_n) {
+//     return '';
+//   }
+
+//   const frac = fantasy_graph_bar_fill(value, spec);
+//   const bg = fantasy_blend_rgba_on_rgb(fantasy_standard_stats_gradient(frac));
+
+//   return bg ? `background:${bg};` : '';
+// }
 /* ################# */
 function fantasy_build_table_html(rows) {
   const cols = fantasy_current_columns();
   const sortable_cols = fantasy_sortable_columns();
+  const is_majors = fantasy_state.scope === 'majors';
 
-  const header_html = cols.map(col => {
+  const header_html = cols.map((col, col_idx) => {
+    const sticky_cls = col_idx === 0 ? ' fantasy_sticky_col' : '';
+
     if (!sortable_cols.has(col)) {
-      return `<th class="fantasy_th">${escape_html(fantasy_display_label(col))}</th>`;
+      return `<th class="fantasy_th${sticky_cls}">${escape_html(fantasy_display_label(col))}</th>`;
     }
 
     let arrow = '↕';
@@ -5453,7 +5729,7 @@ function fantasy_build_table_html(rows) {
     }
 
     return `
-      <th class="fantasy_th fantasy_th_sort">
+      <th class="fantasy_th fantasy_th_sort${sticky_cls}">
         <button type="button" class="fantasy_sort_btn${active_cls}" data-sort_key="${escape_html(col)}">
           <span class="fantasy_sort_label">${escape_html(fantasy_display_label(col))}</span>
           <span class="fantasy_sort_arrow">${arrow}</span>
@@ -5463,9 +5739,13 @@ function fantasy_build_table_html(rows) {
   }).join('');
 
   const body_html = rows.map(row => {
-    const tds = cols.map(col => {
+    const tds = cols.map((col, col_idx) => {
       let value = '';
       let cls = 'fantasy_td fantasy_td_center';
+
+      if (col_idx === 0) {
+        cls += ' fantasy_sticky_col';
+      }
 
       if (col === 'Name') {
         const remove_btn = `
@@ -5520,7 +5800,7 @@ function fantasy_build_table_html(rows) {
         </div>
 
         <div class="fantasy_table_wrap">
-          <table class="fantasy_table">
+          <table class="fantasy_table${is_majors ? ' fantasy_table_majors' : ''}">
             <thead>
               <tr>${header_html}</tr>
             </thead>
@@ -5533,7 +5813,35 @@ function fantasy_build_table_html(rows) {
     `;
 }
 /* ################# */
-function fantasy_bind_top_scroll(results_root) {
+function fantasy_capture_scroll_state(results_root) {
+  const table_wrap = results_root?.querySelector('.fantasy_table_wrap');
+  const top_scroll = results_root?.querySelector('.fantasy_top_scroll');
+
+  return {
+    table_scroll_left: table_wrap ? table_wrap.scrollLeft : 0,
+    top_scroll_left: top_scroll ? top_scroll.scrollLeft : 0,
+  };
+}
+
+/* ################# */
+function fantasy_restore_scroll_state(results_root, scroll_state) {
+  if (!scroll_state) return;
+
+  const table_wrap = results_root?.querySelector('.fantasy_table_wrap');
+  const top_scroll = results_root?.querySelector('.fantasy_top_scroll');
+
+  const left = Number(scroll_state.table_scroll_left || scroll_state.top_scroll_left || 0);
+
+  if (table_wrap) {
+    table_wrap.scrollLeft = left;
+  }
+
+  if (top_scroll) {
+    top_scroll.scrollLeft = left;
+  }
+}
+/* ################# */
+function fantasy_bind_top_scroll(results_root, scroll_state = null) {
   const shell = results_root.querySelector('.fantasy_scroll_shell');
   if (!shell) return;
 
@@ -5544,7 +5852,13 @@ function fantasy_bind_top_scroll(results_root) {
 
   if (!top_scroll || !top_inner || !table_wrap || !table) return;
 
+  const sticky_col = table.querySelector('.fantasy_sticky_col');
+  const sticky_width = sticky_col ? Math.ceil(sticky_col.getBoundingClientRect().width) : 0;
+
   top_inner.style.width = `${table.scrollWidth}px`;
+
+  const needs_horizontal_scroll = table.scrollWidth > table_wrap.clientWidth + 1;
+  top_scroll.style.display = needs_horizontal_scroll ? 'block' : 'none';
 
   let syncing_from_top = false;
   let syncing_from_bottom = false;
@@ -5563,7 +5877,7 @@ function fantasy_bind_top_scroll(results_root) {
     syncing_from_bottom = false;
   });
 
-  top_scroll.scrollLeft = table_wrap.scrollLeft;
+  fantasy_restore_scroll_state(results_root, scroll_state);
 }
 /* ################# */
 async function render_fantasy_page() {
@@ -5571,6 +5885,8 @@ async function render_fantasy_page() {
   const results_root = document.getElementById('fantasy_results_root');
 
   if (!controls_root || !results_root) return;
+
+  const scroll_state = fantasy_capture_scroll_state(results_root);
 
   if (!fantasy_state.year) {
     fantasy_state.year = Number(window.year_page_lookup ? Object.keys(window.year_page_lookup).sort().slice(-1)[0] : new Date().getFullYear());
@@ -5581,7 +5897,7 @@ async function render_fantasy_page() {
     fantasy_state.sort_desc = fantasy_sort_desc(fantasy_state.sort_key);
   }
 
-  controls_root.innerHTML = fantasy_build_controls_html({ majors: {}, spring: {}, minors: {} });
+  controls_root.innerHTML = fantasy_build_controls_html({ majors: {}, playoffs: {}, spring: {}, minors: {} });
 
   try {
     await load_fantasy_scales();
@@ -5589,7 +5905,7 @@ async function render_fantasy_page() {
     controls_root.innerHTML = fantasy_build_controls_html(data);
     const rows = fantasy_sort_rows(fantasy_filter_rows(data));
     results_root.innerHTML = fantasy_build_table_html(rows);
-    fantasy_bind_top_scroll(results_root);
+    fantasy_bind_top_scroll(results_root, scroll_state);
   } catch (err) {
     results_root.innerHTML = `<div class="static_page"><p>${escape_html(String(err.message || err))}</p></div>`;
   }
@@ -5597,10 +5913,11 @@ async function render_fantasy_page() {
   const section_el = document.getElementById('fantasy_section');
   const scope_el = document.getElementById('fantasy_scope');
   const pos_el = document.getElementById('fantasy_hitter_pos');
-    const qual_el = document.getElementById('fantasy_qual_min');
-const team_el = document.getElementById('fantasy_team');
+  const qual_el = document.getElementById('fantasy_qual_min');
+  const team_el = document.getElementById('fantasy_team');
   const year_el = document.getElementById('fantasy_year');
   const undo_el = document.getElementById('fantasy_undo_removals');
+  const gradients_el = document.getElementById('fantasy_show_gradients');
 
   if (section_el) {
     section_el.addEventListener('change', () => {
@@ -5627,12 +5944,13 @@ const team_el = document.getElementById('fantasy_team');
     });
   }
 
-    if (qual_el) {
+  if (qual_el) {
     qual_el.addEventListener('change', () => {
       fantasy_state.qual_min = qual_el.value;
       render_fantasy_page();
     });
   }
+
   if (year_el) {
     year_el.addEventListener('change', () => {
       fantasy_state.year = Number(year_el.value);
@@ -5641,11 +5959,18 @@ const team_el = document.getElementById('fantasy_team');
   }
 
   if (team_el) {
-  team_el.addEventListener('change', () => {
-    fantasy_state.team = team_el.value;
-    render_fantasy_page();
-  });
-}
+    team_el.addEventListener('change', () => {
+      fantasy_state.team = team_el.value;
+      render_fantasy_page();
+    });
+  }
+
+  if (gradients_el) {
+    gradients_el.addEventListener('change', () => {
+      fantasy_state.show_gradients = !!gradients_el.checked;
+      render_fantasy_page();
+    });
+  }
 
   if (undo_el) {
     undo_el.addEventListener('click', () => {

@@ -1,1408 +1,3572 @@
 {
   "panel_scale_lookup": {
-    "90ft": {
+    "majors|hitters|90ft": {
       "best": 3.7,
       "fmt": "num",
       "higher_is_better": false,
-      "label": "90ft Speed",
       "neutral_hi": 3.95,
       "neutral_lo": 4.05,
       "worst": 4.3
     },
-    "All": {
+    "majors|hitters|All": {
       "best": 40,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "All Pitches",
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
-    "Arm INF": {
+    "majors|hitters|Arm INF": {
       "best": 92,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Infield Arm",
       "neutral_hi": 85,
       "neutral_lo": 84,
       "worst": 77
     },
-    "Arm OF": {
+    "majors|hitters|Arm OF": {
       "best": 93,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Outfield Arm",
       "neutral_hi": 90,
       "neutral_lo": 89,
       "worst": 85
     },
-    "Arm Runs": {
+    "majors|hitters|Arm Runs": {
       "best": 8,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Arm Value",
       "neutral_hi": 1,
       "neutral_lo": -1,
       "worst": -8
     },
-    "BB%": {
-      "best": 0.04,
+    "majors|hitters|BB%": {
+      "best": 0.18,
       "fmt": "pct",
-      "higher_is_better": false,
-      "label": "BB%",
-      "neutral_hi": 0.08,
+      "higher_is_better": true,
+      "neutral_hi": 0.1,
       "neutral_lo": 0.09,
-      "worst": 0.13
+      "worst": 0.03
     },
-    "Bad": {
-      "best": -20,
+    "majors|hitters|Bad": {
+      "best": 55,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Bad Pitches",
-      "neutral_hi": -38,
-      "neutral_lo": -40,
-      "worst": -60
+      "neutral_hi": 32,
+      "neutral_lo": 30,
+      "worst": 10
     },
-    "Bad%": {
-      "best": 0.28,
+    "majors|hitters|Bar/PA": {
+      "best": 0.15,
       "fmt": "pct",
-      "higher_is_better": false,
-      "label": "% Bad",
-      "neutral_hi": 0.35,
-      "neutral_lo": 0.37,
-      "worst": 0.44
+      "higher_is_better": true,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.07,
+      "worst": 0
     },
-    "Bar/PA": {
-      "best": 0.04,
-      "fmt": "pct",
-      "higher_is_better": false,
-      "label": "Barrel Con",
-      "neutral_hi": 0.075,
-      "neutral_lo": 0.085,
-      "worst": 0.12
-    },
-    "Baserunning": {
+    "majors|hitters|Baserunning": {
       "best": 10,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Baserunning Value",
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
     },
-    "Blast%": {
+    "majors|hitters|Blast%": {
       "best": 0.27,
       "fmt": "pct",
       "higher_is_better": true,
-      "label": "□ + ≥75",
       "neutral_hi": 0.19,
       "neutral_lo": 0.18,
       "worst": 0.1
     },
-    "Blocking Runs": {
+    "majors|hitters|Blocking Runs": {
       "best": 10,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Blocking",
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
     },
-    "Blocks Above Avg": {
+    "majors|hitters|Blocks Above Avg": {
       "best": 15,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Blocks Above Avg",
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -15
     },
-    "CB Stf": {
-      "best": 40,
+    "majors|hitters|CB": {
+      "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "CB Stuff",
-      "neutral_hi": 21,
-      "neutral_lo": 20,
-      "worst": 0
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
     },
-    "CH Stf": {
-      "best": 40,
+    "majors|hitters|CB L": {
+      "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "CH Stuff",
-      "neutral_hi": 21,
-      "neutral_lo": 20,
-      "worst": 0
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
     },
-    "CSW%": {
-      "best": 0.33,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "CS + Whiffs%",
-      "neutral_hi": 0.29,
-      "neutral_lo": 0.28,
-      "worst": 0.23
-    },
-    "CT Stf": {
-      "best": 40,
+    "majors|hitters|CB R": {
+      "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "CT Stuff",
-      "neutral_hi": 21,
-      "neutral_lo": 20,
-      "worst": 0
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
     },
-    "Catcher Arm Strength": {
+    "majors|hitters|CH": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|CH L": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|CH R": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|CT": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|CT L": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|CT R": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|Catcher Arm Strength": {
       "best": 83,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Catcher Arm",
       "neutral_hi": 80,
       "neutral_lo": 79,
       "worst": 76
     },
-    "Caught Stealing Above Avg": {
+    "majors|hitters|Caught Stealing Above Avg": {
       "best": 10,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Catcher CS",
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
     },
-    "Con": {
-      "best": 35,
+    "majors|hitters|Con": {
+      "best": 45,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Contact",
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
     },
-    "Days +/-": {
-      "best": 0.5,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "Consistency",
-      "neutral_hi": 0.15,
-      "neutral_lo": 0.14,
-      "worst": -0.06
-    },
-    "Disc": {
-      "best": 25,
+    "majors|hitters|Disc": {
+      "best": 30,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Discipline",
       "neutral_hi": 5,
       "neutral_lo": 0,
-      "worst": -25
+      "worst": -35
     },
-    "FB Stf": {
-      "best": 40,
+    "majors|hitters|FB": {
+      "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "FB Stuff",
-      "neutral_hi": 21,
-      "neutral_lo": 20,
-      "worst": 0
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
     },
-    "Framing Runs": {
+    "majors|hitters|FB L": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|hitters|FB R": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|hitters|Framing Runs": {
       "best": 15,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Framing",
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -15
     },
-    "Good": {
-      "best": 65,
+    "majors|hitters|Good": {
+      "best": 0,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Good Pitches",
-      "neutral_hi": 41,
-      "neutral_lo": 39,
-      "worst": -20
+      "neutral_hi": -28,
+      "neutral_lo": -30,
+      "worst": -55
     },
-    "ICR/PA": {
-      "best": 0.24,
+    "majors|hitters|ICR/PA": {
+      "best": 0.4,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.32,
+      "neutral_lo": 0.31,
+      "worst": 0.2
+    },
+    "majors|hitters|K%": {
+      "best": 0.1,
       "fmt": "pct",
       "higher_is_better": false,
-      "label": "Ideal Con",
-      "neutral_hi": 0.32,
-      "neutral_lo": 0.33,
-      "worst": 0.41
+      "neutral_hi": 0.22,
+      "neutral_lo": 0.23,
+      "worst": 0.35
     },
-    "K%": {
-      "best": 0.33,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "K%",
-      "neutral_hi": 0.23,
-      "neutral_lo": 0.22,
-      "worst": 0.15
-    },
-    "KN": {
-      "best": 40,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Knuckleball",
-      "neutral_hi": 30,
-      "neutral_lo": 0,
-      "worst": -40
-    },
-    "L CB": {
-      "best": 85,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Curveball",
-      "neutral_hi": 30,
-      "neutral_lo": 0,
-      "worst": -50
-    },
-    "L CH": {
-      "best": 85,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Changeup",
-      "neutral_hi": 30,
-      "neutral_lo": 0,
-      "worst": -50
-    },
-    "L CT": {
+    "majors|hitters|L CB": {
       "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Cutter",
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
     },
-    "L Eye": {
+    "majors|hitters|L CH": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|L CT": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|L Eye": {
       "best": 0.82,
       "fmt": "pct",
       "higher_is_better": true,
-      "label": "L Eye",
       "neutral_hi": 0.73,
       "neutral_lo": 0.72,
       "worst": 0.6
     },
-    "L FB": {
+    "majors|hitters|L FB": {
       "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Fastball",
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
     },
-    "L Hit": {
+    "majors|hitters|L Hit": {
       "best": 2.3,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "LH Swing Hit",
       "neutral_hi": 1.5,
       "neutral_lo": 1.4,
       "worst": 0.05
     },
-    "L Pwr": {
+    "majors|hitters|L Pwr": {
       "best": 3.0,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "LH Swing Power",
       "neutral_hi": 1.7,
       "neutral_lo": 1.4,
       "worst": 0.05
     },
-    "L SI": {
+    "majors|hitters|L SI": {
       "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Sinker",
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
     },
-    "L SL": {
+    "majors|hitters|L SL": {
       "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Slider",
-      "neutral_hi": 20,
+      "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
     },
-    "L SP": {
-      "best": 85,
+    "majors|hitters|L SP": {
+      "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Splitter",
-      "neutral_hi": 30,
-      "neutral_lo": 0,
-      "worst": -40
-    },
-    "L SW": {
-      "best": 85,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Sweeper",
-      "neutral_hi": 30,
+      "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
     },
-    "L swCon": {
+    "majors|hitters|L SW": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|L swCon": {
       "best": 0.65,
       "fmt": "pct",
       "higher_is_better": true,
-      "label": "L Good Swings",
       "neutral_hi": 0.54,
       "neutral_lo": 0.53,
       "worst": 0.45
     },
-    "L swDisc": {
+    "majors|hitters|L swDisc": {
       "best": 0.35,
       "fmt": "pct",
       "higher_is_better": false,
-      "label": "L Bad Swings",
       "neutral_hi": 0.48,
       "neutral_lo": 0.49,
       "worst": 0.57
     },
-    "L ≥75": {
+    "majors|hitters|L ≥75": {
       "best": 0.5,
       "fmt": "pct",
       "higher_is_better": true,
-      "label": "LH ≥75mph",
       "neutral_hi": 0.21,
       "neutral_lo": 0.2,
       "worst": 0.05
     },
-    "LCon": {
-      "best": 3,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Loc for Contact",
-      "neutral_hi": -5,
-      "neutral_lo": -6,
-      "worst": -14
-    },
-    "LDisc": {
-      "best": 60,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Loc for K/BB",
-      "neutral_hi": 38,
-      "neutral_lo": 37,
-      "worst": 20
-    },
-    "LHB": {
+    "majors|hitters|LHP": {
       "best": 40,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Lefties",
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
-    "LHP": {
-      "best": 40,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Lefties",
-      "neutral_hi": 5,
-      "neutral_lo": 0,
-      "worst": -40
-    },
-    "Minors Con": {
-      "best": 35,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Contact",
-      "neutral_hi": 5,
-      "neutral_lo": 0,
-      "worst": -35
-    },
-    "Minors Days +/-": {
-      "best": 0.5,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "Consistency",
-      "neutral_hi": 0.15,
-      "neutral_lo": 0.14,
-      "worst": -0.06
-    },
-    "Minors Disc": {
-      "best": 25,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Discipline",
-      "neutral_hi": 5,
-      "neutral_lo": 0,
-      "worst": -25
-    },
-    "Minors L Eye": {
-      "best": 0.82,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "L Eye",
-      "neutral_hi": 0.73,
-      "neutral_lo": 0.72,
-      "worst": 0.6
-    },
-    "Minors LCon": {
-      "best": 3,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Loc for Contact",
-      "neutral_hi": -5,
-      "neutral_lo": -6,
-      "worst": -14
-    },
-    "Minors LDisc": {
-      "best": 60,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Loc for K/BB",
-      "neutral_hi": 38,
-      "neutral_lo": 37,
-      "worst": 20
-    },
-    "Minors R Eye": {
-      "best": 0.82,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "R Eye",
-      "neutral_hi": 0.73,
-      "neutral_lo": 0.72,
-      "worst": 0.6
-    },
-    "Minors Stf": {
-      "best": 40,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Stuff",
-      "neutral_hi": 21,
-      "neutral_lo": 20,
-      "worst": 0
-    },
-    "Minors SwSp%": {
-      "best": 0.5,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "Sweet Spot%",
-      "neutral_hi": 0.41,
-      "neutral_lo": 0.4,
-      "worst": 0.3
-    },
-    "Minors SwStr%": {
-      "best": 0.17,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "SwStr%",
-      "neutral_hi": 0.12,
-      "neutral_lo": 0.11,
-      "worst": 0.06
-    },
-    "Minors Velo": {
-      "best": 99,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "pVelocity",
-      "neutral_hi": 94,
-      "neutral_lo": 92,
-      "worst": 89
-    },
-    "Minors Whiff%": {
-      "best": 0.15,
-      "fmt": "pct",
-      "higher_is_better": false,
-      "label": "Whiff%",
-      "neutral_hi": 0.25,
-      "neutral_lo": 0.26,
-      "worst": 0.4
-    },
-    "Minors ≥100": {
-      "best": 0.4,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "≥100mph",
-      "neutral_hi": 0.25,
-      "neutral_lo": 0.24,
-      "worst": 0.12
-    },
-    "Net Bases Prevented": {
-      "best": 10,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Running Game",
-      "neutral_hi": 2,
-      "neutral_lo": -2,
-      "worst": -10
-    },
-    "Outfield Jump": {
+    "majors|hitters|Outfield Jump": {
       "best": 4,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Outfield Jump",
       "neutral_hi": 1,
       "neutral_lo": -1,
       "worst": -4
     },
-    "Outs Above Average": {
+    "majors|hitters|Outs Above Average": {
       "best": 15,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Outs Above Average",
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
     },
-    "P/IP": {
-      "best": 14.7,
-      "fmt": "num",
-      "higher_is_better": false,
-      "label": "Pitches/IP",
-      "neutral_hi": 16.3,
-      "neutral_lo": 16.4,
-      "worst": 17.5
-    },
-    "P/PA": {
+    "majors|hitters|P/PA": {
       "best": 4.3,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Pitches/PA",
       "neutral_hi": 3.9,
       "neutral_lo": 3.8,
       "worst": 3.4
     },
-    "PPG": {
-      "best": 25,
+    "majors|hitters|PPG": {
+      "best": 6.5,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "PPG",
-      "neutral_hi": 17,
-      "neutral_lo": 15,
-      "worst": 10
+      "neutral_hi": 4.5,
+      "neutral_lo": 4,
+      "worst": 3
     },
-    "Pop Time": {
+    "majors|hitters|Pop Time": {
       "best": 1.85,
       "fmt": "num",
       "higher_is_better": false,
-      "label": "Time to 2B",
       "neutral_hi": 1.95,
       "neutral_lo": 2.0,
       "worst": 2.1
     },
-    "Prev Minors Con": {
-      "best": 35,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Contact",
-      "neutral_hi": 5,
-      "neutral_lo": 0,
-      "worst": -35
-    },
-    "Prev Minors Days +/-": {
-      "best": 0.5,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "Consistency",
-      "neutral_hi": 0.15,
-      "neutral_lo": 0.14,
-      "worst": -0.06
-    },
-    "Prev Minors Disc": {
-      "best": 25,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Discipline",
-      "neutral_hi": 5,
-      "neutral_lo": 0,
-      "worst": -25
-    },
-    "Prev Minors L Eye": {
-      "best": 0.82,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "L Eye",
-      "neutral_hi": 0.73,
-      "neutral_lo": 0.72,
-      "worst": 0.6
-    },
-    "Prev Minors LCon": {
-      "best": 3,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Loc for Contact",
-      "neutral_hi": -5,
-      "neutral_lo": -6,
-      "worst": -14
-    },
-    "Prev Minors LDisc": {
-      "best": 60,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Loc for K/BB",
-      "neutral_hi": 38,
-      "neutral_lo": 37,
-      "worst": 20
-    },
-    "Prev Minors R Eye": {
-      "best": 0.82,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "R Eye",
-      "neutral_hi": 0.73,
-      "neutral_lo": 0.72,
-      "worst": 0.6
-    },
-    "Prev Minors Stf": {
-      "best": 40,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Stuff",
-      "neutral_hi": 21,
-      "neutral_lo": 20,
-      "worst": 0
-    },
-    "Prev Minors SwSp%": {
-      "best": 0.5,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "Sweet Spot%",
-      "neutral_hi": 0.41,
-      "neutral_lo": 0.4,
-      "worst": 0.3
-    },
-    "Prev Minors SwStr%": {
-      "best": 0.17,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "SwStr%",
-      "neutral_hi": 0.12,
-      "neutral_lo": 0.11,
-      "worst": 0.06
-    },
-    "Prev Minors Velo": {
-      "best": 99,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "pVelocity",
-      "neutral_hi": 94,
-      "neutral_lo": 92,
-      "worst": 89
-    },
-    "Prev Minors Whiff%": {
-      "best": 0.15,
-      "fmt": "pct",
-      "higher_is_better": false,
-      "label": "Whiff%",
-      "neutral_hi": 0.25,
-      "neutral_lo": 0.26,
-      "worst": 0.4
-    },
-    "Prev Minors ≥100": {
-      "best": 0.4,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "≥100mph",
-      "neutral_hi": 0.25,
-      "neutral_lo": 0.24,
-      "worst": 0.12
-    },
-    "Pts": {
-      "best": 700,
+    "majors|hitters|Pts": {
+      "best": 900,
       "fmt": "int",
       "higher_is_better": true,
-      "label": "Points",
       "neutral_hi": 300,
       "neutral_lo": 0,
       "worst": -20
     },
-    "Pts +/-": {
+    "majors|hitters|Pts +/-": {
       "best": 0.3,
       "fmt": "pct",
       "higher_is_better": true,
-      "label": "Consistency",
       "neutral_hi": 0.1,
       "neutral_lo": 0.05,
       "worst": -0.2
     },
-    "Pwr/PA": {
-      "best": 0.16,
+    "majors|hitters|Pwr/PA": {
+      "best": 0.32,
       "fmt": "pct",
-      "higher_is_better": false,
-      "label": "Power Con",
-      "neutral_hi": 0.22,
-      "neutral_lo": 0.23,
-      "worst": 0.31
-    },
-    "R CB": {
-      "best": 85,
-      "fmt": "num",
       "higher_is_better": true,
-      "label": "Curveball",
-      "neutral_hi": 30,
-      "neutral_lo": 0,
-      "worst": -50
+      "neutral_hi": 0.21,
+      "neutral_lo": 0.2,
+      "worst": 0.12
     },
-    "R CH": {
-      "best": 85,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Changeup",
-      "neutral_hi": 30,
-      "neutral_lo": 0,
-      "worst": -50
-    },
-    "R CT": {
+    "majors|hitters|R CB": {
       "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Cutter",
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
     },
-    "R Eye": {
+    "majors|hitters|R CH": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|R CT": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|R Eye": {
       "best": 0.82,
       "fmt": "pct",
       "higher_is_better": true,
-      "label": "R Eye",
       "neutral_hi": 0.73,
       "neutral_lo": 0.72,
       "worst": 0.6
     },
-    "R FB": {
+    "majors|hitters|R FB": {
       "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Fastball",
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
     },
-    "R Hit": {
+    "majors|hitters|R Hit": {
       "best": 2.3,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "RH Swing Hit",
       "neutral_hi": 1.5,
       "neutral_lo": 1.4,
       "worst": 0.5
     },
-    "R Pwr": {
+    "majors|hitters|R Pwr": {
       "best": 3.0,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "RH Swing Power",
       "neutral_hi": 1.7,
       "neutral_lo": 1.4,
       "worst": 0.05
     },
-    "R SI": {
+    "majors|hitters|R SI": {
       "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Sinker",
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
     },
-    "R SL": {
+    "majors|hitters|R SL": {
       "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Slider",
-      "neutral_hi": 20,
+      "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
     },
-    "R SP": {
-      "best": 85,
+    "majors|hitters|R SP": {
+      "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Splitter",
-      "neutral_hi": 30,
-      "neutral_lo": 0,
-      "worst": -40
-    },
-    "R SW": {
-      "best": 85,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Sweeper",
-      "neutral_hi": 30,
+      "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
     },
-    "R swCon": {
+    "majors|hitters|R SW": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|R swCon": {
       "best": 0.65,
       "fmt": "pct",
       "higher_is_better": true,
-      "label": "R Good Swings",
       "neutral_hi": 0.54,
       "neutral_lo": 0.53,
       "worst": 0.45
     },
-    "R swDisc": {
+    "majors|hitters|R swDisc": {
       "best": 0.35,
       "fmt": "pct",
       "higher_is_better": false,
-      "label": "R Bad Swing",
       "neutral_hi": 0.48,
       "neutral_lo": 0.49,
       "worst": 0.57
     },
-    "R ≥75": {
+    "majors|hitters|R ≥75": {
       "best": 0.5,
       "fmt": "pct",
       "higher_is_better": true,
-      "label": "RH ≥75mph",
       "neutral_hi": 0.21,
       "neutral_lo": 0.2,
       "worst": 0.05
     },
-    "RHB": {
+    "majors|hitters|RHP": {
       "best": 40,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Righties",
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
-    "RHP": {
-      "best": 40,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Righties",
-      "neutral_hi": 5,
-      "neutral_lo": 0,
-      "worst": -40
-    },
-    "Range Runs": {
+    "majors|hitters|Range Runs": {
       "best": 15,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Range Value",
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
     },
-    "S All": {
+    "majors|hitters|S All": {
       "best": 40,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "All Pitches",
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
-    "S Bad%": {
-      "best": 0.28,
-      "fmt": "pct",
-      "higher_is_better": false,
-      "label": "% Bad",
-      "neutral_hi": 0.35,
-      "neutral_lo": 0.37,
-      "worst": 0.44
-    },
-    "S Con": {
-      "best": 35,
+    "majors|hitters|S Con": {
+      "best": 45,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Contact",
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
     },
-    "S Days +/-": {
-      "best": 0.5,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "Consistency",
-      "neutral_hi": 0.15,
-      "neutral_lo": 0.14,
-      "worst": -0.06
-    },
-    "S Disc": {
-      "best": 25,
+    "majors|hitters|S Disc": {
+      "best": 30,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Discipline",
       "neutral_hi": 5,
       "neutral_lo": 0,
-      "worst": -25
+      "worst": -35
     },
-    "S ERA": {
-      "best": 2.5,
-      "fmt": "num",
-      "higher_is_better": false,
-      "label": "ERA",
-      "neutral_hi": 3.7,
-      "neutral_lo": 4,
-      "worst": 5.5
-    },
-    "S L Eye": {
+    "majors|hitters|S L Eye": {
       "best": 0.82,
       "fmt": "pct",
       "higher_is_better": true,
-      "label": "L Eye",
       "neutral_hi": 0.73,
       "neutral_lo": 0.72,
       "worst": 0.6
     },
-    "S LCon": {
-      "best": 3,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Loc for Contact",
-      "neutral_hi": -5,
-      "neutral_lo": -6,
-      "worst": -14
-    },
-    "S LDisc": {
-      "best": 60,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Loc for K/BB",
-      "neutral_hi": 38,
-      "neutral_lo": 37,
-      "worst": 20
-    },
-    "S OPS": {
+    "majors|hitters|S OPS": {
       "best": 0.98,
       "fmt": "avg",
       "higher_is_better": true,
-      "label": "OPS",
       "neutral_hi": 0.77,
       "neutral_lo": 0.73,
       "worst": 0.6
     },
-    "S PPG": {
-      "best": 25,
+    "majors|hitters|S PPG": {
+      "best": 6.5,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "S PPG",
-      "neutral_hi": 17,
-      "neutral_lo": 15,
-      "worst": 10
+      "neutral_hi": 4.5,
+      "neutral_lo": 4,
+      "worst": 3
     },
-    "S Pts +/-": {
+    "majors|hitters|S Pts +/-": {
       "best": 0.3,
       "fmt": "pct",
       "higher_is_better": true,
-      "label": "Consistency",
       "neutral_hi": 0.1,
       "neutral_lo": 0.05,
       "worst": -0.2
     },
-    "S R Eye": {
+    "majors|hitters|S R Eye": {
       "best": 0.82,
       "fmt": "pct",
       "higher_is_better": true,
-      "label": "R Eye",
       "neutral_hi": 0.73,
       "neutral_lo": 0.72,
       "worst": 0.6
     },
-    "S Score": {
+    "majors|hitters|S Score": {
       "best": 100,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Score",
       "neutral_hi": 10,
       "neutral_lo": 0,
       "worst": -100
     },
-    "S Stf": {
-      "best": 40,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Stuff",
-      "neutral_hi": 21,
-      "neutral_lo": 20,
-      "worst": 0
-    },
-    "S Val": {
+    "majors|hitters|S Val": {
       "best": 500,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "S Fan Val",
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
     },
-    "S WHIP": {
-      "best": 1.0,
-      "fmt": "num",
-      "higher_is_better": false,
-      "label": "WHIP",
-      "neutral_hi": 1.2,
-      "neutral_lo": 1.25,
-      "worst": 1.5
-    },
-    "SI Stf": {
-      "best": 40,
+    "majors|hitters|SI": {
+      "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "SI Stuff",
-      "neutral_hi": 21,
-      "neutral_lo": 20,
-      "worst": 0
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
     },
-    "SL Stf": {
-      "best": 40,
+    "majors|hitters|SI L": {
+      "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "SL Stuff",
-      "neutral_hi": 21,
-      "neutral_lo": 20,
-      "worst": 0
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
     },
-    "SP Stf": {
-      "best": 40,
+    "majors|hitters|SI R": {
+      "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "SP Stuff",
-      "neutral_hi": 21,
-      "neutral_lo": 20,
-      "worst": 0
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
     },
-    "SW Stf": {
-      "best": 40,
+    "majors|hitters|SL": {
+      "best": 70,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "SW Stuff",
-      "neutral_hi": 21,
-      "neutral_lo": 20,
-      "worst": 0
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
     },
-    "Score": {
+    "majors|hitters|SL L": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|SL R": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|SP": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|SP L": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|SP R": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|SW": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|SW L": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|SW R": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|hitters|Score": {
       "best": 100,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Score",
       "neutral_hi": 10,
       "neutral_lo": 0,
       "worst": -100
     },
-    "Spd": {
+    "majors|hitters|Spd": {
       "best": 8,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Speed",
       "neutral_hi": 5,
       "neutral_lo": 4,
       "worst": 1
     },
-    "Spring Con": {
-      "best": 35,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Contact",
-      "neutral_hi": 5,
-      "neutral_lo": 0,
-      "worst": -35
-    },
-    "Spring Days +/-": {
-      "best": 0.5,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "Consistency",
-      "neutral_hi": 0.15,
-      "neutral_lo": 0.14,
-      "worst": -0.06
-    },
-    "Spring Disc": {
-      "best": 25,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Discipline",
-      "neutral_hi": 5,
-      "neutral_lo": 0,
-      "worst": -25
-    },
-    "Spring L Eye": {
-      "best": 0.82,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "L Eye",
-      "neutral_hi": 0.73,
-      "neutral_lo": 0.72,
-      "worst": 0.6
-    },
-    "Spring R Eye": {
-      "best": 0.82,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "R Eye",
-      "neutral_hi": 0.73,
-      "neutral_lo": 0.72,
-      "worst": 0.6
-    },
-    "Spring Stf": {
-      "best": 40,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Stuff",
-      "neutral_hi": 21,
-      "neutral_lo": 20,
-      "worst": 0
-    },
-    "Spring SwSp%": {
-      "best": 0.5,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "Sweet Spot%",
-      "neutral_hi": 0.41,
-      "neutral_lo": 0.4,
-      "worst": 0.3
-    },
-    "Spring SwStr%": {
-      "best": 0.17,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "SwStr%",
-      "neutral_hi": 0.12,
-      "neutral_lo": 0.11,
-      "worst": 0.06
-    },
-    "Spring Velo": {
-      "best": 99,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "pVelocity",
-      "neutral_hi": 94,
-      "neutral_lo": 92,
-      "worst": 89
-    },
-    "Spring Whiff%": {
-      "best": 0.15,
-      "fmt": "pct",
-      "higher_is_better": false,
-      "label": "Whiff%",
-      "neutral_hi": 0.25,
-      "neutral_lo": 0.26,
-      "worst": 0.4
-    },
-    "Spring ≥100": {
-      "best": 0.4,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "≥100mph",
-      "neutral_hi": 0.25,
-      "neutral_lo": 0.24,
-      "worst": 0.12
-    },
-    "Sprint Speed": {
+    "majors|hitters|Sprint Speed": {
       "best": 30,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Sprint Speed",
       "neutral_hi": 27.5,
       "neutral_lo": 26.5,
       "worst": 24
     },
-    "Square%": {
-      "best": 0.24,
-      "fmt": "pct",
-      "higher_is_better": false,
-      "label": "Squared",
-      "neutral_hi": 0.32,
-      "neutral_lo": 0.33,
-      "worst": 0.41
-    },
-    "Stf": {
-      "best": 40,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Stuff",
-      "neutral_hi": 21,
-      "neutral_lo": 20,
-      "worst": 0
-    },
-    "Strike%": {
-      "best": 0.72,
+    "majors|hitters|Square%": {
+      "best": 0.52,
       "fmt": "pct",
       "higher_is_better": true,
-      "label": "Strike%",
-      "neutral_hi": 0.64,
-      "neutral_lo": 0.63,
-      "worst": 0.58
+      "neutral_hi": 0.44,
+      "neutral_lo": 0.43,
+      "worst": 0.35
     },
-    "SwSp%": {
-      "best": 0.32,
+    "majors|hitters|SwSp%": {
+      "best": 0.5,
       "fmt": "pct",
-      "higher_is_better": false,
-      "label": "Sweet Spot%",
+      "higher_is_better": true,
       "neutral_hi": 0.41,
-      "neutral_lo": 0.42,
-      "worst": 0.5
+      "neutral_lo": 0.4,
+      "worst": 0.3
     },
-    "SwStr%": {
-      "best": 0.17,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "SwStr%",
-      "neutral_hi": 0.12,
-      "neutral_lo": 0.11,
-      "worst": 0.06
-    },
-    "Throwing Runs": {
+    "majors|hitters|Throwing Runs": {
       "best": 10,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Throwing Value",
       "neutral_hi": 1,
       "neutral_lo": -1,
       "worst": -10
     },
-    "Total Runs": {
+    "majors|hitters|Total Runs": {
       "best": 15,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Fielding Value",
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
     },
-    "Val": {
+    "majors|hitters|Val": {
       "best": 500,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Fan Val",
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
     },
-    "Velo": {
-      "best": 99,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "pVelocity",
-      "neutral_hi": 94,
-      "neutral_lo": 92,
-      "worst": 89
-    },
-    "Whiff%": {
+    "majors|hitters|Whiff%": {
       "best": 0.15,
       "fmt": "pct",
       "higher_is_better": false,
-      "label": "Whiff%",
       "neutral_hi": 0.25,
       "neutral_lo": 0.26,
       "worst": 0.4
     },
-    "Wk/PA": {
-      "best": 0.36,
-      "fmt": "pct",
-      "higher_is_better": true,
-      "label": "Weak",
-      "neutral_hi": 0.28,
-      "neutral_lo": 0.27,
-      "worst": 0.2
-    },
-    "mAll": {
-      "best": 40,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "All Pitches",
-      "neutral_hi": 5,
-      "neutral_lo": 0,
-      "worst": -40
-    },
-    "mAll -1": {
-      "best": 40,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "All Pitches",
-      "neutral_hi": 5,
-      "neutral_lo": 0,
-      "worst": -40
-    },
-    "pAll": {
-      "best": 40,
-      "fmt": "num",
-      "higher_is_better": true,
-      "label": "Playoffs",
-      "neutral_hi": 5,
-      "neutral_lo": 0,
-      "worst": -40
-    },
-    "pERA": {
-      "best": 2.5,
-      "fmt": "num",
-      "higher_is_better": false,
-      "label": "pERA",
-      "neutral_hi": 3.7,
-      "neutral_lo": 4.0,
-      "worst": 5.5
-    },
-    "qCon Bad%": {
-      "best": 0.35,
+    "majors|hitters|Wk/PA": {
+      "best": 0.15,
       "fmt": "pct",
       "higher_is_better": false,
-      "label": "% Bad for Con",
-      "neutral_hi": 0.44,
-      "neutral_lo": 0.45,
-      "worst": 0.55
+      "neutral_hi": 0.24,
+      "neutral_lo": 0.25,
+      "worst": 0.35
     },
-    "qDisc Bad%": {
-      "best": 0.21,
-      "fmt": "pct",
-      "higher_is_better": false,
-      "label": "% Bad for K/BB",
-      "neutral_hi": 0.3,
-      "neutral_lo": 0.31,
-      "worst": 0.4
-    },
-    "rAll": {
+    "majors|hitters|pAll": {
       "best": 40,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Recent",
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
-    "sAll": {
+    "majors|hitters|rAll": {
       "best": 40,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "All Pitches",
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
-    "vSzn": {
+    "majors|hitters|vSzn": {
       "best": 500,
       "fmt": "num",
       "higher_is_better": true,
-      "label": "Fan Val (Season)",
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
     },
-    "xOPS": {
+    "majors|hitters|xOPS": {
       "best": 1.0,
       "fmt": "avg",
       "higher_is_better": true,
-      "label": "xOPS",
       "neutral_hi": 0.77,
       "neutral_lo": 0.73,
       "worst": 0.6
     },
-    "≥100": {
+    "majors|hitters|≥100": {
+      "best": 0.4,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.24,
+      "worst": 0.12
+    },
+    "majors|rp|All": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|rp|BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "majors|rp|Bad": {
+      "best": -20,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": -38,
+      "neutral_lo": -40,
+      "worst": -60
+    },
+    "majors|rp|Bad%": {
+      "best": 0.28,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.37,
+      "worst": 0.44
+    },
+    "majors|rp|Bar/PA": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.075,
+      "neutral_lo": 0.085,
+      "worst": 0.12
+    },
+    "majors|rp|CB L": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|CB R": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|CB Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|rp|CH L": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|CH R": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|CH Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|rp|CSW%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.29,
+      "neutral_lo": 0.28,
+      "worst": 0.23
+    },
+    "majors|rp|CT L": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|CT R": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|CT Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|rp|Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "majors|rp|Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "majors|rp|Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "majors|rp|FB L": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|rp|FB R": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|rp|FB Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|rp|Good": {
+      "best": 65,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 41,
+      "neutral_lo": 39,
+      "worst": -20
+    },
+    "majors|rp|ICR/PA": {
+      "best": 0.24,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.32,
+      "neutral_lo": 0.33,
+      "worst": 0.41
+    },
+    "majors|rp|K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "majors|rp|KN": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|rp|L CB": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|L CH": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|L CT": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|L FB": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|rp|L SI": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|rp|L SL": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 20,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|L SP": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|rp|L SW": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|LCon": {
+      "best": 3,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": -5,
+      "neutral_lo": -6,
+      "worst": -14
+    },
+    "majors|rp|LDisc": {
+      "best": 60,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 38,
+      "neutral_lo": 37,
+      "worst": 20
+    },
+    "majors|rp|LHB": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|rp|Net Bases Prevented": {
+      "best": 10,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 2,
+      "neutral_lo": -2,
+      "worst": -10
+    },
+    "majors|rp|P/IP": {
+      "best": 14.7,
+      "fmt": "num",
+      "higher_is_better": false,
+      "neutral_hi": 16.3,
+      "neutral_lo": 16.4,
+      "worst": 17.5
+    },
+    "majors|rp|PPG": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 17,
+      "neutral_lo": 15,
+      "worst": 10
+    },
+    "majors|rp|Pts": {
+      "best": 700,
+      "fmt": "int",
+      "higher_is_better": true,
+      "neutral_hi": 300,
+      "neutral_lo": 0,
+      "worst": -20
+    },
+    "majors|rp|Pwr/PA": {
+      "best": 0.16,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.22,
+      "neutral_lo": 0.23,
+      "worst": 0.31
+    },
+    "majors|rp|R CB": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|R CH": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|R CT": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|R FB": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|rp|R SI": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|rp|R SL": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 20,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|R SP": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|rp|R SW": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|RHB": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|rp|S All": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|rp|S Bad%": {
+      "best": 0.28,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.37,
+      "worst": 0.44
+    },
+    "majors|rp|S Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "majors|rp|S Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "majors|rp|S Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "majors|rp|S ERA": {
+      "best": 2.5,
+      "fmt": "num",
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4,
+      "worst": 5.5
+    },
+    "majors|rp|S LCon": {
+      "best": 3,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": -5,
+      "neutral_lo": -6,
+      "worst": -14
+    },
+    "majors|rp|S LDisc": {
+      "best": 60,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 38,
+      "neutral_lo": 37,
+      "worst": 20
+    },
+    "majors|rp|S PPG": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 17,
+      "neutral_lo": 15,
+      "worst": 10
+    },
+    "majors|rp|S Score": {
+      "best": 100,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 10,
+      "neutral_lo": 0,
+      "worst": -100
+    },
+    "majors|rp|S Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|rp|S Val": {
+      "best": 500,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 100,
+      "neutral_lo": -50,
+      "worst": -300
+    },
+    "majors|rp|S WHIP": {
+      "best": 1.0,
+      "fmt": "num",
+      "higher_is_better": false,
+      "neutral_hi": 1.2,
+      "neutral_lo": 1.25,
+      "worst": 1.5
+    },
+    "majors|rp|SI L": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|rp|SI R": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|rp|SI Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|rp|SL L": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 20,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|SL R": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 20,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|SL Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|rp|SP L": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|rp|SP R": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|rp|SP Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|rp|SW L": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|SW R": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|rp|SW Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|rp|Score": {
+      "best": 100,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 10,
+      "neutral_lo": 0,
+      "worst": -100
+    },
+    "majors|rp|Square%": {
+      "best": 0.24,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.32,
+      "neutral_lo": 0.33,
+      "worst": 0.41
+    },
+    "majors|rp|Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|rp|Strike%": {
+      "best": 0.72,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.64,
+      "neutral_lo": 0.63,
+      "worst": 0.58
+    },
+    "majors|rp|SwSp%": {
+      "best": 0.32,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.41,
+      "neutral_lo": 0.42,
+      "worst": 0.5
+    },
+    "majors|rp|SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "majors|rp|Val": {
+      "best": 500,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 100,
+      "neutral_lo": -50,
+      "worst": -300
+    },
+    "majors|rp|Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "majors|rp|Wk/PA": {
+      "best": 0.36,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.28,
+      "neutral_lo": 0.27,
+      "worst": 0.2
+    },
+    "majors|rp|pERA": {
+      "best": 2.5,
+      "fmt": "num",
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 5.5
+    },
+    "majors|rp|qCon Bad%": {
+      "best": 0.35,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.44,
+      "neutral_lo": 0.45,
+      "worst": 0.55
+    },
+    "majors|rp|qDisc Bad%": {
+      "best": 0.21,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.3,
+      "neutral_lo": 0.31,
+      "worst": 0.4
+    },
+    "majors|rp|rAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|rp|vSzn": {
+      "best": 500,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 100,
+      "neutral_lo": -50,
+      "worst": -300
+    },
+    "majors|rp|≥100": {
       "best": 0.2,
       "fmt": "pct",
       "higher_is_better": false,
-      "label": "≥100mph",
       "neutral_hi": 0.29,
       "neutral_lo": 0.3,
       "worst": 0.4
+    },
+    "majors|sp|All": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|sp|BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "majors|sp|Bad": {
+      "best": -20,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": -38,
+      "neutral_lo": -40,
+      "worst": -60
+    },
+    "majors|sp|Bad%": {
+      "best": 0.28,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.37,
+      "worst": 0.44
+    },
+    "majors|sp|Bar/PA": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.075,
+      "neutral_lo": 0.085,
+      "worst": 0.12
+    },
+    "majors|sp|CB L": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|CB R": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|CB Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|sp|CH L": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|CH R": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|CH Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|sp|CSW%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.29,
+      "neutral_lo": 0.28,
+      "worst": 0.23
+    },
+    "majors|sp|CT L": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|CT R": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|CT Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|sp|Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "majors|sp|Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "majors|sp|Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "majors|sp|FB L": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|sp|FB R": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|sp|FB Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|sp|Good": {
+      "best": 65,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 41,
+      "neutral_lo": 39,
+      "worst": -20
+    },
+    "majors|sp|ICR/PA": {
+      "best": 0.24,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.32,
+      "neutral_lo": 0.33,
+      "worst": 0.41
+    },
+    "majors|sp|K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "majors|sp|KN": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|sp|L CB": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|L CH": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|L CT": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|L FB": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|sp|L SI": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|sp|L SL": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 20,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|L SP": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|sp|L SW": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|LCon": {
+      "best": 3,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": -5,
+      "neutral_lo": -6,
+      "worst": -14
+    },
+    "majors|sp|LDisc": {
+      "best": 60,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 38,
+      "neutral_lo": 37,
+      "worst": 20
+    },
+    "majors|sp|LHB": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|sp|Net Bases Prevented": {
+      "best": 10,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 2,
+      "neutral_lo": -2,
+      "worst": -10
+    },
+    "majors|sp|P/IP": {
+      "best": 14.7,
+      "fmt": "num",
+      "higher_is_better": false,
+      "neutral_hi": 16.3,
+      "neutral_lo": 16.4,
+      "worst": 17.5
+    },
+    "majors|sp|PPG": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 17,
+      "neutral_lo": 15,
+      "worst": 10
+    },
+    "majors|sp|Pts": {
+      "best": 700,
+      "fmt": "int",
+      "higher_is_better": true,
+      "neutral_hi": 300,
+      "neutral_lo": 0,
+      "worst": -20
+    },
+    "majors|sp|Pwr/PA": {
+      "best": 0.16,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.22,
+      "neutral_lo": 0.23,
+      "worst": 0.31
+    },
+    "majors|sp|R CB": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|R CH": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|R CT": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|R FB": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|sp|R SI": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|sp|R SL": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 20,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|R SP": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|sp|R SW": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|RHB": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|sp|S All": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|sp|S Bad%": {
+      "best": 0.28,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.37,
+      "worst": 0.44
+    },
+    "majors|sp|S Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "majors|sp|S Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "majors|sp|S Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "majors|sp|S ERA": {
+      "best": 2.5,
+      "fmt": "num",
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4,
+      "worst": 5.5
+    },
+    "majors|sp|S LCon": {
+      "best": 3,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": -5,
+      "neutral_lo": -6,
+      "worst": -14
+    },
+    "majors|sp|S LDisc": {
+      "best": 60,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 38,
+      "neutral_lo": 37,
+      "worst": 20
+    },
+    "majors|sp|S PPG": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 17,
+      "neutral_lo": 15,
+      "worst": 10
+    },
+    "majors|sp|S Score": {
+      "best": 100,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 10,
+      "neutral_lo": 0,
+      "worst": -100
+    },
+    "majors|sp|S Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|sp|S Val": {
+      "best": 500,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 100,
+      "neutral_lo": -50,
+      "worst": -300
+    },
+    "majors|sp|S WHIP": {
+      "best": 1.0,
+      "fmt": "num",
+      "higher_is_better": false,
+      "neutral_hi": 1.2,
+      "neutral_lo": 1.25,
+      "worst": 1.5
+    },
+    "majors|sp|SI L": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|sp|SI R": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -70
+    },
+    "majors|sp|SI Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|sp|SL L": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 20,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|SL R": {
+      "best": 70,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 20,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|SL Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|sp|SP L": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|sp|SP R": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|sp|SP Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|sp|SW L": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|SW R": {
+      "best": 85,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 0,
+      "worst": -50
+    },
+    "majors|sp|SW Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|sp|Score": {
+      "best": 100,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 10,
+      "neutral_lo": 0,
+      "worst": -100
+    },
+    "majors|sp|Square%": {
+      "best": 0.24,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.32,
+      "neutral_lo": 0.33,
+      "worst": 0.41
+    },
+    "majors|sp|Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "majors|sp|Strike%": {
+      "best": 0.72,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.64,
+      "neutral_lo": 0.63,
+      "worst": 0.58
+    },
+    "majors|sp|SwSp%": {
+      "best": 0.32,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.41,
+      "neutral_lo": 0.42,
+      "worst": 0.5
+    },
+    "majors|sp|SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "majors|sp|Val": {
+      "best": 500,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 100,
+      "neutral_lo": -50,
+      "worst": -300
+    },
+    "majors|sp|Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "majors|sp|Wk/PA": {
+      "best": 0.36,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.28,
+      "neutral_lo": 0.27,
+      "worst": 0.2
+    },
+    "majors|sp|pERA": {
+      "best": 2.5,
+      "fmt": "num",
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 5.5
+    },
+    "majors|sp|qCon Bad%": {
+      "best": 0.35,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.44,
+      "neutral_lo": 0.45,
+      "worst": 0.55
+    },
+    "majors|sp|qDisc Bad%": {
+      "best": 0.21,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.3,
+      "neutral_lo": 0.31,
+      "worst": 0.4
+    },
+    "majors|sp|rAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "majors|sp|vSzn": {
+      "best": 500,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 100,
+      "neutral_lo": -50,
+      "worst": -300
+    },
+    "majors|sp|≥100": {
+      "best": 0.2,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.29,
+      "neutral_lo": 0.3,
+      "worst": 0.4
+    },
+    "minors|hitters|Minors Con": {
+      "best": 45,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "minors|hitters|Minors Disc": {
+      "best": 30,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "minors|hitters|Minors L Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "minors|hitters|Minors R Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "minors|hitters|Minors SwSp%": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.41,
+      "neutral_lo": 0.4,
+      "worst": 0.3
+    },
+    "minors|hitters|Minors Whiff%": {
+      "best": 0.15,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.26,
+      "worst": 0.4
+    },
+    "minors|hitters|Minors ≥100": {
+      "best": 0.4,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.24,
+      "worst": 0.12
+    },
+    "minors|hitters|Prev Minors Con": {
+      "best": 45,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "minors|hitters|Prev Minors Disc": {
+      "best": 30,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "minors|hitters|Prev Minors L Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "minors|hitters|Prev Minors R Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "minors|hitters|Prev Minors SwSp%": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.41,
+      "neutral_lo": 0.4,
+      "worst": 0.3
+    },
+    "minors|hitters|Prev Minors Whiff%": {
+      "best": 0.15,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.26,
+      "worst": 0.4
+    },
+    "minors|hitters|Prev Minors ≥100": {
+      "best": 0.4,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.24,
+      "worst": 0.12
+    },
+    "minors|hitters|mAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "minors|hitters|mAll -1": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "minors|rp|All": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "minors|rp|BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "minors|rp|Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "minors|rp|Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "minors|rp|Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "minors|rp|K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "minors|rp|Minors BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "minors|rp|Minors Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "minors|rp|Minors Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "minors|rp|Minors Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "minors|rp|Minors K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "minors|rp|Minors Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "minors|rp|Minors SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "minors|rp|Minors Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "minors|rp|Prev Minors BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "minors|rp|Prev Minors Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "minors|rp|Prev Minors Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "minors|rp|Prev Minors Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "minors|rp|Prev Minors K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "minors|rp|Prev Minors Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "minors|rp|Prev Minors SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "minors|rp|Prev Minors Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "minors|rp|Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "minors|rp|SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "minors|rp|Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "minors|rp|mAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "minors|rp|mAll -1": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "minors|sp|All": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "minors|sp|BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "minors|sp|Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "minors|sp|Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "minors|sp|Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "minors|sp|K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "minors|sp|Minors BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "minors|sp|Minors Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "minors|sp|Minors Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "minors|sp|Minors Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "minors|sp|Minors K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "minors|sp|Minors Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "minors|sp|Minors SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "minors|sp|Minors Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "minors|sp|Prev Minors BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "minors|sp|Prev Minors Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "minors|sp|Prev Minors Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "minors|sp|Prev Minors Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "minors|sp|Prev Minors K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "minors|sp|Prev Minors Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "minors|sp|Prev Minors SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "minors|sp|Prev Minors Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "minors|sp|Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "minors|sp|SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "minors|sp|Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "minors|sp|mAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "minors|sp|mAll -1": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "playoffs|hitters|Playoff Con": {
+      "best": 45,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "playoffs|hitters|Playoff Disc": {
+      "best": 30,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "playoffs|hitters|Playoff L Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "playoffs|hitters|Playoff R Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "playoffs|hitters|Playoff SwSp%": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.41,
+      "neutral_lo": 0.4,
+      "worst": 0.3
+    },
+    "playoffs|hitters|Playoff Whiff%": {
+      "best": 0.15,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.26,
+      "worst": 0.4
+    },
+    "playoffs|hitters|Playoff ≥100": {
+      "best": 0.4,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.24,
+      "worst": 0.12
+    },
+    "playoffs|hitters|pAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "playoffs|rp|All": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "playoffs|rp|BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "playoffs|rp|Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "playoffs|rp|Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "playoffs|rp|Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "playoffs|rp|K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "playoffs|rp|Playoff BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "playoffs|rp|Playoff Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "playoffs|rp|Playoff Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "playoffs|rp|Playoff Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "playoffs|rp|Playoff K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "playoffs|rp|Playoff Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "playoffs|rp|Playoff SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "playoffs|rp|Playoff Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "playoffs|rp|Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "playoffs|rp|SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "playoffs|rp|Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "playoffs|rp|pAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "playoffs|sp|All": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "playoffs|sp|BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "playoffs|sp|Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "playoffs|sp|Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "playoffs|sp|Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "playoffs|sp|K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "playoffs|sp|Playoff BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "playoffs|sp|Playoff Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "playoffs|sp|Playoff Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "playoffs|sp|Playoff Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "playoffs|sp|Playoff K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "playoffs|sp|Playoff Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "playoffs|sp|Playoff SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "playoffs|sp|Playoff Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "playoffs|sp|Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "playoffs|sp|SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "playoffs|sp|Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "playoffs|sp|pAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "spring|hitters|Spring Con": {
+      "best": 45,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "spring|hitters|Spring Disc": {
+      "best": 30,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "spring|hitters|Spring L Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "spring|hitters|Spring R Eye": {
+      "best": 0.82,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.73,
+      "neutral_lo": 0.72,
+      "worst": 0.6
+    },
+    "spring|hitters|Spring SwSp%": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.41,
+      "neutral_lo": 0.4,
+      "worst": 0.3
+    },
+    "spring|hitters|Spring Whiff%": {
+      "best": 0.15,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.26,
+      "worst": 0.4
+    },
+    "spring|hitters|Spring ≥100": {
+      "best": 0.4,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.25,
+      "neutral_lo": 0.24,
+      "worst": 0.12
+    },
+    "spring|hitters|sAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "spring|rp|All": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "spring|rp|BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "spring|rp|Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "spring|rp|Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "spring|rp|Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "spring|rp|K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "spring|rp|Spring BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "spring|rp|Spring Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "spring|rp|Spring Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "spring|rp|Spring Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "spring|rp|Spring K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "spring|rp|Spring Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "spring|rp|Spring SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "spring|rp|Spring Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "spring|rp|Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "spring|rp|SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "spring|rp|Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "spring|rp|sAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "spring|sp|All": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
+    },
+    "spring|sp|BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "spring|sp|Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "spring|sp|Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "spring|sp|Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "spring|sp|K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "spring|sp|Spring BB%": {
+      "best": 0.04,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.08,
+      "neutral_lo": 0.09,
+      "worst": 0.13
+    },
+    "spring|sp|Spring Con": {
+      "best": 35,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -35
+    },
+    "spring|sp|Spring Days +/-": {
+      "best": 0.5,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.15,
+      "neutral_lo": 0.14,
+      "worst": -0.06
+    },
+    "spring|sp|Spring Disc": {
+      "best": 25,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -25
+    },
+    "spring|sp|Spring K%": {
+      "best": 0.33,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.23,
+      "neutral_lo": 0.22,
+      "worst": 0.15
+    },
+    "spring|sp|Spring Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "spring|sp|Spring SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "spring|sp|Spring Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "spring|sp|Stf": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 21,
+      "neutral_lo": 20,
+      "worst": 0
+    },
+    "spring|sp|SwStr%": {
+      "best": 0.17,
+      "fmt": "pct",
+      "higher_is_better": true,
+      "neutral_hi": 0.12,
+      "neutral_lo": 0.11,
+      "worst": 0.06
+    },
+    "spring|sp|Velo": {
+      "best": 99,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 94,
+      "neutral_lo": 92,
+      "worst": 89
+    },
+    "spring|sp|sAll": {
+      "best": 40,
+      "fmt": "num",
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 0,
+      "worst": -40
     }
   }
 }
