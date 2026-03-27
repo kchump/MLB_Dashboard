@@ -871,6 +871,11 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
 /* =============================================================================
    Fantasy
    ============================================================================= */
+#fantasy > .static_page {
+  max-width: none;
+  width: 100%;
+}
+
 #fantasy_results_root {
   width: 100%;
   max-width: 100%;
@@ -921,7 +926,7 @@ overflow-x: visible;
 }
 
 .fantasy_table_wrap {
-  width: auto;
+  width: 100%;
   max-width: 100%;
   min-width: 0;
   overflow-x: auto;
@@ -1260,14 +1265,19 @@ body.soft_theme .fantasy_player_link:hover {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 12px 14px 14px 14px;
-  overflow: visible;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .player_page_scroll {
   width: 100%;
   max-width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 

@@ -824,14 +824,6 @@
       "neutral_lo": 0.25,
       "worst": 0.35
     },
-    "majors|hitters|pAll": {
-      "best": 40,
-      "fmt": "num",
-      "higher_is_better": true,
-      "neutral_hi": 5,
-      "neutral_lo": 0,
-      "worst": -40
-    },
     "majors|hitters|rAll": {
       "best": 40,
       "fmt": "num",
