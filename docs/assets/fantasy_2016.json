@@ -4476,7 +4476,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 4,
         "team": "LAA",
         "vSzn": 331.41,
         "≥100": 0.2817
@@ -10326,7 +10326,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 4,
         "team": "LAA",
         "≥100": 0.214
       }
@@ -11144,7 +11144,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 4,
         "team": "LAA",
         "≥100": 0.0
       },

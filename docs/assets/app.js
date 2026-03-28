@@ -2052,8 +2052,8 @@ function init_matchups_page_if_present(content_root) {
     ['gameday_matchup', 'Gameday Matchup Preview'],
     ['projected_pitchers', 'Projected Starting Pitchers'],
     ['best_worst_hitters', 'Projected Best and Worst Hitters'],
-    ['multi_hitter_today', "(FANTASY) Today's Hitter Matchups"],
-    ['multi_hitter_week', "(FANTASY) Week's Hitter Matchups"],
+    ['multi_hitter_today', "Project Today's Fantasy Lineup"],
+    ['multi_hitter_week', "Project Weekly Fantasy Hitter Moves"],
     ['multi_starter', 'Specific Starting Pitcher Matchups'],
     ['rp_inning', 'Specific Reliever Inning Preview'],
     ['multi_hitter', 'Specific Hitter Matchups'],
@@ -5873,8 +5873,12 @@ function fantasy_sort_rows(rows) {
 
 /* ################# */
 function fantasy_default_sort_key() {
-  const cols = fantasy_sort_columns[fantasy_state.scope][fantasy_state.section];
-  return cols[0];
+  if (fantasy_state.scope === 'majors') {
+    return 'Val';
+  }
+
+  const cols = fantasy_sort_columns[fantasy_state.scope][fantasy_state.section] || [];
+  return cols[0] || 'All';
 }
 
 /* ################# */

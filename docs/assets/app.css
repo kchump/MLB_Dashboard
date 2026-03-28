@@ -887,7 +887,6 @@ overflow-x: visible;
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  overflow-x: auto;
 }
 
 .fantasy_top_scroll {
@@ -926,17 +925,16 @@ overflow-x: visible;
 }
 
 .fantasy_table_wrap {
-  width: max-content;
-  min-width: 100%;
-  max-width: none;
-  overflow-x: visible;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
   overflow-y: visible;
   border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--panel_2);
   box-sizing: border-box;
 }
-
 .fantasy_table {
   width: max-content;
   min-width: 100%;

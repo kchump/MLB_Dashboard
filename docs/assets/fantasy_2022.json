@@ -9797,7 +9797,7 @@
         "prev_minors_year": "",
         "role": "batters",
         "sort_bucket": 0,
-        "team": "Free Agents",
+        "team": "MIA",
         "vSzn": -221.13,
         "≥100": 0.2328
       },
@@ -19946,7 +19946,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 4,
         "team": "LAA",
         "vSzn": 143.16,
         "≥100": 0.23309999999999997
@@ -31359,7 +31359,7 @@
         "prev_minors_year": "",
         "role": "rp",
         "sort_bucket": 0,
-        "team": "Free Agents",
+        "team": "SF",
         "vSzn": -294.08,
         "≥50 Qual": 2.0
       },
@@ -52064,7 +52064,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 4,
         "team": "LAA",
         "≥100": 0.222
       },
@@ -54114,7 +54114,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 0,
-        "team": "Free Agents"
+        "team": "SF"
       },
       {
         "All": 19.02,

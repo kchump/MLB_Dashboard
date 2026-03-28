@@ -22537,7 +22537,7 @@
         "WHIP": 3.64,
         "name": "Jedixson Paez",
         "person_key": "jedixson paez",
-        "pitch_role": "RP",
+        "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
         "sort_bucket": 0,
@@ -29580,7 +29580,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 0,
-        "team": "Free Agents",
+        "team": "MIA",
         "≥100": 0.3
       },
       {
@@ -41333,7 +41333,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 0,
-        "team": "Free Agents"
+        "team": "SF"
       },
       {
         "All": -11.28,
@@ -43783,7 +43783,7 @@
         "Velo": 91.97,
         "name": "Jedixson Paez",
         "person_key": "jedixson paez",
-        "pitch_role": "RP",
+        "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 0,
         "team": "CHW"
@@ -46462,7 +46462,7 @@
         "Velo": 96.08,
         "name": "Cade Winquest",
         "person_key": "cade winquest",
-        "pitch_role": "",
+        "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 0,
         "team": "NYY"
