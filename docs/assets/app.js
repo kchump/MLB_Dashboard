@@ -2053,11 +2053,10 @@ function init_matchups_page_if_present(content_root) {
     ['projected_pitchers', 'Projected Starting Pitchers'],
     ['best_worst_hitters', 'Projected Best and Worst Hitters'],
     ['multi_hitter_today', "(FANTASY) Today's Hitter Matchups"],
-    ['multi_hitter_week', "(FANTASY) Week's Hitter Matchups"]
+    ['multi_hitter_week', "(FANTASY) Week's Hitter Matchups"],
     ['multi_starter', 'Specific Starting Pitcher Matchups'],
     ['rp_inning', 'Specific Reliever Inning Preview'],
     ['multi_hitter', 'Specific Hitter Matchups'],
-
   ];
 
   modes.forEach(m => {

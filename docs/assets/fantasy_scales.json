@@ -1,5 +1,213 @@
 {
   "panel_scale_lookup": {
+    "a|AVG": {
+      "best": 0.32,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.27,
+      "neutral_lo": 0.25,
+      "worst": 0.2
+    },
+    "a|ERA": {
+      "best": 2.5,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 6.0
+    },
+    "a|OBP": {
+      "best": 0.4,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.33,
+      "worst": 0.28
+    },
+    "a|OPS": {
+      "best": 0.98,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.77,
+      "neutral_lo": 0.73,
+      "worst": 0.6
+    },
+    "a|SLG": {
+      "best": 0.58,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.45,
+      "neutral_lo": 0.43,
+      "worst": 0.35
+    },
+    "a|WHIP": {
+      "best": 1.0,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 1.2,
+      "neutral_lo": 1.25,
+      "worst": 1.5
+    },
+    "a|≥50 Qual": {
+      "best": 5,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 2,
+      "neutral_lo": 2,
+      "worst": 0
+    },
+    "e|AVG": {
+      "best": 0.32,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.27,
+      "neutral_lo": 0.25,
+      "worst": 0.2
+    },
+    "e|OBP": {
+      "best": 0.4,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.33,
+      "worst": 0.28
+    },
+    "e|OPS": {
+      "best": 0.98,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.77,
+      "neutral_lo": 0.73,
+      "worst": 0.6
+    },
+    "e|SLG": {
+      "best": 0.58,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.45,
+      "neutral_lo": 0.43,
+      "worst": 0.35
+    },
+    "h|AVG": {
+      "best": 0.32,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.27,
+      "neutral_lo": 0.25,
+      "worst": 0.2
+    },
+    "h|OBP": {
+      "best": 0.4,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.33,
+      "worst": 0.28
+    },
+    "h|OPS": {
+      "best": 0.98,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.77,
+      "neutral_lo": 0.73,
+      "worst": 0.6
+    },
+    "h|SLG": {
+      "best": 0.58,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.45,
+      "neutral_lo": 0.43,
+      "worst": 0.35
+    },
+    "i|AVG": {
+      "best": 0.32,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.27,
+      "neutral_lo": 0.25,
+      "worst": 0.2
+    },
+    "i|OBP": {
+      "best": 0.4,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.33,
+      "worst": 0.28
+    },
+    "i|OPS": {
+      "best": 0.98,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.77,
+      "neutral_lo": 0.73,
+      "worst": 0.6
+    },
+    "i|SLG": {
+      "best": 0.58,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.45,
+      "neutral_lo": 0.43,
+      "worst": 0.35
+    },
+    "j|AVG": {
+      "best": 0.32,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.27,
+      "neutral_lo": 0.25,
+      "worst": 0.2
+    },
+    "j|ERA": {
+      "best": 2.5,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 6.0
+    },
+    "j|OBP": {
+      "best": 0.4,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.33,
+      "worst": 0.28
+    },
+    "j|OPS": {
+      "best": 0.98,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.77,
+      "neutral_lo": 0.73,
+      "worst": 0.6
+    },
+    "j|SLG": {
+      "best": 0.58,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.45,
+      "neutral_lo": 0.43,
+      "worst": 0.35
+    },
+    "j|WHIP": {
+      "best": 1.0,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 1.2,
+      "neutral_lo": 1.25,
+      "worst": 1.5
+    },
+    "j|≥50 Qual": {
+      "best": 5,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 2,
+      "neutral_lo": 2,
+      "worst": 0
+    },
     "majors|hitters|90ft": {
       "best": 3.7,
       "fmt": "num",
@@ -2856,6 +3064,118 @@
       "neutral_lo": 0,
       "worst": -40
     },
+    "m|AVG": {
+      "best": 0.32,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.27,
+      "neutral_lo": 0.25,
+      "worst": 0.2
+    },
+    "m|ERA": {
+      "best": 2.5,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 6.0
+    },
+    "m|OBP": {
+      "best": 0.4,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.33,
+      "worst": 0.28
+    },
+    "m|OPS": {
+      "best": 0.98,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.77,
+      "neutral_lo": 0.73,
+      "worst": 0.6
+    },
+    "m|SLG": {
+      "best": 0.58,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.45,
+      "neutral_lo": 0.43,
+      "worst": 0.35
+    },
+    "m|WHIP": {
+      "best": 1.0,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 1.2,
+      "neutral_lo": 1.25,
+      "worst": 1.5
+    },
+    "m|≥50 Qual": {
+      "best": 5,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 2,
+      "neutral_lo": 2,
+      "worst": 0
+    },
+    "o|AVG": {
+      "best": 0.32,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.27,
+      "neutral_lo": 0.25,
+      "worst": 0.2
+    },
+    "o|ERA": {
+      "best": 2.5,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 6.0
+    },
+    "o|OBP": {
+      "best": 0.4,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.33,
+      "worst": 0.28
+    },
+    "o|OPS": {
+      "best": 0.98,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.77,
+      "neutral_lo": 0.73,
+      "worst": 0.6
+    },
+    "o|SLG": {
+      "best": 0.58,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.45,
+      "neutral_lo": 0.43,
+      "worst": 0.35
+    },
+    "o|WHIP": {
+      "best": 1.0,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 1.2,
+      "neutral_lo": 1.25,
+      "worst": 1.5
+    },
+    "o|≥50 Qual": {
+      "best": 5,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 2,
+      "neutral_lo": 2,
+      "worst": 0
+    },
     "playoffs|hitters|Playoff Con": {
       "best": 45,
       "fmt": "num",
@@ -3208,6 +3528,86 @@
       "neutral_lo": 0,
       "worst": -40
     },
+    "p|ERA": {
+      "best": 2.5,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 6.0
+    },
+    "p|WHIP": {
+      "best": 1.0,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 1.2,
+      "neutral_lo": 1.25,
+      "worst": 1.5
+    },
+    "p|≥50 Qual": {
+      "best": 5,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 2,
+      "neutral_lo": 2,
+      "worst": 0
+    },
+    "r|AVG": {
+      "best": 0.32,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.27,
+      "neutral_lo": 0.25,
+      "worst": 0.2
+    },
+    "r|ERA": {
+      "best": 2.5,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 6.0
+    },
+    "r|OBP": {
+      "best": 0.4,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.33,
+      "worst": 0.28
+    },
+    "r|OPS": {
+      "best": 0.98,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.77,
+      "neutral_lo": 0.73,
+      "worst": 0.6
+    },
+    "r|SLG": {
+      "best": 0.58,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.45,
+      "neutral_lo": 0.43,
+      "worst": 0.35
+    },
+    "r|WHIP": {
+      "best": 1.0,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 1.2,
+      "neutral_lo": 1.25,
+      "worst": 1.5
+    },
+    "r|≥50 Qual": {
+      "best": 5,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 2,
+      "neutral_lo": 2,
+      "worst": 0
+    },
     "spring|hitters|Spring Con": {
       "best": 45,
       "fmt": "num",
@@ -3559,6 +3959,150 @@
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
+    },
+    "s|AVG": {
+      "best": 0.32,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.27,
+      "neutral_lo": 0.25,
+      "worst": 0.2
+    },
+    "s|ERA": {
+      "best": 2.5,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 6.0
+    },
+    "s|OBP": {
+      "best": 0.4,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.33,
+      "worst": 0.28
+    },
+    "s|OPS": {
+      "best": 0.98,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.77,
+      "neutral_lo": 0.73,
+      "worst": 0.6
+    },
+    "s|SLG": {
+      "best": 0.58,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.45,
+      "neutral_lo": 0.43,
+      "worst": 0.35
+    },
+    "s|WHIP": {
+      "best": 1.0,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 1.2,
+      "neutral_lo": 1.25,
+      "worst": 1.5
+    },
+    "s|≥50 Qual": {
+      "best": 5,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 2,
+      "neutral_lo": 2,
+      "worst": 0
+    },
+    "t|AVG": {
+      "best": 0.32,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.27,
+      "neutral_lo": 0.25,
+      "worst": 0.2
+    },
+    "t|OBP": {
+      "best": 0.4,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.33,
+      "worst": 0.28
+    },
+    "t|OPS": {
+      "best": 0.98,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.77,
+      "neutral_lo": 0.73,
+      "worst": 0.6
+    },
+    "t|SLG": {
+      "best": 0.58,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.45,
+      "neutral_lo": 0.43,
+      "worst": 0.35
+    },
+    "||AVG": {
+      "best": 0.32,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.27,
+      "neutral_lo": 0.25,
+      "worst": 0.2
+    },
+    "||ERA": {
+      "best": 2.5,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 6.0
+    },
+    "||OBP": {
+      "best": 0.4,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.35,
+      "neutral_lo": 0.33,
+      "worst": 0.28
+    },
+    "||OPS": {
+      "best": 0.98,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.77,
+      "neutral_lo": 0.73,
+      "worst": 0.6
+    },
+    "||SLG": {
+      "best": 0.58,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 0.45,
+      "neutral_lo": 0.43,
+      "worst": 0.35
+    },
+    "||WHIP": {
+      "best": 1.0,
+      "fmt": null,
+      "higher_is_better": false,
+      "neutral_hi": 1.2,
+      "neutral_lo": 1.25,
+      "worst": 1.5
+    },
+    "||≥50 Qual": {
+      "best": 5,
+      "fmt": null,
+      "higher_is_better": true,
+      "neutral_hi": 2,
+      "neutral_lo": 2,
+      "worst": 0
     }
   }
 }
