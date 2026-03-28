@@ -47,6 +47,7 @@
     "Brandon Lowe": "PIT",
     "Brandon Marsh": "PHI",
     "Brandon Nimmo": "TEX",
+    "Braxton Fulford": "COL",
     "Brayan Rocchio": "CLE",
     "Brendan Donovan": "SEA",
     "Brent Rooker": "ATH",
@@ -284,7 +285,7 @@
     "Matt Vierling": "DET",
     "Matt Wallner": "MIN",
     "Mauricio Dubon": "ATL",
-    "Max Muncy": "LAD",
+    "Max Muncy": "ATH",
     "Max Muncy ATH": "ATH",
     "Maximo Acosta": "MIA",
     "Michael Busch": "CHC",
@@ -450,6 +451,7 @@
       "Jacob Wilson",
       "Jeff McNeil",
       "Lawrence Butler",
+      "Max Muncy",
       "Max Muncy ATH",
       "Nick Kurtz",
       "Shea Langeliers",
@@ -573,6 +575,7 @@
       "Steven Kwan"
     ],
     "COL": [
+      "Braxton Fulford",
       "Brenton Doyle",
       "Brett Sullivan",
       "Edouard Julien",
@@ -974,6 +977,7 @@
     "Cole Henry": "WAS",
     "Cole Sands": "MIN",
     "Cole Sulser": "TB",
+    "Cole Wilcox": "SEA",
     "Cole Winn": "TEX",
     "Colin Holderman": "CLE",
     "Colin Rea": "CHC",
@@ -1094,6 +1098,7 @@
     "Louie Varland": "TOR",
     "Lucas Erceg": "KC",
     "Luis Garcia RP": "NYM",
+    "Luis Medina": "ATH",
     "Luke Weaver": "NYM",
     "Mark Leiter Jr.": "ATH",
     "Mason Englert": "TB",
@@ -1162,7 +1167,6 @@
     "Tony Santillan": "CIN",
     "Trevor Megill": "MIL",
     "Tyler Alexander": "TEX",
-    "Tyler Gilbert": "CHW",
     "Tyler Holton": "DET",
     "Tyler Kinley": "ATL",
     "Tyler Phillips": "MIA",
@@ -1202,6 +1206,7 @@
       "Hogan Harris",
       "J.T. Ginn",
       "Justin Sterner",
+      "Luis Medina",
       "Mark Leiter Jr.",
       "Michael Kelly",
       "Scott Barlow"
@@ -1263,8 +1268,7 @@
       "Mike Vasil",
       "Prelander Berroa",
       "Sean Newcomb",
-      "Seranthony Dominguez",
-      "Tyler Gilbert"
+      "Seranthony Dominguez"
     ],
     "CIN": [
       "Brock Burke",
@@ -1451,6 +1455,7 @@
       "Andres Munoz",
       "Carlos Vargas",
       "Casey Legumina",
+      "Cole Wilcox",
       "Cooper Criswell",
       "Eduard Bazardo",
       "Gabe Speier",
