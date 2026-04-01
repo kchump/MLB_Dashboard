@@ -880,7 +880,7 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
   width: 100%;
   max-width: 100%;
   min-width: 0;
-overflow-x: visible;
+  overflow-x: visible;
 }
 
 .fantasy_scroll_shell {
@@ -996,6 +996,22 @@ overflow-x: visible;
 
 .fantasy_td_center {
   text-align: center;
+}
+
+.fantasy_divider_before {
+  border-left: 2px solid rgba(0,0,0,0.9) !important;
+}
+
+.fantasy_divider_before_light {
+  border-left: 1px solid rgba(0,0,0,0.35) !important;
+}
+
+body.soft_theme .fantasy_divider_before {
+  border-left: 2px solid rgba(0,0,0,0.95) !important;
+}
+
+body.soft_theme .fantasy_divider_before_light {
+  border-left: 1px solid rgba(255,255,255,0.18) !important;
 }
 
 .fantasy_td_name {
@@ -1594,6 +1610,17 @@ body::-webkit-scrollbar-thumb:hover,
     width: 100%;
     justify-content: flex-start;
   }
+
+  #matchups .matchups_row_controls {
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
+
+#matchups .matchups_row_controls > * {
+  width: 100%;
+  max-width: 100%;
+}
 
   #matchups .matchups_mode_bar {
     flex-direction: column;
