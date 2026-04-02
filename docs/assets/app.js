@@ -9,6 +9,71 @@ let active_content_file = '';
 let active_page_id = '';
 const year_fallback_notice_by_page = new Map(); // page_id -> { last_played_year }
 let retired_players_set = new Set();
+const fantasy_year_cache = new Map();
+/* ################# */
+async function load_fantasy_year(year) {
+  const y = String(year || '').trim();
+  if (!y) return null;
+
+  if (fantasy_year_cache.has(y)) {
+    return fantasy_year_cache.get(y);
+  }
+
+  try {
+    const r = await fetch(`assets/fantasy_${y}.json`, { cache: 'no-store' });
+    if (!r.ok) {
+      fantasy_year_cache.set(y, null);
+      return null;
+    }
+
+    const data = await r.json();
+    fantasy_year_cache.set(y, data);
+    return data;
+  } catch (e) {
+    fantasy_year_cache.set(y, null);
+    return null;
+  }
+}
+/* ################# */
+function find_player_row_anywhere(data, person_key) {
+  if (!data) return null;
+
+  const target = String(person_key || '').trim().toLowerCase();
+  if (!target) return null;
+
+  for (const scope_val of Object.values(data)) {
+    if (!scope_val || typeof scope_val !== 'object') continue;
+
+    for (const section_val of Object.values(scope_val)) {
+      if (!Array.isArray(section_val)) continue;
+
+      for (const row of section_val) {
+        if (String(row.person_key || '').trim().toLowerCase() === target) {
+          return row;
+        }
+      }
+    }
+  }
+
+  return null;
+}
+/* ################# */
+async function val_for_year_person(year, person_key) {
+  const data = await load_fantasy_year(year);
+  const row = find_player_row_anywhere(data, person_key);
+  if (!row) return null;
+
+  const val = row.Val;
+  if (val === '' || val == null || Number.isNaN(Number(val))) return null;
+
+  return Number(val);
+}
+/* ################# */
+function format_year_option_label(year, is_current, val) {
+  const base_label = is_current ? 'Current' : String(year);
+  if (val == null) return base_label;
+  return `${base_label} (Val: ${val.toFixed(2)})`;
+}
 /* ################# */
 function normalize_matchup_person_key(s) {
   return remove_accents(String(s || ''))
@@ -139,7 +204,7 @@ function year_fallback_file_from_html(html, requested_file) {
   return null;
 }
 /* ################# */
-function render_year_select_in_content(content_root) {
+async function render_year_select_in_content(content_root) {
   if (!content_root || !year_page_lookup) return;
 
   const year_blocks = Array.from(content_root.querySelectorAll('.year_buttons'));
@@ -207,25 +272,38 @@ function render_year_select_in_content(content_root) {
       sel.appendChild(o);
     }
 
-    years.forEach(y => {
+    const option_jobs = years.map(async y => {
       const role_map = (year_page_lookup[y] || {})[role] || {};
       const file = role_map[person_key];
-      if (!file) return;
+      if (!file) return null;
 
       const is_current = label_current_year && (String(y) === String(label_current_year));
-      const label_text = is_current ? 'Current' : String(y);
+      const val = await val_for_year_person(y, person_key);
+      const label_text = format_year_option_label(y, is_current, val);
       const is_selected = (file === active_file);
 
-      add_opt(label_text, file, is_selected);
+      return { label_text, file, is_selected };
     });
 
-    // If the currently-loaded file isn't one of the year options, just show the top option.
-    // Navigation is handled earlier (pre-DOM) in load_page to avoid flicker.
-    if (!any_selected && sel.options.length) {
-      sel.selectedIndex = 0;
-    }
+    Promise.all(option_jobs).then(options => {
+      options.forEach(opt => {
+        if (!opt) return;
+        add_opt(opt.label_text, opt.file, opt.is_selected);
+      });
 
-    sync_year_fallback_disclaimer();
+      if (!any_selected && sel.options.length) {
+        sel.selectedIndex = 0;
+      }
+
+      sync_year_fallback_disclaimer();
+    });
+    // // If the currently-loaded file isn't one of the year options, just show the top option.
+    // // Navigation is handled earlier (pre-DOM) in load_page to avoid flicker.
+    // if (!any_selected && sel.options.length) {
+    //   sel.selectedIndex = 0;
+    // }
+
+    // sync_year_fallback_disclaimer();
 
     sel.addEventListener('change', (e) => {
       e.preventDefault();
@@ -384,7 +462,7 @@ async function load_page(file, page_id) {
   try { localStorage.setItem('mlb_dash_active_page', pid); } catch (e) {}
 
   await load_year_page_lookup();
-  render_year_select_in_content(content);
+  await render_year_select_in_content(content);
     wrap_player_page_scroll_shell(content);
   install_plotly_tick_popovers(content);
   const plots = Array.from(content.querySelectorAll('.js-plotly-plot'));
@@ -3727,16 +3805,6 @@ function find_fragment_key_loose(obj, wanted_name) {
       return out;
     }
     //#################
-    function filter_flat_excluding_team(flat, team_map, excluded_team) {
-      const ex = String(excluded_team || '').trim();
-      if (!ex) return flat || [];
-
-      return (flat || []).filter(n => {
-        const nm = String(n || '').trim();
-        return nm && String(team_map[nm] || '').trim() !== ex;
-      });
-    }
-    //#################
     function get_pitcher_team_maps() {
       const sp_groups = build_pitcher_groups(year_lists);
       const rp_groups = Array.isArray(year_lists.pitchers_rp_by_team) ? year_lists.pitchers_rp_by_team : [];
@@ -3919,15 +3987,15 @@ function find_fragment_key_loose(obj, wanted_name) {
 
       const extras = (extra_vals && typeof extra_vals === 'object') ? extra_vals : {};
 
-      const ordered_headers = ['Name', 'PA', 'Away', 'Opp', 'Pitcher', 'All', 'Date'];
+      const ordered_headers = ['Name', 'PA', 'Away', 'Opp', 'Pitcher', 'All']; /*removed date*/
       const ordered_cells = [
         row_map['Name'] ?? '—',
         row_map['PA'] ?? '—',
         extras.Away ?? '—',
         extras.Opp ?? '—',
         extras.Pitcher ?? '—',
-        row_map['All'] ?? '—',
-        extras.Date ?? '—'
+        row_map['All'] ?? '—'
+        // ,extras.Date ?? '—'
       ];
 
       const pitch_headers = src_headers.filter(h => {
@@ -5185,7 +5253,7 @@ async function refresh_team_choices() {
 
             fallback_dummy_rows.push(
               enrich_dummy_row(fallback_rows[0], [
-                { header: 'Date', value: date_str },
+                // { header: 'Date', value: date_str },
                 { header: 'Away', value: matchup_info.side },
                 { header: 'Opp', value: matchup_info.opp },
                 { header: 'Pitcher', value: matchup_info.pitcher }
@@ -5990,6 +6058,29 @@ function fantasy_build_controls_html(data) {
   `;
 }
 /* ################# */
+function fantasy_column_divider_class(col) {
+  if (fantasy_state.scope !== 'majors') return '';
+
+  const heavy_dividers_by_section = {
+    hitters: new Set(['Pts', 'RHP', 'R Hit', 'PA', 'Pts +/-', 'Whiff%', 'R Eye', 'FB R', 'FB L']),
+    sp: new Set(['Pts', 'Velo', 'W', 'IP', 'Days +/-', '≥50 Qual', 'FB Stf']),
+    rp: new Set(['Pts', 'Velo', 'W', 'IP', 'Days +/-', '≥50 Qual', 'FB Stf']),
+  };
+
+  const light_dividers_by_section = {
+    hitters: new Set(),
+    sp: new Set(['SI Stf', 'CT Stf', 'SL Stf', 'SW Stf', 'CB Stf', 'CH Stf', 'SP Stf']),
+    rp: new Set(['SI Stf', 'CT Stf', 'SL Stf', 'SW Stf', 'CB Stf', 'CH Stf', 'SP Stf']),
+  };
+
+  const heavy = heavy_dividers_by_section[fantasy_state.section] || new Set();
+  const light = light_dividers_by_section[fantasy_state.section] || new Set();
+
+  if (heavy.has(col)) return ' fantasy_divider_before';
+  if (light.has(col)) return ' fantasy_divider_before_light';
+  return '';
+}
+/* ################# */
 function fantasy_display_label(col) {
   if (col === 'Days +/-') return 'Consistency';
   if (col === 'Pts +/-') return 'Consistency';
@@ -6400,9 +6491,10 @@ function fantasy_build_table_html(rows) {
 
   const header_html = cols.map((col, col_idx) => {
     const sticky_cls = col_idx === 0 ? ' fantasy_sticky_col' : '';
+    const divider_cls = fantasy_column_divider_class(col);
 
     if (!sortable_cols.has(col)) {
-      return `<th class="fantasy_th${sticky_cls}">${escape_html(fantasy_display_label(col))}</th>`;
+      return `<th class="fantasy_th${sticky_cls}${divider_cls}">${escape_html(fantasy_display_label(col))}</th>`;
     }
 
     let arrow = '↕';
@@ -6414,7 +6506,7 @@ function fantasy_build_table_html(rows) {
     }
 
     return `
-      <th class="fantasy_th fantasy_th_sort${sticky_cls}">
+      <th class="fantasy_th fantasy_th_sort${sticky_cls}${divider_cls}">
         <button type="button" class="fantasy_sort_btn${active_cls}" data-sort_key="${escape_html(col)}">
           <span class="fantasy_sort_label">${escape_html(fantasy_display_label(col))}</span>
           <span class="fantasy_sort_arrow">${arrow}</span>
@@ -6431,6 +6523,7 @@ function fantasy_build_table_html(rows) {
       if (col_idx === 0) {
         cls += ' fantasy_sticky_col';
       }
+      cls += fantasy_column_divider_class(col);
 
       if (col === 'Name') {
         const remove_btn = `
@@ -6540,9 +6633,11 @@ function fantasy_bind_top_scroll(results_root, scroll_state = null) {
   const sticky_col = table.querySelector('.fantasy_sticky_col');
   const sticky_width = sticky_col ? Math.ceil(sticky_col.getBoundingClientRect().width) : 0;
 
-  top_inner.style.width = `${table.scrollWidth}px`;
+  const scroll_width = Math.max(table.scrollWidth, table_wrap.scrollWidth);
 
-  const needs_horizontal_scroll = table.scrollWidth > table_wrap.clientWidth + 1;
+  top_inner.style.width = `${scroll_width}px`;
+
+  const needs_horizontal_scroll = scroll_width > table_wrap.clientWidth + 1;
   top_scroll.style.display = needs_horizontal_scroll ? 'block' : 'none';
 
   let syncing_from_top = false;
