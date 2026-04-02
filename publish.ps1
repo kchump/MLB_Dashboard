@@ -14,4 +14,6 @@ git push
 
 Set-Location 'C:\Users\kcamp\Downloads\baseball\src'
 
+python -m analytics.all --all_players "True"
+
 python -m analytics.all --all_players "True" --program 2021,2022,2023,2024,2025

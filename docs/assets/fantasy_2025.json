@@ -29746,8 +29746,8 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
-        "team": "",
+        "sort_bucket": 3,
+        "team": "PIT",
         "vSzn": "",
         "≥100": 0.5
       },
@@ -86238,8 +86238,8 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
-        "team": "",
+        "sort_bucket": 3,
+        "team": "PIT",
         "≥100": 0.256
       },
       {
@@ -88628,8 +88628,8 @@
         "person_key": "samy natera jr",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
-        "team": ""
+        "sort_bucket": 1,
+        "team": "LAA"
       },
       {
         "All": 53.8,
@@ -113438,8 +113438,8 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
-        "team": "",
+        "sort_bucket": 3,
+        "team": "PIT",
         "≥100": 0.5
       },
       {
@@ -116529,8 +116529,8 @@
         "person_key": "samy natera jr",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
-        "team": ""
+        "sort_bucket": 1,
+        "team": "LAA"
       },
       {
         "All": -13.9,
