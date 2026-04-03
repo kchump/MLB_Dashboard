@@ -4266,7 +4266,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "SD",
         "vSzn": "",
         "≥100": 0.0526
@@ -6016,7 +6016,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "NYM",
         "vSzn": -435.75,
         "≥100": 0.19149999999999998
@@ -7698,7 +7698,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "KC",
         "vSzn": -344.06,
         "≥50 Qual": 2.0
@@ -8118,7 +8118,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "BAL",
         "vSzn": "",
         "≥50 Qual": 3.0
@@ -9863,7 +9863,7 @@
         "Velo": 97.7,
         "W": 2.0,
         "WHIP": 1.22,
-        "name": "Luis GarciaRP",
+        "name": "Luis Garcia RP",
         "person_key": "luis garcia rp",
         "pitch_role": "RP",
         "prev_minors_year": "",
@@ -11340,7 +11340,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BAL",
         "vSzn": -391.95,
         "≥50 Qual": 3.0
@@ -14205,12 +14205,12 @@
         "Velo": 92.36,
         "W": 1.0,
         "WHIP": 3.18,
-        "name": "Jose DeLeon",
+        "name": "Jose De Leon",
         "person_key": "jose de leon",
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "WBC",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -16168,7 +16168,7 @@
         "person_key": "carlos estevez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "KC"
       },
       {
@@ -16231,7 +16231,7 @@
         "person_key": "albert suarez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "BAL"
       },
       {

@@ -58,12 +58,48 @@ function find_player_row_anywhere(data, person_key) {
   return null;
 }
 /* ################# */
+// async function val_for_year_person(year, person_key) {
+//   const data = await load_fantasy_year(year);
+//   const row = find_player_row_anywhere(data, person_key);
+//   if (!row) return null;
+
+//   const val = row.Val;
+//   if (val === '' || val == null || Number.isNaN(Number(val))) return null;
+
+//   return Number(val);
+// }
 async function val_for_year_person(year, person_key) {
   const data = await load_fantasy_year(year);
+
+  if (String(year) === '2020' || String(year) === '2021') {
+    console.log('[VAL DEBUG START]', { year, person_key, has_data: !!data });
+  }
+
   const row = find_player_row_anywhere(data, person_key);
+
+  if (String(year) === '2020' || String(year) === '2021') {
+    console.log('[VAL DEBUG ROW]', {
+      year,
+      person_key,
+      row_found: !!row,
+      row,
+    });
+  }
+
   if (!row) return null;
 
   const val = row.Val;
+
+  if (String(year) === '2020' || String(year) === '2021') {
+    console.log('[VAL DEBUG VAL]', {
+      year,
+      person_key,
+      raw_val: val,
+      numeric: Number(val),
+      is_nan: Number.isNaN(Number(val)),
+    });
+  }
+
   if (val === '' || val == null || Number.isNaN(Number(val))) return null;
 
   return Number(val);
@@ -72,7 +108,7 @@ async function val_for_year_person(year, person_key) {
 function format_year_option_label(year, is_current, val) {
   const base_label = is_current ? 'Current' : String(year);
   if (val == null) return base_label;
-  return `${base_label} (Val: ${val.toFixed(2)})`;
+  return `${base_label} (fValue: ${val.toFixed(2)})`;
 }
 /* ################# */
 function normalize_matchup_person_key(s) {
@@ -2171,7 +2207,7 @@ function init_matchups_page_if_present(content_root) {
   row_controls.appendChild(rows_plus);
 
   mode_bar.appendChild(mode_select);
-  mode_bar.appendChild(row_controls);
+  // mode_bar.appendChild(row_controls);
   mode_root.appendChild(mode_bar);
 
   //#################
@@ -3582,6 +3618,7 @@ function find_fragment_key_loose(obj, wanted_name) {
     }
 
     append_projected_starters_disclaimer();
+    form_root.appendChild(row_controls);
     //#################
     function append_row(row_root, items) {
       const row_div = document.createElement('div');
@@ -6637,8 +6674,9 @@ function fantasy_bind_top_scroll(results_root, scroll_state = null) {
 
   top_inner.style.width = `${scroll_width}px`;
 
-  const needs_horizontal_scroll = scroll_width > table_wrap.clientWidth + 1;
-  top_scroll.style.display = needs_horizontal_scroll ? 'block' : 'none';
+  // const needs_horizontal_scroll = scroll_width > table_wrap.clientWidth + 1;
+  // top_scroll.style.display = needs_horizontal_scroll ? 'block' : 'none';
+  top_scroll.style.display = 'block';
 
   let syncing_from_top = false;
   let syncing_from_bottom = false;

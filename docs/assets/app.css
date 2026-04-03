@@ -999,19 +999,11 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
 }
 
 .fantasy_divider_before {
-  border-left: 2px solid rgba(0,0,0,0.9) !important;
+  border-left: 1px solid var(--border) !important;
 }
 
 .fantasy_divider_before_light {
-  border-left: 1px solid rgba(0,0,0,0.35) !important;
-}
-
-body.soft_theme .fantasy_divider_before {
-  border-left: 2px solid rgba(0,0,0,0.95) !important;
-}
-
-body.soft_theme .fantasy_divider_before_light {
-  border-left: 1px solid rgba(255,255,255,0.18) !important;
+  border-left: 1px solid var(--border) !important;
 }
 
 .fantasy_td_name {

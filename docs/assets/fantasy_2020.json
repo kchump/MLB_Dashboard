@@ -12386,8 +12386,8 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
-        "team": "Free Agents",
+        "sort_bucket": 1,
+        "team": "SEA",
         "vSzn": "",
         "≥100": 0.4167
       },
@@ -14488,7 +14488,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "KC",
         "vSzn": -608.56,
         "≥50 Qual": 2.0
@@ -19523,7 +19523,7 @@
         "Velo": 96.66999999999999,
         "W": 0.0,
         "WHIP": 2.35,
-        "name": "Luis GarciaRP",
+        "name": "Luis Garcia RP",
         "person_key": "luis garcia rp",
         "pitch_role": "RP",
         "prev_minors_year": "",
@@ -21980,7 +21980,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "KC",
         "vSzn": -476.64,
         "≥50 Qual": 2.0
@@ -22260,7 +22260,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BAL",
         "vSzn": 252.51,
         "≥50 Qual": 3.0
@@ -27715,7 +27715,7 @@
         "Velo": 95.97999999999999,
         "W": 0.0,
         "WHIP": 2.83,
-        "name": "Jose DeLeon",
+        "name": "Jose De Leon",
         "person_key": "jose de leon",
         "pitch_role": "RP",
         "prev_minors_year": "",
@@ -30093,7 +30093,7 @@
         "person_key": "kyle wright",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "KC"
       },
       {
@@ -33695,7 +33695,7 @@
         "person_key": "carlos estevez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "KC"
       },
       {
@@ -34978,7 +34978,7 @@
         "person_key": "kyle wright",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "KC"
       },
       {
@@ -35835,7 +35835,7 @@
         "SwStr%": 0.2,
         "Velo": 93.8,
         "WHIP": 0.0,
-        "name": "Jose DeLeon",
+        "name": "Jose De Leon",
         "person_key": "jose de leon",
         "pitch_role": "RP",
         "role": "sp",

@@ -46,7 +46,6 @@
     "Brandon Lowe": "PIT",
     "Brandon Marsh": "PHI",
     "Brandon Nimmo": "TEX",
-    "Braxton Fulford": "COL",
     "Brayan Rocchio": "CLE",
     "Brendan Donovan": "SEA",
     "Brent Rooker": "ATH",
@@ -208,6 +207,7 @@
     "Joey Bart": "PIT",
     "Joey Loperfido": "HOU",
     "Joey Ortiz": "MIL",
+    "Joey Wiemer": "WAS",
     "Jonah Heim": "ATL",
     "Jonathan Aranda": "TB",
     "Jonathan India": "KC",
@@ -396,6 +396,7 @@
     "Troy Johnston": "COL",
     "Ty France": "SD",
     "Tyler Austin": "CHC",
+    "Tyler Freeman": "COL",
     "Tyler Heineman": "TOR",
     "Tyler O'Neill": "BAL",
     "Tyler Soderstrom": "ATH",
@@ -580,7 +581,6 @@
       "Steven Kwan"
     ],
     "COL": [
-      "Braxton Fulford",
       "Brenton Doyle",
       "Brett Sullivan",
       "Edouard Julien",
@@ -593,6 +593,7 @@
       "Ryan Ritter",
       "TJ Rumfield",
       "Troy Johnston",
+      "Tyler Freeman",
       "Willi Castro"
     ],
     "DET": [
@@ -911,6 +912,7 @@
       "Drew Millas",
       "Jacob Young",
       "James Wood",
+      "Joey Wiemer",
       "Jorbit Vivas",
       "Jose Tena",
       "Keibert Ruiz",
@@ -926,6 +928,7 @@
     "Aaron Bummer": "ATL",
     "Abner Uribe": "MIL",
     "Adrian Morejon": "SD",
+    "Albert Suarez": "BAL",
     "Alex Lange": "KC",
     "Alex Vesia": "LAD",
     "Andre Granillo": "WAS",
@@ -1054,7 +1057,6 @@
     "Jalen Beeks": "TEX",
     "Jared Koenig": "MIL",
     "Jason Adam": "SD",
-    "Jedixson Paez": "CHW",
     "Jeff Hoffman": "TOR",
     "Jeremiah Estrada": "SD",
     "Jhoan Duran": "PHI",
@@ -1107,6 +1109,7 @@
     "Lazaro Estrada": "TOR",
     "Louie Varland": "TOR",
     "Lucas Erceg": "KC",
+    "Lucas Sims": "CHW",
     "Luis Garcia RP": "NYM",
     "Luis Medina": "ATH",
     "Luke Weaver": "NYM",
@@ -1165,6 +1168,7 @@
     "Seranthony Dominguez": "CHW",
     "Shawn Armstrong": "CLE",
     "Spencer Miles": "TOR",
+    "Steven Cruz": "KC",
     "Steven Okert": "HOU",
     "Tanner Banks": "PHI",
     "Tanner Scott": "LAD",
@@ -1234,6 +1238,7 @@
       "Tyler Kinley"
     ],
     "BAL": [
+      "Albert Suarez",
       "Andrew Kittredge",
       "Anthony Nunez",
       "Colin Selby",
@@ -1273,9 +1278,9 @@
       "Bryan Hudson",
       "Chris Murphy",
       "Grant Taylor",
-      "Jedixson Paez",
       "Jordan Hicks",
       "Jordan Leasure",
+      "Lucas Sims",
       "Mike Vasil",
       "Prelander Berroa",
       "Sean Newcomb",
@@ -1343,7 +1348,8 @@
       "John Schreiber",
       "Lucas Erceg",
       "Matt Strahm",
-      "Nick Mears"
+      "Nick Mears",
+      "Steven Cruz"
     ],
     "LAA": [
       "Brent Suter",

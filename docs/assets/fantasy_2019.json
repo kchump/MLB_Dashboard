@@ -5246,7 +5246,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "ARI",
         "vSzn": -383.31,
         "≥100": 0.1266
@@ -6086,7 +6086,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "LAD",
         "vSzn": 187.89,
         "≥100": 0.36060000000000003
@@ -6786,7 +6786,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "SD",
         "vSzn": 166.56,
         "≥100": 0.24
@@ -10566,8 +10566,8 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
-        "team": "Free Agents",
+        "sort_bucket": 1,
+        "team": "SEA",
         "vSzn": "",
         "≥100": 0.1795
       },
@@ -11123,7 +11123,7 @@
         "Velo": 92.18,
         "W": 0.0,
         "WHIP": 1.64,
-        "name": "Enyel DeLosSantos",
+        "name": "Enyel De Los Santos",
         "person_key": "enyel de los santos",
         "pitch_role": "RP",
         "prev_minors_year": "",
@@ -12808,7 +12808,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "KC",
         "vSzn": -98.66,
         "≥50 Qual": 2.0
@@ -17003,7 +17003,7 @@
         "Velo": 97.24000000000001,
         "W": 2.0,
         "WHIP": 1.6,
-        "name": "Luis GarciaRP",
+        "name": "Luis Garcia RP",
         "person_key": "luis garcia rp",
         "pitch_role": "RP",
         "prev_minors_year": "",
@@ -19320,7 +19320,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "KC",
         "vSzn": "",
         "≥50 Qual": 1.0
@@ -19530,7 +19530,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BAL",
         "vSzn": -45.23,
         "≥50 Qual": 2.0
@@ -24215,7 +24215,7 @@
         "Velo": 92.35,
         "W": 1.0,
         "WHIP": 2.0,
-        "name": "Jose DeLeon",
+        "name": "Jose De Leon",
         "person_key": "jose de leon",
         "pitch_role": "RP",
         "prev_minors_year": "",
@@ -26502,7 +26502,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "ARI",
         "≥100": 0.5
       },
@@ -26663,7 +26663,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "SD",
         "≥100": 0.0
       },
@@ -27374,7 +27374,7 @@
         "person_key": "carlos estevez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "KC"
       },
       {
@@ -27937,7 +27937,7 @@
         "SwStr%": 0.16,
         "Velo": 95.4,
         "WHIP": 0.5,
-        "name": "Luis GarciaRP",
+        "name": "Luis Garcia RP",
         "person_key": "luis garcia rp",
         "pitch_role": "RP",
         "role": "rp",
@@ -28111,7 +28111,7 @@
         "person_key": "kyle wright",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "KC"
       },
       {
