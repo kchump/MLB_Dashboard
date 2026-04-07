@@ -1502,6 +1502,15 @@ function dbg(...args) {
   console.log('[matchups]', ...args);
 }
 //#################################################################### Index + lists loaders ####################################################################
+function join_matchups_fragment_path(idx, year, rel_path) {
+  const y = String(year ?? '');
+  const root = idx?.fragment_roots?.[y] || '';
+
+  if (!root || !rel_path) return '';
+
+  return `${root}/${rel_path}`.replace(/\/+/g, '/');
+}
+//#################
 async function load_matchups_index() {
   if (matchups_index !== null) return matchups_index;
 
@@ -1938,6 +1947,31 @@ function allowed_pitchers_for_hitter_side(year_lists, hitter, side) {
   return new Set(arr.map(x => String(x)));
 }
 //#################################################################### Fragment resolving + caching ####################################################################
+function resolve_matchups_path(idx, year, rel_path) {
+  const y = String(year ?? '');
+  const root = idx?.fragment_roots?.[y] || '';
+
+  if (!root || !rel_path) return null;
+
+  return `${root}/${String(rel_path).replace(/^\/+/, '')}`.replace(/\/+/g, '/');
+}
+//#################
+// function resolve_fragment(idx, year, mode, keys) {
+//   if (!idx || !idx.modes || !idx.modes[mode]) return null;
+
+//   let cur = idx.modes[mode].fragments;
+//   if (!cur) return null;
+
+//   cur = cur[String(year)];
+//   if (!cur) return null;
+
+//   for (const k of keys) {
+//     if (!cur || typeof cur !== 'object') return null;
+//     cur = cur[String(k)];
+//   }
+
+//   return (typeof cur === 'string') ? cur : null;
+// }
 function resolve_fragment(idx, year, mode, keys) {
   if (!idx || !idx.modes || !idx.modes[mode]) return null;
 
@@ -1952,7 +1986,9 @@ function resolve_fragment(idx, year, mode, keys) {
     cur = cur[String(k)];
   }
 
-  return (typeof cur === 'string') ? cur : null;
+  if (typeof cur !== 'string') return null;
+
+  return resolve_matchups_path(idx, year, cur);
 }
 //#################
 async function load_matchup_fragment(path) {
@@ -2651,65 +2687,124 @@ function init_matchups_page_if_present(content_root) {
     return parse_matchup_stat_number(parts.row_cells[idx_all]);
   }
   //#################
-  function resolve_sp_vs_team_path(idx, y, pitcher, side, opp) {
-    const mode_root = idx?.modes?.sp_vs_team?.fragments?.[String(y)];
-    if (!mode_root || typeof mode_root !== 'object') return null;
+  // function resolve_sp_vs_team_path(idx, y, pitcher, side, opp) {
+  //   const mode_root = idx?.modes?.sp_vs_team?.fragments?.[String(y)];
+  //   if (!mode_root || typeof mode_root !== 'object') return null;
 
-    const pitcher_key = find_fragment_key_loose(mode_root, pitcher);
-    if (!pitcher_key) {
-      dbg('resolve_sp_vs_team_path pitcher miss', {
-        year: y,
-        pitcher,
-        side,
-        opp,
-        pitcher_keys_sample: Object.keys(mode_root).slice(0, 20)
-      });
-      return null;
-    }
+  //   const pitcher_key = find_fragment_key_loose(mode_root, pitcher);
+  //   if (!pitcher_key) {
+  //     dbg('resolve_sp_vs_team_path pitcher miss', {
+  //       year: y,
+  //       pitcher,
+  //       side,
+  //       opp,
+  //       pitcher_keys_sample: Object.keys(mode_root).slice(0, 20)
+  //     });
+  //     return null;
+  //   }
 
-    function try_side(side_value) {
-      for (const s2 of side_aliases(side_value)) {
-        const side_root = mode_root?.[pitcher_key]?.[String(s2)];
-        if (!side_root || typeof side_root !== 'object') continue;
+  //   function try_side(side_value) {
+  //     for (const s2 of side_aliases(side_value)) {
+  //       const side_root = mode_root?.[pitcher_key]?.[String(s2)];
+  //       if (!side_root || typeof side_root !== 'object') continue;
 
-        const opp_key = find_fragment_key_loose(side_root, opp);
-        if (opp_key) {
-          return side_root[opp_key];
-        }
+  //       const opp_key = find_fragment_key_loose(side_root, opp);
+  //       if (opp_key) {
+  //         return side_root[opp_key];
+  //       }
 
-        dbg('resolve_sp_vs_team_path opp miss in side', {
-          year: y,
-          pitcher,
-          pitcher_key,
-          side_value,
-          side_key: s2,
-          opp,
-          opp_keys: Object.keys(side_root)
-        });
+  //       dbg('resolve_sp_vs_team_path opp miss in side', {
+  //         year: y,
+  //         pitcher,
+  //         pitcher_key,
+  //         side_value,
+  //         side_key: s2,
+  //         opp,
+  //         opp_keys: Object.keys(side_root)
+  //       });
+  //     }
+
+  //     return null;
+  //   }
+
+  //   let path = try_side(side);
+  //   if (path) return path;
+
+  //   const other = opposite_side(side);
+  //   path = try_side(other);
+
+  //   if (!path) {
+  //     dbg('resolve_sp_vs_team_path full miss', {
+  //       year: y,
+  //       pitcher,
+  //       pitcher_key,
+  //       side,
+  //       other_side: other,
+  //       opp
+  //     });
+  //   }
+
+  //   return path || null;
+  // }
+function resolve_sp_vs_team_path(idx, y, pitcher, side, opp) {
+  const mode_root = idx?.modes?.sp_vs_team?.fragments?.[String(y)];
+  if (!mode_root || typeof mode_root !== 'object') return null;
+
+  const pitcher_key = find_fragment_key_loose(mode_root, pitcher);
+  if (!pitcher_key) {
+    dbg('resolve_sp_vs_team_path pitcher miss', {
+      year: y,
+      pitcher,
+      side,
+      opp,
+      pitcher_keys_sample: Object.keys(mode_root).slice(0, 20)
+    });
+    return null;
+  }
+
+  function try_side(side_value) {
+    for (const s2 of side_aliases(side_value)) {
+      const side_root = mode_root?.[pitcher_key]?.[String(s2)];
+      if (!side_root || typeof side_root !== 'object') continue;
+
+      const opp_key = find_fragment_key_loose(side_root, opp);
+      if (opp_key) {
+        return resolve_matchups_path(idx, y, side_root[opp_key]);
       }
 
-      return null;
-    }
-
-    let path = try_side(side);
-    if (path) return path;
-
-    const other = opposite_side(side);
-    path = try_side(other);
-
-    if (!path) {
-      dbg('resolve_sp_vs_team_path full miss', {
+      dbg('resolve_sp_vs_team_path opp miss in side', {
         year: y,
         pitcher,
         pitcher_key,
-        side,
-        other_side: other,
-        opp
+        side_value,
+        side_key: s2,
+        opp,
+        opp_keys: Object.keys(side_root)
       });
     }
 
-    return path || null;
+    return null;
   }
+
+  let path = try_side(side);
+  if (path) return path;
+
+  const other = opposite_side(side);
+  path = try_side(other);
+
+  if (!path) {
+    dbg('resolve_sp_vs_team_path full miss', {
+      year: y,
+      pitcher,
+      pitcher_key,
+      side,
+      other_side: other,
+      opp
+    });
+  }
+
+  return path || null;
+}
   //#################
   async function build_pitcher_panel_section(idx_obj, year_lists_obj, year_val, pitcher_name, side, opp_team, logo_team, side_text) {
     const path = pitcher_name ? resolve_sp_vs_team_path(idx_obj, year_val, pitcher_name, side, opp_team) : null;
@@ -3190,65 +3285,124 @@ function find_fragment_key_loose(obj, wanted_name) {
   return '';
 }
    //#################
+  // function resolve_hvp_with_pf_fallback(idx, y, hitter_name, side, pitcher_name) {
+  //   const mode_root = idx?.modes?.hitter_vs_pitcher?.fragments?.[String(y)];
+  //   if (!mode_root || typeof mode_root !== 'object') return null;
+
+  //   const hitter_key = find_fragment_key_loose(mode_root, hitter_name);
+  //   if (!hitter_key) {
+  //     dbg('resolve_hvp_with_pf_fallback hitter miss', {
+  //       year: y,
+  //       hitter_name,
+  //       side,
+  //       pitcher_name,
+  //       hitter_keys_sample: Object.keys(mode_root).slice(0, 15)
+  //     });
+  //     return null;
+  //   }
+
+  //   function try_side(side_value) {
+  //     for (const s2 of side_aliases(side_value)) {
+  //       const side_root = mode_root?.[hitter_key]?.[String(s2)];
+  //       if (!side_root || typeof side_root !== 'object') continue;
+
+  //       const pitcher_key = find_fragment_key_loose(side_root, pitcher_name);
+  //       if (pitcher_key) {
+  //         return side_root[pitcher_key];
+  //       }
+
+  //       dbg('resolve_hvp_with_pf_fallback pitcher miss in side', {
+  //         year: y,
+  //         hitter_name,
+  //         hitter_key,
+  //         side_value,
+  //         side_key: s2,
+  //         pitcher_name,
+  //         pitcher_keys_sample: Object.keys(side_root).slice(0, 20)
+  //       });
+  //     }
+
+  //     return null;
+  //   }
+
+  //   let path = try_side(side);
+  //   if (path) return path;
+
+  //   const other = opposite_side(side);
+  //   path = try_side(other);
+
+  //   if (!path) {
+  //     dbg('resolve_hvp_with_pf_fallback full miss', {
+  //       year: y,
+  //       hitter_name,
+  //       hitter_key,
+  //       side,
+  //       other_side: other,
+  //       pitcher_name
+  //     });
+  //   }
+
+  //   return path || null;
+  // }
   function resolve_hvp_with_pf_fallback(idx, y, hitter_name, side, pitcher_name) {
-    const mode_root = idx?.modes?.hitter_vs_pitcher?.fragments?.[String(y)];
-    if (!mode_root || typeof mode_root !== 'object') return null;
+  const mode_root = idx?.modes?.hitter_vs_pitcher?.fragments?.[String(y)];
+  if (!mode_root || typeof mode_root !== 'object') return null;
 
-    const hitter_key = find_fragment_key_loose(mode_root, hitter_name);
-    if (!hitter_key) {
-      dbg('resolve_hvp_with_pf_fallback hitter miss', {
-        year: y,
-        hitter_name,
-        side,
-        pitcher_name,
-        hitter_keys_sample: Object.keys(mode_root).slice(0, 15)
-      });
-      return null;
-    }
+  const hitter_key = find_fragment_key_loose(mode_root, hitter_name);
+  if (!hitter_key) {
+    dbg('resolve_hvp_with_pf_fallback hitter miss', {
+      year: y,
+      hitter_name,
+      side,
+      pitcher_name,
+      hitter_keys_sample: Object.keys(mode_root).slice(0, 15)
+    });
+    return null;
+  }
 
-    function try_side(side_value) {
-      for (const s2 of side_aliases(side_value)) {
-        const side_root = mode_root?.[hitter_key]?.[String(s2)];
-        if (!side_root || typeof side_root !== 'object') continue;
+  function try_side(side_value) {
+    for (const s2 of side_aliases(side_value)) {
+      const side_root = mode_root?.[hitter_key]?.[String(s2)];
+      if (!side_root || typeof side_root !== 'object') continue;
 
-        const pitcher_key = find_fragment_key_loose(side_root, pitcher_name);
-        if (pitcher_key) {
-          return side_root[pitcher_key];
-        }
-
-        dbg('resolve_hvp_with_pf_fallback pitcher miss in side', {
-          year: y,
-          hitter_name,
-          hitter_key,
-          side_value,
-          side_key: s2,
-          pitcher_name,
-          pitcher_keys_sample: Object.keys(side_root).slice(0, 20)
-        });
+      const pitcher_key = find_fragment_key_loose(side_root, pitcher_name);
+      if (pitcher_key) {
+        return resolve_matchups_path(idx, y, side_root[pitcher_key]);
       }
 
-      return null;
-    }
-
-    let path = try_side(side);
-    if (path) return path;
-
-    const other = opposite_side(side);
-    path = try_side(other);
-
-    if (!path) {
-      dbg('resolve_hvp_with_pf_fallback full miss', {
+      dbg('resolve_hvp_with_pf_fallback pitcher miss in side', {
         year: y,
         hitter_name,
         hitter_key,
-        side,
-        other_side: other,
-        pitcher_name
+        side_value,
+        side_key: s2,
+        pitcher_name,
+        pitcher_keys_sample: Object.keys(side_root).slice(0, 20)
       });
     }
 
-    return path || null;
+    return null;
   }
+
+  let path = try_side(side);
+  if (path) return path;
+
+  const other = opposite_side(side);
+  path = try_side(other);
+
+  if (!path) {
+    dbg('resolve_hvp_with_pf_fallback full miss', {
+      year: y,
+      hitter_name,
+      hitter_key,
+      side,
+      other_side: other,
+      pitcher_name
+    });
+  }
+
+  return path || null;
+}
   //#################
   function roster_hitters_for_team(roster_pack, team_code) {
     if (!roster_pack || typeof roster_pack !== 'object') return [];

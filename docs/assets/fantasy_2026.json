@@ -44156,7 +44156,7 @@
         "WHIP": 1.33,
         "name": "Cody Bolton",
         "person_key": "cody bolton",
-        "pitch_role": "RP",
+        "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "rp",
         "sort_bucket": 0,
@@ -94991,7 +94991,7 @@
         "WHIP": 6.0,
         "name": "Cody Bolton",
         "person_key": "cody bolton",
-        "pitch_role": "RP",
+        "pitch_role": "FLEX",
         "role": "rp",
         "sort_bucket": 0,
         "team": "HOU"
