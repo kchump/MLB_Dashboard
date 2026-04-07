@@ -896,7 +896,7 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
   overflow-y: hidden;
   height: 16px;
   margin: 0 0 8px 0;
-  display: none;
+  display: block;
   scrollbar-color: var(--scroll_thumb) var(--scroll_track);
   scrollbar-width: thin;
 }
@@ -1654,5 +1654,14 @@ body::-webkit-scrollbar-thumb:hover,
   .key_table th:nth-child(2),
   .key_table td:nth-child(2) {
     white-space: normal;
+  }
+}
+
+/* REMOVE LATER IF MOBILE ISSUES */
+@media (max-width: 900px) {
+  @supports (-webkit-touch-callout: none) {
+    .content {
+      overflow-x: hidden;
+    }
   }
 }

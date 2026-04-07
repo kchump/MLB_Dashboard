@@ -1576,14 +1576,6 @@
       "neutral_lo": 0.27,
       "worst": 0.2
     },
-    "majors|rp|pERA": {
-      "best": 2.5,
-      "fmt": "num",
-      "higher_is_better": false,
-      "neutral_hi": 3.7,
-      "neutral_lo": 4.0,
-      "worst": 5.5
-    },
     "majors|rp|qCon Bad%": {
       "best": 0.35,
       "fmt": "pct",
@@ -1615,6 +1607,14 @@
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
+    },
+    "majors|rp|xERA": {
+      "best": 2.5,
+      "fmt": "num",
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 5.5
     },
     "majors|rp|≥100": {
       "best": 0.2,
@@ -2320,14 +2320,6 @@
       "neutral_lo": 0.27,
       "worst": 0.2
     },
-    "majors|sp|pERA": {
-      "best": 2.5,
-      "fmt": "num",
-      "higher_is_better": false,
-      "neutral_hi": 3.7,
-      "neutral_lo": 4.0,
-      "worst": 5.5
-    },
     "majors|sp|qCon Bad%": {
       "best": 0.35,
       "fmt": "pct",
@@ -2359,6 +2351,14 @@
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
+    },
+    "majors|sp|xERA": {
+      "best": 2.5,
+      "fmt": "num",
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 5.5
     },
     "majors|sp|≥100": {
       "best": 0.2,
