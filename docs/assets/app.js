@@ -26,7 +26,15 @@ async function load_fantasy_year(year) {
       return null;
     }
 
-    const data = await r.json();
+    // const data = await r.json();
+    const text = await r.text();
+    const safe_text = text
+      .replace(/\b-Infinity\b/g, 'null')
+      .replace(/\bInfinity\b/g, 'null')
+      .replace(/\bInf\b/g, 'null')
+      .replace(/\bNaN\b/g, 'null');
+
+    const data = JSON.parse(safe_text);
     fantasy_year_cache.set(y, data);
     return data;
   } catch (e) {
@@ -35,8 +43,156 @@ async function load_fantasy_year(year) {
   }
 }
 /* ################# */
-function find_player_row_anywhere(data, person_key) {
+// function fantasy_role_section_priority(role) {
+//   const r = String(role || '').trim().toLowerCase();
+
+//   if (r === 'batters' || r === 'hitter' || r === 'hitters' || r === 'lineup') {
+//     return ['batters', 'hitters', 'lineup'];
+//   }
+
+//   if (r === 'starters' || r === 'starter' || r === 'sp' || r === 'rotation') {
+//     return ['starters', 'starter', 'sp', 'rotation', 'pitchers'];
+//   }
+
+//   if (r === 'bullpen' || r === 'relievers' || r === 'reliever' || r === 'rp') {
+//     return ['bullpen', 'relievers', 'reliever', 'rp', 'pitchers'];
+//   }
+
+//   if (r === 'pitchers' || r === 'pitcher') {
+//     return ['pitchers', 'starters', 'starter', 'sp', 'rotation', 'bullpen', 'relievers', 'reliever', 'rp'];
+//   }
+
+//   return [];
+// }
+/* ################# */
+// function find_player_row_in_sections(data, person_key, preferred_sections) {
+//   if (!data) return null;
+
+//   const target = String(person_key || '').trim().toLowerCase();
+//   const target_norm = normalize_matchup_person_key(person_key);
+//   const preferred = new Set((preferred_sections || []).map(x => String(x || '').trim().toLowerCase()));
+
+//   if (!target && !target_norm) return null;
+//   if (!preferred.size) return null;
+
+//   for (const scope_val of Object.values(data)) {
+//     if (!scope_val || typeof scope_val !== 'object') continue;
+
+//     for (const [section_name, section_val] of Object.entries(scope_val)) {
+//       const section_key = String(section_name || '').trim().toLowerCase();
+//       if (!preferred.has(section_key) || !Array.isArray(section_val)) continue;
+
+//       for (const row of section_val) {
+//         if (target && String(row.person_key || '').trim().toLowerCase() === target) {
+//           return row;
+//         }
+//       }
+//     }
+//   }
+
+//   if (!target_norm) return null;
+
+//   for (const scope_val of Object.values(data)) {
+//     if (!scope_val || typeof scope_val !== 'object') continue;
+
+//     for (const [section_name, section_val] of Object.entries(scope_val)) {
+//       const section_key = String(section_name || '').trim().toLowerCase();
+//       if (!preferred.has(section_key) || !Array.isArray(section_val)) continue;
+
+//       for (const row of section_val) {
+//         const row_person_key = normalize_matchup_person_key(row.person_key || '');
+//         if (row_person_key && row_person_key === target_norm) {
+//           return row;
+//         }
+
+//         const row_name = normalize_matchup_person_key(row.name || '');
+//         if (row_name && row_name === target_norm) {
+//           return row;
+//         }
+//       }
+//     }
+//   }
+
+//   return null;
+// }
+function find_player_row_in_sections(data, person_key, role) {
   if (!data) return null;
+
+  const target = String(person_key || '').trim().toLowerCase();
+  const target_norm = normalize_matchup_person_key(person_key);
+
+  if (!target && !target_norm) return null;
+
+  const role_text = String(role || '').trim().toLowerCase();
+
+  function section_matches(section_name) {
+    const s = String(section_name || '').trim().toLowerCase();
+
+    if (role_text === 'batters' || role_text === 'hitter' || role_text === 'hitters' || role_text === 'lineup') {
+      return s === 'hitters';
+    }
+
+    if (role_text === 'starters' || role_text === 'starter' || role_text === 'sp' || role_text === 'rotation') {
+      return s === 'sp';
+    }
+
+    if (role_text === 'bullpen' || role_text === 'relievers' || role_text === 'reliever' || role_text === 'rp') {
+      return s === 'rp';
+    }
+
+    if (role_text === 'pitchers' || role_text === 'pitcher') {
+      return s === 'sp' || s === 'rp';
+    }
+
+    return false;
+  }
+
+  for (const scope_val of Object.values(data)) {
+    if (!scope_val || typeof scope_val !== 'object') continue;
+
+    for (const [section_name, section_val] of Object.entries(scope_val)) {
+      if (!section_matches(section_name) || !Array.isArray(section_val)) continue;
+
+      for (const row of section_val) {
+        if (target && String(row.person_key || '').trim().toLowerCase() === target) {
+          return row;
+        }
+      }
+    }
+  }
+
+  if (!target_norm) return null;
+
+  for (const scope_val of Object.values(data)) {
+    if (!scope_val || typeof scope_val !== 'object') continue;
+
+    for (const [section_name, section_val] of Object.entries(scope_val)) {
+      if (!section_matches(section_name) || !Array.isArray(section_val)) continue;
+
+      for (const row of section_val) {
+        const row_person_key = normalize_matchup_person_key(row.person_key || '');
+        if (row_person_key && row_person_key === target_norm) {
+          return row;
+        }
+
+        const row_name = normalize_matchup_person_key(row.name || '');
+        if (row_name && row_name === target_norm) {
+          return row;
+        }
+      }
+    }
+  }
+
+  return null;
+}
+/* ################# */
+function find_player_row_anywhere(data, person_key, role) {
+  if (!data) return null;
+
+  // const preferred_sections = fantasy_role_section_priority(role);
+  // const preferred_row = find_player_row_in_sections(data, person_key, preferred_sections);
+  const preferred_row = find_player_row_in_sections(data, person_key, role);
+  if (preferred_row) return preferred_row;
 
   const target = String(person_key || '').trim().toLowerCase();
   if (!target) return null;
@@ -55,59 +211,36 @@ function find_player_row_anywhere(data, person_key) {
     }
   }
 
+  const target_norm = normalize_matchup_person_key(person_key);
+  if (!target_norm) return null;
+
+  for (const scope_val of Object.values(data)) {
+    if (!scope_val || typeof scope_val !== 'object') continue;
+
+    for (const section_val of Object.values(scope_val)) {
+      if (!Array.isArray(section_val)) continue;
+
+      for (const row of section_val) {
+        const row_person_key = normalize_matchup_person_key(row.person_key || '');
+        if (row_person_key && row_person_key === target_norm) {
+          return row;
+        }
+
+        const row_name = normalize_matchup_person_key(row.name || '');
+        if (row_name && row_name === target_norm) {
+          return row;
+        }
+      }
+    }
+  }
+
   return null;
 }
 /* ################# */
-// async function val_for_year_person(year, person_key) {
-//   const data = await load_fantasy_year(year);
-//   const row = find_player_row_anywhere(data, person_key);
-//   if (!row) return null;
-
-//   const val = row.Val;
-//   if (val === '' || val == null || Number.isNaN(Number(val))) return null;
-
-//   return Number(val);
-// }
-// async function val_for_year_person(year, person_key) {
-//   const data = await load_fantasy_year(year);
-
-//   if (String(year) === '2020' || String(year) === '2021') {
-//     console.log('[VAL DEBUG START]', { year, person_key, has_data: !!data });
-//   }
-
-//   const row = find_player_row_anywhere(data, person_key);
-
-//   if (String(year) === '2020' || String(year) === '2021') {
-//     console.log('[VAL DEBUG ROW]', {
-//       year,
-//       person_key,
-//       row_found: !!row,
-//       row,
-//     });
-//   }
-
-//   if (!row) return null;
-
-//   const val = row.Val;
-
-//   if (String(year) === '2020' || String(year) === '2021') {
-//     console.log('[VAL DEBUG VAL]', {
-//       year,
-//       person_key,
-//       raw_val: val,
-//       numeric: Number(val),
-//       is_nan: Number.isNaN(Number(val)),
-//     });
-//   }
-
-//   if (val === '' || val == null || Number.isNaN(Number(val))) return null;
-
-//   return Number(val);
-// }
-async function val_for_year_person(year, person_key) { //absolute value comparison of Val and S Val
+async function val_for_year_person(year, person_key, role) { //absolute value comparison of Val and S Val
   const data = await load_fantasy_year(year);
 
-  const row = find_player_row_anywhere(data, person_key);
+  const row = find_player_row_anywhere(data, person_key, role);
 
   if (!row) return null;
 
@@ -333,7 +466,7 @@ async function render_year_select_in_content(content_root) {
       if (!file) return null;
 
       const is_current = label_current_year && (String(y) === String(label_current_year));
-      const val = await val_for_year_person(y, person_key);
+      const val = await val_for_year_person(y, person_key, role);
       const label_text = format_year_option_label(y, is_current, val);
       const is_selected = (file === active_file);
 

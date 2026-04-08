@@ -1,5 +1,19 @@
 {
   "panel_scale_lookup": {
+    "majors|hitters|2B": {
+      "best": 50,
+      "higher_is_better": true,
+      "neutral_hi": 30,
+      "neutral_lo": 30,
+      "worst": 30
+    },
+    "majors|hitters|3B": {
+      "best": 10,
+      "higher_is_better": true,
+      "neutral_hi": 3,
+      "neutral_lo": 3,
+      "worst": 3
+    },
     "majors|hitters|90ft": {
       "best": 3.7,
       "fmt": "num",
@@ -47,6 +61,13 @@
       "neutral_hi": 1,
       "neutral_lo": -1,
       "worst": -8
+    },
+    "majors|hitters|BB": {
+      "best": 120,
+      "higher_is_better": true,
+      "neutral_hi": 80,
+      "neutral_lo": 80,
+      "worst": 80
     },
     "majors|hitters|BB%": {
       "best": 0.18,
@@ -247,6 +268,20 @@
       "neutral_hi": -28,
       "neutral_lo": -30,
       "worst": -55
+    },
+    "majors|hitters|H": {
+      "best": 220,
+      "higher_is_better": true,
+      "neutral_hi": 170,
+      "neutral_lo": 170,
+      "worst": 170
+    },
+    "majors|hitters|HR": {
+      "best": 50,
+      "higher_is_better": true,
+      "neutral_hi": 20,
+      "neutral_lo": 20,
+      "worst": 20
     },
     "majors|hitters|ICR/PA": {
       "best": 0.4,
@@ -464,6 +499,13 @@
       "neutral_lo": 0.2,
       "worst": 0.12
     },
+    "majors|hitters|R": {
+      "best": 120,
+      "higher_is_better": true,
+      "neutral_hi": 70,
+      "neutral_lo": 70,
+      "worst": 70
+    },
     "majors|hitters|R CB": {
       "best": 70,
       "fmt": "num",
@@ -576,6 +618,13 @@
       "neutral_lo": 0.2,
       "worst": 0.05
     },
+    "majors|hitters|RBI": {
+      "best": 120,
+      "higher_is_better": true,
+      "neutral_hi": 70,
+      "neutral_lo": 70,
+      "worst": 70
+    },
     "majors|hitters|RHP": {
       "best": 40,
       "fmt": "num",
@@ -672,6 +721,13 @@
       "neutral_lo": -50,
       "worst": -300
     },
+    "majors|hitters|SB": {
+      "best": 50,
+      "higher_is_better": true,
+      "neutral_hi": 10,
+      "neutral_lo": 10,
+      "worst": 10
+    },
     "majors|hitters|SI": {
       "best": 70,
       "fmt": "num",
@@ -728,6 +784,13 @@
       "neutral_lo": 0.43,
       "worst": 0.35
     },
+    "majors|hitters|SO": {
+      "best": 170,
+      "higher_is_better": false,
+      "neutral_hi": 170,
+      "neutral_lo": 170,
+      "worst": 220
+    },
     "majors|hitters|SP": {
       "best": 70,
       "fmt": "num",
@@ -783,14 +846,6 @@
       "neutral_hi": 10,
       "neutral_lo": 0,
       "worst": -100
-    },
-    "majors|hitters|Spd": {
-      "best": 8,
-      "fmt": "num",
-      "higher_is_better": true,
-      "neutral_hi": 5,
-      "neutral_lo": 4,
-      "worst": 1
     },
     "majors|hitters|Sprint Speed": {
       "best": 30,
@@ -896,6 +951,13 @@
       "neutral_lo": 0,
       "worst": -40
     },
+    "majors|rp|BB": {
+      "best": 40,
+      "higher_is_better": false,
+      "neutral_hi": 40,
+      "neutral_lo": 40,
+      "worst": 60
+    },
     "majors|rp|BB%": {
       "best": 0.04,
       "fmt": "pct",
@@ -903,6 +965,13 @@
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
       "worst": 0.13
+    },
+    "majors|rp|BS": {
+      "best": 3,
+      "higher_is_better": false,
+      "neutral_hi": 3,
+      "neutral_lo": 3,
+      "worst": 10
     },
     "majors|rp|Bad": {
       "best": -20,
@@ -1080,6 +1149,20 @@
       "neutral_lo": 0.33,
       "worst": 0.41
     },
+    "majors|rp|IP": {
+      "best": 100,
+      "higher_is_better": true,
+      "neutral_hi": 50,
+      "neutral_lo": 50,
+      "worst": 50
+    },
+    "majors|rp|K": {
+      "best": 100,
+      "higher_is_better": true,
+      "neutral_hi": 50,
+      "neutral_lo": 50,
+      "worst": 50
+    },
     "majors|rp|K%": {
       "best": 0.33,
       "fmt": "pct",
@@ -1095,6 +1178,13 @@
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -40
+    },
+    "majors|rp|L": {
+      "best": 5,
+      "higher_is_better": false,
+      "neutral_hi": 5,
+      "neutral_lo": 5,
+      "worst": 10
     },
     "majors|rp|L CB": {
       "best": 85,
@@ -1223,6 +1313,13 @@
       "neutral_hi": 0.22,
       "neutral_lo": 0.23,
       "worst": 0.31
+    },
+    "majors|rp|QS/SV": {
+      "best": 50,
+      "higher_is_better": true,
+      "neutral_hi": 10,
+      "neutral_lo": 10,
+      "worst": 10
     },
     "majors|rp|R CB": {
       "best": 85,
@@ -1560,6 +1657,13 @@
       "neutral_lo": 92,
       "worst": 89
     },
+    "majors|rp|W": {
+      "best": 10,
+      "higher_is_better": true,
+      "neutral_hi": 5,
+      "neutral_lo": 5,
+      "worst": 5
+    },
     "majors|rp|WHIP": {
       "best": 1.0,
       "fmt": null,
@@ -1575,6 +1679,14 @@
       "neutral_hi": 0.28,
       "neutral_lo": 0.27,
       "worst": 0.2
+    },
+    "majors|rp|pERA": {
+      "best": 2.5,
+      "fmt": "num",
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 5.5
     },
     "majors|rp|qCon Bad%": {
       "best": 0.35,
@@ -1608,14 +1720,6 @@
       "neutral_lo": -50,
       "worst": -300
     },
-    "majors|rp|xERA": {
-      "best": 2.5,
-      "fmt": "num",
-      "higher_is_better": false,
-      "neutral_hi": 3.7,
-      "neutral_lo": 4.0,
-      "worst": 5.5
-    },
     "majors|rp|≥100": {
       "best": 0.2,
       "fmt": "pct",
@@ -1640,6 +1744,13 @@
       "neutral_lo": 0,
       "worst": -40
     },
+    "majors|sp|BB": {
+      "best": 70,
+      "higher_is_better": false,
+      "neutral_hi": 70,
+      "neutral_lo": 70,
+      "worst": 100
+    },
     "majors|sp|BB%": {
       "best": 0.04,
       "fmt": "pct",
@@ -1647,6 +1758,13 @@
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
       "worst": 0.13
+    },
+    "majors|sp|BS": {
+      "best": 3,
+      "higher_is_better": false,
+      "neutral_hi": 3,
+      "neutral_lo": 3,
+      "worst": 10
     },
     "majors|sp|Bad": {
       "best": -20,
@@ -1824,6 +1942,20 @@
       "neutral_lo": 0.33,
       "worst": 0.41
     },
+    "majors|sp|IP": {
+      "best": 220,
+      "higher_is_better": true,
+      "neutral_hi": 150,
+      "neutral_lo": 150,
+      "worst": 150
+    },
+    "majors|sp|K": {
+      "best": 250,
+      "higher_is_better": true,
+      "neutral_hi": 150,
+      "neutral_lo": 150,
+      "worst": 150
+    },
     "majors|sp|K%": {
       "best": 0.33,
       "fmt": "pct",
@@ -1839,6 +1971,13 @@
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -40
+    },
+    "majors|sp|L": {
+      "best": 10,
+      "higher_is_better": false,
+      "neutral_hi": 10,
+      "neutral_lo": 10,
+      "worst": 20
     },
     "majors|sp|L CB": {
       "best": 85,
@@ -1967,6 +2106,13 @@
       "neutral_hi": 0.22,
       "neutral_lo": 0.23,
       "worst": 0.31
+    },
+    "majors|sp|QS/SV": {
+      "best": 23,
+      "higher_is_better": true,
+      "neutral_hi": 10,
+      "neutral_lo": 10,
+      "worst": 10
     },
     "majors|sp|R CB": {
       "best": 85,
@@ -2304,6 +2450,13 @@
       "neutral_lo": 92,
       "worst": 89
     },
+    "majors|sp|W": {
+      "best": 20,
+      "higher_is_better": true,
+      "neutral_hi": 15,
+      "neutral_lo": 15,
+      "worst": 15
+    },
     "majors|sp|WHIP": {
       "best": 1.0,
       "fmt": null,
@@ -2319,6 +2472,14 @@
       "neutral_hi": 0.28,
       "neutral_lo": 0.27,
       "worst": 0.2
+    },
+    "majors|sp|pERA": {
+      "best": 2.5,
+      "fmt": "num",
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4.0,
+      "worst": 5.5
     },
     "majors|sp|qCon Bad%": {
       "best": 0.35,
@@ -2351,14 +2512,6 @@
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
-    },
-    "majors|sp|xERA": {
-      "best": 2.5,
-      "fmt": "num",
-      "higher_is_better": false,
-      "neutral_hi": 3.7,
-      "neutral_lo": 4.0,
-      "worst": 5.5
     },
     "majors|sp|≥100": {
       "best": 0.2,
