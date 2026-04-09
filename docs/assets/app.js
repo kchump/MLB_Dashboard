@@ -3941,7 +3941,7 @@ function find_fragment_key_loose(obj, wanted_name) {
     }
     //#################
     function append_projected_starters_disclaimer() {
-      const cutoff_mmdd = 410;
+      const cutoff_mmdd = 407;
 
       const disclaimer = document.createElement('div');
       disclaimer.className = 'matchups_disclaimer';
@@ -5944,12 +5944,12 @@ const fantasy_display_columns = {
     ],
     sp: [
       'Name', 'Team',
-      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
+      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'Rarity', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
       'FB Stf', 'FB R', 'FB L', 'SI Stf', 'SI R', 'SI L', 'CT Stf', 'CT R', 'CT L', 'SL Stf', 'SL R', 'SL L', 'SW Stf', 'SW R', 'SW L', 'CB Stf', 'CB R', 'CB L', 'CH Stf', 'CH R', 'CH L', 'SP Stf', 'SP R', 'SP L'
     ],
     rp: [
       'Name', 'Team',
-      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'BS', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
+      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'Rarity', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'BS', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
       'FB Stf', 'FB R', 'FB L', 'SI Stf', 'SI R', 'SI L', 'CT Stf', 'CT R', 'CT L', 'SL Stf', 'SL R', 'SL L', 'SW Stf', 'SW R', 'SW L', 'CB Stf', 'CB R', 'CB L', 'CH Stf', 'CH R', 'CH L', 'SP Stf', 'SP R', 'SP L'
     ],
   },
@@ -5977,11 +5977,11 @@ const fantasy_sort_columns = {
       'AVG', 'OBP', 'SLG', 'OPS', 'Pts +/-', 'Whiff%', 'SwSp%', '≥100', 'R Eye', 'L Eye', 'BB%', 'K%', 'FB R', 'SI R', 'CT R', 'SL R', 'SW R', 'CB R', 'CH R', 'SP R', 'FB L', 'SI L', 'CT L', 'SL L', 'SW L', 'CB L', 'CH L', 'SP L'
     ],
     sp: [
-      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
+      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'Rarity', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
       'FB Stf', 'FB R', 'FB L', 'SI Stf', 'SI R', 'SI L', 'CT Stf', 'CT R', 'CT L', 'SL Stf', 'SL R', 'SL L', 'SW Stf', 'SW R', 'SW L', 'CB Stf', 'CB R', 'CB L', 'CH Stf', 'CH R', 'CH L', 'SP Stf', 'SP R', 'SP L'
     ],
     rp: [
-      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'BS', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
+      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'Rarity', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'BS', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
       'FB Stf', 'FB R', 'FB L', 'SI Stf', 'SI R', 'SI L', 'CT Stf', 'CT R', 'CT L', 'SL Stf', 'SL R', 'SL L', 'SW Stf', 'SW R', 'SW L', 'CB Stf', 'CB R', 'CB L', 'CH Stf', 'CH R', 'CH L', 'SP Stf', 'SP R', 'SP L'
     ],
   },
@@ -6077,6 +6077,18 @@ function fantasy_clear_removed_players() {
   fantasy_set_removed_map(map);
 }
 /* ################# */
+// function fantasy_sort_desc(key) {
+//   const source_key = fantasy_gradient_source_key({}, key);
+//   const scales = fantasy_state.scales || {};
+//   const panel_lookup = scales.panel_scale_lookup || {};
+//   const spec = panel_lookup[source_key];
+
+//   if (spec) {
+//     return spec.higher_is_better !== false;
+//   }
+
+//   return true;
+// }
 function fantasy_sort_desc(key) {
   const source_key = fantasy_gradient_source_key({}, key);
   const scales = fantasy_state.scales || {};
@@ -6084,6 +6096,14 @@ function fantasy_sort_desc(key) {
   const spec = panel_lookup[source_key];
 
   if (spec) {
+    if (spec.mode === 'bad_only') {
+      return false;
+    }
+
+    if (spec.mode === 'good_only') {
+      return true;
+    }
+
     return spec.higher_is_better !== false;
   }
 
@@ -6407,18 +6427,54 @@ if (fantasy_state.team !== 'ALL') {
   return rows;
 }
 /* ################# */
+// function fantasy_sort_rows(rows) {
+//   const key = fantasy_state.sort_key;
+//   const desc = fantasy_state.sort_desc;
+
+//   rows.sort((a, b) => {
+//     let av = fantasy_num(a[key]);
+//     let bv = fantasy_num(b[key]);
+
+//     if (fantasy_is_pct2_key(key)) {
+//       av = fantasy_pct_value(a[key]);
+//       bv = fantasy_pct_value(b[key]);
+//     }
+
+//     if (av == null && bv == null) return String(a.name || '').localeCompare(String(b.name || ''));
+//     if (av == null) return 1;
+//     if (bv == null) return -1;
+
+//     if (av === bv) return String(a.name || '').localeCompare(String(b.name || ''));
+
+//     return desc ? bv - av : av - bv;
+//   });
+
+//   return rows;
+// }
+function fantasy_sort_value(row, key) {
+  if (fantasy_state.scope === 'minors' && key === 'All') {
+    const m_all = fantasy_num(row['mAll']) ?? 0;
+    const m_all_prev = fantasy_num(row['mAll -1']) ?? 0;
+    return m_all + m_all_prev;
+  }
+
+  let value = fantasy_num(row[key]);
+
+  if (fantasy_is_pct2_key(key)) {
+    value = fantasy_pct_value(row[key]);
+  }
+
+  return value;
+}
+
+/* ################# */
 function fantasy_sort_rows(rows) {
   const key = fantasy_state.sort_key;
   const desc = fantasy_state.sort_desc;
 
   rows.sort((a, b) => {
-    let av = fantasy_num(a[key]);
-    let bv = fantasy_num(b[key]);
-
-    if (fantasy_is_pct2_key(key)) {
-      av = fantasy_pct_value(a[key]);
-      bv = fantasy_pct_value(b[key]);
-    }
+    const av = fantasy_sort_value(a, key);
+    const bv = fantasy_sort_value(b, key);
 
     if (av == null && bv == null) return String(a.name || '').localeCompare(String(b.name || ''));
     if (av == null) return 1;
@@ -6431,11 +6487,22 @@ function fantasy_sort_rows(rows) {
 
   return rows;
 }
-
 /* ################# */
 function fantasy_default_sort_key() {
   if (fantasy_state.scope === 'majors') {
     return 'Val';
+  }
+
+  if (fantasy_state.scope === 'playoffs') {
+    return 'pAll';
+  }
+
+  if (fantasy_state.scope === 'spring') {
+    return 'sAll';
+  }
+
+  if (fantasy_state.scope === 'minors') {
+    return 'All';
   }
 
   const cols = fantasy_sort_columns[fantasy_state.scope][fantasy_state.section] || [];
@@ -6444,11 +6511,16 @@ function fantasy_default_sort_key() {
 
 /* ################# */
 function fantasy_build_controls_html(data) {
+  // const fantasy_years = [];
+  // for (let y = 2026; y >= 2015; y -= 1) {
+  //   fantasy_years.push(y);
+  // }
+  const min_year = fantasy_state.scope === 'minors' ? 2022 : 2015;
+
   const fantasy_years = [];
-  for (let y = 2026; y >= 2015; y -= 1) {
+  for (let y = 2026; y >= min_year; y -= 1) {
     fantasy_years.push(y);
   }
-
   const team_options = fantasy_team_options(data);
 
   const year_options = fantasy_years
@@ -6555,9 +6627,9 @@ function fantasy_column_divider_class(col) {
   if (fantasy_state.scope !== 'majors') return '';
 
   const heavy_dividers_by_section = {
-    hitters: new Set(['Pts', 'RHP', 'R Hit', 'PA', 'Pts +/-', 'Whiff%', 'R Eye', 'FB R', 'FB L']),
-    sp: new Set(['Pts', 'Velo', 'W', 'IP', 'Days +/-', '≥50 Qual', 'FB Stf']),
-    rp: new Set(['Pts', 'Velo', 'W', 'IP', 'Days +/-', '≥50 Qual', 'FB Stf']),
+    hitters: new Set(['Pts', 'Val', 'RHP', 'R Hit', 'PA', 'AVG', 'Pts +/-', 'Whiff%', 'R Eye', 'FB R', 'FB L']),
+    sp: new Set(['Pts', 'Velo', 'W', 'Val', 'LCon', 'ERA', 'Days +/-', '≥50 Qual', 'FB Stf']),
+    rp: new Set(['Pts', 'Velo', 'W', 'Val', 'LCon', 'ERA', 'Days +/-', '≥50 Qual', 'FB Stf']),
   };
 
   const light_dividers_by_section = {
@@ -6582,6 +6654,7 @@ function fantasy_display_label(col) {
     'S Val': 'Val (Streak)',
     'SwSp%': 'Sweet Spot%',
     'LCon': 'Loc for Contact',
+    'Rarity': 'Funkiness',
     'Con': 'Contact',
     'Disc': 'Discipline',
     'LDisc': 'Loc for K/BB',
@@ -6863,7 +6936,22 @@ function fantasy_gradient_good_only_stats(frac) {
 
   return fantasy_blend_rgba_on_rgb(`rgba(210,35,35,${alpha.toFixed(3)})`);
 }
+/* ################# */
+function fantasy_gradient_bad_only_stats(frac) {
+  if (frac == null || Number.isNaN(frac)) return '';
 
+  const t = Math.max(0, Math.min(1, Number(frac)));
+  const frac2 = 0.5 - 0.5 * t;
+
+  const alpha_min = 0.25;
+  const alpha_max = 0.95;
+  const alpha_curve_pow = 0.40;
+
+  const d = Math.max(0, Math.min(1, Math.abs(frac2 - 0.5) * 2.0));
+  const alpha = alpha_min + (alpha_max - alpha_min) * (d ** alpha_curve_pow);
+
+  return fantasy_blend_rgba_on_rgb(`rgba(35,85,210,${alpha.toFixed(3)})`);
+}
 /* ################# */
 function fantasy_graph_bar_fill(v, spec) {
   let value = Number(v);
@@ -6911,6 +6999,30 @@ function fantasy_gradient_style(row, col, value) {
   const num_value = Number(value);
   if (Number.isNaN(num_value)) return '';
 
+  if (spec.mode === 'good_only') {
+    const start = Number(spec.start);
+    const end = Number(spec.end);
+
+    if (Number.isNaN(start) || Number.isNaN(end)) return '';
+    if (num_value < start) return '';
+
+    const frac = end === start ? 1.0 : (num_value - start) / (end - start);
+    const bg = fantasy_gradient_good_only_stats(Math.max(0, Math.min(1, frac)));
+    return bg ? `background:${bg};` : '';
+  }
+
+  if (spec.mode === 'bad_only') {
+    const start = Number(spec.start);
+    const end = Number(spec.end);
+
+    if (Number.isNaN(start) || Number.isNaN(end)) return '';
+    if (num_value < start) return '';
+
+    const frac = end === start ? 1.0 : (num_value - start) / (end - start);
+    const bg = fantasy_gradient_bad_only_stats(Math.max(0, Math.min(1, frac)));
+    return bg ? `background:${bg};` : '';
+  }
+
   let worst = Number(spec.worst);
   let neutral_lo = Number(spec.neutral_lo);
   let neutral_hi = Number(spec.neutral_hi);
@@ -6940,26 +7052,24 @@ function fantasy_gradient_style(row, col, value) {
   const bg = fantasy_blend_rgba_on_rgb(fantasy_standard_stats_gradient(frac));
   if (!bg) return '';
 
-let text_shadow = '';
-const is_dark_mode = document.body.classList.contains('soft_theme');
+  let text_shadow = '';
+  const is_dark_mode = document.body.classList.contains('soft_theme');
 
-const low_span = Math.max(1e-12, neutral_lo - worst);
-const high_span = Math.max(1e-12, best - neutral_hi);
+  const low_span = Math.max(1e-12, neutral_lo - worst);
+  const high_span = Math.max(1e-12, best - neutral_hi);
 
-// const low_outline_cutoff = neutral_lo - (0.10 * low_span);
-// const high_outline_cutoff = neutral_hi + (0.10 * high_span);
-const low_outline_cutoff = neutral_lo - (0.30 * low_span);
-const high_outline_cutoff = neutral_hi + (0.30 * high_span);
+  const low_outline_cutoff = neutral_lo - (0.30 * low_span);
+  const high_outline_cutoff = neutral_hi + (0.30 * high_span);
 
-if (
-  is_dark_mode &&
-  (
-    (adj_value < neutral_lo && adj_value >= low_outline_cutoff) ||
-    (adj_value > neutral_hi && adj_value <= high_outline_cutoff)
-  )
-) {
-  text_shadow = '0 0 0.6px rgba(0,0,0,0.95)';
-}
+  if (
+    is_dark_mode &&
+    (
+      (adj_value < neutral_lo && adj_value >= low_outline_cutoff) ||
+      (adj_value > neutral_hi && adj_value <= high_outline_cutoff)
+    )
+  ) {
+    text_shadow = '0 0 0.6px rgba(0,0,0,0.95)';
+  }
 
   return `background:${bg};${text_shadow ? `text-shadow:${text_shadow};` : ''}`;
 }
@@ -7138,6 +7248,7 @@ function fantasy_bind_top_scroll(results_root, scroll_state = null) {
   // const sticky_width = sticky_col ? Math.ceil(sticky_col.getBoundingClientRect().width) : 0;
 
   const scroll_width = Math.max(table.scrollWidth, table_wrap.scrollWidth);
+  // const scroll_width = table.scrollWidth;
 
   top_inner.style.width = `${scroll_width}px`;
 
@@ -7214,8 +7325,19 @@ async function render_fantasy_page() {
   }
 
   if (scope_el) {
-    scope_el.addEventListener('change', () => {
+    // scope_el.addEventListener('change', () => {
+    //   fantasy_state.scope = scope_el.value;
+    //   fantasy_state.sort_key = fantasy_default_sort_key();
+    //   fantasy_state.sort_desc = fantasy_sort_desc(fantasy_state.sort_key);
+    //   render_fantasy_page();
+    // });
+      scope_el.addEventListener('change', () => {
       fantasy_state.scope = scope_el.value;
+
+      if (fantasy_state.scope === 'minors' && Number(fantasy_state.year) < 2022) {
+        fantasy_state.year = 2026;
+      }
+
       fantasy_state.sort_key = fantasy_default_sort_key();
       fantasy_state.sort_desc = fantasy_sort_desc(fantasy_state.sort_key);
       render_fantasy_page();

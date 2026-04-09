@@ -935,7 +935,7 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
   background: var(--panel_2);
   box-sizing: border-box;
 }
-.fantasy_table {
+/* .fantasy_table {
   width: 100%;
   min-width: max-content;
   border-collapse: separate;
@@ -948,6 +948,20 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
 .fantasy_table_majors {
   width: 100%;
   min-width: max-content;
+} */
+.fantasy_table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: auto;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.fantasy_table_majors {
+  width: max-content;
+  min-width: 100%;
 }
 
 .fantasy_table thead th {
