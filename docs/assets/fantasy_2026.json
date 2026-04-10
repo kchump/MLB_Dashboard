@@ -563,8 +563,8 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
-        "team": "HOU",
+        "sort_bucket": 2,
+        "team": "IL10",
         "teams": "",
         "vSzn": "",
         "≥100": 0.1333
@@ -24987,8 +24987,8 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
-        "team": "MIA",
+        "sort_bucket": 2,
+        "team": "IL10",
         "teams": "",
         "vSzn": "",
         "≥100": 0.4375
@@ -46149,8 +46149,8 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
-        "team": "HOU",
+        "sort_bucket": 2,
+        "team": "IL15",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -49415,7 +49415,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "teams": "",
         "vSzn": "",
@@ -60231,7 +60231,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.21600000000000003
       },
@@ -71807,8 +71807,8 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
-        "team": "HOU",
+        "sort_bucket": 2,
+        "team": "IL10",
         "≥100": 0.19
       },
       {
@@ -75372,7 +75372,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.24100000000000002
       },
@@ -84204,8 +84204,8 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
-        "team": "MIA",
+        "sort_bucket": 2,
+        "team": "IL10",
         "≥100": 0.28600000000000003
       },
       {
@@ -99187,8 +99187,8 @@
         "person_key": "cristian javier",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
-        "team": "HOU"
+        "sort_bucket": 2,
+        "team": "IL15"
       },
       {
         "All": 6.72,
@@ -100888,7 +100888,7 @@
         "person_key": "drew anderson",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {

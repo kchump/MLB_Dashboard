@@ -163,11 +163,11 @@ function render_watchlist_sidebar() {
 }
 /* ################# */
 function current_page_person_key() {
-  const year_buttons = document.querySelector('#content_root .year_buttons[data-person_key]');
-  if (year_buttons) return String(year_buttons.dataset.person_key || '').trim();
-
   const active = document.querySelector('.toc_link.active[data-person_key]');
   if (active) return String(active.dataset.person_key || '').trim();
+
+  const year_buttons = document.querySelector('#content_root .year_buttons[data-person_key]');
+  if (year_buttons) return String(year_buttons.dataset.person_key || '').trim();
 
   return '';
 }
@@ -182,17 +182,11 @@ function sync_player_page_action_buttons() {
   const person_key = current_page_person_key();
   if (!person_key) return;
 
-  let actions_row = header.querySelector('.player_header_actions');
+  let actions_row = content.querySelector('.player_header_actions');
   if (!actions_row) {
     actions_row = document.createElement('div');
     actions_row.className = 'player_header_actions';
-
-    const year_buttons = header.querySelector('.year_buttons');
-    if (year_buttons) {
-      header.insertBefore(actions_row, year_buttons);
-    } else {
-      header.appendChild(actions_row);
-    }
+    header.insertAdjacentElement('afterend', actions_row);
   }
 
   let favorite_btn = actions_row.querySelector('.favorite_page_btn');
@@ -227,7 +221,6 @@ function sync_player_page_action_buttons() {
     favorite_btn.addEventListener('click', () => {
       const pk = current_page_person_key();
       if (!pk) return;
-
       toggle_favorite_person(pk);
       refresh_custom_player_lists_ui();
     });
@@ -238,7 +231,6 @@ function sync_player_page_action_buttons() {
     watchlist_btn.addEventListener('click', () => {
       const pk = current_page_person_key();
       if (!pk) return;
-
       toggle_watchlist_person(pk);
       refresh_custom_player_lists_ui();
     });
@@ -765,9 +757,17 @@ function division_storage_key(div_id) {
   return 'mlb_dash_div_open__' + div_id;
 }
 /* ################# */
+// function read_collapsed(key, default_collapsed) {
+//   try {
+//     const v = localStorage.getItem(key);
+//     if (v === '1') return true;
+//     if (v === '0') return false;
+//   } catch (e) {}
+//   return default_collapsed;
+// }
 function read_collapsed(key, default_collapsed) {
   try {
-    const v = localStorage.getItem(key);
+    const v = sessionStorage.getItem(key);
     if (v === '1') return true;
     if (v === '0') return false;
   } catch (e) {}
@@ -780,6 +780,9 @@ function read_collapsed(key, default_collapsed) {
 //   } catch (e) {}
 // }
 function write_collapsed(key, collapsed) {
+  try {
+    sessionStorage.setItem(key, collapsed ? '1' : '0');
+  } catch (e) {}
 }
 /* ################# */
 function read_soft_theme() {
@@ -1806,17 +1809,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // document.querySelectorAll('.toc_link').forEach(a => {
-  //   const page_id = a.dataset.page;
-  //   const file = a.dataset.file;
-  //   if (!page_id || !file) return;
+  document.querySelectorAll('.toc_link').forEach(a => {
+    const page_id = a.dataset.page;
+    const file = a.dataset.file;
+    if (!page_id || !file) return;
 
-  //   a.addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     activate_page(page_id);
-  //   });
-  // });
-    bind_toc_link_clicks(document);
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      activate_page(page_id);
+    });
+  });
 
   const search = document.getElementById('player_search');
   const clear_btn = document.getElementById('search_clear');
@@ -1866,7 +1868,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', apply_mobile_scale);
   apply_mobile_scale();
 
-  refresh_custom_player_lists_ui();
   on_hash_change();
   apply_search_and_filters((search && search.value) ? search.value : '');
 });
