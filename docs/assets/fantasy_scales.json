@@ -414,7 +414,7 @@
     "majors|hitters|Pts": {
       "best": 900,
       "fmt": "int",
-      "neutral_hi": 300,
+      "neutral_hi": 500,
       "neutral_lo": 0,
       "worst": -20
     },
@@ -1130,7 +1130,7 @@
     "majors|rp|Pts": {
       "best": 700,
       "fmt": "int",
-      "neutral_hi": 300,
+      "neutral_hi": 400,
       "neutral_lo": 0,
       "worst": -20
     },
@@ -1211,7 +1211,7 @@
       "worst": -40
     },
     "majors|rp|Rarity": {
-      "best": 3.5,
+      "best": 3,
       "fmt": "num",
       "neutral_hi": 1.8,
       "neutral_lo": 1.7,
@@ -1310,6 +1310,14 @@
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
       "worst": 1.5
+    },
+    "majors|rp|S pERA": {
+      "best": 2.5,
+      "fmt": "num",
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4,
+      "worst": 5.5
     },
     "majors|rp|SI L": {
       "best": 70,
@@ -1836,7 +1844,7 @@
     "majors|sp|Pts": {
       "best": 700,
       "fmt": "int",
-      "neutral_hi": 300,
+      "neutral_hi": 400,
       "neutral_lo": 0,
       "worst": -20
     },
@@ -1917,7 +1925,7 @@
       "worst": -40
     },
     "majors|sp|Rarity": {
-      "best": 3.5,
+      "best": 3,
       "fmt": "num",
       "neutral_hi": 1.8,
       "neutral_lo": 1.7,
@@ -2016,6 +2024,14 @@
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
       "worst": 1.5
+    },
+    "majors|sp|S pERA": {
+      "best": 2.5,
+      "fmt": "num",
+      "higher_is_better": false,
+      "neutral_hi": 3.7,
+      "neutral_lo": 4,
+      "worst": 5.5
     },
     "majors|sp|SI L": {
       "best": 70,

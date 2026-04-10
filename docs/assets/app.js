@@ -6604,7 +6604,7 @@ function fantasy_build_controls_html(data) {
           ${team_options_html}
         </select>
 
-        <span class="matchups_disclaimer">Pre-2025 positions not 100% accurate until I enter them myself</span>
+        <span class="matchups_disclaimer">Pre-2025 positions not 100% accurate until I enter them myself, also teams can be wonky (WIP)</span>
       </div>
     </div>
 
@@ -7098,17 +7098,199 @@ function fantasy_gradient_style(row, col, value) {
 //   return bg ? `background:${bg};` : '';
 // }
 /* ################# */
+// function fantasy_build_table_html(rows) {
+//   const cols = fantasy_current_columns();
+//   const sortable_cols = fantasy_sortable_columns();
+//   const is_majors = fantasy_state.scope === 'majors';
+
+//   const header_html = cols.map((col, col_idx) => {
+//     const sticky_cls = col_idx === 0 ? ' fantasy_sticky_col' : '';
+//     const divider_cls = fantasy_column_divider_class(col);
+
+//     if (!sortable_cols.has(col)) {
+//       return `<th class="fantasy_th${sticky_cls}${divider_cls}">${escape_html(fantasy_display_label(col))}</th>`;
+//     }
+
+//     let arrow = '↕';
+//     let active_cls = '';
+
+//     if (fantasy_state.sort_key === col) {
+//       arrow = fantasy_state.sort_desc ? '↓' : '↑';
+//       active_cls = ' fantasy_sort_btn_active';
+//     }
+
+//     return `
+//       <th class="fantasy_th fantasy_th_sort${sticky_cls}${divider_cls}">
+//         <button type="button" class="fantasy_sort_btn${active_cls}" data-sort_key="${escape_html(col)}">
+//           <span class="fantasy_sort_label">${escape_html(fantasy_display_label(col))}</span>
+//           <span class="fantasy_sort_arrow">${arrow}</span>
+//         </button>
+//       </th>
+//     `;
+//   }).join('');
+
+//   const body_html = rows.map(row => {
+//     const tds = cols.map((col, col_idx) => {
+//       let value = '';
+//       let cls = 'fantasy_td fantasy_td_center';
+
+//       if (col_idx === 0) {
+//         cls += ' fantasy_sticky_col';
+//       }
+//       cls += fantasy_column_divider_class(col);
+
+//       if (col === 'Name') {
+//         const remove_btn = `
+//           <button
+//             type="button"
+//             class="fantasy_remove_btn"
+//             data-person_key="${escape_html(String(row.person_key || ''))}"
+//             aria-label="Remove ${escape_html(String(row.name || ''))}"
+//             title="Remove"
+//           >×</button>
+//         `;
+//         value = `<div class="fantasy_name_cell">${fantasy_player_link(row)}${remove_btn}</div>`;
+//       } else if (col === 'Pos') {
+//         value = escape_html(String(row.pos || ''));
+//       } else if (col === '2nd Pos') {
+//         value = escape_html(String(row.pos2 || ''));
+//       } else if (col === 'Team') {
+//         value = escape_html(String(row.team || ''));
+//       } else {
+//         let raw = row[col];
+
+//         if (String(col).startsWith('S ') && (raw === 0 || raw === 0.0)) {
+//           raw = '';
+//         }
+
+//         value = escape_html(fantasy_fmt(col, raw));
+//       }
+
+//       const raw_num = fantasy_num(row[col]);
+//       const gradient_style = fantasy_gradient_style(row, col, raw_num);
+
+//       if (col === 'Name' || col === 'Pos' || col === '2nd Pos') {
+//         return `<td class="${cls}">${value}</td>`;
+//       }
+
+//       return `
+//         <td class="${cls}">
+//           <div class="fantasy_cell_fill" style="${gradient_style}">
+//             ${value}
+//           </div>
+//         </td>
+//       `;
+//     }).join('');
+
+//     return `<tr class="fantasy_tr">${tds}</tr>`;
+//   }).join('');
+
+//   return `
+//       <div class="fantasy_scroll_shell">
+//         <div class="fantasy_top_scroll">
+//           <div class="fantasy_top_scroll_inner"></div>
+//         </div>
+
+//         <div class="fantasy_table_wrap">
+//           <table class="fantasy_table${is_majors ? ' fantasy_table_majors' : ''}">
+//             <thead>
+//               <tr>${header_html}</tr>
+//             </thead>
+//             <tbody>
+//               ${body_html}
+//             </tbody>
+//           </table>
+//         </div>
+//       </div>
+//     `;
+// }
+// /* ################# */
+// function fantasy_capture_scroll_state(results_root) {
+//   const table_wrap = results_root?.querySelector('.fantasy_table_wrap');
+//   const top_scroll = results_root?.querySelector('.fantasy_top_scroll');
+
+//   return {
+//     table_scroll_left: table_wrap ? table_wrap.scrollLeft : 0,
+//     top_scroll_left: top_scroll ? top_scroll.scrollLeft : 0,
+//   };
+// }
+
+// /* ################# */
+// function fantasy_restore_scroll_state(results_root, scroll_state) {
+//   if (!scroll_state) return;
+
+//   const table_wrap = results_root?.querySelector('.fantasy_table_wrap');
+//   const top_scroll = results_root?.querySelector('.fantasy_top_scroll');
+
+//   const left = Number(scroll_state.table_scroll_left || scroll_state.top_scroll_left || 0);
+
+//   if (table_wrap) {
+//     table_wrap.scrollLeft = left;
+//   }
+
+//   if (top_scroll) {
+//     top_scroll.scrollLeft = left;
+//   }
+// }
+// /* ################# */
+// function fantasy_bind_top_scroll(results_root, scroll_state = null) {
+//   const shell = results_root.querySelector('.fantasy_scroll_shell');
+//   if (!shell) return;
+
+//   const top_scroll = shell.querySelector('.fantasy_top_scroll');
+//   const top_inner = shell.querySelector('.fantasy_top_scroll_inner');
+//   const table_wrap = shell.querySelector('.fantasy_table_wrap');
+//   const table = shell.querySelector('.fantasy_table');
+
+//   if (!top_scroll || !top_inner || !table_wrap || !table) return;
+
+//   const sticky_col = table.querySelector('.fantasy_sticky_col');
+//   // const sticky_width = sticky_col ? Math.ceil(sticky_col.getBoundingClientRect().width) : 0;
+
+//   const scroll_width = Math.max(table.scrollWidth, table_wrap.scrollWidth);
+//   // const scroll_width = table.scrollWidth;
+
+//   top_inner.style.width = `${scroll_width}px`;
+
+//   // const needs_horizontal_scroll = scroll_width > table_wrap.clientWidth + 1;
+//   // top_scroll.style.display = needs_horizontal_scroll ? 'block' : 'none';
+//   top_scroll.style.display = 'block';
+
+//   let syncing_from_top = false;
+//   let syncing_from_bottom = false;
+
+//   top_scroll.addEventListener('scroll', () => {
+//     if (syncing_from_bottom) return;
+//     syncing_from_top = true;
+//     table_wrap.scrollLeft = top_scroll.scrollLeft;
+//     syncing_from_top = false;
+//   });
+
+//   table_wrap.addEventListener('scroll', () => {
+//     if (syncing_from_top) return;
+//     syncing_from_bottom = true;
+//     top_scroll.scrollLeft = table_wrap.scrollLeft;
+//     syncing_from_bottom = false;
+//   });
+
+//   fantasy_restore_scroll_state(results_root, scroll_state);
+// }
+function fantasy_is_sticky_col_idx(col_idx) {
+  return col_idx == 0;
+}
+
+/* ################# */
 function fantasy_build_table_html(rows) {
   const cols = fantasy_current_columns();
   const sortable_cols = fantasy_sortable_columns();
   const is_majors = fantasy_state.scope === 'majors';
 
   const header_html = cols.map((col, col_idx) => {
-    const sticky_cls = col_idx === 0 ? ' fantasy_sticky_col' : '';
+    const sticky_cls = fantasy_is_sticky_col_idx(col_idx) ? ' fantasy_sticky_col' : '';
     const divider_cls = fantasy_column_divider_class(col);
 
     if (!sortable_cols.has(col)) {
-      return `<th class="fantasy_th${sticky_cls}${divider_cls}">${escape_html(fantasy_display_label(col))}</th>`;
+      return `<th class="fantasy_th${sticky_cls}${divider_cls}" data-col_idx="${col_idx}">${escape_html(fantasy_display_label(col))}</th>`;
     }
 
     let arrow = '↕';
@@ -7120,7 +7302,7 @@ function fantasy_build_table_html(rows) {
     }
 
     return `
-      <th class="fantasy_th fantasy_th_sort${sticky_cls}${divider_cls}">
+      <th class="fantasy_th fantasy_th_sort${sticky_cls}${divider_cls}" data-col_idx="${col_idx}">
         <button type="button" class="fantasy_sort_btn${active_cls}" data-sort_key="${escape_html(col)}">
           <span class="fantasy_sort_label">${escape_html(fantasy_display_label(col))}</span>
           <span class="fantasy_sort_arrow">${arrow}</span>
@@ -7134,7 +7316,7 @@ function fantasy_build_table_html(rows) {
       let value = '';
       let cls = 'fantasy_td fantasy_td_center';
 
-      if (col_idx === 0) {
+      if (fantasy_is_sticky_col_idx(col_idx)) {
         cls += ' fantasy_sticky_col';
       }
       cls += fantasy_column_divider_class(col);
@@ -7169,12 +7351,12 @@ function fantasy_build_table_html(rows) {
       const raw_num = fantasy_num(row[col]);
       const gradient_style = fantasy_gradient_style(row, col, raw_num);
 
-      if (col === 'Name' || col === 'Pos' || col === '2nd Pos') {
-        return `<td class="${cls}">${value}</td>`;
+      if (col === 'Name' || col === 'Pos' || col === '2nd Pos' || col === 'Team') {
+        return `<td class="${cls}" data-col_idx="${col_idx}">${value}</td>`;
       }
 
       return `
-        <td class="${cls}">
+        <td class="${cls}" data-col_idx="${col_idx}">
           <div class="fantasy_cell_fill" style="${gradient_style}">
             ${value}
           </div>
@@ -7186,24 +7368,25 @@ function fantasy_build_table_html(rows) {
   }).join('');
 
   return `
-      <div class="fantasy_scroll_shell">
-        <div class="fantasy_top_scroll">
-          <div class="fantasy_top_scroll_inner"></div>
-        </div>
-
-        <div class="fantasy_table_wrap">
-          <table class="fantasy_table${is_majors ? ' fantasy_table_majors' : ''}">
-            <thead>
-              <tr>${header_html}</tr>
-            </thead>
-            <tbody>
-              ${body_html}
-            </tbody>
-          </table>
-        </div>
+    <div class="fantasy_scroll_shell">
+      <div class="fantasy_top_scroll">
+        <div class="fantasy_top_scroll_inner"></div>
       </div>
-    `;
+
+      <div class="fantasy_table_wrap">
+        <table class="fantasy_table${is_majors ? ' fantasy_table_majors' : ''}">
+          <thead>
+            <tr>${header_html}</tr>
+          </thead>
+          <tbody>
+            ${body_html}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
 }
+
 /* ################# */
 function fantasy_capture_scroll_state(results_root) {
   const table_wrap = results_root?.querySelector('.fantasy_table_wrap');
@@ -7232,6 +7415,25 @@ function fantasy_restore_scroll_state(results_root, scroll_state) {
     top_scroll.scrollLeft = left;
   }
 }
+
+/* ################# */
+function fantasy_apply_sticky_offsets(results_root) {
+  const table = results_root?.querySelector('.fantasy_table');
+  if (!table) return;
+
+  const header_cells = Array.from(table.querySelectorAll('thead th'));
+  if (!header_cells.length) return;
+
+  const header_cell = header_cells[0];
+  if (!header_cell) return;
+
+  const cells = table.querySelectorAll('[data-col_idx="0"]');
+
+  cells.forEach(cell => {
+    cell.style.left = '0px';
+  });
+}
+
 /* ################# */
 function fantasy_bind_top_scroll(results_root, scroll_state = null) {
   const shell = results_root.querySelector('.fantasy_scroll_shell');
@@ -7243,18 +7445,6 @@ function fantasy_bind_top_scroll(results_root, scroll_state = null) {
   const table = shell.querySelector('.fantasy_table');
 
   if (!top_scroll || !top_inner || !table_wrap || !table) return;
-
-  const sticky_col = table.querySelector('.fantasy_sticky_col');
-  // const sticky_width = sticky_col ? Math.ceil(sticky_col.getBoundingClientRect().width) : 0;
-
-  const scroll_width = Math.max(table.scrollWidth, table_wrap.scrollWidth);
-  // const scroll_width = table.scrollWidth;
-
-  top_inner.style.width = `${scroll_width}px`;
-
-  // const needs_horizontal_scroll = scroll_width > table_wrap.clientWidth + 1;
-  // top_scroll.style.display = needs_horizontal_scroll ? 'block' : 'none';
-  top_scroll.style.display = 'block';
 
   let syncing_from_top = false;
   let syncing_from_bottom = false;
@@ -7273,7 +7463,14 @@ function fantasy_bind_top_scroll(results_root, scroll_state = null) {
     syncing_from_bottom = false;
   });
 
-  fantasy_restore_scroll_state(results_root, scroll_state);
+  requestAnimationFrame(() => {
+    const scroll_width = Math.max(table.scrollWidth, table_wrap.scrollWidth);
+    top_inner.style.width = `${scroll_width}px`;
+    top_scroll.style.display = 'block';
+
+    fantasy_apply_sticky_offsets(results_root);
+    fantasy_restore_scroll_state(results_root, scroll_state);
+  });
 }
 /* ################# */
 async function render_fantasy_page() {

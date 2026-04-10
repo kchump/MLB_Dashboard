@@ -892,7 +892,7 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
 .fantasy_top_scroll {
   width: 100%;
   max-width: 100%;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
   height: 16px;
   margin: 0 0 8px 0;
@@ -1033,19 +1033,13 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
 
 .fantasy_sticky_col {
   position: sticky;
-  left: 0;
-  z-index: 4;                 /* higher than gradient cells */
+  z-index: 4;
   box-shadow: 1px 0 0 var(--border);
-  background: var(--panel_2); /* force opaque base */
-}
-
-/* keep zebra striping readable but still opaque */
-.fantasy_table tbody tr:nth-child(even) .fantasy_sticky_col {
-  background: var(--row_alt);
+  background: var(--panel_2);
 }
 
 .fantasy_table thead .fantasy_sticky_col {
-  z-index: 5;
+  z-index: 6;
   background: var(--panel_2);
 }
 
