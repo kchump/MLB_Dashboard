@@ -10787,7 +10787,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "STL",
         "teams": "",
         "vSzn": -75.06,
@@ -14408,7 +14408,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "MIN",
         "teams": "",
         "vSzn": "",
@@ -36205,7 +36205,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "MIN",
         "teams": "",
         "vSzn": "",
@@ -46360,7 +46360,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "CLE,HOU",
         "vSzn": -131.15,
@@ -70147,7 +70147,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "NYY",
         "teams": "",
         "vSzn": "",
@@ -84489,7 +84489,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS",
         "teams": "",
         "vSzn": -358.65,
@@ -85930,7 +85930,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "STL",
         "teams": "",
         "≥100": 0.0
@@ -87606,7 +87606,7 @@
         "person_key": "phil maton",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {
@@ -92021,7 +92021,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "STL",
         "≥100": 0.24100000000000002
       },
@@ -97380,7 +97380,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "MIN",
         "≥100": 0.4
       },
@@ -101807,7 +101807,7 @@
         "person_key": "matt canterino",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 3,
         "team": "MiLB"
       },
       {
@@ -104245,7 +104245,7 @@
         "person_key": "luis gil",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "NYY"
       },
       {
@@ -107227,7 +107227,7 @@
         "person_key": "paolo espino",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS"
       },
       {

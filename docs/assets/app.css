@@ -220,6 +220,38 @@ html {
   background: var(--panel_2);
 }
 
+/* NEW STUFF */
+.list_empty {
+  padding: 2px 8px 8px 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.custom_list {
+  margin-top: 0;
+}
+
+.fav_icon,
+.watch_icon {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 11px;
+  line-height: 1;
+  opacity: 0.18;
+  vertical-align: middle;
+}
+
+.fav_icon.active {
+  opacity: 1;
+  color: rgba(150,110,10,0.95);
+}
+
+.watch_icon.active {
+  opacity: 1;
+  color: rgba(20, 90, 95, 0.95);
+}
+/* NEW STUFF */
+
 /* =============================================================================
    divisions, teams, role tabs, player links
    ============================================================================= */
@@ -922,12 +954,14 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
 
 .fantasy_top_scroll_inner {
   height: 1px;
+  min-width: 1px;
 }
 
 .fantasy_table_wrap {
   width: 100%;
   max-width: 100%;
   min-width: 0;
+  position: relative;
   overflow-x: auto;
   overflow-y: visible;
   border: 1px solid var(--border);
@@ -1033,6 +1067,7 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
 
 .fantasy_sticky_col {
   position: sticky;
+  left: 0;
   z-index: 4;
   box-shadow: 1px 0 0 var(--border);
   background: var(--panel_2);
@@ -1300,9 +1335,52 @@ body.soft_theme .fantasy_player_link:hover {
   min-width: 100%;
 }
 
-.player_header {
+/* .player_header {
   margin: 0 0 10px 2px;
+} */
+ .player_header {
+  margin: 0 0 10px 2px;
+  display: block;
 }
+
+.player_header_actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 6px 0;
+  flex-wrap: wrap;
+}
+
+.favorite_page_btn,
+.watchlist_page_btn {
+  border: 1px solid var(--border);
+  background: var(--control_bg);
+  color: var(--text_soft);
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1.1;
+}
+
+.favorite_page_btn:hover,
+.watchlist_page_btn:hover {
+  background: var(--panel);
+}
+
+.favorite_page_btn.active {
+  color: rgba(150,110,10,0.95);
+  border-color: rgba(150,110,10,0.28);
+  background: rgba(150,110,10,0.08);
+}
+
+.watchlist_page_btn.active {
+  color: rgba(20, 90, 95, 0.95);
+  border-color: rgba(20, 90, 95, 0.28);
+  background: rgba(20, 90, 95, 0.08);
+}
+/* NEW STUFF */
 
 .player_page .plotly-graph-div {
   display: inline-block;
@@ -1567,6 +1645,16 @@ body::-webkit-scrollbar-thumb:hover,
   #matchups {
     min-width: 0;
   }
+  /* NEW STUFF */
+  .player_header_actions {
+    width: 100%;
+  }
+
+  .favorite_page_btn,
+  .watchlist_page_btn {
+    min-height: 40px;
+  }
+  /* NEW STUFF */
 
   #matchups_results_root {
     width: 100%;

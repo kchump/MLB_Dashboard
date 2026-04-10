@@ -1214,7 +1214,7 @@
       "best": 3,
       "fmt": "num",
       "neutral_hi": 1.8,
-      "neutral_lo": 1.7,
+      "neutral_lo": 0,
       "worst": 0
     },
     "majors|rp|S All": {
@@ -1223,14 +1223,6 @@
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
-    },
-    "majors|rp|S Bad%": {
-      "best": 0.28,
-      "fmt": "pct",
-      "higher_is_better": false,
-      "neutral_hi": 0.35,
-      "neutral_lo": 0.37,
-      "worst": 0.44
     },
     "majors|rp|S Con": {
       "best": 35,
@@ -1928,7 +1920,7 @@
       "best": 3,
       "fmt": "num",
       "neutral_hi": 1.8,
-      "neutral_lo": 1.7,
+      "neutral_lo": 0,
       "worst": 0
     },
     "majors|sp|S All": {
@@ -1937,14 +1929,6 @@
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
-    },
-    "majors|sp|S Bad%": {
-      "best": 0.28,
-      "fmt": "pct",
-      "higher_is_better": false,
-      "neutral_hi": 0.35,
-      "neutral_lo": 0.37,
-      "worst": 0.44
     },
     "majors|sp|S Con": {
       "best": 35,

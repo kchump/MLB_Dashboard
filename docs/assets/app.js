@@ -10,6 +10,247 @@ let active_page_id = '';
 const year_fallback_notice_by_page = new Map(); // page_id -> { last_played_year }
 let retired_players_set = new Set();
 const fantasy_year_cache = new Map();
+const favorites_storage_key = 'mlb_dash_favorites';
+const watchlist_storage_key = 'mlb_dash_watchlist';
+/* ################# */
+function get_stored_people(storage_key) {
+  try {
+    const raw = localStorage.getItem(storage_key);
+    if (!raw) return new Set();
+
+    const arr = JSON.parse(raw);
+    if (!Array.isArray(arr)) return new Set();
+
+    return new Set(arr.map(x => String(x || '').trim()).filter(Boolean));
+  } catch (e) {
+    return new Set();
+  }
+}
+/* ################# */
+function save_stored_people(storage_key, values) {
+  try {
+    localStorage.setItem(storage_key, JSON.stringify(Array.from(values)));
+  } catch (e) {}
+}
+/* ################# */
+function get_favorites() {
+  return get_stored_people(favorites_storage_key);
+}
+/* ################# */
+function get_watchlist() {
+  return get_stored_people(watchlist_storage_key);
+}
+/* ################# */
+function toggle_stored_person(storage_key, person_key) {
+  const pk = String(person_key || '').trim();
+  if (!pk) return false;
+
+  const values = get_stored_people(storage_key);
+
+  if (values.has(pk)) {
+    values.delete(pk);
+    save_stored_people(storage_key, values);
+    return false;
+  }
+
+  values.add(pk);
+  save_stored_people(storage_key, values);
+  return true;
+}
+/* ################# */
+function toggle_favorite_person(person_key) {
+  return toggle_stored_person(favorites_storage_key, person_key);
+}
+/* ################# */
+function toggle_watchlist_person(person_key) {
+  return toggle_stored_person(watchlist_storage_key, person_key);
+}
+/* ################# */
+function bind_toc_link_clicks(scope) {
+  const root = scope || document;
+
+  root.querySelectorAll('.toc_link').forEach(a => {
+    if (a.dataset.click_bound === '1') return;
+    a.dataset.click_bound = '1';
+
+    const page_id = a.dataset.page;
+    const file = a.dataset.file;
+    if (!page_id || !file) return;
+
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      activate_page(page_id);
+    });
+  });
+}
+/* ################# */
+function update_sidebar_custom_icons(root) {
+  const scope = root || document;
+  const favorites = get_favorites();
+  const watchlist = get_watchlist();
+
+  scope.querySelectorAll('.toc_link[data-person_key]').forEach(a => {
+    const person_key = String(a.dataset.person_key || '').trim();
+    if (!person_key) return;
+
+    let fav_icon = a.querySelector(':scope > .fav_icon');
+    if (!fav_icon) {
+      fav_icon = document.createElement('span');
+      fav_icon.className = 'fav_icon';
+      fav_icon.setAttribute('aria-hidden', 'true');
+      fav_icon.textContent = '★';
+      a.appendChild(fav_icon);
+    }
+
+    let watch_icon = a.querySelector(':scope > .watch_icon');
+    if (!watch_icon) {
+      watch_icon = document.createElement('span');
+      watch_icon.className = 'watch_icon';
+      watch_icon.setAttribute('aria-hidden', 'true');
+      watch_icon.textContent = '✓';
+      a.appendChild(watch_icon);
+    }
+
+    fav_icon.classList.toggle('active', favorites.has(person_key));
+    watch_icon.classList.toggle('active', watchlist.has(person_key));
+  });
+}
+/* ################# */
+function render_custom_sidebar_list(list_id, empty_id, people_set) {
+  const list = document.getElementById(list_id);
+  const empty = document.getElementById(empty_id);
+  if (!list) return;
+
+  list.innerHTML = '';
+
+  const seen = new Set();
+
+  const links = Array.from(document.querySelectorAll('.toc_link[data-person_key]'))
+    .filter(a => !a.closest('.favorites_block') && !a.closest('.watchlist_block'))
+    .filter(a => {
+      const pk = String(a.dataset.person_key || '').trim();
+      return pk && people_set.has(pk);
+    });
+
+  links.forEach(a => {
+    const pk = String(a.dataset.person_key || '').trim();
+    const page = String(a.dataset.page || '').trim();
+    const dedupe_key = `${pk}__${page}`;
+    if (seen.has(dedupe_key)) return;
+    seen.add(dedupe_key);
+
+    const li = a.closest('.player_li');
+    if (!li) return;
+
+    const clone = li.cloneNode(true);
+    list.appendChild(clone);
+  });
+
+  if (empty) {
+    empty.style.display = list.children.length ? 'none' : '';
+  }
+
+  bind_toc_link_clicks(list);
+  update_sidebar_custom_icons(list);
+}
+/* ################# */
+function render_favorites_sidebar() {
+  render_custom_sidebar_list('favorites_list', 'favorites_empty', get_favorites());
+}
+/* ################# */
+function render_watchlist_sidebar() {
+  render_custom_sidebar_list('watchlist_list', 'watchlist_empty', get_watchlist());
+}
+/* ################# */
+function current_page_person_key() {
+  const year_buttons = document.querySelector('#content_root .year_buttons[data-person_key]');
+  if (year_buttons) return String(year_buttons.dataset.person_key || '').trim();
+
+  const active = document.querySelector('.toc_link.active[data-person_key]');
+  if (active) return String(active.dataset.person_key || '').trim();
+
+  return '';
+}
+/* ################# */
+function sync_player_page_action_buttons() {
+  const content = document.getElementById('content_root');
+  if (!content) return;
+
+  const header = content.querySelector('.player_header');
+  if (!header) return;
+
+  const person_key = current_page_person_key();
+  if (!person_key) return;
+
+  let actions_row = header.querySelector('.player_header_actions');
+  if (!actions_row) {
+    actions_row = document.createElement('div');
+    actions_row.className = 'player_header_actions';
+
+    const year_buttons = header.querySelector('.year_buttons');
+    if (year_buttons) {
+      header.insertBefore(actions_row, year_buttons);
+    } else {
+      header.appendChild(actions_row);
+    }
+  }
+
+  let favorite_btn = actions_row.querySelector('.favorite_page_btn');
+  if (!favorite_btn) {
+    favorite_btn = document.createElement('button');
+    favorite_btn.type = 'button';
+    favorite_btn.className = 'favorite_page_btn';
+    actions_row.appendChild(favorite_btn);
+  }
+
+  let watchlist_btn = actions_row.querySelector('.watchlist_page_btn');
+  if (!watchlist_btn) {
+    watchlist_btn = document.createElement('button');
+    watchlist_btn.type = 'button';
+    watchlist_btn.className = 'watchlist_page_btn';
+    actions_row.appendChild(watchlist_btn);
+  }
+
+  const is_favorite = get_favorites().has(person_key);
+  const is_watchlist = get_watchlist().has(person_key);
+
+  favorite_btn.classList.toggle('active', is_favorite);
+  favorite_btn.setAttribute('aria-pressed', is_favorite ? 'true' : 'false');
+  favorite_btn.textContent = is_favorite ? '★ Favorite' : '☆ Favorite';
+
+  watchlist_btn.classList.toggle('active', is_watchlist);
+  watchlist_btn.setAttribute('aria-pressed', is_watchlist ? 'true' : 'false');
+  watchlist_btn.textContent = is_watchlist ? '✓ Watchlist' : '+ Watchlist';
+
+  if (favorite_btn.dataset.bound !== '1') {
+    favorite_btn.dataset.bound = '1';
+    favorite_btn.addEventListener('click', () => {
+      const pk = current_page_person_key();
+      if (!pk) return;
+
+      toggle_favorite_person(pk);
+      refresh_custom_player_lists_ui();
+    });
+  }
+
+  if (watchlist_btn.dataset.bound !== '1') {
+    watchlist_btn.dataset.bound = '1';
+    watchlist_btn.addEventListener('click', () => {
+      const pk = current_page_person_key();
+      if (!pk) return;
+
+      toggle_watchlist_person(pk);
+      refresh_custom_player_lists_ui();
+    });
+  }
+}
+/* ################# */
+function refresh_custom_player_lists_ui() {
+  render_favorites_sidebar();
+  render_watchlist_sidebar();
+  update_sidebar_custom_icons(document);
+  sync_player_page_action_buttons();
+}
 /* ################# */
 async function load_fantasy_year(year) {
   const y = String(year || '').trim();
@@ -533,10 +774,12 @@ function read_collapsed(key, default_collapsed) {
   return default_collapsed;
 }
 /* ################# */
+// function write_collapsed(key, collapsed) { // previously kept persistent collapse states across visits
+//   try {
+//     localStorage.setItem(key, collapsed ? '1' : '0');
+//   } catch (e) {}
+// }
 function write_collapsed(key, collapsed) {
-  try {
-    localStorage.setItem(key, collapsed ? '1' : '0');
-  } catch (e) {}
 }
 /* ################# */
 function read_soft_theme() {
@@ -672,6 +915,7 @@ async function load_page(file, page_id) {
   init_matchups_page_if_present(content);
   init_fantasy_page_if_present(content);
   apply_mobile_scale();
+  refresh_custom_player_lists_ui();
 
   const active = document.querySelector(`.toc_link[data-page="${pid}"]`);
   if (active) {
@@ -755,7 +999,7 @@ function set_search_mode(is_searching) {
         collapsed = (db.dataset.prev_collapsed === '1');
         delete db.dataset.prev_collapsed;
       } else {
-        collapsed = read_collapsed(division_storage_key(div_id), false);
+        collapsed = read_collapsed(division_storage_key(div_id), true);
       }
 
       db.classList.toggle('collapsed', collapsed);
@@ -915,6 +1159,11 @@ function apply_search_and_filters(q) {
   });
 
   document.querySelectorAll('.division_block').forEach(db => {
+    if (db.classList.contains('favorites_block') || db.classList.contains('watchlist_block')) {
+      db.style.display = '';
+      return;
+    }
+
     const any_visible_team = Array.from(db.querySelectorAll('.team_block')).some(tb => tb.style.display !== 'none');
     db.style.display = any_visible_team ? '' : 'none';
   });
@@ -1541,13 +1790,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.team_block').forEach(tb => {
     const team = tb.dataset.team || '';
-    const collapsed = read_collapsed(team_storage_key(team), true);
+    const collapsed = read_collapsed(team_storage_key(team), true); /* teams collapsed by default */
     set_team_collapsed(team, collapsed);
   });
 
   document.querySelectorAll('.division_block').forEach(db => {
     const div_id = db.dataset.division || '';
-    const collapsed = read_collapsed(division_storage_key(div_id), false);
+    const collapsed = read_collapsed(division_storage_key(div_id), true); /* divisions collapsed by default */
     set_division_collapsed(div_id, collapsed);
   });
 
@@ -1557,16 +1806,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.querySelectorAll('.toc_link').forEach(a => {
-    const page_id = a.dataset.page;
-    const file = a.dataset.file;
-    if (!page_id || !file) return;
+  // document.querySelectorAll('.toc_link').forEach(a => {
+  //   const page_id = a.dataset.page;
+  //   const file = a.dataset.file;
+  //   if (!page_id || !file) return;
 
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      activate_page(page_id);
-    });
-  });
+  //   a.addEventListener('click', (e) => {
+  //     e.preventDefault();
+  //     activate_page(page_id);
+  //   });
+  // });
+    bind_toc_link_clicks(document);
 
   const search = document.getElementById('player_search');
   const clear_btn = document.getElementById('search_clear');
@@ -1616,6 +1866,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', apply_mobile_scale);
   apply_mobile_scale();
 
+  refresh_custom_player_lists_ui();
   on_hash_change();
   apply_search_and_filters((search && search.value) ? search.value : '');
 });
@@ -7417,21 +7668,23 @@ function fantasy_restore_scroll_state(results_root, scroll_state) {
 }
 
 /* ################# */
-function fantasy_apply_sticky_offsets(results_root) {
-  const table = results_root?.querySelector('.fantasy_table');
-  if (!table) return;
+function fantasy_sync_top_scroll(results_root) {
+  const shell = results_root?.querySelector('.fantasy_scroll_shell');
+  if (!shell) return;
 
-  const header_cells = Array.from(table.querySelectorAll('thead th'));
-  if (!header_cells.length) return;
+  const top_scroll = shell.querySelector('.fantasy_top_scroll');
+  const top_inner = shell.querySelector('.fantasy_top_scroll_inner');
+  const table_wrap = shell.querySelector('.fantasy_table_wrap');
 
-  const header_cell = header_cells[0];
-  if (!header_cell) return;
+  if (!top_scroll || !top_inner || !table_wrap) return;
 
-  const cells = table.querySelectorAll('[data-col_idx="0"]');
+  const scroll_width = table_wrap.scrollWidth;
+  const client_width = table_wrap.clientWidth;
+  const has_overflow = scroll_width > client_width + 1;
 
-  cells.forEach(cell => {
-    cell.style.left = '0px';
-  });
+  top_inner.style.width = `${scroll_width}px`;
+  top_scroll.style.display = has_overflow ? 'block' : 'none';
+  top_scroll.scrollLeft = table_wrap.scrollLeft;
 }
 
 /* ################# */
@@ -7440,11 +7693,9 @@ function fantasy_bind_top_scroll(results_root, scroll_state = null) {
   if (!shell) return;
 
   const top_scroll = shell.querySelector('.fantasy_top_scroll');
-  const top_inner = shell.querySelector('.fantasy_top_scroll_inner');
   const table_wrap = shell.querySelector('.fantasy_table_wrap');
-  const table = shell.querySelector('.fantasy_table');
 
-  if (!top_scroll || !top_inner || !table_wrap || !table) return;
+  if (!top_scroll || !table_wrap) return;
 
   let syncing_from_top = false;
   let syncing_from_bottom = false;
@@ -7463,14 +7714,16 @@ function fantasy_bind_top_scroll(results_root, scroll_state = null) {
     syncing_from_bottom = false;
   });
 
-  requestAnimationFrame(() => {
-    const scroll_width = Math.max(table.scrollWidth, table_wrap.scrollWidth);
-    top_inner.style.width = `${scroll_width}px`;
-    top_scroll.style.display = 'block';
-
-    fantasy_apply_sticky_offsets(results_root);
+  const sync = () => {
+    fantasy_sync_top_scroll(results_root);
     fantasy_restore_scroll_state(results_root, scroll_state);
+  };
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(sync);
   });
+
+  window.addEventListener('resize', sync);
 }
 /* ################# */
 async function render_fantasy_page() {
