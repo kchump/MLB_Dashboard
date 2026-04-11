@@ -13,7 +13,7 @@ Set-Location $start_dir
 
 git add .
 git commit -m 'update'
-git push
+git push --force
 
 #Set-Location 'C:\Users\kcamp\Downloads\baseball\src'
 
