@@ -139,31 +139,33 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
     return String(a?.dataset?.name || a?.textContent || '').trim().toLowerCase();
   }
 
-  function get_pos_sort_key(a) {
-    return String(a?.dataset?.pos || '').trim().toUpperCase();
-  }
+function get_pos_sort_key(a) {
+  const pos = String(a?.dataset?.pos || '').trim().toUpperCase();
 
-  function grouped_section_key(a) {
-    const role = String(a?.dataset?.role || '').trim().toLowerCase();
-    const pos = get_pos_sort_key(a);
+  const pos_order = {
+    'C': 1,
+    '1B': 2,
+    '2B': 3,
+    '3B': 4,
+    'SS': 5,
+    'OF': 6,
+    'DH': 7,
+  };
 
-    if (role === 'rotation' || role === 'sp' || role === 'starter' || role === 'starters') return 'Rotation';
-    if (role === 'bullpen' || role === 'rp' || role === 'reliever' || role === 'relievers') return 'Bullpen';
-    if (role === 'lineup' || role === 'batters' || role === 'hitters' || role === 'hitter') {
-      if (pos === 'C') return 'C';
-      if (pos === '1B') return '1B';
-      if (pos === '2B') return '2B';
-      if (pos === '3B') return '3B';
-      if (pos === 'SS') return 'SS';
-      if (pos === 'OF') return 'OF';
-      if (pos === 'DH') return 'DH';
-      return 'Lineup';
-    }
+  return pos_order[pos] || 999;
+}
 
-    return 'Lineup';
-  }
+function grouped_section_key(a) {
+  const role = String(a?.dataset?.role || '').trim().toLowerCase();
 
-  const section_order = ['Rotation', 'Bullpen', 'Lineup', 'C', '1B', '2B', '3B', 'SS', 'OF', 'DH'];
+  if (role === 'rotation' || role === 'sp' || role === 'starter' || role === 'starters') return 'Rotation';
+  if (role === 'bullpen' || role === 'rp' || role === 'reliever' || role === 'relievers') return 'Bullpen';
+  if (role === 'lineup' || role === 'batters' || role === 'hitters' || role === 'hitter') return 'Lineup';
+
+  return 'Lineup';
+}
+
+const section_order = ['Rotation', 'Bullpen', 'Lineup'];
   const grouped = new Map(section_order.map(section => [section, []]));
 
   const links = Array.from(document.querySelectorAll('.toc_link[data-person_key]'))
@@ -183,21 +185,55 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
     grouped.get(section).push(a);
   });
 
-  section_order.forEach((section, idx) => {
+  let appended_player_count = 0;
+  let appended_section_count = 0;
+
+  section_order.forEach(section => {
     const items = grouped.get(section) || [];
     if (!items.length) return;
 
-    items.sort((a, b) => {
-      const last_cmp = get_last_name_sort_key(a).localeCompare(get_last_name_sort_key(b));
-      if (last_cmp !== 0) return last_cmp;
+items.sort((a, b) => {
+  const a_role = String(a?.dataset?.role || '').trim().toLowerCase();
+  const b_role = String(b?.dataset?.role || '').trim().toLowerCase();
 
-      const full_cmp = get_full_name_sort_key(a).localeCompare(get_full_name_sort_key(b));
-      if (full_cmp !== 0) return full_cmp;
+  const a_is_hitter = a_role === 'lineup' || a_role === 'batters' || a_role === 'hitters' || a_role === 'hitter';
+  const b_is_hitter = b_role === 'lineup' || b_role === 'batters' || b_role === 'hitters' || b_role === 'hitter';
 
-      return String(a.dataset.page || '').localeCompare(String(b.dataset.page || ''));
+  if (a_is_hitter && b_is_hitter) {
+    const pos_cmp = get_pos_sort_key(a) - get_pos_sort_key(b);
+    if (pos_cmp !== 0) return pos_cmp;
+  }
+
+  const last_cmp = get_last_name_sort_key(a).localeCompare(get_last_name_sort_key(b));
+  if (last_cmp !== 0) return last_cmp;
+
+  const full_cmp = get_full_name_sort_key(a).localeCompare(get_full_name_sort_key(b));
+  if (full_cmp !== 0) return full_cmp;
+
+  return String(a.dataset.page || '').localeCompare(String(b.dataset.page || ''));
+});
+
+    const section_nodes = [];
+
+    items.forEach(a => {
+      const li = a.closest('.player_li');
+      if (!li) return;
+
+      const clone = li.cloneNode(true);
+
+      clone.style.display = '';
+      clone.querySelectorAll('[style]').forEach(el => {
+        if (el.style && el.style.display === 'none') {
+          el.style.display = '';
+        }
+      });
+
+      section_nodes.push(clone);
     });
 
-    if (idx > 0 && (section === 'Bullpen' || section === 'Lineup')) {
+    if (!section_nodes.length) return;
+
+    if (appended_section_count > 0 && (section === 'Bullpen' || section === 'Lineup')) {
       const spacer = document.createElement('div');
       spacer.className = 'custom_sidebar_section_spacer';
       spacer.style.height = '8px';
@@ -209,17 +245,14 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
     header.textContent = section;
     list.appendChild(header);
 
-    items.forEach(a => {
-      const li = a.closest('.player_li');
-      if (!li) return;
+    section_nodes.forEach(node => list.appendChild(node));
 
-      const clone = li.cloneNode(true);
-      list.appendChild(clone);
-    });
+    appended_player_count += section_nodes.length;
+    appended_section_count += 1;
   });
 
   if (empty) {
-    empty.style.display = list.children.length ? 'none' : '';
+    empty.style.display = appended_player_count ? 'none' : '';
   }
 
   bind_toc_link_clicks(list);

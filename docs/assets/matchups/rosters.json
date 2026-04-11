@@ -382,6 +382,7 @@
     "TJ Friedl": "CIN",
     "TJ Rumfield": "COL",
     "Tanner Murray": "CHW",
+    "Taylor Trammell": "HOU",
     "Taylor Walls": "TB",
     "Taylor Ward": "BAL",
     "Teoscar Hernandez": "LAD",
@@ -432,7 +433,8 @@
     "Yordan Alvarez": "HOU",
     "Zach Dezenzo": "HOU",
     "Zach McKinstry": "DET",
-    "Zach Neto": "LAA"
+    "Zach Neto": "LAA",
+    "Zack Gelof": "ATH"
   },
   "hitters_by_team": {
     "ARI": [
@@ -466,7 +468,8 @@
       "Max Muncy ATH",
       "Nick Kurtz",
       "Shea Langeliers",
-      "Tyler Soderstrom"
+      "Tyler Soderstrom",
+      "Zack Gelof"
     ],
     "ATL": [
       "Austin Riley",
@@ -629,6 +632,7 @@
       "Joey Loperfido",
       "Jose Altuve",
       "Nick Allen",
+      "Taylor Trammell",
       "Yainer Diaz",
       "Yordan Alvarez",
       "Zach Dezenzo"
@@ -1059,6 +1063,7 @@
     "Hunter Harvey": "CHC",
     "Ian Seymour": "TB",
     "Isaac Mattson": "PIT",
+    "J.P. France": "HOU",
     "J.T. Ginn": "ATH",
     "JT Brubaker": "SF",
     "Jack Dreyer": "LAD",
@@ -1081,6 +1086,7 @@
     "Jimmy Herget": "COL",
     "JoJo Romero": "STL",
     "Joe Mantiply": "TOR",
+    "Joe Rock": "TB",
     "Joel Kuhnel": "ATH",
     "Joel Payamps": "ATL",
     "Johan Oviedo": "BOS",
@@ -1120,6 +1126,7 @@
     "Kolby Allard": "CLE",
     "Kyle Finnegan": "DET",
     "Kyle Hart": "SD",
+    "Kyle Nicolas": "CIN",
     "Lake Bachar": "MIA",
     "Louie Varland": "TOR",
     "Lucas Erceg": "KC",
@@ -1322,6 +1329,7 @@
       "Connor Phillips",
       "Emilio Pagan",
       "Graham Ashcraft",
+      "Kyle Nicolas",
       "Pierce Johnson",
       "Sam Moll",
       "Tony Santillan"
@@ -1366,6 +1374,7 @@
       "Christian Roa",
       "Cody Bolton",
       "Enyel De Los Santos",
+      "J.P. France",
       "Josh Hader",
       "Kai-Wei Teng",
       "Ryan Weiss",
@@ -1537,6 +1546,7 @@
       "Griffin Jax",
       "Hunter Bigge",
       "Ian Seymour",
+      "Joe Rock",
       "Kevin Kelly",
       "Mason Englert",
       "Yoendrys Gomez"
