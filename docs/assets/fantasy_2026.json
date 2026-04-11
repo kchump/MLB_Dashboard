@@ -28466,7 +28466,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "teams": "",
         "vSzn": "",
@@ -46150,7 +46150,7 @@
         "prev_minors_year": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "HOU",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -55593,7 +55593,7 @@
         "prev_minors_year": 2025.0,
         "role": "sp",
         "sort_bucket": 3,
-        "team": "MiLB",
+        "team": "CIN",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 1.0
@@ -64141,7 +64141,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.1
       },
@@ -65245,7 +65245,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.0
       },
@@ -87700,7 +87700,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.182
       },
@@ -89793,7 +89793,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.2
       },
@@ -99188,7 +99188,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "HOU"
       },
       {
         "All": 6.72,
@@ -102002,7 +102002,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 3,
-        "team": "MiLB"
+        "team": "NYY"
       },
       {
         "All": 1.49,
@@ -103745,7 +103745,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 3,
-        "team": "MiLB"
+        "team": "CIN"
       },
       {
         "All": -9.63,

@@ -125,25 +125,97 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
 
   const seen = new Set();
 
+  function get_last_name_sort_key(a) {
+    const name = String(a?.dataset?.name || a?.textContent || '').trim();
+    if (!name) return '';
+
+    const parts = name.split(/\s+/).filter(Boolean);
+    if (!parts.length) return '';
+
+    return parts[parts.length - 1].toLowerCase();
+  }
+
+  function get_full_name_sort_key(a) {
+    return String(a?.dataset?.name || a?.textContent || '').trim().toLowerCase();
+  }
+
+  function get_pos_sort_key(a) {
+    return String(a?.dataset?.pos || '').trim().toUpperCase();
+  }
+
+  function grouped_section_key(a) {
+    const role = String(a?.dataset?.role || '').trim().toLowerCase();
+    const pos = get_pos_sort_key(a);
+
+    if (role === 'rotation' || role === 'sp' || role === 'starter' || role === 'starters') return 'Rotation';
+    if (role === 'bullpen' || role === 'rp' || role === 'reliever' || role === 'relievers') return 'Bullpen';
+    if (role === 'lineup' || role === 'batters' || role === 'hitters' || role === 'hitter') {
+      if (pos === 'C') return 'C';
+      if (pos === '1B') return '1B';
+      if (pos === '2B') return '2B';
+      if (pos === '3B') return '3B';
+      if (pos === 'SS') return 'SS';
+      if (pos === 'OF') return 'OF';
+      if (pos === 'DH') return 'DH';
+      return 'Lineup';
+    }
+
+    return 'Lineup';
+  }
+
+  const section_order = ['Rotation', 'Bullpen', 'Lineup', 'C', '1B', '2B', '3B', 'SS', 'OF', 'DH'];
+  const grouped = new Map(section_order.map(section => [section, []]));
+
   const links = Array.from(document.querySelectorAll('.toc_link[data-person_key]'))
     .filter(a => !a.closest('.favorites_block') && !a.closest('.watchlist_block'))
     .filter(a => {
       const pk = String(a.dataset.person_key || '').trim();
-      return pk && people_set.has(pk);
+      const page = String(a.dataset.page || '').trim();
+      const dedupe_key = `${pk}__${page}`;
+      if (!pk || !page || !people_set.has(pk) || seen.has(dedupe_key)) return false;
+      seen.add(dedupe_key);
+      return true;
     });
 
   links.forEach(a => {
-    const pk = String(a.dataset.person_key || '').trim();
-    const page = String(a.dataset.page || '').trim();
-    const dedupe_key = `${pk}__${page}`;
-    if (seen.has(dedupe_key)) return;
-    seen.add(dedupe_key);
+    const section = grouped_section_key(a);
+    if (!grouped.has(section)) grouped.set(section, []);
+    grouped.get(section).push(a);
+  });
 
-    const li = a.closest('.player_li');
-    if (!li) return;
+  section_order.forEach((section, idx) => {
+    const items = grouped.get(section) || [];
+    if (!items.length) return;
 
-    const clone = li.cloneNode(true);
-    list.appendChild(clone);
+    items.sort((a, b) => {
+      const last_cmp = get_last_name_sort_key(a).localeCompare(get_last_name_sort_key(b));
+      if (last_cmp !== 0) return last_cmp;
+
+      const full_cmp = get_full_name_sort_key(a).localeCompare(get_full_name_sort_key(b));
+      if (full_cmp !== 0) return full_cmp;
+
+      return String(a.dataset.page || '').localeCompare(String(b.dataset.page || ''));
+    });
+
+    if (idx > 0 && (section === 'Bullpen' || section === 'Lineup')) {
+      const spacer = document.createElement('div');
+      spacer.className = 'custom_sidebar_section_spacer';
+      spacer.style.height = '8px';
+      list.appendChild(spacer);
+    }
+
+    const header = document.createElement('div');
+    header.className = 'sub_role_label';
+    header.textContent = section;
+    list.appendChild(header);
+
+    items.forEach(a => {
+      const li = a.closest('.player_li');
+      if (!li) return;
+
+      const clone = li.cloneNode(true);
+      list.appendChild(clone);
+    });
   });
 
   if (empty) {
@@ -4193,7 +4265,7 @@ function find_fragment_key_loose(obj, wanted_name) {
     }
     //#################
     function append_projected_starters_disclaimer() {
-      const cutoff_mmdd = 407;
+      const cutoff_mmdd = 415;
 
       const disclaimer = document.createElement('div');
       disclaimer.className = 'matchups_disclaimer';

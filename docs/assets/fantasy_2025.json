@@ -43092,7 +43092,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "KC",
         "teams": "",
         "vSzn": -713.49,
@@ -43163,7 +43163,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "Chicago,New York,TB",
         "vSzn": "",
@@ -105390,7 +105390,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "≥100": 0.245
       },
@@ -105413,7 +105413,7 @@
         "pos": "2B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.295
       },
@@ -139924,7 +139924,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "KC",
         "≥100": 0.39299999999999996
       },
@@ -139947,7 +139947,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "≥100": 0.235
       },
@@ -139970,7 +139970,7 @@
         "pos": "2B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.33299999999999996
       },
