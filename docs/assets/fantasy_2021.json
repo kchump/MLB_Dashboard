@@ -989,7 +989,7 @@
         "pos2": "3B",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "teams": "",
         "vSzn": 122.76,
@@ -49484,7 +49484,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "teams": "",
         "vSzn": 211.83,
@@ -49626,7 +49626,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": 302.25,
@@ -87948,7 +87948,7 @@
         "person_key": "craig kimbrel",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM"
       },
       {
@@ -89886,7 +89886,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "≥100": 0.21100000000000002
       },
@@ -91059,7 +91059,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.6
       },
@@ -91082,7 +91082,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB",
         "≥100": 0.5
       },
@@ -101256,7 +101256,7 @@
         "person_key": "daysbel hernandez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 3,
         "team": "MiLB"
       },
       {
@@ -101487,7 +101487,7 @@
         "person_key": "richard lovelady",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC"
       },
       {

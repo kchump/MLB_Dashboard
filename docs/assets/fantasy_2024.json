@@ -1699,7 +1699,7 @@
         "pos2": "3B",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CIN",
         "teams": "",
         "vSzn": -242.64,
@@ -2196,7 +2196,7 @@
         "pos2": "SS",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BOS",
         "teams": "",
         "vSzn": -499.95,
@@ -9509,7 +9509,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN",
         "teams": "",
         "vSzn": -102.06,
@@ -10574,7 +10574,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "DET",
         "teams": "",
         "vSzn": "",
@@ -10645,7 +10645,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BAL",
         "teams": "",
         "vSzn": 55.68,
@@ -59566,7 +59566,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "ATL",
         "teams": "",
         "vSzn": "",
@@ -61128,7 +61128,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "Chicago,TB",
         "vSzn": -331.74,
@@ -61341,7 +61341,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "vSzn": -287.61,
@@ -79022,7 +79022,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATH",
         "teams": "",
         "vSzn": -493.41,
@@ -88749,7 +88749,7 @@
         "pitch_role": "SP",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU",
         "teams": "",
         "vSzn": "",
@@ -92249,7 +92249,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BOS",
         "≥100": 0.114
       },
@@ -93537,7 +93537,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN",
         "≥100": 0.16699999999999998
       },
@@ -93744,7 +93744,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "DET",
         "≥100": 0.124
       },
@@ -104701,7 +104701,7 @@
         "person_key": "daysbel hernandez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "ATL"
       },
       {
@@ -105037,7 +105037,7 @@
         "person_key": "richard lovelady",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -"
       },
       {
@@ -109197,7 +109197,7 @@
         "person_key": "andrew morris",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -109491,7 +109491,7 @@
         "person_key": "joe boyle",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATH"
       },
       {
@@ -113864,7 +113864,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BAL",
         "teams": "",
         "≥100": 0.16699999999999998
@@ -116972,7 +116972,7 @@
         "person_key": "daysbel hernandez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "ATL"
       },
       {
@@ -120771,7 +120771,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN",
         "≥100": 0.25
       },
@@ -121093,7 +121093,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "DET",
         "≥100": 0.21100000000000002
       },
@@ -121185,7 +121185,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BAL",
         "≥100": 0.6
       },
@@ -134413,7 +134413,7 @@
         "person_key": "daysbel hernandez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "ATL"
       },
       {
@@ -134770,7 +134770,7 @@
         "person_key": "richard lovelady",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -"
       },
       {
@@ -134833,7 +134833,7 @@
         "person_key": "craig kimbrel",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "BAL"
       },
       {
@@ -136345,7 +136345,7 @@
         "person_key": "cody laweryson",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB"
       },
       {
@@ -139098,7 +139098,7 @@
         "person_key": "joe boyle",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATH"
       },
       {
@@ -141051,7 +141051,7 @@
         "person_key": "j p france",
         "pitch_role": "SP",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU"
       },
       {

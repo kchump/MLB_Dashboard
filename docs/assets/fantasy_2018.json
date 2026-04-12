@@ -492,7 +492,7 @@
         "pos2": "3B",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "teams": "",
         "vSzn": -230.7,
@@ -42668,7 +42668,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "BOS",
         "teams": "",
         "vSzn": 416.99,
@@ -81811,7 +81811,7 @@
         "person_key": "craig kimbrel",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "BOS"
       },
       {
