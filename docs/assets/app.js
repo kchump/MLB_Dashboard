@@ -7817,17 +7817,11 @@ function fantasy_sync_top_scroll(results_root) {
   if (!top_scroll || !top_inner || !table_wrap || !table) return;
 
   const scroll_width = Math.ceil(table.scrollWidth);
-  const client_width = Math.ceil(table_wrap.clientWidth);
-  const has_overflow = scroll_width > client_width + 1;
 
   top_inner.style.width = `${scroll_width}px`;
-  top_scroll.style.display = has_overflow ? 'block' : 'none';
-
-  if (has_overflow) {
-    top_scroll.scrollLeft = table_wrap.scrollLeft;
-  }
+  top_scroll.style.display = 'block';
+  top_scroll.scrollLeft = table_wrap.scrollLeft;
 }
-
 /* ################# */
 function fantasy_bind_top_scroll(results_root, scroll_state = null) {
   const shell = results_root.querySelector('.fantasy_scroll_shell');
