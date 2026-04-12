@@ -41,29 +41,41 @@ function get_watchlist() {
   return get_stored_people(watchlist_storage_key);
 }
 /* ################# */
-function toggle_stored_person(storage_key, person_key) {
+function sidebar_entity_key_from_values(person_key, page_id) {
   const pk = String(person_key || '').trim();
-  if (!pk) return false;
+  const pid = String(page_id || '').trim();
+  if (!pk || !pid) return '';
+  return `${pk}__${pid}`;
+}
+/* ################# */
+function sidebar_entity_key_from_link(a) {
+  if (!a) return '';
+  return sidebar_entity_key_from_values(a.dataset.person_key, a.dataset.page);
+}
+/* ################# */
+function toggle_stored_person(storage_key, entity_key) {
+  const key = String(entity_key || '').trim();
+  if (!key) return false;
 
   const values = get_stored_people(storage_key);
 
-  if (values.has(pk)) {
-    values.delete(pk);
+  if (values.has(key)) {
+    values.delete(key);
     save_stored_people(storage_key, values);
     return false;
   }
 
-  values.add(pk);
+  values.add(key);
   save_stored_people(storage_key, values);
   return true;
 }
 /* ################# */
-function toggle_favorite_person(person_key) {
-  return toggle_stored_person(favorites_storage_key, person_key);
+function toggle_favorite_person(entity_key) {
+  return toggle_stored_person(favorites_storage_key, entity_key);
 }
 /* ################# */
-function toggle_watchlist_person(person_key) {
-  return toggle_stored_person(watchlist_storage_key, person_key);
+function toggle_watchlist_person(entity_key) {
+  return toggle_stored_person(watchlist_storage_key, entity_key);
 }
 /* ################# */
 function bind_toc_link_clicks(scope) {
@@ -90,8 +102,8 @@ function update_sidebar_custom_icons(root) {
   const watchlist = get_watchlist();
 
   scope.querySelectorAll('.toc_link[data-person_key]').forEach(a => {
-    const person_key = String(a.dataset.person_key || '').trim();
-    if (!person_key) return;
+    const entity_key = sidebar_entity_key_from_link(a);
+    if (!entity_key) return;
 
     let fav_icon = a.querySelector(':scope > .fav_icon');
     if (!fav_icon) {
@@ -111,8 +123,8 @@ function update_sidebar_custom_icons(root) {
       a.appendChild(watch_icon);
     }
 
-    fav_icon.classList.toggle('active', favorites.has(person_key));
-    watch_icon.classList.toggle('active', watchlist.has(person_key));
+    fav_icon.classList.toggle('active', favorites.has(entity_key));
+    watch_icon.classList.toggle('active', watchlist.has(entity_key));
   });
 }
 /* ################# */
@@ -139,42 +151,46 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
     return String(a?.dataset?.name || a?.textContent || '').trim().toLowerCase();
   }
 
-function get_pos_sort_key(a) {
-  const pos = String(a?.dataset?.pos || '').trim().toUpperCase();
+  function get_pos_sort_key(a) {
+    const raw_pos = String(a?.dataset?.pos || '').trim().toUpperCase();
+    if (!raw_pos) return 999;
 
-  const pos_order = {
-    'C': 1,
-    '1B': 2,
-    '2B': 3,
-    '3B': 4,
-    'SS': 5,
-    'OF': 6,
-    'DH': 7,
-  };
+    const pos_order = {
+      'C': 1,
+      '1B': 2,
+      '2B': 3,
+      '3B': 4,
+      'SS': 5,
+      'OF': 6,
+      'DH': 7,
+    };
 
-  return pos_order[pos] || 999;
-}
+    const primary_pos = raw_pos.split('/')[0].trim();
+    return pos_order[primary_pos] || 999;
+  }
 
-function grouped_section_key(a) {
-  const role = String(a?.dataset?.role || '').trim().toLowerCase();
+  function grouped_section_key(a) {
+    const role = String(a?.dataset?.role || '').trim().toLowerCase();
 
-  if (role === 'rotation' || role === 'sp' || role === 'starter' || role === 'starters') return 'Rotation';
-  if (role === 'bullpen' || role === 'rp' || role === 'reliever' || role === 'relievers') return 'Bullpen';
-  if (role === 'lineup' || role === 'batters' || role === 'hitters' || role === 'hitter') return 'Lineup';
+    if (role === 'rotation' || role === 'sp' || role === 'starter' || role === 'starters') return 'Rotation';
+    if (role === 'bullpen' || role === 'rp' || role === 'reliever' || role === 'relievers') return 'Bullpen';
+    if (role === 'lineup' || role === 'batters' || role === 'hitters' || role === 'hitter') return 'Lineup';
 
-  return 'Lineup';
-}
+    return 'Lineup';
+  }
 
-const section_order = ['Rotation', 'Bullpen', 'Lineup'];
+  const section_order = ['Rotation', 'Bullpen', 'Lineup'];
   const grouped = new Map(section_order.map(section => [section, []]));
 
   const links = Array.from(document.querySelectorAll('.toc_link[data-person_key]'))
     .filter(a => !a.closest('.favorites_block') && !a.closest('.watchlist_block'))
     .filter(a => {
-      const pk = String(a.dataset.person_key || '').trim();
+      const entity_key = sidebar_entity_key_from_link(a);
       const page = String(a.dataset.page || '').trim();
-      const dedupe_key = `${pk}__${page}`;
-      if (!pk || !page || !people_set.has(pk) || seen.has(dedupe_key)) return false;
+      const dedupe_key = `${entity_key}__${page}`;
+
+      if (!entity_key || !page || !people_set.has(entity_key) || seen.has(dedupe_key)) return false;
+
       seen.add(dedupe_key);
       return true;
     });
@@ -192,26 +208,26 @@ const section_order = ['Rotation', 'Bullpen', 'Lineup'];
     const items = grouped.get(section) || [];
     if (!items.length) return;
 
-items.sort((a, b) => {
-  const a_role = String(a?.dataset?.role || '').trim().toLowerCase();
-  const b_role = String(b?.dataset?.role || '').trim().toLowerCase();
+    items.sort((a, b) => {
+      const a_role = String(a?.dataset?.role || '').trim().toLowerCase();
+      const b_role = String(b?.dataset?.role || '').trim().toLowerCase();
 
-  const a_is_hitter = a_role === 'lineup' || a_role === 'batters' || a_role === 'hitters' || a_role === 'hitter';
-  const b_is_hitter = b_role === 'lineup' || b_role === 'batters' || b_role === 'hitters' || b_role === 'hitter';
+      const a_is_hitter = a_role === 'lineup' || a_role === 'batters' || a_role === 'hitters' || a_role === 'hitter';
+      const b_is_hitter = b_role === 'lineup' || b_role === 'batters' || b_role === 'hitters' || b_role === 'hitter';
 
-  if (a_is_hitter && b_is_hitter) {
-    const pos_cmp = get_pos_sort_key(a) - get_pos_sort_key(b);
-    if (pos_cmp !== 0) return pos_cmp;
-  }
+      if (a_is_hitter && b_is_hitter) {
+        const pos_cmp = get_pos_sort_key(a) - get_pos_sort_key(b);
+        if (pos_cmp !== 0) return pos_cmp;
+      }
 
-  const last_cmp = get_last_name_sort_key(a).localeCompare(get_last_name_sort_key(b));
-  if (last_cmp !== 0) return last_cmp;
+      const last_cmp = get_last_name_sort_key(a).localeCompare(get_last_name_sort_key(b));
+      if (last_cmp !== 0) return last_cmp;
 
-  const full_cmp = get_full_name_sort_key(a).localeCompare(get_full_name_sort_key(b));
-  if (full_cmp !== 0) return full_cmp;
+      const full_cmp = get_full_name_sort_key(a).localeCompare(get_full_name_sort_key(b));
+      if (full_cmp !== 0) return full_cmp;
 
-  return String(a.dataset.page || '').localeCompare(String(b.dataset.page || ''));
-});
+      return String(a.dataset.page || '').localeCompare(String(b.dataset.page || ''));
+    });
 
     const section_nodes = [];
 
@@ -277,6 +293,20 @@ function current_page_person_key() {
   return '';
 }
 /* ################# */
+function current_page_storage_key() {
+  const active = document.querySelector('.toc_link.active[data-person_key][data-page]');
+  if (active) return sidebar_entity_key_from_link(active);
+
+  const year_buttons = document.querySelector('#content_root .year_buttons[data-person_key]');
+  if (!year_buttons) return '';
+
+  const person_key = String(year_buttons.dataset.person_key || '').trim();
+  const page_id = String(active_page_id || '').trim();
+
+  return sidebar_entity_key_from_values(person_key, page_id);
+}
+/* ################# */
+/* ################# */
 function sync_player_page_action_buttons() {
   const content = document.getElementById('content_root');
   if (!content) return;
@@ -285,7 +315,8 @@ function sync_player_page_action_buttons() {
   if (!header) return;
 
   const person_key = current_page_person_key();
-  if (!person_key) return;
+  const storage_key = current_page_storage_key();
+  if (!person_key || !storage_key) return;
 
   let actions_row = content.querySelector('.player_header_actions');
   if (!actions_row) {
@@ -310,8 +341,8 @@ function sync_player_page_action_buttons() {
     actions_row.appendChild(watchlist_btn);
   }
 
-  const is_favorite = get_favorites().has(person_key);
-  const is_watchlist = get_watchlist().has(person_key);
+  const is_favorite = get_favorites().has(storage_key);
+  const is_watchlist = get_watchlist().has(storage_key);
 
   favorite_btn.classList.toggle('active', is_favorite);
   favorite_btn.setAttribute('aria-pressed', is_favorite ? 'true' : 'false');
@@ -324,9 +355,9 @@ function sync_player_page_action_buttons() {
   if (favorite_btn.dataset.bound !== '1') {
     favorite_btn.dataset.bound = '1';
     favorite_btn.addEventListener('click', () => {
-      const pk = current_page_person_key();
-      if (!pk) return;
-      toggle_favorite_person(pk);
+      const key = current_page_storage_key();
+      if (!key) return;
+      toggle_favorite_person(key);
       refresh_custom_player_lists_ui();
     });
   }
@@ -334,9 +365,9 @@ function sync_player_page_action_buttons() {
   if (watchlist_btn.dataset.bound !== '1') {
     watchlist_btn.dataset.bound = '1';
     watchlist_btn.addEventListener('click', () => {
-      const pk = current_page_person_key();
-      if (!pk) return;
-      toggle_watchlist_person(pk);
+      const key = current_page_storage_key();
+      if (!key) return;
+      toggle_watchlist_person(key);
       refresh_custom_player_lists_ui();
     });
   }
@@ -7781,16 +7812,20 @@ function fantasy_sync_top_scroll(results_root) {
   const top_scroll = shell.querySelector('.fantasy_top_scroll');
   const top_inner = shell.querySelector('.fantasy_top_scroll_inner');
   const table_wrap = shell.querySelector('.fantasy_table_wrap');
+  const table = shell.querySelector('.fantasy_table');
 
-  if (!top_scroll || !top_inner || !table_wrap) return;
+  if (!top_scroll || !top_inner || !table_wrap || !table) return;
 
-  const scroll_width = table_wrap.scrollWidth;
-  const client_width = table_wrap.clientWidth;
+  const scroll_width = Math.ceil(table.scrollWidth);
+  const client_width = Math.ceil(table_wrap.clientWidth);
   const has_overflow = scroll_width > client_width + 1;
 
   top_inner.style.width = `${scroll_width}px`;
   top_scroll.style.display = has_overflow ? 'block' : 'none';
-  top_scroll.scrollLeft = table_wrap.scrollLeft;
+
+  if (has_overflow) {
+    top_scroll.scrollLeft = table_wrap.scrollLeft;
+  }
 }
 
 /* ################# */
@@ -7800,8 +7835,9 @@ function fantasy_bind_top_scroll(results_root, scroll_state = null) {
 
   const top_scroll = shell.querySelector('.fantasy_top_scroll');
   const table_wrap = shell.querySelector('.fantasy_table_wrap');
+  const table = shell.querySelector('.fantasy_table');
 
-  if (!top_scroll || !table_wrap) return;
+  if (!top_scroll || !table_wrap || !table) return;
 
   let syncing_from_top = false;
   let syncing_from_bottom = false;
@@ -7826,7 +7862,11 @@ function fantasy_bind_top_scroll(results_root, scroll_state = null) {
   };
 
   requestAnimationFrame(() => {
-    requestAnimationFrame(sync);
+    requestAnimationFrame(() => {
+      sync();
+      setTimeout(sync, 0);
+      setTimeout(sync, 50);
+    });
   });
 
   window.addEventListener('resize', sync);
