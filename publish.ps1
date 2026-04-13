@@ -6,7 +6,7 @@ Set-Location 'C:\Users\kcamp\Downloads\baseball\src'
 #python -m analytics.all --all_players "True" --program 2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025
 #python -m utilities.team_assignment 2026
 #python -m dashboard.dashboard_matchups --min_pa 25 --min_ip 5
-python -m dashboard.dashboard_matchups --min_pa 50 --min_ip 15
+#python -m dashboard.dashboard_matchups --min_pa 50 --min_ip 15
 python -m dashboard.visualization --module Current --year 2026 #generate then publish
 
 Set-Location $start_dir

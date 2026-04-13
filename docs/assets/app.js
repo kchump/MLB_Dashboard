@@ -7663,22 +7663,16 @@ function fantasy_gradient_style(row, col, value) {
 
 //   fantasy_restore_scroll_state(results_root, scroll_state);
 // }
-function fantasy_is_sticky_col_idx(col_idx) {
-  return col_idx == 0;
-}
-
-/* ################# */
 function fantasy_build_table_html(rows) {
   const cols = fantasy_current_columns();
   const sortable_cols = fantasy_sortable_columns();
   const is_majors = fantasy_state.scope === 'majors';
 
-  const header_html = cols.map((col, col_idx) => {
-    const sticky_cls = fantasy_is_sticky_col_idx(col_idx) ? ' fantasy_sticky_col' : '';
+  const header_html = cols.map(col => {
     const divider_cls = fantasy_column_divider_class(col);
 
     if (!sortable_cols.has(col)) {
-      return `<th class="fantasy_th${sticky_cls}${divider_cls}" data-col_idx="${col_idx}">${escape_html(fantasy_display_label(col))}</th>`;
+      return `<th class="fantasy_th${divider_cls}">${escape_html(fantasy_display_label(col))}</th>`;
     }
 
     let arrow = '↕';
@@ -7690,7 +7684,7 @@ function fantasy_build_table_html(rows) {
     }
 
     return `
-      <th class="fantasy_th fantasy_th_sort${sticky_cls}${divider_cls}" data-col_idx="${col_idx}">
+      <th class="fantasy_th fantasy_th_sort${divider_cls}">
         <button type="button" class="fantasy_sort_btn${active_cls}" data-sort_key="${escape_html(col)}">
           <span class="fantasy_sort_label">${escape_html(fantasy_display_label(col))}</span>
           <span class="fantasy_sort_arrow">${arrow}</span>
@@ -7700,13 +7694,10 @@ function fantasy_build_table_html(rows) {
   }).join('');
 
   const body_html = rows.map(row => {
-    const tds = cols.map((col, col_idx) => {
+    const tds = cols.map(col => {
       let value = '';
       let cls = 'fantasy_td fantasy_td_center';
 
-      if (fantasy_is_sticky_col_idx(col_idx)) {
-        cls += ' fantasy_sticky_col';
-      }
       cls += fantasy_column_divider_class(col);
 
       if (col === 'Name') {
@@ -7740,11 +7731,11 @@ function fantasy_build_table_html(rows) {
       const gradient_style = fantasy_gradient_style(row, col, raw_num);
 
       if (col === 'Name' || col === 'Pos' || col === '2nd Pos' || col === 'Team') {
-        return `<td class="${cls}" data-col_idx="${col_idx}">${value}</td>`;
+        return `<td class="${cls}">${value}</td>`;
       }
 
       return `
-        <td class="${cls}" data-col_idx="${col_idx}">
+        <td class="${cls}">
           <div class="fantasy_cell_fill" style="${gradient_style}">
             ${value}
           </div>
@@ -7774,7 +7765,6 @@ function fantasy_build_table_html(rows) {
     </div>
   `;
 }
-
 /* ################# */
 function fantasy_capture_scroll_state(results_root) {
   const table_wrap = results_root?.querySelector('.fantasy_table_wrap');
@@ -7816,10 +7806,9 @@ function fantasy_sync_top_scroll(results_root) {
 
   if (!top_scroll || !top_inner || !table_wrap || !table) return;
 
-  const scroll_width = Math.ceil(table.scrollWidth);
+  const scroll_width = Math.max(Math.ceil(table.scrollWidth), Math.ceil(table_wrap.scrollWidth));
 
   top_inner.style.width = `${scroll_width}px`;
-  top_scroll.style.display = 'block';
   top_scroll.scrollLeft = table_wrap.scrollLeft;
 }
 /* ################# */

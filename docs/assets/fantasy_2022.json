@@ -107114,6 +107114,27 @@
         "team": "LAA"
       },
       {
+        "All": -25.57,
+        "BB%": 0.0,
+        "Con": -151.14,
+        "Days +/-": "",
+        "Disc": -23.1,
+        "IP": 1.2,
+        "K": 0.0,
+        "K%": 0.0,
+        "Stf": "",
+        "Strike%": 0.636,
+        "SwStr%": 0.091,
+        "Velo": "",
+        "WHIP": 0.6000000000000001,
+        "name": "Hunter Stratton",
+        "person_key": "hunter stratton",
+        "pitch_role": "RP",
+        "role": "rp",
+        "sort_bucket": 1,
+        "team": "ATL"
+      },
+      {
         "All": -21.67,
         "BB%": 0.0,
         "Con": 51.07,
