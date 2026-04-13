@@ -152,9 +152,6 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
   }
 
   function get_pos_sort_key(a) {
-    const raw_pos = String(a?.dataset?.pos || '').trim().toUpperCase();
-    if (!raw_pos) return 999;
-
     const pos_order = {
       'C': 1,
       '1B': 2,
@@ -163,9 +160,32 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
       'SS': 5,
       'OF': 6,
       'DH': 7,
+      'P': 8,
     };
 
-    const primary_pos = raw_pos.split('/')[0].trim();
+    const role = String(a?.dataset?.role || '').trim().toLowerCase();
+    if (role !== 'batters' && role !== 'hitters' && role !== 'hitter' && role !== 'lineup') {
+      return 999;
+    }
+
+    const name = String(a?.dataset?.name || '').trim();
+    const text = String(a?.textContent || '')
+      .replace(/[★✓]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    const tail = name && text.toLowerCase().startsWith(name.toLowerCase())
+      ? text.slice(name.length).trim()
+      : text;
+
+    const match = tail.match(/\b(C|1B|2B|3B|SS|LF|CF|RF|OF|DH|SP|RP|P)(?:\/(C|1B|2B|3B|SS|LF|CF|RF|OF|DH|SP|RP|P))?\b/i);
+    if (!match) return 999;
+
+    let primary_pos = String(match[1] || '').toUpperCase();
+
+    if (primary_pos === 'LF' || primary_pos === 'CF' || primary_pos === 'RF') primary_pos = 'OF';
+    if (primary_pos === 'SP' || primary_pos === 'RP') primary_pos = 'P';
+
     return pos_order[primary_pos] || 999;
   }
 
@@ -212,11 +232,14 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
       const a_role = String(a?.dataset?.role || '').trim().toLowerCase();
       const b_role = String(b?.dataset?.role || '').trim().toLowerCase();
 
-      const a_is_hitter = a_role === 'lineup' || a_role === 'batters' || a_role === 'hitters' || a_role === 'hitter';
-      const b_is_hitter = b_role === 'lineup' || b_role === 'batters' || b_role === 'hitters' || b_role === 'hitter';
+      const a_pos_sort = get_pos_sort_key(a);
+      const b_pos_sort = get_pos_sort_key(b);
+
+      const a_is_hitter = a_pos_sort !== 999;
+      const b_is_hitter = b_pos_sort !== 999;
 
       if (a_is_hitter && b_is_hitter) {
-        const pos_cmp = get_pos_sort_key(a) - get_pos_sort_key(b);
+        const pos_cmp = a_pos_sort - b_pos_sort;
         if (pos_cmp !== 0) return pos_cmp;
       }
 
@@ -1297,15 +1320,18 @@ function apply_search_and_filters(q) {
     tb.style.display = any_visible_in_team ? '' : 'none';
   });
 
-  document.querySelectorAll('.division_block').forEach(db => {
-    if (db.classList.contains('favorites_block') || db.classList.contains('watchlist_block')) {
-      db.style.display = '';
-      return;
-    }
+document.querySelectorAll('.division_block').forEach(db => {
+  const is_custom_block = db.classList.contains('favorites_block') || db.classList.contains('watchlist_block');
 
-    const any_visible_team = Array.from(db.querySelectorAll('.team_block')).some(tb => tb.style.display !== 'none');
-    db.style.display = any_visible_team ? '' : 'none';
-  });
+  if (is_custom_block) {
+    const any_visible_player = Array.from(db.querySelectorAll('.player_li')).some(li => li.style.display !== 'none');
+    db.style.display = any_visible_player ? '' : 'none';
+    return;
+  }
+
+  const any_visible_team = Array.from(db.querySelectorAll('.team_block')).some(tb => tb.style.display !== 'none');
+  db.style.display = any_visible_team ? '' : 'none';
+});
 }
 /*#################################################################### WIP: Clickable Stat Keys ####################################################################*/
 const stat_glossary = {
