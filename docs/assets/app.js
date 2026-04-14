@@ -178,12 +178,11 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
       ? text.slice(name.length).trim()
       : text;
 
-    const match = tail.match(/\b(C|1B|2B|3B|SS|LF|CF|RF|OF|DH|SP|RP|P)(?:\/(C|1B|2B|3B|SS|LF|CF|RF|OF|DH|SP|RP|P))?\b/i);
+    const match = tail.match(/\b(C|1B|2B|3B|SS|OF|DH|SP|RP|P)(?:\/(C|1B|2B|3B|SS|OF|DH|SP|RP|P))?\b/i);
     if (!match) return 999;
 
     let primary_pos = String(match[1] || '').toUpperCase();
 
-    if (primary_pos === 'LF' || primary_pos === 'CF' || primary_pos === 'RF') primary_pos = 'OF';
     if (primary_pos === 'SP' || primary_pos === 'RP') primary_pos = 'P';
 
     return pos_order[primary_pos] || 999;
@@ -1320,18 +1319,45 @@ function apply_search_and_filters(q) {
     tb.style.display = any_visible_in_team ? '' : 'none';
   });
 
-document.querySelectorAll('.division_block').forEach(db => {
-  const is_custom_block = db.classList.contains('favorites_block') || db.classList.contains('watchlist_block');
+  document.querySelectorAll('.division_block').forEach(db => {
+    const is_custom_block = db.classList.contains('favorites_block') || db.classList.contains('watchlist_block');
 
-  if (is_custom_block) {
-    const any_visible_player = Array.from(db.querySelectorAll('.player_li')).some(li => li.style.display !== 'none');
-    db.style.display = any_visible_player ? '' : 'none';
-    return;
-  }
+    if (is_custom_block) {
+      let any_visible_player = false;
 
-  const any_visible_team = Array.from(db.querySelectorAll('.team_block')).some(tb => tb.style.display !== 'none');
-  db.style.display = any_visible_team ? '' : 'none';
-});
+      db.querySelectorAll('.toc_link').forEach(a => {
+        const name = String(a.dataset.name || '').toLowerCase();
+        const is_minors = (a.dataset.is_minors === '1');
+        const is_oos = (a.dataset.is_oos === '1');
+        const is_susp = (a.dataset.is_susp === '1');
+        const is_prospect = (a.dataset.is_prospect === '1');
+        const is_top_100 = (a.dataset.is_top_100 === '1');
+        const skip_search = (a.dataset.skip_search === '1');
+
+        let show = true;
+
+        if (searching && !skip_search && !name.includes(query)) show = false;
+        if (searching && skip_search) show = false;
+        if (f.hide_minors && is_minors) show = false;
+        if (f.hide_non_top_100_prospects && is_minors && is_prospect && !is_top_100) show = false;
+        if (f.hide_oos && (is_oos || is_susp)) show = false;
+
+        const li = a.closest('.player_li');
+        if (li) li.style.display = show ? '' : 'none';
+        if (show) any_visible_player = true;
+      });
+
+      db.querySelectorAll('.role_list').forEach(role_list => {
+        cleanup_role_list(role_list);
+      });
+
+      db.style.display = any_visible_player ? '' : 'none';
+      return;
+    }
+
+    const any_visible_team = Array.from(db.querySelectorAll('.team_block')).some(tb => tb.style.display !== 'none');
+    db.style.display = any_visible_team ? '' : 'none';
+  });
 }
 /*#################################################################### WIP: Clickable Stat Keys ####################################################################*/
 const stat_glossary = {
@@ -2015,6 +2041,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   sync_clear_btn();
+  refresh_custom_player_lists_ui();
 
   const cb_minors = document.getElementById('filter_hide_minors');
   if (cb_minors) cb_minors.addEventListener('change', () => apply_search_and_filters((search && search.value) ? search.value : ''));
@@ -4359,7 +4386,7 @@ function find_fragment_key_loose(obj, wanted_name) {
 
       const disclaimer = document.createElement('div');
       disclaimer.className = 'matchups_disclaimer';
-      disclaimer.textContent = "Using last year's data w/ this year's rosters until enough games have been played";
+      disclaimer.textContent = "Small sample sizes need to fill out before this can process everyone";
       disclaimer.style.margin = '6px 0 10px 0';
       disclaimer.style.display = (mmdd_key_local(new Date()) < cutoff_mmdd) ? '' : 'none';
 
@@ -6866,10 +6893,20 @@ if (fantasy_state.team !== 'ALL') {
 //   return rows;
 // }
 function fantasy_sort_value(row, key) {
-  if (fantasy_state.scope === 'minors' && key === 'All') {
-    const m_all = fantasy_num(row['mAll']) ?? 0;
-    const m_all_prev = fantasy_num(row['mAll -1']) ?? 0;
-    return m_all + m_all_prev;
+  if (key === 'All') {
+    if (fantasy_state.scope === 'playoffs') {
+      return fantasy_num(row['pAll']);
+    }
+
+    if (fantasy_state.scope === 'spring') {
+      return fantasy_num(row['sAll']);
+    }
+
+    if (fantasy_state.scope === 'minors') {
+      const m_all = fantasy_num(row['mAll']) ?? 0;
+      const m_all_prev = fantasy_num(row['mAll -1']) ?? 0;
+      return m_all + m_all_prev;
+    }
   }
 
   let value = fantasy_num(row[key]);
@@ -6880,7 +6917,6 @@ function fantasy_sort_value(row, key) {
 
   return value;
 }
-
 /* ################# */
 function fantasy_sort_rows(rows) {
   const key = fantasy_state.sort_key;
@@ -6908,11 +6944,11 @@ function fantasy_default_sort_key() {
   }
 
   if (fantasy_state.scope === 'playoffs') {
-    return 'pAll';
+    return 'All';
   }
 
   if (fantasy_state.scope === 'spring') {
-    return 'sAll';
+    return 'All';
   }
 
   if (fantasy_state.scope === 'minors') {
@@ -7488,217 +7524,17 @@ function fantasy_gradient_style(row, col, value) {
   return `background:${bg};${text_shadow ? `text-shadow:${text_shadow};` : ''}`;
 }
 /* ################# */
-// function fantasy_gradient_style(row, col, value) {
-//   if (!fantasy_state.show_gradients) return '';
-//   if (value == null) return '';
-
-//   const scales = fantasy_state.scales || {};
-//   const panel_lookup = scales.panel_scale_lookup || {};
-//   const source_key = fantasy_gradient_source_key(row, col);
-//   const spec = panel_lookup[source_key];
-
-//   if (!spec) return '';
-
-//   const lo_n = Math.min(Number(spec.neutral_lo), Number(spec.neutral_hi));
-//   const hi_n = Math.max(Number(spec.neutral_lo), Number(spec.neutral_hi));
-
-//   if (value >= lo_n && value <= hi_n) {
-//     return '';
-//   }
-
-//   const frac = fantasy_graph_bar_fill(value, spec);
-//   const bg = fantasy_blend_rgba_on_rgb(fantasy_standard_stats_gradient(frac));
-
-//   return bg ? `background:${bg};` : '';
-// }
-/* ################# */
-// function fantasy_build_table_html(rows) {
-//   const cols = fantasy_current_columns();
-//   const sortable_cols = fantasy_sortable_columns();
-//   const is_majors = fantasy_state.scope === 'majors';
-
-//   const header_html = cols.map((col, col_idx) => {
-//     const sticky_cls = col_idx === 0 ? ' fantasy_sticky_col' : '';
-//     const divider_cls = fantasy_column_divider_class(col);
-
-//     if (!sortable_cols.has(col)) {
-//       return `<th class="fantasy_th${sticky_cls}${divider_cls}">${escape_html(fantasy_display_label(col))}</th>`;
-//     }
-
-//     let arrow = '↕';
-//     let active_cls = '';
-
-//     if (fantasy_state.sort_key === col) {
-//       arrow = fantasy_state.sort_desc ? '↓' : '↑';
-//       active_cls = ' fantasy_sort_btn_active';
-//     }
-
-//     return `
-//       <th class="fantasy_th fantasy_th_sort${sticky_cls}${divider_cls}">
-//         <button type="button" class="fantasy_sort_btn${active_cls}" data-sort_key="${escape_html(col)}">
-//           <span class="fantasy_sort_label">${escape_html(fantasy_display_label(col))}</span>
-//           <span class="fantasy_sort_arrow">${arrow}</span>
-//         </button>
-//       </th>
-//     `;
-//   }).join('');
-
-//   const body_html = rows.map(row => {
-//     const tds = cols.map((col, col_idx) => {
-//       let value = '';
-//       let cls = 'fantasy_td fantasy_td_center';
-
-//       if (col_idx === 0) {
-//         cls += ' fantasy_sticky_col';
-//       }
-//       cls += fantasy_column_divider_class(col);
-
-//       if (col === 'Name') {
-//         const remove_btn = `
-//           <button
-//             type="button"
-//             class="fantasy_remove_btn"
-//             data-person_key="${escape_html(String(row.person_key || ''))}"
-//             aria-label="Remove ${escape_html(String(row.name || ''))}"
-//             title="Remove"
-//           >×</button>
-//         `;
-//         value = `<div class="fantasy_name_cell">${fantasy_player_link(row)}${remove_btn}</div>`;
-//       } else if (col === 'Pos') {
-//         value = escape_html(String(row.pos || ''));
-//       } else if (col === '2nd Pos') {
-//         value = escape_html(String(row.pos2 || ''));
-//       } else if (col === 'Team') {
-//         value = escape_html(String(row.team || ''));
-//       } else {
-//         let raw = row[col];
-
-//         if (String(col).startsWith('S ') && (raw === 0 || raw === 0.0)) {
-//           raw = '';
-//         }
-
-//         value = escape_html(fantasy_fmt(col, raw));
-//       }
-
-//       const raw_num = fantasy_num(row[col]);
-//       const gradient_style = fantasy_gradient_style(row, col, raw_num);
-
-//       if (col === 'Name' || col === 'Pos' || col === '2nd Pos') {
-//         return `<td class="${cls}">${value}</td>`;
-//       }
-
-//       return `
-//         <td class="${cls}">
-//           <div class="fantasy_cell_fill" style="${gradient_style}">
-//             ${value}
-//           </div>
-//         </td>
-//       `;
-//     }).join('');
-
-//     return `<tr class="fantasy_tr">${tds}</tr>`;
-//   }).join('');
-
-//   return `
-//       <div class="fantasy_scroll_shell">
-//         <div class="fantasy_top_scroll">
-//           <div class="fantasy_top_scroll_inner"></div>
-//         </div>
-
-//         <div class="fantasy_table_wrap">
-//           <table class="fantasy_table${is_majors ? ' fantasy_table_majors' : ''}">
-//             <thead>
-//               <tr>${header_html}</tr>
-//             </thead>
-//             <tbody>
-//               ${body_html}
-//             </tbody>
-//           </table>
-//         </div>
-//       </div>
-//     `;
-// }
-// /* ################# */
-// function fantasy_capture_scroll_state(results_root) {
-//   const table_wrap = results_root?.querySelector('.fantasy_table_wrap');
-//   const top_scroll = results_root?.querySelector('.fantasy_top_scroll');
-
-//   return {
-//     table_scroll_left: table_wrap ? table_wrap.scrollLeft : 0,
-//     top_scroll_left: top_scroll ? top_scroll.scrollLeft : 0,
-//   };
-// }
-
-// /* ################# */
-// function fantasy_restore_scroll_state(results_root, scroll_state) {
-//   if (!scroll_state) return;
-
-//   const table_wrap = results_root?.querySelector('.fantasy_table_wrap');
-//   const top_scroll = results_root?.querySelector('.fantasy_top_scroll');
-
-//   const left = Number(scroll_state.table_scroll_left || scroll_state.top_scroll_left || 0);
-
-//   if (table_wrap) {
-//     table_wrap.scrollLeft = left;
-//   }
-
-//   if (top_scroll) {
-//     top_scroll.scrollLeft = left;
-//   }
-// }
-// /* ################# */
-// function fantasy_bind_top_scroll(results_root, scroll_state = null) {
-//   const shell = results_root.querySelector('.fantasy_scroll_shell');
-//   if (!shell) return;
-
-//   const top_scroll = shell.querySelector('.fantasy_top_scroll');
-//   const top_inner = shell.querySelector('.fantasy_top_scroll_inner');
-//   const table_wrap = shell.querySelector('.fantasy_table_wrap');
-//   const table = shell.querySelector('.fantasy_table');
-
-//   if (!top_scroll || !top_inner || !table_wrap || !table) return;
-
-//   const sticky_col = table.querySelector('.fantasy_sticky_col');
-//   // const sticky_width = sticky_col ? Math.ceil(sticky_col.getBoundingClientRect().width) : 0;
-
-//   const scroll_width = Math.max(table.scrollWidth, table_wrap.scrollWidth);
-//   // const scroll_width = table.scrollWidth;
-
-//   top_inner.style.width = `${scroll_width}px`;
-
-//   // const needs_horizontal_scroll = scroll_width > table_wrap.clientWidth + 1;
-//   // top_scroll.style.display = needs_horizontal_scroll ? 'block' : 'none';
-//   top_scroll.style.display = 'block';
-
-//   let syncing_from_top = false;
-//   let syncing_from_bottom = false;
-
-//   top_scroll.addEventListener('scroll', () => {
-//     if (syncing_from_bottom) return;
-//     syncing_from_top = true;
-//     table_wrap.scrollLeft = top_scroll.scrollLeft;
-//     syncing_from_top = false;
-//   });
-
-//   table_wrap.addEventListener('scroll', () => {
-//     if (syncing_from_top) return;
-//     syncing_from_bottom = true;
-//     top_scroll.scrollLeft = table_wrap.scrollLeft;
-//     syncing_from_bottom = false;
-//   });
-
-//   fantasy_restore_scroll_state(results_root, scroll_state);
-// }
 function fantasy_build_table_html(rows) {
   const cols = fantasy_current_columns();
   const sortable_cols = fantasy_sortable_columns();
   const is_majors = fantasy_state.scope === 'majors';
 
-  const header_html = cols.map(col => {
+  const header_html = cols.map((col, col_idx) => {
+    const sticky_cls = col_idx === 0 ? ' fantasy_sticky_col' : '';
     const divider_cls = fantasy_column_divider_class(col);
 
     if (!sortable_cols.has(col)) {
-      return `<th class="fantasy_th${divider_cls}">${escape_html(fantasy_display_label(col))}</th>`;
+      return `<th class="fantasy_th${sticky_cls}${divider_cls}">${escape_html(fantasy_display_label(col))}</th>`;
     }
 
     let arrow = '↕';
@@ -7710,7 +7546,7 @@ function fantasy_build_table_html(rows) {
     }
 
     return `
-      <th class="fantasy_th fantasy_th_sort${divider_cls}">
+      <th class="fantasy_th fantasy_th_sort${sticky_cls}${divider_cls}">
         <button type="button" class="fantasy_sort_btn${active_cls}" data-sort_key="${escape_html(col)}">
           <span class="fantasy_sort_label">${escape_html(fantasy_display_label(col))}</span>
           <span class="fantasy_sort_arrow">${arrow}</span>
@@ -7720,9 +7556,13 @@ function fantasy_build_table_html(rows) {
   }).join('');
 
   const body_html = rows.map(row => {
-    const tds = cols.map(col => {
+    const tds = cols.map((col, col_idx) => {
       let value = '';
       let cls = 'fantasy_td fantasy_td_center';
+
+      if (col_idx === 0) {
+        cls += ' fantasy_sticky_col';
+      }
 
       cls += fantasy_column_divider_class(col);
 
@@ -7774,7 +7614,7 @@ function fantasy_build_table_html(rows) {
 
   return `
     <div class="fantasy_scroll_shell">
-      <div class="fantasy_top_scroll">
+      <div class="fantasy_top_scroll" aria-hidden="true">
         <div class="fantasy_top_scroll_inner"></div>
       </div>
 
@@ -7794,14 +7634,10 @@ function fantasy_build_table_html(rows) {
 /* ################# */
 function fantasy_capture_scroll_state(results_root) {
   const table_wrap = results_root?.querySelector('.fantasy_table_wrap');
-  const top_scroll = results_root?.querySelector('.fantasy_top_scroll');
-
   return {
     table_scroll_left: table_wrap ? table_wrap.scrollLeft : 0,
-    top_scroll_left: top_scroll ? top_scroll.scrollLeft : 0,
   };
 }
-
 /* ################# */
 function fantasy_restore_scroll_state(results_root, scroll_state) {
   if (!scroll_state) return;
@@ -7809,7 +7645,7 @@ function fantasy_restore_scroll_state(results_root, scroll_state) {
   const table_wrap = results_root?.querySelector('.fantasy_table_wrap');
   const top_scroll = results_root?.querySelector('.fantasy_top_scroll');
 
-  const left = Number(scroll_state.table_scroll_left || scroll_state.top_scroll_left || 0);
+  const left = Number(scroll_state.table_scroll_left || 0);
 
   if (table_wrap) {
     table_wrap.scrollLeft = left;
@@ -7819,7 +7655,6 @@ function fantasy_restore_scroll_state(results_root, scroll_state) {
     top_scroll.scrollLeft = left;
   }
 }
-
 /* ################# */
 function fantasy_sync_top_scroll(results_root) {
   const shell = results_root?.querySelector('.fantasy_scroll_shell');
@@ -7832,14 +7667,17 @@ function fantasy_sync_top_scroll(results_root) {
 
   if (!top_scroll || !top_inner || !table_wrap || !table) return;
 
-  const scroll_width = Math.max(Math.ceil(table.scrollWidth), Math.ceil(table_wrap.scrollWidth));
+  const table_width = Math.ceil(table.scrollWidth);
+  const viewport_width = Math.ceil(table_wrap.clientWidth);
+  const needs_scroll = table_width > viewport_width + 1;
 
-  top_inner.style.width = `${scroll_width}px`;
+  top_inner.style.width = `${table_width}px`;
+  top_scroll.style.display = needs_scroll ? 'block' : 'none';
   top_scroll.scrollLeft = table_wrap.scrollLeft;
 }
 /* ################# */
 function fantasy_bind_top_scroll(results_root, scroll_state = null) {
-  const shell = results_root.querySelector('.fantasy_scroll_shell');
+  const shell = results_root?.querySelector('.fantasy_scroll_shell');
   if (!shell) return;
 
   const top_scroll = shell.querySelector('.fantasy_top_scroll');
@@ -7850,6 +7688,10 @@ function fantasy_bind_top_scroll(results_root, scroll_state = null) {
 
   let syncing_from_top = false;
   let syncing_from_bottom = false;
+
+  function sync_sizes() {
+    fantasy_sync_top_scroll(results_root);
+  }
 
   top_scroll.addEventListener('scroll', () => {
     if (syncing_from_bottom) return;
@@ -7865,20 +7707,36 @@ function fantasy_bind_top_scroll(results_root, scroll_state = null) {
     syncing_from_bottom = false;
   });
 
-  const sync = () => {
-    fantasy_sync_top_scroll(results_root);
-    fantasy_restore_scroll_state(results_root, scroll_state);
-  };
-
   requestAnimationFrame(() => {
+    sync_sizes();
+    fantasy_restore_scroll_state(results_root, scroll_state);
+
     requestAnimationFrame(() => {
-      sync();
-      setTimeout(sync, 0);
-      setTimeout(sync, 50);
+      sync_sizes();
+      fantasy_restore_scroll_state(results_root, scroll_state);
     });
+
+    setTimeout(() => {
+      sync_sizes();
+      fantasy_restore_scroll_state(results_root, scroll_state);
+    }, 0);
+
+    setTimeout(() => {
+      sync_sizes();
+      fantasy_restore_scroll_state(results_root, scroll_state);
+    }, 60);
   });
 
-  window.addEventListener('resize', sync);
+  if (window.ResizeObserver) {
+    const ro = new ResizeObserver(() => {
+      sync_sizes();
+    });
+
+    ro.observe(table_wrap);
+    ro.observe(table);
+  } else {
+    window.addEventListener('resize', sync_sizes);
+  }
 }
 /* ################# */
 async function render_fantasy_page() {
