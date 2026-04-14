@@ -915,6 +915,23 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
   overflow-x: visible;
 }
 
+#fantasy {
+  overflow: visible;
+}
+
+#fantasy .static_page {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+#fantasy #fantasy_controls_root,
+#fantasy #fantasy_results_root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
 .fantasy_scroll_shell {
   width: 100%;
   max-width: 100%;
@@ -1046,6 +1063,13 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
   min-width: 170px;
 }
 
+.fantasy_table th:first-child,
+.fantasy_table td:first-child {
+  min-width: 190px;
+}
+
+.fantasy_table th:first-child,
+.fantasy_table td:first-child,
 .fantasy_sticky_col {
   position: sticky;
   left: 0;
@@ -1055,15 +1079,18 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
   background-clip: padding-box;
 }
 
+.fantasy_table thead th:first-child,
 .fantasy_table thead .fantasy_sticky_col {
   z-index: 5;
   background: var(--panel_2);
 }
 
+.fantasy_table tbody tr:nth-child(odd) td:first-child,
 .fantasy_table tbody tr:nth-child(odd) .fantasy_sticky_col {
   background: var(--panel_2);
 }
 
+.fantasy_table tbody tr:nth-child(even) td:first-child,
 .fantasy_table tbody tr:nth-child(even) .fantasy_sticky_col {
   background: var(--row_alt);
 }

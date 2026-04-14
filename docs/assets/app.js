@@ -1628,6 +1628,8 @@ function wrap_player_page_scroll_shell(root) {
   const pages = Array.from(scope.querySelectorAll('.player_page'));
 
   pages.forEach(page => {
+    if (page.id === 'fantasy') return;
+
     if (page.querySelector(':scope > .player_page_scroll')) return;
 
     const kids = Array.from(page.childNodes);
@@ -6895,17 +6897,22 @@ if (fantasy_state.team !== 'ALL') {
 function fantasy_sort_value(row, key) {
   if (key === 'All') {
     if (fantasy_state.scope === 'playoffs') {
-      return fantasy_num(row['pAll']);
+      return fantasy_num(row['pAll']) ?? fantasy_num(row['All']);
     }
 
     if (fantasy_state.scope === 'spring') {
-      return fantasy_num(row['sAll']);
+      return fantasy_num(row['sAll']) ?? fantasy_num(row['All']);
     }
 
     if (fantasy_state.scope === 'minors') {
-      const m_all = fantasy_num(row['mAll']) ?? 0;
-      const m_all_prev = fantasy_num(row['mAll -1']) ?? 0;
-      return m_all + m_all_prev;
+      const has_m_all = fantasy_num(row['mAll']);
+      const has_m_all_prev = fantasy_num(row['mAll -1']);
+
+      if (has_m_all != null || has_m_all_prev != null) {
+        return (has_m_all ?? 0) + (has_m_all_prev ?? 0);
+      }
+
+      return fantasy_num(row['All']);
     }
   }
 
@@ -7663,15 +7670,14 @@ function fantasy_sync_top_scroll(results_root) {
   const top_scroll = shell.querySelector('.fantasy_top_scroll');
   const top_inner = shell.querySelector('.fantasy_top_scroll_inner');
   const table_wrap = shell.querySelector('.fantasy_table_wrap');
-  const table = shell.querySelector('.fantasy_table');
 
-  if (!top_scroll || !top_inner || !table_wrap || !table) return;
+  if (!top_scroll || !top_inner || !table_wrap) return;
 
-  const table_width = Math.ceil(table.scrollWidth);
+  const scroll_width = Math.ceil(table_wrap.scrollWidth);
   const viewport_width = Math.ceil(table_wrap.clientWidth);
-  const needs_scroll = table_width > viewport_width + 1;
+  const needs_scroll = scroll_width > viewport_width + 1;
 
-  top_inner.style.width = `${table_width}px`;
+  top_inner.style.width = `${scroll_width}px`;
   top_scroll.style.display = needs_scroll ? 'block' : 'none';
   top_scroll.scrollLeft = table_wrap.scrollLeft;
 }
@@ -7725,6 +7731,11 @@ function fantasy_bind_top_scroll(results_root, scroll_state = null) {
       sync_sizes();
       fantasy_restore_scroll_state(results_root, scroll_state);
     }, 60);
+  
+    setTimeout(() => {
+  sync_sizes();
+  fantasy_restore_scroll_state(results_root, scroll_state);
+}, 180);
   });
 
   if (window.ResizeObserver) {
