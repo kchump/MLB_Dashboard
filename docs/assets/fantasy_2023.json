@@ -18952,7 +18952,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIL",
         "teams": "",
         "vSzn": 395.97,
@@ -42881,7 +42881,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE",
         "teams": "",
         "vSzn": -10.94,
@@ -48632,7 +48632,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT",
         "teams": "",
         "vSzn": -78.11,
@@ -56868,7 +56868,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SD",
         "teams": "",
         "vSzn": -274.0,
@@ -58217,7 +58217,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "WAS",
         "teams": "",
         "vSzn": "",
@@ -74194,7 +74194,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL",
         "teams": "",
         "vSzn": -193.47,
@@ -80371,7 +80371,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "Chicago,CLE,Los Angeles",
         "vSzn": -51.29,
@@ -97398,6 +97398,29 @@
         "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.12300000000000001
+      },
+      {
+        "AVG": 0.324,
+        "All": -17.78,
+        "Con": -69.79,
+        "Disc": -17.69,
+        "HR": 1.0,
+        "L Eye": 0.7608695652173914,
+        "OBP": 0.427,
+        "OPS": 0.898,
+        "PA": 82.0,
+        "R Eye": 0.6967930029154519,
+        "SLG": 0.471,
+        "SwSp%": 0.191,
+        "Whiff%": 0.41700000000000004,
+        "name": "Leo Balcazar",
+        "person_key": "leo balcazar",
+        "pos": "MI",
+        "pos2": "",
+        "role": "batters",
+        "sort_bucket": 3,
+        "team": "CIN",
+        "≥100": 0.043
       }
     ],
     "rp": [
@@ -98868,7 +98891,7 @@
         "person_key": "yerry de los santos",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT"
       },
       {
@@ -100254,7 +100277,7 @@
         "person_key": "evan sisk",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -101094,7 +101117,7 @@
         "person_key": "jackson rutledge",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "WAS"
       },
       {
@@ -109102,7 +109125,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIL",
         "teams": "",
         "≥100": 0.14300000000000002
@@ -112256,7 +112279,7 @@
         "person_key": "dean kremer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL"
       },
       {
@@ -126386,7 +126409,7 @@
         "person_key": "nick sandlin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE"
       },
       {
@@ -127898,7 +127921,7 @@
         "person_key": "yerry de los santos",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT"
       },
       {
@@ -129494,7 +129517,7 @@
         "person_key": "evan sisk",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -129872,7 +129895,7 @@
         "person_key": "luis garcia rp",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SD"
       },
       {
@@ -130271,7 +130294,7 @@
         "person_key": "jackson rutledge",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "WAS"
       },
       {
@@ -134305,7 +134328,7 @@
         "person_key": "dean kremer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL"
       },
       {
