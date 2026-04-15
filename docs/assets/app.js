@@ -4388,7 +4388,7 @@ function find_fragment_key_loose(obj, wanted_name) {
 
       const disclaimer = document.createElement('div');
       disclaimer.className = 'matchups_disclaimer';
-      disclaimer.textContent = "Small sample sizes need to fill out before this can process everyone";
+      disclaimer.textContent = "Small sample sizes need to fill out before this can process everyone/for accuracy";
       disclaimer.style.margin = '6px 0 10px 0';
       disclaimer.style.display = (mmdd_key_local(new Date()) < cutoff_mmdd) ? '' : 'none';
 
@@ -7449,7 +7449,23 @@ function fantasy_gradient_style(row, col, value) {
   const scales = fantasy_state.scales || {};
   const panel_lookup = scales.panel_scale_lookup || {};
   const source_key = fantasy_gradient_source_key(row, col);
-  const spec = panel_lookup[source_key];
+  // const spec = panel_lookup[source_key];
+
+  // if (!spec) return '';
+  let spec = panel_lookup[source_key];
+
+  if (fantasy_state.scope === 'majors' && fantasy_state.section === 'rp') {
+    if (col === 'PPG' || col === 'S PPG') {
+      spec = {
+        ...(spec || {}),
+        worst: 3.5,
+        neutral_lo: 4,
+        neutral_hi: 4.5,
+        best: 6.5,
+        higher_is_better: true,
+      };
+    }
+  }
 
   if (!spec) return '';
 
