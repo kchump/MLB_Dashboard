@@ -98075,6 +98075,29 @@
         "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.27699999999999997
+      },
+      {
+        "AVG": 0.324,
+        "All": -17.78,
+        "Con": -69.79,
+        "Disc": -17.69,
+        "HR": 1.0,
+        "L Eye": 0.7608695652173914,
+        "OBP": 0.427,
+        "OPS": 0.898,
+        "PA": 82.0,
+        "R Eye": 0.6967930029154519,
+        "SLG": 0.471,
+        "SwSp%": 0.191,
+        "Whiff%": 0.41700000000000004,
+        "name": "Leo Balcazar",
+        "person_key": "leo balcazar",
+        "pos": "MI",
+        "pos2": "",
+        "role": "batters",
+        "sort_bucket": 3,
+        "team": "CIN",
+        "≥100": 0.043
       }
     ],
     "rp": [

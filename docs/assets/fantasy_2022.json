@@ -88912,6 +88912,29 @@
         "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.013999999999999999
+      },
+      {
+        "AVG": 0.223,
+        "All": -29.75,
+        "Con": -76.92,
+        "Disc": 1.49,
+        "HR": 3.0,
+        "L Eye": 0.8542094455852156,
+        "OBP": 0.353,
+        "OPS": 0.684,
+        "PA": 300.0,
+        "R Eye": 0.7099656357388316,
+        "SLG": 0.331,
+        "SwSp%": 0.14400000000000002,
+        "Whiff%": 0.314,
+        "name": "Jay Allen II",
+        "person_key": "jay allen ii",
+        "pos": "OF",
+        "pos2": "",
+        "role": "batters",
+        "sort_bucket": 1,
+        "team": "CIN",
+        "≥100": 0.063
       }
     ],
     "rp": [
@@ -92507,6 +92530,27 @@
         "role": "sp",
         "sort_bucket": 0,
         "team": "SEA"
+      },
+      {
+        "All": -37.02,
+        "BB%": 0.064,
+        "Con": 66.43,
+        "Days +/-": 1.0,
+        "Disc": 1.12,
+        "IP": 56.1,
+        "K": 4.0,
+        "K%": 0.218,
+        "Stf": 9.18,
+        "Strike%": 0.6890000000000001,
+        "SwStr%": 0.095,
+        "Velo": 92.02000000000001,
+        "WHIP": 0.03550295857988166,
+        "name": "Ariel Jurado",
+        "person_key": "ariel jurado",
+        "pitch_role": "",
+        "role": "sp",
+        "sort_bucket": 1,
+        "team": "WBC"
       }
     ]
   },
