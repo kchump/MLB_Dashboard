@@ -8373,7 +8373,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "STL",
         "teams": "",
         "vSzn": -410.25,
@@ -29815,7 +29815,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "PIT",
         "teams": "",
         "vSzn": "",
@@ -36930,7 +36930,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL",
         "teams": "",
         "vSzn": "",
@@ -63428,7 +63428,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "COL",
         "teams": "",
         "vSzn": -95.82,
@@ -63572,7 +63572,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "vSzn": "",
@@ -77286,7 +77286,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "STL",
         "teams": "",
         "≥100": 0.33299999999999996
@@ -79862,7 +79862,7 @@
         "person_key": "chris martin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL"
       },
       {
@@ -84835,7 +84835,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "STL",
         "≥100": 0.375
       },
@@ -90334,7 +90334,7 @@
         "person_key": "chris martin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL"
       },
       {
@@ -95397,7 +95397,7 @@
         "person_key": "kyle freeland",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "COL"
       },
       {
@@ -95418,7 +95418,7 @@
         "person_key": "jose quintana",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHC"
       },
       {

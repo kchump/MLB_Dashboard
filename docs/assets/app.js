@@ -1092,7 +1092,21 @@ async function load_page(file, page_id) {
   }
 }
 /* ################# */
-function activate_page(page_id) {
+// function activate_page(page_id) {
+//   let a = null;
+//   document.querySelectorAll('.toc_link').forEach(x => {
+//     if (x.dataset.page === page_id) a = x;
+//   });
+//   if (!a) return;
+
+//   const file = a.dataset.file;
+//   if (!file) return;
+
+//   load_page(file, page_id);
+
+//   history.replaceState(null, '', '#' + encodeURIComponent(page_id));
+// }
+function activate_page(page_id, { update_history = true } = {}) { /* back button works now? */
   let a = null;
   document.querySelectorAll('.toc_link').forEach(x => {
     if (x.dataset.page === page_id) a = x;
@@ -1104,7 +1118,12 @@ function activate_page(page_id) {
 
   load_page(file, page_id);
 
-  history.replaceState(null, '', '#' + encodeURIComponent(page_id));
+  if (update_history) {
+    const new_hash = '#' + encodeURIComponent(page_id);
+    if (window.location.hash !== new_hash) {
+      history.pushState(null, '', new_hash);
+    }
+  }
 }
 /* ################# */
 function default_page_id() {
@@ -1120,9 +1139,24 @@ function default_page_id() {
   return 'home';
 }
 /* ################# */
-function on_hash_change() {
+// function on_hash_change() {
+//   const pid = default_page_id();
+//   activate_page(pid);
+// }
+function on_hash_change() { /* back button works now? */
   const pid = default_page_id();
-  activate_page(pid);
+
+  let a = null;
+  document.querySelectorAll('.toc_link').forEach(x => {
+    if (x.dataset.page === pid) a = x;
+  });
+
+  if (!a) return;
+
+  const file = a.dataset.file;
+  if (!file) return;
+
+  load_page(file, pid);
 }
 /*#################################################################### Sidebar team role tabs ####################################################################*/
 function set_team_role_tab(team, role) {
