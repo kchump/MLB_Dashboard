@@ -41,16 +41,26 @@ function get_watchlist() {
   return get_stored_people(watchlist_storage_key);
 }
 /* ################# */
+// function sidebar_entity_key_from_values(person_key, page_id) {
+//   const pk = String(person_key || '').trim();
+//   const pid = String(page_id || '').trim();
+//   if (!pk || !pid) return '';
+//   return `${pk}__${pid}`;
+// }
+// /* ################# */
+// function sidebar_entity_key_from_link(a) {
+//   if (!a) return '';
+//   return sidebar_entity_key_from_values(a.dataset.person_key, a.dataset.page);
+// }
 function sidebar_entity_key_from_values(person_key, page_id) {
-  const pk = String(person_key || '').trim();
   const pid = String(page_id || '').trim();
-  if (!pk || !pid) return '';
-  return `${pk}__${pid}`;
+  if (!pid) return '';
+  return pid;
 }
 /* ################# */
 function sidebar_entity_key_from_link(a) {
   if (!a) return '';
-  return sidebar_entity_key_from_values(a.dataset.person_key, a.dataset.page);
+  return String(a.dataset.page || '').trim();
 }
 /* ################# */
 function toggle_stored_person(storage_key, entity_key) {
@@ -201,16 +211,32 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
   const section_order = ['Rotation', 'Bullpen', 'Lineup'];
   const grouped = new Map(section_order.map(section => [section, []]));
 
+  // const links = Array.from(document.querySelectorAll('.toc_link[data-person_key]'))
+  //   .filter(a => !a.closest('.favorites_block') && !a.closest('.watchlist_block'))
+  //   .filter(a => {
+  //     const entity_key = sidebar_entity_key_from_link(a);
+  //     const person_key = String(a.dataset.person_key || '').trim();
+  //     const page = String(a.dataset.page || '').trim();
+  //     const dedupe_key = `${entity_key}__${page}`;
+
+  //     const matches_saved_key =
+  //       (entity_key && people_set.has(entity_key)) ||
+  //       (person_key && people_set.has(person_key));
+
+  //     if (!entity_key || !page || !matches_saved_key || seen.has(dedupe_key)) return false;
+
+  //     seen.add(dedupe_key);
+  //     return true;
+  //   });
   const links = Array.from(document.querySelectorAll('.toc_link[data-person_key]'))
     .filter(a => !a.closest('.favorites_block') && !a.closest('.watchlist_block'))
     .filter(a => {
       const entity_key = sidebar_entity_key_from_link(a);
       const page = String(a.dataset.page || '').trim();
-      const dedupe_key = `${entity_key}__${page}`;
 
-      if (!entity_key || !page || !people_set.has(entity_key) || seen.has(dedupe_key)) return false;
+      if (!entity_key || !page || !people_set.has(entity_key) || seen.has(page)) return false;
 
-      seen.add(dedupe_key);
+      seen.add(page);
       return true;
     });
 
@@ -1784,6 +1810,69 @@ function is_close_rgb(c, r, g, b, tol = 8) {
   );
 }
 /* ################# */
+function is_blue_stat_fill(fill) {
+  const c = parse_svg_fill(fill);
+  if (!c || c.a === 0) return false;
+
+  return (
+    (c.b - c.r >= 30) &&
+    (c.b - c.g >= 18)
+  );
+}
+/* ################# */
+function mix_frac_to_target(c, target) {
+  if (!c || !target) return null;
+
+  const denom_r = target.r - 235;
+  const denom_g = target.g - 240;
+  const denom_b = target.b - 248;
+
+  const vals = [];
+
+  if (Math.abs(denom_r) > 1e-9) vals.push((c.r - 235) / denom_r);
+  if (Math.abs(denom_g) > 1e-9) vals.push((c.g - 240) / denom_g);
+  if (Math.abs(denom_b) > 1e-9) vals.push((c.b - 248) / denom_b);
+
+  if (!vals.length) return null;
+
+  const t = vals.reduce((a, b) => a + b, 0) / vals.length;
+  return Math.max(0, Math.min(1, t));
+}
+/* ################# */
+function is_deep_blue_fill(fill) {
+  const c = parse_svg_fill(fill);
+  if (!c || c.a === 0) return false;
+  if (!is_blue_stat_fill(fill)) return false;
+
+  const t = mix_frac_to_target(c, { r: 35, g: 85, b: 210 });
+  if (t == null) return false;
+
+  return t >= 0.75;
+}
+/* ################# */
+function get_table_text_cell_fill(text_node) {
+  if (!text_node) return '';
+
+  let node = text_node;
+  for (let i = 0; i < 5 && node; i += 1) {
+    if (node.querySelectorAll) {
+      const rects = Array.from(node.querySelectorAll('rect'));
+      const filled_rect = rects.find(r => {
+        const fill = r.style.fill || r.getAttribute('fill') || '';
+        const parsed = parse_svg_fill(fill);
+        return parsed && parsed.a !== 0;
+      });
+
+      if (filled_rect) {
+        return filled_rect.style.fill || filled_rect.getAttribute('fill') || '';
+      }
+    }
+    node = node.parentNode;
+  }
+
+  return '';
+}
+/* ################# */
 function is_dark_text_fill(fill) {
   const c = parse_svg_fill(fill);
   if (!c || c.a === 0) return false;
@@ -1857,39 +1946,39 @@ function repaint_standard_stats_tables(root) {
         return;
       }
 
-      if (t.closest('g.table')) {
-        t.style.fill = '#cdd2da';
-        return;
-      }
+      // if (t.closest('g.table')) {
+      //   t.style.fill = '#cdd2da';
+      //   return;
+      // }
 
-      if (is_dark_text_fill(orig_fill)) {
-        t.style.fill = '#cdd2da';
-      } else if (orig_fill) {
-        t.style.fill = orig_fill;
-      } else {
-        t.style.removeProperty('fill');
-      }
-// if (t.closest('g.table')) { /* doesn't work right now */
-//   const cell_fill = get_table_text_cell_fill(t);
-//   const use_white = !is_dark && is_deep_blue_fill(cell_fill);
+      // if (is_dark_text_fill(orig_fill)) {
+      //   t.style.fill = '#cdd2da';
+      // } else if (orig_fill) {
+      //   t.style.fill = orig_fill;
+      // } else {
+      //   t.style.removeProperty('fill');
+      // }
+if (t.closest('g.table')) { /* doesn't work right now */
+  const cell_fill = get_table_text_cell_fill(t);
+  const use_white = !is_dark && is_deep_blue_fill(cell_fill);
 
-//   if (use_white) {
-//     t.style.fill = '#ffffff';
-//     return;
-//   }
+  if (use_white) {
+    t.style.fill = '#ffffff';
+    return;
+  }
 
-//   if (is_dark) {
-//     t.style.fill = '#cdd2da';
-//     return;
-//   }
+  if (is_dark) {
+    t.style.fill = '#cdd2da';
+    return;
+  }
 
-//   if (orig_fill) {
-//     t.style.fill = orig_fill;
-//   } else {
-//     t.style.removeProperty('fill');
-//   }
-//   return;
-// }
+  if (orig_fill) {
+    t.style.fill = orig_fill;
+  } else {
+    t.style.removeProperty('fill');
+  }
+  return;
+}
     });
 
     const table_groups = Array.from(plot.querySelectorAll('g.table'));
