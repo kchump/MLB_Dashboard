@@ -1857,18 +1857,39 @@ function repaint_standard_stats_tables(root) {
         return;
       }
 
-      if (t.closest('g.table')) {
-        t.style.fill = '#cdd2da';
-        return;
-      }
+      // if (t.closest('g.table')) {
+      //   t.style.fill = '#cdd2da';
+      //   return;
+      // }
 
-      if (is_dark_text_fill(orig_fill)) {
-        t.style.fill = '#cdd2da';
-      } else if (orig_fill) {
-        t.style.fill = orig_fill;
-      } else {
-        t.style.removeProperty('fill');
-      }
+      // if (is_dark_text_fill(orig_fill)) {
+      //   t.style.fill = '#cdd2da';
+      // } else if (orig_fill) {
+      //   t.style.fill = orig_fill;
+      // } else {
+      //   t.style.removeProperty('fill');
+      // }
+if (t.closest('g.table')) {
+  const cell_fill = get_table_text_cell_fill(t);
+  const use_white = !is_dark && is_deep_blue_fill(cell_fill);
+
+  if (use_white) {
+    t.style.fill = '#ffffff';
+    return;
+  }
+
+  if (is_dark) {
+    t.style.fill = '#cdd2da';
+    return;
+  }
+
+  if (orig_fill) {
+    t.style.fill = orig_fill;
+  } else {
+    t.style.removeProperty('fill');
+  }
+  return;
+}
     });
 
     const table_groups = Array.from(plot.querySelectorAll('g.table'));
