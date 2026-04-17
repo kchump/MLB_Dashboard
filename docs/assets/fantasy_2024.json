@@ -7592,7 +7592,7 @@
         "pos2": "3B/SS/OF",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET",
         "teams": "",
         "vSzn": -436.74,
@@ -54976,7 +54976,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SD",
         "teams": "",
         "vSzn": "",
@@ -55912,7 +55912,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHC",
         "teams": "",
         "vSzn": "",
@@ -61528,7 +61528,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "Chicago,TB",
         "vSzn": -355.77,
@@ -63256,7 +63256,7 @@
         "pitch_role": "RP",
         "prev_minors_year": 2023.0,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS",
         "teams": "",
         "vSzn": "",
@@ -66136,7 +66136,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": -361.88,
@@ -66568,7 +66568,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": 2023.0,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "MIA,TEX",
         "vSzn": "",
@@ -72618,7 +72618,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "HOU",
         "teams": "",
         "vSzn": -161.43,
@@ -82410,7 +82410,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SD",
         "teams": "",
         "vSzn": -148.17,
@@ -85722,7 +85722,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "PIT,SD",
         "vSzn": -363.48,
@@ -104685,7 +104685,7 @@
         "person_key": "alek jacob",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SD"
       },
       {
@@ -104895,7 +104895,7 @@
         "person_key": "daniel palencia",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHC"
       },
       {
@@ -105987,7 +105987,7 @@
         "person_key": "richard lovelady",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -106512,7 +106512,7 @@
         "person_key": "orlando ribalta",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS"
       },
       {
@@ -107394,7 +107394,7 @@
         "person_key": "peter lambert",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -107415,7 +107415,7 @@
         "person_key": "christian roa",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -107541,7 +107541,7 @@
         "person_key": "shaun anderson",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -109307,7 +109307,7 @@
         "person_key": "spencer arrighetti",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "HOU"
       },
       {
@@ -110924,7 +110924,7 @@
         "person_key": "matt waldron",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SD"
       },
       {
@@ -111512,7 +111512,7 @@
         "person_key": "jose urquidy",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -114400,7 +114400,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET",
         "teams": "",
         "≥100": 0.14300000000000002
@@ -117624,7 +117624,7 @@
         "person_key": "alek jacob",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SD"
       },
       {
@@ -121303,7 +121303,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET",
         "≥100": 0.087
       },
@@ -135848,7 +135848,7 @@
         "person_key": "richard lovelady",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -137108,7 +137108,7 @@
         "person_key": "peter lambert",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -138916,7 +138916,7 @@
         "person_key": "spencer arrighetti",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "HOU"
       },
       {
@@ -141079,7 +141079,7 @@
         "person_key": "jose urquidy",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -141352,7 +141352,7 @@
         "person_key": "martin perez",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {

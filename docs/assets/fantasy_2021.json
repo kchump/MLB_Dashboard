@@ -3403,7 +3403,7 @@
         "pos2": "3B/SS/OF",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "LAD",
         "teams": "",
         "vSzn": -383.58,
@@ -49834,7 +49834,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "KC",
         "teams": "",
         "vSzn": 203.37,
@@ -56314,7 +56314,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": "",
@@ -57322,7 +57322,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "BAL,MIN,SD",
         "vSzn": "",
@@ -74460,7 +74460,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU",
         "teams": "",
         "vSzn": 145.26,
@@ -74892,7 +74892,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "BOS",
         "teams": "",
         "vSzn": -553.47,
@@ -90280,7 +90280,7 @@
         "person_key": "jose urquidy",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU"
       },
       {
@@ -90340,7 +90340,7 @@
         "person_key": "martin perez",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "BOS"
       },
       {
@@ -91623,7 +91623,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "LAD",
         "≥100": 0.25
       },
@@ -102643,7 +102643,7 @@
         "person_key": "richard lovelady",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "KC"
       },
       {
@@ -104092,7 +104092,7 @@
         "person_key": "shaun anderson",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -107748,7 +107748,7 @@
         "person_key": "jose urquidy",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU"
       },
       {

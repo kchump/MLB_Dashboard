@@ -6030,7 +6030,7 @@
         "pos2": "3B/SS/OF",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET",
         "teams": "",
         "vSzn": -178.2,
@@ -51821,7 +51821,7 @@
         "pitch_role": "RP",
         "prev_minors_year": 2022.0,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SD",
         "teams": "",
         "vSzn": "",
@@ -52685,7 +52685,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHC",
         "teams": "",
         "vSzn": -191.88,
@@ -54701,7 +54701,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA",
         "teams": "",
         "vSzn": "",
@@ -57221,7 +57221,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ATH",
         "teams": "",
         "vSzn": -336.15,
@@ -61901,7 +61901,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": 2022.0,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": -498.12,
@@ -78607,7 +78607,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": 2022.0,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SD",
         "teams": "",
         "vSzn": -268.98,
@@ -80407,7 +80407,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU",
         "teams": "",
         "vSzn": -268.78,
@@ -81199,7 +81199,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TEX",
         "teams": "",
         "vSzn": -278.62,
@@ -100387,7 +100387,7 @@
         "person_key": "daniel palencia",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHC"
       },
       {
@@ -100849,7 +100849,7 @@
         "person_key": "easton mcgee",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA"
       },
       {
@@ -101395,7 +101395,7 @@
         "person_key": "richard lovelady",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ATH"
       },
       {
@@ -102676,7 +102676,7 @@
         "person_key": "peter lambert",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -104652,7 +104652,7 @@
         "person_key": "spencer arrighetti",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -105975,7 +105975,7 @@
         "person_key": "matt waldron",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SD"
       },
       {
@@ -106269,7 +106269,7 @@
         "person_key": "jose urquidy",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU"
       },
       {
@@ -113276,7 +113276,7 @@
         "person_key": "jose urquidy",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU"
       },
       {
@@ -113336,7 +113336,7 @@
         "person_key": "martin perez",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TEX"
       },
       {
@@ -130133,7 +130133,7 @@
         "person_key": "easton mcgee",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA"
       },
       {
@@ -134356,7 +134356,7 @@
         "person_key": "spencer arrighetti",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -136393,7 +136393,7 @@
         "person_key": "jose urquidy",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU"
       },
       {
@@ -136708,7 +136708,7 @@
         "person_key": "martin perez",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TEX"
       },
       {

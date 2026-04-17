@@ -42978,7 +42978,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "KC",
         "teams": "",
         "vSzn": "",
@@ -49602,7 +49602,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": "",
@@ -65156,7 +65156,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "HOU",
         "teams": "",
         "vSzn": "",
@@ -65444,7 +65444,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "BOS",
         "teams": "",
         "vSzn": -300.69,
@@ -82264,7 +82264,7 @@
         "person_key": "jose urquidy",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "HOU"
       },
       {
@@ -91363,7 +91363,7 @@
         "person_key": "richard lovelady",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "KC"
       },
       {
@@ -92623,7 +92623,7 @@
         "person_key": "peter lambert",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -92875,7 +92875,7 @@
         "person_key": "shaun anderson",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF"
       },
       {

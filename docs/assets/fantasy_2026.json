@@ -7308,7 +7308,7 @@
         "pos2": "3B/SS/OF",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET",
         "teams": "",
         "vSzn": "",
@@ -41184,7 +41184,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD",
         "teams": "",
         "vSzn": "",
@@ -41904,7 +41904,7 @@
         "pitch_role": "CL",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHC",
         "teams": "",
         "vSzn": "",
@@ -46584,7 +46584,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "teams": "",
         "vSzn": "",
@@ -48168,7 +48168,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS",
         "teams": "",
         "vSzn": "",
@@ -48528,7 +48528,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU",
         "teams": "",
         "vSzn": "",
@@ -48744,7 +48744,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "teams": "",
         "vSzn": "",
@@ -50330,7 +50330,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "teams": "",
         "vSzn": "",
@@ -61418,7 +61418,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PIT",
         "teams": "",
         "vSzn": "",
@@ -62282,7 +62282,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "teams": "",
         "vSzn": "",
@@ -65552,7 +65552,7 @@
         "pos": "3B",
         "pos2": "2B",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.25
       },
@@ -72024,7 +72024,7 @@
         "person_key": "alek jacob",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD"
       },
       {
@@ -72255,7 +72255,7 @@
         "person_key": "easton mcgee",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIL"
       },
       {
@@ -72906,7 +72906,7 @@
         "person_key": "orlando ribalta",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS"
       },
       {
@@ -73389,7 +73389,7 @@
         "person_key": "peter lambert",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -74315,7 +74315,7 @@
         "person_key": "spencer arrighetti",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -75575,7 +75575,7 @@
         "person_key": "matt waldron",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "IL15"
       },
       {
@@ -75890,7 +75890,7 @@
         "person_key": "coleman crow",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -80889,7 +80889,7 @@
         "pos": "UTIL",
         "pos2": "3B/SS/OF",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET",
         "≥100": 0.1
       },
@@ -81165,7 +81165,7 @@
         "pos": "3B",
         "pos2": "2B",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.4
       },
@@ -100036,7 +100036,7 @@
         "person_key": "alek jacob",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD"
       },
       {
@@ -100393,7 +100393,7 @@
         "person_key": "daniel palencia",
         "pitch_role": "CL",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHC"
       },
       {
@@ -101107,7 +101107,7 @@
         "person_key": "easton mcgee",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIL"
       },
       {
@@ -102199,7 +102199,7 @@
         "person_key": "richard lovelady",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -102934,7 +102934,7 @@
         "person_key": "orlando ribalta",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS"
       },
       {
@@ -103711,7 +103711,7 @@
         "person_key": "peter lambert",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -103732,7 +103732,7 @@
         "person_key": "christian roa",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU"
       },
       {
@@ -103837,7 +103837,7 @@
         "person_key": "shaun anderson",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -105309,7 +105309,7 @@
         "person_key": "spencer arrighetti",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -109236,7 +109236,7 @@
         "person_key": "matt waldron",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "IL15"
       },
       {
@@ -110055,7 +110055,7 @@
         "person_key": "coleman crow",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -110181,7 +110181,7 @@
         "person_key": "jose urquidy",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PIT"
       },
       {
@@ -110622,7 +110622,7 @@
         "person_key": "martin perez",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
