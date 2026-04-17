@@ -6778,17 +6778,43 @@ function fantasy_effective_team(row) {
   return display_team;
 }
 /* ################# */
-function fantasy_row_with_effective_team(row) {
-  const out = { ...row };
+// function fantasy_row_with_effective_team(row) {
+//   const out = { ...row };
 
-  if (fantasy_state.scope === 'playoffs') {
-    const playoff_team = fantasy_last_team_from_teams_value(out.Teams);
-    if (playoff_team) {
-      out.team = playoff_team;
+//   if (fantasy_state.scope === 'playoffs') {
+//     const playoff_team = fantasy_last_team_from_teams_value(out.Teams);
+//     if (playoff_team) {
+//       out.team = playoff_team;
+//     }
+//   }
+
+//   return out;
+// }
+
+function fantasy_effective_team(row) {
+  const display_team = String(row.team || '').trim();
+
+  const wbc_teams = new Set([
+    'AUS', 'BRA', 'CAN', 'CO', 'CUB', 'CZE', 'DR', 'JPN', 'KOR',
+    'MEX', 'NED', 'NIC', 'PAN', 'PR', 'VEN', 'TAI',
+  ]);
+
+  if (fantasy_state.scope === 'playoffs' && fantasy_is_multi_team_placeholder(display_team)) {
+    const playoff_team = fantasy_last_team_from_teams_value(row.Teams);
+    const playoff_team_upper = String(playoff_team || '').trim().toUpperCase();
+
+    if (wbc_teams.has(playoff_team_upper)) {
+      return 'WBC';
     }
+
+    return playoff_team || display_team;
   }
 
-  return out;
+  if (wbc_teams.has(display_team.toUpperCase())) {
+    return 'WBC';
+  }
+
+  return display_team;
 }
 /* ################# */
 function fantasy_row_with_position_fallback(row, data) {

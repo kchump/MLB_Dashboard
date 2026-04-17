@@ -3758,7 +3758,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": -78.24,
@@ -92530,6 +92530,27 @@
         "role": "sp",
         "sort_bucket": 0,
         "team": "SEA"
+      },
+      {
+        "All": -37.02,
+        "BB%": 0.064,
+        "Con": 66.43,
+        "Days +/-": 1.0,
+        "Disc": 1.12,
+        "IP": 56.1,
+        "K": 4.0,
+        "K%": 0.218,
+        "Stf": 9.18,
+        "Strike%": 0.6890000000000001,
+        "SwStr%": 0.095,
+        "Velo": 92.02000000000001,
+        "WHIP": 0.03550295857988166,
+        "name": "Ariel Jurado",
+        "person_key": "ariel jurado",
+        "pitch_role": "",
+        "role": "sp",
+        "sort_bucket": 1,
+        "team": "WBC"
       }
     ]
   },
@@ -92938,7 +92959,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "≥100": 0.25
@@ -98590,7 +98611,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM",
         "≥100": 0.125
       },
