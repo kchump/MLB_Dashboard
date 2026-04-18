@@ -135,6 +135,7 @@
     "Graham Pauley": "MIA",
     "Greg Jones": "MIL",
     "Gunnar Henderson": "BAL",
+    "Hao Yu  Lee": "DET",
     "Heliot Ramos": "SF",
     "Henry Davis": "PIT",
     "Heriberto Hernandez": "MIA",
@@ -298,7 +299,6 @@
     "Ozzie Albies": "ATL",
     "P.J. Higgins": "CIN",
     "Patrick Bailey": "SF",
-    "Patrick Wisdom": "SEA",
     "Paul Goldschmidt": "NYY",
     "Pedro Pages": "STL",
     "Pete Alonso": "BAL",
@@ -546,6 +546,7 @@
       "Colt Keith",
       "Dillon Dingler",
       "Gleyber Torres",
+      "Hao Yu  Lee",
       "Jahmai Jones",
       "Jake Rogers",
       "Javier Baez",
@@ -748,7 +749,6 @@
       "Leo Rivas",
       "Luke Raley",
       "Mitch Garver",
-      "Patrick Wisdom",
       "Randy Arozarena",
       "Rob Refsnyder"
     ],
@@ -901,7 +901,6 @@
     "Cole Wilcox": "SEA",
     "Cole Winn": "TEX",
     "Colin Rea": "CHC",
-    "Colton Gordon": "HOU",
     "Connor Brogdon": "CLE",
     "Connor Phillips": "CIN",
     "Connor Seabold": "DET",
@@ -1027,7 +1026,6 @@
     "Paul Sewald": "ARI",
     "Paxton Schultz": "WAS",
     "Pete Fairbanks": "MIA",
-    "Peter Lambert": "HOU",
     "Peyton Pallette": "CLE",
     "Pierce Johnson": "CIN",
     "Raisel Iglesias": "ATL",
@@ -1045,7 +1043,6 @@
     "Ryan Thompson": "ARI",
     "Ryan Walker": "SF",
     "Ryan Watson": "BOS",
-    "Ryan Weiss": "HOU",
     "Ryan Yarbrough": "NYY",
     "Ryan Zeferjahn": "LAA",
     "Ryne Stanek": "STL",
@@ -1073,7 +1070,6 @@
     "Tony Santillan": "CIN",
     "Trevor Megill": "MIL",
     "Tyler Alexander": "TEX",
-    "Tyler Gilbert": "CHW",
     "Tyler Holton": "DET",
     "Tyler Kinley": "ATL",
     "Tyler Phillips": "MIA",
@@ -1157,8 +1153,7 @@
       "Jordan Leasure",
       "Lucas Sims",
       "Sean Newcomb",
-      "Seranthony Dominguez",
-      "Tyler Gilbert"
+      "Seranthony Dominguez"
     ],
     "CIN": [
       "Brock Burke",
@@ -1205,12 +1200,9 @@
       "AJ Blubaugh",
       "Bryan Abreu",
       "Bryan King",
-      "Colton Gordon",
       "Enyel De Los Santos",
       "J.P. France",
       "Kai-Wei Teng",
-      "Peter Lambert",
-      "Ryan Weiss",
       "Steven Okert"
     ],
     "KC": [
@@ -1426,11 +1418,13 @@
     "Cole Ragans": "KC",
     "Coleman Crow": "MIL",
     "Colin Rea": "CHC",
+    "Colton Gordon": "HOU",
     "Connelly Early": "BOS",
     "Cristopher Sanchez": "PHI",
     "David Peterson": "NYM",
     "Davis Martin": "CHW",
     "Dean Kremer": "BAL",
+    "Doug Nikhazy": "CHW",
     "Drew Rasmussen": "TB",
     "Dustin May": "STL",
     "Dylan Cease": "TOR",
@@ -1510,6 +1504,7 @@
     "Parker Messick": "CLE",
     "Patrick Corbin": "TOR",
     "Paul Skenes": "PIT",
+    "Peter Lambert": "HOU",
     "Randy Vasquez": "SD",
     "Ranger Suarez": "BOS",
     "Reid Detmers": "LAA",
@@ -1519,6 +1514,7 @@
     "Roki Sasaki": "LAD",
     "Ryan Feltner": "COL",
     "Ryan Weathers": "NYY",
+    "Ryan Weiss": "HOU",
     "Ryne Nelson": "ARI",
     "Sandy Alcantara": "MIA",
     "Sean Burke": "CHW",
@@ -1594,6 +1590,7 @@
     "CHW": [
       "Anthony Kay",
       "Davis Martin",
+      "Doug Nikhazy",
       "Erick Fedde",
       "Noah Schultz",
       "Sean Burke"
@@ -1626,8 +1623,11 @@
       "Tarik Skubal"
     ],
     "HOU": [
+      "Colton Gordon",
       "Lance McCullers Jr.",
       "Mike Burrows",
+      "Peter Lambert",
+      "Ryan Weiss",
       "Spencer Arrighetti"
     ],
     "KC": [
