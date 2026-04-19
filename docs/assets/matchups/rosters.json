@@ -99,7 +99,6 @@
     "Daylen Lile": "WAS",
     "Denzel Clarke": "ATH",
     "Derek Hill": "CHW",
-    "Deyvison De Los Santos": "MIA",
     "Dillon Dingler": "DET",
     "Dom Smith": "ATL",
     "Dominic Canzone": "SEA",
@@ -225,6 +224,7 @@
     "Kyle Karros": "COL",
     "Kyle Manzardo": "CLE",
     "Kyle Schwarber": "PHI",
+    "Kyle Stowers": "MIA",
     "Kyle Tucker": "LAD",
     "Lane Thomas": "KC",
     "Lawrence Butler": "ATH",
@@ -364,7 +364,6 @@
     "Tyler Heineman": "TOR",
     "Tyler Soderstrom": "ATH",
     "Tyler Stephenson": "CIN",
-    "Tyler Tolbert": "KC",
     "Tyrone Taylor": "NYM",
     "Vaughn Grissom": "LAA",
     "Victor Caratini": "MIN",
@@ -586,7 +585,6 @@
       "Michael Massey",
       "Salvador Perez",
       "Starling Marte",
-      "Tyler Tolbert",
       "Vinnie Pasquantino"
     ],
     "LAA": [
@@ -623,11 +621,11 @@
       "Agustin Ramirez",
       "Austin Slater",
       "Connor Norby",
-      "Deyvison De Los Santos",
       "Graham Pauley",
       "Heriberto Hernandez",
       "Jakob Marsee",
       "Javier Sanoja",
+      "Kyle Stowers",
       "Leo Jimenez",
       "Liam Hicks",
       "Otto Lopez",
@@ -889,7 +887,6 @@
     "Caleb Kilian": "SF",
     "Caleb Thielbar": "CHC",
     "Calvin Faucher": "MIA",
-    "Cam Sanders": "PIT",
     "Cameron Foster": "BAL",
     "Camilo Doval": "NYY",
     "Casey Legumina": "SEA",
@@ -1015,7 +1012,6 @@
     "Matt Strahm": "KC",
     "Matt Svanson": "STL",
     "Michael Petersen": "MIA",
-    "Mitch Spence": "KC",
     "Mitchell Parker": "WAS",
     "Nick Mears": "KC",
     "Nick Sandlin": "LAA",
@@ -1023,7 +1019,6 @@
     "PJ Poulin": "WAS",
     "Paul Blackburn": "NYY",
     "Paul Sewald": "ARI",
-    "Paxton Schultz": "WAS",
     "Pete Fairbanks": "MIA",
     "Peyton Pallette": "CLE",
     "Pierce Johnson": "CIN",
@@ -1209,7 +1204,6 @@
       "John Schreiber",
       "Lucas Erceg",
       "Matt Strahm",
-      "Mitch Spence",
       "Nick Mears"
     ],
     "LAA": [
@@ -1293,7 +1287,6 @@
       "Tim Mayza"
     ],
     "PIT": [
-      "Cam Sanders",
       "Dennis Santana",
       "Evan Sisk",
       "Gregory Soto",
@@ -1378,7 +1371,6 @@
       "Clayton Beeter",
       "Gus Varland",
       "Mitchell Parker",
-      "Paxton Schultz",
       "PJ Poulin",
       "Richard Lovelady"
     ]
@@ -1389,6 +1381,7 @@
     "Adrian Houser": "SF",
     "Andre Pallante": "STL",
     "Andrew Abbott": "CIN",
+    "Andrew Alvarez": "WAS",
     "Andrew Painter": "PHI",
     "Anthony Kay": "CHW",
     "Bailey Ober": "MIN",
@@ -1478,6 +1471,7 @@
     "MacKenzie Gore": "TEX",
     "Martin Perez": "ATL",
     "Mason Barnett": "ATH",
+    "Mason Black": "KC",
     "Matt Waldron": "SD",
     "Matthew Liberatore": "STL",
     "Max Fried": "NYY",
@@ -1632,6 +1626,7 @@
     "KC": [
       "Cole Ragans",
       "Kris Bubic",
+      "Mason Black",
       "Michael Wacha",
       "Noah Cameron",
       "Seth Lugo"
@@ -1752,6 +1747,7 @@
       "Patrick Corbin"
     ],
     "WAS": [
+      "Andrew Alvarez",
       "Cade Cavalli",
       "Foster Griffin",
       "Jake Irvin",
