@@ -50534,20 +50534,20 @@
         "SW L": 12.99,
         "SW R": 56.76,
         "SW Stf": 23.24,
-        "Score": 70.12,
+        "Score": 56.79,
         "Stf": 24.9,
         "SwStr%": 0.2,
-        "Val": 17.37,
+        "Val": 16.16,
         "Velo": 93.42,
         "W": 1.0,
-        "WHIP": 1.33,
+        "WHIP": 1.5,
         "name": "Spencer Arrighetti",
         "person_key": "spencer arrighetti",
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
         "sort_bucket": 0,
-        "team": "MiLB",
+        "team": "HOU",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 3.0
@@ -74813,7 +74813,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 0,
-        "team": "MiLB"
+        "team": "HOU"
       },
       {
         "All": 3.7,
@@ -105784,7 +105784,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 0,
-        "team": "MiLB"
+        "team": "HOU"
       },
       {
         "All": "",
