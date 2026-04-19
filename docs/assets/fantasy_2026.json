@@ -63573,7 +63573,7 @@
         "WHIP": 1.93,
         "name": "David Peterson",
         "person_key": "david peterson",
-        "pitch_role": "",
+        "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
         "sort_bucket": 0,
@@ -75301,7 +75301,7 @@
         "WHIP": 1.6046511627906976,
         "name": "Mason Barnett",
         "person_key": "mason barnett",
-        "pitch_role": "",
+        "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 0,
         "team": "MiLB"
@@ -106399,7 +106399,7 @@
         "WHIP": 1.7727272727272727,
         "name": "Mason Barnett",
         "person_key": "mason barnett",
-        "pitch_role": "",
+        "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 0,
         "team": "MiLB"
@@ -111544,7 +111544,7 @@
         "WHIP": 1.2162162162162162,
         "name": "David Peterson",
         "person_key": "david peterson",
-        "pitch_role": "",
+        "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 0,
         "team": "NYM"

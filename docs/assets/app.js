@@ -1852,6 +1852,50 @@ function is_deep_blue_fill(fill) {
 
   return t >= 0.75;
 }
+function get_css_var(name, fallback = '') {
+  const v = getComputedStyle(document.body).getPropertyValue(name);
+  return String(v || '').trim() || fallback;
+}
+/* ################# */
+function get_table_default_text_fill() {
+  return get_css_var('--text', '#1c1c1c');
+}
+/* ################# */
+function is_red_stat_fill(fill) {
+  const c = parse_svg_fill(fill);
+  if (!c || c.a === 0) return false;
+
+  return (
+    (c.r - c.g >= 30) &&
+    (c.r - c.b >= 18)
+  );
+}
+/* ################# */
+function is_deep_red_fill(fill) {
+  const c = parse_svg_fill(fill);
+  if (!c || c.a === 0) return false;
+  if (!is_red_stat_fill(fill)) return false;
+
+  const t = mix_frac_to_target(c, { r: 210, g: 35, b: 35 });
+  if (t == null) return false;
+
+  return t >= 0.75;
+}
+/* ################# */
+function should_use_white_table_text(text_node, cell_fill, is_dark) {
+  if (!cell_fill) return false;
+
+  const is_deep_blue = is_deep_blue_fill(cell_fill);
+  const is_deep_red = is_deep_red_fill(cell_fill);
+
+  if (!is_deep_blue && !is_deep_red) return false;
+
+  if (is_dark) {
+    return is_deep_blue;
+  }
+
+  return !row_has_reduced_sample_opacity(text_node);
+}
 /* ################# */
 function get_table_text_cell_fill(text_node) {
   if (!text_node) return '';
@@ -1924,6 +1968,159 @@ function dark_mode_stat_fill(fill) {
   });
 }
 /* ################# */
+function normalize_table_header_label(s) {
+  return String(s || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, ' ');
+}
+/* ################# */
+function parse_table_number(s) {
+  const raw = String(s || '').trim();
+  if (!raw) return NaN;
+
+  if (/^\d+\.\d$/.test(raw)) {
+    return Number(raw);
+  }
+
+  const cleaned = raw.replace(/,/g, '');
+  const n = Number(cleaned);
+  return Number.isFinite(n) ? n : NaN;
+}
+/* ################# */
+function get_table_view_for_text_node(text_node) {
+  if (!text_node) return null;
+  return text_node.closest('.table-control-view');
+}
+/* ################# */
+function get_column_blocks_for_text_node(text_node) {
+  const table_view = get_table_view_for_text_node(text_node);
+  if (!table_view) return [];
+  return Array.from(table_view.querySelectorAll('.column-block'));
+}
+/* ################# */
+function get_cell_holder_for_text_node(text_node) {
+  if (!text_node) return null;
+  return text_node.closest('.cell-text-holder');
+}
+/* ################# */
+function get_column_block_for_text_node(text_node) {
+  if (!text_node) return null;
+  return text_node.closest('.column-block');
+}
+/* ################# */
+function get_column_cell_holders(column_block) {
+  if (!column_block) return [];
+  return Array.from(column_block.querySelectorAll('.cell-text-holder'));
+}
+/* ################# */
+function get_text_from_holder(holder) {
+  if (!holder) return '';
+  const text_node = holder.querySelector('.cell-text');
+  return String(text_node?.textContent || '').trim();
+}
+/* ################# */
+function get_row_index_for_text_node(text_node) {
+  const holder = get_cell_holder_for_text_node(text_node);
+  const column_block = get_column_block_for_text_node(text_node);
+  if (!holder || !column_block) return -1;
+
+  const holders = get_column_cell_holders(column_block);
+  return holders.indexOf(holder);
+}
+/* ################# */
+function get_column_values(column_block) {
+  return get_column_cell_holders(column_block).map(get_text_from_holder);
+}
+/* ################# */
+function get_column_header_text(column_block) {
+  if (!column_block) return '';
+
+  const texts = Array.from(column_block.querySelectorAll('text'))
+    .map(x => String(x.textContent || '').trim())
+    .filter(Boolean);
+
+  const values = new Set(get_column_values(column_block).filter(Boolean));
+
+  const header = texts.find(x => !values.has(x));
+  if (header) return header;
+
+  return '';
+}
+/* ################# */
+function get_column_map_for_text_node(text_node) {
+  const out = new Map();
+  const column_blocks = get_column_blocks_for_text_node(text_node);
+
+  column_blocks.forEach(column_block => {
+    const header = normalize_table_header_label(get_column_header_text(column_block));
+    if (!header) return;
+    if (!out.has(header)) out.set(header, column_block);
+  });
+
+  return out;
+}
+/* ################# */
+function get_value_from_column_at_row(text_node, header_name, row_idx) {
+  if (row_idx < 0) return '';
+
+  const column_map = get_column_map_for_text_node(text_node);
+  const column_block = column_map.get(normalize_table_header_label(header_name));
+  if (!column_block) return '';
+
+  const holders = get_column_cell_holders(column_block);
+  if (row_idx >= holders.length) return '';
+
+  return get_text_from_holder(holders[row_idx]);
+}
+/* ################# */
+function get_table_row_sample_info(text_node) {
+  const row_idx = get_row_index_for_text_node(text_node);
+  if (row_idx < 0) return null;
+
+  const pa_text = get_value_from_column_at_row(text_node, 'PA', row_idx);
+  const ip_text = get_value_from_column_at_row(text_node, 'IP', row_idx);
+  const role_text = get_value_from_column_at_row(text_node, 'Role', row_idx);
+
+  const pa = parse_table_number(pa_text);
+  const ip = parse_table_number(ip_text);
+  const role = String(role_text || '').trim().toUpperCase();
+
+  const has_pa = Number.isFinite(pa);
+  const has_ip = Number.isFinite(ip);
+
+  if (has_pa) {
+    return {
+      is_hitter: true,
+      sample: pa,
+      threshold: 50,
+      reduced: pa < 50,
+      role: '',
+    };
+  }
+
+  if (has_ip) {
+    const is_bullpen = role === 'RP' || role === 'CL';
+    const threshold = is_bullpen ? 10 : 20;
+
+    return {
+      is_hitter: false,
+      sample: ip,
+      threshold,
+      reduced: ip < threshold,
+      role,
+    };
+  }
+
+  return null;
+}
+/* ################# */
+function row_has_reduced_sample_opacity(text_node) {
+  const info = get_table_row_sample_info(text_node);
+  if (!info) return false;
+  return info.reduced;
+}
+/* ################# */
 function repaint_standard_stats_tables(root) {
   const scope = root || document;
   const is_dark = document.body.classList.contains('soft_theme');
@@ -1940,27 +2137,28 @@ function repaint_standard_stats_tables(root) {
 
     const orig_fill = t.dataset.orig_fill || '';
 
-    if (t.closest('g.table')) {
-      const cell_fill = get_table_text_cell_fill(t);
-      const use_white = !is_dark && is_deep_blue_fill(cell_fill);
+if (t.closest('g.table')) {
+  const cell_fill = get_table_text_cell_fill(t);
+  const use_white = should_use_white_table_text(t, cell_fill, is_dark);
+  const css_text_fill = get_table_default_text_fill();
 
-      if (use_white) {
-        t.style.fill = '#ffffff';
-        return;
-      }
+  if (use_white) {
+    t.style.fill = '#ffffff';
+    return;
+  }
 
-      if (is_dark) {
-        t.style.fill = '#cdd2da';
-        return;
-      }
+  if (is_dark) {
+    t.style.fill = css_text_fill;
+    return;
+  }
 
-      if (orig_fill) {
-        t.style.fill = orig_fill;
-      } else {
-        t.style.removeProperty('fill');
-      }
-      return;
-    }
+  if (orig_fill) {
+    t.style.fill = orig_fill;
+  } else {
+    t.style.fill = css_text_fill;
+  }
+  return;
+}
 
     if (!is_dark) {
       if (orig_fill) {
@@ -1971,9 +2169,9 @@ function repaint_standard_stats_tables(root) {
       return;
     }
 
-    if (is_dark_text_fill(orig_fill)) {
-      t.style.fill = '#cdd2da';
-    } else if (orig_fill) {
+if (is_dark_text_fill(orig_fill)) {
+  t.style.fill = get_table_default_text_fill();
+} else if (orig_fill) {
       t.style.fill = orig_fill;
     } else {
       t.style.removeProperty('fill');
