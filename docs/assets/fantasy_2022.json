@@ -11213,7 +11213,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": -24.96,
@@ -18455,7 +18455,7 @@
         "pos2": "2B",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN",
         "teams": "",
         "vSzn": 166.44,
@@ -49099,7 +49099,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 4,
         "team": "NYM",
         "teams": "",
         "vSzn": "",
@@ -53851,7 +53851,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN",
         "teams": "",
         "vSzn": 698.23,
@@ -56731,7 +56731,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": "",
@@ -90237,7 +90237,7 @@
         "person_key": "corbin martin",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "ARI"
       },
       {
@@ -92003,7 +92003,7 @@
         "person_key": "j p france",
         "pitch_role": "SP",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -100037,7 +100037,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TOR",
         "≥100": 0.217
       },
@@ -101325,7 +101325,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN",
         "≥100": 0.133
       },
@@ -107330,7 +107330,7 @@
         "person_key": "jose butto",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 4,
         "team": "NYM"
       },
       {
@@ -108170,7 +108170,7 @@
         "person_key": "jhoan duran",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN"
       },
       {
@@ -108653,7 +108653,7 @@
         "person_key": "corbin martin",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "ARI"
       },
       {
@@ -113086,7 +113086,7 @@
         "person_key": "j p france",
         "pitch_role": "SP",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
