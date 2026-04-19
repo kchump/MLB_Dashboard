@@ -7183,7 +7183,10 @@ function fantasy_team_options(data) {
 function fantasy_current_rows(data) {
   let rows = data?.[fantasy_state.scope]?.[fantasy_state.section] || [];
 
-  rows = rows.map(row => fantasy_row_with_effective_team(row));
+  rows = rows.map(row => ({
+    ...row,
+    team: fantasy_effective_team(row),
+  }));
 
   if (fantasy_state.section === 'hitters' && fantasy_state.scope !== 'majors') {
     rows = rows.map(row => fantasy_row_with_position_fallback(row, data));

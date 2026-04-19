@@ -42879,7 +42879,7 @@
         "pos2": "",
         "prev_minors_year": 2023.0,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL",
         "teams": "",
         "vSzn": "",
@@ -102010,7 +102010,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL",
         "≥100": 0.257
       },
@@ -131446,7 +131446,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL",
         "≥100": 0.2
       },
