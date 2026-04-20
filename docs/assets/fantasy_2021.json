@@ -1273,7 +1273,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 2,
         "team": "MIN",
         "teams": "",
         "vSzn": -316.77,
@@ -91071,7 +91071,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 2,
         "team": "MIN",
         "≥100": 0.308
       },

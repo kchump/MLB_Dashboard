@@ -105,6 +105,7 @@
     "Drake Baldwin": "ATL",
     "Drew Gilbert": "SF",
     "Drew Millas": "WAS",
+    "Dustin Harris": "HOU",
     "Dylan Beavers": "BAL",
     "Dylan Moore": "PHI",
     "Edgar Quero": "CHW",
@@ -180,7 +181,6 @@
     "Jo Adell": "LAA",
     "Joc Pederson": "TEX",
     "Joey Bart": "PIT",
-    "Joey Loperfido": "HOU",
     "Joey Ortiz": "MIL",
     "Joey Wiemer": "WAS",
     "Johnathan Rodriguez": "BAL",
@@ -564,8 +564,8 @@
       "Carlos Correa",
       "Christian Vazquez",
       "Christian Walker",
+      "Dustin Harris",
       "Isaac Paredes",
-      "Joey Loperfido",
       "Jose Altuve",
       "Nick Allen",
       "Shay Whitcomb",
@@ -1047,7 +1047,6 @@
     "Sean Newcomb": "CHW",
     "Seranthony Dominguez": "CHW",
     "Seth Johnson": "PHI",
-    "Shaun Anderson": "LAA",
     "Shawn Armstrong": "CLE",
     "Spencer Miles": "TOR",
     "Steven Okert": "HOU",
@@ -1071,6 +1070,7 @@
     "Tyler Wells": "BAL",
     "Victor Vodnik": "COL",
     "Wandy Peralta": "SD",
+    "Wilber Dotel": "PIT",
     "Will Klein": "LAD",
     "Will Vest": "DET",
     "Yennier Cano": "BAL",
@@ -1213,8 +1213,7 @@
       "Jordan Romano",
       "Nick Sandlin",
       "Ryan Zeferjahn",
-      "Sam Bachman",
-      "Shaun Anderson"
+      "Sam Bachman"
     ],
     "LAD": [
       "Alex Vesia",
@@ -1293,6 +1292,7 @@
       "Isaac Mattson",
       "Justin Lawrence",
       "Mason Montgomery",
+      "Wilber Dotel",
       "Yohan Ramirez"
     ],
     "SD": [
@@ -1381,7 +1381,6 @@
     "Adrian Houser": "SF",
     "Andre Pallante": "STL",
     "Andrew Abbott": "CIN",
-    "Andrew Alvarez": "WAS",
     "Andrew Painter": "PHI",
     "Anthony Kay": "CHW",
     "Bailey Ober": "MIN",
@@ -1396,7 +1395,6 @@
     "Bubba Chandler": "PIT",
     "Cade Cavalli": "WAS",
     "Cam Schlittler": "NYY",
-    "Carlos Rodriguez": "MIL",
     "Carmen Mlodzinski": "PIT",
     "Casey Mize": "DET",
     "Chad Patrick": "MIL",
@@ -1413,7 +1411,6 @@
     "David Peterson": "NYM",
     "Davis Martin": "CHW",
     "Dean Kremer": "BAL",
-    "Doug Nikhazy": "CHW",
     "Drew Rasmussen": "TB",
     "Dustin May": "STL",
     "Dylan Cease": "TOR",
@@ -1470,8 +1467,6 @@
     "Luis Severino": "ATH",
     "MacKenzie Gore": "TEX",
     "Martin Perez": "ATL",
-    "Mason Barnett": "ATH",
-    "Mason Black": "KC",
     "Matt Waldron": "SD",
     "Matthew Liberatore": "STL",
     "Max Fried": "NYY",
@@ -1527,7 +1522,6 @@
     "Trevor Rogers": "BAL",
     "Tyler Glasnow": "LAD",
     "Tyler Mahle": "SF",
-    "Walbert Urena": "LAA",
     "Walker Buehler": "SD",
     "Will Warren": "NYY",
     "Yoshinobu Yamamoto": "LAD",
@@ -1548,8 +1542,7 @@
       "J.T. Ginn",
       "Jacob Lopez",
       "Jeffrey Springs",
-      "Luis Severino",
-      "Mason Barnett"
+      "Luis Severino"
     ],
     "ATL": [
       "Bryce Elder",
@@ -1583,7 +1576,6 @@
     "CHW": [
       "Anthony Kay",
       "Davis Martin",
-      "Doug Nikhazy",
       "Erick Fedde",
       "Noah Schultz",
       "Sean Burke"
@@ -1626,7 +1618,6 @@
     "KC": [
       "Cole Ragans",
       "Kris Bubic",
-      "Mason Black",
       "Michael Wacha",
       "Noah Cameron",
       "Seth Lugo"
@@ -1635,7 +1626,6 @@
       "Jack Kochanowicz",
       "Jose Soriano",
       "Reid Detmers",
-      "Walbert Urena",
       "Yusei Kikuchi"
     ],
     "LAD": [
@@ -1656,7 +1646,6 @@
     "MIL": [
       "Brandon Sproat",
       "Brandon Woodruff",
-      "Carlos Rodriguez",
       "Chad Patrick",
       "Jacob Misiorowski",
       "Kyle Harrison"
@@ -1747,7 +1736,6 @@
       "Patrick Corbin"
     ],
     "WAS": [
-      "Andrew Alvarez",
       "Cade Cavalli",
       "Foster Griffin",
       "Jake Irvin",

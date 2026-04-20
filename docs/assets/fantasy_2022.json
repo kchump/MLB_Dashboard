@@ -1770,7 +1770,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "KC,SD",
         "vSzn": "",
@@ -86011,7 +86011,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "- - -",
         "≥100": 0.266
       },
@@ -98358,7 +98358,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "- - -",
         "≥100": 0.4
       },

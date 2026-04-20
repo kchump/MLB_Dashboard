@@ -3167,6 +3167,7 @@ function init_matchups_page_if_present(content_root) {
     ['gameday_matchup', 'Gameday Matchup Preview'],
     ['projected_pitchers', 'Projected Starting Pitchers'],
     ['best_worst_hitters', 'Projected Best and Worst Hitters'],
+    ['favorite_hitters_today', "Project Today's Favorite Hitters"],
     ['multi_hitter_today', "Project Today's Fantasy Lineup"],
     ['multi_hitter_week', "Project Weekly Fantasy Hitter Moves"],
     ['multi_starter', 'Specific Starting Pitcher Matchups'],
@@ -4693,6 +4694,7 @@ function find_fragment_key_loose(obj, wanted_name) {
       mode === 'projected_pitchers' ||
       mode === 'gameday_matchup' ||
       mode === 'best_worst_hitters' ||
+      mode === 'favorite_hitters_today' ||
       mode === 'multi_hitter_today' ||
       mode === 'multi_hitter_week'
     );
@@ -6206,6 +6208,151 @@ async function refresh_team_choices() {
       build_action_buttons(submit, clear_mode);
       return;
     }
+    //#################################################################### Mode: favorite_hitters_today ####################################################################
+if (mode === 'favorite_hitters_today') {
+//#################
+function favorite_hitter_names() {
+  const stored = Array.from(get_stored_people(favorites_storage_key));
+  const hitter_team_map = get_hitter_team_map();
+  const out = [];
+  const seen = new Set();
+
+  for (const raw of stored) {
+    const s = String(raw || '').trim();
+    if (!s) continue;
+
+    let candidate = '';
+
+    if (hitter_team_map[s]) {
+      candidate = s;
+    } else if (s.includes('__')) {
+      const left = s.split('__')[0].trim();
+      if (hitter_team_map[left]) candidate = left;
+    } else {
+      const m = s.match(/^[a-z]+-batters-(.+)$/i);
+      if (m) {
+        candidate = m[1].replace(/-/g, ' ').trim();
+        if (!hitter_team_map[candidate]) candidate = '';
+      }
+    }
+
+    if (!candidate || seen.has(candidate)) continue;
+
+    seen.add(candidate);
+    out.push(candidate);
+  }
+
+  return out;
+}
+  //#################
+  async function submit() {
+    const y = prefer_fragment_year();
+    if (!y) return;
+
+    const d = new Date();
+    const date_str = to_yyyy_mm_dd_local(d);
+
+    const games = await fetch_matchups_for_date(date_str);
+
+    const matchup_paths = [];
+    const matchup_override_rows = [];
+    const fallback_dummy_rows = [];
+
+    const seen_matchup_keys = new Set();
+    const seen_fallback_keys = new Set();
+
+    const favorite_hitters = favorite_hitter_names();
+
+    for (const hitter_name of favorite_hitters) {
+      const hitter_team = String(get_hitter_team_map()[hitter_name] || '').trim();
+      if (!hitter_team) continue;
+
+      const game = find_game_for_team(games, hitter_team);
+      if (!game) continue;
+
+      const matchup_info = matchup_info_for_team_game(game, hitter_team);
+      if (!matchup_info) continue;
+
+      const path = resolve_hvp_with_pf_fallback(
+        idx,
+        y,
+        hitter_name,
+        matchup_info.side,
+        matchup_info.pitcher
+      );
+
+      if (path) {
+        const dedupe_key = [
+          hitter_name,
+          matchup_info.side,
+          matchup_info.opp,
+          matchup_info.pitcher,
+          path
+        ].join('||');
+
+        if (seen_matchup_keys.has(dedupe_key)) continue;
+        seen_matchup_keys.add(dedupe_key);
+
+        matchup_paths.push(path);
+        matchup_override_rows.push({
+          Away: matchup_info.side
+        });
+        continue;
+      }
+
+      const fallback_rows = build_personalized_hitter_fallback_rows(
+        year_lists,
+        [hitter_name],
+        matchup_info.pitcher,
+        y
+      );
+
+      if (!fallback_rows.length) continue;
+
+      const fallback_key = [
+        hitter_name,
+        matchup_info.side,
+        matchup_info.opp,
+        matchup_info.pitcher
+      ].join('||');
+
+      if (seen_fallback_keys.has(fallback_key)) continue;
+      seen_fallback_keys.add(fallback_key);
+
+      fallback_dummy_rows.push(
+        reorder_week_fallback_dummy_row(fallback_rows[0], {
+          Away: matchup_info.side,
+          Opp: matchup_info.opp,
+          Pitcher: matchup_info.pitcher,
+          Date: date_str
+        })
+      );
+    }
+
+    clear_results();
+
+    await render_stacked_section('Matchups', matchup_paths, {
+      override_rows: matchup_override_rows,
+      keep_all_pitch_cols: true,
+      drop_cols: ['+KN']
+    });
+
+    await render_stacked_section('Fallback', [], {
+      dummy_rows: fallback_dummy_rows,
+      keep_all_pitch_cols: true,
+      drop_cols: ['+KN']
+    });
+
+    sort_all_results_tables_by_all();
+  }
+  //#################
+  function clear_mode() {
+    clear_results();
+  }
+
+  build_action_buttons(submit, clear_mode, 'Submit', { show_sort: false });
+  return;
+}
     //#################################################################### Mode: multi_hitter_today ####################################################################
     if (mode === 'multi_hitter_today') {
       const rows = build_hitter_only_rows('multi_hitter_today');
@@ -7812,6 +7959,71 @@ function fantasy_graph_bar_fill(v, spec) {
   return 0.5 + 0.5 * t;
 }
 /* ################# */
+function fantasy_sample_is_reduced(row) {
+  if (fantasy_state.section === 'hitters') {
+    const pa = fantasy_num(row['PA']);
+    if (pa == null) return false;
+    return pa < 50;
+  }
+
+  const ip = fantasy_num(row['IP']);
+  if (ip == null) return false;
+
+  if (fantasy_state.section === 'rp') {
+    return ip < 10;
+  }
+
+  return ip < 20;
+}
+/* ################# */
+function fantasy_is_deep_gradient_color(style_str) {
+  const m = String(style_str || '').match(/background:\s*rgb\((\d+),(\d+),(\d+)\)/i);
+  if (!m) return false;
+
+  const r = Number(m[1]);
+  const g = Number(m[2]);
+  const b = Number(m[3]);
+
+  const blue_like = (b - r >= 30) && (b - g >= 18);
+  const red_like = (r - g >= 30) && (r - b >= 18);
+
+  if (!blue_like && !red_like) return false;
+
+  if (blue_like) {
+    return b <= 170;
+  }
+
+  return r <= 220 ? false : false;
+}
+/* ################# */
+function fantasy_is_deep_blue_or_red(style_str) {
+  const m = String(style_str || '').match(/background:\s*rgb\((\d+),(\d+),(\d+)\)/i);
+  if (!m) return { deep_blue: false, deep_red: false };
+
+  const r = Number(m[1]);
+  const g = Number(m[2]);
+  const b = Number(m[3]);
+
+  const deep_blue = (b - r >= 30) && (b - g >= 18) && b <= 170;
+  const deep_red = (r - g >= 30) && (r - b >= 18) && r >= 185;
+
+  return { deep_blue, deep_red };
+}
+/* ################# */
+function fantasy_should_use_white_text(row, col, gradient_style) {
+  if (!gradient_style) return false;
+
+  const { deep_blue, deep_red } = fantasy_is_deep_blue_or_red(gradient_style);
+
+  if (!deep_blue && !deep_red) return false;
+
+  if (document.body.classList.contains('soft_theme')) {
+    return deep_blue;
+  }
+
+  return !fantasy_sample_is_reduced(row);
+}
+/* ################# */
 function fantasy_gradient_style(row, col, value) {
   if (!fantasy_state.show_gradients) return '';
   if (value == null) return '';
@@ -7988,6 +8200,8 @@ function fantasy_build_table_html(rows) {
 
       const raw_num = fantasy_num(row[col]);
       const gradient_style = fantasy_gradient_style(row, col, raw_num);
+      const use_white_text = fantasy_should_use_white_text(row, col, gradient_style);
+      const cell_fill_class = use_white_text ? 'fantasy_cell_fill fantasy_cell_fill_white_text' : 'fantasy_cell_fill';
 
       if (col === 'Name' || col === 'Pos' || col === '2nd Pos' || col === 'Team') {
         return `<td class="${cls}">${value}</td>`;
@@ -7995,7 +8209,7 @@ function fantasy_build_table_html(rows) {
 
       return `
         <td class="${cls}">
-          <div class="fantasy_cell_fill" style="${gradient_style}">
+          <div class="${cell_fill_class}" style="${gradient_style}">
             ${value}
           </div>
         </td>
