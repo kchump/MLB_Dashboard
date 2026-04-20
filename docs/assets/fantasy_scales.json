@@ -984,7 +984,7 @@
     "majors|rp|CB Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1008,7 +1008,7 @@
     "majors|rp|CH Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1040,7 +1040,7 @@
     "majors|rp|CT Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1096,7 +1096,7 @@
     "majors|rp|FB Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1146,7 +1146,7 @@
     "majors|rp|KN Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1497,7 +1497,7 @@
     "majors|rp|SI Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1521,7 +1521,7 @@
     "majors|rp|SL Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1545,7 +1545,7 @@
     "majors|rp|SP Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1569,7 +1569,7 @@
     "majors|rp|SW Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1783,7 +1783,7 @@
     "majors|sp|CB Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1807,7 +1807,7 @@
     "majors|sp|CH Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1839,7 +1839,7 @@
     "majors|sp|CT Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1895,7 +1895,7 @@
     "majors|sp|FB Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1945,7 +1945,7 @@
     "majors|sp|KN Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2296,7 +2296,7 @@
     "majors|sp|SI Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2320,7 +2320,7 @@
     "majors|sp|SL Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2344,7 +2344,7 @@
     "majors|sp|SP Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2368,7 +2368,7 @@
     "majors|sp|SW Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 60,
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
