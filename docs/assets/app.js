@@ -1791,6 +1791,18 @@ function is_neutral_fill(fill) {
   return spread <= 14;
 }
 /* ################# */
+// function is_stat_fill(fill) {
+//   const c = parse_svg_fill(fill);
+//   if (!c || c.a === 0) return false;
+
+//   const spread = Math.max(c.r, c.g, c.b) - Math.min(c.r, c.g, c.b);
+//   if (spread < 18) return false;
+
+//   const blue_like = (c.b - c.r >= 30) && (c.b - c.g >= 18);
+//   const red_like = (c.r - c.g >= 30) && (c.r - c.b >= 18);
+
+//   return blue_like || red_like;
+// }
 function is_stat_fill(fill) {
   const c = parse_svg_fill(fill);
   if (!c || c.a === 0) return false;
@@ -1800,8 +1812,15 @@ function is_stat_fill(fill) {
 
   const blue_like = (c.b - c.r >= 30) && (c.b - c.g >= 18);
   const red_like = (c.r - c.g >= 30) && (c.r - c.b >= 18);
+  const gold_like = (
+    c.r >= 120 &&
+    c.g >= 90 &&
+    c.b <= 95 &&
+    (c.r - c.b >= 35) &&
+    (c.g - c.b >= 10)
+  );
 
-  return blue_like || red_like;
+  return blue_like || red_like || gold_like;
 }
 /* ################# */
 function is_close_rgb(c, r, g, b, tol = 8) {
@@ -1811,6 +1830,30 @@ function is_close_rgb(c, r, g, b, tol = 8) {
     Math.abs(c.g - g) <= tol &&
     Math.abs(c.b - b) <= tol
   );
+}
+/* ################# */
+function is_gold_stat_fill(fill) {
+  const c = parse_svg_fill(fill);
+  if (!c || c.a === 0) return false;
+
+  return (
+    c.r >= 120 &&
+    c.g >= 90 &&
+    c.b <= 95 &&
+    (c.r - c.b >= 35) &&
+    (c.g - c.b >= 10)
+  );
+}
+/* ################# */
+function is_deep_gold_fill(fill) {
+  const c = parse_svg_fill(fill);
+  if (!c || c.a === 0) return false;
+  if (!is_gold_stat_fill(fill)) return false;
+
+  const t = mix_frac_to_target(c, { r: 184, g: 134, b: 11 });
+  if (t == null) return false;
+
+  return t >= 0.75;
 }
 /* ################# */
 function is_blue_stat_fill(fill) {
@@ -1882,12 +1925,28 @@ function is_deep_red_fill(fill) {
   return t >= 0.75;
 }
 /* ################# */
+// function should_use_white_table_text(text_node, cell_fill, is_dark) {
+//   if (!cell_fill) return false;
+
+//   const is_deep_blue = is_deep_blue_fill(cell_fill);
+//   const is_deep_red = is_deep_red_fill(cell_fill);
+
+//   if (!is_deep_blue && !is_deep_red) return false;
+
+//   if (is_dark) {
+//     return is_deep_blue;
+//   }
+
+//   return !row_has_reduced_sample_opacity(text_node);
+// }
 function should_use_white_table_text(text_node, cell_fill, is_dark) {
   if (!cell_fill) return false;
 
   const is_deep_blue = is_deep_blue_fill(cell_fill);
   const is_deep_red = is_deep_red_fill(cell_fill);
+  const is_deep_gold = is_deep_gold_fill(cell_fill);
 
+  if (is_deep_gold) return true;
   if (!is_deep_blue && !is_deep_red) return false;
 
   if (is_dark) {
@@ -1940,6 +1999,33 @@ function rgba_string(c) {
   return `rgba(${clamp_byte(c.r)},${clamp_byte(c.g)},${clamp_byte(c.b)},${a})`;
 }
 /* ################# */
+// function dark_mode_stat_fill(fill) {
+//   const c = parse_svg_fill(fill);
+//   if (!c || c.a === 0) return fill;
+
+//   const spread = Math.max(c.r, c.g, c.b) - Math.min(c.r, c.g, c.b);
+//   const lum = (0.2126 * c.r) + (0.7152 * c.g) + (0.0722 * c.b);
+
+//   if (spread < 18) return fill;
+
+//   const blue_like = (c.b - c.r >= 30) && (c.b - c.g >= 18);
+//   const red_like = (c.r - c.g >= 30) && (c.r - c.b >= 18);
+
+//   if (!blue_like && !red_like) return fill;
+
+//   // Only darken the pale end of the gradient.
+//   // Stronger colors already read fine with light text.
+//   if (lum < 150) return fill;
+
+//   const strength = Math.min(0.35, Math.max(0.12, (lum - 150) / 220));
+
+//   return rgba_string({
+//     r: c.r * (1 - strength),
+//     g: c.g * (1 - strength),
+//     b: c.b * (1 - strength),
+//     a: c.a,
+//   });
+// }
 function dark_mode_stat_fill(fill) {
   const c = parse_svg_fill(fill);
   if (!c || c.a === 0) return fill;
@@ -1951,11 +2037,16 @@ function dark_mode_stat_fill(fill) {
 
   const blue_like = (c.b - c.r >= 30) && (c.b - c.g >= 18);
   const red_like = (c.r - c.g >= 30) && (c.r - c.b >= 18);
+  const gold_like = (
+    c.r >= 120 &&
+    c.g >= 90 &&
+    c.b <= 95 &&
+    (c.r - c.b >= 35) &&
+    (c.g - c.b >= 10)
+  );
 
-  if (!blue_like && !red_like) return fill;
+  if (!blue_like && !red_like && !gold_like) return fill;
 
-  // Only darken the pale end of the gradient.
-  // Stronger colors already read fine with light text.
   if (lum < 150) return fill;
 
   const strength = Math.min(0.35, Math.max(0.12, (lum - 150) / 220));
@@ -3368,6 +3459,119 @@ function init_matchups_page_if_present(content_root) {
     return ['All', 'RHB', 'LHB', 'FB', 'SI', 'CT', 'SL', 'SW', 'CB', 'CH', 'SP'].includes(h);
   }
   //#################
+  async function ensure_year_page_lookup_loaded() {
+  if (year_page_lookup !== null) return year_page_lookup;
+
+  try {
+    const r = await fetch('assets/year_page_lookup.json', { cache: 'no-store' });
+    if (!r.ok) {
+      year_page_lookup = {};
+      return year_page_lookup;
+    }
+
+    year_page_lookup = await r.json();
+    return year_page_lookup;
+  } catch (e) {
+    year_page_lookup = {};
+    return year_page_lookup;
+  }
+}
+//#################
+function matchup_name_col_idx(header) {
+  const cols = (header || []).map(x => String(x || '').trim());
+
+  for (const name of ['Name', 'Pitcher', 'Hitter']) {
+    const idx = cols.findIndex(x => x === name);
+    if (idx >= 0) return idx;
+  }
+
+  return -1;
+}
+//#################
+function infer_matchup_link_role(header, explicit_role) {
+  const forced = String(explicit_role || '').trim();
+  if (forced) return forced;
+
+  const cols = new Set((header || []).map(x => String(x || '').trim()));
+
+  if (cols.has('Pitcher')) return 'starters';
+
+  if (cols.has('IP') && !cols.has('PA')) {
+    if (cols.has('RHB') || cols.has('LHB')) return 'starters';
+    return 'starters';
+  }
+
+  if (cols.has('PA')) return 'batters';
+  if (cols.has('AVG') || cols.has('OBP') || cols.has('SLG') || cols.has('OPS')) return 'batters';
+
+  return '';
+}
+//#################
+function resolve_matchup_player_href(name, role, year) {
+  const lookup = (year_page_lookup && typeof year_page_lookup === 'object') ? year_page_lookup : null;
+  if (!lookup) return '';
+
+  const person_key = normalize_matchup_person_key(name);
+  const role_key = String(role || '').trim();
+  if (!person_key || !role_key) return '';
+
+  const preferred_year = String(year || window.DEFAULT_SEASON_YEAR || '').trim();
+
+  const years_to_try = [
+    preferred_year,
+    ...Object.keys(lookup || {}).sort((a, b) => Number(b) - Number(a))
+  ].filter(Boolean);
+
+  function find_slug_in_bucket(bucket, wanted_role, wanted_person_key) {
+    if (!bucket || typeof bucket !== 'object') return '';
+
+    for (const [slug, meta] of Object.entries(bucket)) {
+      if (!meta || typeof meta !== 'object') continue;
+
+      const meta_role = String(meta.role || '').trim();
+      const meta_person_key = String(meta.person_key || '').trim();
+
+      if (meta_role === wanted_role && meta_person_key === wanted_person_key) {
+        return slug;
+      }
+    }
+
+    return '';
+  }
+
+  for (const y of years_to_try) {
+    const bucket = lookup[y];
+    const slug = find_slug_in_bucket(bucket, role_key, person_key);
+    if (slug) return `#${slug}`;
+  }
+
+  return '';
+}
+//#################
+function append_matchup_player_link(td, raw_text, header, col_idx, link_role, link_year) {
+  const name_idx = matchup_name_col_idx(header);
+  const is_name_col = (col_idx === name_idx);
+
+  if (!is_name_col) {
+    td.textContent = raw_text;
+    return;
+  }
+
+  const href = resolve_matchup_player_href(raw_text, link_role, link_year);
+  if (!href) {
+    td.textContent = raw_text;
+    return;
+  }
+
+  const a = document.createElement('a');
+  a.href = href;
+  a.textContent = raw_text;
+  a.className = 'matchups_player_link';
+
+  td.textContent = '';
+  td.appendChild(a);
+}
+//#################
   // async function render_fragments(paths, opts) {
   //   clear_results();
 
@@ -3392,6 +3596,15 @@ function init_matchups_page_if_present(content_root) {
     const override_rows = Array.isArray(options.override_rows) ? options.override_rows : [];
     const compact_table = !!options.compact_table;
     const keep_all_pitch_cols = !!options.keep_all_pitch_cols;
+    await ensure_year_page_lookup_loaded();
+
+  const link_role = infer_matchup_link_role(header, options.link_role);
+  const link_year = String(
+    options.link_year ||
+    document.getElementById('matchups_year')?.value ||
+    window.DEFAULT_SEASON_YEAR ||
+    ''
+  ).trim();
 
     const rows = [];
     let header = null;
@@ -3546,7 +3759,8 @@ function init_matchups_page_if_present(content_root) {
         }
 
         const h = (header && header[j]) ? header[j] : '';
-        td.textContent = raw;
+        // td.textContent = raw;
+        append_matchup_player_link(td, raw, header, j, link_role, link_year);
 
         if (is_matchup_stat_col(h)) {
           const v0 = parse_matchup_stat_number(raw);
@@ -6217,22 +6431,37 @@ function favorite_hitter_names() {
   const out = [];
   const seen = new Set();
 
+  const canonical_by_norm = {};
+
+  Object.keys(hitter_team_map || {}).forEach(name => {
+    const norm = normalize_matchup_person_key(name);
+    if (norm && !canonical_by_norm[norm]) {
+      canonical_by_norm[norm] = name;
+    }
+  });
+
+  function canonical_name(raw_name) {
+    const norm = normalize_matchup_person_key(raw_name);
+    return canonical_by_norm[norm] || '';
+  }
+
   for (const raw of stored) {
     const s = String(raw || '').trim();
     if (!s) continue;
 
     let candidate = '';
 
-    if (hitter_team_map[s]) {
-      candidate = s;
-    } else if (s.includes('__')) {
+    candidate = canonical_name(s);
+
+    if (!candidate && s.includes('__')) {
       const left = s.split('__')[0].trim();
-      if (hitter_team_map[left]) candidate = left;
-    } else {
+      candidate = canonical_name(left);
+    }
+
+    if (!candidate) {
       const m = s.match(/^[a-z]+-batters-(.+)$/i);
       if (m) {
-        candidate = m[1].replace(/-/g, ' ').trim();
-        if (!hitter_team_map[candidate]) candidate = '';
+        candidate = canonical_name(m[1].replace(/-/g, ' ').trim());
       }
     }
 
@@ -7851,6 +8080,16 @@ function fantasy_gradient_source_key(row, col) {
   return `${scope}|${section}|${mapped}`;
 }
 /* ################# */
+function fantasy_use_gold_for_value(value, spec) {
+  const num_value = Number(value);
+  const gold = Number(spec?.gold);
+
+  if (Number.isNaN(num_value) || Number.isNaN(gold)) return false;
+
+  const higher_is_better = spec?.higher_is_better !== false;
+  return higher_is_better ? num_value >= gold : num_value <= gold;
+}
+/* ################# */
 function fantasy_blend_rgba_on_rgb(rgba_str, base_rgb = [235, 240, 248]) {
   if (typeof rgba_str !== 'string') return '';
 
@@ -7878,7 +8117,22 @@ function fantasy_blend_rgba_on_rgb(rgba_str, base_rgb = [235, 240, 248]) {
 }
 
 /* ################# */
-function fantasy_standard_stats_gradient(frac) {
+// function fantasy_standard_stats_gradient(frac) {
+//   if (frac == null || Number.isNaN(frac)) return '';
+
+//   const x = Math.max(0, Math.min(1, Number(frac)));
+//   const alpha_min = 0.25;
+//   const alpha_max = 0.95;
+//   const alpha_curve_pow = 0.40;
+
+//   const d = Math.max(0, Math.min(1, Math.abs(x - 0.5) * 2.0));
+//   const t = Math.max(0, (d - 0.10) / 0.90);
+//   const alpha = alpha_min + (alpha_max - alpha_min) * (t ** alpha_curve_pow);
+
+//   const rgb = x > 0.5 ? [210, 35, 35] : [35, 85, 210];
+//   return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha.toFixed(3)})`;
+// }
+function fantasy_standard_stats_gradient(frac, use_gold = false) {
   if (frac == null || Number.isNaN(frac)) return '';
 
   const x = Math.max(0, Math.min(1, Number(frac)));
@@ -7890,12 +8144,29 @@ function fantasy_standard_stats_gradient(frac) {
   const t = Math.max(0, (d - 0.10) / 0.90);
   const alpha = alpha_min + (alpha_max - alpha_min) * (t ** alpha_curve_pow);
 
-  const rgb = x > 0.5 ? [210, 35, 35] : [35, 85, 210];
+  const rgb = x > 0.5
+    ? (use_gold ? [184, 134, 11] : [210, 35, 35])
+    : [35, 85, 210];
+
   return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha.toFixed(3)})`;
 }
-
 /* ################# */
-function fantasy_gradient_good_only_stats(frac) {
+// function fantasy_gradient_good_only_stats(frac) {
+//   if (frac == null || Number.isNaN(frac)) return '';
+
+//   const t = Math.max(0, Math.min(1, Number(frac)));
+//   const frac2 = 0.5 + 0.5 * t;
+
+//   const alpha_min = 0.25;
+//   const alpha_max = 0.95;
+//   const alpha_curve_pow = 0.40;
+
+//   const d = Math.max(0, Math.min(1, Math.abs(frac2 - 0.5) * 2.0));
+//   const alpha = alpha_min + (alpha_max - alpha_min) * (d ** alpha_curve_pow);
+
+//   return fantasy_blend_rgba_on_rgb(`rgba(210,35,35,${alpha.toFixed(3)})`);
+// }
+function fantasy_gradient_good_only_stats(frac, use_gold = false) {
   if (frac == null || Number.isNaN(frac)) return '';
 
   const t = Math.max(0, Math.min(1, Number(frac)));
@@ -7908,7 +8179,8 @@ function fantasy_gradient_good_only_stats(frac) {
   const d = Math.max(0, Math.min(1, Math.abs(frac2 - 0.5) * 2.0));
   const alpha = alpha_min + (alpha_max - alpha_min) * (d ** alpha_curve_pow);
 
-  return fantasy_blend_rgba_on_rgb(`rgba(210,35,35,${alpha.toFixed(3)})`);
+  const rgb = use_gold ? [184, 134, 11] : [210, 35, 35];
+  return fantasy_blend_rgba_on_rgb(`rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha.toFixed(3)})`);
 }
 /* ################# */
 function fantasy_gradient_bad_only_stats(frac) {
@@ -7996,9 +8268,22 @@ function fantasy_is_deep_gradient_color(style_str) {
   return r <= 220 ? false : false;
 }
 /* ################# */
+// function fantasy_is_deep_blue_or_red(style_str) {
+//   const m = String(style_str || '').match(/background:\s*rgb\((\d+),(\d+),(\d+)\)/i);
+//   if (!m) return { deep_blue: false, deep_red: false };
+
+//   const r = Number(m[1]);
+//   const g = Number(m[2]);
+//   const b = Number(m[3]);
+
+//   const deep_blue = (b - r >= 30) && (b - g >= 18) && b <= 170;
+//   const deep_red = (r - g >= 30) && (r - b >= 18) && r >= 185;
+
+//   return { deep_blue, deep_red };
+// }
 function fantasy_is_deep_blue_or_red(style_str) {
   const m = String(style_str || '').match(/background:\s*rgb\((\d+),(\d+),(\d+)\)/i);
-  if (!m) return { deep_blue: false, deep_red: false };
+  if (!m) return { deep_blue: false, deep_red: false, deep_gold: false };
 
   const r = Number(m[1]);
   const g = Number(m[2]);
@@ -8006,15 +8291,30 @@ function fantasy_is_deep_blue_or_red(style_str) {
 
   const deep_blue = (b - r >= 30) && (b - g >= 18) && b <= 170;
   const deep_red = (r - g >= 30) && (r - b >= 18) && r >= 185;
+  const deep_gold = r >= 140 && g >= 100 && b <= 90;
 
-  return { deep_blue, deep_red };
+  return { deep_blue, deep_red, deep_gold };
 }
 /* ################# */
+// function fantasy_should_use_white_text(row, col, gradient_style) {
+//   if (!gradient_style) return false;
+
+//   const { deep_blue, deep_red } = fantasy_is_deep_blue_or_red(gradient_style);
+
+//   if (!deep_blue && !deep_red) return false;
+
+//   if (document.body.classList.contains('soft_theme')) {
+//     return deep_blue;
+//   }
+
+//   return !fantasy_sample_is_reduced(row);
+// }
 function fantasy_should_use_white_text(row, col, gradient_style) {
   if (!gradient_style) return false;
 
-  const { deep_blue, deep_red } = fantasy_is_deep_blue_or_red(gradient_style);
+  const { deep_blue, deep_red, deep_gold } = fantasy_is_deep_blue_or_red(gradient_style);
 
+  if (deep_gold) return true;
   if (!deep_blue && !deep_red) return false;
 
   if (document.body.classList.contains('soft_theme')) {
@@ -8054,7 +8354,18 @@ function fantasy_gradient_style(row, col, value) {
   const num_value = Number(value);
   if (Number.isNaN(num_value)) return '';
 
-  if (spec.mode === 'good_only') {
+  // if (spec.mode === 'good_only') {
+  //   const start = Number(spec.start);
+  //   const end = Number(spec.end);
+
+  //   if (Number.isNaN(start) || Number.isNaN(end)) return '';
+  //   if (num_value < start) return '';
+
+  //   const frac = end === start ? 1.0 : (num_value - start) / (end - start);
+  //   const bg = fantasy_gradient_good_only_stats(Math.max(0, Math.min(1, frac)));
+  //   return bg ? `background:${bg};` : '';
+  // }
+    if (spec.mode === 'good_only') {
     const start = Number(spec.start);
     const end = Number(spec.end);
 
@@ -8062,7 +8373,8 @@ function fantasy_gradient_style(row, col, value) {
     if (num_value < start) return '';
 
     const frac = end === start ? 1.0 : (num_value - start) / (end - start);
-    const bg = fantasy_gradient_good_only_stats(Math.max(0, Math.min(1, frac)));
+    const use_gold = fantasy_use_gold_for_value(num_value, spec);
+    const bg = fantasy_gradient_good_only_stats(Math.max(0, Math.min(1, frac)), use_gold);
     return bg ? `background:${bg};` : '';
   }
 
@@ -8104,7 +8416,9 @@ function fantasy_gradient_style(row, col, value) {
   }
 
   const frac = fantasy_graph_bar_fill(num_value, spec);
-  const bg = fantasy_blend_rgba_on_rgb(fantasy_standard_stats_gradient(frac));
+  // const bg = fantasy_blend_rgba_on_rgb(fantasy_standard_stats_gradient(frac));
+  const use_gold = fantasy_use_gold_for_value(num_value, spec);
+  const bg = fantasy_blend_rgba_on_rgb(fantasy_standard_stats_gradient(frac, use_gold));
   if (!bg) return '';
 
   let text_shadow = '';
