@@ -667,6 +667,15 @@ html {
   color: var(--text);
 }
 
+#matchups .matchups_player_link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+#matchups .matchups_player_link:hover {
+  color: inherit;
+}
+
 .matchup_table td.cell_dash {
   color: var(--muted);
   text-align: center;

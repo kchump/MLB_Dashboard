@@ -13,6 +13,7 @@
     "majors|hitters|90ft": {
       "best": 3.7,
       "fmt": "num",
+      "gold": 3.6,
       "higher_is_better": false,
       "neutral_hi": 3.95,
       "neutral_lo": 4.05,
@@ -20,6 +21,7 @@
     },
     "majors|hitters|AVG": {
       "best": 0.32,
+      "gold": 0.34,
       "neutral_hi": 0.27,
       "neutral_lo": 0.25,
       "worst": 0.2
@@ -27,6 +29,7 @@
     "majors|hitters|All": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -34,6 +37,7 @@
     "majors|hitters|Arm INF": {
       "best": 92,
       "fmt": "num",
+      "gold": 94,
       "neutral_hi": 85,
       "neutral_lo": 84,
       "worst": 77
@@ -41,6 +45,7 @@
     "majors|hitters|Arm OF": {
       "best": 93,
       "fmt": "num",
+      "gold": 95,
       "neutral_hi": 90,
       "neutral_lo": 89,
       "worst": 85
@@ -48,6 +53,7 @@
     "majors|hitters|Arm Runs": {
       "best": 8,
       "fmt": "num",
+      "gold": 10,
       "neutral_hi": 1,
       "neutral_lo": -1,
       "worst": -8
@@ -60,13 +66,15 @@
     "majors|hitters|BB%": {
       "best": 0.18,
       "fmt": "pct",
+      "gold": 0.2,
       "neutral_hi": 0.1,
       "neutral_lo": 0.09,
       "worst": 0.03
     },
     "majors|hitters|Bad": {
-      "best": 55,
+      "best": 50,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 32,
       "neutral_lo": 30,
       "worst": 10
@@ -74,6 +82,7 @@
     "majors|hitters|Bar/PA": {
       "best": 0.15,
       "fmt": "pct",
+      "gold": 0.17,
       "neutral_hi": 0.08,
       "neutral_lo": 0.07,
       "worst": 0
@@ -81,13 +90,15 @@
     "majors|hitters|Baserunning": {
       "best": 10,
       "fmt": "num",
+      "gold": 15,
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
     },
     "majors|hitters|Blast%": {
-      "best": 0.27,
+      "best": 0.26,
       "fmt": "pct",
+      "gold": 0.28,
       "neutral_hi": 0.19,
       "neutral_lo": 0.18,
       "worst": 0.1
@@ -95,6 +106,7 @@
     "majors|hitters|Blocking Runs": {
       "best": 10,
       "fmt": "num",
+      "gold": 20,
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
@@ -102,6 +114,7 @@
     "majors|hitters|Blocks Above Avg": {
       "best": 15,
       "fmt": "num",
+      "gold": 20,
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -15
@@ -109,6 +122,7 @@
     "majors|hitters|CB": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -116,6 +130,7 @@
     "majors|hitters|CB L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -123,6 +138,7 @@
     "majors|hitters|CB R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -130,6 +146,7 @@
     "majors|hitters|CH": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -137,6 +154,7 @@
     "majors|hitters|CH L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -144,6 +162,7 @@
     "majors|hitters|CH R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -151,6 +170,7 @@
     "majors|hitters|CT": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -158,6 +178,7 @@
     "majors|hitters|CT L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -165,6 +186,7 @@
     "majors|hitters|CT R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -172,6 +194,7 @@
     "majors|hitters|Catcher Arm Strength": {
       "best": 83,
       "fmt": "num",
+      "gold": 85,
       "neutral_hi": 80,
       "neutral_lo": 79,
       "worst": 76
@@ -179,6 +202,7 @@
     "majors|hitters|Caught Stealing Above Avg": {
       "best": 10,
       "fmt": "num",
+      "gold": 12,
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
@@ -186,6 +210,7 @@
     "majors|hitters|Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -193,6 +218,7 @@
     "majors|hitters|Disc": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -200,6 +226,7 @@
     "majors|hitters|FB": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -207,6 +234,7 @@
     "majors|hitters|FB L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -214,6 +242,7 @@
     "majors|hitters|FB R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -221,13 +250,15 @@
     "majors|hitters|Framing Runs": {
       "best": 15,
       "fmt": "num",
+      "gold": 20,
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -15
     },
     "majors|hitters|Good": {
-      "best": 0,
+      "best": -10,
       "fmt": "num",
+      "gold": -5,
       "neutral_hi": -28,
       "neutral_lo": -30,
       "worst": -55
@@ -245,6 +276,7 @@
     "majors|hitters|ICR/PA": {
       "best": 0.4,
       "fmt": "pct",
+      "gold": 0.42,
       "neutral_hi": 0.32,
       "neutral_lo": 0.31,
       "worst": 0.2
@@ -252,6 +284,7 @@
     "majors|hitters|K%": {
       "best": 0.1,
       "fmt": "pct",
+      "gold": 0.75,
       "higher_is_better": false,
       "neutral_hi": 0.22,
       "neutral_lo": 0.23,
@@ -260,6 +293,7 @@
     "majors|hitters|L CB": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -267,6 +301,7 @@
     "majors|hitters|L CH": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -274,6 +309,7 @@
     "majors|hitters|L CT": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -281,6 +317,7 @@
     "majors|hitters|L Eye": {
       "best": 0.82,
       "fmt": "pct",
+      "gold": 0.85,
       "neutral_hi": 0.73,
       "neutral_lo": 0.72,
       "worst": 0.6
@@ -288,6 +325,7 @@
     "majors|hitters|L FB": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -295,6 +333,7 @@
     "majors|hitters|L Hit": {
       "best": 2.3,
       "fmt": "num",
+      "gold": 2.5,
       "neutral_hi": 1.5,
       "neutral_lo": 1.4,
       "worst": 0.05
@@ -302,6 +341,7 @@
     "majors|hitters|L Pwr": {
       "best": 3.0,
       "fmt": "num",
+      "gold": 3.5,
       "neutral_hi": 1.7,
       "neutral_lo": 1.4,
       "worst": 0.05
@@ -309,6 +349,7 @@
     "majors|hitters|L SI": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -316,6 +357,7 @@
     "majors|hitters|L SL": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -323,6 +365,7 @@
     "majors|hitters|L SP": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -330,6 +373,7 @@
     "majors|hitters|L SW": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -337,6 +381,7 @@
     "majors|hitters|L swCon": {
       "best": 0.65,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.54,
       "neutral_lo": 0.53,
       "worst": 0.45
@@ -344,6 +389,7 @@
     "majors|hitters|L swDisc": {
       "best": 0.35,
       "fmt": "pct",
+      "gold": 0.33,
       "higher_is_better": false,
       "neutral_hi": 0.48,
       "neutral_lo": 0.49,
@@ -352,6 +398,7 @@
     "majors|hitters|L ≥75": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.21,
       "neutral_lo": 0.2,
       "worst": 0.05
@@ -359,18 +406,21 @@
     "majors|hitters|LHP": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
     "majors|hitters|OBP": {
       "best": 0.4,
+      "gold": 0.42,
       "neutral_hi": 0.35,
       "neutral_lo": 0.33,
       "worst": 0.28
     },
     "majors|hitters|OPS": {
       "best": 0.98,
+      "gold": 1.03,
       "neutral_hi": 0.77,
       "neutral_lo": 0.73,
       "worst": 0.6
@@ -378,6 +428,7 @@
     "majors|hitters|Outfield Jump": {
       "best": 4,
       "fmt": "num",
+      "gold": 5,
       "neutral_hi": 1,
       "neutral_lo": -1,
       "worst": -4
@@ -385,6 +436,7 @@
     "majors|hitters|Outs Above Average": {
       "best": 15,
       "fmt": "num",
+      "gold": 20,
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
@@ -404,12 +456,13 @@
       "worst": 3
     },
     "majors|hitters|Pop Time": {
-      "best": 1.85,
+      "best": 1.92,
       "fmt": "num",
+      "gold": 1.88,
       "higher_is_better": false,
-      "neutral_hi": 1.95,
+      "neutral_hi": 1.98,
       "neutral_lo": 2.0,
-      "worst": 2.1
+      "worst": 2.08
     },
     "majors|hitters|Pts": {
       "best": 900,
@@ -421,13 +474,15 @@
     "majors|hitters|Pts +/-": {
       "best": 0.3,
       "fmt": "pct",
+      "gold": 0.4,
       "neutral_hi": 0.1,
       "neutral_lo": 0.05,
       "worst": -0.2
     },
     "majors|hitters|Pwr/PA": {
-      "best": 0.32,
+      "best": 0.3,
       "fmt": "pct",
+      "gold": 0.32,
       "neutral_hi": 0.21,
       "neutral_lo": 0.2,
       "worst": 0.12
@@ -440,6 +495,7 @@
     "majors|hitters|R CB": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -447,6 +503,7 @@
     "majors|hitters|R CH": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -454,6 +511,7 @@
     "majors|hitters|R CT": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -461,6 +519,7 @@
     "majors|hitters|R Eye": {
       "best": 0.82,
       "fmt": "pct",
+      "gold": 0.85,
       "neutral_hi": 0.73,
       "neutral_lo": 0.72,
       "worst": 0.6
@@ -468,6 +527,7 @@
     "majors|hitters|R FB": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -475,6 +535,7 @@
     "majors|hitters|R Hit": {
       "best": 2.3,
       "fmt": "num",
+      "gold": 2.5,
       "neutral_hi": 1.5,
       "neutral_lo": 1.4,
       "worst": 0.5
@@ -482,6 +543,7 @@
     "majors|hitters|R Pwr": {
       "best": 3.0,
       "fmt": "num",
+      "gold": 3.5,
       "neutral_hi": 1.7,
       "neutral_lo": 1.4,
       "worst": 0.05
@@ -489,6 +551,7 @@
     "majors|hitters|R SI": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -496,6 +559,7 @@
     "majors|hitters|R SL": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -503,6 +567,7 @@
     "majors|hitters|R SP": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -510,6 +575,7 @@
     "majors|hitters|R SW": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -517,6 +583,7 @@
     "majors|hitters|R swCon": {
       "best": 0.65,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.54,
       "neutral_lo": 0.53,
       "worst": 0.45
@@ -524,6 +591,7 @@
     "majors|hitters|R swDisc": {
       "best": 0.35,
       "fmt": "pct",
+      "gold": 0.33,
       "higher_is_better": false,
       "neutral_hi": 0.48,
       "neutral_lo": 0.49,
@@ -532,6 +600,7 @@
     "majors|hitters|R ≥75": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.21,
       "neutral_lo": 0.2,
       "worst": 0.05
@@ -544,6 +613,7 @@
     "majors|hitters|RHP": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -551,6 +621,7 @@
     "majors|hitters|Range Runs": {
       "best": 15,
       "fmt": "num",
+      "gold": 20,
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
@@ -558,6 +629,7 @@
     "majors|hitters|S All": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -565,6 +637,7 @@
     "majors|hitters|S Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -572,6 +645,7 @@
     "majors|hitters|S Disc": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -579,6 +653,7 @@
     "majors|hitters|S L Eye": {
       "best": 0.82,
       "fmt": "pct",
+      "gold": 0.85,
       "neutral_hi": 0.73,
       "neutral_lo": 0.72,
       "worst": 0.6
@@ -586,6 +661,7 @@
     "majors|hitters|S OPS": {
       "best": 0.98,
       "fmt": "avg",
+      "gold": 1.03,
       "neutral_hi": 0.77,
       "neutral_lo": 0.73,
       "worst": 0.6
@@ -600,6 +676,7 @@
     "majors|hitters|S Pts +/-": {
       "best": 0.3,
       "fmt": "pct",
+      "gold": 0.4,
       "neutral_hi": 0.1,
       "neutral_lo": 0.05,
       "worst": -0.2
@@ -607,6 +684,7 @@
     "majors|hitters|S R Eye": {
       "best": 0.82,
       "fmt": "pct",
+      "gold": 0.85,
       "neutral_hi": 0.73,
       "neutral_lo": 0.72,
       "worst": 0.6
@@ -614,6 +692,7 @@
     "majors|hitters|S Score": {
       "best": 100,
       "fmt": "num",
+      "gold": 175,
       "neutral_hi": 10,
       "neutral_lo": 0,
       "worst": -100
@@ -633,6 +712,7 @@
     "majors|hitters|SI": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -640,6 +720,7 @@
     "majors|hitters|SI L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -647,6 +728,7 @@
     "majors|hitters|SI R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -654,6 +736,7 @@
     "majors|hitters|SL": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -661,6 +744,7 @@
     "majors|hitters|SL L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -668,12 +752,14 @@
     "majors|hitters|SL R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
     },
     "majors|hitters|SLG": {
       "best": 0.58,
+      "gold": 0.63,
       "neutral_hi": 0.45,
       "neutral_lo": 0.43,
       "worst": 0.35
@@ -686,6 +772,7 @@
     "majors|hitters|SP": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -693,6 +780,7 @@
     "majors|hitters|SP L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -700,6 +788,7 @@
     "majors|hitters|SP R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -707,6 +796,7 @@
     "majors|hitters|SW": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -714,6 +804,7 @@
     "majors|hitters|SW L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -721,6 +812,7 @@
     "majors|hitters|SW R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -728,6 +820,7 @@
     "majors|hitters|Score": {
       "best": 100,
       "fmt": "num",
+      "gold": 200,
       "neutral_hi": 10,
       "neutral_lo": 0,
       "worst": -100
@@ -735,6 +828,7 @@
     "majors|hitters|Sprint Speed": {
       "best": 30,
       "fmt": "num",
+      "gold": 32,
       "neutral_hi": 27.5,
       "neutral_lo": 26.5,
       "worst": 24
@@ -742,6 +836,7 @@
     "majors|hitters|Square%": {
       "best": 0.52,
       "fmt": "pct",
+      "gold": 0.6,
       "neutral_hi": 0.44,
       "neutral_lo": 0.43,
       "worst": 0.35
@@ -749,6 +844,7 @@
     "majors|hitters|SwSp%": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.53,
       "neutral_hi": 0.41,
       "neutral_lo": 0.4,
       "worst": 0.3
@@ -756,6 +852,7 @@
     "majors|hitters|Throwing Runs": {
       "best": 10,
       "fmt": "num",
+      "gold": 12,
       "neutral_hi": 1,
       "neutral_lo": -1,
       "worst": -10
@@ -763,6 +860,7 @@
     "majors|hitters|Total Runs": {
       "best": 15,
       "fmt": "num",
+      "gold": 20,
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
@@ -777,14 +875,16 @@
     "majors|hitters|Whiff%": {
       "best": 0.15,
       "fmt": "pct",
+      "gold": 0.1,
       "higher_is_better": false,
       "neutral_hi": 0.25,
       "neutral_lo": 0.26,
       "worst": 0.4
     },
     "majors|hitters|Wk/PA": {
-      "best": 0.15,
+      "best": 0.18,
       "fmt": "pct",
+      "gold": 0.15,
       "higher_is_better": false,
       "neutral_hi": 0.24,
       "neutral_lo": 0.25,
@@ -793,6 +893,7 @@
     "majors|hitters|rAll": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -805,8 +906,9 @@
       "worst": -300
     },
     "majors|hitters|xOPS": {
-      "best": 1.0,
+      "best": 0.98,
       "fmt": "avg",
+      "gold": 1.03,
       "neutral_hi": 0.77,
       "neutral_lo": 0.73,
       "worst": 0.6
@@ -814,6 +916,7 @@
     "majors|hitters|≥100": {
       "best": 0.4,
       "fmt": "pct",
+      "gold": 0.43,
       "neutral_hi": 0.25,
       "neutral_lo": 0.24,
       "worst": 0.12
@@ -821,6 +924,7 @@
     "majors|rp|All": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -831,8 +935,9 @@
       "start": 40
     },
     "majors|rp|BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -844,15 +949,17 @@
       "start": 3
     },
     "majors|rp|Bad": {
-      "best": -20,
+      "best": -25,
       "fmt": "num",
+      "gold": -20,
       "neutral_hi": -38,
       "neutral_lo": -40,
       "worst": -60
     },
     "majors|rp|Bar/PA": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.075,
       "neutral_lo": 0.085,
@@ -861,6 +968,7 @@
     "majors|rp|CB L": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -868,6 +976,7 @@
     "majors|rp|CB R": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -875,6 +984,7 @@
     "majors|rp|CB Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -882,6 +992,7 @@
     "majors|rp|CH L": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -889,6 +1000,7 @@
     "majors|rp|CH R": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -896,6 +1008,7 @@
     "majors|rp|CH Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -903,6 +1016,7 @@
     "majors|rp|CSW%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.35,
       "neutral_hi": 0.29,
       "neutral_lo": 0.28,
       "worst": 0.23
@@ -910,6 +1024,7 @@
     "majors|rp|CT L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -917,6 +1032,7 @@
     "majors|rp|CT R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -924,6 +1040,7 @@
     "majors|rp|CT Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -931,6 +1048,7 @@
     "majors|rp|Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -938,6 +1056,7 @@
     "majors|rp|Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -945,20 +1064,23 @@
     "majors|rp|Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
     },
     "majors|rp|ERA": {
       "best": 2.5,
+      "gold": 2.2,
       "higher_is_better": false,
-      "neutral_hi": 3.7,
+      "neutral_hi": 3.5,
       "neutral_lo": 4.0,
       "worst": 6.0
     },
     "majors|rp|FB L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -966,6 +1088,7 @@
     "majors|rp|FB R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -973,6 +1096,7 @@
     "majors|rp|FB Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -980,6 +1104,7 @@
     "majors|rp|Good": {
       "best": 65,
       "fmt": "num",
+      "gold": 75,
       "neutral_hi": 41,
       "neutral_lo": 39,
       "worst": -20
@@ -987,6 +1112,7 @@
     "majors|rp|ICR/PA": {
       "best": 0.24,
       "fmt": "pct",
+      "gold": 0.22,
       "higher_is_better": false,
       "neutral_hi": 0.32,
       "neutral_lo": 0.33,
@@ -1005,6 +1131,7 @@
     "majors|rp|K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
@@ -1019,6 +1146,7 @@
     "majors|rp|KN Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1031,6 +1159,7 @@
     "majors|rp|L CB": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1038,6 +1167,7 @@
     "majors|rp|L CH": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1045,6 +1175,7 @@
     "majors|rp|L CT": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -1052,6 +1183,7 @@
     "majors|rp|L FB": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -1059,6 +1191,7 @@
     "majors|rp|L SI": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -1066,6 +1199,7 @@
     "majors|rp|L SL": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 20,
       "neutral_lo": 0,
       "worst": -50
@@ -1073,6 +1207,7 @@
     "majors|rp|L SP": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -40
@@ -1080,6 +1215,7 @@
     "majors|rp|L SW": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1087,6 +1223,7 @@
     "majors|rp|LCon": {
       "best": 3,
       "fmt": "num",
+      "gold": 5,
       "neutral_hi": -5,
       "neutral_lo": -6,
       "worst": -14
@@ -1094,6 +1231,7 @@
     "majors|rp|LDisc": {
       "best": 60,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 38,
       "neutral_lo": 37,
       "worst": 20
@@ -1101,6 +1239,7 @@
     "majors|rp|LHB": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -1108,6 +1247,7 @@
     "majors|rp|Net Bases Prevented": {
       "best": 10,
       "fmt": "num",
+      "gold": 0.12,
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
@@ -1115,6 +1255,7 @@
     "majors|rp|P/IP": {
       "best": 14.7,
       "fmt": "num",
+      "gold": 14,
       "higher_is_better": false,
       "neutral_hi": 16.3,
       "neutral_lo": 16.4,
@@ -1123,6 +1264,7 @@
     "majors|rp|PPG": {
       "best": 25,
       "fmt": "num",
+      "gold": 27,
       "neutral_hi": 17,
       "neutral_lo": 15,
       "worst": 10
@@ -1130,6 +1272,7 @@
     "majors|rp|Pts": {
       "best": 700,
       "fmt": "int",
+      "gold": 800,
       "neutral_hi": 400,
       "neutral_lo": 0,
       "worst": -20
@@ -1137,6 +1280,7 @@
     "majors|rp|Pwr/PA": {
       "best": 0.16,
       "fmt": "pct",
+      "gold": 0.13,
       "higher_is_better": false,
       "neutral_hi": 0.22,
       "neutral_lo": 0.23,
@@ -1150,6 +1294,7 @@
     "majors|rp|R CB": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1157,6 +1302,7 @@
     "majors|rp|R CH": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1164,6 +1310,7 @@
     "majors|rp|R CT": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -1171,6 +1318,7 @@
     "majors|rp|R FB": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -1178,6 +1326,7 @@
     "majors|rp|R SI": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -1185,6 +1334,7 @@
     "majors|rp|R SL": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 20,
       "neutral_lo": 0,
       "worst": -50
@@ -1192,6 +1342,7 @@
     "majors|rp|R SP": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -40
@@ -1199,6 +1350,7 @@
     "majors|rp|R SW": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1206,6 +1358,7 @@
     "majors|rp|RHB": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -1213,6 +1366,7 @@
     "majors|rp|Rarity": {
       "best": 3,
       "fmt": "num",
+      "gold": 5,
       "neutral_hi": 1.8,
       "neutral_lo": 0,
       "worst": 0
@@ -1220,6 +1374,7 @@
     "majors|rp|S All": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -1227,6 +1382,7 @@
     "majors|rp|S Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -1234,6 +1390,7 @@
     "majors|rp|S Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -1241,6 +1398,7 @@
     "majors|rp|S Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
@@ -1248,14 +1406,16 @@
     "majors|rp|S ERA": {
       "best": 2.5,
       "fmt": "num",
+      "gold": 2.2,
       "higher_is_better": false,
-      "neutral_hi": 3.7,
+      "neutral_hi": 3.5,
       "neutral_lo": 4,
       "worst": 5.5
     },
     "majors|rp|S LCon": {
       "best": 3,
       "fmt": "num",
+      "gold": 5,
       "neutral_hi": -5,
       "neutral_lo": -6,
       "worst": -14
@@ -1263,6 +1423,7 @@
     "majors|rp|S LDisc": {
       "best": 60,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 38,
       "neutral_lo": 37,
       "worst": 20
@@ -1270,6 +1431,7 @@
     "majors|rp|S PPG": {
       "best": 25,
       "fmt": "num",
+      "gold": 27,
       "neutral_hi": 17,
       "neutral_lo": 15,
       "worst": 10
@@ -1277,6 +1439,7 @@
     "majors|rp|S Score": {
       "best": 100,
       "fmt": "num",
+      "gold": 175,
       "neutral_hi": 10,
       "neutral_lo": 0,
       "worst": -100
@@ -1284,6 +1447,7 @@
     "majors|rp|S Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1291,6 +1455,7 @@
     "majors|rp|S Val": {
       "best": 500,
       "fmt": "num",
+      "gold": 800,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
@@ -1298,6 +1463,7 @@
     "majors|rp|S WHIP": {
       "best": 1.0,
       "fmt": "num",
+      "gold": 0.95,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -1306,14 +1472,16 @@
     "majors|rp|S pERA": {
       "best": 2.5,
       "fmt": "num",
+      "gold": 2.2,
       "higher_is_better": false,
-      "neutral_hi": 3.7,
+      "neutral_hi": 3.5,
       "neutral_lo": 4,
       "worst": 5.5
     },
     "majors|rp|SI L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -1321,6 +1489,7 @@
     "majors|rp|SI R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -1328,6 +1497,7 @@
     "majors|rp|SI Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1335,6 +1505,7 @@
     "majors|rp|SL L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 20,
       "neutral_lo": 0,
       "worst": -50
@@ -1342,6 +1513,7 @@
     "majors|rp|SL R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 20,
       "neutral_lo": 0,
       "worst": -50
@@ -1349,6 +1521,7 @@
     "majors|rp|SL Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1356,6 +1529,7 @@
     "majors|rp|SP L": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -40
@@ -1363,6 +1537,7 @@
     "majors|rp|SP R": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -40
@@ -1370,6 +1545,7 @@
     "majors|rp|SP Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1377,6 +1553,7 @@
     "majors|rp|SW L": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1384,6 +1561,7 @@
     "majors|rp|SW R": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1391,6 +1569,7 @@
     "majors|rp|SW Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1398,13 +1577,15 @@
     "majors|rp|Score": {
       "best": 100,
       "fmt": "num",
+      "gold": 175,
       "neutral_hi": 10,
       "neutral_lo": 0,
       "worst": -100
     },
     "majors|rp|Square%": {
-      "best": 0.24,
+      "best": 0.26,
       "fmt": "pct",
+      "gold": 0.24,
       "higher_is_better": false,
       "neutral_hi": 0.32,
       "neutral_lo": 0.33,
@@ -1413,6 +1594,7 @@
     "majors|rp|Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1420,21 +1602,24 @@
     "majors|rp|Strike%": {
       "best": 0.72,
       "fmt": "pct",
+      "gold": 0.74,
       "neutral_hi": 0.64,
       "neutral_lo": 0.63,
       "worst": 0.58
     },
     "majors|rp|SwSp%": {
-      "best": 0.32,
+      "best": 0.35,
       "fmt": "pct",
+      "gold": 0.33,
       "higher_is_better": false,
       "neutral_hi": 0.41,
       "neutral_lo": 0.42,
-      "worst": 0.5
+      "worst": 0.48
     },
     "majors|rp|SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -1442,6 +1627,7 @@
     "majors|rp|Val": {
       "best": 500,
       "fmt": "num",
+      "gold": 800,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
@@ -1449,6 +1635,7 @@
     "majors|rp|Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
@@ -1460,6 +1647,7 @@
     },
     "majors|rp|WHIP": {
       "best": 1.0,
+      "gold": 0.95,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -1468,6 +1656,7 @@
     "majors|rp|Wk/PA": {
       "best": 0.36,
       "fmt": "pct",
+      "gold": 0.4,
       "neutral_hi": 0.28,
       "neutral_lo": 0.27,
       "worst": 0.2
@@ -1475,22 +1664,25 @@
     "majors|rp|pERA": {
       "best": 2.5,
       "fmt": "num",
+      "gold": 2.2,
       "higher_is_better": false,
-      "neutral_hi": 3.7,
+      "neutral_hi": 3.5,
       "neutral_lo": 4.0,
       "worst": 5.5
     },
     "majors|rp|qCon Bad%": {
       "best": 0.35,
       "fmt": "pct",
+      "gold": 0.32,
       "higher_is_better": false,
       "neutral_hi": 0.44,
       "neutral_lo": 0.45,
       "worst": 0.55
     },
     "majors|rp|qDisc Bad%": {
-      "best": 0.21,
+      "best": 0.23,
       "fmt": "pct",
+      "gold": 0.2,
       "higher_is_better": false,
       "neutral_hi": 0.3,
       "neutral_lo": 0.31,
@@ -1499,6 +1691,7 @@
     "majors|rp|rAll": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -1506,20 +1699,23 @@
     "majors|rp|vSzn": {
       "best": 500,
       "fmt": "num",
+      "gold": 800,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
     },
     "majors|rp|≥100": {
-      "best": 0.2,
+      "best": 0.23,
       "fmt": "pct",
+      "gold": 0.21,
       "higher_is_better": false,
       "neutral_hi": 0.29,
       "neutral_lo": 0.3,
-      "worst": 0.4
+      "worst": 0.36
     },
     "majors|rp|≥50 Qual": {
       "best": 5,
+      "gold": 6,
       "neutral_hi": 2,
       "neutral_lo": 2,
       "worst": 0
@@ -1527,6 +1723,7 @@
     "majors|sp|All": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -1537,8 +1734,9 @@
       "start": 70
     },
     "majors|sp|BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -1550,15 +1748,17 @@
       "start": 3
     },
     "majors|sp|Bad": {
-      "best": -20,
+      "best": -25,
       "fmt": "num",
+      "gold": -20,
       "neutral_hi": -38,
       "neutral_lo": -40,
       "worst": -60
     },
     "majors|sp|Bar/PA": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.075,
       "neutral_lo": 0.085,
@@ -1567,6 +1767,7 @@
     "majors|sp|CB L": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1574,6 +1775,7 @@
     "majors|sp|CB R": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1581,6 +1783,7 @@
     "majors|sp|CB Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1588,6 +1791,7 @@
     "majors|sp|CH L": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1595,6 +1799,7 @@
     "majors|sp|CH R": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1602,6 +1807,7 @@
     "majors|sp|CH Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1609,6 +1815,7 @@
     "majors|sp|CSW%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.35,
       "neutral_hi": 0.29,
       "neutral_lo": 0.28,
       "worst": 0.23
@@ -1616,6 +1823,7 @@
     "majors|sp|CT L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -1623,6 +1831,7 @@
     "majors|sp|CT R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -1630,6 +1839,7 @@
     "majors|sp|CT Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1637,6 +1847,7 @@
     "majors|sp|Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -1644,6 +1855,7 @@
     "majors|sp|Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -1651,20 +1863,23 @@
     "majors|sp|Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
     },
     "majors|sp|ERA": {
       "best": 2.5,
+      "gold": 2.2,
       "higher_is_better": false,
-      "neutral_hi": 3.7,
+      "neutral_hi": 3.5,
       "neutral_lo": 4.0,
       "worst": 6.0
     },
     "majors|sp|FB L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -1672,6 +1887,7 @@
     "majors|sp|FB R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -1679,6 +1895,7 @@
     "majors|sp|FB Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1686,6 +1903,7 @@
     "majors|sp|Good": {
       "best": 65,
       "fmt": "num",
+      "gold": 75,
       "neutral_hi": 41,
       "neutral_lo": 39,
       "worst": -20
@@ -1693,6 +1911,7 @@
     "majors|sp|ICR/PA": {
       "best": 0.24,
       "fmt": "pct",
+      "gold": 0.22,
       "higher_is_better": false,
       "neutral_hi": 0.32,
       "neutral_lo": 0.33,
@@ -1711,6 +1930,7 @@
     "majors|sp|K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
@@ -1725,6 +1945,7 @@
     "majors|sp|KN Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1737,6 +1958,7 @@
     "majors|sp|L CB": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1744,6 +1966,7 @@
     "majors|sp|L CH": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1751,6 +1974,7 @@
     "majors|sp|L CT": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -1758,6 +1982,7 @@
     "majors|sp|L FB": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -1765,6 +1990,7 @@
     "majors|sp|L SI": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -1772,6 +1998,7 @@
     "majors|sp|L SL": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 20,
       "neutral_lo": 0,
       "worst": -50
@@ -1779,6 +2006,7 @@
     "majors|sp|L SP": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -40
@@ -1786,6 +2014,7 @@
     "majors|sp|L SW": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1793,6 +2022,7 @@
     "majors|sp|LCon": {
       "best": 3,
       "fmt": "num",
+      "gold": 5,
       "neutral_hi": -5,
       "neutral_lo": -6,
       "worst": -14
@@ -1800,6 +2030,7 @@
     "majors|sp|LDisc": {
       "best": 60,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 38,
       "neutral_lo": 37,
       "worst": 20
@@ -1807,6 +2038,7 @@
     "majors|sp|LHB": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -1814,6 +2046,7 @@
     "majors|sp|Net Bases Prevented": {
       "best": 10,
       "fmt": "num",
+      "gold": 0.12,
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
@@ -1821,6 +2054,7 @@
     "majors|sp|P/IP": {
       "best": 14.7,
       "fmt": "num",
+      "gold": 14,
       "higher_is_better": false,
       "neutral_hi": 16.3,
       "neutral_lo": 16.4,
@@ -1829,6 +2063,7 @@
     "majors|sp|PPG": {
       "best": 25,
       "fmt": "num",
+      "gold": 27,
       "neutral_hi": 17,
       "neutral_lo": 15,
       "worst": 10
@@ -1836,6 +2071,7 @@
     "majors|sp|Pts": {
       "best": 700,
       "fmt": "int",
+      "gold": 800,
       "neutral_hi": 400,
       "neutral_lo": 0,
       "worst": -20
@@ -1843,6 +2079,7 @@
     "majors|sp|Pwr/PA": {
       "best": 0.16,
       "fmt": "pct",
+      "gold": 0.13,
       "higher_is_better": false,
       "neutral_hi": 0.22,
       "neutral_lo": 0.23,
@@ -1856,6 +2093,7 @@
     "majors|sp|R CB": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1863,6 +2101,7 @@
     "majors|sp|R CH": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1870,6 +2109,7 @@
     "majors|sp|R CT": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -50
@@ -1877,6 +2117,7 @@
     "majors|sp|R FB": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -1884,6 +2125,7 @@
     "majors|sp|R SI": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -1891,6 +2133,7 @@
     "majors|sp|R SL": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 20,
       "neutral_lo": 0,
       "worst": -50
@@ -1898,6 +2141,7 @@
     "majors|sp|R SP": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -40
@@ -1905,6 +2149,7 @@
     "majors|sp|R SW": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -1912,6 +2157,7 @@
     "majors|sp|RHB": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -1919,6 +2165,7 @@
     "majors|sp|Rarity": {
       "best": 3,
       "fmt": "num",
+      "gold": 5,
       "neutral_hi": 1.8,
       "neutral_lo": 0,
       "worst": 0
@@ -1926,6 +2173,7 @@
     "majors|sp|S All": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -1933,6 +2181,7 @@
     "majors|sp|S Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -1940,6 +2189,7 @@
     "majors|sp|S Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -1947,6 +2197,7 @@
     "majors|sp|S Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
@@ -1954,14 +2205,16 @@
     "majors|sp|S ERA": {
       "best": 2.5,
       "fmt": "num",
+      "gold": 2.2,
       "higher_is_better": false,
-      "neutral_hi": 3.7,
+      "neutral_hi": 3.5,
       "neutral_lo": 4,
       "worst": 5.5
     },
     "majors|sp|S LCon": {
       "best": 3,
       "fmt": "num",
+      "gold": 5,
       "neutral_hi": -5,
       "neutral_lo": -6,
       "worst": -14
@@ -1969,6 +2222,7 @@
     "majors|sp|S LDisc": {
       "best": 60,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 38,
       "neutral_lo": 37,
       "worst": 20
@@ -1976,6 +2230,7 @@
     "majors|sp|S PPG": {
       "best": 25,
       "fmt": "num",
+      "gold": 27,
       "neutral_hi": 17,
       "neutral_lo": 15,
       "worst": 10
@@ -1983,6 +2238,7 @@
     "majors|sp|S Score": {
       "best": 100,
       "fmt": "num",
+      "gold": 175,
       "neutral_hi": 10,
       "neutral_lo": 0,
       "worst": -100
@@ -1990,6 +2246,7 @@
     "majors|sp|S Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1997,6 +2254,7 @@
     "majors|sp|S Val": {
       "best": 500,
       "fmt": "num",
+      "gold": 800,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
@@ -2004,6 +2262,7 @@
     "majors|sp|S WHIP": {
       "best": 1.0,
       "fmt": "num",
+      "gold": 0.95,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -2012,14 +2271,16 @@
     "majors|sp|S pERA": {
       "best": 2.5,
       "fmt": "num",
+      "gold": 2.2,
       "higher_is_better": false,
-      "neutral_hi": 3.7,
+      "neutral_hi": 3.5,
       "neutral_lo": 4,
       "worst": 5.5
     },
     "majors|sp|SI L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -2027,6 +2288,7 @@
     "majors|sp|SI R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -70
@@ -2034,6 +2296,7 @@
     "majors|sp|SI Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2041,6 +2304,7 @@
     "majors|sp|SL L": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 20,
       "neutral_lo": 0,
       "worst": -50
@@ -2048,6 +2312,7 @@
     "majors|sp|SL R": {
       "best": 70,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 20,
       "neutral_lo": 0,
       "worst": -50
@@ -2055,6 +2320,7 @@
     "majors|sp|SL Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2062,6 +2328,7 @@
     "majors|sp|SP L": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -40
@@ -2069,6 +2336,7 @@
     "majors|sp|SP R": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -40
@@ -2076,6 +2344,7 @@
     "majors|sp|SP Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2083,6 +2352,7 @@
     "majors|sp|SW L": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -2090,6 +2360,7 @@
     "majors|sp|SW R": {
       "best": 85,
       "fmt": "num",
+      "gold": 120,
       "neutral_hi": 30,
       "neutral_lo": 0,
       "worst": -50
@@ -2097,6 +2368,7 @@
     "majors|sp|SW Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 60,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2104,13 +2376,15 @@
     "majors|sp|Score": {
       "best": 100,
       "fmt": "num",
+      "gold": 175,
       "neutral_hi": 10,
       "neutral_lo": 0,
       "worst": -100
     },
     "majors|sp|Square%": {
-      "best": 0.24,
+      "best": 0.26,
       "fmt": "pct",
+      "gold": 0.24,
       "higher_is_better": false,
       "neutral_hi": 0.32,
       "neutral_lo": 0.33,
@@ -2119,6 +2393,7 @@
     "majors|sp|Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2126,21 +2401,24 @@
     "majors|sp|Strike%": {
       "best": 0.72,
       "fmt": "pct",
+      "gold": 0.74,
       "neutral_hi": 0.64,
       "neutral_lo": 0.63,
       "worst": 0.58
     },
     "majors|sp|SwSp%": {
-      "best": 0.32,
+      "best": 0.35,
       "fmt": "pct",
+      "gold": 0.33,
       "higher_is_better": false,
       "neutral_hi": 0.41,
       "neutral_lo": 0.42,
-      "worst": 0.5
+      "worst": 0.48
     },
     "majors|sp|SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -2148,6 +2426,7 @@
     "majors|sp|Val": {
       "best": 500,
       "fmt": "num",
+      "gold": 800,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
@@ -2155,6 +2434,7 @@
     "majors|sp|Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
@@ -2166,6 +2446,7 @@
     },
     "majors|sp|WHIP": {
       "best": 1.0,
+      "gold": 0.95,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -2174,6 +2455,7 @@
     "majors|sp|Wk/PA": {
       "best": 0.36,
       "fmt": "pct",
+      "gold": 0.4,
       "neutral_hi": 0.28,
       "neutral_lo": 0.27,
       "worst": 0.2
@@ -2181,22 +2463,25 @@
     "majors|sp|pERA": {
       "best": 2.5,
       "fmt": "num",
+      "gold": 2.2,
       "higher_is_better": false,
-      "neutral_hi": 3.7,
+      "neutral_hi": 3.5,
       "neutral_lo": 4.0,
       "worst": 5.5
     },
     "majors|sp|qCon Bad%": {
       "best": 0.35,
       "fmt": "pct",
+      "gold": 0.32,
       "higher_is_better": false,
       "neutral_hi": 0.44,
       "neutral_lo": 0.45,
       "worst": 0.55
     },
     "majors|sp|qDisc Bad%": {
-      "best": 0.21,
+      "best": 0.23,
       "fmt": "pct",
+      "gold": 0.2,
       "higher_is_better": false,
       "neutral_hi": 0.3,
       "neutral_lo": 0.31,
@@ -2205,6 +2490,7 @@
     "majors|sp|rAll": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2212,26 +2498,30 @@
     "majors|sp|vSzn": {
       "best": 500,
       "fmt": "num",
+      "gold": 800,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
     },
     "majors|sp|≥100": {
-      "best": 0.2,
+      "best": 0.23,
       "fmt": "pct",
+      "gold": 0.21,
       "higher_is_better": false,
       "neutral_hi": 0.29,
       "neutral_lo": 0.3,
-      "worst": 0.4
+      "worst": 0.36
     },
     "majors|sp|≥50 Qual": {
       "best": 5,
+      "gold": 6,
       "neutral_hi": 2,
       "neutral_lo": 2,
       "worst": 0
     },
     "minors|hitters|AVG": {
       "best": 0.32,
+      "gold": 0.34,
       "neutral_hi": 0.27,
       "neutral_lo": 0.25,
       "worst": 0.2
@@ -2239,6 +2529,7 @@
     "minors|hitters|Minors Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2288,12 +2579,14 @@
     },
     "minors|hitters|OBP": {
       "best": 0.4,
+      "gold": 0.42,
       "neutral_hi": 0.35,
       "neutral_lo": 0.33,
       "worst": 0.28
     },
     "minors|hitters|OPS": {
       "best": 0.98,
+      "gold": 1.03,
       "neutral_hi": 0.77,
       "neutral_lo": 0.73,
       "worst": 0.6
@@ -2301,6 +2594,7 @@
     "minors|hitters|Prev Minors Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2350,6 +2644,7 @@
     },
     "minors|hitters|SLG": {
       "best": 0.58,
+      "gold": 0.63,
       "neutral_hi": 0.45,
       "neutral_lo": 0.43,
       "worst": 0.35
@@ -2371,13 +2666,15 @@
     "minors|rp|All": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
     "minors|rp|BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -2386,6 +2683,7 @@
     "minors|rp|Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2393,6 +2691,7 @@
     "minors|rp|Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -2400,27 +2699,31 @@
     "minors|rp|Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
     },
     "minors|rp|ERA": {
       "best": 2.5,
+      "gold": 2.2,
       "higher_is_better": false,
-      "neutral_hi": 3.7,
+      "neutral_hi": 3.5,
       "neutral_lo": 4.0,
       "worst": 6.0
     },
     "minors|rp|K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
     },
     "minors|rp|Minors BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -2429,6 +2732,7 @@
     "minors|rp|Minors Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2436,6 +2740,7 @@
     "minors|rp|Minors Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -2443,6 +2748,7 @@
     "minors|rp|Minors Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
@@ -2450,6 +2756,7 @@
     "minors|rp|Minors K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
@@ -2457,13 +2764,15 @@
     "minors|rp|Minors Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
     },
     "minors|rp|Minors SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -2471,13 +2780,15 @@
     "minors|rp|Minors Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
     },
     "minors|rp|Prev Minors BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -2486,6 +2797,7 @@
     "minors|rp|Prev Minors Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2493,6 +2805,7 @@
     "minors|rp|Prev Minors Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -2500,6 +2813,7 @@
     "minors|rp|Prev Minors Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
@@ -2507,6 +2821,7 @@
     "minors|rp|Prev Minors K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
@@ -2514,13 +2829,15 @@
     "minors|rp|Prev Minors Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
     },
     "minors|rp|Prev Minors SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -2528,6 +2845,7 @@
     "minors|rp|Prev Minors Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
@@ -2535,13 +2853,15 @@
     "minors|rp|Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
     },
     "minors|rp|SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -2549,12 +2869,14 @@
     "minors|rp|Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
     },
     "minors|rp|WHIP": {
       "best": 1.0,
+      "gold": 0.95,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -2563,6 +2885,7 @@
     "minors|rp|mAll": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2570,6 +2893,7 @@
     "minors|rp|mAll -1": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2577,13 +2901,15 @@
     "minors|sp|All": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
     "minors|sp|BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -2592,6 +2918,7 @@
     "minors|sp|Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2599,6 +2926,7 @@
     "minors|sp|Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -2606,27 +2934,31 @@
     "minors|sp|Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
     },
     "minors|sp|ERA": {
       "best": 2.5,
+      "gold": 2.2,
       "higher_is_better": false,
-      "neutral_hi": 3.7,
+      "neutral_hi": 3.5,
       "neutral_lo": 4.0,
       "worst": 6.0
     },
     "minors|sp|K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
     },
     "minors|sp|Minors BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -2635,6 +2967,7 @@
     "minors|sp|Minors Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2642,6 +2975,7 @@
     "minors|sp|Minors Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -2649,6 +2983,7 @@
     "minors|sp|Minors Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
@@ -2656,6 +2991,7 @@
     "minors|sp|Minors K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
@@ -2663,13 +2999,15 @@
     "minors|sp|Minors Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
     },
     "minors|sp|Minors SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -2677,13 +3015,15 @@
     "minors|sp|Minors Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
     },
     "minors|sp|Prev Minors BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -2692,6 +3032,7 @@
     "minors|sp|Prev Minors Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2699,6 +3040,7 @@
     "minors|sp|Prev Minors Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -2706,6 +3048,7 @@
     "minors|sp|Prev Minors Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
@@ -2713,6 +3056,7 @@
     "minors|sp|Prev Minors K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
@@ -2720,13 +3064,15 @@
     "minors|sp|Prev Minors Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
     },
     "minors|sp|Prev Minors SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -2734,6 +3080,7 @@
     "minors|sp|Prev Minors Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
@@ -2741,13 +3088,15 @@
     "minors|sp|Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
     },
     "minors|sp|SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -2755,12 +3104,14 @@
     "minors|sp|Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
     },
     "minors|sp|WHIP": {
       "best": 1.0,
+      "gold": 0.95,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -2769,6 +3120,7 @@
     "minors|sp|mAll": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2776,24 +3128,28 @@
     "minors|sp|mAll -1": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
     "playoffs|hitters|AVG": {
       "best": 0.32,
+      "gold": 0.34,
       "neutral_hi": 0.27,
       "neutral_lo": 0.25,
       "worst": 0.2
     },
     "playoffs|hitters|OBP": {
       "best": 0.4,
+      "gold": 0.42,
       "neutral_hi": 0.35,
       "neutral_lo": 0.33,
       "worst": 0.28
     },
     "playoffs|hitters|OPS": {
       "best": 0.98,
+      "gold": 1.03,
       "neutral_hi": 0.77,
       "neutral_lo": 0.73,
       "worst": 0.6
@@ -2801,6 +3157,7 @@
     "playoffs|hitters|Playoff Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2850,6 +3207,7 @@
     },
     "playoffs|hitters|SLG": {
       "best": 0.58,
+      "gold": 0.63,
       "neutral_hi": 0.45,
       "neutral_lo": 0.43,
       "worst": 0.35
@@ -2864,13 +3222,15 @@
     "playoffs|rp|All": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
     "playoffs|rp|BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -2879,6 +3239,7 @@
     "playoffs|rp|Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2886,6 +3247,7 @@
     "playoffs|rp|Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -2893,27 +3255,31 @@
     "playoffs|rp|Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
     },
     "playoffs|rp|ERA": {
       "best": 2.5,
+      "gold": 2.2,
       "higher_is_better": false,
-      "neutral_hi": 3.7,
+      "neutral_hi": 3.5,
       "neutral_lo": 4.0,
       "worst": 6.0
     },
     "playoffs|rp|K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
     },
     "playoffs|rp|Playoff BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -2922,6 +3288,7 @@
     "playoffs|rp|Playoff Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -2929,6 +3296,7 @@
     "playoffs|rp|Playoff Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -2936,6 +3304,7 @@
     "playoffs|rp|Playoff Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
@@ -2943,6 +3312,7 @@
     "playoffs|rp|Playoff K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
@@ -2950,13 +3320,15 @@
     "playoffs|rp|Playoff Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
     },
     "playoffs|rp|Playoff SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -2964,6 +3336,7 @@
     "playoffs|rp|Playoff Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
@@ -2971,13 +3344,15 @@
     "playoffs|rp|Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
     },
     "playoffs|rp|SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -2985,12 +3360,14 @@
     "playoffs|rp|Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
     },
     "playoffs|rp|WHIP": {
       "best": 1.0,
+      "gold": 0.95,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -2999,6 +3376,7 @@
     "playoffs|rp|pAll": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -3006,13 +3384,15 @@
     "playoffs|sp|All": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
     "playoffs|sp|BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -3021,6 +3401,7 @@
     "playoffs|sp|Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -3028,6 +3409,7 @@
     "playoffs|sp|Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -3035,27 +3417,31 @@
     "playoffs|sp|Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
     },
     "playoffs|sp|ERA": {
       "best": 2.5,
+      "gold": 2.2,
       "higher_is_better": false,
-      "neutral_hi": 3.7,
+      "neutral_hi": 3.5,
       "neutral_lo": 4.0,
       "worst": 6.0
     },
     "playoffs|sp|K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
     },
     "playoffs|sp|Playoff BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -3064,6 +3450,7 @@
     "playoffs|sp|Playoff Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -3071,6 +3458,7 @@
     "playoffs|sp|Playoff Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -3078,6 +3466,7 @@
     "playoffs|sp|Playoff Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
@@ -3085,6 +3474,7 @@
     "playoffs|sp|Playoff K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
@@ -3092,13 +3482,15 @@
     "playoffs|sp|Playoff Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
     },
     "playoffs|sp|Playoff SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -3106,6 +3498,7 @@
     "playoffs|sp|Playoff Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
@@ -3113,13 +3506,15 @@
     "playoffs|sp|Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
     },
     "playoffs|sp|SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -3127,12 +3522,14 @@
     "playoffs|sp|Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
     },
     "playoffs|sp|WHIP": {
       "best": 1.0,
+      "gold": 0.95,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -3141,30 +3538,35 @@
     "playoffs|sp|pAll": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
     "spring|hitters|AVG": {
       "best": 0.32,
+      "gold": 0.34,
       "neutral_hi": 0.27,
       "neutral_lo": 0.25,
       "worst": 0.2
     },
     "spring|hitters|OBP": {
       "best": 0.4,
+      "gold": 0.42,
       "neutral_hi": 0.35,
       "neutral_lo": 0.33,
       "worst": 0.28
     },
     "spring|hitters|OPS": {
       "best": 0.98,
+      "gold": 1.03,
       "neutral_hi": 0.77,
       "neutral_lo": 0.73,
       "worst": 0.6
     },
     "spring|hitters|SLG": {
       "best": 0.58,
+      "gold": 0.63,
       "neutral_hi": 0.45,
       "neutral_lo": 0.43,
       "worst": 0.35
@@ -3172,6 +3574,7 @@
     "spring|hitters|Spring Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -3229,13 +3632,15 @@
     "spring|rp|All": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
     "spring|rp|BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -3244,6 +3649,7 @@
     "spring|rp|Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -3251,6 +3657,7 @@
     "spring|rp|Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -3258,27 +3665,31 @@
     "spring|rp|Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
     },
     "spring|rp|ERA": {
       "best": 2.5,
+      "gold": 2.2,
       "higher_is_better": false,
-      "neutral_hi": 3.7,
+      "neutral_hi": 3.5,
       "neutral_lo": 4.0,
       "worst": 6.0
     },
     "spring|rp|K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
     },
     "spring|rp|Spring BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -3287,6 +3698,7 @@
     "spring|rp|Spring Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -3294,6 +3706,7 @@
     "spring|rp|Spring Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -3301,6 +3714,7 @@
     "spring|rp|Spring Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
@@ -3308,6 +3722,7 @@
     "spring|rp|Spring K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
@@ -3315,13 +3730,15 @@
     "spring|rp|Spring Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
     },
     "spring|rp|Spring SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -3329,6 +3746,7 @@
     "spring|rp|Spring Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
@@ -3336,13 +3754,15 @@
     "spring|rp|Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
     },
     "spring|rp|SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -3350,12 +3770,14 @@
     "spring|rp|Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
     },
     "spring|rp|WHIP": {
       "best": 1.0,
+      "gold": 0.95,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -3364,6 +3786,7 @@
     "spring|rp|sAll": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -3371,13 +3794,15 @@
     "spring|sp|All": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
     },
     "spring|sp|BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -3386,6 +3811,7 @@
     "spring|sp|Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -3393,6 +3819,7 @@
     "spring|sp|Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -3400,27 +3827,31 @@
     "spring|sp|Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
     },
     "spring|sp|ERA": {
       "best": 2.5,
+      "gold": 2.2,
       "higher_is_better": false,
-      "neutral_hi": 3.7,
+      "neutral_hi": 3.5,
       "neutral_lo": 4.0,
       "worst": 6.0
     },
     "spring|sp|K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
     },
     "spring|sp|Spring BB%": {
-      "best": 0.04,
+      "best": 0.05,
       "fmt": "pct",
+      "gold": 0.03,
       "higher_is_better": false,
       "neutral_hi": 0.08,
       "neutral_lo": 0.09,
@@ -3429,6 +3860,7 @@
     "spring|sp|Spring Con": {
       "best": 50,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
@@ -3436,6 +3868,7 @@
     "spring|sp|Spring Days +/-": {
       "best": 0.5,
       "fmt": "pct",
+      "gold": 0.7,
       "neutral_hi": 0.15,
       "neutral_lo": 0.14,
       "worst": -0.06
@@ -3443,6 +3876,7 @@
     "spring|sp|Spring Disc": {
       "best": 35,
       "fmt": "num",
+      "gold": 45,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -35
@@ -3450,6 +3884,7 @@
     "spring|sp|Spring K%": {
       "best": 0.33,
       "fmt": "pct",
+      "gold": 0.36,
       "neutral_hi": 0.23,
       "neutral_lo": 0.22,
       "worst": 0.15
@@ -3457,13 +3892,15 @@
     "spring|sp|Spring Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
     },
     "spring|sp|Spring SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -3471,6 +3908,7 @@
     "spring|sp|Spring Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
@@ -3478,13 +3916,15 @@
     "spring|sp|Stf": {
       "best": 40,
       "fmt": "num",
+      "gold": 50,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
     },
     "spring|sp|SwStr%": {
-      "best": 0.17,
+      "best": 0.16,
       "fmt": "pct",
+      "gold": 0.18,
       "neutral_hi": 0.12,
       "neutral_lo": 0.11,
       "worst": 0.06
@@ -3492,12 +3932,14 @@
     "spring|sp|Velo": {
       "best": 99,
       "fmt": "num",
+      "gold": 100,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
     },
     "spring|sp|WHIP": {
       "best": 1.0,
+      "gold": 0.95,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -3506,6 +3948,7 @@
     "spring|sp|sAll": {
       "best": 40,
       "fmt": "num",
+      "gold": 70,
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
