@@ -1766,7 +1766,7 @@ function get_plot_svg_root(node) {
   return node.closest ? node.closest('svg') : null;
 }
 /* ################# */
-function ensure_gold_gradient_def(svg_root, gradient_key = 'default') {
+function ensure_gold_gradient_def(svg_root, gradient_key = 'default', opacity = 1) {
   if (!svg_root) return '';
 
   let defs = svg_root.querySelector('defs');
@@ -1775,7 +1775,10 @@ function ensure_gold_gradient_def(svg_root, gradient_key = 'default') {
     svg_root.insertBefore(defs, svg_root.firstChild || null);
   }
 
-  const gradient_id = `mlb_gold_gradient_${gradient_key}`;
+  const a = Math.max(0, Math.min(1, Number(opacity)));
+  const opacity_key = String(Math.round(a * 1000)).padStart(4, '0');
+  const gradient_id = `mlb_gold_gradient_${gradient_key}_${opacity_key}`;
+
   let grad = defs.querySelector(`#${gradient_id}`);
 
   if (!grad) {
@@ -1797,7 +1800,7 @@ function ensure_gold_gradient_def(svg_root, gradient_key = 'default') {
       const stop = document.createElementNS(svg_ns(), 'stop');
       stop.setAttribute('offset', offset);
       stop.setAttribute('stop-color', color);
-      stop.setAttribute('stop-opacity', '1');
+      stop.setAttribute('stop-opacity', a.toFixed(3));
       grad.appendChild(stop);
     });
 
@@ -1807,24 +1810,18 @@ function ensure_gold_gradient_def(svg_root, gradient_key = 'default') {
   return `url(#${gradient_id})`;
 }
 /* ################# */
-function apply_gold_gradient_fill(rect, gradient_key = 'default') {
+function apply_gold_gradient_fill(rect, gradient_key = 'default', opacity = 1) {
   if (!rect) return;
 
   const svg_root = get_plot_svg_root(rect);
   if (!svg_root) return;
 
-  const gradient_fill = ensure_gold_gradient_def(svg_root, gradient_key);
+  const gradient_fill = ensure_gold_gradient_def(svg_root, gradient_key, opacity);
   if (!gradient_fill) return;
 
   rect.style.fill = gradient_fill;
   rect.setAttribute('fill', gradient_fill);
   rect.dataset.gold_gradient_applied = '1';
-}
-function normalize_svg_fill(fill) {
-  return String(fill || '')
-    .trim()
-    .toLowerCase()
-    .replace(/\s+/g, '');
 }
 /* ################# */
 function parse_svg_fill(fill) {
@@ -1898,15 +1895,12 @@ function is_gold_stat_fill(fill) {
   const c = parse_svg_fill(fill);
   if (!c || c.a === 0) return false;
 
-  const spread = Math.max(c.r, c.g, c.b) - Math.min(c.r, c.g, c.b);
-  if (spread < 12) return false;
-
   return (
-    c.r >= 150 &&
-    c.g >= 115 &&
-    c.b <= 170 &&
-    (c.r - c.b >= 10) &&
-    (c.g - c.b >= 2)
+    c.r >= 120 &&
+    c.g >= 90 &&
+    c.b <= 95 &&
+    (c.r - c.b >= 35) &&
+    (c.g - c.b >= 10)
   );
 }
 /* ################# */
@@ -1983,6 +1977,27 @@ function is_deep_red_fill(fill) {
   return t >= 0.75;
 }
 /* ################# */
+function table_fill_fraction(fill) {
+  if (is_gold_gradient_fill(fill)) return 1;
+
+  const c = parse_svg_fill(fill);
+  if (!c || c.a === 0) return 0;
+
+  if (is_gold_stat_fill(fill)) {
+    return mix_frac_to_target(c, { r: 224, g: 170, b: 62 }) || 0;
+  }
+
+  if (is_blue_stat_fill(fill)) {
+    return mix_frac_to_target(c, { r: 35, g: 85, b: 210 }) || 0;
+  }
+
+  if (is_red_stat_fill(fill)) {
+    return mix_frac_to_target(c, { r: 210, g: 35, b: 35 }) || 0;
+  }
+
+  return 0;
+}
+/* ################# */
 function should_use_white_table_text(text_node, cell_fill, is_dark) {
   if (!cell_fill) return false;
 
@@ -1990,16 +2005,17 @@ function should_use_white_table_text(text_node, cell_fill, is_dark) {
     return true;
   }
 
-  const is_deep_blue = is_deep_blue_fill(cell_fill);
-  const is_deep_red = is_deep_red_fill(cell_fill);
+  return is_blue_stat_fill(cell_fill) || is_red_stat_fill(cell_fill);
+}
+/* ################# */
+function should_use_black_outline_table_text(cell_fill) {
+  if (!cell_fill) return false;
 
-  if (!is_deep_blue && !is_deep_red) return false;
-
-  if (is_dark) {
-    return is_deep_blue;
+  if (is_gold_gradient_fill(cell_fill) || is_gold_stat_fill(cell_fill)) {
+    return true;
   }
 
-  return !row_has_reduced_sample_opacity(text_node);
+  return table_fill_fraction(cell_fill) < 0.25;
 }
 /* ################# */
 function get_table_text_cell_fill(text_node) {
@@ -2250,8 +2266,11 @@ function repaint_gold_plot_bars(plot, is_dark) {
     const orig_fill = r.dataset.orig_fill || '';
     if (!orig_fill) return;
 
+    const parsed = parse_svg_fill(orig_fill);
+    const opacity = parsed && parsed.a != null ? parsed.a : 1;
+
     if (is_gold_stat_fill(orig_fill)) {
-      apply_gold_gradient_fill(r, 'third');
+      apply_gold_gradient_fill(r, 'third', opacity);
       return;
     }
 
@@ -2285,13 +2304,14 @@ function repaint_standard_stats_tables(root) {
 if (t.closest('g.table')) {
   const cell_fill = get_table_text_cell_fill(t);
   const use_white = should_use_white_table_text(t, cell_fill, is_dark);
+  const use_outline = should_use_black_outline_table_text(cell_fill);
   const css_text_fill = get_table_default_text_fill();
 
   if (use_white) {
     t.style.fill = '#ffffff';
-    t.style.stroke = 'rgba(0,0,0,0.95)';
-    t.style.strokeWidth = '0.6px';
-    t.style.paintOrder = 'stroke fill';
+    t.style.stroke = use_outline ? 'rgba(0,0,0,0.98)' : '';
+    t.style.strokeWidth = use_outline ? '1.1px' : '';
+    t.style.paintOrder = use_outline ? 'stroke fill' : '';
     return;
   }
 
@@ -2353,13 +2373,10 @@ if (is_dark_text_fill(orig_fill)) {
         const gold_candidate = is_gold_stat_fill(orig_fill);
 
         if (gold_candidate) {
-          apply_gold_gradient_fill(r, 'third');
+          const opacity = parsed && parsed.a != null ? parsed.a : 1;
+          apply_gold_gradient_fill(r, 'third', opacity);
           return;
         }
-
-        t.style.stroke = '';
-        t.style.strokeWidth = '';
-        t.style.paintOrder = '';
         if (!is_dark) {
           if (orig_fill) {
             r.style.fill = orig_fill;
@@ -3416,19 +3433,9 @@ function init_matchups_page_if_present(content_root) {
 
   sync_row_controls();
 
-  //#################################################################### Render helpers ####################################################################
+//#################################################################### Render helpers ####################################################################
   function clear_results() {
     results_root.innerHTML = '';
-  }
-  function matchup_name_col_idx(header) {
-    const cols = (header || []).map(x => String(x || '').trim());
-
-    for (const name of ['Pitcher', 'Hitter', 'Name']) {
-      const idx = cols.findIndex(x => x === name);
-      if (idx >= 0) return idx;
-    }
-
-    return -1;
   }
   //#################
   function matchup_role_from_header(header, explicit_role) {
@@ -3487,39 +3494,6 @@ function init_matchups_page_if_present(content_root) {
 
     if (!nm || !role_key || !team) return '';
     return `${team}-${role_key}-${safe_page_filename(nm)}`;
-  }
-  //#################
-  function append_matchup_player_link(td, raw_text, header, col_idx, explicit_role) {
-    const name_idx = matchup_name_col_idx(header);
-    if (col_idx !== name_idx) {
-      td.textContent = raw_text;
-      return;
-    }
-
-    const role = matchup_role_from_header(header, explicit_role);
-    const page_id = matchup_page_id_for_name(raw_text, role);
-
-    if (!page_id) {
-      td.textContent = raw_text;
-      return;
-    }
-
-    const a = document.createElement('a');
-    a.href = `#${page_id}`;
-    a.textContent = raw_text;
-    a.className = 'matchups_player_link';
-    a.dataset.page_id = page_id;
-
-    a.addEventListener('click', evt => {
-      const match = document.querySelector(`.toc_link[data-page="${CSS.escape(page_id)}"]`);
-      if (match) {
-        evt.preventDefault();
-        match.click();
-      }
-    });
-
-    td.textContent = '';
-    td.appendChild(a);
   }
   //#################
   function parse_matchup_stat_number(s) {
@@ -3729,7 +3703,7 @@ function resolve_matchup_player_href(name, role, year) {
   for (const y of years_to_try) {
     const bucket = lookup[y];
     const slug = find_slug_in_bucket(bucket, role_key, person_key);
-    if (slug) return `#${slug}`;
+    if (slug) return `#${String(slug).replace(/_/g, '-')}`;
   }
 
   return '';
@@ -3937,7 +3911,7 @@ function append_matchup_player_link(td, raw_text, header, col_idx, link_role, li
         }
 
         const h = (header && header[j]) ? header[j] : '';
-        append_matchup_player_link(td, raw, header, j, resolved_link_role);
+        append_matchup_player_link(td, raw, header, j, resolved_link_role, link_year);
 
         if (is_matchup_stat_col(h)) {
           const v0 = parse_matchup_stat_number(raw);
@@ -4080,7 +4054,8 @@ function resolve_sp_vs_team_path(idx, y, pitcher, side, opp) {
         paths: [path],
         opts: {
           drop_cols: ['Team', 'Opp', 'Away', 'Bats', 'Throws'],
-          compact_table: true
+          compact_table: true,
+          link_role: 'starters'
         }
       };
     }
@@ -4093,7 +4068,8 @@ function resolve_sp_vs_team_path(idx, y, pitcher, side, opp) {
       paths: [],
       opts: {
         compact_table: true,
-        dummy_rows: build_personalized_pitcher_fallback_dummy_rows(year_lists_obj, pitcher_name, year_val)
+        dummy_rows: build_personalized_pitcher_fallback_dummy_rows(year_lists_obj, pitcher_name, year_val),
+        link_role: 'starters'
       }
     };
   }
@@ -4397,7 +4373,8 @@ function resolve_sp_vs_team_path(idx, y, pitcher, side, opp) {
         paths: sorted_matchup_paths,
         opts: {
           drop_cols: ['Team', 'Pitcher', 'Opp', 'Away', 'IP', 'Bats', 'Throws'],
-          gold_mode: 'hitter'
+          gold_mode: 'hitter',
+          link_role: 'batters'
         }
       });
     }
@@ -4415,7 +4392,8 @@ if (fallback_hitters.length) {
     hide_title: false,
     paths: [],
     opts: {
-      dummy_rows: fallback_dummy_rows
+      dummy_rows: fallback_dummy_rows,
+      link_role: 'batters'
     }
   });
 }
@@ -5604,6 +5582,7 @@ function find_fragment_key_loose(obj, wanted_name) {
               keep_all_pitch_cols: true,
               drop_cols: ['+KN'],
               gold_mode: 'hitter',
+              link_role: 'batters',
               skip_clear: true
             }
           });
@@ -5630,7 +5609,8 @@ function find_fragment_key_loose(obj, wanted_name) {
               dummy_rows: fallback_dummy_rows,
               keep_all_pitch_cols: true,
               drop_cols: ['+KN'],
-              skip_clear: true
+              skip_clear: true,
+  link_role: 'batters'
             }
           });
         }
@@ -5745,7 +5725,7 @@ function find_fragment_key_loose(obj, wanted_name) {
 
           if (req_id !== projected_req_id) return;
 
-          await render_many(paths);
+          await render_many(paths, { link_role: 'starters' });
           sort_first_results_table_by_team_name();
 
         } catch (e) {
@@ -6165,7 +6145,8 @@ async function refresh_team_choices() {
             paths: top20,
             opts: {
               drop_cols: best_worst_drop_cols,
-              gold_mode: 'hitter'
+              gold_mode: 'hitter',
+  link_role: 'batters'
             },
             cell_class: 'matchups_best_worst_cell'
           },
@@ -6174,7 +6155,8 @@ async function refresh_team_choices() {
             paths: bottom20,
             opts: {
               drop_cols: best_worst_drop_cols,
-              gold_mode: 'hitter'
+              gold_mode: 'hitter',
+  link_role: 'batters'
             },
             cell_class: 'matchups_best_worst_cell'
           }
@@ -6325,7 +6307,10 @@ async function refresh_team_choices() {
           override_rows.push({ Away: x.requested_side });
         }
 
-        await render_many(uniq, { override_rows });
+        await render_many(uniq, {
+          override_rows,
+          link_role: 'starters'
+        });
       }
       //#################
       function clear_mode() {
@@ -6692,13 +6677,15 @@ await render_stacked_section('Matchups', matchup_paths, {
   override_rows: matchup_override_rows,
   keep_all_pitch_cols: true,
   drop_cols: ['+KN'],
-  gold_mode: 'hitter'
+  gold_mode: 'hitter',
+  link_role: 'batters'
 });
 
     await render_stacked_section('Fallback', [], {
       dummy_rows: fallback_dummy_rows,
       keep_all_pitch_cols: true,
-      drop_cols: ['+KN']
+      drop_cols: ['+KN'],
+      link_role: 'batters'
     });
 
     sort_all_results_tables_by_all();
@@ -6809,13 +6796,15 @@ await render_stacked_section('Matchups', matchup_paths, {
   override_rows: matchup_override_rows,
   keep_all_pitch_cols: true,
   drop_cols: ['+KN'],
-  gold_mode: 'hitter'
+  gold_mode: 'hitter',
+  link_role: 'batters'
 });
 
         await render_stacked_section('Fallback', [], {
           dummy_rows: fallback_dummy_rows,
           keep_all_pitch_cols: true,
-          drop_cols: ['+KN']
+          drop_cols: ['+KN'],
+  link_role: 'batters'
         });
 
         sort_all_results_tables_by_all();
@@ -6971,38 +6960,28 @@ await render_stacked_section('Matchups', matchup_paths, {
       rp_info.style.marginLeft = '4px';
       rp_info.style.whiteSpace = 'nowrap';
       //#################
-      function sync_rp_info() {
-        const pitcher_name = String(pitcher_sel.value || '').trim();
-        if (!pitcher_name) {
-          rp_info.textContent = '';
-          rp_info.style.display = 'none';
-          return;
-        }
+function sync_rp_info() {
+  const pitcher_name = String(pitcher_sel.value || '').trim();
+  if (!pitcher_name) {
+    rp_info.textContent = '';
+    rp_info.style.display = 'none';
+    return;
+  }
 
-        const rec = fallback_rec_for_name(year_lists.fallback_pitcher_all, pitcher_name);
-        const ip_text = rec ? display_ip(rec.IP) : '—';
+  const rec = fallback_rec_for_name(year_lists.fallback_pitcher_all, pitcher_name);
+  const ip_text = rec ? display_ip(rec.IP) : '—';
 
-        // rp_info.textContent = `${pitcher_name}: ${ip_text} IP`;
-        const page_id = matchup_page_id_for_name(pitcher_name, 'bullpen');
+  const y = String(year_sel?.value || prefer_fragment_year() || window.DEFAULT_SEASON_YEAR || '').trim();
+  const href = resolve_matchup_player_href(pitcher_name, 'bullpen', y);
 
-        if (page_id) {
-          rp_info.innerHTML = `<a href="#${escape_html(page_id)}" class="matchups_player_link" data-page_id="${escape_html(page_id)}">${escape_html(pitcher_name)}</a>: ${escape_html(ip_text)} IP`;
+  if (href) {
+    rp_info.innerHTML = `<a href="${escape_html(href)}" class="matchups_player_link">${escape_html(pitcher_name)}</a>: ${escape_html(ip_text)} IP`;
+  } else {
+    rp_info.textContent = `${pitcher_name}: ${ip_text} IP`;
+  }
 
-          const link = rp_info.querySelector('.matchups_player_link');
-          if (link) {
-            link.addEventListener('click', evt => {
-              const match = document.querySelector(`.toc_link[data-page="${CSS.escape(page_id)}"]`);
-              if (match) {
-                evt.preventDefault();
-                match.click();
-              }
-            });
-          }
-        } else {
-          rp_info.textContent = `${pitcher_name}: ${ip_text} IP`;
-        }
-        rp_info.style.display = '';
-      }
+  rp_info.style.display = '';
+}
 
       const { wrap: b1_wrap, sel: b1_sel } = make_select('matchups_b1', 'Batter 1');
       const { wrap: b2_wrap, sel: b2_sel } = make_select('matchups_b2', 'Batter 2');
@@ -8438,13 +8417,33 @@ function fantasy_should_use_white_text(row, col, gradient_style) {
   const { deep_blue, deep_red, deep_gold } = fantasy_is_deep_blue_or_red(gradient_style);
 
   if (deep_gold) return true;
-  if (!deep_blue && !deep_red) return false;
 
-  if (document.body.classList.contains('soft_theme')) {
-    return deep_blue;
+  return gradient_style.includes('background:linear-gradient(') || deep_blue || deep_red || gradient_style.includes('background:rgb(');
+}
+/* ################# */
+function fantasy_should_use_black_outline(gradient_style) {
+  if (!gradient_style) return false;
+
+  const { deep_gold } = fantasy_is_deep_blue_or_red(gradient_style);
+  if (deep_gold) return true;
+
+  const m = String(gradient_style || '').match(/background:\s*rgb\((\d+),\s*(\d+),\s*(\d+)\)/i);
+  if (!m) return false;
+
+  const r = Number(m[1]);
+  const g = Number(m[2]);
+  const b = Number(m[3]);
+
+  const base = { r: 235, g: 240, b: 248 };
+
+  let frac = 0;
+  if ((b - r >= 30) && (b - g >= 18)) {
+    frac = mix_frac_to_target({ r, g, b, a: 1 }, { r: 35, g: 85, b: 210 }) || 0;
+  } else if ((r - g >= 30) && (r - b >= 18)) {
+    frac = mix_frac_to_target({ r, g, b, a: 1 }, { r: 210, g: 35, b: 35 }) || 0;
   }
 
-  return !fantasy_sample_is_reduced(row);
+  return frac < 0.25;
 }
 /* ################# */
 function fantasy_gradient_style(row, col, value) {
@@ -8559,20 +8558,19 @@ const bg = use_gold ? raw_bg : fantasy_blend_rgba_on_rgb(raw_bg);
     text_shadow = '0 0 0.6px rgba(0,0,0,0.95)';
   }
 
-const { deep_blue, deep_red } = fantasy_is_deep_blue_or_red(`background:${bg};`);
-const use_white = use_gold || (!fantasy_sample_is_reduced(row) && (deep_blue || deep_red));
+const preview_style = `background:${bg};`;
+const use_white = fantasy_should_use_white_text(row, col, preview_style);
+const use_outline = use_gold || fantasy_should_use_black_outline(preview_style);
 const tone_tag = use_gold ? '--fantasy-tone:gold;' : '';
 const text_color = use_white ? 'color:#fff;' : '';
+
 const shadow_parts = [];
-
-if (use_white) {
-  shadow_parts.push('0 0 1px rgba(0,0,0,0.95)', '0 0 0.6px rgba(0,0,0,0.95)');
+if (use_outline) {
+  shadow_parts.push('0 0 1.2px rgba(0,0,0,0.98)', '0 0 0.8px rgba(0,0,0,0.98)');
 }
-
 if (text_shadow) {
   shadow_parts.push(text_shadow.replace(/^text-shadow:/, '').replace(/;$/, ''));
 }
-
 const shadow_style = shadow_parts.length ? `text-shadow:${shadow_parts.join(',')};` : '';
 
 return `${tone_tag}background:${bg};${text_color}${shadow_style}`;
