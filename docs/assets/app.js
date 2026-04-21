@@ -1748,6 +1748,78 @@ function install_plotly_tick_popovers(root) {
   });
 }
 /*#################################################################### Plotly standard-stats table theme repaint ####################################################################*/
+function svg_ns() {
+  return 'http://www.w3.org/2000/svg';
+}
+/* ################# */
+function is_gold_gradient_fill(fill) {
+  return /^url\(#mlb_gold_gradient_[^)]+\)$/i.test(String(fill || '').trim());
+}
+/* ################# */
+function get_plot_svg_root(node) {
+  if (!node) return null;
+
+  if (node.tagName && String(node.tagName).toLowerCase() === 'svg') {
+    return node;
+  }
+
+  return node.closest ? node.closest('svg') : null;
+}
+/* ################# */
+function ensure_gold_gradient_def(svg_root, gradient_key = 'default') {
+  if (!svg_root) return '';
+
+  let defs = svg_root.querySelector('defs');
+  if (!defs) {
+    defs = document.createElementNS(svg_ns(), 'defs');
+    svg_root.insertBefore(defs, svg_root.firstChild || null);
+  }
+
+  const gradient_id = `mlb_gold_gradient_${gradient_key}`;
+  let grad = defs.querySelector(`#${gradient_id}`);
+
+  if (!grad) {
+    grad = document.createElementNS(svg_ns(), 'linearGradient');
+    grad.setAttribute('id', gradient_id);
+    grad.setAttribute('x1', '0%');
+    grad.setAttribute('y1', '0%');
+    grad.setAttribute('x2', '100%');
+    grad.setAttribute('y2', '0%');
+
+    const stops = [
+      ['0%', 'rgb(249,242,149)'],
+      ['32%', 'rgb(224,170,62)'],
+      ['64%', 'rgb(250,243,152)'],
+      ['100%', 'rgb(184,138,68)'],
+    ];
+
+    stops.forEach(([offset, color]) => {
+      const stop = document.createElementNS(svg_ns(), 'stop');
+      stop.setAttribute('offset', offset);
+      stop.setAttribute('stop-color', color);
+      stop.setAttribute('stop-opacity', '1');
+      grad.appendChild(stop);
+    });
+
+    defs.appendChild(grad);
+  }
+
+  return `url(#${gradient_id})`;
+}
+/* ################# */
+function apply_gold_gradient_fill(rect, gradient_key = 'default') {
+  if (!rect) return;
+
+  const svg_root = get_plot_svg_root(rect);
+  if (!svg_root) return;
+
+  const gradient_fill = ensure_gold_gradient_def(svg_root, gradient_key);
+  if (!gradient_fill) return;
+
+  rect.style.fill = gradient_fill;
+  rect.setAttribute('fill', gradient_fill);
+  rect.dataset.gold_gradient_applied = '1';
+}
 function normalize_svg_fill(fill) {
   return String(fill || '')
     .trim()
@@ -1791,18 +1863,6 @@ function is_neutral_fill(fill) {
   return spread <= 14;
 }
 /* ################# */
-// function is_stat_fill(fill) {
-//   const c = parse_svg_fill(fill);
-//   if (!c || c.a === 0) return false;
-
-//   const spread = Math.max(c.r, c.g, c.b) - Math.min(c.r, c.g, c.b);
-//   if (spread < 18) return false;
-
-//   const blue_like = (c.b - c.r >= 30) && (c.b - c.g >= 18);
-//   const red_like = (c.r - c.g >= 30) && (c.r - c.b >= 18);
-
-//   return blue_like || red_like;
-// }
 function is_stat_fill(fill) {
   const c = parse_svg_fill(fill);
   if (!c || c.a === 0) return false;
@@ -1833,6 +1893,8 @@ function is_close_rgb(c, r, g, b, tol = 8) {
 }
 /* ################# */
 function is_gold_stat_fill(fill) {
+  if (is_gold_gradient_fill(fill)) return true;
+
   const c = parse_svg_fill(fill);
   if (!c || c.a === 0) return false;
 
@@ -1846,14 +1908,7 @@ function is_gold_stat_fill(fill) {
 }
 /* ################# */
 function is_deep_gold_fill(fill) {
-  const c = parse_svg_fill(fill);
-  if (!c || c.a === 0) return false;
-  if (!is_gold_stat_fill(fill)) return false;
-
-  const t = mix_frac_to_target(c, { r: 184, g: 134, b: 11 });
-  if (t == null) return false;
-
-  return t >= 0.75;
+  return is_gold_stat_fill(fill);
 }
 /* ################# */
 function is_blue_stat_fill(fill) {
@@ -1925,28 +1980,16 @@ function is_deep_red_fill(fill) {
   return t >= 0.75;
 }
 /* ################# */
-// function should_use_white_table_text(text_node, cell_fill, is_dark) {
-//   if (!cell_fill) return false;
-
-//   const is_deep_blue = is_deep_blue_fill(cell_fill);
-//   const is_deep_red = is_deep_red_fill(cell_fill);
-
-//   if (!is_deep_blue && !is_deep_red) return false;
-
-//   if (is_dark) {
-//     return is_deep_blue;
-//   }
-
-//   return !row_has_reduced_sample_opacity(text_node);
-// }
 function should_use_white_table_text(text_node, cell_fill, is_dark) {
   if (!cell_fill) return false;
 
+  if (is_gold_gradient_fill(cell_fill) || is_gold_stat_fill(cell_fill)) {
+    return true;
+  }
+
   const is_deep_blue = is_deep_blue_fill(cell_fill);
   const is_deep_red = is_deep_red_fill(cell_fill);
-  const is_deep_gold = is_deep_gold_fill(cell_fill);
 
-  if (is_deep_gold) return true;
   if (!is_deep_blue && !is_deep_red) return false;
 
   if (is_dark) {
@@ -1965,6 +2008,8 @@ function get_table_text_cell_fill(text_node) {
       const rects = Array.from(node.querySelectorAll('rect'));
       const filled_rect = rects.find(r => {
         const fill = r.style.fill || r.getAttribute('fill') || '';
+        if (is_gold_gradient_fill(fill)) return true;
+
         const parsed = parse_svg_fill(fill);
         return parsed && parsed.a !== 0;
       });
@@ -1999,34 +2044,9 @@ function rgba_string(c) {
   return `rgba(${clamp_byte(c.r)},${clamp_byte(c.g)},${clamp_byte(c.b)},${a})`;
 }
 /* ################# */
-// function dark_mode_stat_fill(fill) {
-//   const c = parse_svg_fill(fill);
-//   if (!c || c.a === 0) return fill;
-
-//   const spread = Math.max(c.r, c.g, c.b) - Math.min(c.r, c.g, c.b);
-//   const lum = (0.2126 * c.r) + (0.7152 * c.g) + (0.0722 * c.b);
-
-//   if (spread < 18) return fill;
-
-//   const blue_like = (c.b - c.r >= 30) && (c.b - c.g >= 18);
-//   const red_like = (c.r - c.g >= 30) && (c.r - c.b >= 18);
-
-//   if (!blue_like && !red_like) return fill;
-
-//   // Only darken the pale end of the gradient.
-//   // Stronger colors already read fine with light text.
-//   if (lum < 150) return fill;
-
-//   const strength = Math.min(0.35, Math.max(0.12, (lum - 150) / 220));
-
-//   return rgba_string({
-//     r: c.r * (1 - strength),
-//     g: c.g * (1 - strength),
-//     b: c.b * (1 - strength),
-//     a: c.a,
-//   });
-// }
 function dark_mode_stat_fill(fill) {
+  if (is_gold_gradient_fill(fill)) return fill;
+
   const c = parse_svg_fill(fill);
   if (!c || c.a === 0) return fill;
 
@@ -2046,6 +2066,7 @@ function dark_mode_stat_fill(fill) {
   );
 
   if (!blue_like && !red_like && !gold_like) return fill;
+  if (gold_like) return fill;
 
   if (lum < 150) return fill;
 
@@ -2289,6 +2310,12 @@ if (is_dark_text_fill(orig_fill)) {
 
         const orig_fill = r.dataset.orig_fill || '';
         const parsed = parse_svg_fill(orig_fill);
+        const gold_candidate = is_gold_stat_fill(orig_fill);
+
+        if (gold_candidate) {
+          apply_gold_gradient_fill(r, 'third');
+          return;
+        }
 
         if (!is_dark) {
           if (orig_fill) {
@@ -3407,32 +3434,54 @@ function init_matchups_page_if_present(content_root) {
     return Math.max(lo, Math.min(hi, x));
   }
   //#################
-  function rgba_from_two_sided_value(v, worst, neutral_lo, neutral_hi, best, alpha_mult = 1) {
-    const val = Number(v);
-    if (!Number.isFinite(val)) return '';
+function rgba_from_two_sided_value(v, worst, neutral_lo, neutral_hi, best, alpha_mult = 1) {
+  const val = Number(v);
+  if (!Number.isFinite(val)) return '';
 
-    const lo = Math.min(worst, best);
-    const hi = Math.max(worst, best);
-    const vv = clamp(val, lo, hi);
+  const lo = Math.min(worst, best);
+  const hi = Math.max(worst, best);
+  const vv = clamp(val, lo, hi);
 
-    const nlo = Math.min(neutral_lo, neutral_hi);
-    const nhi = Math.max(neutral_lo, neutral_hi);
+  const nlo = Math.min(neutral_lo, neutral_hi);
+  const nhi = Math.max(neutral_lo, neutral_hi);
 
-    if (vv >= nlo && vv <= nhi) return '';
+  if (vv >= nlo && vv <= nhi) return '';
 
-    const frac = (vv - worst) / (best - worst);
-    const f = clamp(frac, 0, 1);
+  const frac = (vv - worst) / (best - worst);
+  const f = clamp(frac, 0, 1);
 
-    const alpha_min = 0.25;
-    const alpha_max = 0.95;
-    const alpha_curve_pow = 0.40;
+  const alpha_min = 0.25;
+  const alpha_max = 0.95;
+  const alpha_curve_pow = 0.40;
 
-    const d = clamp(Math.abs(f - 0.5) * 2.0, 0, 1);
-    let a = alpha_min + (alpha_max - alpha_min) * Math.pow(d, alpha_curve_pow);
-    a = clamp(a * Number(alpha_mult || 1), 0, 1);
+  const d = clamp(Math.abs(f - 0.5) * 2.0, 0, 1);
+  let a = alpha_min + (alpha_max - alpha_min) * Math.pow(d, alpha_curve_pow);
+  a = clamp(a * Number(alpha_mult || 1), 0, 1);
 
-    if (f > 0.5) return `rgba(210,35,35,${a.toFixed(3)})`;
-    return `rgba(35,85,210,${a.toFixed(3)})`;
+  if (f > 0.5) return `rgba(210,35,35,${a.toFixed(3)})`;
+
+  return `rgba(35,85,210,${a.toFixed(3)})`;
+}
+  //#################
+  function gold_gradient_fill() {
+    return 'linear-gradient(90deg, #F9F295 0%, #E0AA3E 33%, #FAF398 66%, #B88A44 100%)';
+  }
+  //#################
+  function matchup_gold_threshold(header_text, link_role) {
+    const h = String(header_text || '').trim();
+
+    if (h === '+All' || h === 'All' || h === 'RHB' || h === 'LHB') return 70;
+
+    if (!['+FB', '+SI', '+CT', '+SL', '+SW', '+CB', '+CH', '+SP', '+KN', 'FB', 'SI', 'CT', 'SL', 'SW', 'CB', 'CH', 'SP', 'KN'].includes(h)) {
+      return Infinity;
+    }
+
+    const role = String(link_role || '').trim();
+
+    if (role === 'batters') return 100;
+    if (role === 'starters') return 70;
+
+    return 70;
   }
   //#################
   function is_matchup_stat_col(header_text) {
@@ -3598,16 +3647,15 @@ function append_matchup_player_link(td, raw_text, header, col_idx, link_role, li
     const keep_all_pitch_cols = !!options.keep_all_pitch_cols;
     await ensure_year_page_lookup_loaded();
 
-  const link_role = infer_matchup_link_role(header, options.link_role);
-  const link_year = String(
-    options.link_year ||
-    document.getElementById('matchups_year')?.value ||
-    window.DEFAULT_SEASON_YEAR ||
-    ''
-  ).trim();
-
     const rows = [];
     let header = null;
+
+    const link_year = String(
+      options.link_year ||
+      document.getElementById('matchups_year')?.value ||
+      window.DEFAULT_SEASON_YEAR ||
+      ''
+    ).trim();
 
     for (const p of (paths || [])) {
       if (!p) continue;
@@ -3651,6 +3699,7 @@ function append_matchup_player_link(td, raw_text, header, col_idx, link_role, li
     }
 
     if (!header || !rows.length) return;
+    const link_role = infer_matchup_link_role(header, options.link_role);
 
     // Remove Park / ParkFactor columns and hide empty pitch columns
     const drop_cols = new Set(['Throws', 'Bats', 'Park', 'ParkFactor', ...requested_drop_cols]);
@@ -3775,9 +3824,15 @@ function append_matchup_player_link(td, raw_text, header, col_idx, link_role, li
             const is_all = String(h || '').trim() === '+All';
             const worst = is_all ? -40 : -70;
             const best = is_all ? 40 : 70;
+            const gold_at = matchup_gold_threshold(h, link_role);
 
-            td.style.background = rgba_from_two_sided_value(v, worst, -5, 10, best, alpha_mult);
-            td.style.color = 'var(--text)';
+            if (v >= gold_at) {
+              td.style.background = gold_gradient_fill();
+              td.style.color = 'var(--text)';
+            } else {
+              td.style.background = rgba_from_two_sided_value(v, worst, -5, 10, best, alpha_mult);
+              td.style.color = 'var(--text)';
+            }
           }
         }
 
@@ -3789,9 +3844,15 @@ function append_matchup_player_link(td, raw_text, header, col_idx, link_role, li
             const best = is_allish ? 40 : 70;
             const neutral_lo = is_allish ? -5 : 0;
             const neutral_hi = 5;
+            const gold_at = matchup_gold_threshold(h, link_role);
 
-            td.style.background = rgba_from_two_sided_value(v, worst, neutral_lo, neutral_hi, best, alpha_mult);
-            td.style.color = 'var(--text)';
+            if (v >= gold_at) {
+              td.style.background = gold_gradient_fill();
+              td.style.color = 'var(--text)';
+            } else {
+              td.style.background = rgba_from_two_sided_value(v, worst, neutral_lo, neutral_hi, best, alpha_mult);
+              td.style.color = 'var(--text)';
+            }
           }
         }
 
@@ -8117,21 +8178,18 @@ function fantasy_blend_rgba_on_rgb(rgba_str, base_rgb = [235, 240, 248]) {
 }
 
 /* ################# */
-// function fantasy_standard_stats_gradient(frac) {
-//   if (frac == null || Number.isNaN(frac)) return '';
+function fantasy_gold_gradient(alpha = 1) {
+  const a = Math.max(0, Math.min(1, Number(alpha)));
 
-//   const x = Math.max(0, Math.min(1, Number(frac)));
-//   const alpha_min = 0.25;
-//   const alpha_max = 0.95;
-//   const alpha_curve_pow = 0.40;
-
-//   const d = Math.max(0, Math.min(1, Math.abs(x - 0.5) * 2.0));
-//   const t = Math.max(0, (d - 0.10) / 0.90);
-//   const alpha = alpha_min + (alpha_max - alpha_min) * (t ** alpha_curve_pow);
-
-//   const rgb = x > 0.5 ? [210, 35, 35] : [35, 85, 210];
-//   return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha.toFixed(3)})`;
-// }
+  return `linear-gradient(
+    90deg,
+    rgba(249,242,149,${a.toFixed(3)}) 0%,
+    rgba(224,170,62,${a.toFixed(3)}) 32%,
+    rgba(250,243,152,${a.toFixed(3)}) 64%,
+    rgba(184,138,68,${a.toFixed(3)}) 100%
+  )`;
+}
+/* ################# */
 function fantasy_standard_stats_gradient(frac, use_gold = false) {
   if (frac == null || Number.isNaN(frac)) return '';
 
@@ -8144,28 +8202,14 @@ function fantasy_standard_stats_gradient(frac, use_gold = false) {
   const t = Math.max(0, (d - 0.10) / 0.90);
   const alpha = alpha_min + (alpha_max - alpha_min) * (t ** alpha_curve_pow);
 
-  const rgb = x > 0.5
-    ? (use_gold ? [184, 134, 11] : [210, 35, 35])
-    : [35, 85, 210];
+  if (use_gold) {
+    return fantasy_gold_gradient(alpha);
+  }
 
+  const rgb = x > 0.5 ? [210, 35, 35] : [35, 85, 210];
   return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha.toFixed(3)})`;
 }
 /* ################# */
-// function fantasy_gradient_good_only_stats(frac) {
-//   if (frac == null || Number.isNaN(frac)) return '';
-
-//   const t = Math.max(0, Math.min(1, Number(frac)));
-//   const frac2 = 0.5 + 0.5 * t;
-
-//   const alpha_min = 0.25;
-//   const alpha_max = 0.95;
-//   const alpha_curve_pow = 0.40;
-
-//   const d = Math.max(0, Math.min(1, Math.abs(frac2 - 0.5) * 2.0));
-//   const alpha = alpha_min + (alpha_max - alpha_min) * (d ** alpha_curve_pow);
-
-//   return fantasy_blend_rgba_on_rgb(`rgba(210,35,35,${alpha.toFixed(3)})`);
-// }
 function fantasy_gradient_good_only_stats(frac, use_gold = false) {
   if (frac == null || Number.isNaN(frac)) return '';
 
@@ -8179,8 +8223,11 @@ function fantasy_gradient_good_only_stats(frac, use_gold = false) {
   const d = Math.max(0, Math.min(1, Math.abs(frac2 - 0.5) * 2.0));
   const alpha = alpha_min + (alpha_max - alpha_min) * (d ** alpha_curve_pow);
 
-  const rgb = use_gold ? [184, 134, 11] : [210, 35, 35];
-  return fantasy_blend_rgba_on_rgb(`rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha.toFixed(3)})`);
+  if (use_gold) {
+    return fantasy_gold_gradient(alpha);
+  }
+
+  return fantasy_blend_rgba_on_rgb(`rgba(210,35,35,${alpha.toFixed(3)})`);
 }
 /* ################# */
 function fantasy_gradient_bad_only_stats(frac) {
@@ -8268,21 +8315,14 @@ function fantasy_is_deep_gradient_color(style_str) {
   return r <= 220 ? false : false;
 }
 /* ################# */
-// function fantasy_is_deep_blue_or_red(style_str) {
-//   const m = String(style_str || '').match(/background:\s*rgb\((\d+),(\d+),(\d+)\)/i);
-//   if (!m) return { deep_blue: false, deep_red: false };
-
-//   const r = Number(m[1]);
-//   const g = Number(m[2]);
-//   const b = Number(m[3]);
-
-//   const deep_blue = (b - r >= 30) && (b - g >= 18) && b <= 170;
-//   const deep_red = (r - g >= 30) && (r - b >= 18) && r >= 185;
-
-//   return { deep_blue, deep_red };
-// }
 function fantasy_is_deep_blue_or_red(style_str) {
-  const m = String(style_str || '').match(/background:\s*rgb\((\d+),(\d+),(\d+)\)/i);
+  const s = String(style_str || '').toLowerCase();
+
+  if (s.includes('--fantasy-tone:gold')) {
+    return { deep_blue: false, deep_red: false, deep_gold: true };
+  }
+
+  const m = s.match(/background:\s*rgb\((\d+),\s*(\d+),\s*(\d+)\)/i);
   if (!m) return { deep_blue: false, deep_red: false, deep_gold: false };
 
   const r = Number(m[1]);
@@ -8296,19 +8336,6 @@ function fantasy_is_deep_blue_or_red(style_str) {
   return { deep_blue, deep_red, deep_gold };
 }
 /* ################# */
-// function fantasy_should_use_white_text(row, col, gradient_style) {
-//   if (!gradient_style) return false;
-
-//   const { deep_blue, deep_red } = fantasy_is_deep_blue_or_red(gradient_style);
-
-//   if (!deep_blue && !deep_red) return false;
-
-//   if (document.body.classList.contains('soft_theme')) {
-//     return deep_blue;
-//   }
-
-//   return !fantasy_sample_is_reduced(row);
-// }
 function fantasy_should_use_white_text(row, col, gradient_style) {
   if (!gradient_style) return false;
 
@@ -8354,17 +8381,6 @@ function fantasy_gradient_style(row, col, value) {
   const num_value = Number(value);
   if (Number.isNaN(num_value)) return '';
 
-  // if (spec.mode === 'good_only') {
-  //   const start = Number(spec.start);
-  //   const end = Number(spec.end);
-
-  //   if (Number.isNaN(start) || Number.isNaN(end)) return '';
-  //   if (num_value < start) return '';
-
-  //   const frac = end === start ? 1.0 : (num_value - start) / (end - start);
-  //   const bg = fantasy_gradient_good_only_stats(Math.max(0, Math.min(1, frac)));
-  //   return bg ? `background:${bg};` : '';
-  // }
     if (spec.mode === 'good_only') {
     const start = Number(spec.start);
     const end = Number(spec.end);
@@ -8375,7 +8391,12 @@ function fantasy_gradient_style(row, col, value) {
     const frac = end === start ? 1.0 : (num_value - start) / (end - start);
     const use_gold = fantasy_use_gold_for_value(num_value, spec);
     const bg = fantasy_gradient_good_only_stats(Math.max(0, Math.min(1, frac)), use_gold);
-    return bg ? `background:${bg};` : '';
+    if (!bg) return '';
+
+    const tone_tag = use_gold ? '--fantasy-tone:gold;' : '';
+    const text_color = use_gold ? 'color:#fff;' : '';
+
+    return `${tone_tag}background:${bg};${text_color}`;
   }
 
   if (spec.mode === 'bad_only') {
@@ -8387,7 +8408,9 @@ function fantasy_gradient_style(row, col, value) {
 
     const frac = end === start ? 1.0 : (num_value - start) / (end - start);
     const bg = fantasy_gradient_bad_only_stats(Math.max(0, Math.min(1, frac)));
-    return bg ? `background:${bg};` : '';
+    if (!bg) return '';
+
+    return `background:${bg};`;
   }
 
   let worst = Number(spec.worst);
@@ -8416,9 +8439,9 @@ function fantasy_gradient_style(row, col, value) {
   }
 
   const frac = fantasy_graph_bar_fill(num_value, spec);
-  // const bg = fantasy_blend_rgba_on_rgb(fantasy_standard_stats_gradient(frac));
   const use_gold = fantasy_use_gold_for_value(num_value, spec);
-  const bg = fantasy_blend_rgba_on_rgb(fantasy_standard_stats_gradient(frac, use_gold));
+  const raw_bg = fantasy_standard_stats_gradient(frac, use_gold);
+const bg = use_gold ? raw_bg : fantasy_blend_rgba_on_rgb(raw_bg);
   if (!bg) return '';
 
   let text_shadow = '';
@@ -8440,7 +8463,12 @@ function fantasy_gradient_style(row, col, value) {
     text_shadow = '0 0 0.6px rgba(0,0,0,0.95)';
   }
 
-  return `background:${bg};${text_shadow ? `text-shadow:${text_shadow};` : ''}`;
+const { deep_blue, deep_red } = fantasy_is_deep_blue_or_red(`background:${bg};`);
+const use_white = use_gold || (!fantasy_sample_is_reduced(row) && (deep_blue || deep_red));
+const tone_tag = use_gold ? '--fantasy-tone:gold;' : '';
+const text_color = use_white ? 'color:#fff;' : '';
+
+return `${tone_tag}background:${bg};${text_color}${text_shadow ? `text-shadow:${text_shadow};` : ''}`;
 }
 /* ################# */
 function fantasy_build_table_html(rows) {

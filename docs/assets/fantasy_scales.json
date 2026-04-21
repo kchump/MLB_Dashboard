@@ -284,7 +284,7 @@
     "majors|hitters|K%": {
       "best": 0.1,
       "fmt": "pct",
-      "gold": 0.75,
+      "gold": 0.075,
       "higher_is_better": false,
       "neutral_hi": 0.22,
       "neutral_lo": 0.23,

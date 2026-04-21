@@ -1290,16 +1290,26 @@ body.soft_theme .fantasy_player_link:hover {
   border: 1px solid var(--border);
   background: linear-gradient(
     90deg,
+
+    /* poor -> average (blue side) */
     rgba(15,65,230,1.00) 0%,
-    rgba(24,76,222,1.00) 12%,
-    rgba(35,85,210,0.80) 24%,
-    rgba(35,85,210,0.40) 39%,
-    rgba(160,160,160,0.26) 50%,
-    rgba(210,35,35,0.40) 61%,
-    rgba(210,35,35,0.80) 76%,
+    rgba(24,76,222,1.00) 10%,
+    rgba(35,85,210,0.82) 22%,
+    rgba(35,85,210,0.42) 36%,
+
+    /* midpoint */
+    rgba(160,160,160,0.24) 50%,
+
+    /* average -> great (red side) */
+    rgba(210,35,35,0.42) 62%,
+    rgba(210,35,35,0.82) 76%,
     rgba(208,24,24,1.00) 88%,
-    rgba(190,18,18,1.00) 95%,
-    rgba(184,134,11,1.00) 100%
+
+    /* beyond great = gold extension */
+    #F9F295 92%,
+    #E0AA3E 96%,
+    #FAF398 98.5%,
+    #B88A44 100%
   );
 }
 
