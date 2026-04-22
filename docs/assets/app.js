@@ -1763,6 +1763,11 @@ function get_plot_svg_root(node) {
     return node;
   }
 
+  if (node.querySelector) {
+    const inner_svg = node.querySelector('svg');
+    if (inner_svg) return inner_svg;
+  }
+
   return node.closest ? node.closest('svg') : null;
 }
 /* ################# */
@@ -2256,9 +2261,11 @@ function repaint_gold_plot_bars(plot, is_dark) {
   const svg_root = get_plot_svg_root(plot);
   if (!svg_root) return;
 
-  const bar_rects = Array.from(plot.querySelectorAll('g.barlayer rect, g.trace.bars rect'));
+const bar_shapes = Array.from(
+  plot.querySelectorAll('g.barlayer path, g.barlayer rect, g.trace.bars path, g.trace.bars rect')
+);
 
-  bar_rects.forEach(r => {
+  bar_shapes.forEach(r => {
     if (r.dataset.orig_fill === undefined) {
       r.dataset.orig_fill = r.style.fill || r.getAttribute('fill') || '';
     }
@@ -2275,12 +2282,15 @@ function repaint_gold_plot_bars(plot, is_dark) {
     }
 
     if (is_dark && is_stat_fill(orig_fill)) {
-      r.style.fill = dark_mode_stat_fill(orig_fill);
+      const dark_fill = dark_mode_stat_fill(orig_fill);
+      r.style.fill = dark_fill;
+      r.setAttribute('fill', dark_fill);
       return;
     }
 
     if (orig_fill) {
       r.style.fill = orig_fill;
+      r.setAttribute('fill', orig_fill);
     }
   });
 }
@@ -2310,7 +2320,7 @@ if (t.closest('g.table')) {
   if (use_white) {
     t.style.fill = '#ffffff';
     t.style.stroke = use_outline ? 'rgba(0,0,0,0.98)' : '';
-    t.style.strokeWidth = use_outline ? '1.1px' : '';
+    t.style.strokeWidth = use_outline ? '1.8px' : '';
     t.style.paintOrder = use_outline ? 'stroke fill' : '';
     return;
   }
@@ -3438,64 +3448,6 @@ function init_matchups_page_if_present(content_root) {
     results_root.innerHTML = '';
   }
   //#################
-  function matchup_role_from_header(header, explicit_role) {
-    const forced = String(explicit_role || '').trim();
-    if (forced) return forced;
-
-    const cols = new Set((header || []).map(x => String(x || '').trim()));
-
-    if (cols.has('Pitcher')) return 'starters';
-    if (cols.has('Hitter')) return 'batters';
-
-    if (cols.has('IP') && !cols.has('PA')) return 'starters';
-    if (cols.has('PA')) return 'batters';
-
-    return '';
-  }
-  //#################
-  function matchup_team_for_name(name, role) {
-    const nm = String(name || '').trim();
-    const role_key = String(role || '').trim();
-
-    if (!nm || !role_key) return '';
-
-    if (role_key === 'batters') {
-      const map_obj = (year_lists && year_lists.hitter_team_map && typeof year_lists.hitter_team_map === 'object')
-        ? year_lists.hitter_team_map
-        : {};
-
-      const direct = String(map_obj[nm] || '').trim();
-      if (direct) return direct;
-
-      const wanted = normalize_matchup_person_key(nm);
-      for (const [k, v] of Object.entries(map_obj)) {
-        if (normalize_matchup_person_key(k) === wanted) {
-          return String(v || '').trim();
-        }
-      }
-
-      return '';
-    }
-
-    const pitcher_map = (year_lists && year_lists.fallback_pitcher_all && typeof year_lists.fallback_pitcher_all === 'object')
-      ? year_lists.fallback_pitcher_all
-      : {};
-
-    const rec = fallback_rec_for_name(pitcher_map, nm);
-    if (rec && rec.team) return String(rec.team || '').trim();
-
-    return '';
-  }
-  //#################
-  function matchup_page_id_for_name(name, role) {
-    const nm = String(name || '').trim();
-    const role_key = String(role || '').trim();
-    const team = matchup_team_for_name(nm, role_key);
-
-    if (!nm || !role_key || !team) return '';
-    return `${team}-${role_key}-${safe_page_filename(nm)}`;
-  }
-  //#################
   function parse_matchup_stat_number(s) {
     const raw = String(s || '').trim();
     if (!raw) return NaN;
@@ -3638,87 +3590,146 @@ function gold_gradient_fill(alpha_mult = 1) {
   }
 }
 //#################
-function matchup_name_col_idx(header) {
-  const cols = (header || []).map(x => String(x || '').trim());
+let matchup_sidebar_link_cache = null;
 
-  for (const name of ['Name', 'Pitcher', 'Hitter']) {
-    const idx = cols.findIndex(x => x === name);
-    if (idx >= 0) return idx;
-  }
+//#################
+function matchup_role_to_page_role(role) {
+  const r = String(role || '').trim().toLowerCase();
 
-  return -1;
+  if (r === 'sp' || r === 'starter' || r === 'starters') return 'starters';
+  if (r === 'rp' || r === 'reliever' || r === 'relievers' || r === 'bullpen') return 'bullpen';
+  return 'batters';
 }
 //#################
-function infer_matchup_link_role(header, explicit_role) {
-  const forced = String(explicit_role || '').trim();
-  if (forced) return forced;
+function matchup_sidebar_link_cache_key(name, role) {
+  const nm = normalize_matchup_person_key(name);
+  const rr = matchup_role_to_page_role(role);
+  if (!nm || !rr) return '';
+  return `${nm}||${rr}`;
+}
+//#################
+function build_matchup_sidebar_link_cache() {
+  const cache = new Map();
+  const links = Array.from(document.querySelectorAll('.toc_link[data-page]'));
 
-  const cols = new Set((header || []).map(x => String(x || '').trim()));
+  links.forEach(link => {
+    const name = String(link.textContent || '').trim();
+    const data_role = String(link.getAttribute('data-role') || '').trim();
+    const data_page = String(link.getAttribute('data-page') || '').trim();
+    const href = String(link.getAttribute('href') || '').trim();
 
-  if (cols.has('Pitcher')) return 'starters';
+    const role = matchup_role_to_page_role(data_role);
+    const key = matchup_sidebar_link_cache_key(name, role);
 
-  if (cols.has('IP') && !cols.has('PA')) {
-    if (cols.has('RHB') || cols.has('LHB')) return 'starters';
-    return 'starters';
-  }
+    if (!key) return;
 
-  if (cols.has('PA')) return 'batters';
-  if (cols.has('AVG') || cols.has('OBP') || cols.has('SLG') || cols.has('OPS')) return 'batters';
+    cache.set(key, {
+      href,
+      data_page,
+      role,
+      person_key: String(link.getAttribute('data-person_key') || '').trim()
+    });
+  });
 
-  return '';
+  return cache;
+}
+//#################
+function ensure_matchup_sidebar_link_cache() {
+  if (matchup_sidebar_link_cache instanceof Map) return matchup_sidebar_link_cache;
+
+  matchup_sidebar_link_cache = build_matchup_sidebar_link_cache();
+  return matchup_sidebar_link_cache;
+}
+//#################
+function clear_matchup_sidebar_link_cache() {
+  matchup_sidebar_link_cache = null;
+}
+//#################
+function matchup_find_sidebar_link_data(name, role) {
+  const cache = ensure_matchup_sidebar_link_cache();
+  const key = matchup_sidebar_link_cache_key(name, role);
+  if (!key) return null;
+  return cache.get(key) || null;
 }
 //#################
 function resolve_matchup_player_href(name, role, year) {
-  const lookup = (year_page_lookup && typeof year_page_lookup === 'object') ? year_page_lookup : null;
-  if (!lookup) return '';
+  const rec = matchup_find_sidebar_link_data(name, role);
+  if (!rec) return '';
 
-  const person_key = normalize_matchup_person_key(name);
-  const role_key = String(role || '').trim();
-  if (!person_key || !role_key) return '';
-
-  const preferred_year = String(year || window.DEFAULT_SEASON_YEAR || '').trim();
-
-  const years_to_try = [
-    preferred_year,
-    ...Object.keys(lookup || {}).sort((a, b) => Number(b) - Number(a))
-  ].filter(Boolean);
-
-  function find_slug_in_bucket(bucket, wanted_role, wanted_person_key) {
-    if (!bucket || typeof bucket !== 'object') return '';
-
-    for (const [slug, meta] of Object.entries(bucket)) {
-      if (!meta || typeof meta !== 'object') continue;
-
-      const meta_role = String(meta.role || '').trim();
-      const meta_person_key = String(meta.person_key || '').trim();
-
-      if (meta_role === wanted_role && meta_person_key === wanted_person_key) {
-        return slug;
-      }
-    }
-
-    return '';
+  if (rec.href && rec.href !== '#') {
+    return rec.href;
   }
 
-  for (const y of years_to_try) {
-    const bucket = lookup[y];
-    const slug = find_slug_in_bucket(bucket, role_key, person_key);
-    if (slug) return `#${String(slug).replace(/_/g, '-')}`;
+  const page = String(rec.data_page || '').trim();
+  if (!page) return '';
+
+  const y = String(year || '').trim();
+  if (y) {
+    return `#${encodeURIComponent(page)}?year=${encodeURIComponent(y)}`;
   }
 
-  return '';
+  return `#${encodeURIComponent(page)}`;
 }
 //#################
-function append_matchup_player_link(td, raw_text, header, col_idx, link_role, link_year) {
-  const name_idx = matchup_name_col_idx(header);
-  const is_name_col = (col_idx === name_idx);
+function matchup_name_col_indices(header) {
+  const cols = (header || []).map(x => String(x || '').trim());
 
-  if (!is_name_col) {
+  return {
+    name: cols.findIndex(x => x === 'Name'),
+    pitcher: cols.findIndex(x => x === 'Pitcher'),
+    hitter: cols.findIndex(x => x === 'Hitter')
+  };
+}
+//#################
+function infer_matchup_link_roles(header, explicit_role, explicit_pitcher_role) {
+  const forced_name_role = String(explicit_role || '').trim();
+  const forced_pitcher_role = matchup_role_to_page_role(explicit_pitcher_role || 'starters');
+
+  const cols = new Set((header || []).map(x => String(x || '').trim()));
+
+  const out = {
+    name_role: '',
+    hitter_role: 'batters',
+    pitcher_role: forced_pitcher_role || 'starters'
+  };
+
+  if (cols.has('Name')) {
+    if (forced_name_role) {
+      out.name_role = matchup_role_to_page_role(forced_name_role);
+    } else if (cols.has('IP') && !cols.has('PA')) {
+      out.name_role = forced_pitcher_role || 'starters';
+    } else {
+      out.name_role = 'batters';
+    }
+  }
+
+  return out;
+}
+//#################
+function append_matchup_player_link(td, raw_text, header, col_idx, row_idx, link_roles, link_year, row_pitcher_link_roles) {
+  const idxs = matchup_name_col_indices(header);
+  const roles = (link_roles && typeof link_roles === 'object') ? link_roles : {};
+
+  let role = '';
+
+  if (col_idx === idxs.hitter) {
+    role = 'batters';
+  } else if (col_idx === idxs.pitcher) {
+    const row_roles = Array.isArray(row_pitcher_link_roles) ? row_pitcher_link_roles : [];
+    role = matchup_role_to_page_role(row_roles[row_idx] || roles.pitcher_role || 'starters');
+  } else if (col_idx === idxs.name) {
+    role = matchup_role_to_page_role(roles.name_role || '');
+  } else {
     td.textContent = raw_text;
     return;
   }
 
-  const href = resolve_matchup_player_href(raw_text, link_role, link_year);
+  if (!role) {
+    td.textContent = raw_text;
+    return;
+  }
+
+  const href = resolve_matchup_player_href(raw_text, role, link_year);
   if (!href) {
     td.textContent = raw_text;
     return;
@@ -3801,7 +3812,15 @@ function append_matchup_player_link(td, raw_text, header, col_idx, link_role, li
 
     if (!header || !rows.length) return;
 
-    const resolved_link_role = infer_matchup_link_role(header, options.link_role);
+    const resolved_link_roles = infer_matchup_link_roles(
+      header,
+      options.link_role,
+      options.pitcher_link_role
+    );
+
+    const row_pitcher_link_roles = Array.isArray(options.row_pitcher_link_roles)
+      ? options.row_pitcher_link_roles
+      : [];
     const gold_mode = String(options.gold_mode || '').trim();
 
     // Remove Park / ParkFactor columns and hide empty pitch columns
@@ -3911,7 +3930,16 @@ function append_matchup_player_link(td, raw_text, header, col_idx, link_role, li
         }
 
         const h = (header && header[j]) ? header[j] : '';
-        append_matchup_player_link(td, raw, header, j, resolved_link_role, link_year);
+append_matchup_player_link(
+  td,
+  raw,
+  header,
+  j,
+  row_idx,
+  resolved_link_roles,
+  link_year,
+  row_pitcher_link_roles
+);
 
         if (is_matchup_stat_col(h)) {
           const v0 = parse_matchup_stat_number(raw);
@@ -7302,6 +7330,8 @@ const fantasy_qual_options = {
   rp: ['', '5', '10', '25', '50'],
 };
 /* ################# */
+const fantasy_sidebar_team_cache = new Map();
+/* ################# */
 function fantasy_qualifier_label() {
   return fantasy_state.section === 'hitters' ? 'Min PA' : 'Min IP';
 }
@@ -7478,21 +7508,58 @@ function fantasy_fmt(key, v) {
   return String(v);
 }
 /* ################# */
-function fantasy_player_page_id(row) {
-  const role = row.role === 'sp' ? 'starters' : row.role === 'rp' ? 'bullpen' : 'batters';
-  const team = String(row.team || 'UNK').trim() || 'UNK';
-  const name_slug = safe_page_filename(String(row.name || ''));
-  return `${team}-${role}-${name_slug}`;
+function fantasy_role_to_page_role(role) {
+  if (role === 'sp' || role === 'starters') return 'starters';
+  if (role === 'rp' || role === 'bullpen') return 'bullpen';
+  return 'batters';
+}
+/* ################# */
+function fantasy_lookup_sidebar_team(row) {
+  const person_key = String(row.person_key || '').trim();
+  const role = fantasy_role_to_page_role(row.role);
+  const cache_key = `${role}|${person_key}`;
+
+  if (fantasy_sidebar_team_cache.has(cache_key)) {
+    return fantasy_sidebar_team_cache.get(cache_key);
+  }
+
+  const match = fantasy_find_toc_link({
+    person_key: person_key,
+    role: role,
+  });
+
+  const team = match ? String(match.getAttribute('data-team') || '').trim() : '';
+  fantasy_sidebar_team_cache.set(cache_key, team);
+
+  return team;
+}
+/* ################# */
+function fantasy_find_toc_link(row) {
+  const target_person_key = String(row.person_key || '').trim();
+  const target_role = fantasy_role_to_page_role(row.role);
+
+  const links = Array.from(document.querySelectorAll('.toc_link[data-page]'));
+
+  for (const link of links) {
+    const link_person_key = String(link.getAttribute('data-person_key') || '').trim();
+    const link_role = String(link.getAttribute('data-role') || '').trim();
+
+    if (link_role !== target_role) continue;
+    if (target_person_key && link_person_key === target_person_key) {
+      return link;
+    }
+  }
+
+  return null;
 }
 /* ################# */
 function fantasy_player_link(row) {
   const safe_name = escape_html(row.name || '');
-  const person_key = row.person_key || '';
-  const role = row.role === 'sp' ? 'starters' : row.role === 'rp' ? 'bullpen' : 'batters';
-  const page_id = fantasy_player_page_id(row);
+  const person_key = String(row.person_key || '');
+  const role = fantasy_role_to_page_role(row.role);
 
   return `
-    <a href="#${escape_html(page_id)}" class="fantasy_player_link" data-person_key="${escape_html(person_key)}" data-role="${escape_html(role)}" data-page_id="${escape_html(page_id)}">${safe_name}</a>
+    <a href="#" class="fantasy_player_link" data-person_key="${escape_html(person_key)}" data-role="${escape_html(role)}">${safe_name}</a>
   `;
 }
 /* ################# */
@@ -7567,49 +7634,31 @@ function fantasy_last_team_from_teams_value(teams_value) {
 /* ################# */
 function fantasy_effective_team(row) {
   const display_team = String(row.team || '').trim();
+  const display_team_upper = display_team.toUpperCase();
 
-  if (fantasy_state.scope === 'playoffs') {
-    const playoff_team = fantasy_last_team_from_teams_value(row.Teams);
-    return playoff_team || display_team;
+  if (fantasy_is_multi_team_placeholder(display_team)) {
+    return display_team;
   }
-
-  return display_team;
-}
-/* ################# */
-// function fantasy_row_with_effective_team(row) {
-//   const out = { ...row };
-
-//   if (fantasy_state.scope === 'playoffs') {
-//     const playoff_team = fantasy_last_team_from_teams_value(out.Teams);
-//     if (playoff_team) {
-//       out.team = playoff_team;
-//     }
-//   }
-
-//   return out;
-// }
-
-function fantasy_effective_team(row) {
-  const display_team = String(row.team || '').trim();
 
   const wbc_teams = new Set([
     'AUS', 'BRA', 'CAN', 'CO', 'CUB', 'CZE', 'DR', 'JPN', 'KOR',
     'MEX', 'NED', 'NIC', 'PAN', 'PR', 'VEN', 'TAI',
   ]);
 
-  if (fantasy_state.scope === 'playoffs' && fantasy_is_multi_team_placeholder(display_team)) {
-    const playoff_team = fantasy_last_team_from_teams_value(row.Teams);
-    const playoff_team_upper = String(playoff_team || '').trim().toUpperCase();
-
-    if (wbc_teams.has(playoff_team_upper)) {
-      return 'WBC';
-    }
-
-    return playoff_team || display_team;
+  if (wbc_teams.has(display_team_upper)) {
+    return 'WBC';
   }
 
-  if (wbc_teams.has(display_team.toUpperCase())) {
-    return 'WBC';
+  const placeholder_teams = new Set([
+    '', 'UNK', 'MILB', 'FA', 'FREE AGENT', 'FREE AGENTS',
+    'IL', 'IL7', 'IL10', 'IL15', 'IL60',
+  ]);
+
+  if (placeholder_teams.has(display_team_upper)) {
+    const sidebar_team = fantasy_lookup_sidebar_team(row);
+    if (sidebar_team && !fantasy_is_multi_team_placeholder(sidebar_team)) {
+      return sidebar_team;
+    }
   }
 
   return display_team;
@@ -7641,34 +7690,24 @@ function fantasy_row_with_position_fallback(row, data) {
   return out;
 }
 /* ################# */
-// function fantasy_team_options(data) {
-//   const rows = fantasy_current_rows(data);
-
-//   const teams = Array.from(
-//     new Set(
-//       rows
-//         .map(row => String(row.team || '').trim())
-//         .filter(team => team && team.toUpperCase() !== 'FA')
-//         .filter(team => team.toUpperCase() !== 'FREE AGENTS')
-//         .filter(team => team.toUpperCase() !== 'FREE AGENT')
-//     )
-//   ).sort((a, b) => a.localeCompare(b));
-
-//   return ['ALL', ...teams];
-// }
 function fantasy_team_options(data) {
   const rows = fantasy_current_rows(data);
 
   const teams = Array.from(
     new Set(
       rows.flatMap(row => {
-        const display_team = String(row.team || '').trim();
+        const raw_team = String(row.team || '').trim();
+        const display_team = String(row.display_team || fantasy_effective_team(row) || '').trim();
+
+        if (display_team === 'WBC') {
+          return ['WBC'];
+        }
 
         if (
           fantasy_state.scope === 'majors' &&
-          fantasy_is_multi_team_placeholder(display_team)
+          fantasy_is_multi_team_placeholder(raw_team)
         ) {
-          return fantasy_split_teams_value(row.Teams);
+          return fantasy_split_teams_value(row.Teams || row.teams);
         }
 
         return display_team ? [display_team] : [];
@@ -7683,21 +7722,12 @@ function fantasy_team_options(data) {
   return ['ALL', ...teams];
 }
 /* ################# */
-// function fantasy_current_rows(data) {
-//   let rows = data?.[fantasy_state.scope]?.[fantasy_state.section] || [];
-
-//   if (fantasy_state.section === 'hitters' && fantasy_state.scope !== 'majors') {
-//     rows = rows.map(row => fantasy_row_with_position_fallback(row, data));
-//   }
-
-//   return rows;
-// }
 function fantasy_current_rows(data) {
   let rows = data?.[fantasy_state.scope]?.[fantasy_state.section] || [];
 
   rows = rows.map(row => ({
     ...row,
-    team: fantasy_effective_team(row),
+    display_team: fantasy_effective_team(row),
   }));
 
   if (fantasy_state.section === 'hitters' && fantasy_state.scope !== 'majors') {
@@ -7712,22 +7742,24 @@ function fantasy_filter_rows(data) {
 
   rows = rows.filter(row => !fantasy_is_removed(row));
 
-  // if (fantasy_state.team !== 'ALL') {
-  //   rows = rows.filter(row => String(row.team || '').toUpperCase() === fantasy_state.team);
-  // }
 if (fantasy_state.team !== 'ALL') {
   rows = rows.filter(row => {
-    const display_team = String(row.team || '').trim().toUpperCase();
+    const raw_team = String(row.team || '').trim();
+    const display_team = String(row.display_team || fantasy_effective_team(row) || '').trim().toUpperCase();
+
+    if (display_team === fantasy_state.team) {
+      return true;
+    }
 
     if (
       fantasy_state.scope === 'majors' &&
-      fantasy_is_multi_team_placeholder(row.team)
+      fantasy_is_multi_team_placeholder(raw_team)
     ) {
-      const teams = fantasy_split_teams_value(row.Teams).map(team => team.toUpperCase());
+      const teams = fantasy_split_teams_value(row.Teams || row.teams).map(team => team.toUpperCase());
       return teams.includes(fantasy_state.team);
     }
 
-    return display_team === fantasy_state.team;
+    return false;
   });
 }
 
@@ -8566,7 +8598,16 @@ const text_color = use_white ? 'color:#fff;' : '';
 
 const shadow_parts = [];
 if (use_outline) {
-  shadow_parts.push('0 0 1.2px rgba(0,0,0,0.98)', '0 0 0.8px rgba(0,0,0,0.98)');
+  shadow_parts.push(
+    '-1px 0 0 rgba(0,0,0,0.98)',
+    '1px 0 0 rgba(0,0,0,0.98)',
+    '0 -1px 0 rgba(0,0,0,0.98)',
+    '0 1px 0 rgba(0,0,0,0.98)',
+    '-1px -1px 0 rgba(0,0,0,0.92)',
+    '1px -1px 0 rgba(0,0,0,0.92)',
+    '-1px 1px 0 rgba(0,0,0,0.92)',
+    '1px 1px 0 rgba(0,0,0,0.92)'
+  );
 }
 if (text_shadow) {
   shadow_parts.push(text_shadow.replace(/^text-shadow:/, '').replace(/;$/, ''));
@@ -8633,8 +8674,8 @@ function fantasy_build_table_html(rows) {
         value = escape_html(String(row.pos || ''));
       } else if (col === '2nd Pos') {
         value = escape_html(String(row.pos2 || ''));
-      } else if (col === 'Team') {
-        value = escape_html(String(row.team || ''));
+} else if (col === 'Team') {
+  value = escape_html(String(row.display_team || fantasy_effective_team(row) || row.team || ''));
       } else {
         let raw = row[col];
 
@@ -8942,16 +8983,35 @@ async function render_fantasy_page() {
     });
   });
 
-  results_root.querySelectorAll('.fantasy_player_link').forEach(el => {
-    el.addEventListener('click', evt => {
-      const page_id = el.getAttribute('data-page_id') || '';
-      if (!page_id) return;
+results_root.querySelectorAll('.fantasy_player_link').forEach(el => {
+  el.addEventListener('click', evt => {
+    evt.preventDefault();
 
-      const match = document.querySelector(`.toc_link[data-page="${CSS.escape(page_id)}"]`);
-      if (match) {
-        evt.preventDefault();
-        match.click();
+    const cached_page_id = el.getAttribute('data-page_id') || '';
+    if (cached_page_id) {
+      const cached_match = document.querySelector(`.toc_link[data-page="${CSS.escape(cached_page_id)}"]`);
+      if (cached_match) {
+        cached_match.click();
+        return;
       }
-    });
+    }
+
+    const row = {
+      name: el.textContent || '',
+      person_key: el.getAttribute('data-person_key') || '',
+      role: el.getAttribute('data-role') || '',
+    };
+
+    const match = fantasy_find_toc_link(row);
+    if (!match) return;
+
+    const page_id = match.getAttribute('data-page') || '';
+    if (page_id) {
+      el.setAttribute('data-page_id', page_id);
+      el.setAttribute('href', `#${page_id}`);
+    }
+
+    match.click();
   });
+});
 }

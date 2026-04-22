@@ -419,8 +419,8 @@
       "worst": 0.28
     },
     "majors|hitters|OPS": {
-      "best": 0.98,
-      "gold": 1.03,
+      "best": 0.95,
+      "gold": 1.0,
       "neutral_hi": 0.77,
       "neutral_lo": 0.73,
       "worst": 0.6
@@ -661,9 +661,9 @@
       "worst": 0.6
     },
     "majors|hitters|S OPS": {
-      "best": 0.98,
+      "best": 0.95,
       "fmt": "avg",
-      "gold": 1.03,
+      "gold": 1.0,
       "neutral_hi": 0.77,
       "neutral_lo": 0.73,
       "worst": 0.6
@@ -912,9 +912,9 @@
       "worst": -300
     },
     "majors|hitters|xOPS": {
-      "best": 0.98,
+      "best": 0.95,
       "fmt": "avg",
-      "gold": 1.03,
+      "gold": 1.0,
       "neutral_hi": 0.77,
       "neutral_lo": 0.73,
       "worst": 0.6
@@ -2591,8 +2591,8 @@
       "worst": 0.28
     },
     "minors|hitters|OPS": {
-      "best": 0.98,
-      "gold": 1.03,
+      "best": 0.95,
+      "gold": 1.0,
       "neutral_hi": 0.77,
       "neutral_lo": 0.73,
       "worst": 0.6
@@ -3154,8 +3154,8 @@
       "worst": 0.28
     },
     "playoffs|hitters|OPS": {
-      "best": 0.98,
-      "gold": 1.03,
+      "best": 0.95,
+      "gold": 1.0,
       "neutral_hi": 0.77,
       "neutral_lo": 0.73,
       "worst": 0.6
@@ -3564,8 +3564,8 @@
       "worst": 0.28
     },
     "spring|hitters|OPS": {
-      "best": 0.98,
-      "gold": 1.03,
+      "best": 0.95,
+      "gold": 1.0,
       "neutral_hi": 0.77,
       "neutral_lo": 0.73,
       "worst": 0.6

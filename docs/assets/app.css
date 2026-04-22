@@ -1077,7 +1077,7 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
   min-width: 190px;
 }
 
-.fantasy_table th:first-child,
+/* .fantasy_table th:first-child,
 .fantasy_table td:first-child,
 .fantasy_sticky_col {
   position: sticky;
@@ -1102,6 +1102,45 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
 .fantasy_table tbody tr:nth-child(even) td:first-child,
 .fantasy_table tbody tr:nth-child(even) .fantasy_sticky_col {
   background: var(--row_alt);
+} */
+ .fantasy_table th:first-child,
+.fantasy_table td:first-child,
+.fantasy_sticky_col {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  box-shadow: 1px 0 0 var(--border);
+  background-color: var(--panel_2);
+  background-image: none !important;
+  opacity: 1 !important;
+  background-clip: padding-box;
+}
+
+.fantasy_table thead th:first-child,
+.fantasy_table thead .fantasy_sticky_col {
+  z-index: 5;
+  background-color: var(--panel_2);
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+.fantasy_table tbody tr:nth-child(odd) td:first-child,
+.fantasy_table tbody tr:nth-child(odd) .fantasy_sticky_col {
+  background-color: var(--panel_2);
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+.fantasy_table tbody tr:nth-child(even) td:first-child,
+.fantasy_table tbody tr:nth-child(even) .fantasy_sticky_col {
+  background-color: color-mix(in srgb, var(--panel_2) 92%, white 8%);
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+body.soft_theme .fantasy_table tbody tr:nth-child(even) td:first-child,
+body.soft_theme .fantasy_table tbody tr:nth-child(even) .fantasy_sticky_col {
+  background-color: color-mix(in srgb, var(--panel_2) 92%, white 8%);
 }
 
 .fantasy_name_wrap,
