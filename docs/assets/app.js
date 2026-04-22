@@ -1864,34 +1864,6 @@ function parse_svg_fill(fill) {
   return null;
 }
 /* ################# */
-function parse_svg_fill(fill) {
-  const f = normalize_svg_fill(fill);
-  if (!f || f === 'none' || f === 'transparent') return null;
-
-  let m = f.match(/^rgba?\(([\d.]+),([\d.]+),([\d.]+)(?:,([\d.]+))?\)$/);
-  if (m) {
-    return {
-      r: Number(m[1]),
-      g: Number(m[2]),
-      b: Number(m[3]),
-      a: m[4] == null ? 1 : Number(m[4]),
-    };
-  }
-
-  m = f.match(/^#([0-9a-f]{6})$/);
-  if (m) {
-    const hex = m[1];
-    return {
-      r: parseInt(hex.slice(0, 2), 16),
-      g: parseInt(hex.slice(2, 4), 16),
-      b: parseInt(hex.slice(4, 6), 16),
-      a: 1,
-    };
-  }
-
-  return null;
-}
-/* ################# */
 function is_neutral_fill(fill) {
   const c = parse_svg_fill(fill);
   if (!c) return false;
@@ -2038,24 +2010,22 @@ function table_fill_fraction(fill) {
   return 0;
 }
 /* ################# */
-function should_use_white_table_text(text_node, cell_fill, is_dark) {
+function should_use_white_table_text(text_node, cell_fill) {
   if (!cell_fill) return false;
 
   if (is_gold_gradient_fill(cell_fill) || is_gold_stat_fill(cell_fill)) {
-    return true;
+    return false;
   }
 
-  return is_blue_stat_fill(cell_fill) || is_red_stat_fill(cell_fill);
-}
-/* ################# */
-function should_use_black_outline_table_text(cell_fill) {
-  if (!cell_fill) return false;
-
-  if (is_gold_gradient_fill(cell_fill) || is_gold_stat_fill(cell_fill)) {
-    return true;
+  if (!is_blue_stat_fill(cell_fill) && !is_red_stat_fill(cell_fill)) {
+    return false;
   }
 
-  return table_fill_fraction(cell_fill) < 0.25;
+  if (row_has_reduced_sample_opacity(text_node) && table_fill_fraction(cell_fill) < 0.25) {
+    return false;
+  }
+
+  return true;
 }
 /* ################# */
 function get_table_text_cell_fill(text_node) {
@@ -2330,6 +2300,11 @@ const bar_shapes = Array.from(
   });
 }
 /* ################# */
+function should_use_black_bold_gold_text(cell_fill) {
+  if (!cell_fill) return false;
+  return is_gold_gradient_fill(cell_fill) || is_gold_stat_fill(cell_fill);
+}
+/* ################# */
 function repaint_standard_stats_tables(root) {
   const scope = root || document;
   const is_dark = document.body.classList.contains('soft_theme');
@@ -2348,21 +2323,25 @@ function repaint_standard_stats_tables(root) {
 
 if (t.closest('g.table')) {
   const cell_fill = get_table_text_cell_fill(t);
-  const use_white = should_use_white_table_text(t, cell_fill, is_dark);
-  const use_outline = should_use_black_outline_table_text(cell_fill);
+  const use_white = should_use_white_table_text(t, cell_fill);
+  const use_gold_black = should_use_black_bold_gold_text(cell_fill);
   const css_text_fill = get_table_default_text_fill();
-
-  if (use_white) {
-    t.style.fill = '#ffffff';
-    t.style.stroke = use_outline ? 'rgba(0,0,0,0.98)' : '';
-    t.style.strokeWidth = use_outline ? '1.8px' : '';
-    t.style.paintOrder = use_outline ? 'stroke fill' : '';
-    return;
-  }
 
   t.style.stroke = '';
   t.style.strokeWidth = '';
   t.style.paintOrder = '';
+  t.style.fontWeight = '';
+
+  if (use_gold_black) {
+    t.style.fill = '#111111';
+    t.style.fontWeight = '700';
+    return;
+  }
+
+  if (use_white) {
+    t.style.fill = '#ffffff';
+    return;
+  }
 
   if (is_dark) {
     t.style.fill = css_text_fill;
@@ -8448,80 +8427,41 @@ function fantasy_sample_is_reduced(row) {
   return ip < 20;
 }
 /* ################# */
-function fantasy_is_deep_gradient_color(style_str) {
-  const m = String(style_str || '').match(/background:\s*rgb\((\d+),(\d+),(\d+)\)/i);
-  if (!m) return false;
-
-  const r = Number(m[1]);
-  const g = Number(m[2]);
-  const b = Number(m[3]);
-
-  const blue_like = (b - r >= 30) && (b - g >= 18);
-  const red_like = (r - g >= 30) && (r - b >= 18);
-
-  if (!blue_like && !red_like) return false;
-
-  if (blue_like) {
-    return b <= 170;
-  }
-
-  return r <= 220 ? false : false;
-}
-/* ################# */
-function fantasy_is_deep_blue_or_red(style_str) {
-  const s = String(style_str || '').toLowerCase();
+function fantasy_should_use_white_text(row, col, gradient_style) {
+  const s = String(gradient_style || '');
+  if (!s) return false;
 
   if (s.includes('--fantasy-tone:gold')) {
-    return { deep_blue: false, deep_red: false, deep_gold: true };
+    return false;
+  }
+
+  const has_rgb_fill = s.includes('background:rgb(');
+  if (!has_rgb_fill) {
+    return false;
+  }
+
+  if (!fantasy_sample_is_reduced(row)) {
+    return true;
   }
 
   const m = s.match(/background:\s*rgb\((\d+),\s*(\d+),\s*(\d+)\)/i);
-  if (!m) return { deep_blue: false, deep_red: false, deep_gold: false };
+  if (!m) return true;
 
   const r = Number(m[1]);
   const g = Number(m[2]);
   const b = Number(m[3]);
-
-  const deep_blue = (b - r >= 30) && (b - g >= 18) && b <= 170;
-  const deep_red = (r - g >= 30) && (r - b >= 18) && r >= 185;
-  const deep_gold = r >= 140 && g >= 100 && b <= 90;
-
-  return { deep_blue, deep_red, deep_gold };
-}
-/* ################# */
-function fantasy_should_use_white_text(row, col, gradient_style) {
-  if (!gradient_style) return false;
-
-  const { deep_blue, deep_red, deep_gold } = fantasy_is_deep_blue_or_red(gradient_style);
-
-  if (deep_gold) return true;
-
-  return gradient_style.includes('background:linear-gradient(') || deep_blue || deep_red || gradient_style.includes('background:rgb(');
-}
-/* ################# */
-function fantasy_should_use_black_outline(gradient_style) {
-  if (!gradient_style) return false;
-
-  const { deep_gold } = fantasy_is_deep_blue_or_red(gradient_style);
-  if (deep_gold) return true;
-
-  const m = String(gradient_style || '').match(/background:\s*rgb\((\d+),\s*(\d+),\s*(\d+)\)/i);
-  if (!m) return false;
-
-  const r = Number(m[1]);
-  const g = Number(m[2]);
-  const b = Number(m[3]);
-
-  const base = { r: 235, g: 240, b: 248 };
 
   let frac = 0;
+
   if ((b - r >= 30) && (b - g >= 18)) {
     frac = mix_frac_to_target({ r, g, b, a: 1 }, { r: 35, g: 85, b: 210 }) || 0;
   } else if ((r - g >= 30) && (r - b >= 18)) {
     frac = mix_frac_to_target({ r, g, b, a: 1 }, { r: 210, g: 35, b: 35 }) || 0;
+  } else {
+    return false;
   }
 
-  return frac < 0.25;
+  return frac >= 0.25;
 }
 /* ################# */
 function fantasy_gradient_style(row, col, value) {
@@ -8566,10 +8506,11 @@ function fantasy_gradient_style(row, col, value) {
     const bg = fantasy_gradient_good_only_stats(Math.max(0, Math.min(1, frac)), use_gold);
     if (!bg) return '';
 
-    const tone_tag = use_gold ? '--fantasy-tone:gold;' : '';
-    const text_color = use_gold ? 'color:#fff;' : '';
+const tone_tag = use_gold ? '--fantasy-tone:gold;' : '';
+const text_color = use_gold ? 'color:#111;' : '';
+const font_weight = use_gold ? 'font-weight:700;' : '';
 
-    return `${tone_tag}background:${bg};${text_color}`;
+return `${tone_tag}background:${bg};${text_color}${font_weight}`;
   }
 
   if (spec.mode === 'bad_only') {
@@ -8617,46 +8558,13 @@ function fantasy_gradient_style(row, col, value) {
 const bg = use_gold ? raw_bg : fantasy_blend_rgba_on_rgb(raw_bg);
   if (!bg) return '';
 
-  let text_shadow = '';
-  const is_dark_mode = document.body.classList.contains('soft_theme');
-
-  const low_span = Math.max(1e-12, neutral_lo - worst);
-  const high_span = Math.max(1e-12, best - neutral_hi);
-
-  const low_outline_cutoff = neutral_lo - (0.30 * low_span);
-  const high_outline_cutoff = neutral_hi + (0.30 * high_span);
-
-  if (
-    is_dark_mode &&
-    (
-      (adj_value < neutral_lo && adj_value >= low_outline_cutoff) ||
-      (adj_value > neutral_hi && adj_value <= high_outline_cutoff)
-    )
-  ) {
-    text_shadow = '0 0 0.6px rgba(0,0,0,0.95)';
-  }
-
-const preview_style = `background:${bg};`;
+const preview_style = `background:${bg};${use_gold ? '--fantasy-tone:gold;' : ''}`;
 const use_white = fantasy_should_use_white_text(row, col, preview_style);
-const use_outline = use_gold || fantasy_should_use_black_outline(preview_style);
 const tone_tag = use_gold ? '--fantasy-tone:gold;' : '';
-const text_color = use_white ? 'color:#fff;' : '';
+const text_color = use_gold ? 'color:#111;' : (use_white ? 'color:#fff;' : '');
+const font_weight = use_gold ? 'font-weight:700;' : '';
 
-const shadow_parts = [];
-let text_stroke_style = '';
-
-if (use_outline) {
-  text_stroke_style = '-webkit-text-stroke:0.45px rgba(0,0,0,0.72);';
-  shadow_parts.push('0 1px 1px rgba(0,0,0,0.30)');
-}
-
-if (text_shadow) {
-  shadow_parts.push(text_shadow.replace(/^text-shadow:/, '').replace(/;$/, ''));
-}
-
-const shadow_style = shadow_parts.length ? `text-shadow:${shadow_parts.join(',')};` : '';
-
-return `${tone_tag}background:${bg};${text_color}${text_stroke_style}${shadow_style}`;
+return `${tone_tag}background:${bg};${text_color}${font_weight}`;
 }
 /* ################# */
 function fantasy_build_table_html(rows) {

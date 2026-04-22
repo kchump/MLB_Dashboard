@@ -32158,7 +32158,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": "",
@@ -45228,7 +45228,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "CIN",
         "teams": "",
         "vSzn": 74.81,
@@ -66758,7 +66758,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CIN",
         "teams": "",
         "vSzn": 195.93,
@@ -70934,7 +70934,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHW",
         "teams": "",
         "vSzn": 432.96,
@@ -91604,7 +91604,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.429
       }
@@ -92363,7 +92363,7 @@
         "person_key": "raisel iglesias",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "CIN"
       },
       {

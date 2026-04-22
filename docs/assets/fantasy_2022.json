@@ -776,7 +776,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SEA",
         "teams": "",
         "vSzn": -518.52,
@@ -6385,7 +6385,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIN",
         "teams": "",
         "vSzn": "",
@@ -7237,7 +7237,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "vSzn": 228.81,
@@ -35708,7 +35708,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "DET",
         "teams": "",
         "vSzn": -436.14,
@@ -35779,7 +35779,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "TEX",
         "teams": "",
         "vSzn": -655.17,
@@ -46219,7 +46219,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": -504.63,
@@ -51979,7 +51979,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "ATL,Los Angeles",
         "vSzn": 169.89,
@@ -52411,7 +52411,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIN",
         "teams": "",
         "vSzn": "",
@@ -71349,7 +71349,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN",
         "teams": "",
         "vSzn": -2.73,
@@ -78045,7 +78045,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHW",
         "teams": "",
         "vSzn": -71.58,
@@ -85919,7 +85919,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SEA",
         "≥100": 0.314
       },
@@ -88541,7 +88541,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "TEX",
         "≥100": 0.317
       },
@@ -88909,7 +88909,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.013999999999999999
       },
@@ -89292,7 +89292,7 @@
         "person_key": "jake bird",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -96131,7 +96131,7 @@
         "person_key": "raisel iglesias",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {
@@ -98956,7 +98956,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIN",
         "≥100": 0.0
       },
@@ -104821,7 +104821,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "DET",
         "≥100": 0.278
       },
@@ -106763,7 +106763,7 @@
         "person_key": "jake bird",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -107834,7 +107834,7 @@
         "person_key": "raisel iglesias",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {
@@ -107939,7 +107939,7 @@
         "person_key": "ian hamilton",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIN"
       },
       {
@@ -111553,7 +111553,7 @@
         "person_key": "sonny gray",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN"
       },
       {

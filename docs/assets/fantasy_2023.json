@@ -847,7 +847,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SEA",
         "teams": "",
         "vSzn": "",
@@ -7521,7 +7521,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIN",
         "teams": "",
         "vSzn": 323.37,
@@ -8373,7 +8373,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "vSzn": 406.11,
@@ -38051,7 +38051,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "CLE,DET",
         "vSzn": -830.88,
@@ -38122,7 +38122,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TEX",
         "teams": "",
         "vSzn": "",
@@ -43901,7 +43901,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CIN",
         "teams": "",
         "vSzn": "",
@@ -48509,7 +48509,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": -312.9,
@@ -55637,7 +55637,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "ATL",
         "teams": "",
         "vSzn": 191.57,
@@ -56285,7 +56285,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "NYY",
         "teams": "",
         "vSzn": 197.06,
@@ -74791,7 +74791,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN",
         "teams": "",
         "vSzn": 168.93,
@@ -82927,7 +82927,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "Chicago,CLE,Los Angeles",
         "vSzn": -37.41,
@@ -89194,7 +89194,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SEA",
         "≥100": 0.28600000000000003
       },
@@ -90275,7 +90275,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIN",
         "≥100": 0.424
       },
@@ -91425,7 +91425,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.29
       },
@@ -97106,7 +97106,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TEX",
         "≥100": 0.332
       },
@@ -98476,7 +98476,7 @@
         "person_key": "casey legumina",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CIN"
       },
       {
@@ -101647,7 +101647,7 @@
         "person_key": "alan rangel",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -105345,7 +105345,7 @@
         "person_key": "kendry rojas",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -108746,7 +108746,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIN",
         "teams": "",
         "≥100": 0.5
@@ -108866,7 +108866,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "≥100": 0.1
@@ -111954,7 +111954,7 @@
         "person_key": "raisel iglesias",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "ATL"
       },
       {
@@ -112976,7 +112976,7 @@
         "person_key": "sonny gray",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN"
       },
       {
@@ -115979,7 +115979,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "≥100": 0.182
       },
@@ -125317,7 +125317,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "≥100": 0.478
       },
@@ -128579,7 +128579,7 @@
         "person_key": "jake bird",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -130469,7 +130469,7 @@
         "person_key": "ian hamilton",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "NYY"
       },
       {
@@ -130868,7 +130868,7 @@
         "person_key": "alan rangel",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -134207,7 +134207,7 @@
         "person_key": "tyler samaniego",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -135175,7 +135175,7 @@
         "person_key": "sonny gray",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN"
       },
       {

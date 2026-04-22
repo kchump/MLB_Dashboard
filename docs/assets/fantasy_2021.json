@@ -563,7 +563,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SEA",
         "teams": "",
         "vSzn": -793.44,
@@ -33436,7 +33436,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "DET",
         "teams": "",
         "vSzn": -163.08,
@@ -39826,7 +39826,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": "",
@@ -48682,7 +48682,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "LAA",
         "teams": "",
         "vSzn": 616.89,
@@ -70500,7 +70500,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CIN",
         "teams": "",
         "vSzn": 59.43,
@@ -76332,7 +76332,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHW",
         "teams": "",
         "vSzn": 390.81,
@@ -90420,7 +90420,7 @@
         "person_key": "lucas giolito",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHW"
       },
       {
@@ -92152,7 +92152,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.5
       },
@@ -99328,7 +99328,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "DET",
         "≥100": 0.273
       },
@@ -102328,7 +102328,7 @@
         "person_key": "raisel iglesias",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "LAA"
       },
       {
@@ -102454,7 +102454,7 @@
         "person_key": "ian hamilton",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -108126,7 +108126,7 @@
         "person_key": "lucas giolito",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHW"
       },
       {
