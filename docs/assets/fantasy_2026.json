@@ -69959,8 +69959,8 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
-        "team": "Free Agents",
+        "sort_bucket": 1,
+        "team": "FA",
         "≥100": 0.5
       },
       {
@@ -92895,8 +92895,8 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
-        "team": "Free Agents",
+        "sort_bucket": 1,
+        "team": "FA",
         "≥100": 0.316
       },
       {

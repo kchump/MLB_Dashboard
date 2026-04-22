@@ -30099,7 +30099,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "HOU",
         "teams": "",
         "vSzn": "",
@@ -97640,7 +97640,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "HOU",
         "≥100": 0.29600000000000004
       },
@@ -127536,7 +127536,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "HOU",
         "≥100": 0.33299999999999996
       },

@@ -1829,6 +1829,41 @@ function apply_gold_gradient_fill(rect, gradient_key = 'default', opacity = 1) {
   rect.dataset.gold_gradient_applied = '1';
 }
 /* ################# */
+function normalize_svg_fill(fill) {
+  return String(fill || '')
+    .trim()
+    .replace(/\s+/g, '')
+    .toLowerCase();
+}
+/* ################# */
+function parse_svg_fill(fill) {
+  const f = normalize_svg_fill(fill);
+  if (!f || f === 'none' || f === 'transparent') return null;
+
+  let m = f.match(/^rgba?\(([\d.]+),([\d.]+),([\d.]+)(?:,([\d.]+))?\)$/);
+  if (m) {
+    return {
+      r: Number(m[1]),
+      g: Number(m[2]),
+      b: Number(m[3]),
+      a: m[4] == null ? 1 : Number(m[4]),
+    };
+  }
+
+  m = f.match(/^#([0-9a-f]{6})$/);
+  if (m) {
+    const hex = m[1];
+    return {
+      r: parseInt(hex.slice(0, 2), 16),
+      g: parseInt(hex.slice(2, 4), 16),
+      b: parseInt(hex.slice(4, 6), 16),
+      a: 1,
+    };
+  }
+
+  return null;
+}
+/* ################# */
 function parse_svg_fill(fill) {
   const f = normalize_svg_fill(fill);
   if (!f || f === 'none' || f === 'transparent') return null;
@@ -2411,10 +2446,12 @@ if (is_dark_text_fill(orig_fill)) {
 
         if (!parsed || parsed.a === 0) return;
 
-        if (is_stat_fill(orig_fill)) {
-          r.style.fill = dark_mode_stat_fill(orig_fill);
-          return;
-        }
+if (is_stat_fill(orig_fill)) {
+  const dark_fill = dark_mode_stat_fill(orig_fill);
+  r.style.fill = dark_fill;
+  r.setAttribute('fill', dark_fill);
+  return;
+}
 
         const is_light_body = is_close_rgb(parsed, 235, 240, 248, 10);
         const is_light_header = is_close_rgb(parsed, 205, 215, 230, 10);
@@ -2435,7 +2472,8 @@ if (is_dark_text_fill(orig_fill)) {
           return;
         }
 
-        r.style.fill = orig_fill;
+r.style.fill = orig_fill;
+r.setAttribute('fill', orig_fill);
       });
     });
     repaint_gold_plot_bars(plot, is_dark);
@@ -3601,8 +3639,8 @@ function matchup_role_to_page_role(role) {
   return 'batters';
 }
 //#################
-function matchup_sidebar_link_cache_key(name, role) {
-  const nm = normalize_matchup_person_key(name);
+function matchup_sidebar_link_cache_key(name_or_person_key, role) {
+  const nm = normalize_matchup_person_key(name_or_person_key);
   const rr = matchup_role_to_page_role(role);
   if (!nm || !rr) return '';
   return `${nm}||${rr}`;
@@ -3610,16 +3648,20 @@ function matchup_sidebar_link_cache_key(name, role) {
 //#################
 function build_matchup_sidebar_link_cache() {
   const cache = new Map();
-  const links = Array.from(document.querySelectorAll('.toc_link[data-page]'));
+  const links = Array.from(document.querySelectorAll('.toc_link'));
 
   links.forEach(link => {
-    const name = String(link.textContent || '').trim();
+    const text_name = String(link.textContent || '').trim();
+    const person_key = String(link.getAttribute('data-person_key') || '').trim();
     const data_role = String(link.getAttribute('data-role') || '').trim();
     const data_page = String(link.getAttribute('data-page') || '').trim();
     const href = String(link.getAttribute('href') || '').trim();
 
     const role = matchup_role_to_page_role(data_role);
-    const key = matchup_sidebar_link_cache_key(name, role);
+
+    const key =
+      matchup_sidebar_link_cache_key(person_key, role) ||
+      matchup_sidebar_link_cache_key(text_name, role);
 
     if (!key) return;
 
@@ -3627,7 +3669,7 @@ function build_matchup_sidebar_link_cache() {
       href,
       data_page,
       role,
-      person_key: String(link.getAttribute('data-person_key') || '').trim()
+      person_key
     });
   });
 
@@ -3647,9 +3689,13 @@ function clear_matchup_sidebar_link_cache() {
 //#################
 function matchup_find_sidebar_link_data(name, role) {
   const cache = ensure_matchup_sidebar_link_cache();
-  const key = matchup_sidebar_link_cache_key(name, role);
-  if (!key) return null;
-  return cache.get(key) || null;
+
+  const direct_key = matchup_sidebar_link_cache_key(name, role);
+  if (direct_key && cache.has(direct_key)) {
+    return cache.get(direct_key);
+  }
+
+  return null;
 }
 //#################
 function resolve_matchup_player_href(name, role, year) {
@@ -8597,24 +8643,20 @@ const tone_tag = use_gold ? '--fantasy-tone:gold;' : '';
 const text_color = use_white ? 'color:#fff;' : '';
 
 const shadow_parts = [];
+let text_stroke_style = '';
+
 if (use_outline) {
-  shadow_parts.push(
-    '-1px 0 0 rgba(0,0,0,0.98)',
-    '1px 0 0 rgba(0,0,0,0.98)',
-    '0 -1px 0 rgba(0,0,0,0.98)',
-    '0 1px 0 rgba(0,0,0,0.98)',
-    '-1px -1px 0 rgba(0,0,0,0.92)',
-    '1px -1px 0 rgba(0,0,0,0.92)',
-    '-1px 1px 0 rgba(0,0,0,0.92)',
-    '1px 1px 0 rgba(0,0,0,0.92)'
-  );
+  text_stroke_style = '-webkit-text-stroke:0.45px rgba(0,0,0,0.72);';
+  shadow_parts.push('0 1px 1px rgba(0,0,0,0.30)');
 }
+
 if (text_shadow) {
   shadow_parts.push(text_shadow.replace(/^text-shadow:/, '').replace(/;$/, ''));
 }
+
 const shadow_style = shadow_parts.length ? `text-shadow:${shadow_parts.join(',')};` : '';
 
-return `${tone_tag}background:${bg};${text_color}${shadow_style}`;
+return `${tone_tag}background:${bg};${text_color}${text_stroke_style}${shadow_style}`;
 }
 /* ################# */
 function fantasy_build_table_html(rows) {
