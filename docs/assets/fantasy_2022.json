@@ -18029,7 +18029,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIA",
         "teams": "",
         "vSzn": -224.61,
@@ -18171,7 +18171,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIA",
         "teams": "",
         "vSzn": "",
@@ -18526,7 +18526,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYM",
         "teams": "",
         "vSzn": 201.66,
@@ -51474,7 +51474,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PIT",
         "teams": "",
         "vSzn": -319.96,
@@ -53562,7 +53562,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "LAA",
         "teams": "",
         "vSzn": "",
@@ -71348,7 +71348,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BAL",
         "teams": "",
         "vSzn": -60.51,
@@ -81284,7 +81284,7 @@
         "pitch_role": "SP",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "LAD",
         "teams": "",
         "vSzn": 640.68,
@@ -86956,7 +86956,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIA",
         "≥100": 0.057
       },
@@ -89546,7 +89546,7 @@
         "person_key": "yohan ramirez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PIT"
       },
       {
@@ -89777,7 +89777,7 @@
         "person_key": "austin warren",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "LAA"
       },
       {
@@ -89861,7 +89861,7 @@
         "person_key": "julian fernandez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS"
       },
       {
@@ -94113,7 +94113,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYM",
         "teams": "",
         "≥100": 0.5
@@ -97703,7 +97703,7 @@
         "person_key": "clayton kershaw",
         "pitch_role": "SP",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "LAD"
       },
       {
@@ -102515,7 +102515,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYM",
         "≥100": 0.55
       },
@@ -110405,7 +110405,7 @@
         "person_key": "austin warren",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "LAA"
       },
       {
@@ -110615,7 +110615,7 @@
         "person_key": "julian fernandez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS"
       },
       {
@@ -113704,7 +113704,7 @@
         "person_key": "dean kremer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BAL"
       },
       {
@@ -115468,7 +115468,7 @@
         "person_key": "clayton kershaw",
         "pitch_role": "SP",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "LAD"
       },
       {

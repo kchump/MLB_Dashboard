@@ -80,9 +80,9 @@
       "worst": 10
     },
     "majors|hitters|Bar/PA": {
-      "best": 0.15,
+      "best": 0.14,
       "fmt": "pct",
-      "gold": 0.17,
+      "gold": 0.16,
       "neutral_hi": 0.08,
       "neutral_lo": 0.07,
       "worst": 0

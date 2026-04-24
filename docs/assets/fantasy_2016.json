@@ -4184,7 +4184,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CLE",
         "teams": "",
         "vSzn": 244.32,
@@ -70672,7 +70672,7 @@
         "pitch_role": "SP",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "LAD",
         "teams": "",
         "vSzn": 1196.79,
@@ -79202,7 +79202,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CLE",
         "teams": "",
         "≥100": 0.28600000000000003
@@ -82976,7 +82976,7 @@
         "person_key": "clayton kershaw",
         "pitch_role": "SP",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "LAD"
       },
       {
@@ -84087,7 +84087,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CLE",
         "≥100": 0.14300000000000002
       },
@@ -96598,7 +96598,7 @@
         "person_key": "clayton kershaw",
         "pitch_role": "SP",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "LAD"
       },
       {

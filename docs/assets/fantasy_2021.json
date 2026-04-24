@@ -13698,7 +13698,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIA",
         "teams": "",
         "vSzn": -377.07,
@@ -13982,7 +13982,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYM",
         "teams": "",
         "vSzn": 151.56,
@@ -48178,7 +48178,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PIT",
         "teams": "",
         "vSzn": 89.91,
@@ -49978,7 +49978,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "LAA",
         "teams": "",
         "vSzn": "",
@@ -50626,7 +50626,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL",
         "teams": "",
         "vSzn": "",
@@ -70428,7 +70428,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BAL",
         "teams": "",
         "vSzn": -921.48,
@@ -80796,8 +80796,8 @@
         "pitch_role": "SP",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
-        "team": "",
+        "sort_bucket": 1,
+        "team": "LAD",
         "teams": "",
         "vSzn": 433.29,
         "≥50 Qual": 2.0
@@ -87382,7 +87382,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIA",
         "teams": "",
         "≥100": 0.2
@@ -95080,7 +95080,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIA",
         "≥100": 1.0
       },
@@ -95172,7 +95172,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYM",
         "≥100": 0.235
       },
@@ -95402,7 +95402,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.0
       },
@@ -104275,8 +104275,8 @@
         "person_key": "shawn dubin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
-        "team": "ARI"
+        "sort_bucket": 0,
+        "team": "Free Agents"
       },
       {
         "All": 15.23,
@@ -105346,7 +105346,7 @@
         "person_key": "julian fernandez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL"
       },
       {
@@ -109569,7 +109569,7 @@
         "person_key": "dean kremer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BAL"
       },
       {
