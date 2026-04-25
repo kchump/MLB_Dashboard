@@ -1920,29 +1920,27 @@ function is_close_rgb(c, r, g, b, tol = 8) {
 }
 /* ################# */
 function is_gold_stat_fill(fill) {
-  if (is_gold_gradient_fill(fill)) return true;
-
   const c = parse_svg_fill(fill);
-  if (!c || c.a === 0) return false;
+  if (!c) return false;
 
-  const deep_gold = (
-    c.r >= 120 &&
-    c.g >= 90 &&
-    c.b <= 115 &&
-    (c.r - c.b >= 30) &&
-    (c.g - c.b >= 5)
-  );
+  const { r, g, b } = c;
 
-  const yellow_gold = (
-    c.r >= 180 &&
-    c.g >= 130 &&
-    c.b <= 175 &&
-    c.r >= c.g &&
-    c.g >= c.b &&
-    (c.r - c.b >= 25)
-  );
+  // strong gold (darker / saturated)
+  const strong_gold =
+    r >= 140 &&
+    g >= 110 &&
+    b <= 120 &&
+    (r - b >= 40);
 
-  return deep_gold || yellow_gold;
+  // pale gold (like rgb(231,217,188))
+  const pale_gold =
+    r >= 200 &&
+    g >= 180 &&
+    b >= 150 &&
+    (r - b <= 80) &&   // not super red-dominant
+    (r - g <= 60);     // stays yellow-ish, not orange
+
+  return strong_gold || pale_gold;
 }
 /* ################# */
 function is_deep_gold_fill(fill) {
@@ -2024,9 +2022,9 @@ function table_fill_fraction(fill) {
   const c = parse_svg_fill(fill);
   if (!c || c.a === 0) return 0;
 
-  if (is_gold_stat_fill(fill)) {
-    return mix_frac_to_target(c, { r: 224, g: 170, b: 62 }) || 0;
-  }
+if (is_gold_stat_fill(fill)) {
+  return 1;
+}
 
   if (is_blue_stat_fill(fill)) {
     return mix_frac_to_target(c, { r: 35, g: 85, b: 210 }) || 0;
