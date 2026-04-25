@@ -1761,7 +1761,8 @@ function svg_ns() {
 }
 /* ################# */
 function is_gold_gradient_fill(fill) {
-  return /^url\(#mlb_gold_gradient_[^)]+\)$/i.test(String(fill || '').trim());
+  const f = String(fill || '').trim();
+  return /^url\((['"]?)(?:[^#)]*)?#mlb_gold_gradient_[^)'" ]+\1\)$/i.test(f);
 }
 /* ################# */
 function get_plot_svg_root(node) {
@@ -2059,6 +2060,27 @@ function should_use_white_table_text(text_node, cell_fill) {
 function get_table_text_cell_fill(text_node) {
   if (!text_node) return '';
 
+  const holder = get_cell_holder_for_text_node(text_node);
+  const column_block = get_column_block_for_text_node(text_node);
+
+  if (holder && column_block) {
+    const row_idx = get_row_index_for_text_node(text_node);
+    const rects = Array.from(column_block.querySelectorAll('rect'));
+
+    const non_empty_rects = rects.filter(r => {
+      const fill = r.style.fill || r.getAttribute('fill') || r.dataset.orig_fill || '';
+      if (is_gold_gradient_fill(fill)) return true;
+
+      const parsed = parse_svg_fill(fill);
+      return parsed && parsed.a !== 0;
+    });
+
+    if (row_idx >= 0 && non_empty_rects[row_idx]) {
+      const r = non_empty_rects[row_idx];
+      return r.style.fill || r.getAttribute('fill') || r.dataset.orig_fill || '';
+    }
+  }
+
   let node = text_node;
   for (let i = 0; i < 5 && node; i += 1) {
     if (node.querySelectorAll) {
@@ -2075,6 +2097,7 @@ function get_table_text_cell_fill(text_node) {
         return filled_rect.style.fill || filled_rect.getAttribute('fill') || filled_rect.dataset.orig_fill || '';
       }
     }
+
     node = node.parentNode;
   }
 
@@ -3410,13 +3433,17 @@ function get_matchups_hash_params() {
   return new URLSearchParams(hash.slice(q_idx + 1));
 }
 //#################
-function set_matchups_hash_params(params) {
+function set_matchups_hash_params(params, push_history = false) {
   const qs = params.toString();
   const next_hash = qs ? `#matchups?${qs}` : '#matchups';
 
   if (window.location.hash === next_hash) return;
 
-  history.replaceState(null, '', next_hash);
+  if (push_history) {
+    history.pushState(null, '', next_hash);
+  } else {
+    history.replaceState(null, '', next_hash);
+  }
 }
 //#################################################################### Matchups page init ####################################################################
 function init_matchups_page_if_present(content_root) {
@@ -3541,21 +3568,25 @@ const initial_matchups_params = get_matchups_hash_params();
   }
   mode_root.appendChild(mode_bar);
   //#################
-  function write_matchups_url_state(extra_params) {
-    const params = new URLSearchParams();
+function write_matchups_url_state(extra_params) {
+  const params = new URLSearchParams();
 
-    params.set('mode', mode_select.value);
+  params.set('mode', mode_select.value);
 
-    const year_val = String(document.getElementById('matchups_year')?.value || '').trim();
-    if (year_val) params.set('year', year_val);
+  const year_val = String(document.getElementById('matchups_year')?.value || '').trim();
+  if (year_val) params.set('year', year_val);
 
-    Object.entries(extra_params || {}).forEach(([k, v]) => {
-      const val = String(v || '').trim();
-      if (val) params.set(k, val);
-    });
+  Object.entries(extra_params || {}).forEach(([k, v]) => {
+    const val = String(v || '').trim();
+    if (val) params.set(k, val);
+  });
 
-    set_matchups_hash_params(params);
-  }
+  set_matchups_hash_params(params, true);
+}
+//#################
+function should_auto_submit_matchups_mode(mode_name) {
+  return String(initial_matchups_params.get('mode') || '').trim() === String(mode_name || '').trim();
+}
   //#################
   function sync_row_controls() {
     const mode = mode_select.value;
@@ -3684,7 +3715,8 @@ function matchup_heat_text_color(v, worst, neutral_lo, neutral_hi, best, alpha_m
   let a = alpha_min + (alpha_max - alpha_min) * Math.pow(d, alpha_curve_pow);
   a = clamp(a * Number(alpha_mult || 1), 0, 1);
 
-  return a < 0.42 ? '#000000' : '#ffffff';
+const is_dark = document.body.classList.contains('soft_theme');
+return (!is_dark && a < 0.42) ? '#000000' : '#ffffff';
 }
   //#################
 function rgba_from_two_sided_value(v, worst, neutral_lo, neutral_hi, best, alpha_mult = 1) {
@@ -6023,7 +6055,9 @@ function sort_table_rows_by_all(table) {
       }
 
       build_action_buttons(submit, clear_mode, 'Load');
-
+if (should_auto_submit_matchups_mode(mode)) {
+  setTimeout(() => submit(), 0);
+}
       return;
     }
     //#################################################################### Mode: gameday_matchup ####################################################################
@@ -6074,12 +6108,16 @@ async function refresh_team_choices() {
   sync_select_placeholder_class(team_obj.sel);
 }
 
-      day_obj.sel.addEventListener('change',()=>{
-        clear_results();
-        refresh_team_choices();
-      });
+day_obj.sel.addEventListener('change', () => {
+  clear_results();
+  refresh_team_choices();
+});
 
-      refresh_team_choices();
+refresh_team_choices().then(() => {
+  if (should_auto_submit_matchups_mode(mode)) {
+    submit();
+  }
+});
       //#################
       async function submit() {
         const req_id = ++gd_req_id;
@@ -6371,7 +6409,6 @@ async function refresh_team_choices() {
       }
 
       build_action_buttons(submit, clear_mode, 'Load', { show_sort: false });
-
       return;
     }
     //#################################################################### Mode: best_worst_hitters ####################################################################
@@ -6468,6 +6505,9 @@ async function refresh_team_choices() {
       }
 
       build_action_buttons(submit, clear_mode, 'Load', { show_sort: false });
+      if (should_auto_submit_matchups_mode(mode)) {
+  setTimeout(() => submit(), 0);
+}
       return;
     }
     //#################################################################### Mode: multi_starter ####################################################################
@@ -6644,6 +6684,9 @@ async function refresh_team_choices() {
       }
 
       build_action_buttons(submit, clear_mode);
+      if (should_auto_submit_matchups_mode(mode)) {
+  setTimeout(() => submit(), 0);
+}
       return;
     }
     //#################################################################### Mode: multi_hitter ####################################################################
@@ -6877,6 +6920,9 @@ async function refresh_team_choices() {
       }
 
       build_action_buttons(submit, clear_mode);
+      if (should_auto_submit_matchups_mode(mode)) {
+  setTimeout(() => submit(), 0);
+}
       return;
     }
     //#################################################################### Mode: favorites_today ####################################################################
@@ -7134,6 +7180,9 @@ await render_stacked_section('Matchups', matchup_paths, {
   }
 
   build_action_buttons(submit, clear_mode, 'Submit', { show_sort: false });
+  if (should_auto_submit_matchups_mode(mode)) {
+  setTimeout(() => submit(), 0);
+}
   return;
 }
     //#################################################################### Mode: multi_hitter_today ####################################################################
@@ -7272,6 +7321,9 @@ await render_stacked_section('Matchups', matchup_paths, {
       }
 
       build_action_buttons(submit, clear_mode, 'Submit', { show_sort: false });
+      if (should_auto_submit_matchups_mode(mode)) {
+  setTimeout(() => submit(), 0);
+}
       return;
     }
     //#################################################################### Mode: multi_hitter_week ####################################################################
@@ -7401,6 +7453,9 @@ if (url_rows_raw && !multi_form_state.multi_hitter_week.rows.length) {
 
       // build_action_buttons(submit, clear_mode);
       build_action_buttons(submit, clear_mode, 'Submit', { show_sort: false });
+      if (should_auto_submit_matchups_mode(mode)) {
+  setTimeout(() => submit(), 0);
+}
       return;
     }
     //#################################################################### Mode: rp_inning ####################################################################
@@ -7662,6 +7717,9 @@ apply_same_team_filter();
 
           sync_rp_info();
           build_action_buttons(submit, clear_mode, 'Submit', {sort_mode: 'entry', extra_node: rp_info});
+          if (should_auto_submit_matchups_mode(mode)) {
+  setTimeout(() => submit(), 0);
+}
       return;
     }
   }
@@ -8991,7 +9049,9 @@ function fantasy_gradient_style(row, col, value) {
     if (!bg) return '';
 
 const tone_tag = use_gold ? '--fantasy-tone:gold;' : '';
-const text_color = use_gold ? 'color:#000000;' : '';
+const preview_style = `background:${bg};${use_gold ? '--fantasy-tone:gold;' : ''}`;
+const use_white = fantasy_should_use_white_text(row, col, preview_style);
+const text_color = use_gold ? 'color:#000000;' : (use_white ? 'color:#ffffff;' : 'color:#000000;');
 // const font_weight = use_gold ? 'font-weight:700;' : '';
 const font_weight = ''
 
@@ -9009,7 +9069,11 @@ return `${tone_tag}background:${bg};${text_color}${font_weight}`;
     const bg = fantasy_gradient_bad_only_stats(Math.max(0, Math.min(1, frac)));
     if (!bg) return '';
 
-    return `background:${bg};`;
+const preview_style = `background:${bg};`;
+const use_white = fantasy_should_use_white_text(row, col, preview_style);
+const text_color = use_white ? 'color:#ffffff;' : 'color:#000000;';
+
+return `background:${bg};${text_color}`;
   }
 
   let worst = Number(spec.worst);
@@ -9046,7 +9110,7 @@ const bg = use_gold ? raw_bg : fantasy_blend_rgba_on_rgb(raw_bg);
 const preview_style = `background:${bg};${use_gold ? '--fantasy-tone:gold;' : ''}`;
 const use_white = fantasy_should_use_white_text(row, col, preview_style);
 const tone_tag = use_gold ? '--fantasy-tone:gold;' : '';
-const text_color = use_gold ? 'color:#000000;' : (use_white ? 'color:#ffffff;' : '');
+const text_color = use_gold ? 'color:#000000;' : (use_white ? 'color:#ffffff;' : 'color:#000000;');
 // const font_weight = use_gold ? 'font-weight:700;' : '';
 const font_weight = ''
 
