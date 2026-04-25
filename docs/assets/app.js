@@ -1920,27 +1920,18 @@ function is_close_rgb(c, r, g, b, tol = 8) {
 }
 /* ################# */
 function is_gold_stat_fill(fill) {
+  if (is_gold_gradient_fill(fill)) return true;
+
   const c = parse_svg_fill(fill);
-  if (!c) return false;
+  if (!c || c.a === 0) return false;
 
-  const { r, g, b } = c;
-
-  // strong gold (darker / saturated)
-  const strong_gold =
-    r >= 140 &&
-    g >= 110 &&
-    b <= 120 &&
-    (r - b >= 40);
-
-  // pale gold (like rgb(231,217,188))
-  const pale_gold =
-    r >= 200 &&
-    g >= 180 &&
-    b >= 150 &&
-    (r - b <= 80) &&   // not super red-dominant
-    (r - g <= 60);     // stays yellow-ish, not orange
-
-  return strong_gold || pale_gold;
+  return (
+    c.r >= 180 &&
+    c.g >= 125 &&
+    c.b <= 95 &&
+    (c.r - c.b >= 65) &&
+    (c.g - c.b >= 30)
+  );
 }
 /* ################# */
 function is_deep_gold_fill(fill) {
@@ -2023,7 +2014,7 @@ function table_fill_fraction(fill) {
   if (!c || c.a === 0) return 0;
 
 if (is_gold_stat_fill(fill)) {
-  return 1;
+  return mix_frac_to_target(c, { r: 224, g: 170, b: 62 }) || 0;
 }
 
   if (is_blue_stat_fill(fill)) {
@@ -2620,6 +2611,7 @@ function set_sidebar_hidden(hidden) {
 
   if (toggle_sidebar_btn) {
     toggle_sidebar_btn.textContent = hidden ? '☰ Sidebar' : 'Hide Sidebar';
+    toggle_sidebar_btn.classList.toggle('sidebar_is_hidden', hidden);
   }
 }
 
@@ -3689,32 +3681,57 @@ function should_auto_submit_matchups_mode(mode_name) {
     return Math.max(lo, Math.min(hi, x));
   }
   //#################
-function matchup_heat_text_color(v, worst, neutral_lo, neutral_hi, best, alpha_mult = 1) {
-  const val = Number(v);
-  if (!Number.isFinite(val)) return '';
+function parse_matchup_rgba(fill) {
+  const s = String(fill || '').trim();
 
-  const lo = Math.min(worst, best);
-  const hi = Math.max(worst, best);
-  const vv = clamp(val, lo, hi);
+  let m = s.match(/^rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?\)$/i);
+  if (m) {
+    return {
+      r: Number(m[1]),
+      g: Number(m[2]),
+      b: Number(m[3]),
+      a: m[4] == null ? 1 : Number(m[4]),
+    };
+  }
 
-  const nlo = Math.min(neutral_lo, neutral_hi);
-  const nhi = Math.max(neutral_lo, neutral_hi);
+  m = s.match(/^#([0-9a-f]{6})$/i);
+  if (m) {
+    const h = m[1];
+    return {
+      r: parseInt(h.slice(0, 2), 16),
+      g: parseInt(h.slice(2, 4), 16),
+      b: parseInt(h.slice(4, 6), 16),
+      a: 1,
+    };
+  }
 
-  if (vv >= nlo && vv <= nhi) return '';
+  return null;
+}
+//#################
+function matchup_table_base_rgb() {
+  const is_dark = document.body.classList.contains('soft_theme');
 
-  const frac = (vv - worst) / (best - worst);
-  const f = clamp(frac, 0, 1);
+  return is_dark
+    ? { r: 48, g: 56, b: 64 }
+    : { r: 255, g: 255, b: 255 };
+}
+//#################
+function matchup_heat_text_color(fill) {
+  const c = parse_matchup_rgba(fill);
+  if (!c || c.a === 0) return '';
 
-  const alpha_min = 0.25;
-  const alpha_max = 0.95;
-  const alpha_curve_pow = 0.40;
+  const base = matchup_table_base_rgb();
+  const a = clamp(c.a == null ? 1 : c.a, 0, 1);
 
-  const d = clamp(Math.abs(f - 0.5) * 2.0, 0, 1);
-  let a = alpha_min + (alpha_max - alpha_min) * Math.pow(d, alpha_curve_pow);
-  a = clamp(a * Number(alpha_mult || 1), 0, 1);
+  const mixed = {
+    r: (c.r * a) + (base.r * (1 - a)),
+    g: (c.g * a) + (base.g * (1 - a)),
+    b: (c.b * a) + (base.b * (1 - a)),
+  };
 
-const is_dark = document.body.classList.contains('soft_theme');
-return (!is_dark && a < 0.42) ? '#000000' : '#ffffff';
+  const lum = (0.2126 * mixed.r) + (0.7152 * mixed.g) + (0.0722 * mixed.b);
+
+  return lum < 145 ? '#ffffff' : '#000000';
 }
   //#################
 function rgba_from_two_sided_value(v, worst, neutral_lo, neutral_hi, best, alpha_mult = 1) {
@@ -4210,8 +4227,14 @@ append_matchup_player_link(
               td.style.background = gold_gradient_fill(alpha_mult);
               is_gold_cell = true;
             } else {
-              td.style.background = rgba_from_two_sided_value(v, worst, -5, 10, best, alpha_mult);
-              td.style.color = matchup_heat_text_color(v, worst, -5, 10, best, alpha_mult);
+                const bg = rgba_from_two_sided_value(v, worst, -5, 10, best, alpha_mult);
+                td.style.background = bg;
+
+                const text_color = matchup_heat_text_color(bg);
+                td.style.color = text_color;
+
+                const a = td.querySelector('a');
+                if (a) a.style.color = text_color;
             }
           }
         }
@@ -4230,8 +4253,14 @@ append_matchup_player_link(
               td.style.background = gold_gradient_fill(alpha_mult);
               is_gold_cell = true;
             } else {
-              td.style.background = rgba_from_two_sided_value(v, worst, neutral_lo, neutral_hi, best, alpha_mult);
-              td.style.color = matchup_heat_text_color(v, worst, neutral_lo, neutral_hi, best, alpha_mult);
+              const bg = rgba_from_two_sided_value(v, worst, neutral_lo, neutral_hi, best, alpha_mult);
+              td.style.background = bg;
+
+              const text_color = matchup_heat_text_color(bg);
+              td.style.color = text_color;
+
+              const a = td.querySelector('a');
+              if (a) a.style.color = text_color;
             }
           }
         }
