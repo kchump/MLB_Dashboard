@@ -1158,7 +1158,15 @@ function activate_page(page_id, { update_history = true } = {}) { /* back button
 function default_page_id() {
   const h = window.location.hash || '';
   const raw = h.startsWith('#') ? h.slice(1) : h;
-  if (raw) return decodeURIComponent(raw);
+  const page_part = raw.split('?')[0].trim();
+
+  if (page_part) {
+    try {
+      return decodeURIComponent(page_part);
+    } catch (e) {
+      return page_part;
+    }
+  }
 
   try {
     const saved = localStorage.getItem('mlb_dash_active_page');
@@ -1916,13 +1924,24 @@ function is_gold_stat_fill(fill) {
   const c = parse_svg_fill(fill);
   if (!c || c.a === 0) return false;
 
-  return (
+  const deep_gold = (
     c.r >= 120 &&
     c.g >= 90 &&
-    c.b <= 95 &&
-    (c.r - c.b >= 35) &&
-    (c.g - c.b >= 10)
+    c.b <= 115 &&
+    (c.r - c.b >= 30) &&
+    (c.g - c.b >= 5)
   );
+
+  const yellow_gold = (
+    c.r >= 180 &&
+    c.g >= 130 &&
+    c.b <= 175 &&
+    c.r >= c.g &&
+    c.g >= c.b &&
+    (c.r - c.b >= 25)
+  );
+
+  return deep_gold || yellow_gold;
 }
 /* ################# */
 function is_deep_gold_fill(fill) {
@@ -2045,7 +2064,7 @@ function get_table_text_cell_fill(text_node) {
     if (node.querySelectorAll) {
       const rects = Array.from(node.querySelectorAll('rect'));
       const filled_rect = rects.find(r => {
-        const fill = r.dataset.orig_fill || r.style.fill || r.getAttribute('fill') || '';
+        const fill = r.style.fill || r.getAttribute('fill') || r.dataset.orig_fill || '';
         if (is_gold_gradient_fill(fill)) return true;
 
         const parsed = parse_svg_fill(fill);
@@ -2053,7 +2072,7 @@ function get_table_text_cell_fill(text_node) {
       });
 
       if (filled_rect) {
-        return filled_rect.dataset.orig_fill || filled_rect.style.fill || filled_rect.getAttribute('fill') || '';
+        return filled_rect.style.fill || filled_rect.getAttribute('fill') || filled_rect.dataset.orig_fill || '';
       }
     }
     node = node.parentNode;
@@ -2374,77 +2393,6 @@ function repaint_standard_stats_tables(root) {
   const plots = Array.from(scope.querySelectorAll('.player_page .js-plotly-plot, .player_page .plotly-graph-div'));
 
   plots.forEach(plot => {
-    const all_texts = Array.from(plot.querySelectorAll('text'));
-
-  all_texts.forEach(t => {
-    if (t.dataset.orig_fill === undefined) {
-      t.dataset.orig_fill = t.style.fill || t.getAttribute('fill') || '';
-    }
-
-    const orig_fill = t.dataset.orig_fill || '';
-
-if (t.closest('g.table')) {
-  const cell_fill = get_table_text_cell_fill(t);
-  const use_white = should_use_white_table_text(t, cell_fill);
-  const use_gold_black = should_use_black_bold_gold_text(t, cell_fill);
-  const css_text_fill = get_table_default_text_fill();
-
-  if (use_gold_black) {
-    apply_table_text_style(t, {
-      fill: '#000000',
-      // font_weight: '700',
-    });
-    return;
-  }
-
-  if (use_white) {
-    apply_table_text_style(t, {
-      fill: '#cdd2da',
-      font_weight: '',
-    });
-    return;
-  }
-
-  if (is_dark) {
-    apply_table_text_style(t, {
-      fill: css_text_fill,
-      font_weight: '',
-    });
-    return;
-  }
-
-  if (orig_fill) {
-    apply_table_text_style(t, {
-      fill: orig_fill,
-      font_weight: '',
-    });
-  } else {
-    apply_table_text_style(t, {
-      fill: css_text_fill,
-      font_weight: '',
-    });
-  }
-  return;
-}
-
-    if (!is_dark) {
-      if (orig_fill) {
-        t.style.fill = orig_fill;
-      } else {
-        t.style.removeProperty('fill');
-      }
-      return;
-    }
-
-if (is_dark_text_fill(orig_fill)) {
-  t.style.fill = get_table_default_text_fill();
-} else if (orig_fill) {
-      t.style.fill = orig_fill;
-    } else {
-      t.style.removeProperty('fill');
-    }
-  });
-
     const table_groups = Array.from(plot.querySelectorAll('g.table'));
 
     table_groups.forEach(table_group => {
@@ -2472,23 +2420,30 @@ if (is_dark_text_fill(orig_fill)) {
           apply_gold_gradient_fill(r, 'table', opacity);
           return;
         }
+
         if (!is_dark) {
           if (orig_fill) {
             r.style.fill = orig_fill;
+            r.setAttribute('fill', orig_fill);
           } else {
             r.style.removeProperty('fill');
+            r.removeAttribute('fill');
           }
 
           if (r.dataset.orig_stroke) {
             r.style.stroke = r.dataset.orig_stroke;
+            r.setAttribute('stroke', r.dataset.orig_stroke);
           } else {
             r.style.removeProperty('stroke');
+            r.removeAttribute('stroke');
           }
 
           if (r.dataset.orig_stroke_width) {
             r.style.strokeWidth = r.dataset.orig_stroke_width;
+            r.setAttribute('stroke-width', r.dataset.orig_stroke_width);
           } else {
             r.style.removeProperty('stroke-width');
+            r.removeAttribute('stroke-width');
           }
 
           return;
@@ -2496,12 +2451,12 @@ if (is_dark_text_fill(orig_fill)) {
 
         if (!parsed || parsed.a === 0) return;
 
-if (is_stat_fill(orig_fill)) {
-  const dark_fill = dark_mode_stat_fill(orig_fill);
-  r.style.fill = dark_fill;
-  r.setAttribute('fill', dark_fill);
-  return;
-}
+        if (is_stat_fill(orig_fill)) {
+          const dark_fill = dark_mode_stat_fill(orig_fill);
+          r.style.fill = dark_fill;
+          r.setAttribute('fill', dark_fill);
+          return;
+        }
 
         const is_light_body = is_close_rgb(parsed, 235, 240, 248, 10);
         const is_light_header = is_close_rgb(parsed, 205, 215, 230, 10);
@@ -2509,23 +2464,103 @@ if (is_stat_fill(orig_fill)) {
 
         if (is_light_body) {
           r.style.fill = '#3b424b';
+          r.setAttribute('fill', '#3b424b');
           return;
         }
 
         if (is_light_header) {
           r.style.fill = '#272c33';
+          r.setAttribute('fill', '#272c33');
           return;
         }
 
         if (is_light_year_header) {
           r.style.fill = 'rgba(35,85,210,0.35)';
+          r.setAttribute('fill', 'rgba(35,85,210,0.35)');
           return;
         }
 
-r.style.fill = orig_fill;
-r.setAttribute('fill', orig_fill);
+        r.style.fill = orig_fill;
+        r.setAttribute('fill', orig_fill);
       });
     });
+
+    const all_texts = Array.from(plot.querySelectorAll('text'));
+
+    all_texts.forEach(t => {
+      if (t.dataset.orig_fill === undefined) {
+        t.dataset.orig_fill = t.style.fill || t.getAttribute('fill') || '';
+      }
+
+      const orig_fill = t.dataset.orig_fill || '';
+
+      if (t.closest('g.table')) {
+        const cell_fill = get_table_text_cell_fill(t);
+        const use_white = should_use_white_table_text(t, cell_fill);
+        const use_gold_black = should_use_black_bold_gold_text(t, cell_fill);
+        const css_text_fill = get_table_default_text_fill();
+
+        if (use_gold_black) {
+          apply_table_text_style(t, {
+            fill: '#000000',
+            // font_weight: '700',
+          });
+          return;
+        }
+
+        if (use_white) {
+          apply_table_text_style(t, {
+            fill: '#fff',
+            font_weight: '',
+          });
+          return;
+        }
+
+        if (is_dark) {
+          apply_table_text_style(t, {
+            fill: css_text_fill,
+            font_weight: '',
+          });
+          return;
+        }
+
+        if (orig_fill) {
+          apply_table_text_style(t, {
+            fill: orig_fill,
+            font_weight: '',
+          });
+        } else {
+          apply_table_text_style(t, {
+            fill: css_text_fill,
+            font_weight: '',
+          });
+        }
+        return;
+      }
+
+      if (!is_dark) {
+        if (orig_fill) {
+          t.style.fill = orig_fill;
+          t.setAttribute('fill', orig_fill);
+        } else {
+          t.style.removeProperty('fill');
+          t.removeAttribute('fill');
+        }
+        return;
+      }
+
+      if (is_dark_text_fill(orig_fill)) {
+        t.style.fill = get_table_default_text_fill();
+        t.setAttribute('fill', get_table_default_text_fill());
+      } else if (orig_fill) {
+        t.style.fill = orig_fill;
+        t.setAttribute('fill', orig_fill);
+      } else {
+        t.style.removeProperty('fill');
+        t.removeAttribute('fill');
+      }
+    });
+
     repaint_gold_plot_bars(plot, is_dark);
   });
 }
@@ -2558,21 +2593,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.querySelector('.sidebar');
   set_soft_theme(read_soft_theme());
 
-  function set_sidebar_hidden(hidden) {
-    if (!sidebar) return;
-    sidebar.classList.toggle('hidden', hidden);
-
-    if (toggle_sidebar_btn) {
-      toggle_sidebar_btn.textContent = hidden ? '☰ Teams' : 'Hide Teams';
-    }
-  }
+function set_sidebar_hidden(hidden) {
+  if (!sidebar) return;
+  sidebar.classList.toggle('hidden', hidden);
 
   if (toggle_sidebar_btn) {
-    toggle_sidebar_btn.addEventListener('click', () => {
-      const hidden = sidebar && sidebar.classList.contains('hidden');
-      set_sidebar_hidden(!hidden);
-    });
+    toggle_sidebar_btn.textContent = hidden ? '☰ Sidebar' : 'Hide Sidebar';
   }
+}
+
+if (toggle_sidebar_btn) {
+  toggle_sidebar_btn.addEventListener('click', () => {
+    const hidden = sidebar && sidebar.classList.contains('hidden');
+    set_sidebar_hidden(!hidden);
+  });
+}
 
   document.querySelectorAll('.team_title').forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -3649,7 +3684,7 @@ function matchup_heat_text_color(v, worst, neutral_lo, neutral_hi, best, alpha_m
   let a = alpha_min + (alpha_max - alpha_min) * Math.pow(d, alpha_curve_pow);
   a = clamp(a * Number(alpha_mult || 1), 0, 1);
 
-  return a < 0.42 ? '#000' : 'var(--text)';
+  return a < 0.42 ? '#000000' : '#ffffff';
 }
   //#################
 function rgba_from_two_sided_value(v, worst, neutral_lo, neutral_hi, best, alpha_mult = 1) {
@@ -8892,17 +8927,8 @@ function fantasy_should_use_white_text(row, col, gradient_style) {
     return false;
   }
 
-  const has_rgb_fill = s.includes('background:rgb(');
-  if (!has_rgb_fill) {
-    return false;
-  }
-
-  if (!fantasy_sample_is_reduced(row)) {
-    return true;
-  }
-
   const m = s.match(/background:\s*rgb\((\d+),\s*(\d+),\s*(\d+)\)/i);
-  if (!m) return true;
+  if (!m) return false;
 
   const r = Number(m[1]);
   const g = Number(m[2]);
@@ -8918,7 +8944,8 @@ function fantasy_should_use_white_text(row, col, gradient_style) {
     return false;
   }
 
-  return frac >= 0.25;
+  const threshold = fantasy_sample_is_reduced(row) ? 0.25 : 0.38;
+  return frac >= threshold;
 }
 /* ################# */
 function fantasy_gradient_style(row, col, value) {
@@ -9019,7 +9046,7 @@ const bg = use_gold ? raw_bg : fantasy_blend_rgba_on_rgb(raw_bg);
 const preview_style = `background:${bg};${use_gold ? '--fantasy-tone:gold;' : ''}`;
 const use_white = fantasy_should_use_white_text(row, col, preview_style);
 const tone_tag = use_gold ? '--fantasy-tone:gold;' : '';
-const text_color = use_gold ? 'color:#000000;' : (use_white ? 'color:#cdd2da;' : '');
+const text_color = use_gold ? 'color:#000000;' : (use_white ? 'color:#ffffff;' : '');
 // const font_weight = use_gold ? 'font-weight:700;' : '';
 const font_weight = ''
 

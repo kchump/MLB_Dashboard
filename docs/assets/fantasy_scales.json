@@ -492,7 +492,7 @@
     "majors|hitters|R": {
       "end": 120,
       "mode": "good_only",
-      "start": 19
+      "start": 69
     },
     "majors|hitters|R CB": {
       "best": 70,

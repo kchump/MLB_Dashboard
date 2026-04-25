@@ -34289,7 +34289,7 @@
         "prev_minors_year": "",
         "role": "batters",
         "sort_bucket": 1,
-        "team": "COL",
+        "team": "CHC",
         "teams": "",
         "vSzn": -679.92,
         "≥100": 0.0415
@@ -34359,8 +34359,8 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "teams": "",
         "vSzn": -512.1,
         "≥100": 0.2749
@@ -34430,8 +34430,8 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "teams": "",
         "vSzn": -489.93,
         "≥100": 0.16390000000000002
@@ -34501,8 +34501,8 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "teams": "",
         "vSzn": "",
         "≥100": 0.3
@@ -34572,7 +34572,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": "",
@@ -34643,7 +34643,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": -106.35,
@@ -34714,8 +34714,8 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "teams": "",
         "vSzn": "",
         "≥100": 0.1081
@@ -34785,8 +34785,8 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "teams": "",
         "vSzn": -403.89,
         "≥100": 0.3295
@@ -45113,7 +45113,7 @@
         "prev_minors_year": "",
         "role": "rp",
         "sort_bucket": 1,
-        "team": "SEA",
+        "team": "TB",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -64841,7 +64841,7 @@
         "prev_minors_year": "",
         "role": "rp",
         "sort_bucket": 1,
-        "team": "CHC",
+        "team": "NYM",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -98862,8 +98862,8 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "≥100": 0.306
       },
       {
@@ -98885,8 +98885,8 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "≥100": 0.258
       },
       {
@@ -98908,7 +98908,7 @@
         "pos": "2B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.268
       },
@@ -98931,8 +98931,8 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "≥100": 0.27
       },
       {
@@ -98954,7 +98954,7 @@
         "pos": "SS",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "≥100": 0.081
       },
@@ -98977,8 +98977,8 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "≥100": 0.122
       },
       {
@@ -99000,8 +99000,8 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "≥100": 0.311
       },
       {
@@ -102441,7 +102441,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 1,
-        "team": "SEA"
+        "team": "TB"
       },
       {
         "All": 13.88,
@@ -106578,7 +106578,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 1,
-        "team": "CHC"
+        "team": "NYM"
       },
       {
         "All": -28.99,
@@ -129691,7 +129691,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 1,
-        "team": "COL",
+        "team": "CHC",
         "≥100": 0.0
       },
       {
@@ -129713,8 +129713,8 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "≥100": 0.462
       },
       {
@@ -129736,8 +129736,8 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "≥100": 0.154
       },
       {
@@ -129759,7 +129759,7 @@
         "pos": "2B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.33299999999999996
       },
@@ -129782,8 +129782,8 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "≥100": 0.33299999999999996
       },
       {
@@ -129805,8 +129805,8 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "≥100": 1.0
       },
       {
@@ -129828,7 +129828,7 @@
         "pos": "SS",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "≥100": 0.11800000000000001
       },
@@ -129851,7 +129851,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "≥100": 0.257
       },
@@ -129874,8 +129874,8 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "≥100": 0.174
       },
       {
@@ -129897,8 +129897,8 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
-        "team": "COL",
+        "sort_bucket": 0,
+        "team": "",
         "≥100": 0.667
       },
       {
