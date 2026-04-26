@@ -2066,7 +2066,7 @@ function get_table_text_cell_fill(text_node) {
 
     if (row_idx >= 0 && non_empty_rects[row_idx]) {
       const r = non_empty_rects[row_idx];
-      return r.style.fill || r.getAttribute('fill') || r.dataset.orig_fill || '';
+      return r.dataset.orig_fill || r.style.fill || r.getAttribute('fill') || '';
     }
   }
 
@@ -2608,6 +2608,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function set_sidebar_hidden(hidden) {
   if (!sidebar) return;
   sidebar.classList.toggle('hidden', hidden);
+  document.body.classList.toggle('sidebar_hidden', hidden);
 
   if (toggle_sidebar_btn) {
     toggle_sidebar_btn.textContent = hidden ? '☰ Sidebar' : 'Hide Sidebar';
@@ -4264,16 +4265,18 @@ append_matchup_player_link(
             }
           }
         }
-        if (is_gold_cell) {
-          td.style.color = '#000000';
-          // td.style.fontWeight = '700';
+if (is_gold_cell) {
+  const text_color = document.body.classList.contains('soft_theme') ? '#ffffff' : '#000000';
 
-          const a = td.querySelector('a');
-          if (a) {
-            a.style.color = '#000000';
-            // a.style.fontWeight = '700';
-          }
-        }
+  td.style.color = text_color;
+  // td.style.fontWeight = '700';
+
+  const a = td.querySelector('a');
+  if (a) {
+    a.style.color = text_color;
+    // a.style.fontWeight = '700';
+  }
+}
         tr.appendChild(td);
       });
 
