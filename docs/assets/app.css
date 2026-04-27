@@ -1061,7 +1061,7 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
 }
 
 .fantasy_divider_before {
-  border-left: 1px solid var(--border) !important;
+  border-left: 2px solid var(--border) !important;
 }
 
 .fantasy_divider_before_light {
@@ -1079,7 +1079,7 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
 
 .matchup_table th.fantasy_divider_before,
 .matchup_table td.fantasy_divider_before {
-  border-left: 3px solid var(--border) !important;
+  border-left: 2px solid var(--border) !important;
 }
 
 .matchup_table th.fantasy_divider_before_light,
@@ -1663,9 +1663,9 @@ body::-webkit-scrollbar-thumb:hover,
 .toggle_sidebar {
   display: inline-flex;
   position: absolute;
-top: 12px;
-right: 112px;
-left: auto;
+  top: 12px;
+  left: 222px;
+  right: auto;
   z-index: 1000;
   align-items: center;
   gap: 8px;

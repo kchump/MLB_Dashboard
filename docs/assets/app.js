@@ -8013,7 +8013,7 @@ apply_same_team_filter();
 //#################################################################### Matchups table dividers ####################################################################
 const matchups_table_divider_config = {
   gameday_matchup: {
-    pitcher: { heavy_before: ['+All', '+FB'], light_before: ['+SL', '+CH'] },
+    pitcher: { heavy_before: ['+All', '+FB', 'All', 'FB'], light_before: ['+SL', '+CH'] },
     lineup: { heavy_before: ['+All', '+FB'], light_before: ['+SL', '+CH'] },
     fallback: { heavy_before: ['All', 'Year'], light_before: [] },
   },
