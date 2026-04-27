@@ -92,10 +92,10 @@ html {
   flex: 1;
   min-width: 0;
   overflow: auto;
-  padding: 10px 18px;
+  padding: 58px 18px 10px 18px;
   background: var(--content_bg);
+  position: relative;
 }
-
 /* =============================================================================
    Sidebar UI
    ============================================================================= */
@@ -1653,8 +1653,8 @@ body::-webkit-scrollbar-thumb:hover,
 .toggle_sidebar {
   display: inline-flex;
   position: fixed;
-  top: 12px;
-  left: calc(var(--sidebar-w) + 18px);
+top: 12px;
+left: 356px;
   z-index: 1000;
   align-items: center;
   gap: 8px;
@@ -1689,8 +1689,14 @@ body.sidebar_hidden .toggle_sidebar {
     --sidebar-w: 100%;
   }
 
-  .toggle_sidebar {
+.content {
+  padding-top: 58px;
+}
+
+.toggle_sidebar,
+body.sidebar_hidden .toggle_sidebar {
   left: 12px;
+  top: 12px;
 }
 
   .app {
