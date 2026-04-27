@@ -64,9 +64,9 @@
       "start": 79
     },
     "majors|hitters|BB%": {
-      "best": 0.18,
+      "best": 0.16,
       "fmt": "pct",
-      "gold": 0.2,
+      "gold": 0.18,
       "neutral_hi": 0.1,
       "neutral_lo": 0.09,
       "worst": 0.03
@@ -282,9 +282,9 @@
       "worst": 0.2
     },
     "majors|hitters|K%": {
-      "best": 0.12,
+      "best": 0.14,
       "fmt": "pct",
-      "gold": 0.1,
+      "gold": 0.12,
       "higher_is_better": false,
       "neutral_hi": 0.22,
       "neutral_lo": 0.23,

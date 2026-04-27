@@ -1812,12 +1812,12 @@ function ensure_gold_gradient_def(svg_root, gradient_key = 'default', opacity = 
     ];
   } else {
     stops = [
-      // ['0%', 'rgb(249,242,149)'],
-      // ['32%', 'rgb(224,170,62)'],
-      // ['64%', 'rgb(250,243,152)'],
-      // ['100%', 'rgb(184,138,68)'],
       ['0%', 'rgb(249,242,149)'],
-      ['100%', 'rgb(224,170,62)'],
+      ['32%', 'rgb(224,170,62)'],
+      ['64%', 'rgb(250,243,152)'],
+      ['100%', 'rgb(184,138,68)'],
+      // ['0%', 'rgb(249,242,149)'],
+      // ['100%', 'rgb(224,170,62)'],
     ];
   }
 
@@ -2465,12 +2465,11 @@ function repaint_standard_stats_tables(root) {
 
         if (!parsed || parsed.a === 0) return;
 
-        if (is_stat_fill(orig_fill)) {
-          const dark_fill = dark_mode_stat_fill(orig_fill);
-          r.style.fill = dark_fill;
-          r.setAttribute('fill', dark_fill);
-          return;
-        }
+if (is_stat_fill(orig_fill)) {
+  r.style.fill = orig_fill;
+  r.setAttribute('fill', orig_fill);
+  return;
+}
 
         const is_light_body = is_close_rgb(parsed, 235, 240, 248, 10);
         const is_light_header = is_close_rgb(parsed, 205, 215, 230, 10);
@@ -3608,39 +3607,41 @@ function should_auto_submit_matchups_mode(mode_name) {
     }
   }
 
-  rows_minus.addEventListener('click', (e) => {
-    e.preventDefault();
+rows_minus.addEventListener('click', (e) => {
+  e.preventDefault();
 
-    const mode = mode_select.value;
-    if (
-      mode !== 'multi_starter' &&
-      mode !== 'multi_hitter' &&
-      mode !== 'multi_hitter_today' &&
-      mode !== 'multi_hitter_week'
-    ) return;
+  const mode = mode_select.value;
+  if (
+    mode !== 'multi_starter' &&
+    mode !== 'multi_hitter' &&
+    mode !== 'multi_hitter_today' &&
+    mode !== 'multi_hitter_week' &&
+    mode !== 'multi_pitcher_week'
+  ) return;
 
-    snapshot_multi_state(mode);
-    multi_form_state[mode].n = clamp_rows_n(multi_form_state[mode].n - 1);
-    sync_row_controls();
-    build_form();
-  });
+  snapshot_multi_state(mode);
+  multi_form_state[mode].n = clamp_rows_n(multi_form_state[mode].n - 1);
+  sync_row_controls();
+  build_form();
+});
 
-  rows_plus.addEventListener('click', (e) => {
-    e.preventDefault();
+rows_plus.addEventListener('click', (e) => {
+  e.preventDefault();
 
-    const mode = mode_select.value;
-    if (
-      mode !== 'multi_starter' &&
-      mode !== 'multi_hitter' &&
-      mode !== 'multi_hitter_today' &&
-      mode !== 'multi_hitter_week'
-    ) return;
+  const mode = mode_select.value;
+  if (
+    mode !== 'multi_starter' &&
+    mode !== 'multi_hitter' &&
+    mode !== 'multi_hitter_today' &&
+    mode !== 'multi_hitter_week' &&
+    mode !== 'multi_pitcher_week'
+  ) return;
 
-    snapshot_multi_state(mode);
-    multi_form_state[mode].n = clamp_rows_n(multi_form_state[mode].n + 1);
-    sync_row_controls();
-    build_form();
-  });
+  snapshot_multi_state(mode);
+  multi_form_state[mode].n = clamp_rows_n(multi_form_state[mode].n + 1);
+  sync_row_controls();
+  build_form();
+});
 
   sync_row_controls();
 
@@ -4275,7 +4276,7 @@ append_matchup_player_link(
           }
         }
 if (is_gold_cell) {
-  const text_color = document.body.classList.contains('soft_theme') ? '#ffffff' : '#000000';
+  const text_color = '#000000';
 
   td.style.color = text_color;
   // td.style.fontWeight = '700';
@@ -7677,9 +7678,14 @@ if (mode === 'multi_pitcher_week') {
       }
     }
 
-    clear_results();
+clear_results();
 
-    for (const block of pitcher_blocks) {
+if (!pitcher_blocks.length) {
+  results_root.innerHTML = `<div style="padding:10px;color:var(--muted);">No projected starts found for the selected pitchers.</div>`;
+  return;
+}
+
+for (const block of pitcher_blocks) {
       const pitcher_name = String(block.pitcher_name || '').trim();
       const matchup_paths = Array.isArray(block.matchup_paths) ? block.matchup_paths : [];
       const matchup_override_rows = Array.isArray(block.matchup_override_rows) ? block.matchup_override_rows : [];
@@ -8103,19 +8109,21 @@ function apply_matchups_table_dividers(root, mode, section_key = 'default') {
     snapshot_multi_state(last_mode_value);
 
     const next_mode = mode_select.value;
-    const last_was_multi = (
-      last_mode_value === 'multi_starter' ||
-      last_mode_value === 'multi_hitter' ||
-      last_mode_value === 'multi_hitter_today' ||
-      last_mode_value === 'multi_hitter_week'
-    );
+const last_was_multi = (
+  last_mode_value === 'multi_starter' ||
+  last_mode_value === 'multi_hitter' ||
+  last_mode_value === 'multi_hitter_today' ||
+  last_mode_value === 'multi_hitter_week' ||
+  last_mode_value === 'multi_pitcher_week'
+);
 
-    const next_is_multi = (
-      next_mode === 'multi_starter' ||
-      next_mode === 'multi_hitter' ||
-      next_mode === 'multi_hitter_today' ||
-      next_mode === 'multi_hitter_week'
-    );
+const next_is_multi = (
+  next_mode === 'multi_starter' ||
+  next_mode === 'multi_hitter' ||
+  next_mode === 'multi_hitter_today' ||
+  next_mode === 'multi_hitter_week' ||
+  next_mode === 'multi_pitcher_week'
+);
 
     if (last_mode_value !== next_mode && (last_was_multi || next_is_multi)) {
       multi_form_state.multi_starter.rows = [];
@@ -9284,7 +9292,7 @@ function fantasy_gradient_good_only_stats(frac, use_gold = false) {
     return fantasy_gold_gradient(alpha);
   }
 
-  return fantasy_blend_rgba_on_rgb(`rgba(210,35,35,${alpha.toFixed(3)})`);
+  return `rgba(210,35,35,${alpha.toFixed(3)})`;
 }
 /* ################# */
 function fantasy_gradient_bad_only_stats(frac) {
@@ -9300,7 +9308,7 @@ function fantasy_gradient_bad_only_stats(frac) {
   const d = Math.max(0, Math.min(1, Math.abs(frac2 - 0.5) * 2.0));
   const alpha = alpha_min + (alpha_max - alpha_min) * (d ** alpha_curve_pow);
 
-  return fantasy_blend_rgba_on_rgb(`rgba(35,85,210,${alpha.toFixed(3)})`);
+  return `rgba(35,85,210,${alpha.toFixed(3)})`;
 }
 /* ################# */
 function fantasy_graph_bar_fill(v, spec) {
@@ -9360,7 +9368,7 @@ function fantasy_should_use_white_text(row, col, gradient_style) {
     return false;
   }
 
-  const m = s.match(/background:\s*rgb\((\d+),\s*(\d+),\s*(\d+)\)/i);
+  const m = s.match(/background:\s*rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*[\d.]+)?\)/i);
   if (!m) return false;
 
   const r = Number(m[1]);
@@ -9479,7 +9487,7 @@ return `background:${bg};${text_color}`;
   const frac = fantasy_graph_bar_fill(num_value, spec);
   const use_gold = fantasy_use_gold_for_value(num_value, spec);
   const raw_bg = fantasy_standard_stats_gradient(frac, use_gold);
-const bg = use_gold ? raw_bg : fantasy_blend_rgba_on_rgb(raw_bg);
+const bg = raw_bg;
   if (!bg) return '';
 
 const preview_style = `background:${bg};${use_gold ? '--fantasy-tone:gold;' : ''}`;
