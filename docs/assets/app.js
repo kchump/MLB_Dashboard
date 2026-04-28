@@ -2030,6 +2030,39 @@ if (is_gold_stat_fill(fill)) {
   return 0;
 }
 /* ################# */
+function blend_rgba_fill_on_light_table(fill) {
+  if (is_gold_gradient_fill(fill)) return fill;
+
+  const c = parse_svg_fill(fill);
+  if (!c || c.a == null || c.a >= 1) return fill;
+
+  const br = 235;
+  const bg = 240;
+  const bb = 248;
+  const a = Math.max(0, Math.min(1, c.a));
+
+  const r = clamp_byte(c.r * a + br * (1 - a));
+  const g = clamp_byte(c.g * a + bg * (1 - a));
+  const b = clamp_byte(c.b * a + bb * (1 - a));
+
+  return `rgb(${r},${g},${b})`;
+}
+/* ################# */
+function fill_luminance(fill) {
+  const c = parse_svg_fill(fill);
+  if (!c) return 255;
+
+  return (0.2126 * c.r) + (0.7152 * c.g) + (0.0722 * c.b);
+}
+/* ################# */
+function should_use_black_text_for_fill(fill) {
+  if (!fill) return false;
+  if (is_gold_gradient_fill(fill) || is_gold_stat_fill(fill)) return true;
+  if (!is_blue_stat_fill(fill) && !is_red_stat_fill(fill)) return false;
+
+  return fill_luminance(fill) >= 135;
+}
+/* ################# */
 function should_use_white_table_text(text_node, cell_fill) {
   if (!cell_fill) return false;
 
@@ -2041,11 +2074,7 @@ function should_use_white_table_text(text_node, cell_fill) {
     return false;
   }
 
-  if (row_has_reduced_sample_opacity(text_node) && table_fill_fraction(cell_fill) < 0.25) {
-    return false;
-  }
-
-  return true;
+  return !should_use_black_text_for_fill(cell_fill);
 }
 /* ################# */
 function get_table_text_cell_fill(text_node) {
@@ -2068,7 +2097,7 @@ function get_table_text_cell_fill(text_node) {
 
     if (row_idx >= 0 && non_empty_rects[row_idx]) {
       const r = non_empty_rects[row_idx];
-      return r.dataset.orig_fill || r.style.fill || r.getAttribute('fill') || '';
+      return r.dataset.display_fill || r.style.fill || r.getAttribute('fill') || r.dataset.orig_fill || '';
     }
   }
 
@@ -2084,9 +2113,9 @@ function get_table_text_cell_fill(text_node) {
         return parsed && parsed.a !== 0;
       });
 
-      if (filled_rect) {
-        return filled_rect.style.fill || filled_rect.getAttribute('fill') || filled_rect.dataset.orig_fill || '';
-      }
+if (filled_rect) {
+  return filled_rect.dataset.display_fill || filled_rect.style.fill || filled_rect.getAttribute('fill') || filled_rect.dataset.orig_fill || '';
+}
     }
 
     node = node.parentNode;
@@ -2465,11 +2494,13 @@ function repaint_standard_stats_tables(root) {
 
         if (!parsed || parsed.a === 0) return;
 
-if (is_stat_fill(orig_fill)) {
-  r.style.fill = orig_fill;
-  r.setAttribute('fill', orig_fill);
-  return;
-}
+        if (is_stat_fill(orig_fill)) {
+          const display_fill = blend_rgba_fill_on_light_table(orig_fill);
+          r.style.fill = display_fill;
+          r.setAttribute('fill', display_fill);
+          r.dataset.display_fill = display_fill;
+          return;
+        }
 
         const is_light_body = is_close_rgb(parsed, 235, 240, 248, 10);
         const is_light_header = is_close_rgb(parsed, 205, 215, 230, 10);
@@ -2552,6 +2583,13 @@ if (is_stat_fill(orig_fill)) {
       }
 
       if (!is_dark) {
+        if (is_stat_fill(orig_fill)) {
+          const display_fill = blend_rgba_fill_on_light_table(orig_fill);
+          r.style.fill = display_fill;
+          r.setAttribute('fill', display_fill);
+          r.dataset.display_fill = display_fill;
+          return;
+        }
         if (orig_fill) {
           t.style.fill = orig_fill;
           t.setAttribute('fill', orig_fill);
@@ -3670,7 +3708,7 @@ rows_plus.addEventListener('click', (e) => {
     if (idx_pa >= 0) {
       const pa = parse_matchup_stat_number(row_cells[idx_pa]);
       if (Number.isFinite(pa)) {
-        const t = clamp(pa / 200, 0, 1);
+        const t = clamp(pa / 100, 0, 1);
         return 0.25 + 0.75 * (t ** 2);
       }
     }
@@ -3679,7 +3717,7 @@ rows_plus.addEventListener('click', (e) => {
     if (idx_ip >= 0) {
       const ip = parse_matchup_stat_number(row_cells[idx_ip]);
       if (Number.isFinite(ip)) {
-        const thresh = options.invert_stats ? 25 : 50;
+        const thresh = options.invert_stats ? 15 : 30;
         const t = clamp(ip / thresh, 0, 1);
         return 0.25 + 0.75 * (t ** 2);
       }

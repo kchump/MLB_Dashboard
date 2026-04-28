@@ -4752,7 +4752,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "vSzn": -80.4,
@@ -10929,7 +10929,7 @@
         "pos2": "",
         "prev_minors_year": 2022.0,
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "NYY",
         "teams": "",
         "vSzn": "",
@@ -22573,7 +22573,7 @@
         "pos2": "2B/3B",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "vSzn": 45.18,
@@ -22644,7 +22644,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": -349.86,
@@ -34146,7 +34146,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "BOS",
         "teams": "",
         "vSzn": -788.46,
@@ -42749,7 +42749,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": 293.57,
@@ -52757,7 +52757,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "HOU",
         "teams": "",
         "vSzn": 96.18,
@@ -54845,7 +54845,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHW",
         "teams": "",
         "vSzn": "",
@@ -62189,7 +62189,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE",
         "teams": "",
         "vSzn": -81.69,
@@ -69893,7 +69893,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CIN",
         "teams": "",
         "vSzn": -33.11,
@@ -76591,7 +76591,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "New York,TEX",
         "vSzn": 230.49,
@@ -90873,7 +90873,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "NYY",
         "≥100": 0.28600000000000003
       },
@@ -92966,7 +92966,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHC",
         "≥100": 0.466
       },
@@ -99799,7 +99799,7 @@
         "person_key": "chase lee",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -100912,7 +100912,7 @@
         "person_key": "sammy peralta",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHW"
       },
       {
@@ -108788,7 +108788,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "≥100": 0.375
@@ -111492,7 +111492,7 @@
         "person_key": "jordan romano",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR"
       },
       {
@@ -112032,7 +112032,7 @@
         "person_key": "phil maton",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "HOU"
       },
       {
@@ -113434,7 +113434,7 @@
         "person_key": "max scherzer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {
@@ -117553,7 +117553,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "NYY",
         "≥100": 0.375
       },
@@ -121532,7 +121532,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "≥100": 1.0
       },
@@ -125764,7 +125764,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "BOS",
         "≥100": 0.3
       },
@@ -129329,7 +129329,7 @@
         "person_key": "jordan romano",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR"
       },
       {
@@ -131975,7 +131975,7 @@
         "person_key": "phil maton",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "HOU"
       },
       {
@@ -134327,7 +134327,7 @@
         "person_key": "eli morgan",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE"
       },
       {
@@ -137794,7 +137794,7 @@
         "person_key": "max scherzer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {

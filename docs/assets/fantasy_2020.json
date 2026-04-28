@@ -2196,7 +2196,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "vSzn": -278.07,
@@ -11071,7 +11071,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": 249.66,
@@ -24277,7 +24277,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": "",
@@ -36641,7 +36641,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": "",
@@ -40817,7 +40817,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": 215.6,
@@ -59393,7 +59393,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CIN",
         "teams": "",
         "vSzn": 343.37,
@@ -63139,7 +63139,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "WAS",
         "teams": "",
         "vSzn": 195.84,
@@ -80877,7 +80877,7 @@
         "person_key": "phil maton",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -82357,7 +82357,7 @@
         "person_key": "lucas sims",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CIN"
       }
     ],
@@ -84357,7 +84357,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "≥100": 0.33299999999999996
       },
@@ -86887,7 +86887,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "≥100": 0.6
       },
@@ -94902,7 +94902,7 @@
         "person_key": "phil maton",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -98787,7 +98787,7 @@
         "person_key": "lucas sims",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CIN"
       },
       {
@@ -99314,7 +99314,7 @@
         "person_key": "max scherzer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "WAS"
       },
       {
