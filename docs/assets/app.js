@@ -2030,22 +2030,22 @@ if (is_gold_stat_fill(fill)) {
   return 0;
 }
 /* ################# */
-function blend_rgba_fill_on_light_table(fill) {
+function standard_table_theme_rgb() {
+  return document.body.classList.contains('soft_theme')
+    ? { r: 62, g: 69, b: 78 }
+    : { r: 235, g: 240, b: 248 };
+}
+/* ################# */
+function blend_rgba_fill_on_table_base(fill) {
   if (is_gold_gradient_fill(fill)) return fill;
 
   const c = parse_svg_fill(fill);
   if (!c || c.a == null || c.a >= 1) return fill;
 
-  const br = 235;
-  const bg = 240;
-  const bb = 248;
+  const base = standard_table_theme_rgb();
   const a = Math.max(0, Math.min(1, c.a));
 
-  const r = clamp_byte(c.r * a + br * (1 - a));
-  const g = clamp_byte(c.g * a + bg * (1 - a));
-  const b = clamp_byte(c.b * a + bb * (1 - a));
-
-  return `rgb(${r},${g},${b})`;
+  return `rgb(${clamp_byte(c.r * a + base.r * (1 - a))},${clamp_byte(c.g * a + base.g * (1 - a))},${clamp_byte(c.b * a + base.b * (1 - a))})`;
 }
 /* ################# */
 function fill_luminance(fill) {
@@ -2060,7 +2060,7 @@ function should_use_black_text_for_fill(fill) {
   if (is_gold_gradient_fill(fill) || is_gold_stat_fill(fill)) return true;
   if (!is_blue_stat_fill(fill) && !is_red_stat_fill(fill)) return false;
 
-  return fill_luminance(fill) >= 135;
+  return fill_luminance(fill) >= 140;
 }
 /* ################# */
 function should_use_white_table_text(text_node, cell_fill) {
@@ -2495,7 +2495,7 @@ function repaint_standard_stats_tables(root) {
         if (!parsed || parsed.a === 0) return;
 
         if (is_stat_fill(orig_fill)) {
-          const display_fill = blend_rgba_fill_on_light_table(orig_fill);
+          const display_fill = blend_rgba_fill_on_table_base(orig_fill);
           r.style.fill = display_fill;
           r.setAttribute('fill', display_fill);
           r.dataset.display_fill = display_fill;
@@ -2582,14 +2582,7 @@ function repaint_standard_stats_tables(root) {
         return;
       }
 
-      if (!is_dark) {
-        if (is_stat_fill(orig_fill)) {
-          const display_fill = blend_rgba_fill_on_light_table(orig_fill);
-          r.style.fill = display_fill;
-          r.setAttribute('fill', display_fill);
-          r.dataset.display_fill = display_fill;
-          return;
-        }
+    if (!is_dark) {
         if (orig_fill) {
           t.style.fill = orig_fill;
           t.setAttribute('fill', orig_fill);
