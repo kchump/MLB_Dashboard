@@ -91,8 +91,8 @@ html {
 .content {
   flex: 1;
   min-width: 0;
-  overflow: auto;
   padding: 58px 18px 10px 18px;
+  overflow: visible;
   background: var(--content_bg);
   position: relative;
 }
@@ -1663,19 +1663,20 @@ body::-webkit-scrollbar-thumb:hover,
 .toggle_sidebar {
   display: inline-flex;
   position: absolute;
-  top: 12px;
-  left: -18px;
+  top: 14px;
+  left: -173px;
   right: auto;
-  z-index: 1000;
+  z-index: 99999;
   align-items: center;
   gap: 8px;
   border: 1px solid var(--border);
   background: var(--control_bg);
   border-radius: 10px;
-  padding: 8px 10px;
-  font-size: 13px;
+  padding: 7px 10px;
+  font-size: 12px;
   cursor: pointer;
   color: var(--text);
+  box-sizing: border-box;
 }
 
 .sidebar.hidden {
