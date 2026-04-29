@@ -47945,7 +47945,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SEA",
         "teams": "",
         "vSzn": "",
@@ -48017,7 +48017,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TEX",
         "teams": "",
         "vSzn": "",
@@ -48089,7 +48089,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "STL",
         "teams": "",
         "vSzn": "",
@@ -49745,7 +49745,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": "",
@@ -59393,7 +59393,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CIN",
         "teams": "",
         "vSzn": 343.37,
@@ -68179,7 +68179,7 @@
         "pitch_role": "SP",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "vSzn": -262.44,
@@ -81397,7 +81397,7 @@
         "person_key": "andrew miller",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "STL"
       },
       {
@@ -82357,7 +82357,7 @@
         "person_key": "lucas sims",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CIN"
       }
     ],
@@ -96309,7 +96309,7 @@
         "person_key": "bryan shaw",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SEA"
       },
       {
@@ -96330,7 +96330,7 @@
         "person_key": "nick goody",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TEX"
       },
       {
@@ -96792,7 +96792,7 @@
         "person_key": "shaun anderson",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF"
       },
       {
@@ -98787,7 +98787,7 @@
         "person_key": "lucas sims",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CIN"
       },
       {

@@ -73013,7 +73013,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA",
         "teams": "",
         "vSzn": "",
@@ -76685,7 +76685,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS",
         "teams": "",
         "vSzn": "",
@@ -78055,7 +78055,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA",
         "teams": "",
         "vSzn": "",
@@ -115212,7 +115212,7 @@
         "person_key": "bryan shaw",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -115506,7 +115506,7 @@
         "person_key": "shaun anderson",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA"
       },
       {
@@ -116997,7 +116997,7 @@
         "person_key": "lucas sims",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS"
       },
       {
@@ -117064,6 +117064,27 @@
         "team": "MiLB"
       },
       {
+        "All": -4.98,
+        "BB%": 0.235,
+        "Con": 72.3,
+        "Days +/-": -0.4463276836158193,
+        "Disc": -14.18,
+        "IP": 13.1,
+        "K": 19.0,
+        "K%": 0.27899999999999997,
+        "Stf": 31.01,
+        "Strike%": 0.525,
+        "SwStr%": 0.084,
+        "Velo": 94.4,
+        "WHIP": 2.175,
+        "name": "Alimber Santa",
+        "person_key": "alimber santa",
+        "pitch_role": "RP",
+        "role": "rp",
+        "sort_bucket": 3,
+        "team": "HOU"
+      },
+      {
         "All": -67.3,
         "BB%": 0.128,
         "Con": -4.97,
@@ -117082,6 +117103,27 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 1,
+        "team": "TEX"
+      },
+      {
+        "All": 23.1,
+        "BB%": 0.188,
+        "Con": 50.36,
+        "Days +/-": -0.4473684210526314,
+        "Disc": -11.4,
+        "IP": 16.0,
+        "K": 21.0,
+        "K%": 0.262,
+        "Stf": 48.72,
+        "Strike%": 0.5670000000000001,
+        "SwStr%": 0.12,
+        "Velo": 96.9,
+        "WHIP": 2.0,
+        "name": "Gavin Collyer",
+        "person_key": "gavin collyer",
+        "pitch_role": "RP",
+        "role": "rp",
+        "sort_bucket": 0,
         "team": "TEX"
       },
       {
@@ -117335,27 +117377,6 @@
         "role": "rp",
         "sort_bucket": 3,
         "team": "CHW"
-      },
-      {
-        "All": -10.08,
-        "BB%": 0.077,
-        "Con": -14.85,
-        "Days +/-": -0.11111111111111116,
-        "Disc": 2.18,
-        "IP": 2.2,
-        "K": 3.0,
-        "K%": 0.231,
-        "Stf": 27.65,
-        "Strike%": 0.644,
-        "SwStr%": 0.156,
-        "Velo": 93.57,
-        "WHIP": 2.625,
-        "name": "Tyler Samaniego",
-        "person_key": "tyler samaniego",
-        "pitch_role": "RP",
-        "role": "rp",
-        "sort_bucket": 0,
-        "team": "BOS"
       }
     ],
     "sp": [
@@ -122757,27 +122778,6 @@
         "team": "CHC"
       },
       {
-        "All": -4.06,
-        "BB%": 0.126,
-        "Con": 26.64,
-        "Days +/-": -0.39905591866376156,
-        "Disc": -4.8,
-        "IP": 50.0,
-        "K": 52.0,
-        "K%": 0.23399999999999999,
-        "Stf": 7.04,
-        "Strike%": 0.598,
-        "SwStr%": 0.15,
-        "Velo": 95.5,
-        "WHIP": 1.48,
-        "name": "Jose Franco",
-        "person_key": "jose franco",
-        "pitch_role": "FLEX",
-        "role": "sp",
-        "sort_bucket": 0,
-        "team": "CIN"
-      },
-      {
         "All": -21.9,
         "BB%": 0.1,
         "Con": -15.36,
@@ -123051,6 +123051,27 @@
         "team": "CIN"
       },
       {
+        "All": -28.04,
+        "BB%": 0.077,
+        "Con": 6.04,
+        "Days +/-": 0.04589707927677328,
+        "Disc": -2.7,
+        "IP": 87.2,
+        "K": 78.0,
+        "K%": 0.201,
+        "Stf": -4.02,
+        "Strike%": 0.629,
+        "SwStr%": 0.11199999999999999,
+        "Velo": 93.21,
+        "WHIP": 1.4714828897338401,
+        "name": "Austin Peterson",
+        "person_key": "austin peterson",
+        "pitch_role": "SP",
+        "role": "sp",
+        "sort_bucket": 1,
+        "team": "CLE"
+      },
+      {
         "All": 20.82,
         "BB%": 0.061,
         "Con": 56.2,
@@ -123198,6 +123219,27 @@
         "team": "MIN"
       },
       {
+        "All": -20.53,
+        "BB%": 0.11,
+        "Con": 21.64,
+        "Days +/-": 0.0725490196078431,
+        "Disc": 3.3,
+        "IP": 25.1,
+        "K": 33.0,
+        "K%": 0.28,
+        "Stf": 8.38,
+        "Strike%": 0.624,
+        "SwStr%": 0.125,
+        "Velo": 95.2,
+        "WHIP": 1.6578947368421053,
+        "name": "John Klein",
+        "person_key": "john klein",
+        "pitch_role": "SP",
+        "role": "sp",
+        "sort_bucket": 3,
+        "team": "MIN"
+      },
+      {
         "All": 16.07,
         "BB%": 0.16,
         "Con": 74.25,
@@ -123238,27 +123280,6 @@
         "role": "sp",
         "sort_bucket": 3,
         "team": "NYY"
-      },
-      {
-        "All": -9.56,
-        "BB%": 0.064,
-        "Con": 42.79,
-        "Days +/-": -0.00898876404494317,
-        "Disc": -0.23,
-        "IP": 24.2,
-        "K": 24.0,
-        "K%": 0.22899999999999998,
-        "Stf": 6.14,
-        "Strike%": 0.625,
-        "SwStr%": 0.09,
-        "Velo": 89.4,
-        "WHIP": 1.4594594594594594,
-        "name": "Tucker Davidson",
-        "person_key": "tucker davidson",
-        "pitch_role": "SP",
-        "role": "sp",
-        "sort_bucket": 1,
-        "team": "PHI"
       },
       {
         "All": 6.53,
@@ -123469,27 +123490,6 @@
         "role": "sp",
         "sort_bucket": 3,
         "team": "TOR"
-      },
-      {
-        "All": -22.51,
-        "BB%": 0.087,
-        "Con": 3.79,
-        "Days +/-": -0.17549491706795023,
-        "Disc": 1.72,
-        "IP": 33.2,
-        "K": 38.0,
-        "K%": 0.253,
-        "Stf": 18.5,
-        "Strike%": 0.621,
-        "SwStr%": 0.124,
-        "Velo": 94.7,
-        "WHIP": 1.425742574257426,
-        "name": "Riley Cornelio",
-        "person_key": "riley cornelio",
-        "pitch_role": "SP",
-        "role": "sp",
-        "sort_bucket": 1,
-        "team": "WAS"
       }
     ]
   },
@@ -154786,7 +154786,7 @@
         "person_key": "bryan shaw",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -155038,7 +155038,7 @@
         "person_key": "shaun anderson",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA"
       },
       {
@@ -156487,7 +156487,7 @@
         "person_key": "lucas sims",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS"
       },
       {
@@ -156888,7 +156888,7 @@
         "person_key": "mitch farris",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA"
       },
       {

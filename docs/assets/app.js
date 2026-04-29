@@ -989,7 +989,7 @@ function set_soft_theme(enabled) {
   document.body.classList.toggle('soft_theme', !!enabled);
 
   const btn = document.getElementById('theme_toggle');
-  if (btn) btn.textContent = enabled ? 'Light' : 'Dark-ish';
+  if (btn) btn.textContent = enabled ? 'Light' : 'Dark';
 
   write_soft_theme(!!enabled);
   repaint_standard_stats_tables(document);
@@ -1825,7 +1825,8 @@ function ensure_gold_gradient_def(svg_root, gradient_key = 'default', opacity = 
       const stop = document.createElementNS(svg_ns(), 'stop');
       stop.setAttribute('offset', offset);
       stop.setAttribute('stop-color', color);
-      stop.setAttribute('stop-opacity', a.toFixed(3));
+      // stop.setAttribute('stop-opacity', a.toFixed(3));
+      stop.setAttribute('stop-opacity', '1');
       grad.appendChild(stop);
     });
 
@@ -2036,14 +2037,25 @@ function standard_table_theme_rgb() {
     : { r: 235, g: 240, b: 248 };
 }
 /* ################# */
+// function blend_rgba_fill_on_table_base(fill) {
+//   if (is_gold_gradient_fill(fill)) return fill;
+
+//   const c = parse_svg_fill(fill);
+//   if (!c || c.a == null || c.a >= 1) return fill;
+
+//   const base = standard_table_theme_rgb();
+//   const a = Math.max(0, Math.min(1, c.a));
+
+//   return `rgb(${clamp_byte(c.r * a + base.r * (1 - a))},${clamp_byte(c.g * a + base.g * (1 - a))},${clamp_byte(c.b * a + base.b * (1 - a))})`;
+// }
 function blend_rgba_fill_on_table_base(fill) {
   if (is_gold_gradient_fill(fill)) return fill;
 
   const c = parse_svg_fill(fill);
-  if (!c || c.a == null || c.a >= 1) return fill;
+  if (!c) return fill;
 
-  const base = standard_table_theme_rgb();
-  const a = Math.max(0, Math.min(1, c.a));
+  const base = { r: 235, g: 240, b: 248 };
+  const a = Math.max(0, Math.min(1, c.a == null ? 1 : c.a));
 
   return `rgb(${clamp_byte(c.r * a + base.r * (1 - a))},${clamp_byte(c.g * a + base.g * (1 - a))},${clamp_byte(c.b * a + base.b * (1 - a))})`;
 }
@@ -2055,26 +2067,36 @@ function fill_luminance(fill) {
   return (0.2126 * c.r) + (0.7152 * c.g) + (0.0722 * c.b);
 }
 /* ################# */
-function should_use_black_text_for_fill(fill) {
-  if (!fill) return false;
-  if (is_gold_gradient_fill(fill) || is_gold_stat_fill(fill)) return true;
-  if (!is_blue_stat_fill(fill) && !is_red_stat_fill(fill)) return false;
+// function should_use_black_text_for_fill(fill) {
+//   if (!fill) return false;
+//   if (is_gold_gradient_fill(fill) || is_gold_stat_fill(fill)) return true;
+//   if (!is_blue_stat_fill(fill) && !is_red_stat_fill(fill)) return false;
 
-  return fill_luminance(fill) >= 140;
+//   return fill_luminance(fill) >= 140 || table_fill_fraction(fill) < 0.55;
+// }
+// /* ################# */
+// function should_use_white_table_text(text_node, cell_fill) {
+//   if (!cell_fill) return false;
+
+//   if (is_gold_gradient_fill(cell_fill) || is_gold_stat_fill(cell_fill)) {
+//     return false;
+//   }
+
+//   if (!is_blue_stat_fill(cell_fill) && !is_red_stat_fill(cell_fill)) {
+//     return false;
+//   }
+
+//   return !should_use_black_text_for_fill(cell_fill);
+// }
+function should_use_black_text_for_fill(fill) {
+  return !!fill && (is_gold_gradient_fill(fill) || is_gold_stat_fill(fill));
 }
 /* ################# */
 function should_use_white_table_text(text_node, cell_fill) {
   if (!cell_fill) return false;
+  if (is_gold_gradient_fill(cell_fill) || is_gold_stat_fill(cell_fill)) return false;
 
-  if (is_gold_gradient_fill(cell_fill) || is_gold_stat_fill(cell_fill)) {
-    return false;
-  }
-
-  if (!is_blue_stat_fill(cell_fill) && !is_red_stat_fill(cell_fill)) {
-    return false;
-  }
-
-  return !should_use_black_text_for_fill(cell_fill);
+  return is_blue_stat_fill(cell_fill) || is_red_stat_fill(cell_fill);
 }
 /* ################# */
 function get_table_text_cell_fill(text_node) {
@@ -2464,6 +2486,14 @@ function repaint_standard_stats_tables(root) {
           return;
         }
 
+        if (is_stat_fill(orig_fill)) {
+          const display_fill = blend_rgba_fill_on_table_base(orig_fill);
+          r.style.fill = display_fill;
+          r.setAttribute('fill', display_fill);
+          r.dataset.display_fill = display_fill;
+          return;
+        }
+
         if (!is_dark) {
           if (orig_fill) {
             r.style.fill = orig_fill;
@@ -2494,17 +2524,9 @@ function repaint_standard_stats_tables(root) {
 
         if (!parsed || parsed.a === 0) return;
 
-        if (is_stat_fill(orig_fill)) {
-          const display_fill = blend_rgba_fill_on_table_base(orig_fill);
-          r.style.fill = display_fill;
-          r.setAttribute('fill', display_fill);
-          r.dataset.display_fill = display_fill;
-          return;
-        }
-
         const is_light_body = is_close_rgb(parsed, 235, 240, 248, 10);
         const is_light_header = is_close_rgb(parsed, 205, 215, 230, 10);
-        const is_light_year_header = is_close_rgb(parsed, 35, 85, 210, 16) && parsed.a > 0 && parsed.a < 0.5;
+        const is_light_year_header = is_close_rgb(parsed, 24, 37, 153, 16) && parsed.a > 0 && parsed.a < 0.5;
 
         if (is_light_body) {
           r.style.fill = '#3b424b';
@@ -2519,8 +2541,8 @@ function repaint_standard_stats_tables(root) {
         }
 
         if (is_light_year_header) {
-          r.style.fill = 'rgba(35,85,210,0.35)';
-          r.setAttribute('fill', 'rgba(35,85,210,0.35)');
+          r.style.fill = 'rgba(24,37,153,0.35)';
+          r.setAttribute('fill', 'rgba(24,37,153,0.35)');
           return;
         }
 
@@ -2639,12 +2661,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function set_sidebar_hidden(hidden) {
   if (!sidebar) return;
+
   sidebar.classList.toggle('hidden', hidden);
   document.body.classList.toggle('sidebar_hidden', hidden);
 
   if (toggle_sidebar_btn) {
-    toggle_sidebar_btn.textContent = hidden ? '☰ Sidebar' : 'Hide Sidebar';
+    toggle_sidebar_btn.textContent = '☰ Sidebar';
     toggle_sidebar_btn.classList.toggle('sidebar_is_hidden', hidden);
+    toggle_sidebar_btn.setAttribute(
+      'aria-label',
+      hidden ? 'Show sidebar' : 'Hide sidebar'
+    );
+    toggle_sidebar_btn.title = hidden ? 'Show sidebar' : 'Hide sidebar';
   }
 }
 
@@ -3758,24 +3786,66 @@ function matchup_table_base_rgb() {
     : { r: 255, g: 255, b: 255 };
 }
 //#################
+// function matchup_heat_text_color(fill) {
+//   const c = parse_matchup_rgba(fill);
+//   if (!c || c.a === 0) return '';
+
+//   const base = matchup_table_base_rgb();
+//   const a = clamp(c.a == null ? 1 : c.a, 0, 1);
+
+//   const mixed = {
+//     r: (c.r * a) + (base.r * (1 - a)),
+//     g: (c.g * a) + (base.g * (1 - a)),
+//     b: (c.b * a) + (base.b * (1 - a)),
+//   };
+
+//   const lum = (0.2126 * mixed.r) + (0.7152 * mixed.g) + (0.0722 * mixed.b);
+
+//   return lum < 145 ? '#ffffff' : '#000000';
+// }
 function matchup_heat_text_color(fill) {
   const c = parse_matchup_rgba(fill);
   if (!c || c.a === 0) return '';
 
-  const base = matchup_table_base_rgb();
-  const a = clamp(c.a == null ? 1 : c.a, 0, 1);
+  const gold_like = (
+    c.r >= 180 &&
+    c.g >= 125 &&
+    c.b <= 95 &&
+    (c.r - c.b >= 65) &&
+    (c.g - c.b >= 30)
+  );
 
-  const mixed = {
-    r: (c.r * a) + (base.r * (1 - a)),
-    g: (c.g * a) + (base.g * (1 - a)),
-    b: (c.b * a) + (base.b * (1 - a)),
-  };
-
-  const lum = (0.2126 * mixed.r) + (0.7152 * mixed.g) + (0.0722 * mixed.b);
-
-  return lum < 145 ? '#ffffff' : '#000000';
+  return gold_like ? '#000000' : '#ffffff';
 }
   //#################
+// function rgba_from_two_sided_value(v, worst, neutral_lo, neutral_hi, best, alpha_mult = 1) {
+//   const val = Number(v);
+//   if (!Number.isFinite(val)) return '';
+
+//   const lo = Math.min(worst, best);
+//   const hi = Math.max(worst, best);
+//   const vv = clamp(val, lo, hi);
+
+//   const nlo = Math.min(neutral_lo, neutral_hi);
+//   const nhi = Math.max(neutral_lo, neutral_hi);
+
+//   if (vv >= nlo && vv <= nhi) return '';
+
+//   const frac = (vv - worst) / (best - worst);
+//   const f = clamp(frac, 0, 1);
+
+//   const alpha_min = 0.25;
+//   const alpha_max = 0.95;
+//   const alpha_curve_pow = 0.40;
+
+//   const d = clamp(Math.abs(f - 0.5) * 2.0, 0, 1);
+//   let a = alpha_min + (alpha_max - alpha_min) * Math.pow(d, alpha_curve_pow);
+//   a = clamp(a * Number(alpha_mult || 1), 0, 1);
+
+//   if (f > 0.5) return `rgba(210,10,10,${a.toFixed(3)})`;
+
+//   return `rgba(24,37,153,${a.toFixed(3)})`;
+// }
 function rgba_from_two_sided_value(v, worst, neutral_lo, neutral_hi, best, alpha_mult = 1) {
   const val = Number(v);
   if (!Number.isFinite(val)) return '';
@@ -3797,29 +3867,63 @@ function rgba_from_two_sided_value(v, worst, neutral_lo, neutral_hi, best, alpha
   const alpha_curve_pow = 0.40;
 
   const d = clamp(Math.abs(f - 0.5) * 2.0, 0, 1);
-  let a = alpha_min + (alpha_max - alpha_min) * Math.pow(d, alpha_curve_pow);
-  a = clamp(a * Number(alpha_mult || 1), 0, 1);
+  const strength = clamp(
+    (alpha_min + (alpha_max - alpha_min) * Math.pow(d, alpha_curve_pow)) * Number(alpha_mult || 1),
+    0,
+    1
+  );
 
-  if (f > 0.5) return `rgba(210,35,35,${a.toFixed(3)})`;
+  const color = f > 0.5
+    ? { r: 210, g: 35, b: 35 }
+    : { r: 35, g: 85, b: 210 };
 
-  return `rgba(35,85,210,${a.toFixed(3)})`;
+  const fade_target = { r: 245, g: 247, b: 250 };
+
+  const mixed = {
+    r: Math.round((color.r * strength) + (fade_target.r * (1 - strength))),
+    g: Math.round((color.g * strength) + (fade_target.g * (1 - strength))),
+    b: Math.round((color.b * strength) + (fade_target.b * (1 - strength))),
+  };
+
+  return `rgb(${mixed.r},${mixed.g},${mixed.b})`;
 }
   //#################
-function gold_gradient_fill(alpha_mult = 1) {
-  const a = clamp(Number(alpha_mult || 1), 0, 1);
+// function gold_gradient_fill(alpha_mult = 1) {
+//   const a = clamp(Number(alpha_mult || 1), 0, 1);
 
-  // return `linear-gradient(
-  //   90deg,
-  //   rgba(249,242,149,${a.toFixed(3)}) 0%,
-  //   rgba(224,170,62,${a.toFixed(3)}) 33%,
-  //   rgba(250,243,152,${a.toFixed(3)}) 66%,
-  //   rgba(184,138,68,${a.toFixed(3)}) 100%
-  // )`;
-return `linear-gradient(
-  90deg,
-  rgba(249,242,149,${a.toFixed(3)}) 0%,
-  rgba(224,170,62,${a.toFixed(3)}) 100%
-)`;
+//   // return `linear-gradient(
+//   //   90deg,
+//   //   rgba(249,242,149,${a.toFixed(3)}) 0%,
+//   //   rgba(224,170,62,${a.toFixed(3)}) 33%,
+//   //   rgba(250,243,152,${a.toFixed(3)}) 66%,
+//   //   rgba(184,138,68,${a.toFixed(3)}) 100%
+//   // )`;
+// return `linear-gradient(
+//   90deg,
+//   rgba(249,242,149,${a.toFixed(3)}) 0%,
+//   rgba(224,170,62,${a.toFixed(3)}) 100%
+// )`;
+// }
+function gold_gradient_fill(alpha_mult = 1) {
+  const strength = clamp(Number(alpha_mult || 1), 0, 1);
+  const fade_target = { r: 245, g: 247, b: 250 };
+
+  function mix(c) {
+    return {
+      r: Math.round((c.r * strength) + (fade_target.r * (1 - strength))),
+      g: Math.round((c.g * strength) + (fade_target.g * (1 - strength))),
+      b: Math.round((c.b * strength) + (fade_target.b * (1 - strength))),
+    };
+  }
+
+  const c1 = mix({ r: 249, g: 242, b: 149 });
+  const c2 = mix({ r: 224, g: 170, b: 62 });
+
+  return `linear-gradient(
+    90deg,
+    rgb(${c1.r},${c1.g},${c1.b}) 0%,
+    rgb(${c2.r},${c2.g},${c2.b}) 100%
+  )`;
 }
   //#################
 function matchup_gold_threshold(header_text, gold_mode) {
@@ -4012,45 +4116,45 @@ function infer_matchup_link_roles(header, explicit_role, explicit_pitcher_role) 
 
   return out;
 }
-//#################
-function append_matchup_player_link(td, raw_text, header, col_idx, row_idx, link_roles, link_year, row_pitcher_link_roles) {
-  const idxs = matchup_name_col_indices(header);
-  const roles = (link_roles && typeof link_roles === 'object') ? link_roles : {};
+  //#################
+  function append_matchup_player_link(td, raw_text, header, col_idx, row_idx, link_roles, link_year, row_pitcher_link_roles) {
+    const idxs = matchup_name_col_indices(header);
+    const roles = (link_roles && typeof link_roles === 'object') ? link_roles : {};
 
-  let role = '';
+    let role = '';
 
-  if (col_idx === idxs.hitter) {
-    role = 'batters';
-  } else if (col_idx === idxs.pitcher) {
-    const row_roles = Array.isArray(row_pitcher_link_roles) ? row_pitcher_link_roles : [];
-    role = matchup_role_to_page_role(row_roles[row_idx] || roles.pitcher_role || 'starters');
-  } else if (col_idx === idxs.name) {
-    role = matchup_role_to_page_role(roles.name_role || '');
-  } else {
-    td.textContent = raw_text;
-    return;
+    if (col_idx === idxs.hitter) {
+      role = 'batters';
+    } else if (col_idx === idxs.pitcher) {
+      const row_roles = Array.isArray(row_pitcher_link_roles) ? row_pitcher_link_roles : [];
+      role = matchup_role_to_page_role(row_roles[row_idx] || roles.pitcher_role || 'starters');
+    } else if (col_idx === idxs.name) {
+      role = matchup_role_to_page_role(roles.name_role || '');
+    } else {
+      td.textContent = raw_text;
+      return;
+    }
+
+    if (!role) {
+      td.textContent = raw_text;
+      return;
+    }
+
+    const href = resolve_matchup_player_href(raw_text, role, link_year);
+    if (!href) {
+      td.textContent = raw_text;
+      return;
+    }
+
+    const a = document.createElement('a');
+    a.href = href;
+    a.textContent = raw_text;
+    a.className = 'matchups_player_link';
+
+    td.textContent = '';
+    td.appendChild(a);
   }
-
-  if (!role) {
-    td.textContent = raw_text;
-    return;
-  }
-
-  const href = resolve_matchup_player_href(raw_text, role, link_year);
-  if (!href) {
-    td.textContent = raw_text;
-    return;
-  }
-
-  const a = document.createElement('a');
-  a.href = href;
-  a.textContent = raw_text;
-  a.className = 'matchups_player_link';
-
-  td.textContent = '';
-  td.appendChild(a);
-}
-//#################
+  //#################
   async function render_fragments(paths, opts) {
     const options = (opts && typeof opts === 'object') ? opts : {};
     const skip_clear = !!options.skip_clear;
@@ -4269,7 +4373,7 @@ append_matchup_player_link(
               td.style.background = gold_gradient_fill(alpha_mult);
               is_gold_cell = true;
             } else {
-                const bg = rgba_from_two_sided_value(v, worst, -5, 10, best, alpha_mult);
+                const bg = rgba_from_two_sided_value(v, worst, -5, 5, best, alpha_mult);
                 td.style.background = bg;
 
                 const text_color = matchup_heat_text_color(bg);
@@ -4342,65 +4446,65 @@ if (is_gold_cell) {
     return parse_matchup_stat_number(parts.row_cells[idx_all]);
   }
   //#################
-function resolve_sp_vs_team_path(idx, y, pitcher, side, opp) {
-  const mode_root = idx?.modes?.sp_vs_team?.fragments?.[String(y)];
-  if (!mode_root || typeof mode_root !== 'object') return null;
+  function resolve_sp_vs_team_path(idx, y, pitcher, side, opp) {
+    const mode_root = idx?.modes?.sp_vs_team?.fragments?.[String(y)];
+    if (!mode_root || typeof mode_root !== 'object') return null;
 
-  const pitcher_key = find_fragment_key_loose(mode_root, pitcher);
-  if (!pitcher_key) {
-    dbg('resolve_sp_vs_team_path pitcher miss', {
-      year: y,
-      pitcher,
-      side,
-      opp,
-      pitcher_keys_sample: Object.keys(mode_root).slice(0, 20)
-    });
-    return null;
-  }
+    const pitcher_key = find_fragment_key_loose(mode_root, pitcher);
+    if (!pitcher_key) {
+      dbg('resolve_sp_vs_team_path pitcher miss', {
+        year: y,
+        pitcher,
+        side,
+        opp,
+        pitcher_keys_sample: Object.keys(mode_root).slice(0, 20)
+      });
+      return null;
+    }
 
-  function try_side(side_value) {
-    for (const s2 of side_aliases(side_value)) {
-      const side_root = mode_root?.[pitcher_key]?.[String(s2)];
-      if (!side_root || typeof side_root !== 'object') continue;
+    function try_side(side_value) {
+      for (const s2 of side_aliases(side_value)) {
+        const side_root = mode_root?.[pitcher_key]?.[String(s2)];
+        if (!side_root || typeof side_root !== 'object') continue;
 
-      const opp_key = find_fragment_key_loose(side_root, opp);
-      if (opp_key) {
-        return resolve_matchups_path(idx, y, side_root[opp_key]);
+        const opp_key = find_fragment_key_loose(side_root, opp);
+        if (opp_key) {
+          return resolve_matchups_path(idx, y, side_root[opp_key]);
+        }
+
+        dbg('resolve_sp_vs_team_path opp miss in side', {
+          year: y,
+          pitcher,
+          pitcher_key,
+          side_value,
+          side_key: s2,
+          opp,
+          opp_keys: Object.keys(side_root)
+        });
       }
 
-      dbg('resolve_sp_vs_team_path opp miss in side', {
+      return null;
+    }
+
+    let path = try_side(side);
+    if (path) return path;
+
+    const other = opposite_side(side);
+    path = try_side(other);
+
+    if (!path) {
+      dbg('resolve_sp_vs_team_path full miss', {
         year: y,
         pitcher,
         pitcher_key,
-        side_value,
-        side_key: s2,
-        opp,
-        opp_keys: Object.keys(side_root)
+        side,
+        other_side: other,
+        opp
       });
     }
 
-    return null;
+    return path || null;
   }
-
-  let path = try_side(side);
-  if (path) return path;
-
-  const other = opposite_side(side);
-  path = try_side(other);
-
-  if (!path) {
-    dbg('resolve_sp_vs_team_path full miss', {
-      year: y,
-      pitcher,
-      pitcher_key,
-      side,
-      other_side: other,
-      opp
-    });
-  }
-
-  return path || null;
-}
   //#################
   async function build_pitcher_panel_section(idx_obj, year_lists_obj, year_val, pitcher_name, side, opp_team, logo_team, side_text) {
     const path = pitcher_name ? resolve_sp_vs_team_path(idx_obj, year_val, pitcher_name, side, opp_team) : null;
@@ -4574,7 +4678,9 @@ function build_personalized_hitter_fallback_rows(year_lists_obj, hitters_list, p
     : {};
 
   const pitcher_rec = fallback_rec_for_name(pitcher_map, pitcher_name);
-  const pitcher_throw = String((pitcher_rec && pitcher_rec.throws) || '').trim().toUpperCase();
+  const pitcher_throw = String(
+    (pitcher_rec && (pitcher_rec.Throws || pitcher_rec.throws)) || ''
+  ).trim().toUpperCase();
 
   const rows = [];
   const pitch_union = new Set();
@@ -5421,8 +5527,8 @@ function find_fragment_key_loose(obj, wanted_name) {
       clear_btn.type = 'button';
       clear_btn.textContent = 'Clear';
       clear_btn.className = 'matchups_submit';
-      clear_btn.style.background = 'rgba(210,35,35,0.12)';
-      clear_btn.style.borderColor = 'rgba(210,35,35,0.35)';
+      clear_btn.style.background = 'rgba(210,10,10,0.12)';
+      clear_btn.style.borderColor = 'rgba(210,10,10,0.35)';
       clear_btn.addEventListener('click', (e) => {
         e.preventDefault();
         reset_sort_button();
@@ -6199,881 +6305,364 @@ if (should_auto_submit_matchups_mode(mode)) {
 }
       return;
     }
-    //#################################################################### Mode: gameday_matchup ####################################################################
-    if (mode === 'gameday_matchup') {
-      const day_obj = make_select('matchups_gd_day', 'Day');
-      set_select_options(day_obj.sel, ['3 days ago', '2 days ago', 'Yesterday', 'Today', 'Tomorrow', '+2 days', '+3 days', '+4 days'], 'Select');
-      form_root.appendChild(day_obj.wrap);
+//#################################################################### Mode: gameday_matchup ####################################################################
+if (mode === 'gameday_matchup') {
+  const day_obj = make_select('matchups_gd_day', 'Day');
+  set_select_options(day_obj.sel, ['3 days ago', '2 days ago', 'Yesterday', 'Today', 'Tomorrow', '+2 days', '+3 days', '+4 days'], 'Select');
+  form_root.appendChild(day_obj.wrap);
 
-      const team_obj = make_select('matchups_gd_team', 'Team');
-      set_select_options(team_obj.sel, [], 'Select team');
-      form_root.appendChild(team_obj.wrap);
+  const team_obj = make_select('matchups_gd_team', 'Team');
+  set_select_options(team_obj.sel, [], 'Select team');
+  form_root.appendChild(team_obj.wrap);
 
-      day_obj.sel.value = 'Today';
+  day_obj.sel.value = 'Today';
 if (initial_matchups_params.get('day')) {
-  day_obj.sel.value = initial_matchups_params.get('day');
+day_obj.sel.value = initial_matchups_params.get('day');
 }
-      sync_select_placeholder_class(day_obj.sel);
+  sync_select_placeholder_class(day_obj.sel);
 
-      let gd_req_id = 0;
-      //#################
+  let gd_req_id = 0;
+  //#################
 async function refresh_team_choices() {
-  const prev_team = String(team_obj.sel.value || '').trim();
+const prev_team = String(team_obj.sel.value || '').trim();
 
-  const offset = day_offset_from_label(day_obj.sel.value);
-  const d = add_days_local(new Date(), offset);
-  const date_str = to_yyyy_mm_dd_local(d);
+const offset = day_offset_from_label(day_obj.sel.value);
+const d = add_days_local(new Date(), offset);
+const date_str = to_yyyy_mm_dd_local(d);
 
-  const games = await fetch_matchups_for_date(date_str);
+const games = await fetch_matchups_for_date(date_str);
 
-  const playing = new Set();
+const playing = new Set();
 
-  games.forEach(g => {
-    if (g.home_team) playing.add(g.home_team);
-    if (g.away_team) playing.add(g.away_team);
-  });
+games.forEach(g => {
+if (g.home_team) playing.add(g.home_team);
+if (g.away_team) playing.add(g.away_team);
+});
 
-  const options = [...playing].sort();
-  set_select_options(team_obj.sel, options, 'Select team');
+const options = [...playing].sort();
+set_select_options(team_obj.sel, options, 'Select team');
 
-  if (prev_team && options.includes(prev_team)) {
-    team_obj.sel.value = prev_team;
-  }
-  const url_team = String(initial_matchups_params.get('team') || '').trim();
-  if (!prev_team && url_team && options.includes(url_team)) {
-    team_obj.sel.value = url_team;
-  }
+if (prev_team && options.includes(prev_team)) {
+team_obj.sel.value = prev_team;
+}
+const url_team = String(initial_matchups_params.get('team') || '').trim();
+if (!prev_team && url_team && options.includes(url_team)) {
+team_obj.sel.value = url_team;
+}
 
-  sync_select_placeholder_class(team_obj.sel);
+sync_select_placeholder_class(team_obj.sel);
 }
 
 day_obj.sel.addEventListener('change', () => {
-  clear_results();
-  refresh_team_choices();
+clear_results();
+refresh_team_choices();
 });
 
 refresh_team_choices().then(() => {
-  if (should_auto_submit_matchups_mode(mode)) {
-    submit();
-  }
+if (should_auto_submit_matchups_mode(mode)) {
+submit();
+}
 });
-      //#################
-      async function submit() {
-        const req_id = ++gd_req_id;
+  //#################
+  async function submit() {
+    const req_id = ++gd_req_id;
 
-        clear_results();
+    clear_results();
 
-        try {
-          const idx = await load_matchups_index();
-          if (!idx) return;
+    try {
+      const idx = await load_matchups_index();
+      if (!idx) return;
 
-          const offset = day_offset_from_label(day_obj.sel.value);
-          const d = add_days_local(new Date(), offset);
-          const date_str = to_yyyy_mm_dd_local(d);
+      const offset = day_offset_from_label(day_obj.sel.value);
+      const d = add_days_local(new Date(), offset);
+      const date_str = to_yyyy_mm_dd_local(d);
 
-          const selected_team = String(team_obj.sel.value || '').trim();
-          if (!selected_team) return;
-          write_matchups_url_state({
-            day: day_obj.sel.value,
-            team: selected_team
-          });
-          const games = await fetch_matchups_for_date(date_str);
-          if (req_id !== gd_req_id) return;
+      const selected_team = String(team_obj.sel.value || '').trim();
+      if (!selected_team) return;
+      write_matchups_url_state({
+        day: day_obj.sel.value,
+        team: selected_team
+      });
+      const games = await fetch_matchups_for_date(date_str);
+      if (req_id !== gd_req_id) return;
 
-          const game = games.find(g => g.home_team === selected_team || g.away_team === selected_team);
-          if (!game) {
-            results_root.innerHTML = `<div style="padding:10px;color:var(--muted);">No game found for ${selected_team} on ${date_str}.</div>`;
+      const game = games.find(g => g.home_team === selected_team || g.away_team === selected_team);
+      if (!game) {
+        results_root.innerHTML = `<div style="padding:10px;color:var(--muted);">No game found for ${selected_team} on ${date_str}.</div>`;
+        return;
+      }
+
+      const home_team = game.home_team;
+      const away_team = game.away_team;
+
+      const home_pitcher = game.home_pitcher;
+      const away_pitcher = game.away_pitcher;
+
+      const y = prefer_fragment_year();
+      if (!y) return;
+
+      dbg('gameday game', {
+        date_str,
+        y,
+        selected_team,
+        home_team,
+        away_team,
+        home_pitcher,
+        away_pitcher
+      });
+
+      const rosters = await load_matchups_rosters();
+      const roster_pack = roster_pack_for_year(rosters, y);
+
+      dbg('gameday roster_pack', {
+        has_rosters: !!rosters,
+        has_roster_pack: !!roster_pack
+      });
+
+      const home_hitters = roster_hitters_for_team(roster_pack, home_team);
+      const away_hitters = roster_hitters_for_team(roster_pack, away_team);
+
+      dbg('gameday hitters', {
+        home_hitters_n: home_hitters.length,
+        away_hitters_n: away_hitters.length
+      });
+
+      const home_pitcher_section = await build_pitcher_panel_section(
+        idx,
+        year_lists,
+        y,
+        home_pitcher,
+        'Home',
+        away_team,
+        home_team,
+        'Home'
+      );
+
+      const away_pitcher_section = await build_pitcher_panel_section(
+        idx,
+        year_lists,
+        y,
+        away_pitcher,
+        'Away',
+        home_team,
+        away_team,
+        'Away'
+      );
+
+      dbg('pitcher sections', {
+        home_pitcher_section,
+        away_pitcher_section
+      });
+
+      const home_lineup_sections = await build_lineup_sections(
+        idx,
+        year_lists,
+        y,
+        home_hitters,
+        'Home',
+        away_pitcher,
+        '',
+        "No matchup data - these are their scores against pitchers from this side"
+      );
+
+      const away_lineup_sections = await build_lineup_sections(
+        idx,
+        year_lists,
+        y,
+        away_hitters,
+        'Away',
+        home_pitcher,
+        '',
+        "No matchup data - these are their scores against pitchers from this side"
+      );
+
+      dbg('lineup sections', {
+        home_lineup_sections,
+        away_lineup_sections
+      });
+
+      if (req_id !== gd_req_id) return;
+
+      const header = document.createElement('div');
+      header.className = 'matchups_header';
+      header.textContent = `${date_str}: ${away_team} @ ${home_team}`;
+
+      results_root.appendChild(header);
+
+      const board = document.createElement('div');
+      board.className = 'matchups_gameday_board';
+      results_root.appendChild(board);
+
+      function split_lineup_sections(sections) {
+        const out = {
+          matchup: null,
+          fallback: null
+        };
+
+        (sections || []).forEach(sec => {
+          const has_paths = Array.isArray(sec.paths) && sec.paths.length;
+          const has_dummy = !!(sec.opts && Array.isArray(sec.opts.dummy_rows) && sec.opts.dummy_rows.length);
+
+          if (has_paths && !out.matchup) {
+            out.matchup = sec;
             return;
           }
 
-          const home_team = game.home_team;
-          const away_team = game.away_team;
-
-          const home_pitcher = game.home_pitcher;
-          const away_pitcher = game.away_pitcher;
-
-          const y = prefer_fragment_year();
-          if (!y) return;
-
-          dbg('gameday game', {
-            date_str,
-            y,
-            selected_team,
-            home_team,
-            away_team,
-            home_pitcher,
-            away_pitcher
-          });
-
-          const rosters = await load_matchups_rosters();
-          const roster_pack = roster_pack_for_year(rosters, y);
-
-          dbg('gameday roster_pack', {
-            has_rosters: !!rosters,
-            has_roster_pack: !!roster_pack
-          });
-
-          const home_hitters = roster_hitters_for_team(roster_pack, home_team);
-          const away_hitters = roster_hitters_for_team(roster_pack, away_team);
-
-          dbg('gameday hitters', {
-            home_hitters_n: home_hitters.length,
-            away_hitters_n: away_hitters.length
-          });
-
-          const home_pitcher_section = await build_pitcher_panel_section(
-            idx,
-            year_lists,
-            y,
-            home_pitcher,
-            'Home',
-            away_team,
-            home_team,
-            'Home'
-          );
-
-          const away_pitcher_section = await build_pitcher_panel_section(
-            idx,
-            year_lists,
-            y,
-            away_pitcher,
-            'Away',
-            home_team,
-            away_team,
-            'Away'
-          );
-
-          dbg('pitcher sections', {
-            home_pitcher_section,
-            away_pitcher_section
-          });
-
-          const home_lineup_sections = await build_lineup_sections(
-            idx,
-            year_lists,
-            y,
-            home_hitters,
-            'Home',
-            away_pitcher,
-            '',
-            "No matchup data - these are their scores against pitchers from this side"
-          );
-
-          const away_lineup_sections = await build_lineup_sections(
-            idx,
-            year_lists,
-            y,
-            away_hitters,
-            'Away',
-            home_pitcher,
-            '',
-            "No matchup data - these are their scores against pitchers from this side"
-          );
-
-          dbg('lineup sections', {
-            home_lineup_sections,
-            away_lineup_sections
-          });
-
-          if (req_id !== gd_req_id) return;
-
-          const header = document.createElement('div');
-          header.className = 'matchups_header';
-          header.textContent = `${date_str}: ${away_team} @ ${home_team}`;
-
-          results_root.appendChild(header);
-
-          const board = document.createElement('div');
-          board.className = 'matchups_gameday_board';
-          results_root.appendChild(board);
-
-          function split_lineup_sections(sections) {
-            const out = {
-              matchup: null,
-              fallback: null
-            };
-
-            (sections || []).forEach(sec => {
-              const has_paths = Array.isArray(sec.paths) && sec.paths.length;
-              const has_dummy = !!(sec.opts && Array.isArray(sec.opts.dummy_rows) && sec.opts.dummy_rows.length);
-
-              if (has_paths && !out.matchup) {
-                out.matchup = sec;
-                return;
-              }
-
-              if (has_dummy && !out.fallback) {
-                out.fallback = sec;
-              }
-            });
-
-            return out;
+          if (has_dummy && !out.fallback) {
+            out.fallback = sec;
           }
-
-          async function render_team_column(team_code, side_text, pitcher_section, split_sections) {
-            const col = document.createElement('div');
-            col.className = 'matchups_gameday_col';
-            board.appendChild(col);
-
-            const logo_wrap = document.createElement('div');
-            logo_wrap.style.display = 'flex';
-            logo_wrap.style.justifyContent = 'center';
-            logo_wrap.style.alignItems = 'center';
-            logo_wrap.style.margin = '2px 2px 2px 2px';
-            logo_wrap.innerHTML = team_logo_html(team_code);
-            col.appendChild(logo_wrap);
-
-            const side_div = document.createElement('div');
-            side_div.textContent = side_text;
-            side_div.style.fontSize = '12px';
-            side_div.style.fontWeight = '800';
-            side_div.style.color = 'var(--muted)';
-            side_div.style.margin = '0 2px 2px 2px';
-            side_div.style.textAlign = 'center';
-            col.appendChild(side_div);
-
-            async function mount_section(sec, extra_class) {
-              const section = document.createElement('div');
-              section.className = 'matchups_gameday_section';
-              if (extra_class) section.classList.add(extra_class);
-              col.appendChild(section);
-
-              if (sec && sec.title && !sec.hide_title) {
-                const h = document.createElement('div');
-                h.textContent = sec.title;
-                h.style.fontSize = '12px';
-                h.style.fontWeight = '800';
-                h.style.color = 'var(--muted)';
-                h.style.margin = '0 2px 8px 2px';
-                h.style.textAlign = 'center';
-                section.appendChild(h);
-              }
-
-              const mount = document.createElement('div');
-              section.appendChild(mount);
-
-              if (sec) {
-                await render_section_into(mount, sec);
-
-                let divider_key = 'lineup';
-                if (extra_class === 'matchups_gameday_pitcher_slot') divider_key = 'pitcher';
-                if (extra_class === 'matchups_gameday_fallback_slot') divider_key = 'fallback';
-
-                apply_matchups_table_dividers(mount, mode, divider_key);
-              }
-
-              return section;
-            }
-
-            const pitcher_mount = await mount_section(pitcher_section, 'matchups_gameday_pitcher_slot');
-            const lineup_mount = await mount_section(split_sections.matchup, 'matchups_gameday_lineup_slot');
-            const fallback_mount = await mount_section(split_sections.fallback, 'matchups_gameday_fallback_slot');
-
-            const candidate_widths = [lineup_mount, fallback_mount]
-              .map(sec => {
-                const wrap = sec.querySelector('.matchup_table_wrap');
-                return wrap ? wrap.getBoundingClientRect().width : 0;
-              })
-              .filter(w => w > 0);
-
-            const target_width = candidate_widths.length ? Math.max(...candidate_widths) : 0;
-
-            if (target_width > 0 && pitcher_mount) {
-              const pitcher_wrap = pitcher_mount.querySelector('.matchup_table_wrap');
-              if (pitcher_wrap) {
-                pitcher_wrap.style.width = `${Math.ceil(target_width)}px`;
-              }
-
-              const pitcher_table = pitcher_mount.querySelector('table.matchup_table');
-              if (pitcher_table) {
-                pitcher_table.style.width = '100%';
-                pitcher_table.style.minWidth = '0';
-              }
-            }
-
-            return {
-              col,
-              pitcher_mount,
-              lineup_mount,
-              fallback_mount
-            };
-          }
-
-          const home_split = split_lineup_sections(home_lineup_sections);
-          const away_split = split_lineup_sections(away_lineup_sections);
-
-          const home_rendered = await render_team_column(home_team, 'Home', home_pitcher_section, home_split);
-          const away_rendered = await render_team_column(away_team, 'Away', away_pitcher_section, away_split);
-
-          const board_style = window.getComputedStyle(board);
-          const board_cols = String(board_style.gridTemplateColumns || '')
-            .split(' ')
-            .filter(Boolean);
-
-          const is_two_col_board = board_cols.length >= 2;
-
-          home_rendered.lineup_mount.style.minHeight = '';
-          away_rendered.lineup_mount.style.minHeight = '';
-
-          if (is_two_col_board) {
-            const home_lineup_wrap = home_rendered.lineup_mount
-              ? home_rendered.lineup_mount.querySelector('.matchup_table_wrap')
-              : null;
-
-            const away_lineup_wrap = away_rendered.lineup_mount
-              ? away_rendered.lineup_mount.querySelector('.matchup_table_wrap')
-              : null;
-
-            const home_lineup_height = home_lineup_wrap
-              ? home_lineup_wrap.getBoundingClientRect().height
-              : home_rendered.lineup_mount.getBoundingClientRect().height;
-
-            const away_lineup_height = away_lineup_wrap
-              ? away_lineup_wrap.getBoundingClientRect().height
-              : away_rendered.lineup_mount.getBoundingClientRect().height;
-
-            const max_lineup_height = Math.max(home_lineup_height, away_lineup_height);
-
-            if (max_lineup_height > 0) {
-              home_rendered.lineup_mount.style.minHeight = `${Math.ceil(max_lineup_height)}px`;
-              away_rendered.lineup_mount.style.minHeight = `${Math.ceil(max_lineup_height)}px`;
-            }
-          }
-
-        } catch (e) {
-          console.error('[matchups] gameday submit error', e);
-          results_root.innerHTML = `<div style="padding:10px;color:var(--muted);">Gameday matchup failed to load.</div>`;
-        }
-      }
-      //#################
-      function clear_mode(){
-        clear_results();
-        day_obj.sel.value='Today';
-        team_obj.sel.value='';
-        refresh_team_choices();
-      }
-
-      build_action_buttons(submit, clear_mode, 'Load', { show_sort: false });
-      return;
-    }
-    //#################################################################### Mode: best_worst_hitters ####################################################################
-    if (mode === 'best_worst_hitters') {
-
-      const day_obj = make_select('matchups_bw_day','Day');
-      set_select_options(day_obj.sel, ['3 days ago', '2 days ago', 'Yesterday', 'Today', 'Tomorrow', '+2 days', '+3 days', '+4 days'], 'Select');
-      form_root.appendChild(day_obj.wrap);
-
-      day_obj.sel.value='Today';
-      sync_select_placeholder_class(day_obj.sel);
-
-      let bw_req_id=0;
-      //#################
-      async function submit(){
-        const req_id=++bw_req_id;
-        clear_results();
-        write_matchups_url_state({
-          day: day_obj.sel.value
         });
 
-        const idx=await load_matchups_index();
-        if(!idx)return;
-
-        const offset=day_offset_from_label(day_obj.sel.value);
-        const d=add_days_local(new Date(),offset);
-        const date_str=to_yyyy_mm_dd_local(d);
-
-        const games=await fetch_matchups_for_date(date_str);
-        if(req_id!==bw_req_id)return;
-
-        const y=prefer_fragment_year();
-        if(!y)return;
-
-        const rosters=await load_matchups_rosters();
-        const roster_pack=roster_pack_for_year(rosters,y);
-
-        const all_paths=build_slate_hvp_paths(idx,y,games,roster_pack);
-        if (!all_paths.length) {
-          results_root.innerHTML = `<div style="padding:10px;color:var(--muted);">No hitter matchup fragments found for ${date_str}.</div>`;
-          return;
-        }
-
-        const scored = await Promise.all(
-          all_paths.map(async p => ({ path: p, value: await all_value_for_fragment(p) }))
-        );
-
-        const top20 = scored
-          .filter(x => Number.isFinite(x.value) && x.value >= 0)
-          .sort((a, b) => b.value - a.value)
-          .slice(0, 20)
-          .map(x => x.path);
-
-        const bottom20 = scored
-          .filter(x => Number.isFinite(x.value) && x.value < 0)
-          .sort((a, b) => a.value - b.value)
-          .slice(0, 20)
-          .map(x => x.path);
-
-        const best_worst_drop_cols = [
-          'Away', 'Opp', '+FB', '+SI', '+CT', '+SL', '+SW', '+CB', '+CH', '+SP', '+KN', 'Bats', 'Throws'
-        ];
-
-        await render_multiple_fragments([
-          {
-            title: 'Top 20 Hitters',
-            paths: top20,
-            opts: {
-              drop_cols: best_worst_drop_cols,
-              gold_mode: 'hitter',
-  link_role: 'batters'
-            },
-            cell_class: 'matchups_best_worst_cell'
-          },
-          {
-            title: 'Bottom 20 Hitters',
-            paths: bottom20,
-            opts: {
-              drop_cols: best_worst_drop_cols,
-              gold_mode: 'hitter',
-  link_role: 'batters'
-            },
-            cell_class: 'matchups_best_worst_cell'
-          }
-          ], { cols: 2, gap: '20px' });
-          apply_matchups_table_dividers(results_root, mode, 'default');
-      }
-      //#################
-      function clear_mode(){
-        clear_results();
-        day_obj.sel.value='Today';
-      }
-      if (initial_matchups_params.get('day')) {
-        day_obj.sel.value = initial_matchups_params.get('day');
+        return out;
       }
 
-      build_action_buttons(submit, clear_mode, 'Load', { show_sort: false });
-      if (should_auto_submit_matchups_mode(mode)) {
-  setTimeout(() => submit(), 0);
-}
-      return;
-    }
-    //#################################################################### Mode: multi_starter ####################################################################
-    if (mode === 'multi_starter') {
-      const rows = [];
-      //#################
-      function add_row(i) {
-        const row_div = document.createElement('div');
-        row_div.className = 'matchups_form_row';
+      async function render_team_column(team_code, side_text, pitcher_section, split_sections) {
+        const col = document.createElement('div');
+        col.className = 'matchups_gameday_col';
+        board.appendChild(col);
 
-        const pitcher_obj = make_select(`matchups_pitcher_${i}`, `Pitcher ${i + 1}`);
-        set_grouped_or_flat(pitcher_obj.sel, year_lists.pitchers_sp_by_team, year_lists.pitchers_sp, 'Select starter');
+        const logo_wrap = document.createElement('div');
+        logo_wrap.style.display = 'flex';
+        logo_wrap.style.justifyContent = 'center';
+        logo_wrap.style.alignItems = 'center';
+        logo_wrap.style.margin = '2px 2px 2px 2px';
+        logo_wrap.innerHTML = team_logo_html(team_code);
+        col.appendChild(logo_wrap);
 
-        const side_obj = build_side_select(`matchups_side_${i}`);
-        const team_obj = make_select(`matchups_team_${i}`, 'Opp');
-        pitcher_obj.sel.style.width = '310px';
-        side_obj.sel.style.width = '88px';
-        team_obj.sel.style.width = '92px';
-        //#################
-        function refresh_team_for_row() {
-          const { sp_map } = get_pitcher_team_maps();
-          const p_team = sp_map[String(pitcher_obj.sel.value || '').trim()] || '';
-          const allowed_teams = p_team ? teams.filter(t => String(t) !== String(p_team)) : teams;
+        const side_div = document.createElement('div');
+        side_div.textContent = side_text;
+        side_div.style.fontSize = '12px';
+        side_div.style.fontWeight = '800';
+        side_div.style.color = 'var(--muted)';
+        side_div.style.margin = '0 2px 2px 2px';
+        side_div.style.textAlign = 'center';
+        col.appendChild(side_div);
 
-          set_select_options(team_obj.sel, allowed_teams, 'Select team');
+        async function mount_section(sec, extra_class) {
+          const section = document.createElement('div');
+          section.className = 'matchups_gameday_section';
+          if (extra_class) section.classList.add(extra_class);
+          col.appendChild(section);
 
-          if (p_team && String(team_obj.sel.value || '').trim() === String(p_team)) {
-            team_obj.sel.value = '';
+          if (sec && sec.title && !sec.hide_title) {
+            const h = document.createElement('div');
+            h.textContent = sec.title;
+            h.style.fontSize = '12px';
+            h.style.fontWeight = '800';
+            h.style.color = 'var(--muted)';
+            h.style.margin = '0 2px 8px 2px';
+            h.style.textAlign = 'center';
+            section.appendChild(h);
           }
 
-          sync_select_placeholder_class(team_obj.sel);
+          const mount = document.createElement('div');
+          section.appendChild(mount);
+
+          if (sec) {
+            await render_section_into(mount, sec);
+
+            let divider_key = 'lineup';
+            if (extra_class === 'matchups_gameday_pitcher_slot') divider_key = 'pitcher';
+            if (extra_class === 'matchups_gameday_fallback_slot') divider_key = 'fallback';
+
+            apply_matchups_table_dividers(mount, mode, divider_key);
+          }
+
+          return section;
         }
 
-        pitcher_obj.sel.addEventListener('change', () => {
-          refresh_team_for_row();
-          clear_results();
-        });
+        const pitcher_mount = await mount_section(pitcher_section, 'matchups_gameday_pitcher_slot');
+        const lineup_mount = await mount_section(split_sections.matchup, 'matchups_gameday_lineup_slot');
+        const fallback_mount = await mount_section(split_sections.fallback, 'matchups_gameday_fallback_slot');
 
-        refresh_team_for_row();
-
-        row_div.appendChild(pitcher_obj.wrap);
-        row_div.appendChild(side_obj.wrap);
-        row_div.appendChild(team_obj.wrap);
-
-        form_root.appendChild(row_div);
-
-        const saved = (multi_form_state.multi_starter.rows && multi_form_state.multi_starter.rows[i])
-          ? multi_form_state.multi_starter.rows[i]
-          : null;
-
-        if (saved) {
-          pitcher_obj.sel.value = saved.pitcher || '';
-          side_obj.sel.value = saved.side || '';
-          refresh_team_for_row();
-          team_obj.sel.value = saved.team || '';
-
-          sync_select_placeholder_class(pitcher_obj.sel);
-          sync_select_placeholder_class(side_obj.sel);
-          sync_select_placeholder_class(team_obj.sel);
-        }
-
-        rows.push({ p_sel: pitcher_obj.sel, s_sel: side_obj.sel, t_sel: team_obj.sel });
-      }
-      const url_rows_raw = String(initial_matchups_params.get('rows') || '').trim();
-      if (url_rows_raw && !multi_form_state.multi_starter.rows.length) {
-        multi_form_state.multi_starter.rows = url_rows_raw.split(';').map(x => {
-          const parts = x.split('|').map(decode_matchups_url_part);
-          return {
-            pitcher: parts[0] || '',
-            side: parts[1] || '',
-            team: parts[2] || ''
-          };
-        }).filter(x => x.pitcher || x.side || x.team);
-
-        multi_form_state.multi_starter.n = clamp_rows_n(multi_form_state.multi_starter.rows.length || 1);
-      }
-      const st = multi_form_state.multi_starter;
-      const n = clamp_rows_n(st.n);
-      st.n = n;
-
-      for (let i = 0; i < n; i++) add_row(i);
-
-      const side_toggle = document.createElement('div');
-      side_toggle.style.display = 'flex';
-      side_toggle.style.gap = '8px';
-      side_toggle.style.margin = '10px 0 6px 0';
-      side_toggle.style.alignItems = 'center';
-
-      const away_btn = document.createElement('button');
-      away_btn.type = 'button';
-      away_btn.className = 'matchups_submit';
-      away_btn.textContent = 'Away';
-
-      const home_btn = document.createElement('button');
-      home_btn.type = 'button';
-      home_btn.className = 'matchups_submit';
-      home_btn.textContent = 'Home';
-
-      function set_all_sides(v) {
-        rows.forEach(r => {
-          r.s_sel.value = v;
-          sync_select_placeholder_class(r.s_sel);
-        });
-        clear_results();
-      }
-
-      away_btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        set_all_sides('Away');
-      });
-
-      home_btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        set_all_sides('Home');
-      });
-
-      side_toggle.appendChild(away_btn);
-      side_toggle.appendChild(home_btn);
-
-      form_root.insertBefore(side_toggle, form_root.firstChild?.nextSibling || form_root.firstChild);
-      //#################
-      async function submit() {
-        snapshot_multi_state('multi_starter');
-
-        const y = year_sel.value;
-        if (!y) return;
-        const url_rows = rows
-          .map(r => [
-            encode_matchups_url_part(r.p_sel.value),
-            encode_matchups_url_part(r.s_sel.value),
-            encode_matchups_url_part(r.t_sel.value)
-          ].join('|'))
-          .filter(x => x.replace(/\|/g, '').trim())
-          .join(';');
-
-        write_matchups_url_state({ year: y, rows: url_rows });
-
-        const resolved_rows = rows
-          .filter(r => r.p_sel.value && r.s_sel.value && r.t_sel.value)
-          .map(r => {
-            const path = resolve_sp_vs_team_path(idx, y, r.p_sel.value, r.s_sel.value, r.t_sel.value);
-
-            return {
-              path,
-              requested_side: r.s_sel.value
-            };
+        const candidate_widths = [lineup_mount, fallback_mount]
+          .map(sec => {
+            const wrap = sec.querySelector('.matchup_table_wrap');
+            return wrap ? wrap.getBoundingClientRect().width : 0;
           })
-          .filter(x => x.path);
+          .filter(w => w > 0);
 
-        const seen = new Set();
-        const uniq = [];
-        const override_rows = [];
+        const target_width = candidate_widths.length ? Math.max(...candidate_widths) : 0;
 
-        for (const x of resolved_rows) {
-          if (seen.has(x.path)) continue;
-          seen.add(x.path);
-          uniq.push(x.path);
-          override_rows.push({ Away: x.requested_side });
-        }
+        if (target_width > 0 && pitcher_mount) {
+          const pitcher_wrap = pitcher_mount.querySelector('.matchup_table_wrap');
+          if (pitcher_wrap) {
+            pitcher_wrap.style.width = `${Math.ceil(target_width)}px`;
+          }
 
-        await render_many(uniq, {
-          override_rows,
-          link_role: 'starters'
-        });
-        apply_matchups_table_dividers(results_root, mode, 'default');
-      }
-      //#################
-      function clear_mode() {
-        clear_results();
-        multi_form_state.multi_starter.rows = [];
-        multi_form_state.multi_starter.n = 1;
-        form_root.dataset.skip_snapshot = '1';
-        sync_row_controls();
-        build_form();
-      }
-
-      build_action_buttons(submit, clear_mode);
-      if (should_auto_submit_matchups_mode(mode)) {
-  setTimeout(() => submit(), 0);
-}
-      return;
-    }
-    //#################################################################### Mode: multi_hitter ####################################################################
-    if (mode === 'multi_hitter') {
-      const rows = [];
-
-      //#################
-      function refresh_row_pitchers(row) {
-        const hitter_team_map = get_hitter_team_map();
-        const hitter_team = hitter_team_map[String(row.h_sel.value || '').trim()] || '';
-
-        const starter_groups = Array.isArray(year_lists.pitchers_sp_by_team) ? year_lists.pitchers_sp_by_team : [];
-        const reliever_groups = Array.isArray(year_lists.pitchers_rp_by_team) ? year_lists.pitchers_rp_by_team : [];
-        let base_groups = starter_groups.concat(reliever_groups);
-
-        if (hitter_team) {
-          base_groups = filter_groups_excluding_team(base_groups, hitter_team);
-        }
-
-        rebuild_select_keep_value(row.p_sel, () => {
-          set_grouped_or_flat(row.p_sel, base_groups, [], 'Select pitcher');
-        });
-      }
-      //#################
-      function pitcher_role_for_row(row) {
-        const pitcher_name = String(row?.p_sel?.value || '').trim();
-        if (!pitcher_name) return 'starters';
-
-        const wanted = normalize_matchup_person_key(pitcher_name);
-
-        const rp_groups = Array.isArray(year_lists.pitchers_rp_by_team) ? year_lists.pitchers_rp_by_team : [];
-        for (const g of rp_groups) {
-          const opts = Array.isArray(g.options) ? g.options : [];
-          if (opts.some(x => normalize_matchup_person_key(x) === wanted)) {
-            return 'bullpen';
+          const pitcher_table = pitcher_mount.querySelector('table.matchup_table');
+          if (pitcher_table) {
+            pitcher_table.style.width = '100%';
+            pitcher_table.style.minWidth = '0';
           }
         }
 
-        const sp_groups = Array.isArray(year_lists.pitchers_sp_by_team) ? year_lists.pitchers_sp_by_team : [];
-        for (const g of sp_groups) {
-          const opts = Array.isArray(g.options) ? g.options : [];
-          if (opts.some(x => normalize_matchup_person_key(x) === wanted)) {
-            return 'starters';
-          }
-        }
-
-        return 'starters';
+        return {
+          col,
+          pitcher_mount,
+          lineup_mount,
+          fallback_mount
+        };
       }
-        //#################
-      function add_row(i) {
-        const row_div = document.createElement('div');
-        row_div.className = 'matchups_form_row';
 
-        const { wrap: h_wrap, sel: h_sel } = make_select(`matchups_hitter_${i}`, `Hitter ${i + 1}`);
-        set_grouped_or_flat(h_sel, year_lists.hitters_by_team, hitters, 'Select hitter');
+      const home_split = split_lineup_sections(home_lineup_sections);
+      const away_split = split_lineup_sections(away_lineup_sections);
 
-        const { wrap: s_wrap, sel: s_sel } = make_select(`matchups_side_${i}`, 'Away/Home');
-        set_select_options(s_sel, ['Away', 'Home'], 'Select');
+      const home_rendered = await render_team_column(home_team, 'Home', home_pitcher_section, home_split);
+      const away_rendered = await render_team_column(away_team, 'Away', away_pitcher_section, away_split);
 
-        const { wrap: p_wrap, sel: p_sel } = make_select(`matchups_pitcher_${i}`, 'Pitcher');
-        const pitcher_groups = build_pitcher_groups(year_lists);
-        set_grouped_or_flat(p_sel, pitcher_groups, pitchers, 'Select pitcher');
+      const board_style = window.getComputedStyle(board);
+      const board_cols = String(board_style.gridTemplateColumns || '')
+        .split(' ')
+        .filter(Boolean);
 
-        h_sel.classList.add('matchups_select_hitter_long');
-        s_sel.classList.add('matchups_select_side_short');
-        p_sel.classList.add('matchups_select_pitcher_long');
+      const is_two_col_board = board_cols.length >= 2;
 
-        row_div.appendChild(h_wrap);
-        row_div.appendChild(s_wrap);
-        row_div.appendChild(p_wrap);
+      home_rendered.lineup_mount.style.minHeight = '';
+      away_rendered.lineup_mount.style.minHeight = '';
 
-        form_root.appendChild(row_div);
-
-        const row = { h_sel, s_sel, p_sel };
-        rows.push(row);
-
-        h_sel.addEventListener('change', () => {
-          refresh_row_pitchers(row);
-          clear_results();
-        });
-
-        s_sel.addEventListener('change', () => {
-          refresh_row_pitchers(row);
-          clear_results();
-        });
-
-        const saved = (multi_form_state.multi_hitter.rows && multi_form_state.multi_hitter.rows[i])
-          ? multi_form_state.multi_hitter.rows[i]
+      if (is_two_col_board) {
+        const home_lineup_wrap = home_rendered.lineup_mount
+          ? home_rendered.lineup_mount.querySelector('.matchup_table_wrap')
           : null;
 
-        if (saved) {
-          row.h_sel.value = saved.hitter || '';
-          row.s_sel.value = saved.side || '';
-          refresh_row_pitchers(row);
-          row.p_sel.value = saved.pitcher || '';
+        const away_lineup_wrap = away_rendered.lineup_mount
+          ? away_rendered.lineup_mount.querySelector('.matchup_table_wrap')
+          : null;
 
-          sync_select_placeholder_class(row.h_sel);
-          sync_select_placeholder_class(row.s_sel);
-          sync_select_placeholder_class(row.p_sel);
+        const home_lineup_height = home_lineup_wrap
+          ? home_lineup_wrap.getBoundingClientRect().height
+          : home_rendered.lineup_mount.getBoundingClientRect().height;
+
+        const away_lineup_height = away_lineup_wrap
+          ? away_lineup_wrap.getBoundingClientRect().height
+          : away_rendered.lineup_mount.getBoundingClientRect().height;
+
+        const max_lineup_height = Math.max(home_lineup_height, away_lineup_height);
+
+        if (max_lineup_height > 0) {
+          home_rendered.lineup_mount.style.minHeight = `${Math.ceil(max_lineup_height)}px`;
+          away_rendered.lineup_mount.style.minHeight = `${Math.ceil(max_lineup_height)}px`;
         }
       }
-      const url_rows_raw = String(initial_matchups_params.get('rows') || '').trim();
-      if (url_rows_raw && !multi_form_state.multi_hitter.rows.length) {
-        multi_form_state.multi_hitter.rows = url_rows_raw.split(';').map(x => {
-          const parts = x.split('|').map(decode_matchups_url_part);
-          return {
-            hitter: parts[0] || '',
-            side: parts[1] || '',
-            pitcher: parts[2] || ''
-          };
-        }).filter(x => x.hitter || x.side || x.pitcher);
 
-        multi_form_state.multi_hitter.n = clamp_rows_n(multi_form_state.multi_hitter.rows.length || 1);
-      }
-      const st = multi_form_state.multi_hitter;
-
-      const n = clamp_rows_n(st.n);
-      st.n = n;
-
-      for (let i = 0; i < n; i++) add_row(i);
-
-      const side_toggle = document.createElement('div');
-      side_toggle.style.display = 'flex';
-      side_toggle.style.gap = '8px';
-      side_toggle.style.margin = '10px 0 6px 0';
-      side_toggle.style.alignItems = 'center';
-
-      const away_btn = document.createElement('button');
-      away_btn.type = 'button';
-      away_btn.className = 'matchups_submit';
-      away_btn.textContent = 'Away';
-
-      const home_btn = document.createElement('button');
-      home_btn.type = 'button';
-      home_btn.className = 'matchups_submit';
-      home_btn.textContent = 'Home';
-      //#################
-      function set_all_sides(v) {
-        rows.forEach(r => {
-          r.s_sel.value = v;
-          sync_select_placeholder_class(r.s_sel);
-          refresh_row_pitchers(r);
-        });
-        clear_results();
-      }
-
-      away_btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        set_all_sides('Away');
-      });
-
-      home_btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        set_all_sides('Home');
-      });
-
-      side_toggle.appendChild(away_btn);
-      side_toggle.appendChild(home_btn);
-
-      form_root.insertBefore(side_toggle, form_root.firstChild?.nextSibling || form_root.firstChild);
-      //#################
-      async function submit() {
-        snapshot_multi_state('multi_hitter');
-
-        const y = year_sel.value;
-        if (!y) return;
-        const url_rows = rows
-          .map(r => [
-            encode_matchups_url_part(r.h_sel.value),
-            encode_matchups_url_part(r.s_sel.value),
-            encode_matchups_url_part(r.p_sel.value)
-          ].join('|'))
-          .filter(x => x.replace(/\|/g, '').trim())
-          .join(';');
-
-        write_matchups_url_state({ year: y, rows: url_rows });
-
-        const paths = [];
-        const override_rows = [];
-        const dummy_rows = [];
-        const row_link_roles = [];
-
-        for (const r of rows) {
-          const hitter_name = String(r.h_sel.value || '').trim();
-          const side = String(r.s_sel.value || '').trim();
-          const pitcher_name = String(r.p_sel.value || '').trim();
-
-          if (!hitter_name || !side || !pitcher_name) continue;
-          const pitcher_link_role = pitcher_role_for_row(r);
-
-          const path = resolve_hvp_with_pf_fallback(idx, y, hitter_name, side, pitcher_name);
-
-          if (path) {
-            paths.push(path);
-            override_rows.push({ Away: side });
-            row_link_roles.push(pitcher_link_role);
-            continue;
-          }
-
-          const fallback_rows = build_personalized_hitter_fallback_rows(
-            year_lists,
-            [hitter_name],
-            pitcher_name,
-            y
-          );
-
-          if (fallback_rows.length) {
-            dummy_rows.push(fallback_rows[0]);
-            override_rows.push({ Away: side });
-            row_link_roles.push(pitcher_link_role);
-          }
-        }
-        await render_many(paths, {
-          dummy_rows,
-          override_rows,
-          keep_all_pitch_cols: true,
-          gold_mode: 'hitter',
-          link_role: 'batters',
-          row_pitcher_link_roles: row_link_roles
-        });
-        apply_matchups_table_dividers(results_root, mode, 'default');
-      }
-
-      //#################
-      function clear_mode() {
-        clear_results();
-        multi_form_state.multi_hitter.rows = [];
-        multi_form_state.multi_hitter.n = 1;
-        form_root.dataset.skip_snapshot = '1';
-        sync_row_controls();
-        build_form();
-      }
-
-      build_action_buttons(submit, clear_mode);
-      if (should_auto_submit_matchups_mode(mode)) {
-  setTimeout(() => submit(), 0);
-}
-      return;
+    } catch (e) {
+      console.error('[matchups] gameday submit error', e);
+      results_root.innerHTML = `<div style="padding:10px;color:var(--muted);">Gameday matchup failed to load.</div>`;
     }
-    //#################################################################### Mode: favorites_today ####################################################################
+  }
+  //#################
+  function clear_mode(){
+    clear_results();
+    day_obj.sel.value='Today';
+    team_obj.sel.value='';
+    refresh_team_choices();
+  }
+
+  build_action_buttons(submit, clear_mode, 'Load', { show_sort: false });
+  return;
+}
+//#################################################################### Mode: favorites_today ####################################################################
 if (mode === 'favorites_today') {
 //#################
 function favorite_hitter_names() {
@@ -7299,9 +6888,9 @@ games.forEach(g => {
     }
 
     clear_results();
-await render_stacked_section('Favorite Probable Pitchers', pitcher_paths, {
+await render_stacked_section('Probable Pitchers', pitcher_paths, {
   override_rows: pitcher_override_rows,
-  drop_cols: ['Team', 'Opp', 'Away', 'Bats', 'Throws'],
+  drop_cols: ['Bats', 'Throws'],
   link_role: 'starters'
 });
 apply_matchups_table_dividers(results_root, mode, 'pitchers');
@@ -7315,7 +6904,7 @@ await render_stacked_section('Matchups', matchup_paths, {
 });
 apply_matchups_table_dividers(results_root, mode, 'matchups');
 
-await render_stacked_section('Fallback', [], {
+await render_stacked_section('No matchup data - these are their scores against pitchers from this side', [], {
   dummy_rows: fallback_dummy_rows,
   keep_all_pitch_cols: true,
   drop_cols: ['+KN'],
@@ -7336,281 +6925,798 @@ apply_matchups_table_dividers(results_root, mode, 'fallback');
 }
   return;
 }
-    //#################################################################### Mode: multi_hitter_today ####################################################################
-    if (mode === 'multi_hitter_today') {
-      const url_rows_raw = String(initial_matchups_params.get('rows') || '').trim();
-      if (url_rows_raw && !multi_form_state.multi_hitter_today.rows.length) {
-        multi_form_state.multi_hitter_today.rows = url_rows_raw.split(';').map(x => ({
-          hitter: decode_matchups_url_part(x)
-        })).filter(x => x.hitter);
+//#################################################################### Mode: best_worst_hitters ####################################################################
+if (mode === 'best_worst_hitters') {
 
-        multi_form_state.multi_hitter_today.n = clamp_rows_n(multi_form_state.multi_hitter_today.rows.length || 1);
+  const day_obj = make_select('matchups_bw_day','Day');
+  set_select_options(day_obj.sel, ['3 days ago', '2 days ago', 'Yesterday', 'Today', 'Tomorrow', '+2 days', '+3 days', '+4 days'], 'Select');
+  form_root.appendChild(day_obj.wrap);
+
+  day_obj.sel.value='Today';
+  sync_select_placeholder_class(day_obj.sel);
+
+  let bw_req_id=0;
+  //#################
+  async function submit(){
+    const req_id=++bw_req_id;
+    clear_results();
+    write_matchups_url_state({
+      day: day_obj.sel.value
+    });
+
+    const idx=await load_matchups_index();
+    if(!idx)return;
+
+    const offset=day_offset_from_label(day_obj.sel.value);
+    const d=add_days_local(new Date(),offset);
+    const date_str=to_yyyy_mm_dd_local(d);
+
+    const games=await fetch_matchups_for_date(date_str);
+    if(req_id!==bw_req_id)return;
+
+    const y=prefer_fragment_year();
+    if(!y)return;
+
+    const rosters=await load_matchups_rosters();
+    const roster_pack=roster_pack_for_year(rosters,y);
+
+    const all_paths=build_slate_hvp_paths(idx,y,games,roster_pack);
+    if (!all_paths.length) {
+      results_root.innerHTML = `<div style="padding:10px;color:var(--muted);">No hitter matchup fragments found for ${date_str}.</div>`;
+      return;
+    }
+
+    const scored = await Promise.all(
+      all_paths.map(async p => ({ path: p, value: await all_value_for_fragment(p) }))
+    );
+
+    const top20 = scored
+      .filter(x => Number.isFinite(x.value) && x.value >= 0)
+      .sort((a, b) => b.value - a.value)
+      .slice(0, 20)
+      .map(x => x.path);
+
+    const bottom20 = scored
+      .filter(x => Number.isFinite(x.value) && x.value < 0)
+      .sort((a, b) => a.value - b.value)
+      .slice(0, 20)
+      .map(x => x.path);
+
+    const best_worst_drop_cols = [
+      'Away', 'Opp', '+FB', '+SI', '+CT', '+SL', '+SW', '+CB', '+CH', '+SP', '+KN', 'Bats', 'Throws'
+    ];
+
+    await render_multiple_fragments([
+      {
+        title: 'Top 20 Hitters',
+        paths: top20,
+        opts: {
+          drop_cols: best_worst_drop_cols,
+          gold_mode: 'hitter',
+link_role: 'batters'
+        },
+        cell_class: 'matchups_best_worst_cell'
+      },
+      {
+        title: 'Bottom 20 Hitters',
+        paths: bottom20,
+        opts: {
+          drop_cols: best_worst_drop_cols,
+          gold_mode: 'hitter',
+link_role: 'batters'
+        },
+        cell_class: 'matchups_best_worst_cell'
       }
-      const rows = build_hitter_only_rows('multi_hitter_today');
+      ], { cols: 2, gap: '20px' });
+      apply_matchups_table_dividers(results_root, mode, 'default');
+  }
+  //#################
+  function clear_mode(){
+    clear_results();
+    day_obj.sel.value='Today';
+  }
+  if (initial_matchups_params.get('day')) {
+    day_obj.sel.value = initial_matchups_params.get('day');
+  }
 
-      //#################
-      async function submit() {
-        snapshot_multi_state('multi_hitter_today');
+  build_action_buttons(submit, clear_mode, 'Load', { show_sort: false });
+  if (should_auto_submit_matchups_mode(mode)) {
+setTimeout(() => submit(), 0);
+}
+  return;
+}
+//#################################################################### Mode: multi_starter ####################################################################
+if (mode === 'multi_starter') {
+  const rows = [];
+  //#################
+  function add_row(i) {
+    const row_div = document.createElement('div');
+    row_div.className = 'matchups_form_row';
 
-        const y = prefer_fragment_year();
-        if (!y) return;
+    const pitcher_obj = make_select(`matchups_pitcher_${i}`, `Pitcher ${i + 1}`);
+    set_grouped_or_flat(pitcher_obj.sel, year_lists.pitchers_sp_by_team, year_lists.pitchers_sp, 'Select starter');
+
+    const side_obj = build_side_select(`matchups_side_${i}`);
+    const team_obj = make_select(`matchups_team_${i}`, 'Opp');
+    pitcher_obj.sel.style.width = '310px';
+    side_obj.sel.style.width = '88px';
+    team_obj.sel.style.width = '92px';
+    //#################
+    function refresh_team_for_row() {
+      const { sp_map } = get_pitcher_team_maps();
+      const p_team = sp_map[String(pitcher_obj.sel.value || '').trim()] || '';
+      const allowed_teams = p_team ? teams.filter(t => String(t) !== String(p_team)) : teams;
+
+      set_select_options(team_obj.sel, allowed_teams, 'Select team');
+
+      if (p_team && String(team_obj.sel.value || '').trim() === String(p_team)) {
+        team_obj.sel.value = '';
+      }
+
+      sync_select_placeholder_class(team_obj.sel);
+    }
+
+    pitcher_obj.sel.addEventListener('change', () => {
+      refresh_team_for_row();
+      clear_results();
+    });
+
+    refresh_team_for_row();
+
+    row_div.appendChild(pitcher_obj.wrap);
+    row_div.appendChild(side_obj.wrap);
+    row_div.appendChild(team_obj.wrap);
+
+    form_root.appendChild(row_div);
+
+    const saved = (multi_form_state.multi_starter.rows && multi_form_state.multi_starter.rows[i])
+      ? multi_form_state.multi_starter.rows[i]
+      : null;
+
+    if (saved) {
+      pitcher_obj.sel.value = saved.pitcher || '';
+      side_obj.sel.value = saved.side || '';
+      refresh_team_for_row();
+      team_obj.sel.value = saved.team || '';
+
+      sync_select_placeholder_class(pitcher_obj.sel);
+      sync_select_placeholder_class(side_obj.sel);
+      sync_select_placeholder_class(team_obj.sel);
+    }
+
+    rows.push({ p_sel: pitcher_obj.sel, s_sel: side_obj.sel, t_sel: team_obj.sel });
+  }
+  const url_rows_raw = String(initial_matchups_params.get('rows') || '').trim();
+  if (url_rows_raw && !multi_form_state.multi_starter.rows.length) {
+    multi_form_state.multi_starter.rows = url_rows_raw.split(';').map(x => {
+      const parts = x.split('|').map(decode_matchups_url_part);
+      return {
+        pitcher: parts[0] || '',
+        side: parts[1] || '',
+        team: parts[2] || ''
+      };
+    }).filter(x => x.pitcher || x.side || x.team);
+
+    multi_form_state.multi_starter.n = clamp_rows_n(multi_form_state.multi_starter.rows.length || 1);
+  }
+  const st = multi_form_state.multi_starter;
+  const n = clamp_rows_n(st.n);
+  st.n = n;
+
+  for (let i = 0; i < n; i++) add_row(i);
+
+  const side_toggle = document.createElement('div');
+  side_toggle.style.display = 'flex';
+  side_toggle.style.gap = '8px';
+  side_toggle.style.margin = '10px 0 6px 0';
+  side_toggle.style.alignItems = 'center';
+
+  const away_btn = document.createElement('button');
+  away_btn.type = 'button';
+  away_btn.className = 'matchups_submit';
+  away_btn.textContent = 'Away';
+
+  const home_btn = document.createElement('button');
+  home_btn.type = 'button';
+  home_btn.className = 'matchups_submit';
+  home_btn.textContent = 'Home';
+
+  function set_all_sides(v) {
+    rows.forEach(r => {
+      r.s_sel.value = v;
+      sync_select_placeholder_class(r.s_sel);
+    });
+    clear_results();
+  }
+
+  away_btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    set_all_sides('Away');
+  });
+
+  home_btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    set_all_sides('Home');
+  });
+
+  side_toggle.appendChild(away_btn);
+  side_toggle.appendChild(home_btn);
+
+  form_root.insertBefore(side_toggle, form_root.firstChild?.nextSibling || form_root.firstChild);
+  //#################
+  async function submit() {
+    snapshot_multi_state('multi_starter');
+
+    const y = year_sel.value;
+    if (!y) return;
+    const url_rows = rows
+      .map(r => [
+        encode_matchups_url_part(r.p_sel.value),
+        encode_matchups_url_part(r.s_sel.value),
+        encode_matchups_url_part(r.t_sel.value)
+      ].join('|'))
+      .filter(x => x.replace(/\|/g, '').trim())
+      .join(';');
+
+    write_matchups_url_state({ year: y, rows: url_rows });
+
+    const resolved_rows = rows
+      .filter(r => r.p_sel.value && r.s_sel.value && r.t_sel.value)
+      .map(r => {
+        const path = resolve_sp_vs_team_path(idx, y, r.p_sel.value, r.s_sel.value, r.t_sel.value);
+
+        return {
+          path,
+          requested_side: r.s_sel.value
+        };
+      })
+      .filter(x => x.path);
+
+    const seen = new Set();
+    const uniq = [];
+    const override_rows = [];
+
+    for (const x of resolved_rows) {
+      if (seen.has(x.path)) continue;
+      seen.add(x.path);
+      uniq.push(x.path);
+      override_rows.push({ Away: x.requested_side });
+    }
+
+    await render_many(uniq, {
+      override_rows,
+      link_role: 'starters'
+    });
+    apply_matchups_table_dividers(results_root, mode, 'default');
+  }
+  //#################
+  function clear_mode() {
+    clear_results();
+    multi_form_state.multi_starter.rows = [];
+    multi_form_state.multi_starter.n = 1;
+    form_root.dataset.skip_snapshot = '1';
+    sync_row_controls();
+    build_form();
+  }
+
+  build_action_buttons(submit, clear_mode);
+  if (should_auto_submit_matchups_mode(mode)) {
+setTimeout(() => submit(), 0);
+}
+  return;
+}
+//#################################################################### Mode: multi_hitter ####################################################################
+if (mode === 'multi_hitter') {
+  const rows = [];
+
+  //#################
+  function refresh_row_pitchers(row) {
+    const hitter_team_map = get_hitter_team_map();
+    const hitter_team = hitter_team_map[String(row.h_sel.value || '').trim()] || '';
+
+    const starter_groups = Array.isArray(year_lists.pitchers_sp_by_team) ? year_lists.pitchers_sp_by_team : [];
+    const reliever_groups = Array.isArray(year_lists.pitchers_rp_by_team) ? year_lists.pitchers_rp_by_team : [];
+    let base_groups = starter_groups.concat(reliever_groups);
+
+    if (hitter_team) {
+      base_groups = filter_groups_excluding_team(base_groups, hitter_team);
+    }
+
+    rebuild_select_keep_value(row.p_sel, () => {
+      set_grouped_or_flat(row.p_sel, base_groups, [], 'Select pitcher');
+    });
+  }
+  //#################
+  function pitcher_role_for_row(row) {
+    const pitcher_name = String(row?.p_sel?.value || '').trim();
+    if (!pitcher_name) return 'starters';
+
+    const wanted = normalize_matchup_person_key(pitcher_name);
+
+    const rp_groups = Array.isArray(year_lists.pitchers_rp_by_team) ? year_lists.pitchers_rp_by_team : [];
+    for (const g of rp_groups) {
+      const opts = Array.isArray(g.options) ? g.options : [];
+      if (opts.some(x => normalize_matchup_person_key(x) === wanted)) {
+        return 'bullpen';
+      }
+    }
+
+    const sp_groups = Array.isArray(year_lists.pitchers_sp_by_team) ? year_lists.pitchers_sp_by_team : [];
+    for (const g of sp_groups) {
+      const opts = Array.isArray(g.options) ? g.options : [];
+      if (opts.some(x => normalize_matchup_person_key(x) === wanted)) {
+        return 'starters';
+      }
+    }
+
+    return 'starters';
+  }
+    //#################
+  function add_row(i) {
+    const row_div = document.createElement('div');
+    row_div.className = 'matchups_form_row';
+
+    const { wrap: h_wrap, sel: h_sel } = make_select(`matchups_hitter_${i}`, `Hitter ${i + 1}`);
+    set_grouped_or_flat(h_sel, year_lists.hitters_by_team, hitters, 'Select hitter');
+
+    const { wrap: s_wrap, sel: s_sel } = make_select(`matchups_side_${i}`, 'Away/Home');
+    set_select_options(s_sel, ['Away', 'Home'], 'Select');
+
+    const { wrap: p_wrap, sel: p_sel } = make_select(`matchups_pitcher_${i}`, 'Pitcher');
+    const pitcher_groups = build_pitcher_groups(year_lists);
+    set_grouped_or_flat(p_sel, pitcher_groups, pitchers, 'Select pitcher');
+
+    h_sel.classList.add('matchups_select_hitter_long');
+    s_sel.classList.add('matchups_select_side_short');
+    p_sel.classList.add('matchups_select_pitcher_long');
+
+    row_div.appendChild(h_wrap);
+    row_div.appendChild(s_wrap);
+    row_div.appendChild(p_wrap);
+
+    form_root.appendChild(row_div);
+
+    const row = { h_sel, s_sel, p_sel };
+    rows.push(row);
+
+    h_sel.addEventListener('change', () => {
+      refresh_row_pitchers(row);
+      clear_results();
+    });
+
+    s_sel.addEventListener('change', () => {
+      refresh_row_pitchers(row);
+      clear_results();
+    });
+
+    const saved = (multi_form_state.multi_hitter.rows && multi_form_state.multi_hitter.rows[i])
+      ? multi_form_state.multi_hitter.rows[i]
+      : null;
+
+    if (saved) {
+      row.h_sel.value = saved.hitter || '';
+      row.s_sel.value = saved.side || '';
+      refresh_row_pitchers(row);
+      row.p_sel.value = saved.pitcher || '';
+
+      sync_select_placeholder_class(row.h_sel);
+      sync_select_placeholder_class(row.s_sel);
+      sync_select_placeholder_class(row.p_sel);
+    }
+  }
+  const url_rows_raw = String(initial_matchups_params.get('rows') || '').trim();
+  if (url_rows_raw && !multi_form_state.multi_hitter.rows.length) {
+    multi_form_state.multi_hitter.rows = url_rows_raw.split(';').map(x => {
+      const parts = x.split('|').map(decode_matchups_url_part);
+      return {
+        hitter: parts[0] || '',
+        side: parts[1] || '',
+        pitcher: parts[2] || ''
+      };
+    }).filter(x => x.hitter || x.side || x.pitcher);
+
+    multi_form_state.multi_hitter.n = clamp_rows_n(multi_form_state.multi_hitter.rows.length || 1);
+  }
+  const st = multi_form_state.multi_hitter;
+
+  const n = clamp_rows_n(st.n);
+  st.n = n;
+
+  for (let i = 0; i < n; i++) add_row(i);
+
+  const side_toggle = document.createElement('div');
+  side_toggle.style.display = 'flex';
+  side_toggle.style.gap = '8px';
+  side_toggle.style.margin = '10px 0 6px 0';
+  side_toggle.style.alignItems = 'center';
+
+  const away_btn = document.createElement('button');
+  away_btn.type = 'button';
+  away_btn.className = 'matchups_submit';
+  away_btn.textContent = 'Away';
+
+  const home_btn = document.createElement('button');
+  home_btn.type = 'button';
+  home_btn.className = 'matchups_submit';
+  home_btn.textContent = 'Home';
+  //#################
+  function set_all_sides(v) {
+    rows.forEach(r => {
+      r.s_sel.value = v;
+      sync_select_placeholder_class(r.s_sel);
+      refresh_row_pitchers(r);
+    });
+    clear_results();
+  }
+
+  away_btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    set_all_sides('Away');
+  });
+
+  home_btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    set_all_sides('Home');
+  });
+
+  side_toggle.appendChild(away_btn);
+  side_toggle.appendChild(home_btn);
+
+  form_root.insertBefore(side_toggle, form_root.firstChild?.nextSibling || form_root.firstChild);
+  //#################
+  async function submit() {
+    snapshot_multi_state('multi_hitter');
+
+    const y = year_sel.value;
+    if (!y) return;
+    const url_rows = rows
+      .map(r => [
+        encode_matchups_url_part(r.h_sel.value),
+        encode_matchups_url_part(r.s_sel.value),
+        encode_matchups_url_part(r.p_sel.value)
+      ].join('|'))
+      .filter(x => x.replace(/\|/g, '').trim())
+      .join(';');
+
+    write_matchups_url_state({ year: y, rows: url_rows });
+
+    const paths = [];
+    const override_rows = [];
+    const dummy_rows = [];
+    const row_link_roles = [];
+
+    for (const r of rows) {
+      const hitter_name = String(r.h_sel.value || '').trim();
+      const side = String(r.s_sel.value || '').trim();
+      const pitcher_name = String(r.p_sel.value || '').trim();
+
+      if (!hitter_name || !side || !pitcher_name) continue;
+      const pitcher_link_role = pitcher_role_for_row(r);
+
+      const path = resolve_hvp_with_pf_fallback(idx, y, hitter_name, side, pitcher_name);
+
+      if (path) {
+        paths.push(path);
+        override_rows.push({ Away: side });
+        row_link_roles.push(pitcher_link_role);
+        continue;
+      }
+
+      const fallback_rows = build_personalized_hitter_fallback_rows(
+        year_lists,
+        [hitter_name],
+        pitcher_name,
+        y
+      );
+
+      if (fallback_rows.length) {
+        dummy_rows.push(fallback_rows[0]);
+        override_rows.push({ Away: side });
+        row_link_roles.push(pitcher_link_role);
+      }
+    }
+    await render_many(paths, {
+      dummy_rows,
+      override_rows,
+      keep_all_pitch_cols: true,
+      gold_mode: 'hitter',
+      link_role: 'batters',
+      row_pitcher_link_roles: row_link_roles
+    });
+    apply_matchups_table_dividers(results_root, mode, 'default');
+  }
+
+  //#################
+  function clear_mode() {
+    clear_results();
+    multi_form_state.multi_hitter.rows = [];
+    multi_form_state.multi_hitter.n = 1;
+    form_root.dataset.skip_snapshot = '1';
+    sync_row_controls();
+    build_form();
+  }
+
+  build_action_buttons(submit, clear_mode);
+  if (should_auto_submit_matchups_mode(mode)) {
+setTimeout(() => submit(), 0);
+}
+  return;
+}
+//#################################################################### Mode: multi_hitter_today ####################################################################
+if (mode === 'multi_hitter_today') {
+  const url_rows_raw = String(initial_matchups_params.get('rows') || '').trim();
+  if (url_rows_raw && !multi_form_state.multi_hitter_today.rows.length) {
+    multi_form_state.multi_hitter_today.rows = url_rows_raw.split(';').map(x => ({
+      hitter: decode_matchups_url_part(x)
+    })).filter(x => x.hitter);
+
+    multi_form_state.multi_hitter_today.n = clamp_rows_n(multi_form_state.multi_hitter_today.rows.length || 1);
+  }
+  const rows = build_hitter_only_rows('multi_hitter_today');
+
+  //#################
+  async function submit() {
+    snapshot_multi_state('multi_hitter_today');
+
+    const y = prefer_fragment_year();
+    if (!y) return;
 const url_rows = rows
-  .map(r => encode_matchups_url_part(r.h_sel.value))
-  .filter(Boolean)
-  .join(';');
+.map(r => encode_matchups_url_part(r.h_sel.value))
+.filter(Boolean)
+.join(';');
 
 write_matchups_url_state({ rows: url_rows });
 
-        const d = new Date();
-        const date_str = to_yyyy_mm_dd_local(d);
+    const d = new Date();
+    const date_str = to_yyyy_mm_dd_local(d);
 
-        const games = await fetch_matchups_for_date(date_str);
+    const games = await fetch_matchups_for_date(date_str);
 
-        const matchup_paths = [];
-        const matchup_override_rows = [];
-        const fallback_dummy_rows = [];
+    const matchup_paths = [];
+    const matchup_override_rows = [];
+    const fallback_dummy_rows = [];
 
-        const seen_matchup_keys = new Set();
-        const seen_fallback_keys = new Set();
+    const seen_matchup_keys = new Set();
+    const seen_fallback_keys = new Set();
 
-        for (const r of rows) {
-          const hitter_name = String(r.h_sel.value || '').trim();
-          if (!hitter_name) continue;
+    for (const r of rows) {
+      const hitter_name = String(r.h_sel.value || '').trim();
+      if (!hitter_name) continue;
 
-          const hitter_team = String(get_hitter_team_map()[hitter_name] || '').trim();
-          if (!hitter_team) continue;
+      const hitter_team = String(get_hitter_team_map()[hitter_name] || '').trim();
+      if (!hitter_team) continue;
 
-          const game = find_game_for_team(games, hitter_team);
-          if (!game) continue;
+      const game = find_game_for_team(games, hitter_team);
+      if (!game) continue;
 
-          const matchup_info = matchup_info_for_team_game(game, hitter_team);
-          if (!matchup_info) continue;
+      const matchup_info = matchup_info_for_team_game(game, hitter_team);
+      if (!matchup_info) continue;
 
-          const path = resolve_hvp_with_pf_fallback(
-            idx,
-            y,
-            hitter_name,
-            matchup_info.side,
-            matchup_info.pitcher
-          );
+      const path = resolve_hvp_with_pf_fallback(
+        idx,
+        y,
+        hitter_name,
+        matchup_info.side,
+        matchup_info.pitcher
+      );
 
-          if (path) {
-            const dedupe_key = [
-              hitter_name,
-              matchup_info.side,
-              matchup_info.opp,
-              matchup_info.pitcher,
-              path
-            ].join('||');
+      if (path) {
+        const dedupe_key = [
+          hitter_name,
+          matchup_info.side,
+          matchup_info.opp,
+          matchup_info.pitcher,
+          path
+        ].join('||');
 
-            if (seen_matchup_keys.has(dedupe_key)) continue;
-            seen_matchup_keys.add(dedupe_key);
+        if (seen_matchup_keys.has(dedupe_key)) continue;
+        seen_matchup_keys.add(dedupe_key);
 
-            matchup_paths.push(path);
-            matchup_override_rows.push({
-              Away: matchup_info.side
-            });
-            continue;
-          }
+        matchup_paths.push(path);
+        matchup_override_rows.push({
+          Away: matchup_info.side
+        });
+        continue;
+      }
 
-          const fallback_rows = build_personalized_hitter_fallback_rows(
-            year_lists,
-            [hitter_name],
-            matchup_info.pitcher,
-            y
-          );
+      const fallback_rows = build_personalized_hitter_fallback_rows(
+        year_lists,
+        [hitter_name],
+        matchup_info.pitcher,
+        y
+      );
 
-          if (!fallback_rows.length) continue;
+      if (!fallback_rows.length) continue;
 
-          const fallback_key = [
-            hitter_name,
-            matchup_info.side,
-            matchup_info.opp,
-            matchup_info.pitcher
-          ].join('||');
+      const fallback_key = [
+        hitter_name,
+        matchup_info.side,
+        matchup_info.opp,
+        matchup_info.pitcher
+      ].join('||');
 
-          if (seen_fallback_keys.has(fallback_key)) continue;
-          seen_fallback_keys.add(fallback_key);
+      if (seen_fallback_keys.has(fallback_key)) continue;
+      seen_fallback_keys.add(fallback_key);
 
-            fallback_dummy_rows.push(
-              reorder_week_fallback_dummy_row(fallback_rows[0], {
-                Away: matchup_info.side,
-                Opp: matchup_info.opp,
-                Pitcher: matchup_info.pitcher,
-                Date: date_str
-              })
-            );
-        }
+        fallback_dummy_rows.push(
+          reorder_week_fallback_dummy_row(fallback_rows[0], {
+            Away: matchup_info.side,
+            Opp: matchup_info.opp,
+            Pitcher: matchup_info.pitcher,
+            Date: date_str
+          })
+        );
+    }
 
-        clear_results();
+    clear_results();
 
 await render_stacked_section('Matchups', matchup_paths, {
-  override_rows: matchup_override_rows,
-  keep_all_pitch_cols: true,
-  drop_cols: ['+KN'],
-  gold_mode: 'hitter',
-  link_role: 'batters'
+override_rows: matchup_override_rows,
+keep_all_pitch_cols: true,
+drop_cols: ['+KN'],
+gold_mode: 'hitter',
+link_role: 'batters'
 });
 
-        await render_stacked_section('Fallback', [], {
-          dummy_rows: fallback_dummy_rows,
-          keep_all_pitch_cols: true,
-          drop_cols: ['+KN'],
-  link_role: 'batters'
-        });
+    await render_stacked_section('Fallback', [], {
+      dummy_rows: fallback_dummy_rows,
+      keep_all_pitch_cols: true,
+      drop_cols: ['+KN'],
+link_role: 'batters'
+    });
 
-        sort_all_results_tables_by_all();
-      }
-      //#################
-      function clear_mode() {
-        clear_results();
-        multi_form_state.multi_hitter_today.rows = [];
-        multi_form_state.multi_hitter_today.n = 1;
-        form_root.dataset.skip_snapshot = '1';
-        sync_row_controls();
-        build_form();
-      }
+    sort_all_results_tables_by_all();
+  }
+  //#################
+  function clear_mode() {
+    clear_results();
+    multi_form_state.multi_hitter_today.rows = [];
+    multi_form_state.multi_hitter_today.n = 1;
+    form_root.dataset.skip_snapshot = '1';
+    sync_row_controls();
+    build_form();
+  }
 
-      build_action_buttons(submit, clear_mode, 'Submit', { show_sort: false });
-      if (should_auto_submit_matchups_mode(mode)) {
-  setTimeout(() => submit(), 0);
+  build_action_buttons(submit, clear_mode, 'Submit', { show_sort: false });
+  if (should_auto_submit_matchups_mode(mode)) {
+setTimeout(() => submit(), 0);
 }
-      return;
-    }
-    //#################################################################### Mode: multi_hitter_week ####################################################################
-    if (mode === 'multi_hitter_week') {
-      const url_rows_raw = String(initial_matchups_params.get('rows') || '').trim();
+  return;
+}
+//#################################################################### Mode: multi_hitter_week ####################################################################
+if (mode === 'multi_hitter_week') {
+  const url_rows_raw = String(initial_matchups_params.get('rows') || '').trim();
 if (url_rows_raw && !multi_form_state.multi_hitter_week.rows.length) {
-  multi_form_state.multi_hitter_week.rows = url_rows_raw.split(';').map(x => ({
-    hitter: decode_matchups_url_part(x)
-  })).filter(x => x.hitter);
+multi_form_state.multi_hitter_week.rows = url_rows_raw.split(';').map(x => ({
+hitter: decode_matchups_url_part(x)
+})).filter(x => x.hitter);
 
-  multi_form_state.multi_hitter_week.n = clamp_rows_n(multi_form_state.multi_hitter_week.rows.length || 1);
+multi_form_state.multi_hitter_week.n = clamp_rows_n(multi_form_state.multi_hitter_week.rows.length || 1);
 }
-      const rows = build_hitter_only_rows('multi_hitter_week');
+  const rows = build_hitter_only_rows('multi_hitter_week');
 
-      //#################
-      async function submit() {
-        snapshot_multi_state('multi_hitter_week');
+  //#################
+  async function submit() {
+    snapshot_multi_state('multi_hitter_week');
 
-        const y = prefer_fragment_year();
-        if (!y) return;
-        const url_rows = rows
-          .map(r => encode_matchups_url_part(r.h_sel.value))
-          .filter(Boolean)
-          .join(';');
+    const y = prefer_fragment_year();
+    if (!y) return;
+    const url_rows = rows
+      .map(r => encode_matchups_url_part(r.h_sel.value))
+      .filter(Boolean)
+      .join(';');
 
-        write_matchups_url_state({ rows: url_rows });
+    write_matchups_url_state({ rows: url_rows });
 
-        const start_date = new Date();
-        const end_date = add_days_local(start_date, 6);
+    const start_date = new Date();
+    const end_date = add_days_local(start_date, 6);
 
-        const schedule_days = await fetch_matchups_for_date_range(start_date, end_date);
+    const schedule_days = await fetch_matchups_for_date_range(start_date, end_date);
 
-        const hitter_blocks = [];
+    const hitter_blocks = [];
 
-        for (const r of rows) {
-          const hitter_name = String(r.h_sel.value || '').trim();
-          if (!hitter_name) continue;
+    for (const r of rows) {
+      const hitter_name = String(r.h_sel.value || '').trim();
+      if (!hitter_name) continue;
 
-          const hitter_team = String(get_hitter_team_map()[hitter_name] || '').trim();
-          if (!hitter_team) continue;
+      const hitter_team = String(get_hitter_team_map()[hitter_name] || '').trim();
+      if (!hitter_team) continue;
 
-          const matchup_paths = [];
-          const matchup_override_rows = [];
-          const fallback_dummy_rows = [];
+      const matchup_paths = [];
+      const matchup_override_rows = [];
+      const fallback_dummy_rows = [];
 
-          const seen_games = new Set();
+      const seen_games = new Set();
 
-          for (const day_pack of schedule_days) {
-            const date_str = String(day_pack?.date_str || '').trim();
-            const games = Array.isArray(day_pack?.games) ? day_pack.games : [];
+      for (const day_pack of schedule_days) {
+        const date_str = String(day_pack?.date_str || '').trim();
+        const games = Array.isArray(day_pack?.games) ? day_pack.games : [];
 
-            const game = find_game_for_team(games, hitter_team);
-            if (!game) continue;
+        const game = find_game_for_team(games, hitter_team);
+        if (!game) continue;
 
-            const matchup_info = matchup_info_for_team_game(game, hitter_team);
-            if (!matchup_info) continue;
+        const matchup_info = matchup_info_for_team_game(game, hitter_team);
+        if (!matchup_info) continue;
 
-            const game_key = [
-              date_str,
-              hitter_name,
-              matchup_info.side,
-              matchup_info.opp,
-              matchup_info.pitcher
-            ].join('||');
+        const game_key = [
+          date_str,
+          hitter_name,
+          matchup_info.side,
+          matchup_info.opp,
+          matchup_info.pitcher
+        ].join('||');
 
-            if (seen_games.has(game_key)) continue;
-            seen_games.add(game_key);
+        if (seen_games.has(game_key)) continue;
+        seen_games.add(game_key);
 
-            const path = resolve_hvp_with_pf_fallback(
-              idx,
-              y,
-              hitter_name,
-              matchup_info.side,
-              matchup_info.pitcher
-            );
+        const path = resolve_hvp_with_pf_fallback(
+          idx,
+          y,
+          hitter_name,
+          matchup_info.side,
+          matchup_info.pitcher
+        );
 
-            if (path) {
-              matchup_paths.push(path);
-              matchup_override_rows.push({
-                Away: matchup_info.side,
-                Opp: matchup_info.opp,
-                Pitcher: matchup_info.pitcher
-              });
-              continue;
-            }
-
-            const fallback_rows = build_personalized_hitter_fallback_rows(
-              year_lists,
-              [hitter_name],
-              matchup_info.pitcher,
-              y
-            );
-
-            if (!fallback_rows.length) continue;
-
-            fallback_dummy_rows.push(
-              enrich_dummy_row(fallback_rows[0], [
-                // { header: 'Date', value: date_str },
-                { header: 'Away', value: matchup_info.side },
-                { header: 'Opp', value: matchup_info.opp },
-                { header: 'Pitcher', value: matchup_info.pitcher }
-              ])
-            );
-          }
-
-          if (matchup_paths.length || fallback_dummy_rows.length) {
-            hitter_blocks.push({
-              hitter_name,
-              matchup_paths,
-              matchup_override_rows,
-              fallback_dummy_rows
-            });
-          }
+        if (path) {
+          matchup_paths.push(path);
+          matchup_override_rows.push({
+            Away: matchup_info.side,
+            Opp: matchup_info.opp,
+            Pitcher: matchup_info.pitcher
+          });
+          continue;
         }
 
-        await render_hitter_week_blocks(hitter_blocks);
-        apply_matchups_table_dividers(results_root, mode, 'matchups');
-apply_matchups_table_dividers(results_root, mode, 'fallback');
-      }
-      //#################
-      function clear_mode() {
-        clear_results();
-        multi_form_state.multi_hitter_week.rows = [];
-        multi_form_state.multi_hitter_week.n = 1;
-        form_root.dataset.skip_snapshot = '1';
-        sync_row_controls();
-        build_form();
+        const fallback_rows = build_personalized_hitter_fallback_rows(
+          year_lists,
+          [hitter_name],
+          matchup_info.pitcher,
+          y
+        );
+
+        if (!fallback_rows.length) continue;
+
+        fallback_dummy_rows.push(
+          enrich_dummy_row(fallback_rows[0], [
+            // { header: 'Date', value: date_str },
+            { header: 'Away', value: matchup_info.side },
+            { header: 'Opp', value: matchup_info.opp },
+            { header: 'Pitcher', value: matchup_info.pitcher }
+          ])
+        );
       }
 
-      // build_action_buttons(submit, clear_mode);
-      build_action_buttons(submit, clear_mode, 'Submit', { show_sort: false });
-      if (should_auto_submit_matchups_mode(mode)) {
-  setTimeout(() => submit(), 0);
-}
-      return;
+      if (matchup_paths.length || fallback_dummy_rows.length) {
+        hitter_blocks.push({
+          hitter_name,
+          matchup_paths,
+          matchup_override_rows,
+          fallback_dummy_rows
+        });
+      }
     }
+
+    await render_hitter_week_blocks(hitter_blocks);
+    apply_matchups_table_dividers(results_root, mode, 'matchups');
+apply_matchups_table_dividers(results_root, mode, 'fallback');
+  }
+  //#################
+  function clear_mode() {
+    clear_results();
+    multi_form_state.multi_hitter_week.rows = [];
+    multi_form_state.multi_hitter_week.n = 1;
+    form_root.dataset.skip_snapshot = '1';
+    sync_row_controls();
+    build_form();
+  }
+
+  // build_action_buttons(submit, clear_mode);
+  build_action_buttons(submit, clear_mode, 'Submit', { show_sort: false });
+  if (should_auto_submit_matchups_mode(mode)) {
+setTimeout(() => submit(), 0);
+}
+  return;
+}
 //#################################################################### Mode: multi_pitcher_week ####################################################################
 if (mode === 'multi_pitcher_week') {
   const url_rows_raw = String(initial_matchups_params.get('rows') || '').trim();
@@ -7775,178 +7881,178 @@ for (const block of pitcher_blocks) {
 
   return;
 }
-    //#################################################################### Mode: rp_inning ####################################################################
-    if (mode === 'rp_inning') {
-      const pitcher_obj = make_select('matchups_pitcher', 'Pitcher');
-      set_grouped_or_flat(
-        pitcher_obj.sel,
-        year_lists.pitchers_rp_by_team,
-        year_lists.pitchers_rp,
-        'Select reliever'
-      );
-      const pitcher_sel = pitcher_obj.sel;
+//#################################################################### Mode: rp_inning ####################################################################
+if (mode === 'rp_inning') {
+  const pitcher_obj = make_select('matchups_pitcher', 'Pitcher');
+  set_grouped_or_flat(
+    pitcher_obj.sel,
+    year_lists.pitchers_rp_by_team,
+    year_lists.pitchers_rp,
+    'Select reliever'
+  );
+  const pitcher_sel = pitcher_obj.sel;
 
-      const side_obj = build_side_select('matchups_side');
-      const side_sel = side_obj.sel;
+  const side_obj = build_side_select('matchups_side');
+  const side_sel = side_obj.sel;
 
-      const rp_info = document.createElement('div');
-      rp_info.className = 'matchups_inline_info';
-      rp_info.style.display = 'none';
-      rp_info.style.fontSize = '12px';
-      rp_info.style.fontWeight = '700';
-      rp_info.style.color = 'var(--muted)'
-      rp_info.style.marginLeft = '4px';
-      rp_info.style.whiteSpace = 'nowrap';
-      //#################
+  const rp_info = document.createElement('div');
+  rp_info.className = 'matchups_inline_info';
+  rp_info.style.display = 'none';
+  rp_info.style.fontSize = '12px';
+  rp_info.style.fontWeight = '700';
+  rp_info.style.color = 'var(--muted)'
+  rp_info.style.marginLeft = '4px';
+  rp_info.style.whiteSpace = 'nowrap';
+  //#################
 function sync_rp_info() {
-  const pitcher_name = String(pitcher_sel.value || '').trim();
-  if (!pitcher_name) {
-    rp_info.textContent = '';
-    rp_info.style.display = 'none';
-    return;
-  }
-
-  const rec = fallback_rec_for_name(year_lists.fallback_pitcher_all, pitcher_name);
-  const ip_text = rec ? display_ip(rec.IP) : '—';
-
-  const y = String(year_sel?.value || prefer_fragment_year() || window.DEFAULT_SEASON_YEAR || '').trim();
-  const href = resolve_matchup_player_href(pitcher_name, 'bullpen', y);
-
-  if (href) {
-    rp_info.innerHTML = `<a href="${escape_html(href)}" class="matchups_player_link">${escape_html(pitcher_name)}</a>: ${escape_html(ip_text)} IP`;
-  } else {
-    rp_info.textContent = `${pitcher_name}: ${ip_text} IP`;
-  }
-
-  rp_info.style.display = '';
+const pitcher_name = String(pitcher_sel.value || '').trim();
+if (!pitcher_name) {
+rp_info.textContent = '';
+rp_info.style.display = 'none';
+return;
 }
 
-      const { wrap: b1_wrap, sel: b1_sel } = make_select('matchups_b1', 'Batter 1');
-      const { wrap: b2_wrap, sel: b2_sel } = make_select('matchups_b2', 'Batter 2');
-      const { wrap: b3_wrap, sel: b3_sel } = make_select('matchups_b3', 'Batter 3');
-      pitcher_sel.style.width = '300px';
-      side_sel.style.width = '88px';
-      b1_sel.style.width = '170px';
-      b2_sel.style.width = '170px';
-      b3_sel.style.width = '170px';
-      //#################
-      function refresh_hitters_excluding_rp_team() {
-        const { rp_map } = get_pitcher_team_maps();
-        const rp_team = rp_map[String(pitcher_sel.value || '').trim()] || '';
+const rec = fallback_rec_for_name(year_lists.fallback_pitcher_all, pitcher_name);
+const ip_text = rec ? display_ip(rec.IP) : '—';
 
-        const hitter_groups = Array.isArray(year_lists.hitters_by_team) ? year_lists.hitters_by_team : [];
-        const groups_ok = rp_team ? filter_groups_excluding_team(hitter_groups, rp_team) : hitter_groups;
+const y = String(year_sel?.value || prefer_fragment_year() || window.DEFAULT_SEASON_YEAR || '').trim();
+const href = resolve_matchup_player_href(pitcher_name, 'bullpen', y);
 
-        const prev_b1 = String(b1_sel.value || '').trim();
-        const prev_b2 = String(b2_sel.value || '').trim();
-        const prev_b3 = String(b3_sel.value || '').trim();
+if (href) {
+rp_info.innerHTML = `<a href="${escape_html(href)}" class="matchups_player_link">${escape_html(pitcher_name)}</a>: ${escape_html(ip_text)} IP`;
+} else {
+rp_info.textContent = `${pitcher_name}: ${ip_text} IP`;
+}
 
-        set_grouped_or_flat(b1_sel, groups_ok, hitters, 'Select batter');
-        set_grouped_or_flat(b2_sel, groups_ok, hitters, 'Select batter');
-        set_grouped_or_flat(b3_sel, groups_ok, hitters, 'Select batter');
+rp_info.style.display = '';
+}
 
-        if (prev_b1 && Array.from(b1_sel.options).some(o => o.value === prev_b1)) b1_sel.value = prev_b1;
-        if (prev_b2 && Array.from(b2_sel.options).some(o => o.value === prev_b2)) b2_sel.value = prev_b2;
-        if (prev_b3 && Array.from(b3_sel.options).some(o => o.value === prev_b3)) b3_sel.value = prev_b3;
+  const { wrap: b1_wrap, sel: b1_sel } = make_select('matchups_b1', 'Batter 1');
+  const { wrap: b2_wrap, sel: b2_sel } = make_select('matchups_b2', 'Batter 2');
+  const { wrap: b3_wrap, sel: b3_sel } = make_select('matchups_b3', 'Batter 3');
+  pitcher_sel.style.width = '300px';
+  side_sel.style.width = '88px';
+  b1_sel.style.width = '170px';
+  b2_sel.style.width = '170px';
+  b3_sel.style.width = '170px';
+  //#################
+  function refresh_hitters_excluding_rp_team() {
+    const { rp_map } = get_pitcher_team_maps();
+    const rp_team = rp_map[String(pitcher_sel.value || '').trim()] || '';
 
-        sync_select_placeholder_class(b1_sel);
-        sync_select_placeholder_class(b2_sel);
-        sync_select_placeholder_class(b3_sel);
+    const hitter_groups = Array.isArray(year_lists.hitters_by_team) ? year_lists.hitters_by_team : [];
+    const groups_ok = rp_team ? filter_groups_excluding_team(hitter_groups, rp_team) : hitter_groups;
 
-        apply_same_team_filter();
-      }
+    const prev_b1 = String(b1_sel.value || '').trim();
+    const prev_b2 = String(b2_sel.value || '').trim();
+    const prev_b3 = String(b3_sel.value || '').trim();
 
-      refresh_hitters_excluding_rp_team();
+    set_grouped_or_flat(b1_sel, groups_ok, hitters, 'Select batter');
+    set_grouped_or_flat(b2_sel, groups_ok, hitters, 'Select batter');
+    set_grouped_or_flat(b3_sel, groups_ok, hitters, 'Select batter');
 
-      pitcher_sel.addEventListener('change', () => {
-        refresh_hitters_excluding_rp_team();
-        sync_rp_info();
-        clear_results();
-      });
-      //#################
-      function apply_same_team_filter() {
-        const map_obj = (year_lists && year_lists.hitter_team_map && typeof year_lists.hitter_team_map === 'object')
-          ? year_lists.hitter_team_map
-          : {};
+    if (prev_b1 && Array.from(b1_sel.options).some(o => o.value === prev_b1)) b1_sel.value = prev_b1;
+    if (prev_b2 && Array.from(b2_sel.options).some(o => o.value === prev_b2)) b2_sel.value = prev_b2;
+    if (prev_b3 && Array.from(b3_sel.options).some(o => o.value === prev_b3)) b3_sel.value = prev_b3;
 
-        const { rp_map } = get_pitcher_team_maps();
-        const rp_team = rp_map[String(pitcher_sel.value || '').trim()] || '';
+    sync_select_placeholder_class(b1_sel);
+    sync_select_placeholder_class(b2_sel);
+    sync_select_placeholder_class(b3_sel);
 
-        const prev_b1 = String(b1_sel.value || '').trim();
-        const prev_b2 = String(b2_sel.value || '').trim();
-        const prev_b3 = String(b3_sel.value || '').trim();
+    apply_same_team_filter();
+  }
 
-        const selected_team =
-          (prev_b1 && map_obj[prev_b1]) ||
-          (prev_b2 && map_obj[prev_b2]) ||
-          (prev_b3 && map_obj[prev_b3]) ||
-          '';
+  refresh_hitters_excluding_rp_team();
 
-        let base_groups = Array.isArray(year_lists.hitters_by_team) ? year_lists.hitters_by_team : [];
-        if (rp_team) base_groups = filter_groups_excluding_team(base_groups, rp_team);
+  pitcher_sel.addEventListener('change', () => {
+    refresh_hitters_excluding_rp_team();
+    sync_rp_info();
+    clear_results();
+  });
+  //#################
+  function apply_same_team_filter() {
+    const map_obj = (year_lists && year_lists.hitter_team_map && typeof year_lists.hitter_team_map === 'object')
+      ? year_lists.hitter_team_map
+      : {};
 
-        if (selected_team) {
-          base_groups = base_groups.filter(g => String(g.label || '').trim() === selected_team);
-        }
+    const { rp_map } = get_pitcher_team_maps();
+    const rp_team = rp_map[String(pitcher_sel.value || '').trim()] || '';
 
-        function groups_for(slot_name) {
-          const used = new Set();
-          if (slot_name !== 'b1' && prev_b1) used.add(prev_b1);
-          if (slot_name !== 'b2' && prev_b2) used.add(prev_b2);
-          if (slot_name !== 'b3' && prev_b3) used.add(prev_b3);
+    const prev_b1 = String(b1_sel.value || '').trim();
+    const prev_b2 = String(b2_sel.value || '').trim();
+    const prev_b3 = String(b3_sel.value || '').trim();
 
-          return base_groups.map(g => ({
-            label: g.label,
-            options: (g.options || []).filter(x => !used.has(String(x || '').trim()))
-          })).filter(g => g.options.length);
-        }
+    const selected_team =
+      (prev_b1 && map_obj[prev_b1]) ||
+      (prev_b2 && map_obj[prev_b2]) ||
+      (prev_b3 && map_obj[prev_b3]) ||
+      '';
 
-        const groups_b1 = groups_for('b1');
-        const groups_b2 = groups_for('b2');
-        const groups_b3 = groups_for('b3');
+    let base_groups = Array.isArray(year_lists.hitters_by_team) ? year_lists.hitters_by_team : [];
+    if (rp_team) base_groups = filter_groups_excluding_team(base_groups, rp_team);
 
-        set_grouped_or_flat(b1_sel, groups_b1, [], 'Select batter');
-        set_grouped_or_flat(b2_sel, groups_b2, [], 'Select batter');
-        set_grouped_or_flat(b3_sel, groups_b3, [], 'Select batter');
+    if (selected_team) {
+      base_groups = base_groups.filter(g => String(g.label || '').trim() === selected_team);
+    }
 
-        if (prev_b1 && groups_b1.some(g => (g.options || []).includes(prev_b1))) b1_sel.value = prev_b1;
-        else b1_sel.value = '';
+    function groups_for(slot_name) {
+      const used = new Set();
+      if (slot_name !== 'b1' && prev_b1) used.add(prev_b1);
+      if (slot_name !== 'b2' && prev_b2) used.add(prev_b2);
+      if (slot_name !== 'b3' && prev_b3) used.add(prev_b3);
 
-        if (prev_b2 && groups_b2.some(g => (g.options || []).includes(prev_b2))) b2_sel.value = prev_b2;
-        else b2_sel.value = '';
+      return base_groups.map(g => ({
+        label: g.label,
+        options: (g.options || []).filter(x => !used.has(String(x || '').trim()))
+      })).filter(g => g.options.length);
+    }
 
-        if (prev_b3 && groups_b3.some(g => (g.options || []).includes(prev_b3))) b3_sel.value = prev_b3;
-        else b3_sel.value = '';
+    const groups_b1 = groups_for('b1');
+    const groups_b2 = groups_for('b2');
+    const groups_b3 = groups_for('b3');
 
-        sync_select_placeholder_class(b1_sel);
-        sync_select_placeholder_class(b2_sel);
-        sync_select_placeholder_class(b3_sel);
-      }
+    set_grouped_or_flat(b1_sel, groups_b1, [], 'Select batter');
+    set_grouped_or_flat(b2_sel, groups_b2, [], 'Select batter');
+    set_grouped_or_flat(b3_sel, groups_b3, [], 'Select batter');
 
-      b1_sel.addEventListener('change', () => {
-        apply_same_team_filter('b1');
-        clear_results();
-      });
+    if (prev_b1 && groups_b1.some(g => (g.options || []).includes(prev_b1))) b1_sel.value = prev_b1;
+    else b1_sel.value = '';
 
-      b2_sel.addEventListener('change', () => {
-        apply_same_team_filter('b2');
-        clear_results();
-      });
+    if (prev_b2 && groups_b2.some(g => (g.options || []).includes(prev_b2))) b2_sel.value = prev_b2;
+    else b2_sel.value = '';
 
-      b3_sel.addEventListener('change', () => {
-        apply_same_team_filter('b3');
-        clear_results();
-      });
+    if (prev_b3 && groups_b3.some(g => (g.options || []).includes(prev_b3))) b3_sel.value = prev_b3;
+    else b3_sel.value = '';
+
+    sync_select_placeholder_class(b1_sel);
+    sync_select_placeholder_class(b2_sel);
+    sync_select_placeholder_class(b3_sel);
+  }
+
+  b1_sel.addEventListener('change', () => {
+    apply_same_team_filter('b1');
+    clear_results();
+  });
+
+  b2_sel.addEventListener('change', () => {
+    apply_same_team_filter('b2');
+    clear_results();
+  });
+
+  b3_sel.addEventListener('change', () => {
+    apply_same_team_filter('b3');
+    clear_results();
+  });
 
 apply_same_team_filter();
 
 function set_url_select_value(sel, param_name, decode_value = true) {
-  const raw = String(initial_matchups_params.get(param_name) || '').trim();
-  if (!raw) return;
+const raw = String(initial_matchups_params.get(param_name) || '').trim();
+if (!raw) return;
 
-  const val = decode_value ? decode_matchups_url_part(raw) : raw;
-  sel.value = val;
-  sync_select_placeholder_class(sel);
+const val = decode_value ? decode_matchups_url_part(raw) : raw;
+sel.value = val;
+sync_select_placeholder_class(sel);
 }
 
 set_url_select_value(pitcher_sel, 'pitcher');
@@ -7961,85 +8067,85 @@ set_url_select_value(b3_sel, 'b3');
 
 apply_same_team_filter();
 
-      append_row(form_root, [
-        { wrap: pitcher_obj.wrap, sel: pitcher_sel },
-        side_obj,
-      ]);
+  append_row(form_root, [
+    { wrap: pitcher_obj.wrap, sel: pitcher_sel },
+    side_obj,
+  ]);
 
-      form_root.appendChild(b1_wrap);
-      form_root.appendChild(b2_wrap);
-      form_root.appendChild(b3_wrap);
-      //#################
-      async function submit() {
-        const y = year_sel.value;
-        const p = pitcher_sel.value;
-        const s = side_sel.value;
-        const b1 = b1_sel.value;
-        const b2 = b2_sel.value;
-        const b3 = b3_sel.value;
+  form_root.appendChild(b1_wrap);
+  form_root.appendChild(b2_wrap);
+  form_root.appendChild(b3_wrap);
+  //#################
+  async function submit() {
+    const y = year_sel.value;
+    const p = pitcher_sel.value;
+    const s = side_sel.value;
+    const b1 = b1_sel.value;
+    const b2 = b2_sel.value;
+    const b3 = b3_sel.value;
 
-        if (!y || !p || !s || !b1 || !b2 || !b3) return;
-        write_matchups_url_state({
-          year: y,
-          pitcher: encode_matchups_url_part(p),
-          side: s,
-          b1: encode_matchups_url_part(b1),
-          b2: encode_matchups_url_part(b2),
-          b3: encode_matchups_url_part(b3)
-        });
+    if (!y || !p || !s || !b1 || !b2 || !b3) return;
+    write_matchups_url_state({
+      year: y,
+      pitcher: encode_matchups_url_part(p),
+      side: s,
+      b1: encode_matchups_url_part(b1),
+      b2: encode_matchups_url_part(b2),
+      b3: encode_matchups_url_part(b3)
+    });
 
-        // const p_key = safe_page_filename(p);
+    // const p_key = safe_page_filename(p);
 
-        function resolve_rp_hvp_path(hitter_name) {
-          return resolve_hvp_with_pf_fallback(idx, y, hitter_name, s, p);
-        }
-
-        const resolved_rows = [
-          { hitter: b1, path: resolve_rp_hvp_path(b1), requested_side: s },
-          { hitter: b2, path: resolve_rp_hvp_path(b2), requested_side: s },
-          { hitter: b3, path: resolve_rp_hvp_path(b3), requested_side: s },
-        ].filter(x => x.path);
-
-        const paths = resolved_rows.map(x => x.path);
-        const override_rows = resolved_rows.map(x => ({ Away: x.requested_side }));
-
-        await render_many(paths, {
-          invert_stats: true,
-          override_rows,
-          drop_cols: ['Pitcher', 'IP', 'Away', 'Bats', 'Throws'],
-          link_role: 'batters',
-          pitcher_link_role: 'bullpen'
-        });
-        apply_matchups_table_dividers(results_root, mode, 'default');
-      }
-      //#################
-      function clear_mode() {
-        clear_results();
-
-        pitcher_sel.value = '';
-        side_sel.value = '';
-        b1_sel.value = '';
-        b2_sel.value = '';
-        b3_sel.value = '';
-
-        sync_select_placeholder_class(pitcher_sel);
-        sync_select_placeholder_class(side_sel);
-        sync_select_placeholder_class(b1_sel);
-        sync_select_placeholder_class(b2_sel);
-        sync_select_placeholder_class(b3_sel);
-
-        refresh_hitters_excluding_rp_team();
-        apply_same_team_filter();
-        sync_rp_info();
-      }
-
-          sync_rp_info();
-          build_action_buttons(submit, clear_mode, 'Submit', {sort_mode: 'entry', extra_node: rp_info});
-          if (should_auto_submit_matchups_mode(mode)) {
-  setTimeout(() => submit(), 0);
-}
-      return;
+    function resolve_rp_hvp_path(hitter_name) {
+      return resolve_hvp_with_pf_fallback(idx, y, hitter_name, s, p);
     }
+
+    const resolved_rows = [
+      { hitter: b1, path: resolve_rp_hvp_path(b1), requested_side: s },
+      { hitter: b2, path: resolve_rp_hvp_path(b2), requested_side: s },
+      { hitter: b3, path: resolve_rp_hvp_path(b3), requested_side: s },
+    ].filter(x => x.path);
+
+    const paths = resolved_rows.map(x => x.path);
+    const override_rows = resolved_rows.map(x => ({ Away: x.requested_side }));
+
+    await render_many(paths, {
+      invert_stats: true,
+      override_rows,
+      drop_cols: ['Pitcher', 'IP', 'Away', 'Bats', 'Throws'],
+      link_role: 'batters',
+      pitcher_link_role: 'bullpen'
+    });
+    apply_matchups_table_dividers(results_root, mode, 'default');
+  }
+  //#################
+  function clear_mode() {
+    clear_results();
+
+    pitcher_sel.value = '';
+    side_sel.value = '';
+    b1_sel.value = '';
+    b2_sel.value = '';
+    b3_sel.value = '';
+
+    sync_select_placeholder_class(pitcher_sel);
+    sync_select_placeholder_class(side_sel);
+    sync_select_placeholder_class(b1_sel);
+    sync_select_placeholder_class(b2_sel);
+    sync_select_placeholder_class(b3_sel);
+
+    refresh_hitters_excluding_rp_team();
+    apply_same_team_filter();
+    sync_rp_info();
+  }
+
+      sync_rp_info();
+      build_action_buttons(submit, clear_mode, 'Submit', {sort_mode: 'entry', extra_node: rp_info});
+      if (should_auto_submit_matchups_mode(mode)) {
+setTimeout(() => submit(), 0);
+}
+  return;
+}
   }
 //#################################################################### Matchups table dividers ####################################################################
 const matchups_table_divider_config = {
@@ -9242,6 +9348,31 @@ function fantasy_use_gold_for_value(value, spec) {
   return higher_is_better ? num_value >= gold : num_value <= gold;
 }
 /* ################# */
+// function fantasy_blend_rgba_on_rgb(rgba_str, base_rgb = [235, 240, 248]) {
+//   if (typeof rgba_str !== 'string') return '';
+
+//   const s = rgba_str.trim();
+//   if (s.startsWith('rgb(')) return s;
+//   if (!s.startsWith('rgba(')) return '';
+
+//   const parts = s.replace('rgba(', '').replace(')', '').split(',');
+//   if (parts.length !== 4) return '';
+
+//   const r = Number(parts[0].trim());
+//   const g = Number(parts[1].trim());
+//   const b = Number(parts[2].trim());
+//   const a = Number(parts[3].trim());
+
+//   const br = base_rgb[0];
+//   const bg = base_rgb[1];
+//   const bb = base_rgb[2];
+
+//   const out_r = Math.round(r * a + br * (1 - a));
+//   const out_g = Math.round(g * a + bg * (1 - a));
+//   const out_b = Math.round(b * a + bb * (1 - a));
+
+//   return `rgb(${out_r},${out_g},${out_b})`;
+// }
 function fantasy_blend_rgba_on_rgb(rgba_str, base_rgb = [235, 240, 248]) {
   if (typeof rgba_str !== 'string') return '';
 
@@ -9255,35 +9386,48 @@ function fantasy_blend_rgba_on_rgb(rgba_str, base_rgb = [235, 240, 248]) {
   const r = Number(parts[0].trim());
   const g = Number(parts[1].trim());
   const b = Number(parts[2].trim());
-  const a = Number(parts[3].trim());
+  const a = Math.max(0, Math.min(1, Number(parts[3].trim())));
 
   const br = base_rgb[0];
   const bg = base_rgb[1];
   const bb = base_rgb[2];
 
-  const out_r = Math.round(r * a + br * (1 - a));
-  const out_g = Math.round(g * a + bg * (1 - a));
-  const out_b = Math.round(b * a + bb * (1 - a));
-
-  return `rgb(${out_r},${out_g},${out_b})`;
+  return `rgb(${
+    Math.round(r * a + br * (1 - a))
+  },${
+    Math.round(g * a + bg * (1 - a))
+  },${
+    Math.round(b * a + bb * (1 - a))
+  })`;
 }
-
 /* ################# */
+// function fantasy_gold_gradient(alpha = 1) {
+//   const a = Math.max(0, Math.min(1, Number(alpha)));
+
+//   // return `linear-gradient(
+//   //   90deg,
+//   //   rgba(249,242,149,${a.toFixed(3)}) 0%,
+//   //   rgba(224,170,62,${a.toFixed(3)}) 32%,
+//   //   rgba(250,243,152,${a.toFixed(3)}) 64%,
+//   //   rgba(184,138,68,${a.toFixed(3)}) 100%
+//   // )`;
+// return `linear-gradient(
+//   90deg,
+//   rgba(249,242,149,${a.toFixed(3)}) 0%,
+//   rgba(224,170,62,${a.toFixed(3)}) 100%
+// )`;
+// }
 function fantasy_gold_gradient(alpha = 1) {
   const a = Math.max(0, Math.min(1, Number(alpha)));
 
-  // return `linear-gradient(
-  //   90deg,
-  //   rgba(249,242,149,${a.toFixed(3)}) 0%,
-  //   rgba(224,170,62,${a.toFixed(3)}) 32%,
-  //   rgba(250,243,152,${a.toFixed(3)}) 64%,
-  //   rgba(184,138,68,${a.toFixed(3)}) 100%
-  // )`;
-return `linear-gradient(
-  90deg,
-  rgba(249,242,149,${a.toFixed(3)}) 0%,
-  rgba(224,170,62,${a.toFixed(3)}) 100%
-)`;
+  const c1 = fantasy_blend_rgba_on_rgb(`rgba(249,242,149,${a.toFixed(3)})`);
+  const c2 = fantasy_blend_rgba_on_rgb(`rgba(224,170,62,${a.toFixed(3)})`);
+
+  return `linear-gradient(
+    90deg,
+    ${c1} 0%,
+    ${c2} 100%
+  )`;
 }
 /* ################# */
 function fantasy_standard_stats_gradient(frac, use_gold = false) {
@@ -9302,8 +9446,9 @@ function fantasy_standard_stats_gradient(frac, use_gold = false) {
     return fantasy_gold_gradient(alpha);
   }
 
-  const rgb = x > 0.5 ? [210, 35, 35] : [35, 85, 210];
-  return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha.toFixed(3)})`;
+  const rgb = x > 0.5 ? [210, 10, 10] : [24, 37, 153];
+  // return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha.toFixed(3)})`;
+  return fantasy_blend_rgba_on_rgb(`rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha.toFixed(3)})`);
 }
 /* ################# */
 function fantasy_gradient_good_only_stats(frac, use_gold = false) {
@@ -9323,7 +9468,8 @@ function fantasy_gradient_good_only_stats(frac, use_gold = false) {
     return fantasy_gold_gradient(alpha);
   }
 
-  return `rgba(210,35,35,${alpha.toFixed(3)})`;
+  // return `rgba(210,10,10,${alpha.toFixed(3)})`;
+  return fantasy_blend_rgba_on_rgb(`rgba(210,10,10,${alpha.toFixed(3)})`);
 }
 /* ################# */
 function fantasy_gradient_bad_only_stats(frac) {
@@ -9339,7 +9485,8 @@ function fantasy_gradient_bad_only_stats(frac) {
   const d = Math.max(0, Math.min(1, Math.abs(frac2 - 0.5) * 2.0));
   const alpha = alpha_min + (alpha_max - alpha_min) * (d ** alpha_curve_pow);
 
-  return `rgba(35,85,210,${alpha.toFixed(3)})`;
+  // return `rgba(24,37,153,${alpha.toFixed(3)})`;
+  return fantasy_blend_rgba_on_rgb(`rgba(24,37,153,${alpha.toFixed(3)})`);
 }
 /* ################# */
 function fantasy_graph_bar_fill(v, spec) {
@@ -9391,33 +9538,40 @@ function fantasy_sample_is_reduced(row) {
   return ip < 20;
 }
 /* ################# */
+// function fantasy_should_use_white_text(row, col, gradient_style) {
+//   const s = String(gradient_style || '');
+//   if (!s) return false;
+
+//   if (s.includes('--fantasy-tone:gold')) {
+//     return false;
+//   }
+
+//   const m = s.match(/background:\s*rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*[\d.]+)?\)/i);
+//   if (!m) return false;
+
+//   const r = Number(m[1]);
+//   const g = Number(m[2]);
+//   const b = Number(m[3]);
+
+//   let frac = 0;
+
+//   if ((b - r >= 30) && (b - g >= 18)) {
+//     frac = mix_frac_to_target({ r, g, b, a: 1 }, { r: 35, g: 85, b: 210 }) || 0;
+//   } else if ((r - g >= 30) && (r - b >= 18)) {
+//     frac = mix_frac_to_target({ r, g, b, a: 1 }, { r: 210, g: 35, b: 35 }) || 0;
+//   } else {
+//     return false;
+//   }
+
+//   const threshold = fantasy_sample_is_reduced(row) ? 0.25 : 0.38;
+//   return frac >= threshold;
+// }
 function fantasy_should_use_white_text(row, col, gradient_style) {
   const s = String(gradient_style || '');
   if (!s) return false;
+  if (s.includes('--fantasy-tone:gold')) return false;
 
-  if (s.includes('--fantasy-tone:gold')) {
-    return false;
-  }
-
-  const m = s.match(/background:\s*rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*[\d.]+)?\)/i);
-  if (!m) return false;
-
-  const r = Number(m[1]);
-  const g = Number(m[2]);
-  const b = Number(m[3]);
-
-  let frac = 0;
-
-  if ((b - r >= 30) && (b - g >= 18)) {
-    frac = mix_frac_to_target({ r, g, b, a: 1 }, { r: 35, g: 85, b: 210 }) || 0;
-  } else if ((r - g >= 30) && (r - b >= 18)) {
-    frac = mix_frac_to_target({ r, g, b, a: 1 }, { r: 210, g: 35, b: 35 }) || 0;
-  } else {
-    return false;
-  }
-
-  const threshold = fantasy_sample_is_reduced(row) ? 0.25 : 0.38;
-  return frac >= threshold;
+  return /background:\s*rgba?\(/i.test(s);
 }
 /* ################# */
 function fantasy_gradient_style(row, col, value) {

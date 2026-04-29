@@ -44606,7 +44606,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": 46.07,
@@ -44678,7 +44678,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": 98.05,
@@ -44750,7 +44750,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": -357.83,
@@ -44822,7 +44822,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "Chicago,Los Angeles",
         "vSzn": -317.63,
@@ -44894,7 +44894,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYY",
         "teams": "",
         "vSzn": -473.03,
@@ -44966,7 +44966,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": 13.52,
@@ -45038,7 +45038,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "CLE,New York",
         "vSzn": 871.24,
@@ -45110,7 +45110,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": "",
@@ -45182,7 +45182,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": -348.14,
@@ -65416,7 +65416,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "KC",
         "teams": "",
         "vSzn": "",
@@ -81886,7 +81886,7 @@
         "person_key": "bryan shaw",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -81906,7 +81906,7 @@
         "person_key": "cody allen",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -81926,7 +81926,7 @@
         "person_key": "jeff manship",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -81946,7 +81946,7 @@
         "person_key": "dan otero",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -81966,7 +81966,7 @@
         "person_key": "andrew miller",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -81986,7 +81986,7 @@
         "person_key": "ryan merritt",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -82006,7 +82006,7 @@
         "person_key": "zach mcallister",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -92426,7 +92426,7 @@
         "person_key": "cody allen",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -92447,7 +92447,7 @@
         "person_key": "jeff manship",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -92468,7 +92468,7 @@
         "person_key": "joe smith",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -92489,7 +92489,7 @@
         "person_key": "nick goody",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYY"
       },
       {
@@ -92510,7 +92510,7 @@
         "person_key": "dan otero",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -92531,7 +92531,7 @@
         "person_key": "andrew miller",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -92552,7 +92552,7 @@
         "person_key": "ryan merritt",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -92573,7 +92573,7 @@
         "person_key": "zach mcallister",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -95872,7 +95872,7 @@
         "person_key": "alec mills",
         "pitch_role": "RP",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "KC"
       },
       {

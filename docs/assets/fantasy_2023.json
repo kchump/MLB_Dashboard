@@ -61325,7 +61325,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHW",
         "teams": "",
         "vSzn": -192.48,
@@ -61397,7 +61397,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYY",
         "teams": "",
         "vSzn": "",
@@ -69893,7 +69893,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CIN",
         "teams": "",
         "vSzn": -33.11,
@@ -83863,7 +83863,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CIN",
         "teams": "",
         "vSzn": "",
@@ -102529,7 +102529,7 @@
         "person_key": "bryan shaw",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHW"
       },
       {
@@ -102550,7 +102550,7 @@
         "person_key": "zach mcallister",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYY"
       },
       {
@@ -106941,7 +106941,7 @@
         "person_key": "alec mills",
         "pitch_role": "RP",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CIN"
       },
       {
@@ -134138,7 +134138,7 @@
         "person_key": "bryan shaw",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHW"
       },
       {
@@ -134159,7 +134159,7 @@
         "person_key": "zach mcallister",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYY"
       },
       {

@@ -48129,7 +48129,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": -636.59,
@@ -48201,7 +48201,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": -156.73,
@@ -48273,7 +48273,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "HOU",
         "teams": "",
         "vSzn": 103.19,
@@ -48345,7 +48345,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": "",
@@ -48417,7 +48417,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": -483.97,
@@ -48489,7 +48489,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": -36.45,
@@ -48561,7 +48561,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "CLE,DET",
         "vSzn": -275.02,
@@ -62889,7 +62889,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "ATL,CIN",
         "vSzn": "",
@@ -69803,7 +69803,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "vSzn": "",
@@ -83485,7 +83485,7 @@
         "person_key": "cody allen",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -83505,7 +83505,7 @@
         "person_key": "dan otero",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -83525,7 +83525,7 @@
         "person_key": "andrew miller",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -92086,7 +92086,7 @@
         "person_key": "bryan shaw",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -92107,7 +92107,7 @@
         "person_key": "cody allen",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -92128,7 +92128,7 @@
         "person_key": "joe smith",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "HOU"
       },
       {
@@ -92149,7 +92149,7 @@
         "person_key": "nick goody",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -92170,7 +92170,7 @@
         "person_key": "dan otero",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -92191,7 +92191,7 @@
         "person_key": "andrew miller",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {

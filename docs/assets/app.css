@@ -91,10 +91,14 @@ html {
 .content {
   flex: 1;
   min-width: 0;
-  padding: 58px 18px 10px 18px;
+  padding: 10px 18px 10px 18px;
   overflow: visible;
   background: var(--content_bg);
   position: relative;
+}
+
+body.sidebar_hidden .content {
+  padding-top: 58px;
 }
 /* =============================================================================
    Sidebar UI
@@ -409,26 +413,26 @@ html {
   text-transform: none;
 }
 
-.sub_role_label.sub_minors { color: rgba(35, 85, 210, 0.90); }
+.sub_role_label.sub_minors { color: rgba(24, 37, 153, 0.90); }
 .sub_role_label.sub_prospect { color: rgba(0,120,120,0.95); }
-.sub_role_label.sub_injured { color: rgba(210, 35, 35, 0.85); }
+.sub_role_label.sub_injured { color: rgba(210, 10, 10, 0.85); }
 .sub_role_label.sub_oos { color: rgba(170, 10, 10, 0.95); }
 .sub_role_label.sub_susp { color: rgba(20, 90, 95, 0.95); }
-.sub_role_label.sub_inactive { color: rgba(35, 85, 210, 0.90); }
+.sub_role_label.sub_inactive { color: rgba(24, 37, 153, 0.90); }
 
 /* =============================================================================
    Tags
    ============================================================================= */
-.tag_injury { color: rgba(210, 35, 35, 0.70); font-weight: 700; }
+.tag_injury { color: rgba(210, 10, 10, 0.70); font-weight: 700; }
 .tag_oos { color: rgba(170, 10, 10, 0.88); font-weight: 800; }
 .tag_susp { color: rgba(20, 90, 95, 0.88); font-weight: 800; }
-.tag_minors { color: rgba(35, 85, 210, 0.70); font-weight: 700; }
-.tag_inactive { color: rgba(35, 85, 210, 0.70); font-weight: 700; }
+.tag_minors { color: rgba(24, 37, 153, 0.70); font-weight: 700; }
+.tag_inactive { color: rgba(24, 37, 153, 0.70); font-weight: 700; }
 
 .toc_tag.tag_prospect_gold { color: rgba(150,110,10,0.95); font-weight: 700; }
 .toc_tag.tag_prospect_teal { color: rgba(0,120,120,0.95); font-weight: 700; }
-.toc_tag.tag_pitcher_conv { color: rgba(35, 85, 210, 0.95); font-weight: 700; }
-.toc_tag.tag_convert { color: rgba(35, 85, 210, 0.95); font-weight: 700; }
+.toc_tag.tag_pitcher_conv { color: rgba(24, 37, 153, 0.95); font-weight: 700; }
+.toc_tag.tag_convert { color: rgba(24, 37, 153, 0.95); font-weight: 700; }
 
 .player_tag {
   display: inline-block;
@@ -444,9 +448,9 @@ html {
 }
 
 .player_tag.tag_injury {
-  color: rgba(210, 35, 35, 0.85);
-  background: rgba(210, 35, 35, 0.10);
-  border-color: rgba(210, 35, 35, 0.22);
+  color: rgba(210, 10, 10, 0.85);
+  background: rgba(210, 10, 10, 0.10);
+  border-color: rgba(210, 10, 10, 0.22);
 }
 
 .player_tag.tag_oos {
@@ -462,15 +466,15 @@ html {
 }
 
 .player_tag.tag_inactive {
-  color: rgba(35, 85, 210, 0.85);
-  background: rgba(35, 85, 210, 0.10);
-  border-color: rgba(35, 85, 210, 0.22);
+  color: rgba(24, 37, 153, 0.85);
+  background: rgba(24, 37, 153, 0.10);
+  border-color: rgba(24, 37, 153, 0.22);
 }
 
 .player_tag.tag_minors {
-  color: rgba(35, 85, 210, 0.85);
-  background: rgba(35, 85, 210, 0.10);
-  border-color: rgba(35, 85, 210, 0.22);
+  color: rgba(24, 37, 153, 0.85);
+  background: rgba(24, 37, 153, 0.10);
+  border-color: rgba(24, 37, 153, 0.22);
 }
 
 .player_tag.tag_prospect_gold {
@@ -488,16 +492,16 @@ html {
 }
 
 .player_tag.tag_pitcher_conv {
-  color: rgba(35, 85, 210, 0.85);
-  background: rgba(35, 85, 210, 0.10);
-  border-color: rgba(35, 85, 210, 0.22);
+  color: rgba(24, 37, 153, 0.85);
+  background: rgba(24, 37, 153, 0.10);
+  border-color: rgba(24, 37, 153, 0.22);
   font-weight: 700;
 }
 
 .player_tag.tag_convert {
-  color: rgba(35, 85, 210, 0.85);
-  background: rgba(35, 85, 210, 0.10);
-  border-color: rgba(35, 85, 210, 0.22);
+  color: rgba(24, 37, 153, 0.85);
+  background: rgba(24, 37, 153, 0.10);
+  border-color: rgba(24, 37, 153, 0.22);
   font-weight: 700;
 }
 /* =============================================================================
@@ -1288,8 +1292,8 @@ body.soft_theme .fantasy_player_link:hover {
   min-width: 0;
   height: auto;
   border-radius: 10px;
-  border: 1px solid rgba(210,35,35,0.35);
-  background: rgba(210,35,35,0.12);
+  border: 1px solid rgba(210,10,10,0.35);
+  background: rgba(210,10,10,0.12);
   color: var(--text);
   cursor: pointer;
   font-size: 13px;
@@ -1298,7 +1302,7 @@ body.soft_theme .fantasy_player_link:hover {
 
 .fantasy_clear_btn:hover,
 .fantasy_undo_btn:hover {
-  background: rgba(210,35,35,0.18);
+  background: rgba(210,10,10,0.18);
 }
 
 .fantasy_year_row {
@@ -1343,15 +1347,15 @@ body.soft_theme .fantasy_player_link:hover {
     /* poor -> average (blue side) */
     rgba(15,65,230,1.00) 0%,
     rgba(24,76,222,1.00) 10%,
-    rgba(35,85,210,0.82) 22%,
-    rgba(35,85,210,0.42) 36%,
+    rgba(24,37,153,0.82) 22%,
+    rgba(24,37,153,0.42) 36%,
 
     /* midpoint */
     rgba(160,160,160,0.24) 50%,
 
     /* average -> great (red side) */
-    rgba(210,35,35,0.42) 62%,
-    rgba(210,35,35,0.82) 76%,
+    rgba(210,10,10,0.42) 62%,
+    rgba(210,10,10,0.82) 76%,
     rgba(208,24,24,1.00) 88%,
 
     /* beyond great = gold extension */
@@ -1664,16 +1668,19 @@ body::-webkit-scrollbar-thumb:hover,
   display: inline-flex;
   position: absolute;
   top: 14px;
-  left: -173px;
+  left: -166px;
   right: auto;
   z-index: 99999;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 6px;
   border: 1px solid var(--border);
   background: var(--control_bg);
   border-radius: 10px;
   padding: 7px 10px;
+  min-height: 31px;
   font-size: 12px;
+  line-height: 1;
   cursor: pointer;
   color: var(--text);
   box-sizing: border-box;
@@ -1701,10 +1708,6 @@ body.sidebar_hidden .toggle_sidebar {
   :root {
     --sidebar-w: 100%;
   }
-
-.content {
-  padding-top: 58px;
-}
 
 .toggle_sidebar,
 body.sidebar_hidden .toggle_sidebar {
