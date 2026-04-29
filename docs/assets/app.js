@@ -2526,7 +2526,7 @@ function repaint_standard_stats_tables(root) {
 
         const is_light_body = is_close_rgb(parsed, 235, 240, 248, 10);
         const is_light_header = is_close_rgb(parsed, 205, 215, 230, 10);
-        const is_light_year_header = is_close_rgb(parsed, 24, 37, 153, 16) && parsed.a > 0 && parsed.a < 0.5;
+        const is_light_year_header = is_close_rgb(parsed, 35, 85, 210, 16) && parsed.a > 0 && parsed.a < 0.5;
 
         if (is_light_body) {
           r.style.fill = '#3b424b';
@@ -2541,8 +2541,8 @@ function repaint_standard_stats_tables(root) {
         }
 
         if (is_light_year_header) {
-          r.style.fill = 'rgba(24,37,153,0.35)';
-          r.setAttribute('fill', 'rgba(24,37,153,0.35)');
+          r.style.fill = 'rgba(35, 85, 210,0.35)';
+          r.setAttribute('fill', 'rgba(35, 85, 210,0.35)');
           return;
         }
 
@@ -3842,9 +3842,9 @@ function matchup_heat_text_color(fill) {
 //   let a = alpha_min + (alpha_max - alpha_min) * Math.pow(d, alpha_curve_pow);
 //   a = clamp(a * Number(alpha_mult || 1), 0, 1);
 
-//   if (f > 0.5) return `rgba(210,10,10,${a.toFixed(3)})`;
+//   if (f > 0.5) return `rgba(210, 35, 35,${a.toFixed(3)})`;
 
-//   return `rgba(24,37,153,${a.toFixed(3)})`;
+//   return `rgba(35, 85, 210,${a.toFixed(3)})`;
 // }
 function rgba_from_two_sided_value(v, worst, neutral_lo, neutral_hi, best, alpha_mult = 1) {
   const val = Number(v);
@@ -5527,8 +5527,8 @@ function find_fragment_key_loose(obj, wanted_name) {
       clear_btn.type = 'button';
       clear_btn.textContent = 'Clear';
       clear_btn.className = 'matchups_submit';
-      clear_btn.style.background = 'rgba(210,10,10,0.12)';
-      clear_btn.style.borderColor = 'rgba(210,10,10,0.35)';
+      clear_btn.style.background = 'rgba(210, 35, 35,0.12)';
+      clear_btn.style.borderColor = 'rgba(210, 35, 35,0.35)';
       clear_btn.addEventListener('click', (e) => {
         e.preventDefault();
         reset_sort_button();
@@ -8152,7 +8152,7 @@ const matchups_table_divider_config = {
   gameday_matchup: {
     pitcher: { heavy_before: ['+All', '+FB', 'All', 'FB'], light_before: ['+SL', '+CH'] },
     lineup: { heavy_before: ['+All', '+FB'], light_before: ['+SL', '+CH'] },
-    fallback: { heavy_before: ['All', 'Year'], light_before: [] },
+    fallback: { heavy_before: ['All', 'Year', 'LHP', 'RHP'], light_before: [] },
   },
 
   projected_pitchers: {
@@ -9446,7 +9446,7 @@ function fantasy_standard_stats_gradient(frac, use_gold = false) {
     return fantasy_gold_gradient(alpha);
   }
 
-  const rgb = x > 0.5 ? [210, 10, 10] : [24, 37, 153];
+  const rgb = x > 0.5 ? [210, 35, 35] : [35, 85, 210];
   // return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha.toFixed(3)})`;
   return fantasy_blend_rgba_on_rgb(`rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha.toFixed(3)})`);
 }
@@ -9468,8 +9468,8 @@ function fantasy_gradient_good_only_stats(frac, use_gold = false) {
     return fantasy_gold_gradient(alpha);
   }
 
-  // return `rgba(210,10,10,${alpha.toFixed(3)})`;
-  return fantasy_blend_rgba_on_rgb(`rgba(210,10,10,${alpha.toFixed(3)})`);
+  // return `rgba(210, 35, 35,${alpha.toFixed(3)})`;
+  return fantasy_blend_rgba_on_rgb(`rgba(210, 35, 35,${alpha.toFixed(3)})`);
 }
 /* ################# */
 function fantasy_gradient_bad_only_stats(frac) {
@@ -9485,8 +9485,8 @@ function fantasy_gradient_bad_only_stats(frac) {
   const d = Math.max(0, Math.min(1, Math.abs(frac2 - 0.5) * 2.0));
   const alpha = alpha_min + (alpha_max - alpha_min) * (d ** alpha_curve_pow);
 
-  // return `rgba(24,37,153,${alpha.toFixed(3)})`;
-  return fantasy_blend_rgba_on_rgb(`rgba(24,37,153,${alpha.toFixed(3)})`);
+  // return `rgba(35, 85, 210,${alpha.toFixed(3)})`;
+  return fantasy_blend_rgba_on_rgb(`rgba(35, 85, 210,${alpha.toFixed(3)})`);
 }
 /* ################# */
 function fantasy_graph_bar_fill(v, spec) {
@@ -9538,34 +9538,6 @@ function fantasy_sample_is_reduced(row) {
   return ip < 20;
 }
 /* ################# */
-// function fantasy_should_use_white_text(row, col, gradient_style) {
-//   const s = String(gradient_style || '');
-//   if (!s) return false;
-
-//   if (s.includes('--fantasy-tone:gold')) {
-//     return false;
-//   }
-
-//   const m = s.match(/background:\s*rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*[\d.]+)?\)/i);
-//   if (!m) return false;
-
-//   const r = Number(m[1]);
-//   const g = Number(m[2]);
-//   const b = Number(m[3]);
-
-//   let frac = 0;
-
-//   if ((b - r >= 30) && (b - g >= 18)) {
-//     frac = mix_frac_to_target({ r, g, b, a: 1 }, { r: 35, g: 85, b: 210 }) || 0;
-//   } else if ((r - g >= 30) && (r - b >= 18)) {
-//     frac = mix_frac_to_target({ r, g, b, a: 1 }, { r: 210, g: 35, b: 35 }) || 0;
-//   } else {
-//     return false;
-//   }
-
-//   const threshold = fantasy_sample_is_reduced(row) ? 0.25 : 0.38;
-//   return frac >= threshold;
-// }
 function fantasy_should_use_white_text(row, col, gradient_style) {
   const s = String(gradient_style || '');
   if (!s) return false;

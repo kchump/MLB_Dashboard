@@ -8,7 +8,7 @@ Set-Location 'C:\Users\kcamp\Downloads\baseball\src'
 #python -m utilities.team_assignment
 #python -m utilities.team_assignment 2015-2026
 #python -m dashboard.dashboard_matchups --min_pa 50 --min_ip 15 --rosters
-#python -m dashboard.visualization --module Current --year 2026 #generate then publish
+python -m dashboard.visualization --module Current --year 2026 #generate then publish
 
 #Set-Location $start_dir
 Set-Location 'C:\Users\kcamp\Downloads\MLB_Dashboard'
