@@ -1803,30 +1803,27 @@ function ensure_gold_gradient_def(svg_root, gradient_key = 'default', opacity = 
     grad.setAttribute('x2', '100%');
     grad.setAttribute('y2', '0%');
 
-  let stops;
+    let stops;
 
-  if (gradient_key === 'table') {
-    stops = [
-      ['0%', 'rgb(249,242,149)'],
-      ['100%', 'rgb(224,170,62)'],
-    ];
-  } else {
-    stops = [
-      ['0%', 'rgb(249,242,149)'],
-      ['32%', 'rgb(224,170,62)'],
-      ['64%', 'rgb(250,243,152)'],
-      ['100%', 'rgb(184,138,68)'],
-      // ['0%', 'rgb(249,242,149)'],
-      // ['100%', 'rgb(224,170,62)'],
-    ];
-  }
+    if (gradient_key === 'table') {
+      stops = [
+        ['0%', 'rgb(249,242,149)'],
+        ['100%', 'rgb(224,170,62)'],
+      ];
+    } else {
+      stops = [
+        ['0%', 'rgb(249,242,149)'],
+        ['32%', 'rgb(224,170,62)'],
+        ['64%', 'rgb(250,243,152)'],
+        ['100%', 'rgb(184,138,68)'],
+      ];
+    }
 
     stops.forEach(([offset, color]) => {
       const stop = document.createElementNS(svg_ns(), 'stop');
       stop.setAttribute('offset', offset);
       stop.setAttribute('stop-color', color);
-      // stop.setAttribute('stop-opacity', a.toFixed(3));
-      stop.setAttribute('stop-opacity', '1');
+      stop.setAttribute('stop-opacity', a.toFixed(3));
       grad.appendChild(stop);
     });
 
@@ -2011,14 +2008,18 @@ function is_deep_red_fill(fill) {
 }
 /* ################# */
 function table_fill_fraction(fill) {
-  if (is_gold_gradient_fill(fill)) return 1;
+  if (is_gold_gradient_fill(fill)) {
+    const m = String(fill || '').match(/mlb_gold_gradient_[^_]+_(\d{4})/i);
+    if (m) return Math.max(0, Math.min(1, Number(m[1]) / 1000));
+    return 1;
+  }
 
   const c = parse_svg_fill(fill);
   if (!c || c.a === 0) return 0;
 
-if (is_gold_stat_fill(fill)) {
-  return mix_frac_to_target(c, { r: 224, g: 170, b: 62 }) || 0;
-}
+  if (is_gold_stat_fill(fill)) {
+    return mix_frac_to_target(c, { r: 224, g: 170, b: 62 }) || 0;
+  }
 
   if (is_blue_stat_fill(fill)) {
     return mix_frac_to_target(c, { r: 35, g: 85, b: 210 }) || 0;
@@ -2048,14 +2049,17 @@ function standard_table_theme_rgb() {
 
 //   return `rgb(${clamp_byte(c.r * a + base.r * (1 - a))},${clamp_byte(c.g * a + base.g * (1 - a))},${clamp_byte(c.b * a + base.b * (1 - a))})`;
 // }
-function blend_rgba_fill_on_table_base(fill) {
+function blend_rgba_fill_on_table_base(fill, element_opacity = 1) {
   if (is_gold_gradient_fill(fill)) return fill;
 
   const c = parse_svg_fill(fill);
   if (!c) return fill;
 
   const base = { r: 235, g: 240, b: 248 };
-  const a = Math.max(0, Math.min(1, c.a == null ? 1 : c.a));
+
+  const color_alpha = Math.max(0, Math.min(1, c.a == null ? 1 : c.a));
+  const elem_alpha = Math.max(0, Math.min(1, Number(element_opacity)));
+  const a = color_alpha * elem_alpha;
 
   return `rgb(${clamp_byte(c.r * a + base.r * (1 - a))},${clamp_byte(c.g * a + base.g * (1 - a))},${clamp_byte(c.b * a + base.b * (1 - a))})`;
 }
@@ -2359,23 +2363,33 @@ function repaint_gold_plot_bars(plot, is_dark) {
   const svg_root = get_plot_svg_root(plot);
   if (!svg_root) return;
 
-const bar_shapes = Array.from(
-  plot.querySelectorAll('g.barlayer path, g.barlayer rect, g.trace.bars path, g.trace.bars rect')
-);
+  const bar_shapes = Array.from(
+    plot.querySelectorAll('g.barlayer path, g.barlayer rect, g.trace.bars path, g.trace.bars rect')
+  );
 
   bar_shapes.forEach(r => {
     if (r.dataset.orig_fill === undefined) {
       r.dataset.orig_fill = r.style.fill || r.getAttribute('fill') || '';
     }
 
+    if (r.dataset.orig_opacity === undefined) {
+      r.dataset.orig_opacity = r.style.opacity || r.getAttribute('opacity') || '';
+    }
+
+    if (r.dataset.orig_fill_opacity === undefined) {
+      r.dataset.orig_fill_opacity = r.style.fillOpacity || r.getAttribute('fill-opacity') || '';
+    }
+
     const orig_fill = r.dataset.orig_fill || '';
     if (!orig_fill) return;
 
     const parsed = parse_svg_fill(orig_fill);
-    const opacity = parsed && parsed.a != null ? parsed.a : 1;
+    const elem_opacity = Number(r.dataset.orig_fill_opacity || r.dataset.orig_opacity || 1);
+    const color_alpha = parsed && parsed.a != null ? parsed.a : 1;
+    const combined_opacity = color_alpha * elem_opacity;
 
     if (is_gold_stat_fill(orig_fill)) {
-      apply_gold_gradient_fill(r, 'third', opacity);
+      apply_gold_gradient_fill(r, 'third', combined_opacity);
       r.style.opacity = '1';
       r.setAttribute('opacity', '1');
       r.style.fillOpacity = '1';
@@ -2384,7 +2398,7 @@ const bar_shapes = Array.from(
     }
 
     if (is_dark && is_stat_fill(orig_fill)) {
-      const dark_fill = blend_rgba_fill_on_table_base(orig_fill);
+      const dark_fill = blend_rgba_fill_on_table_base(orig_fill, elem_opacity);
       r.style.fill = dark_fill;
       r.setAttribute('fill', dark_fill);
       r.style.opacity = '1';
@@ -2408,9 +2422,9 @@ function should_use_black_bold_gold_text(text_node, cell_fill) {
     return false;
   }
 
-  if (row_has_reduced_sample_opacity(text_node) && table_fill_fraction(cell_fill) < 0.25) {
-    return false;
-  }
+  // if (row_has_reduced_sample_opacity(text_node) && table_fill_fraction(cell_fill) < 0.25) {
+  //   return false;
+  // }
 
   return true;
 }
@@ -2497,8 +2511,13 @@ function repaint_standard_stats_tables(root) {
         const gold_candidate = is_gold_stat_fill(orig_fill);
 
         if (gold_candidate) {
-          const opacity = parsed && parsed.a != null ? parsed.a : 1;
+          const elem_opacity = Number(r.dataset.orig_fill_opacity || r.dataset.orig_opacity || 1);
+          const opacity = (parsed && parsed.a != null ? parsed.a : 1) * elem_opacity;
           apply_gold_gradient_fill(r, 'table', opacity);
+
+          const display_fill = r.style.fill || r.getAttribute('fill') || '';
+          r.dataset.display_fill = display_fill;
+
           r.style.opacity = '1';
           r.setAttribute('opacity', '1');
           r.style.fillOpacity = '1';
@@ -2507,7 +2526,8 @@ function repaint_standard_stats_tables(root) {
         }
 
         if (is_stat_fill(orig_fill)) {
-          const display_fill = blend_rgba_fill_on_table_base(orig_fill);
+          const elem_opacity = Number(r.dataset.orig_fill_opacity || r.dataset.orig_opacity || 1);
+          const display_fill = blend_rgba_fill_on_table_base(orig_fill, elem_opacity);
           r.style.fill = display_fill;
           r.setAttribute('fill', display_fill);
           r.dataset.display_fill = display_fill;
@@ -8177,7 +8197,7 @@ const matchups_table_divider_config = {
   gameday_matchup: {
     pitcher: { heavy_before: ['+All', '+FB', 'All', 'FB'], light_before: ['+SL', '+CH'] },
     lineup: { heavy_before: ['+All', '+FB'], light_before: ['+SL', '+CH'] },
-    fallback: { heavy_before: ['All', 'Year', 'LHP', 'RHP'], light_before: [] },
+    fallback: { heavy_before: ['All', 'Year', 'LHP', 'RHP', 'FB'], light_before: [] },
   },
 
   projected_pitchers: {
@@ -8203,7 +8223,7 @@ const matchups_table_divider_config = {
   todays_favorited_players: {
     pitchers: { heavy_before: ['+All', '+FB'], light_before: ['+SL', '+CH'] },
     matchups: { heavy_before: ['+All', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
-    fallback: { heavy_before: ['All'], light_before: ['Opp'] },
+    fallback: { heavy_before: ['All', 'RHP', 'LHP', 'FB',], light_before: ['Opp'] },
   },
 
   multi_hitter_today: {
