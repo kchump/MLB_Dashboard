@@ -1668,7 +1668,7 @@ body::-webkit-scrollbar-thumb:hover,
   display: inline-flex;
   position: absolute;
   top: 14px;
-  left: -166px;
+  left: -160px;
   right: auto;
   z-index: 99999;
   align-items: center;
