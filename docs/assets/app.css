@@ -75,9 +75,8 @@ html {
 
 .app {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  overflow: hidden;
 }
 
 .sidebar {
@@ -1396,7 +1395,7 @@ body.soft_theme .fantasy_player_link:hover {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 12px 14px 14px 14px;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   min-height: 0;
@@ -1666,10 +1665,9 @@ body::-webkit-scrollbar-thumb:hover,
    ============================================================================= */
 .toggle_sidebar {
   display: inline-flex;
-  position: absolute;
+  position: sticky;
   top: 14px;
-  left: -160px;
-  right: auto;
+  left: 0;
   z-index: 99999;
   align-items: center;
   justify-content: center;
@@ -1691,6 +1689,8 @@ body::-webkit-scrollbar-thumb:hover,
 }
 
 body.sidebar_hidden .toggle_sidebar {
+  position: fixed;
+  top: 14px;
   left: 12px;
   right: auto;
 }
@@ -1711,8 +1711,8 @@ body.sidebar_hidden .toggle_sidebar {
 
 .toggle_sidebar,
 body.sidebar_hidden .toggle_sidebar {
-  left: 12px;
   top: 12px;
+  left: 12px;
 }
 
   .app {

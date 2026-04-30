@@ -333,15 +333,15 @@
     "majors|hitters|L Hit": {
       "best": 2.2,
       "fmt": "num",
-      "gold": 2.4,
+      "gold": 2.3,
       "neutral_hi": 1.5,
       "neutral_lo": 1.4,
       "worst": 0.05
     },
     "majors|hitters|L Pwr": {
-      "best": 3.0,
+      "best": 3,
       "fmt": "num",
-      "gold": 3.5,
+      "gold": 3.2,
       "neutral_hi": 1.7,
       "neutral_lo": 1.4,
       "worst": 0.05
@@ -537,15 +537,15 @@
     "majors|hitters|R Hit": {
       "best": 2.2,
       "fmt": "num",
-      "gold": 2.4,
+      "gold": 2.3,
       "neutral_hi": 1.5,
       "neutral_lo": 1.4,
       "worst": 0.5
     },
     "majors|hitters|R Pwr": {
-      "best": 3.0,
+      "best": 3,
       "fmt": "num",
-      "gold": 3.5,
+      "gold": 3.2,
       "neutral_hi": 1.7,
       "neutral_lo": 1.4,
       "worst": 0.05
