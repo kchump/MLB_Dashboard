@@ -54116,7 +54116,7 @@
         "WHIP": 2.5,
         "name": "Jason Alexander",
         "person_key": "jason alexander",
-        "pitch_role": "",
+        "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
         "sort_bucket": 0,
@@ -54188,7 +54188,7 @@
         "WHIP": 2.75,
         "name": "Colton Gordon",
         "person_key": "colton gordon",
-        "pitch_role": "",
+        "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
         "sort_bucket": 1,
@@ -82463,7 +82463,7 @@
         "WHIP": 1.5882352941176472,
         "name": "Jason Alexander",
         "person_key": "jason alexander",
-        "pitch_role": "",
+        "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 0,
         "team": "HOU"
@@ -82484,7 +82484,7 @@
         "WHIP": 1.0178571428571428,
         "name": "Colton Gordon",
         "person_key": "colton gordon",
-        "pitch_role": "",
+        "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 1,
         "team": "MiLB"
@@ -114539,7 +114539,7 @@
         "WHIP": 2.0625,
         "name": "Jason Alexander",
         "person_key": "jason alexander",
-        "pitch_role": "",
+        "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 0,
         "team": "HOU"
@@ -114560,7 +114560,7 @@
         "WHIP": 1.4,
         "name": "Colton Gordon",
         "person_key": "colton gordon",
-        "pitch_role": "",
+        "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 1,
         "team": "MiLB"
