@@ -1674,7 +1674,7 @@ body::-webkit-scrollbar-thumb:hover,
   display: inline-flex;
   position: fixed;
   top: 14px;
-  left: -160px;
+  left: calc(var(--sidebar-w) - 120px);
   z-index: 99999;
   align-items: center;
   justify-content: center;
@@ -1696,10 +1696,7 @@ body::-webkit-scrollbar-thumb:hover,
 }
 
 body.sidebar_hidden .toggle_sidebar {
-  position: fixed;
-  top: 14px;
   left: 12px;
-  right: auto;
 }
 
 @media (max-width: 1100px) {

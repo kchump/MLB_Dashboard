@@ -2409,7 +2409,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "teams": "",
         "vSzn": -114.51,
@@ -9793,7 +9793,7 @@
         "pos2": "3B",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "teams": "",
         "vSzn": "",
@@ -12633,7 +12633,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": 209.61,
@@ -59525,7 +59525,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD",
         "teams": "",
         "vSzn": "",
@@ -60389,7 +60389,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS",
         "teams": "",
         "vSzn": -204.43,
@@ -64997,7 +64997,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": -67.67,
@@ -77239,7 +77239,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ATL",
         "teams": "",
         "vSzn": -579.69,
@@ -89424,7 +89424,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "≥100": 0.212
       },
@@ -90735,7 +90735,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "≥100": 0.171
       },
@@ -102109,7 +102109,7 @@
         "person_key": "jose espada",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD"
       },
       {
@@ -103432,7 +103432,7 @@
         "person_key": "trevor richards",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR"
       },
       {
@@ -105807,7 +105807,7 @@
         "person_key": "michael soroka",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ATL"
       },
       {
@@ -109364,7 +109364,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "≥100": 0.295
@@ -114793,7 +114793,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "≥100": 0.222
       },
@@ -114862,7 +114862,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 2,
         "team": "MiLB",
         "≥100": 0.33299999999999996
       },
@@ -117208,7 +117208,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "≥100": 0.0
       },
@@ -118243,7 +118243,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "≥100": 0.294
       },
@@ -133886,7 +133886,7 @@
         "person_key": "carl edwards jr",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS"
       },
       {
@@ -135020,7 +135020,7 @@
         "person_key": "trevor richards",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR"
       },
       {
@@ -138004,7 +138004,7 @@
         "person_key": "michael soroka",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ATL"
       },
       {

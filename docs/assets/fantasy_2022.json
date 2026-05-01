@@ -1983,7 +1983,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TEX",
         "teams": "",
         "vSzn": -429.78,
@@ -8089,7 +8089,7 @@
         "pos2": "3B",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "teams": "",
         "vSzn": -403.38,
@@ -10432,7 +10432,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": "",
@@ -57090,7 +57090,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS",
         "teams": "",
         "vSzn": -21.36,
@@ -62418,7 +62418,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": -362.51,
@@ -86105,7 +86105,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TEX",
         "≥100": 0.191
       },
@@ -96967,7 +96967,7 @@
         "person_key": "trevor richards",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR"
       },
       {
@@ -98875,7 +98875,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TEX",
         "≥100": 0.0
       },
@@ -100301,7 +100301,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "≥100": 1.0
       },
@@ -111809,7 +111809,7 @@
         "person_key": "carl edwards jr",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS"
       },
       {
@@ -113090,7 +113090,7 @@
         "person_key": "trevor richards",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR"
       },
       {

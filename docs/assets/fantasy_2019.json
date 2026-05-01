@@ -50556,7 +50556,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "Chicago,SD",
         "vSzn": "",
@@ -57972,7 +57972,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "MIA,TB",
         "vSzn": -211.74,
@@ -68054,7 +68054,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ATL",
         "teams": "",
         "vSzn": 62.94,
@@ -87186,7 +87186,7 @@
         "person_key": "michael soroka",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ATL"
       },
       {
@@ -96059,7 +96059,7 @@
         "person_key": "carl edwards jr",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -"
       },
       {

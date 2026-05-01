@@ -2906,7 +2906,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "teams": "",
         "vSzn": -754.14,
@@ -16041,7 +16041,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": 465.36,
@@ -64840,7 +64840,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD",
         "teams": "",
         "vSzn": "",
@@ -68512,7 +68512,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "MIN,TOR",
         "vSzn": -173.77,
@@ -80682,7 +80682,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHW",
         "teams": "",
         "vSzn": -413.78,
@@ -94124,7 +94124,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB",
         "≥100": 0.26
       },
@@ -95136,7 +95136,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.157
       },
@@ -103533,7 +103533,7 @@
         "person_key": "travis adams",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -106242,7 +106242,7 @@
         "person_key": "kyle backhus",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB"
       },
       {
@@ -107040,7 +107040,7 @@
         "person_key": "carl edwards jr",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD"
       },
       {
@@ -110675,7 +110675,7 @@
         "person_key": "michael soroka",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHW"
       },
       {
@@ -114082,7 +114082,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "teams": "",
         "≥100": 0.14300000000000002
@@ -120694,7 +120694,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "≥100": 0.2
       },
@@ -123569,7 +123569,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.33299999999999996
       },
@@ -124696,7 +124696,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "≥100": 0.318
       },
@@ -138571,7 +138571,7 @@
         "person_key": "kyle backhus",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB"
       },
       {
@@ -140293,7 +140293,7 @@
         "person_key": "trevor richards",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
