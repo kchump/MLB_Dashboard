@@ -1372,7 +1372,7 @@
     "majors|rp|Rarity": {
       "best": 3,
       "fmt": "num",
-      "gold": 5,
+      "gold": 4,
       "neutral_hi": 1.8,
       "neutral_lo": 0,
       "worst": 0
@@ -2171,7 +2171,7 @@
     "majors|sp|Rarity": {
       "best": 3,
       "fmt": "num",
-      "gold": 5,
+      "gold": 4,
       "neutral_hi": 1.8,
       "neutral_lo": 0,
       "worst": 0

@@ -3261,7 +3261,7 @@
         "pos2": "2B/3B",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 2,
         "team": "ATH",
         "teams": "",
         "vSzn": -653.07,
@@ -21863,7 +21863,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "vSzn": 579.18,
@@ -46949,7 +46949,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA",
         "teams": "",
         "vSzn": -306.63,
@@ -98704,7 +98704,7 @@
         "pos": "UTIL",
         "pos2": "2B/3B",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 2,
         "team": "ATH",
         "≥100": 0.344
       },
@@ -109769,7 +109769,7 @@
         "person_key": "jose fermin rp",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA"
       },
       {
@@ -125328,7 +125328,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "≥100": 0.308
@@ -130732,7 +130732,7 @@
         "pos": "UTIL",
         "pos2": "2B/3B",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 2,
         "team": "ATH",
         "≥100": 0.25
       },
@@ -137287,7 +137287,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "≥100": 0.33299999999999996
       },
@@ -147558,7 +147558,7 @@
         "person_key": "jose fermin rp",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA"
       },
       {

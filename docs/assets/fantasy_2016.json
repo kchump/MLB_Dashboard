@@ -2622,7 +2622,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ATH",
         "teams": "",
         "vSzn": -515.58,
@@ -83952,7 +83952,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ATH",
         "≥100": 0.0
       },

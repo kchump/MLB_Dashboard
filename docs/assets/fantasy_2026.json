@@ -2551,7 +2551,7 @@
         "pos2": "2B/3B",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "ATH",
         "teams": "",
         "vSzn": -400.68,
@@ -17603,7 +17603,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "IL10",
         "teams": "",
         "vSzn": 331.53,
@@ -33525,7 +33525,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "teams": "",
         "vSzn": "",
@@ -77675,7 +77675,7 @@
         "person_key": "jose fermin rp",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -87170,7 +87170,7 @@
         "pos": "UTIL",
         "pos2": "2B/3B",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "ATH",
         "≥100": 0.37799999999999995
       },
@@ -94231,7 +94231,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "IL10",
         "≥100": 0.345
       },
@@ -105257,7 +105257,7 @@
         "person_key": "jose fermin rp",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
