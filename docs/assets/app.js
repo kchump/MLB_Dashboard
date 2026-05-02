@@ -3977,11 +3977,7 @@ function matchup_gold_threshold(header_text, gold_mode) {
   const is_hitter_mode = mode === 'hitter';
   const is_pitcher_mode = !is_hitter_mode;
 
-  if (h === '+All' || h === 'All') {
-    return is_hitter_mode ? 100 : 50;
-  }
-
-  if (h === 'RHB' || h === 'LHB') {
+  if (h === '+All' || h === 'All' || h === 'RHP' || h === 'LHP' || h === 'RHB' || h === 'LHB') {
     return is_hitter_mode ? 100 : 50;
   }
 
@@ -4016,7 +4012,7 @@ function matchup_gold_threshold(header_text, gold_mode) {
   //#################
   function is_fallback_heat_col(header_text) {
     const h = String(header_text || '').trim();
-    return ['All', 'RHB', 'LHB', 'FB', 'SI', 'CT', 'SL', 'SW', 'CB', 'CH', 'SP'].includes(h);
+    return ['All', 'RHB', 'LHB', 'RHP', 'LHP', 'FB', 'SI', 'CT', 'SL', 'SW', 'CB', 'CH', 'SP'].includes(h);
   }
   //#################
   async function ensure_year_page_lookup_loaded() {
@@ -6506,7 +6502,7 @@ submit();
         'Home',
         away_pitcher,
         '',
-        "No matchup data - these are their scores against pitchers from this side (or just All pitches if no pitcher data)"
+        "No matchup data - these are scores against pitchers from this side (or All pitches)"
       );
 
       const away_lineup_sections = await build_lineup_sections(
@@ -6517,7 +6513,7 @@ submit();
         'Away',
         home_pitcher,
         '',
-        "No matchup data - these are their scores against pitchers from this side (or just All pitches if no pitcher data)"
+        "No matchup data - these are scores against pitchers from this side (or All pitches)"
       );
 
       dbg('lineup sections', {
@@ -6921,7 +6917,7 @@ async function submit() {
       matchup_info.side,
       matchup_info.pitcher,
       '',
-      "No matchup data - these are their scores against pitchers from this side (or just All pitches if no pitcher data)"
+      "No matchup data - these are scores against pitchers from this side (or All pitches)"
     );
 
     (lineup_sections || []).forEach(sec => {
@@ -6950,7 +6946,7 @@ async function submit() {
 
   for (const sec of fallback_sections) {
     await render_stacked_section(
-      sec.title || 'No matchup data - these are their scores against pitchers from this side (or just All pitches if no pitcher data)',
+      sec.title || 'No matchup data - these are scores against pitchers from this side (or All pitches)',
       sec.paths || [],
       sec.opts || {}
     );
@@ -8195,7 +8191,7 @@ setTimeout(() => submit(), 0);
 //#################################################################### Matchups table dividers ####################################################################
 const matchups_table_divider_config = {
   gameday_matchup: {
-    pitcher: { heavy_before: ['+All', '+FB', 'All', 'FB'], light_before: ['+SL', '+CH'] },
+    pitcher: { heavy_before: ['+All', '+FB', 'All', 'FB', 'RHB'], light_before: ['+SL', '+CH'] },
     lineup: { heavy_before: ['+All', '+FB'], light_before: ['+SL', '+CH'] },
     fallback: { heavy_before: ['All', 'Year', 'LHP', 'RHP', 'FB'], light_before: [] },
   },

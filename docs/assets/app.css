@@ -1674,7 +1674,7 @@ body::-webkit-scrollbar-thumb:hover,
   display: inline-flex;
   position: fixed;
   top: 14px;
-  left: calc(var(--sidebar-w) - 155px);
+  left: calc(var(--sidebar-w) - 150px);
   z-index: 99999;
   align-items: center;
   justify-content: center;
