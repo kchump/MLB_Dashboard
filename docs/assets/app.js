@@ -4432,7 +4432,7 @@ append_matchup_player_link(
         if (is_fallback_heat_col(h)) {
           const v = parse_matchup_stat_number(raw);
           if (Number.isFinite(v)) {
-            const is_allish = (h === 'All' || h === 'RHB' || h === 'LHB');
+            const is_allish = (h === 'All' || h === 'RHB' || h === 'LHB' || h === 'RHP' || h === 'LHP');
             const worst = is_allish ? -40 : -70;
             const best = is_allish ? 40 : 70;
             const neutral_lo = is_allish ? -5 : 0;
@@ -6506,7 +6506,7 @@ submit();
         'Home',
         away_pitcher,
         '',
-        "No matchup data - these are their scores against pitchers from this side"
+        "No matchup data - these are their scores against pitchers from this side (or just All pitches if no pitcher data)"
       );
 
       const away_lineup_sections = await build_lineup_sections(
@@ -6517,7 +6517,7 @@ submit();
         'Away',
         home_pitcher,
         '',
-        "No matchup data - these are their scores against pitchers from this side"
+        "No matchup data - these are their scores against pitchers from this side (or just All pitches if no pitcher data)"
       );
 
       dbg('lineup sections', {
@@ -6921,7 +6921,7 @@ async function submit() {
       matchup_info.side,
       matchup_info.pitcher,
       '',
-      "No matchup data - these are their scores against pitchers from this side"
+      "No matchup data - these are their scores against pitchers from this side (or just All pitches if no pitcher data)"
     );
 
     (lineup_sections || []).forEach(sec => {
@@ -6950,7 +6950,7 @@ async function submit() {
 
   for (const sec of fallback_sections) {
     await render_stacked_section(
-      sec.title || 'No matchup data - these are their scores against pitchers from this side',
+      sec.title || 'No matchup data - these are their scores against pitchers from this side (or just All pitches if no pitcher data)',
       sec.paths || [],
       sec.opts || {}
     );

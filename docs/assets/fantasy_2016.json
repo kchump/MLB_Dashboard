@@ -2054,7 +2054,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "STL",
         "teams": "",
         "vSzn": -110.4,
@@ -63040,7 +63040,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE",
         "teams": "",
         "vSzn": 265.8,
@@ -95578,7 +95578,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE"
       },
       {

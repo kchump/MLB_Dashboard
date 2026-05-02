@@ -3403,7 +3403,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR",
         "teams": "",
         "vSzn": -29.43,
@@ -22857,7 +22857,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIL",
         "teams": "",
         "vSzn": "",
@@ -38335,7 +38335,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SF",
         "teams": "",
         "vSzn": "",
@@ -38841,7 +38841,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SD",
         "teams": "",
         "vSzn": -137.88,
@@ -66923,7 +66923,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIL",
         "teams": "",
         "vSzn": -287.97,
@@ -67139,7 +67139,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE",
         "teams": "",
         "vSzn": 380.91,
@@ -82269,7 +82269,7 @@
         "pos": "P",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIL",
         "teams": "",
         "≥100": 1.0
@@ -84387,7 +84387,7 @@
         "person_key": "brandon woodruff",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIL"
       },
       {
@@ -84427,7 +84427,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE"
       },
       {
@@ -91033,7 +91033,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SF",
         "≥100": ""
       }
@@ -91540,7 +91540,7 @@
         "person_key": "joel payamps",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -94272,7 +94272,7 @@
         "person_key": "brandon woodruff",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIL"
       },
       {
@@ -94293,7 +94293,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE"
       },
       {
