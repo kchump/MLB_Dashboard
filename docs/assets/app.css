@@ -568,6 +568,12 @@ body.sidebar_hidden .content {
   max-width: 100%;
   min-width: 0;
   align-items: start;
+  overflow-x: auto;
+}
+
+#matchups .matchups_gameday_board .matchup_table_wrap {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .matchups_gameday_col {
@@ -644,7 +650,7 @@ body.sidebar_hidden .content {
 }
 
 #matchups.player_page {
-  max-width: 1300px;
+  max-width: none;
   min-width: 0;
 }
 

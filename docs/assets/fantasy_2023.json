@@ -85663,7 +85663,7 @@
         "pitch_role": "SP",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "vSzn": 189.3,
@@ -91471,7 +91471,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.258
       },
@@ -113994,7 +113994,7 @@
         "person_key": "clayton kershaw",
         "pitch_role": "SP",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAD"
       },
       {
@@ -122544,7 +122544,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.0
       },
@@ -140188,7 +140188,7 @@
         "person_key": "clayton kershaw",
         "pitch_role": "SP",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAD"
       },
       {

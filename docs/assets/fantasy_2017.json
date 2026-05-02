@@ -72033,7 +72033,7 @@
         "pitch_role": "SP",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "vSzn": 839.1,
@@ -84261,7 +84261,7 @@
         "person_key": "clayton kershaw",
         "pitch_role": "SP",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAD"
       },
       {
