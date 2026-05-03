@@ -331,17 +331,17 @@
       "worst": -70
     },
     "majors|hitters|L Hit": {
-      "best": 2.2,
+      "best": 2.1,
       "fmt": "num",
-      "gold": 2.3,
+      "gold": 2.2,
       "neutral_hi": 1.5,
       "neutral_lo": 1.4,
       "worst": 0.05
     },
     "majors|hitters|L Pwr": {
-      "best": 3,
+      "best": 2.8,
       "fmt": "num",
-      "gold": 3.2,
+      "gold": 3,
       "neutral_hi": 1.7,
       "neutral_lo": 1.4,
       "worst": 0.05
@@ -535,17 +535,17 @@
       "worst": -70
     },
     "majors|hitters|R Hit": {
-      "best": 2.2,
+      "best": 2.1,
       "fmt": "num",
-      "gold": 2.3,
+      "gold": 2.2,
       "neutral_hi": 1.5,
       "neutral_lo": 1.4,
       "worst": 0.5
     },
     "majors|hitters|R Pwr": {
-      "best": 3,
+      "best": 2.8,
       "fmt": "num",
-      "gold": 3.2,
+      "gold": 3,
       "neutral_hi": 1.7,
       "neutral_lo": 1.4,
       "worst": 0.05
@@ -701,9 +701,9 @@
       "worst": -100
     },
     "majors|hitters|S Val": {
-      "best": 500,
+      "best": 400,
       "fmt": "num",
-      "gold": 800,
+      "gold": 600,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
@@ -870,9 +870,9 @@
       "worst": -10
     },
     "majors|hitters|Val": {
-      "best": 500,
+      "best": 400,
       "fmt": "num",
-      "gold": 800,
+      "gold": 600,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
@@ -904,9 +904,9 @@
       "worst": -40
     },
     "majors|hitters|vSzn": {
-      "best": 500,
+      "best": 400,
       "fmt": "num",
-      "gold": 800,
+      "gold": 600,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
@@ -1076,8 +1076,8 @@
       "worst": -35
     },
     "majors|rp|ERA": {
-      "best": 2.5,
-      "gold": 2.2,
+      "best": 2.7,
+      "gold": 2.5,
       "higher_is_better": false,
       "neutral_hi": 3.5,
       "neutral_lo": 4.0,
@@ -1410,9 +1410,9 @@
       "worst": -35
     },
     "majors|rp|S ERA": {
-      "best": 2.5,
+      "best": 2.7,
       "fmt": "num",
-      "gold": 2.3,
+      "gold": 2.5,
       "higher_is_better": false,
       "neutral_hi": 3.5,
       "neutral_lo": 4,
@@ -1459,9 +1459,9 @@
       "worst": 0
     },
     "majors|rp|S Val": {
-      "best": 500,
+      "best": 400,
       "fmt": "num",
-      "gold": 800,
+      "gold": 600,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
@@ -1631,9 +1631,9 @@
       "worst": 0.06
     },
     "majors|rp|Val": {
-      "best": 500,
+      "best": 400,
       "fmt": "num",
-      "gold": 800,
+      "gold": 600,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
@@ -1703,9 +1703,9 @@
       "worst": -40
     },
     "majors|rp|vSzn": {
-      "best": 500,
+      "best": 400,
       "fmt": "num",
-      "gold": 800,
+      "gold": 600,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
@@ -1875,8 +1875,8 @@
       "worst": -35
     },
     "majors|sp|ERA": {
-      "best": 2.5,
-      "gold": 2.2,
+      "best": 2.7,
+      "gold": 2.5,
       "higher_is_better": false,
       "neutral_hi": 3.5,
       "neutral_lo": 4.0,
@@ -2209,9 +2209,9 @@
       "worst": -35
     },
     "majors|sp|S ERA": {
-      "best": 2.5,
+      "best": 2.7,
       "fmt": "num",
-      "gold": 2.3,
+      "gold": 2.5,
       "higher_is_better": false,
       "neutral_hi": 3.5,
       "neutral_lo": 4,
@@ -2258,9 +2258,9 @@
       "worst": 0
     },
     "majors|sp|S Val": {
-      "best": 500,
+      "best": 400,
       "fmt": "num",
-      "gold": 800,
+      "gold": 600,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
@@ -2430,9 +2430,9 @@
       "worst": 0.06
     },
     "majors|sp|Val": {
-      "best": 500,
+      "best": 400,
       "fmt": "num",
-      "gold": 800,
+      "gold": 600,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
@@ -2502,9 +2502,9 @@
       "worst": -40
     },
     "majors|sp|vSzn": {
-      "best": 500,
+      "best": 400,
       "fmt": "num",
-      "gold": 800,
+      "gold": 600,
       "neutral_hi": 100,
       "neutral_lo": -50,
       "worst": -300
@@ -2725,8 +2725,8 @@
       "worst": -35
     },
     "minors|rp|ERA": {
-      "best": 2.5,
-      "gold": 2.2,
+      "best": 2.7,
+      "gold": 2.5,
       "higher_is_better": false,
       "neutral_hi": 3.5,
       "neutral_lo": 4.0,
@@ -2784,7 +2784,7 @@
     "minors|rp|Minors Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2849,7 +2849,7 @@
     "minors|rp|Prev Minors Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2873,7 +2873,7 @@
     "minors|rp|Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2960,8 +2960,8 @@
       "worst": -35
     },
     "minors|sp|ERA": {
-      "best": 2.5,
-      "gold": 2.2,
+      "best": 2.7,
+      "gold": 2.5,
       "higher_is_better": false,
       "neutral_hi": 3.5,
       "neutral_lo": 4.0,
@@ -3019,7 +3019,7 @@
     "minors|sp|Minors Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -3084,7 +3084,7 @@
     "minors|sp|Prev Minors Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -3108,7 +3108,7 @@
     "minors|sp|Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -3288,8 +3288,8 @@
       "worst": -35
     },
     "playoffs|rp|ERA": {
-      "best": 2.5,
-      "gold": 2.2,
+      "best": 2.7,
+      "gold": 2.5,
       "higher_is_better": false,
       "neutral_hi": 3.5,
       "neutral_lo": 4.0,
@@ -3347,7 +3347,7 @@
     "playoffs|rp|Playoff Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -3371,7 +3371,7 @@
     "playoffs|rp|Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -3450,8 +3450,8 @@
       "worst": -35
     },
     "playoffs|sp|ERA": {
-      "best": 2.5,
-      "gold": 2.2,
+      "best": 2.7,
+      "gold": 2.5,
       "higher_is_better": false,
       "neutral_hi": 3.5,
       "neutral_lo": 4.0,
@@ -3509,7 +3509,7 @@
     "playoffs|sp|Playoff Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -3533,7 +3533,7 @@
     "playoffs|sp|Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -3705,8 +3705,8 @@
       "worst": -35
     },
     "spring|rp|ERA": {
-      "best": 2.5,
-      "gold": 2.2,
+      "best": 2.7,
+      "gold": 2.5,
       "higher_is_better": false,
       "neutral_hi": 3.5,
       "neutral_lo": 4.0,
@@ -3764,7 +3764,7 @@
     "spring|rp|Spring Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -3788,7 +3788,7 @@
     "spring|rp|Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -3867,8 +3867,8 @@
       "worst": -35
     },
     "spring|sp|ERA": {
-      "best": 2.5,
-      "gold": 2.2,
+      "best": 2.7,
+      "gold": 2.5,
       "higher_is_better": false,
       "neutral_hi": 3.5,
       "neutral_lo": 4.0,
@@ -3926,7 +3926,7 @@
     "spring|sp|Spring Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -3950,7 +3950,7 @@
     "spring|sp|Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
