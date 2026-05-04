@@ -194,7 +194,7 @@
     "majors|hitters|Catcher Arm Strength": {
       "best": 82,
       "fmt": "num",
-      "gold": 84,
+      "gold": 83,
       "neutral_hi": 80,
       "neutral_lo": 79,
       "worst": 76
@@ -1370,9 +1370,9 @@
       "worst": -40
     },
     "majors|rp|Rarity": {
-      "best": 3,
+      "best": 2.8,
       "fmt": "num",
-      "gold": 4,
+      "gold": 3,
       "neutral_hi": 1.8,
       "neutral_lo": 0,
       "worst": 0
@@ -2169,9 +2169,9 @@
       "worst": -40
     },
     "majors|sp|Rarity": {
-      "best": 3,
+      "best": 2.8,
       "fmt": "num",
-      "gold": 4,
+      "gold": 3,
       "neutral_hi": 1.8,
       "neutral_lo": 0,
       "worst": 0

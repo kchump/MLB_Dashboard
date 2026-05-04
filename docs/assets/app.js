@@ -8345,17 +8345,17 @@ const fantasy_display_columns = {
   majors: {
     hitters: [
       'Name', 'Pos', '2nd Pos', 'Team',
-      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'RHP', 'LHP', 'R Hit', 'R Pwr', 'L Hit', 'L Pwr', 'PA', 'H', '2B', '3B', 'R', 'HR', 'RBI', 'SB', 'BB', 'SO',
+      'Pts', 'PPG', 'Score', 'All', 'rAll', 'S All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'RHP', 'LHP', 'R Hit', 'R Pwr', 'L Hit', 'L Pwr', 'PA', 'H', '2B', '3B', 'R', 'HR', 'RBI', 'SB', 'BB', 'SO',
       'AVG', 'OBP', 'SLG', 'OPS', 'Pts +/-', 'Whiff%', 'SwSp%', '≥100', 'R Eye', 'L Eye', 'BB%', 'K%', 'FB R', 'SI R', 'CT R', 'SL R', 'SW R', 'CB R', 'CH R', 'SP R', 'FB L', 'SI L', 'CT L', 'SL L', 'SW L', 'CB L', 'CH L', 'SP L'
     ],
     sp: [
       'Name', 'Team',
-      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'Rarity', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
+      'Pts', 'PPG', 'Score', 'All', 'rAll', 'S All', , 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'Rarity', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
       'FB Stf', 'FB R', 'FB L', 'SI Stf', 'SI R', 'SI L', 'CT Stf', 'CT R', 'CT L', 'SL Stf', 'SL R', 'SL L', 'SW Stf', 'SW R', 'SW L', 'CB Stf', 'CB R', 'CB L', 'CH Stf', 'CH R', 'CH L', 'SP Stf', 'SP R', 'SP L'
     ],
     rp: [
       'Name', 'Team',
-      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'Rarity', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'BS', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
+      'Pts', 'PPG', 'Score', 'All', 'rAll', 'S All', , 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'Rarity', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'BS', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
       'FB Stf', 'FB R', 'FB L', 'SI Stf', 'SI R', 'SI L', 'CT Stf', 'CT R', 'CT L', 'SL Stf', 'SL R', 'SL L', 'SW Stf', 'SW R', 'SW L', 'CB Stf', 'CB R', 'CB L', 'CH Stf', 'CH R', 'CH L', 'SP Stf', 'SP R', 'SP L'
     ],
   },
@@ -9129,15 +9129,15 @@ function fantasy_column_divider_class(col) {
   if (fantasy_state.scope !== 'majors') return '';
 
   const heavy_dividers_by_section = {
-    hitters: new Set(['Pts', 'Val', 'RHP', 'R Hit', 'PA', 'AVG', 'Pts +/-', 'Whiff%', 'R Eye', 'FB R', 'FB L']),
-    sp: new Set(['Pts', 'Velo', 'W', 'Val', 'LCon', 'ERA', 'Days +/-', '≥50 Qual', 'FB Stf']),
-    rp: new Set(['Pts', 'Velo', 'W', 'Val', 'LCon', 'ERA', 'Days +/-', '≥50 Qual', 'FB Stf']),
+    hitters: new Set(['Pts', 'Score', 'Contact', 'Val', 'RHP', 'R Hit', 'PA', 'AVG', 'Pts +/-', 'Whiff%', 'R Eye', 'FB R', 'FB L']),
+    sp: new Set(['Pts', 'Score', 'Contact', 'Velo', 'W', 'Val', 'LCon', 'ERA', 'Days +/-', '≥50 Qual', 'FB Stf']),
+    rp: new Set(['Pts', 'Score', 'Contact', 'Velo', 'W', 'Val', 'LCon', 'ERA', 'Days +/-', '≥50 Qual', 'FB Stf']),
   };
 
   const light_dividers_by_section = {
     hitters: new Set(),
-    sp: new Set(['SI Stf', 'CT Stf', 'SL Stf', 'SW Stf', 'CB Stf', 'CH Stf', 'SP Stf']),
-    rp: new Set(['SI Stf', 'CT Stf', 'SL Stf', 'SW Stf', 'CB Stf', 'CH Stf', 'SP Stf']),
+    sp: new Set(['IP', 'SI Stf', 'CT Stf', 'SL Stf', 'SW Stf', 'CB Stf', 'CH Stf', 'SP Stf']),
+    rp: new Set(['IP', 'SI Stf', 'CT Stf', 'SL Stf', 'SW Stf', 'CB Stf', 'CH Stf', 'SP Stf']),
   };
 
   const heavy = heavy_dividers_by_section[fantasy_state.section] || new Set();
