@@ -3,7 +3,7 @@
     "majors|hitters|2B": {
       "end": 50,
       "mode": "good_only",
-      "start": 29
+      "start": 30
     },
     "majors|hitters|3B": {
       "end": 10,
@@ -61,7 +61,7 @@
     "majors|hitters|BB": {
       "end": 120,
       "mode": "good_only",
-      "start": 79
+      "start": 80
     },
     "majors|hitters|BB%": {
       "best": 0.16,
@@ -266,12 +266,12 @@
     "majors|hitters|H": {
       "end": 220,
       "mode": "good_only",
-      "start": 169
+      "start": 170
     },
     "majors|hitters|HR": {
       "end": 50,
       "mode": "good_only",
-      "start": 19
+      "start": 20
     },
     "majors|hitters|ICR/PA": {
       "best": 0.4,
@@ -492,7 +492,7 @@
     "majors|hitters|R": {
       "end": 120,
       "mode": "good_only",
-      "start": 69
+      "start": 70
     },
     "majors|hitters|R CB": {
       "best": 70,
@@ -610,7 +610,7 @@
     "majors|hitters|RBI": {
       "end": 120,
       "mode": "good_only",
-      "start": 69
+      "start": 70
     },
     "majors|hitters|RHP": {
       "best": 40,
@@ -711,7 +711,7 @@
     "majors|hitters|SB": {
       "end": 50,
       "mode": "good_only",
-      "start": 9
+      "start": 10
     },
     "majors|hitters|SI": {
       "best": 70,
@@ -771,7 +771,7 @@
     "majors|hitters|SO": {
       "end": 220,
       "mode": "bad_only",
-      "start": 169
+      "start": 170
     },
     "majors|hitters|SP": {
       "best": 70,
@@ -938,7 +938,7 @@
     "majors|rp|BB": {
       "end": 60,
       "mode": "bad_only",
-      "start": 39
+      "start": 40
     },
     "majors|rp|BB%": {
       "best": 0.05,
@@ -952,7 +952,7 @@
     "majors|rp|BS": {
       "end": 10,
       "mode": "bad_only",
-      "start": 2
+      "start": 3
     },
     "majors|rp|Bad": {
       "best": -25,
@@ -1127,12 +1127,12 @@
     "majors|rp|IP": {
       "end": 90,
       "mode": "good_only",
-      "start": 49.9
+      "start": 50
     },
     "majors|rp|K": {
       "end": 100,
       "mode": "good_only",
-      "start": 49
+      "start": 50
     },
     "majors|rp|K%": {
       "best": 0.33,
@@ -1160,7 +1160,7 @@
     "majors|rp|L": {
       "end": 10,
       "mode": "bad_only",
-      "start": 4
+      "start": 5
     },
     "majors|rp|L CB": {
       "best": 85,
@@ -1295,7 +1295,7 @@
     "majors|rp|QS/SV": {
       "end": 40,
       "mode": "good_only",
-      "start": 9
+      "start": 10
     },
     "majors|rp|R CB": {
       "best": 85,
@@ -1649,7 +1649,7 @@
     "majors|rp|W": {
       "end": 10,
       "mode": "good_only",
-      "start": 4
+      "start": 5
     },
     "majors|rp|WHIP": {
       "best": 1.0,
@@ -1737,7 +1737,7 @@
     "majors|sp|BB": {
       "end": 100,
       "mode": "bad_only",
-      "start": 69
+      "start": 70
     },
     "majors|sp|BB%": {
       "best": 0.05,
@@ -1751,7 +1751,7 @@
     "majors|sp|BS": {
       "end": 10,
       "mode": "bad_only",
-      "start": 2
+      "start": 3
     },
     "majors|sp|Bad": {
       "best": -25,
@@ -1926,12 +1926,12 @@
     "majors|sp|IP": {
       "end": 220,
       "mode": "good_only",
-      "start": 149.9
+      "start": 150
     },
     "majors|sp|K": {
       "end": 250,
       "mode": "good_only",
-      "start": 149
+      "start": 150
     },
     "majors|sp|K%": {
       "best": 0.33,
@@ -1959,7 +1959,7 @@
     "majors|sp|L": {
       "end": 20,
       "mode": "bad_only",
-      "start": 9
+      "start": 10
     },
     "majors|sp|L CB": {
       "best": 85,
@@ -2094,7 +2094,7 @@
     "majors|sp|QS/SV": {
       "end": 23,
       "mode": "good_only",
-      "start": 9
+      "start": 10
     },
     "majors|sp|R CB": {
       "best": 85,
@@ -2448,7 +2448,7 @@
     "majors|sp|W": {
       "end": 20,
       "mode": "good_only",
-      "start": 14
+      "start": 15
     },
     "majors|sp|WHIP": {
       "best": 1.0,
