@@ -1476,9 +1476,9 @@
       "worst": 1.5
     },
     "majors|rp|S pERA": {
-      "best": 2.5,
+      "best": 2.8,
       "fmt": "num",
-      "gold": 2.3,
+      "gold": 2.5,
       "higher_is_better": false,
       "neutral_hi": 3.5,
       "neutral_lo": 4,
@@ -2275,9 +2275,9 @@
       "worst": 1.5
     },
     "majors|sp|S pERA": {
-      "best": 2.5,
+      "best": 2.8,
       "fmt": "num",
-      "gold": 2.3,
+      "gold": 2.5,
       "higher_is_better": false,
       "neutral_hi": 3.5,
       "neutral_lo": 4,
