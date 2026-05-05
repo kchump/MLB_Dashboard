@@ -8393,7 +8393,7 @@ const fantasy_display_columns = {
 const fantasy_sort_columns = {
   majors: {
     hitters: [
-      'Pts', 'PPG', 'Score', 'All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'RHP', 'LHP', 'R Hit', 'R Pwr', 'L Hit', 'L Pwr', 'PA', 'H', '2B', '3B', 'R', 'HR', 'RBI', 'SB', 'BB', 'SO',
+      'Pts', 'PPG', 'Score', 'All', 'rAll', 'S All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'RHP', 'LHP', 'R Hit', 'R Pwr', 'L Hit', 'L Pwr', 'PA', 'H', '2B', '3B', 'R', 'HR', 'RBI', 'SB', 'BB', 'SO',
       'AVG', 'OBP', 'SLG', 'OPS', 'Pts +/-', 'Whiff%', 'SwSp%', '≥100', 'R Eye', 'L Eye', 'BB%', 'K%', 'FB R', 'SI R', 'CT R', 'SL R', 'SW R', 'CB R', 'CH R', 'SP R', 'FB L', 'SI L', 'CT L', 'SL L', 'SW L', 'CB L', 'CH L', 'SP L'
     ],
     sp: [
@@ -8589,7 +8589,7 @@ function fantasy_fmt(key, v) {
   const one_dec_keys = new Set([
     'IP', 'S IP',
     'Score', 'All', 'Con', 'Disc', 'Val', 'vSzn',
-    'S Score', 'S All', 'S Con', 'S Disc', 'S Val', 'S Stf',
+    'S Score', 'rAll', 'S All', 'S Con', 'S Disc', 'S Val', 'S Stf',
     'Velo', 'Stf'
   ]);
 
@@ -9172,7 +9172,7 @@ function fantasy_display_label(col) {
     'LCon': 'Loc for Contact',
     'Rarity': 'Funkiness',
     'Con': 'Contact',
-    'Disc': 'Discipline',
+    'Disc': 'Approach',
     'LDisc': 'Loc for K/BB',
     '≥50 Qual': '+Pitches',
     'SO': 'K',

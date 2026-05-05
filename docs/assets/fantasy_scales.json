@@ -1606,9 +1606,9 @@
       "worst": 0
     },
     "majors|rp|Strike%": {
-      "best": 0.7,
+      "best": 0.69,
       "fmt": "pct",
-      "gold": 0.72,
+      "gold": 0.71,
       "neutral_hi": 0.64,
       "neutral_lo": 0.63,
       "worst": 0.58
@@ -2405,9 +2405,9 @@
       "worst": 0
     },
     "majors|sp|Strike%": {
-      "best": 0.7,
+      "best": 0.69,
       "fmt": "pct",
-      "gold": 0.72,
+      "gold": 0.71,
       "neutral_hi": 0.64,
       "neutral_lo": 0.63,
       "worst": 0.58
