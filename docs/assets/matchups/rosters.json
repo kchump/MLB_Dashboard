@@ -62,7 +62,6 @@
     "Cal Raleigh": "SEA",
     "Caleb Durbin": "BOS",
     "Cam Smith": "HOU",
-    "Carlos Correa": "HOU",
     "Carlos Cortes": "ATH",
     "Carlos Narvaez": "BOS",
     "Carson Benge": "NYM",
@@ -332,6 +331,7 @@
     "Sean Murphy": "ATL",
     "Sebastian Rivero": "LAA",
     "Seiya Suzuki": "CHC",
+    "Shay Whitcomb": "HOU",
     "Shea Langeliers": "ATH",
     "Shohei Ohtani": "LAD",
     "Spencer Horwitz": "PIT",
@@ -562,13 +562,13 @@
       "Braden Shewmake",
       "Brice Matthews",
       "Cam Smith",
-      "Carlos Correa",
       "Cesar Salazar",
       "Christian Vazquez",
       "Christian Walker",
       "Isaac Paredes",
       "Jose Altuve",
       "Nick Allen",
+      "Shay Whitcomb",
       "Yordan Alvarez",
       "Zach Cole",
       "Zach Dezenzo"
@@ -852,7 +852,6 @@
     "Alex Hoppe": "SEA",
     "Alex Lange": "KC",
     "Alex Vesia": "LAD",
-    "Andre Granillo": "WAS",
     "Andres Munoz": "SEA",
     "Andrew Kittredge": "BAL",
     "Andrew Morris": "MIN",
@@ -879,6 +878,8 @@
     "Brent Suter": "LAA",
     "Brian Fitzpatrick": "MIL",
     "Brock Burke": "CIN",
+    "Brock Stewart": "LAD",
+    "Brooks Kriske": "ATH",
     "Brooks Raley": "NYM",
     "Bryan Abreu": "HOU",
     "Bryan Baker": "TB",
@@ -909,6 +910,7 @@
     "Daniel Palencia": "CHC",
     "David Bednar": "NYY",
     "David Peterson": "NYM",
+    "Dax Fulton": "MIA",
     "Dennis Santana": "PIT",
     "Devin Williams": "NYM",
     "Dietrich Enns": "BAL",
@@ -952,7 +954,6 @@
     "Jacob Webb": "CHC",
     "Jaden Hill": "COL",
     "Jake Bird": "NYY",
-    "Jake Eder": "LAD",
     "Jake Woodford": "MIL",
     "Jakob Junis": "TEX",
     "Jalen Beeks": "TEX",
@@ -1047,7 +1048,6 @@
     "Ryan Yarbrough": "NYY",
     "Ryan Zeferjahn": "LAA",
     "Ryne Stanek": "STL",
-    "Sam Aldegheri": "LAA",
     "Sam Bachman": "LAA",
     "Sam Moll": "CIN",
     "Scott Barlow": "ATH",
@@ -1071,7 +1071,6 @@
     "Trevor Megill": "MIL",
     "Tyler Alexander": "TEX",
     "Tyler Davis": "CHW",
-    "Tyler Ferguson": "ATH",
     "Tyler Holton": "DET",
     "Tyler Kinley": "ATL",
     "Tyler Phillips": "MIA",
@@ -1081,12 +1080,12 @@
     "Walbert Urena": "LAA",
     "Wandy Peralta": "SD",
     "Will Klein": "LAD",
-    "William Kempner": "MIA",
     "Yennier Cano": "BAL",
     "Yohan Ramirez": "PIT",
     "Yuki Matsui": "SD",
     "Zach Agnos": "COL",
-    "Zack Kelly": "BOS"
+    "Zack Kelly": "BOS",
+    "Zak Kent": "WAS"
   },
   "relievers_by_team": {
     "ARI": [
@@ -1100,14 +1099,14 @@
       "Taylor Clarke"
     ],
     "ATH": [
+      "Brooks Kriske",
       "Hogan Harris",
       "Jack Perkins",
       "Joel Kuhnel",
       "Justin Sterner",
       "Luis Medina",
       "Mark Leiter Jr.",
-      "Scott Barlow",
-      "Tyler Ferguson"
+      "Scott Barlow"
     ],
     "ATL": [
       "Aaron Bummer",
@@ -1226,16 +1225,15 @@
       "Kirby Yates",
       "Nick Sandlin",
       "Ryan Zeferjahn",
-      "Sam Aldegheri",
       "Sam Bachman",
       "Walbert Urena"
     ],
     "LAD": [
       "Alex Vesia",
       "Blake Treinen",
+      "Brock Stewart",
       "Edgardo Henriquez",
       "Jack Dreyer",
-      "Jake Eder",
       "Justin Wrobleski",
       "Kyle Hurt",
       "Tanner Scott",
@@ -1245,12 +1243,12 @@
       "Andrew Nardi",
       "Anthony Bender",
       "Calvin Faucher",
+      "Dax Fulton",
       "John King",
       "Josh Ekness",
       "Lake Bachar",
       "Michael Petersen",
-      "Tyler Phillips",
-      "William Kempner"
+      "Tyler Phillips"
     ],
     "MIL": [
       "Aaron Ashby",
@@ -1383,20 +1381,21 @@
       "Tyler Rogers"
     ],
     "WAS": [
-      "Andre Granillo",
       "Brad Lord",
       "Gus Varland",
       "Mitchell Parker",
       "Orlando Ribalta",
       "Paxton Schultz",
       "PJ Poulin",
-      "Richard Lovelady"
+      "Richard Lovelady",
+      "Zak Kent"
     ]
   },
   "starter_team_map": {
     "Aaron Civale": "ATH",
     "Aaron Nola": "PHI",
     "Adrian Houser": "SF",
+    "Alek Manoah": "LAA",
     "Andre Pallante": "STL",
     "Andrew Abbott": "CIN",
     "Andrew Painter": "PHI",
@@ -1418,7 +1417,6 @@
     "Chase Burns": "CIN",
     "Chase Petty": "CIN",
     "Chris Bassitt": "BAL",
-    "Chris Paddack": "MIA",
     "Chris Sale": "ATL",
     "Christian Scott": "NYM",
     "Clay Holmes": "NYM",
@@ -1639,6 +1637,7 @@
       "Stephen Kolek"
     ],
     "LAA": [
+      "Alek Manoah",
       "Jack Kochanowicz",
       "Jose Soriano",
       "Mitch Farris",
@@ -1653,7 +1652,6 @@
       "Yoshinobu Yamamoto"
     ],
     "MIA": [
-      "Chris Paddack",
       "Eury Perez",
       "Janson Junk",
       "Max Meyer",
