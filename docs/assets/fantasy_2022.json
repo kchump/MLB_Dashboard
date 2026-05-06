@@ -4894,7 +4894,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYY",
         "teams": "",
         "vSzn": 78.09,
@@ -93291,7 +93291,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYY",
         "teams": "",
         "≥100": 0.16699999999999998
@@ -99496,7 +99496,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYY",
         "≥100": 0.348
       },

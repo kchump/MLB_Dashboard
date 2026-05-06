@@ -8870,7 +8870,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET",
         "teams": "",
         "vSzn": 281.37,
@@ -9864,7 +9864,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "DET",
         "teams": "",
         "vSzn": "",
@@ -55229,7 +55229,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYY",
         "teams": "",
         "vSzn": -197.84,
@@ -100081,7 +100081,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "DET",
         "≥100": 0.275
       },
@@ -111121,7 +111121,7 @@
         "person_key": "yerry de los santos",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYY"
       },
       {
@@ -123965,7 +123965,7 @@
         "pos": "2B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET",
         "teams": "",
         "≥100": 0.25
@@ -132663,7 +132663,7 @@
         "pos": "2B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET",
         "≥100": 0.345
       },
@@ -132985,7 +132985,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "DET",
         "≥100": 0.21100000000000002
       },
@@ -149708,7 +149708,7 @@
         "person_key": "yerry de los santos",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYY"
       },
       {

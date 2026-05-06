@@ -137,7 +137,6 @@
     "Gavin Sheets": "SD",
     "George Springer": "TOR",
     "Geraldo Perdomo": "ARI",
-    "Gleyber Torres": "DET",
     "Graham Pauley": "MIA",
     "Gunnar Henderson": "BAL",
     "Hao Yu  Lee": "DET",
@@ -158,6 +157,7 @@
     "JJ Bleday": "CIN",
     "JJ Wetherholt": "STL",
     "Jac Caglianone": "KC",
+    "Jace Jung": "DET",
     "Jackson Chourio": "MIL",
     "Jackson Merrill": "SD",
     "Jacob Wilson": "ATH",
@@ -546,8 +546,8 @@
     "DET": [
       "Colt Keith",
       "Dillon Dingler",
-      "Gleyber Torres",
       "Hao Yu  Lee",
+      "Jace Jung",
       "Jahmai Jones",
       "Jake Rogers",
       "Kerry Carpenter",
@@ -1525,6 +1525,7 @@
     "Shota Imanaga": "CHC",
     "Simeon Woods Richardson": "MIN",
     "Slade Cecconi": "CLE",
+    "Sonny Gray": "BOS",
     "Spencer Arrighetti": "HOU",
     "Spencer Strider": "ATL",
     "Stephen Kolek": "KC",
@@ -1579,7 +1580,8 @@
       "Connelly Early",
       "Jake Bennett",
       "Payton Tolle",
-      "Ranger Suarez"
+      "Ranger Suarez",
+      "Sonny Gray"
     ],
     "CHC": [
       "Colin Rea",
