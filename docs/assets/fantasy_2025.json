@@ -33578,7 +33578,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MIA",
         "teams": "",
         "vSzn": -454.08,
@@ -33791,7 +33791,7 @@
         "pos2": "",
         "prev_minors_year": 2024.0,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MIA",
         "teams": "",
         "vSzn": -176.7,
@@ -104037,7 +104037,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MIA",
         "≥100": 0.16699999999999998
       },
@@ -104060,7 +104060,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MIA",
         "≥100": 0.318
       },
@@ -116982,27 +116982,6 @@
         "team": "ATL"
       },
       {
-        "All": 47.38,
-        "BB%": 0.073,
-        "Con": 32.01,
-        "Days +/-": -0.025848142164781873,
-        "Disc": 26.55,
-        "IP": 42.1,
-        "K": 61.0,
-        "K%": 0.37,
-        "Stf": 19.86,
-        "Strike%": 0.644,
-        "SwStr%": 0.20199999999999999,
-        "Velo": 94.0,
-        "WHIP": 0.9448818897637795,
-        "name": "Josh White",
-        "person_key": "josh white",
-        "pitch_role": "RP",
-        "role": "rp",
-        "sort_bucket": 1,
-        "team": "MIA"
-      },
-      {
         "All": -20.35,
         "BB%": 0.158,
         "Con": 19.54,
@@ -117127,6 +117106,27 @@
         "role": "rp",
         "sort_bucket": 3,
         "team": "CHW"
+      },
+      {
+        "All": -10.08,
+        "BB%": 0.077,
+        "Con": -14.85,
+        "Days +/-": -0.11111111111111116,
+        "Disc": 2.18,
+        "IP": 2.2,
+        "K": 3.0,
+        "K%": 0.231,
+        "Stf": 27.65,
+        "Strike%": 0.644,
+        "SwStr%": 0.156,
+        "Velo": 93.57,
+        "WHIP": 2.625,
+        "name": "Tyler Samaniego",
+        "person_key": "tyler samaniego",
+        "pitch_role": "RP",
+        "role": "rp",
+        "sort_bucket": 0,
+        "team": "BOS"
       },
       {
         "All": 7.58,
@@ -120886,7 +120886,7 @@
         "person_key": "dax fulton",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB"
       },
       {
@@ -122461,7 +122461,7 @@
         "person_key": "brendan beck",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "NYY"
       },
       {
@@ -122547,6 +122547,27 @@
         "role": "sp",
         "sort_bucket": 1,
         "team": "CHC"
+      },
+      {
+        "All": -4.06,
+        "BB%": 0.126,
+        "Con": 26.64,
+        "Days +/-": -0.39905591866376156,
+        "Disc": -4.8,
+        "IP": 50.0,
+        "K": 52.0,
+        "K%": 0.23399999999999999,
+        "Stf": 7.04,
+        "Strike%": 0.598,
+        "SwStr%": 0.15,
+        "Velo": 95.5,
+        "WHIP": 1.48,
+        "name": "Jose Franco",
+        "person_key": "jose franco",
+        "pitch_role": "FLEX",
+        "role": "sp",
+        "sort_bucket": 0,
+        "team": "CIN"
       },
       {
         "All": -21.9,
@@ -122885,27 +122906,6 @@
         "team": "COL"
       },
       {
-        "All": -37.46,
-        "BB%": 0.133,
-        "Con": -8.66,
-        "Days +/-": -0.5454545454545454,
-        "Disc": -0.52,
-        "IP": 5.2,
-        "K": 8.0,
-        "K%": 0.267,
-        "Stf": 22.16,
-        "Strike%": 0.568,
-        "SwStr%": 0.114,
-        "Velo": 96.6,
-        "WHIP": 2.2941176470588234,
-        "name": "Hudson Leach",
-        "person_key": "hudson leach",
-        "pitch_role": "SP",
-        "role": "sp",
-        "sort_bucket": 3,
-        "team": "HOU"
-      },
-      {
         "All": -76.64,
         "BB%": 0.138,
         "Con": -17.51,
@@ -123051,6 +123051,27 @@
         "role": "sp",
         "sort_bucket": 3,
         "team": "NYY"
+      },
+      {
+        "All": -9.56,
+        "BB%": 0.064,
+        "Con": 42.79,
+        "Days +/-": -0.00898876404494317,
+        "Disc": -0.23,
+        "IP": 24.2,
+        "K": 24.0,
+        "K%": 0.22899999999999998,
+        "Stf": 6.14,
+        "Strike%": 0.625,
+        "SwStr%": 0.09,
+        "Velo": 89.4,
+        "WHIP": 1.4594594594594594,
+        "name": "Tucker Davidson",
+        "person_key": "tucker davidson",
+        "pitch_role": "SP",
+        "role": "sp",
+        "sort_bucket": 1,
+        "team": "PHI"
       },
       {
         "All": 6.53,
@@ -123261,6 +123282,27 @@
         "role": "sp",
         "sort_bucket": 3,
         "team": "TOR"
+      },
+      {
+        "All": -22.51,
+        "BB%": 0.087,
+        "Con": 3.79,
+        "Days +/-": -0.17549491706795023,
+        "Disc": 1.72,
+        "IP": 33.2,
+        "K": 38.0,
+        "K%": 0.253,
+        "Stf": 18.5,
+        "Strike%": 0.621,
+        "SwStr%": 0.124,
+        "Velo": 94.7,
+        "WHIP": 1.425742574257426,
+        "name": "Riley Cornelio",
+        "person_key": "riley cornelio",
+        "pitch_role": "FLEX",
+        "role": "sp",
+        "sort_bucket": 1,
+        "team": "WAS"
       }
     ]
   },
@@ -140838,7 +140880,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MIA",
         "≥100": 0.2
       },
@@ -140907,7 +140949,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MIA",
         "≥100": 0.28600000000000003
       },
@@ -160985,7 +161027,7 @@
         "person_key": "dax fulton",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB"
       },
       {
