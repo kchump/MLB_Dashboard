@@ -39826,7 +39826,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": "",
@@ -47314,7 +47314,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": -452.95,
@@ -47458,7 +47458,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD",
         "teams": "",
         "vSzn": -235.78,
@@ -54802,7 +54802,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CIN",
         "teams": "",
         "vSzn": 453.99,
@@ -59698,7 +59698,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "teams": "",
         "vSzn": "",
@@ -62290,7 +62290,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": "",
@@ -70572,7 +70572,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CIN",
         "teams": "",
         "vSzn": 59.43,
@@ -73956,7 +73956,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET",
         "teams": "",
         "vSzn": -80.85,
@@ -104592,7 +104592,7 @@
         "person_key": "yerry de los santos",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -105180,7 +105180,7 @@
         "person_key": "trent thornton",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR"
       },
       {
@@ -106734,7 +106734,7 @@
         "person_key": "tejay antone",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CIN"
       },
       {
@@ -107742,7 +107742,7 @@
         "person_key": "erasmo ramirez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET"
       },
       {
@@ -108372,7 +108372,7 @@
         "person_key": "chris devenski",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ARI"
       },
       {
@@ -110789,7 +110789,7 @@
         "person_key": "matthew boyd",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET"
       },
       {
@@ -112072,27 +112072,6 @@
         "role": "sp",
         "sort_bucket": 0,
         "team": "LAD"
-      },
-      {
-        "All": -51.75,
-        "BB%": 0.0,
-        "Con": 6.86,
-        "Days +/-": -0.7931034482758625,
-        "Disc": -13.8,
-        "IP": 2.0,
-        "K": 0.0,
-        "K%": 0.0,
-        "Stf": 24.62,
-        "Strike%": 0.586,
-        "SwStr%": 0.034,
-        "Velo": 94.5,
-        "WHIP": 1.0,
-        "name": "Michael Grove",
-        "person_key": "michael grove",
-        "pitch_role": "SP",
-        "role": "sp",
-        "sort_bucket": 2,
-        "team": "MiLB"
       },
       {
         "All": -63.29,

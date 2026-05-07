@@ -2338,7 +2338,7 @@ function get_table_row_sample_info(text_node) {
   }
 
   if (has_ip) {
-    const is_bullpen = role === 'RP' || role === 'CL';
+    const is_bullpen = role === 'RP' || role === 'CL' || role === 'Flex';
     const threshold = is_bullpen ? 10 : 20;
 
     return {

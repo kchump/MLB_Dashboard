@@ -849,6 +849,7 @@
     "Aaron Bummer": "ATL",
     "Abner Uribe": "MIL",
     "Adrian Morejon": "SD",
+    "Alek Manoah": "LAA",
     "Alex Hoppe": "SEA",
     "Alex Lange": "KC",
     "Alex Vesia": "LAD",
@@ -896,6 +897,7 @@
     "Chase Dollander": "COL",
     "Chase Shugart": "PHI",
     "Chase Silseth": "LAA",
+    "Chris Devenski": "PIT",
     "Cody Bolton": "HOU",
     "Cole Sulser": "TB",
     "Cole Winn": "TEX",
@@ -909,7 +911,6 @@
     "Daniel Lynch IV": "KC",
     "Daniel Palencia": "CHC",
     "David Bednar": "NYY",
-    "David Peterson": "NYM",
     "Dax Fulton": "MIA",
     "Dennis Santana": "PIT",
     "Devin Williams": "NYM",
@@ -919,9 +920,9 @@
     "Dylan Lee": "ATL",
     "Edgardo Henriquez": "LAD",
     "Eduard Bazardo": "SEA",
-    "Emilio Pagan": "CIN",
     "Enmanuel De Jesus": "DET",
     "Enyel De Los Santos": "HOU",
+    "Eric Cerantola": "KC",
     "Eric Lauer": "TOR",
     "Eric Orze": "MIN",
     "Erik Sabrowski": "CLE",
@@ -959,7 +960,6 @@
     "Jalen Beeks": "TEX",
     "Jared Shuster": "STL",
     "Jason Adam": "SD",
-    "Jason Alexander": "HOU",
     "Javier Assad": "CHC",
     "Jeff Hoffman": "TOR",
     "Jeremiah Estrada": "SD",
@@ -1021,7 +1021,6 @@
     "Mitchell Parker": "WAS",
     "Nick Davila": "SEA",
     "Nick Mears": "KC",
-    "Nick Sandlin": "LAA",
     "Orion Kerkering": "PHI",
     "Orlando Ribalta": "WAS",
     "Osvaldo Bido": "CHW",
@@ -1062,12 +1061,14 @@
     "Tanner Scott": "LAD",
     "Taylor Clarke": "ARI",
     "Taylor Rogers": "MIN",
+    "Tejay Antone": "CIN",
     "Tim Herrin": "CLE",
     "Tim Hill": "NYY",
     "Tim Mayza": "PHI",
     "Tobias Myers": "NYM",
     "Tommy Nance": "TOR",
     "Tony Santillan": "CIN",
+    "Trent Thornton": "CHC",
     "Trevor Megill": "MIL",
     "Tyler Alexander": "TEX",
     "Tyler Davis": "CHW",
@@ -1077,7 +1078,6 @@
     "Tyler Rogers": "TOR",
     "Tyler Samaniego": "BOS",
     "Victor Vodnik": "COL",
-    "Walbert Urena": "LAA",
     "Wandy Peralta": "SD",
     "Will Klein": "LAD",
     "Yennier Cano": "BAL",
@@ -1143,7 +1143,8 @@
       "Jacob Webb",
       "Javier Assad",
       "Phil Maton",
-      "Ryan Rolison"
+      "Ryan Rolison",
+      "Trent Thornton"
     ],
     "CHW": [
       "Bryan Hudson",
@@ -1158,12 +1159,12 @@
     "CIN": [
       "Brock Burke",
       "Connor Phillips",
-      "Emilio Pagan",
       "Graham Ashcraft",
       "Jose Franco",
       "Luis Mey",
       "Pierce Johnson",
       "Sam Moll",
+      "Tejay Antone",
       "Tony Santillan"
     ],
     "CLE": [
@@ -1205,28 +1206,27 @@
       "Bryan King",
       "Cody Bolton",
       "Enyel De Los Santos",
-      "Jason Alexander",
       "Kai-Wei Teng",
       "Steven Okert"
     ],
     "KC": [
       "Alex Lange",
       "Daniel Lynch IV",
+      "Eric Cerantola",
       "John Schreiber",
       "Lucas Erceg",
       "Matt Strahm",
       "Nick Mears"
     ],
     "LAA": [
+      "Alek Manoah",
       "Brent Suter",
       "Chase Silseth",
       "Drew Pomeranz",
       "Jose Fermin",
       "Kirby Yates",
-      "Nick Sandlin",
       "Ryan Zeferjahn",
-      "Sam Bachman",
-      "Walbert Urena"
+      "Sam Bachman"
     ],
     "LAD": [
       "Alex Vesia",
@@ -1274,7 +1274,6 @@
       "Austin Warren",
       "Brooks Raley",
       "Craig Kimbrel",
-      "David Peterson",
       "Devin Williams",
       "Huascar Brazoban",
       "Luke Weaver",
@@ -1302,6 +1301,7 @@
       "Tim Mayza"
     ],
     "PIT": [
+      "Chris Devenski",
       "Dennis Santana",
       "Evan Sisk",
       "Gregory Soto",
@@ -1395,7 +1395,6 @@
     "Aaron Civale": "ATH",
     "Aaron Nola": "PHI",
     "Adrian Houser": "SF",
-    "Alek Manoah": "LAA",
     "Andre Pallante": "STL",
     "Andrew Abbott": "CIN",
     "Andrew Painter": "PHI",
@@ -1415,7 +1414,6 @@
     "Carmen Mlodzinski": "PIT",
     "Chad Patrick": "MIL",
     "Chase Burns": "CIN",
-    "Chase Petty": "CIN",
     "Chris Bassitt": "BAL",
     "Chris Sale": "ATL",
     "Christian Scott": "NYM",
@@ -1425,6 +1423,7 @@
     "Connelly Early": "BOS",
     "Connor Prielipp": "MIN",
     "Cristopher Sanchez": "PHI",
+    "David Peterson": "NYM",
     "Davis Martin": "CHW",
     "Didier Fuentes": "ATL",
     "Drew Rasmussen": "TB",
@@ -1449,7 +1448,6 @@
     "Jack Flaherty": "DET",
     "Jack Kochanowicz": "LAA",
     "Jack Leiter": "TEX",
-    "Jacob Latz": "TEX",
     "Jacob Lopez": "ATH",
     "Jacob Misiorowski": "MIL",
     "Jacob deGrom": "TEX",
@@ -1483,7 +1481,6 @@
     "MacKenzie Gore": "TEX",
     "Martin Perez": "ATL",
     "Matt Waldron": "SD",
-    "Matthew Boyd": "CHC",
     "Matthew Liberatore": "STL",
     "Max Fried": "NYY",
     "Max Meyer": "MIA",
@@ -1528,7 +1525,6 @@
     "Sonny Gray": "BOS",
     "Spencer Arrighetti": "HOU",
     "Spencer Strider": "ATL",
-    "Stephen Kolek": "KC",
     "Taj Bradley": "MIN",
     "Tanner Bibee": "CLE",
     "Tomoyuki Sugano": "COL",
@@ -1536,6 +1532,7 @@
     "Ty Madden": "DET",
     "Tyler Glasnow": "LAD",
     "Tyler Mahle": "SF",
+    "Walbert Urena": "LAA",
     "Walker Buehler": "SD",
     "Will Warren": "NYY",
     "Yoshinobu Yamamoto": "LAD",
@@ -1587,7 +1584,6 @@
       "Colin Rea",
       "Edward Cabrera",
       "Jameson Taillon",
-      "Matthew Boyd",
       "Shota Imanaga"
     ],
     "CHW": [
@@ -1601,7 +1597,6 @@
       "Andrew Abbott",
       "Brady Singer",
       "Chase Burns",
-      "Chase Petty",
       "Rhett Lowder"
     ],
     "CLE": [
@@ -1635,15 +1630,14 @@
       "Luinder Avila",
       "Michael Wacha",
       "Noah Cameron",
-      "Seth Lugo",
-      "Stephen Kolek"
+      "Seth Lugo"
     ],
     "LAA": [
-      "Alek Manoah",
       "Jack Kochanowicz",
       "Jose Soriano",
       "Mitch Farris",
-      "Reid Detmers"
+      "Reid Detmers",
+      "Walbert Urena"
     ],
     "LAD": [
       "Emmet Sheehan",
@@ -1676,6 +1670,7 @@
     "NYM": [
       "Christian Scott",
       "Clay Holmes",
+      "David Peterson",
       "Freddy Peralta",
       "Nolan McLean"
     ],
@@ -1736,7 +1731,6 @@
     "TEX": [
       "Jack Leiter",
       "Jacob deGrom",
-      "Jacob Latz",
       "Kumar Rocker",
       "MacKenzie Gore",
       "Nathan Eovaldi"

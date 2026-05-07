@@ -46656,7 +46656,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TB",
         "teams": "",
         "vSzn": -20.39,
@@ -58322,7 +58322,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ATH",
         "teams": "",
         "vSzn": 279.27,
@@ -59186,7 +59186,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "DET,TOR",
         "vSzn": -601.77,
@@ -86533,7 +86533,7 @@
         "person_key": "emilio pagan",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB"
       },
       {
@@ -88192,7 +88192,7 @@
         "person_key": "erasmo ramirez",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TB"
       },
       {
