@@ -138,7 +138,143 @@ function update_sidebar_custom_icons(root) {
   });
 }
 /* ################# */
-function render_custom_sidebar_list(list_id, empty_id, people_set) {
+async function sort_active_team_sidebar_lists_by_fval() {
+  const sort_year = String(window.DEFAULT_SEASON_YEAR || new Date().getFullYear());
+  const fval_lookup = await sidebar_fval_lookup_for_year(sort_year);
+  const excluded_divisions = new Set([
+    'foreign',
+    'inactive',
+    'retired',
+    'top_prospects',
+    'top prospects',
+    'wbc',
+  ]);
+
+  const excluded_group_labels = new Set([
+    'injured list',
+    'il',
+    'prospects',
+    'top prospects',
+    'minors',
+    'minor league',
+    'minor leagues',
+    'foreign',
+    'inactive',
+    'retired',
+    'wbc',
+  ]);
+
+  function group_label_is_fval_sortable(label) {
+    const s = String(label || '').trim().toLowerCase();
+    if (!s) return true;
+    if (excluded_group_labels.has(s)) return false;
+    if (s.includes('injured')) return false;
+    if (s.includes('prospect')) return false;
+    if (s.includes('minor')) return false;
+    return true;
+  }
+
+  for (const role_list of document.querySelectorAll('.team_block .role_list')) {
+    const team_block = role_list.closest('.team_block');
+    const division_block = role_list.closest('.division_block');
+
+    const team = String(team_block?.dataset?.team || '').trim().toUpperCase();
+    const division = String(division_block?.dataset?.division || '').trim().toLowerCase();
+
+    if (!team || ['FA', 'FREE AGENTS', 'FREE_AGENTS'].includes(team)) continue;
+    if (excluded_divisions.has(division)) continue;
+
+    const ul = role_list.querySelector('.player_list');
+    if (!ul) continue;
+
+    const role = fantasy_role_for_sidebar_link(role_list);
+    const kids = Array.from(ul.children);
+
+    let group = [];
+    let group_label = '';
+
+    async function flush_group() {
+      if (!group.length) return;
+
+      if (!group_label_is_fval_sortable(group_label)) {
+        group.forEach(li => ul.appendChild(li));
+        group = [];
+        return;
+      }
+
+      const rows = await Promise.all(group.map(async li => {
+        const a = li.querySelector('.toc_link[data-person_key]');
+        const val = a ? get_sidebar_fval_from_lookup(fval_lookup, a.dataset.person_key, role) : null;
+
+        return {
+          li,
+          val: val == null ? -Infinity : Number(val),
+          has_val: val != null && Number.isFinite(Number(val)),
+          last_sort: get_sidebar_last_name_sort_key(a),
+          full_sort: get_sidebar_full_name_sort_key(a),
+          page_sort: String(a?.dataset?.page || ''),
+        };
+      }));
+
+      rows.sort((x, y) => {
+        if (x.has_val && y.has_val) {
+          const val_cmp = y.val - x.val;
+          if (val_cmp !== 0) return val_cmp;
+        }
+
+        if (x.has_val !== y.has_val) return x.has_val ? -1 : 1;
+
+        const last_cmp = x.last_sort.localeCompare(y.last_sort);
+        if (last_cmp !== 0) return last_cmp;
+
+        const full_cmp = x.full_sort.localeCompare(y.full_sort);
+        if (full_cmp !== 0) return full_cmp;
+
+        return x.page_sort.localeCompare(y.page_sort);
+      });
+
+      rows.forEach(row => ul.appendChild(row.li));
+      group = [];
+    }
+
+    for (const kid of kids) {
+      if (kid.classList?.contains('sub_role_label')) {
+        await flush_group();
+        group_label = kid.textContent || '';
+        ul.appendChild(kid);
+      } else if (kid.classList?.contains('player_li')) {
+        group.push(kid);
+      } else {
+        await flush_group();
+        ul.appendChild(kid);
+      }
+    }
+
+    await flush_group();
+  }
+}
+/* ################# */
+function get_sidebar_last_name_sort_key(a) {
+  const name = String(a?.dataset?.name || a?.textContent || '').trim();
+  const parts = name.split(/\s+/).filter(Boolean);
+  return parts.length ? parts[parts.length - 1].toLowerCase() : '';
+}
+
+function get_sidebar_full_name_sort_key(a) {
+  return String(a?.dataset?.name || a?.textContent || '').trim().toLowerCase();
+}
+
+function fantasy_role_for_sidebar_link(el) {
+  const role = String(el?.dataset?.role || '').trim().toLowerCase();
+
+  if (role === 'lineup' || role === 'batters' || role === 'hitter' || role === 'hitters') return 'hitters';
+  if (role === 'rotation' || role === 'starter' || role === 'starters' || role === 'sp') return 'sp';
+  if (role === 'bullpen' || role === 'reliever' || role === 'relievers' || role === 'rp') return 'rp';
+
+  return role;
+}
+/* ################# */
+async function render_custom_sidebar_list(list_id, empty_id, people_set) {
   const list = document.getElementById(list_id);
   const empty = document.getElementById(empty_id);
   if (!list) return;
@@ -159,6 +295,29 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
 
   function get_full_name_sort_key(a) {
     return String(a?.dataset?.name || a?.textContent || '').trim().toLowerCase();
+  }
+
+    function should_sort_by_fval(a) {
+    const team_block = a?.closest?.('.team_block');
+    const division_block = a?.closest?.('.division_block');
+
+    const team = String(team_block?.dataset?.team || '').trim().toUpperCase();
+    const division = String(division_block?.dataset?.division || '').trim().toLowerCase();
+
+    if (!team || team === 'FA' || team === 'FREE AGENTS' || team === 'FREE_AGENTS') return false;
+
+    const excluded_divisions = new Set([
+      'foreign',
+      'inactive',
+      'retired',
+      'top_prospects',
+      'top prospects',
+      'wbc',
+    ]);
+
+    if (excluded_divisions.has(division)) return false;
+
+    return true;
   }
 
   function get_pos_sort_key(a) {
@@ -249,33 +408,63 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
   let appended_player_count = 0;
   let appended_section_count = 0;
 
-  section_order.forEach(section => {
+  const label_current_year = String(window.DEFAULT_SEASON_YEAR || '').trim();
+  const sort_year = label_current_year || String(new Date().getFullYear());
+
+  for (const section of section_order) {
     const items = grouped.get(section) || [];
-    if (!items.length) return;
+    if (!items.length) continue;
 
-    items.sort((a, b) => {
-      const a_role = String(a?.dataset?.role || '').trim().toLowerCase();
-      const b_role = String(b?.dataset?.role || '').trim().toLowerCase();
+    const sort_rows = await Promise.all(items.map(async a => {
+      const use_fval = should_sort_by_fval(a);
+      const val = use_fval
+        ? await val_for_year_person(sort_year, a.dataset.person_key, fantasy_role_for_sidebar_link(a))
+        : null;
 
-      const a_pos_sort = get_pos_sort_key(a);
-      const b_pos_sort = get_pos_sort_key(b);
+      return {
+        a,
+        use_fval,
+        fval: val == null ? -Infinity : Number(val),
+        pos_sort: get_pos_sort_key(a),
+        last_sort: get_last_name_sort_key(a),
+        full_sort: get_full_name_sort_key(a),
+        page_sort: String(a.dataset.page || ''),
+      };
+    }));
 
-      const a_is_hitter = a_pos_sort !== 999;
-      const b_is_hitter = b_pos_sort !== 999;
+    sort_rows.sort((x, y) => {
+      const x_is_hitter = x.pos_sort !== 999;
+      const y_is_hitter = y.pos_sort !== 999;
 
-      if (a_is_hitter && b_is_hitter) {
-        const pos_cmp = a_pos_sort - b_pos_sort;
+      if (x_is_hitter && y_is_hitter) {
+        const pos_cmp = x.pos_sort - y.pos_sort;
         if (pos_cmp !== 0) return pos_cmp;
       }
 
-      const last_cmp = get_last_name_sort_key(a).localeCompare(get_last_name_sort_key(b));
+      if (x.use_fval && y.use_fval) {
+        const x_has_fval = Number.isFinite(x.fval);
+        const y_has_fval = Number.isFinite(y.fval);
+
+        if (x_has_fval && y_has_fval) {
+          const fval_cmp = y.fval - x.fval;
+          if (fval_cmp !== 0) return fval_cmp;
+        }
+
+        if (x_has_fval !== y_has_fval) {
+          return x_has_fval ? -1 : 1;
+        }
+      }
+
+      const last_cmp = x.last_sort.localeCompare(y.last_sort);
       if (last_cmp !== 0) return last_cmp;
 
-      const full_cmp = get_full_name_sort_key(a).localeCompare(get_full_name_sort_key(b));
+      const full_cmp = x.full_sort.localeCompare(y.full_sort);
       if (full_cmp !== 0) return full_cmp;
 
-      return String(a.dataset.page || '').localeCompare(String(b.dataset.page || ''));
+      return x.page_sort.localeCompare(y.page_sort);
     });
+
+    items.splice(0, items.length, ...sort_rows.map(x => x.a));
 
     const section_nodes = [];
 
@@ -295,7 +484,7 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
       section_nodes.push(clone);
     });
 
-    if (!section_nodes.length) return;
+    if (!section_nodes.length) continue;
 
     if (appended_section_count > 0 && (section === 'Bullpen' || section === 'Lineup')) {
       const spacer = document.createElement('div');
@@ -313,7 +502,7 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
 
     appended_player_count += section_nodes.length;
     appended_section_count += 1;
-  });
+  }
 
   if (empty) {
     empty.style.display = appended_player_count ? 'none' : '';
@@ -323,12 +512,12 @@ function render_custom_sidebar_list(list_id, empty_id, people_set) {
   update_sidebar_custom_icons(list);
 }
 /* ################# */
-function render_favorites_sidebar() {
-  render_custom_sidebar_list('favorites_list', 'favorites_empty', get_favorites());
+async function render_favorites_sidebar() {
+  await render_custom_sidebar_list('favorites_list', 'favorites_empty', get_favorites());
 }
 /* ################# */
-function render_watchlist_sidebar() {
-  render_custom_sidebar_list('watchlist_list', 'watchlist_empty', get_watchlist());
+async function render_watchlist_sidebar() {
+  await render_custom_sidebar_list('watchlist_list', 'watchlist_empty', get_watchlist());
 }
 /* ################# */
 function current_page_person_key() {
@@ -421,9 +610,10 @@ function sync_player_page_action_buttons() {
   }
 }
 /* ################# */
-function refresh_custom_player_lists_ui() {
-  render_favorites_sidebar();
-  render_watchlist_sidebar();
+async function refresh_custom_player_lists_ui() {
+  await sort_active_team_sidebar_lists_by_fval();
+  await render_favorites_sidebar();
+  await render_watchlist_sidebar();
   update_sidebar_custom_icons(document);
   sync_player_page_action_buttons();
 
@@ -655,6 +845,64 @@ function find_player_row_anywhere(data, person_key, role) {
   }
 
   return null;
+}
+const sidebar_fval_lookup_cache = new Map();
+/* ################# */
+async function sidebar_fval_lookup_for_year(year) {
+  const y = String(year || '').trim();
+  if (!y) return new Map();
+
+  if (sidebar_fval_lookup_cache.has(y)) {
+    return sidebar_fval_lookup_cache.get(y);
+  }
+
+  const data = await load_fantasy_year(y);
+  const out = new Map();
+
+  if (data) {
+    for (const scope_val of Object.values(data)) {
+      if (!scope_val || typeof scope_val !== 'object') continue;
+
+      for (const [section_name, section_val] of Object.entries(scope_val)) {
+        if (!Array.isArray(section_val)) continue;
+
+        const section = String(section_name || '').trim().toLowerCase();
+
+        section_val.forEach(row => {
+          const person_key = String(row.person_key || '').trim();
+          const norm_key = normalize_matchup_person_key(person_key || row.name || '');
+          if (!norm_key) return;
+
+          const val_num = Number(row.Val);
+          const s_val_num = Number(row['S Val']);
+
+          const has_val = row.Val !== '' && row.Val != null && !Number.isNaN(val_num);
+          const has_s_val = row['S Val'] !== '' && row['S Val'] != null && !Number.isNaN(s_val_num);
+
+          if (!has_val && !has_s_val) return;
+
+          let fval = null;
+          if (!has_val) fval = s_val_num;
+          else if (!has_s_val) fval = val_num;
+          else fval = Math.abs(s_val_num) > Math.abs(val_num) ? s_val_num : val_num;
+
+          out.set(`${section}__${norm_key}`, fval);
+        });
+      }
+    }
+  }
+
+  sidebar_fval_lookup_cache.set(y, out);
+  return out;
+}
+
+function get_sidebar_fval_from_lookup(lookup, person_key, role) {
+  const section = fantasy_role_for_sidebar_link({ dataset: { role } });
+  const norm_key = normalize_matchup_person_key(person_key);
+  if (!section || !norm_key) return null;
+
+  const key = `${section}__${norm_key}`;
+  return lookup.has(key) ? lookup.get(key) : null;
 }
 /* ################# */
 async function val_for_year_person(year, person_key, role) { //absolute value comparison of Val and S Val
