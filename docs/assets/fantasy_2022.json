@@ -12988,7 +12988,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD",
         "teams": "",
         "vSzn": "",
@@ -49890,7 +49890,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": "",
@@ -56802,7 +56802,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "ARI",
         "teams": "",
         "vSzn": "",
@@ -62418,7 +62418,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": -362.51,
@@ -62922,7 +62922,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "ARI,PHI",
         "vSzn": "",
@@ -76388,7 +76388,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "NYM",
         "teams": "",
         "vSzn": 16.65,
@@ -86631,7 +86631,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD",
         "≥100": 0.268
       },
@@ -90257,7 +90257,7 @@
         "person_key": "corbin martin",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "ARI"
       },
       {
@@ -90908,7 +90908,7 @@
         "person_key": "chris devenski",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {
@@ -96874,7 +96874,7 @@
         "person_key": "trevor richards",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR"
       },
       {
@@ -110498,7 +110498,7 @@
         "person_key": "gavin hollowell",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -111653,7 +111653,7 @@
         "person_key": "corbin martin",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "ARI"
       },
       {
@@ -112997,7 +112997,7 @@
         "person_key": "trevor richards",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR"
       },
       {
@@ -115435,7 +115435,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "NYM"
       },
       {

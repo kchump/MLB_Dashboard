@@ -50052,7 +50052,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "HOU",
         "teams": "",
         "vSzn": "",
@@ -57972,7 +57972,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "MIA,TB",
         "vSzn": -211.74,
@@ -58548,7 +58548,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "HOU",
         "teams": "",
         "vSzn": -175.2,
@@ -69998,7 +69998,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE",
         "teams": "",
         "vSzn": -210.11,
@@ -86704,7 +86704,7 @@
         "person_key": "chris devenski",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "HOU"
       },
       {
@@ -96017,7 +96017,7 @@
         "person_key": "corbin martin",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "HOU"
       },
       {
@@ -98560,7 +98560,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE"
       },
       {
