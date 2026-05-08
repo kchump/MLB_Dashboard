@@ -4894,7 +4894,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "NYY",
         "teams": "",
         "vSzn": 78.09,
@@ -41682,7 +41682,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR",
         "teams": "",
         "vSzn": 274.38,
@@ -56946,7 +56946,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT",
         "teams": "",
         "vSzn": -178.03,
@@ -57018,7 +57018,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ATH",
         "teams": "",
         "vSzn": "",
@@ -57162,7 +57162,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "vSzn": -17.88,
@@ -61842,7 +61842,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "Chicago,SF",
         "vSzn": "",
@@ -86475,29 +86475,6 @@
         "≥100": 0.021
       },
       {
-        "AVG": 0.325,
-        "All": -2.71,
-        "Con": -36.27,
-        "Disc": 11.42,
-        "HR": 3.0,
-        "L Eye": 0.7710144927536232,
-        "OBP": 0.411,
-        "OPS": 0.905,
-        "PA": 95.0,
-        "R Eye": 0.7149253731343284,
-        "SLG": 0.494,
-        "SwSp%": 0.33799999999999997,
-        "Whiff%": 0.259,
-        "name": "Spencer Jones",
-        "person_key": "spencer jones",
-        "pos": "",
-        "pos2": "",
-        "role": "batters",
-        "sort_bucket": 1,
-        "team": "MiLB",
-        "≥100": 0.262
-      },
-      {
         "AVG": 0.287,
         "All": 31.59,
         "Con": 21.9,
@@ -88908,7 +88885,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.013999999999999999
       },
@@ -90803,7 +90780,7 @@
         "person_key": "kervin castro",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -93198,7 +93175,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "NYY",
         "teams": "",
         "≥100": 0.16699999999999998
@@ -95754,7 +95731,7 @@
         "person_key": "jordan romano",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR"
       },
       {
@@ -99403,7 +99380,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "NYY",
         "≥100": 0.348
       },
@@ -108755,7 +108732,7 @@
         "person_key": "jordan romano",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR"
       },
       {
@@ -111695,7 +111672,7 @@
         "person_key": "duane underwood jr",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT"
       },
       {

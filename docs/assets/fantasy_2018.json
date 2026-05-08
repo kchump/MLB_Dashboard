@@ -1912,7 +1912,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 3,
         "team": "NYY",
         "teams": "",
         "vSzn": -24.03,
@@ -46905,7 +46905,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "vSzn": 105.28,
@@ -46977,7 +46977,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "HOU",
         "teams": "",
         "vSzn": -51.47,
@@ -47049,7 +47049,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": -37.49,
@@ -47121,7 +47121,7 @@
         "pitch_role": "SP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "vSzn": "",
@@ -47193,7 +47193,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "KC,SEA",
         "vSzn": "",
@@ -47337,7 +47337,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SD",
         "teams": "",
         "vSzn": "",
@@ -80493,7 +80493,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 3,
         "team": "NYY",
         "teams": "",
         "≥100": 0.077
@@ -83445,7 +83445,7 @@
         "person_key": "pedro strop",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHC"
       },
       {
@@ -83465,7 +83465,7 @@
         "person_key": "hector rondon",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "HOU"
       },
       {
@@ -91960,7 +91960,7 @@
         "person_key": "hector rondon",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "HOU"
       },
       {
@@ -91981,7 +91981,7 @@
         "person_key": "neil ramirez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -92002,7 +92002,7 @@
         "person_key": "justin grimm",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {

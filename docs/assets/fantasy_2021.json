@@ -3332,7 +3332,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "NYY",
         "teams": "",
         "vSzn": -96.24,
@@ -39826,7 +39826,7 @@
         "pos2": "",
         "prev_minors_year": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "CLE",
         "teams": "",
         "vSzn": "",
@@ -40690,7 +40690,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR",
         "teams": "",
         "vSzn": 405.59,
@@ -53794,7 +53794,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "vSzn": "",
@@ -53866,7 +53866,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT",
         "teams": "",
         "vSzn": -358.94,
@@ -54010,7 +54010,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "vSzn": "",
@@ -60922,7 +60922,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": "",
@@ -86710,7 +86710,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "NYY",
         "teams": "",
         "≥100": 0.25
@@ -90054,7 +90054,7 @@
         "person_key": "kervin castro",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "SF"
       },
       {
@@ -92383,7 +92383,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "NYY",
         "≥100": 0.214
       },
@@ -103941,7 +103941,7 @@
         "person_key": "jordan romano",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR"
       },
       {
@@ -106587,7 +106587,7 @@
         "person_key": "hector rondon",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -106608,7 +106608,7 @@
         "person_key": "duane underwood jr",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT"
       },
       {
