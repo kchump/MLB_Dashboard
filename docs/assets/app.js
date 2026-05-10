@@ -4891,17 +4891,24 @@ append_matchup_player_link(
           if (Number.isFinite(v)) {
             td.textContent = `${display_stat(v * 100, 1)}%`;
 
-            const bg = key === 'Pts +/-'
-              ? rgba_from_two_sided_value(v, -0.20, 0.05, 0.10, 0.30, alpha_mult)
-              : rgba_from_two_sided_value(v, -0.06, 0.14, 0.15, 0.50, alpha_mult);
+            const gold_at = key === 'Pts +/-' ? 0.35 : 0.60;
 
-            td.style.background = bg;
+            if (v >= gold_at) {
+              td.style.background = gold_gradient_fill(alpha_mult);
+              is_gold_cell = true;
+            } else {
+              const bg = key === 'Pts +/-'
+                ? rgba_from_two_sided_value(v, -0.20, 0.05, 0.10, 0.30, alpha_mult)
+                : rgba_from_two_sided_value(v, -0.06, 0.14, 0.15, 0.50, alpha_mult);
 
-            const text_color = matchup_heat_text_color(bg);
-            td.style.color = text_color;
+              td.style.background = bg;
 
-            const a = td.querySelector('a');
-            if (a) a.style.color = text_color;
+              const text_color = matchup_heat_text_color(bg);
+              td.style.color = text_color;
+
+              const a = td.querySelector('a');
+              if (a) a.style.color = text_color;
+            }
           }
         }
         
