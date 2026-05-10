@@ -4680,11 +4680,15 @@ function infer_matchup_link_roles(header, explicit_role, explicit_pitcher_role) 
       if (!nm) return null;
 
       if (key === 'Pts +/-') {
-        return fallback_rec_for_name(year_lists.fallback_hitter_all, nm);
+          const year_pack = matchups_lists?.by_year?.[String(link_year)] || {};
+
+          return fallback_rec_for_name(year_pack.fallback_hitter_all, nm);
       }
 
       if (key === 'Days +/-') {
-        return fallback_rec_for_name(year_lists.fallback_pitcher_all, nm);
+          const year_pack = matchups_lists?.by_year?.[String(link_year)] || {};
+
+          return fallback_rec_for_name(year_pack.fallback_pitcher_all, nm);
       }
 
       return null;
