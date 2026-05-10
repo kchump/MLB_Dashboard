@@ -79,6 +79,14 @@
       "neutral_lo": 30,
       "worst": 10
     },
+    "majors|hitters|Bad%": {
+      "best": 0.3,
+      "fmt": "pct",
+      "higher_is_better": false,
+      "neutral_hi": 0.38,
+      "neutral_lo": 0.39,
+      "worst": 0.45
+    },
     "majors|hitters|Bar/PA": {
       "best": 0.14,
       "fmt": "pct",
@@ -488,6 +496,13 @@
       "neutral_hi": 0.21,
       "neutral_lo": 0.2,
       "worst": 0.12
+    },
+    "majors|hitters|Qual%": {
+      "best": 0.55,
+      "fmt": "pct",
+      "neutral_hi": 0.47,
+      "neutral_lo": 0.46,
+      "worst": 0.4
     },
     "majors|hitters|R": {
       "end": 120,
@@ -962,6 +977,15 @@
       "neutral_lo": -40,
       "worst": -60
     },
+    "majors|rp|Bad%": {
+      "best": 0.3,
+      "fmt": "pct",
+      "gold": 0.25,
+      "higher_is_better": false,
+      "neutral_hi": 0.36,
+      "neutral_lo": 0.37,
+      "worst": 0.45
+    },
     "majors|rp|Bar/PA": {
       "best": 0.05,
       "fmt": "pct",
@@ -1296,6 +1320,14 @@
       "end": 40,
       "mode": "good_only",
       "start": 10
+    },
+    "majors|rp|Qual%": {
+      "best": 0.58,
+      "fmt": "pct",
+      "gold": 0.6,
+      "neutral_hi": 0.5,
+      "neutral_lo": 0.49,
+      "worst": 0.41
     },
     "majors|rp|R CB": {
       "best": 85,
@@ -1761,6 +1793,15 @@
       "neutral_lo": -40,
       "worst": -60
     },
+    "majors|sp|Bad%": {
+      "best": 0.3,
+      "fmt": "pct",
+      "gold": 0.25,
+      "higher_is_better": false,
+      "neutral_hi": 0.36,
+      "neutral_lo": 0.37,
+      "worst": 0.45
+    },
     "majors|sp|Bar/PA": {
       "best": 0.05,
       "fmt": "pct",
@@ -2095,6 +2136,14 @@
       "end": 23,
       "mode": "good_only",
       "start": 10
+    },
+    "majors|sp|Qual%": {
+      "best": 0.58,
+      "fmt": "pct",
+      "gold": 0.6,
+      "neutral_hi": 0.5,
+      "neutral_lo": 0.49,
+      "worst": 0.41
     },
     "majors|sp|R CB": {
       "best": 85,
