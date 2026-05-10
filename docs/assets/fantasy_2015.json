@@ -37008,7 +37008,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": 326.12,
@@ -58466,7 +58466,7 @@
         "pitch_role": "FLEX",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHW",
         "teams": "",
         "vSzn": -136.16,
@@ -86664,7 +86664,7 @@
         "person_key": "hunter strickland",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "SF"
       },
       {
@@ -90173,7 +90173,7 @@
         "person_key": "carlos rodon",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHW"
       },
       {

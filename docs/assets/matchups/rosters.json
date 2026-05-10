@@ -878,7 +878,6 @@
     "Brent Suter": "LAA",
     "Brian Fitzpatrick": "MIL",
     "Brock Burke": "CIN",
-    "Brock Stewart": "LAD",
     "Brooks Kriske": "ATH",
     "Brooks Raley": "NYM",
     "Bryan Abreu": "HOU",
@@ -973,6 +972,7 @@
     "Jordan Hicks": "CHW",
     "Jose A. Ferrer": "SEA",
     "Jose Alvarado": "PHI",
+    "Jose Espada": "BAL",
     "Jose Fermin": "LAA",
     "Josh Ekness": "MIA",
     "Josh Simpson": "SEA",
@@ -988,7 +988,6 @@
     "Keaton Winn": "SF",
     "Keegan Akin": "BAL",
     "Kenley Jansen": "DET",
-    "Kervin Castro": "NYY",
     "Kevin Ginkel": "ARI",
     "Kevin Kelly": "TB",
     "Kirby Yates": "LAA",
@@ -1121,6 +1120,7 @@
       "Anthony Nunez",
       "Dietrich Enns",
       "Grant Wolfram",
+      "Jose Espada",
       "Keegan Akin",
       "Lou Trivino",
       "Rico Garcia",
@@ -1234,7 +1234,6 @@
     "LAD": [
       "Alex Vesia",
       "Blake Treinen",
-      "Brock Stewart",
       "Edgardo Henriquez",
       "Jack Dreyer",
       "Kyle Hurt",
@@ -1288,7 +1287,6 @@
       "David Bednar",
       "Fernando Cruz",
       "Jake Bird",
-      "Kervin Castro",
       "Paul Blackburn",
       "Ryan Yarbrough",
       "Tim Hill"
@@ -1402,6 +1400,7 @@
     "Andrew Painter": "PHI",
     "Anthony Kay": "CHW",
     "Bailey Ober": "MIN",
+    "Blake Snell": "LAD",
     "Brady Singer": "CIN",
     "Brandon Sproat": "MIL",
     "Brandon Young": "BAL",
@@ -1412,6 +1411,7 @@
     "Bubba Chandler": "PIT",
     "Cade Cavalli": "WAS",
     "Cam Schlittler": "NYY",
+    "Carlos Rodon": "NYY",
     "Carmen Mlodzinski": "PIT",
     "Chad Patrick": "MIL",
     "Chase Burns": "CIN",
@@ -1640,6 +1640,7 @@
       "Walbert Urena"
     ],
     "LAD": [
+      "Blake Snell",
       "Emmet Sheehan",
       "Justin Wrobleski",
       "Roki Sasaki",
@@ -1675,6 +1676,7 @@
     ],
     "NYY": [
       "Cam Schlittler",
+      "Carlos Rodon",
       "Max Fried",
       "Ryan Weathers",
       "Will Warren"

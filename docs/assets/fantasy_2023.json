@@ -51244,7 +51244,7 @@
         "pitch_role": "RP",
         "prev_minors_year": 2022.0,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN",
         "teams": "",
         "vSzn": 287.96,
@@ -59596,7 +59596,7 @@
         "pitch_role": "RP",
         "prev_minors_year": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SD",
         "teams": "",
         "vSzn": "",
@@ -75654,7 +75654,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYY",
         "teams": "",
         "vSzn": -421.53,
@@ -78246,7 +78246,7 @@
         "pitch_role": "",
         "prev_minors_year": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SD",
         "teams": "",
         "vSzn": 664.53,
@@ -100159,7 +100159,7 @@
         "person_key": "brock stewart",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN"
       },
       {
@@ -100497,27 +100497,6 @@
         "role": "rp",
         "sort_bucket": 0,
         "team": "- - -"
-      },
-      {
-        "All": 8.6,
-        "BB%": 0.158,
-        "Con": 33.17,
-        "Days +/-": -0.22847011144883522,
-        "Disc": 3.0,
-        "IP": 72.0,
-        "K": 98.0,
-        "K%": 0.31,
-        "Stf": 24.73,
-        "Strike%": 0.593,
-        "SwStr%": 0.147,
-        "Velo": 96.10000000000001,
-        "WHIP": 1.5694444444444444,
-        "name": "Ben Brown",
-        "person_key": "ben brown",
-        "pitch_role": "RP",
-        "role": "rp",
-        "sort_bucket": 0,
-        "team": "MiLB"
       },
       {
         "All": 18.88,
@@ -101902,7 +101881,7 @@
         "person_key": "hunter strickland",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -102175,7 +102154,7 @@
         "person_key": "jose espada",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SD"
       },
       {
@@ -103351,7 +103330,7 @@
         "person_key": "kervin castro",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -105180,7 +105159,7 @@
         "person_key": "jackson jobe",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 3,
         "team": "MiLB"
       },
       {
@@ -106190,6 +106169,27 @@
         "role": "sp",
         "sort_bucket": 0,
         "team": "MIL"
+      },
+      {
+        "All": 8.6,
+        "BB%": 0.158,
+        "Con": 33.17,
+        "Days +/-": -0.22847011144883522,
+        "Disc": 3.0,
+        "IP": 72.0,
+        "K": 98.0,
+        "K%": 0.31,
+        "Stf": 24.73,
+        "Strike%": 0.593,
+        "SwStr%": 0.147,
+        "Velo": 96.10000000000001,
+        "WHIP": 1.5694444444444444,
+        "name": "Ben Brown",
+        "person_key": "ben brown",
+        "pitch_role": "RP",
+        "role": "sp",
+        "sort_bucket": 0,
+        "team": "MiLB"
       },
       {
         "All": -18.11,
@@ -112059,7 +112059,7 @@
         "person_key": "brock stewart",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN"
       },
       {
@@ -131798,7 +131798,7 @@
         "person_key": "brock stewart",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN"
       },
       {
@@ -133457,7 +133457,7 @@
         "person_key": "hunter strickland",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -135032,7 +135032,7 @@
         "person_key": "kervin castro",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
