@@ -9668,7 +9668,7 @@ function fantasy_column_divider_class(col) {
   };
 
   const light_dividers_by_section = {
-    hitters: new Set(),
+    hitters: new Set('L Hit',),
     sp: new Set(['IP', 'SI Stf', 'CT Stf', 'SL Stf', 'SW Stf', 'CB Stf', 'CH Stf', 'SP Stf']),
     rp: new Set(['IP', 'SI Stf', 'CT Stf', 'SL Stf', 'SW Stf', 'CB Stf', 'CH Stf', 'SP Stf']),
   };

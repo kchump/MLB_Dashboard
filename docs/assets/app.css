@@ -762,16 +762,25 @@ body.sidebar_hidden .content {
   box-sizing: border-box;
 }
 
-#matchups table.matchup_table,
+/* #matchups table.matchup_table,
 #matchups table.matchup_table.compact_matchup_table {
   width: max-content;
   min-width: 100%;
   border-collapse: collapse;
   font-size: 12.5px;
   table-layout: auto;
+} */
+#matchups table.matchup_table,
+#matchups table.matchup_table.compact_matchup_table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 12.5px;
+  table-layout: auto;
 }
 
-#matchups table.matchup_table th,
+/* #matchups table.matchup_table th,
 #matchups table.matchup_table td,
 #matchups table.matchup_table.compact_matchup_table th,
 #matchups table.matchup_table.compact_matchup_table td {
@@ -782,6 +791,31 @@ body.sidebar_hidden .content {
   word-break: normal;
   overflow-wrap: normal;
   font-weight: 400;
+} */
+#matchups table.matchup_table th,
+#matchups table.matchup_table td,
+#matchups table.matchup_table.compact_matchup_table th,
+#matchups table.matchup_table.compact_matchup_table td {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 8px;
+  text-align: center;
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+  font-weight: 400;
+}
+
+#matchups table.matchup_table th:last-child,
+#matchups table.matchup_table td:last-child,
+#matchups table.matchup_table.compact_matchup_table th:last-child,
+#matchups table.matchup_table.compact_matchup_table td:last-child {
+  border-right: 0;
+}
+
+#matchups table.matchup_table tbody tr:last-child td,
+#matchups table.matchup_table.compact_matchup_table tbody tr:last-child td {
+  border-bottom: 0;
 }
 
 #matchups table.matchup_table th,
