@@ -8923,7 +8923,7 @@
         "prev_minors_year": "",
         "rAll": 0.14,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "BAL",
         "teams": "",
         "vSzn": 117.96,
@@ -14611,7 +14611,7 @@
         "prev_minors_year": "",
         "rAll": 40.91,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "vSzn": 1212.48,
@@ -16915,7 +16915,7 @@
         "prev_minors_year": "",
         "rAll": 18.86,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "CIN,NYY",
         "vSzn": -363.51,
@@ -22171,7 +22171,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATL",
         "teams": "",
         "vSzn": "",
@@ -22747,7 +22747,7 @@
         "prev_minors_year": "",
         "rAll": 15.28,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SD",
         "teams": "",
         "vSzn": 45.51,
@@ -38803,7 +38803,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "teams": "",
         "vSzn": "",
@@ -53132,7 +53132,7 @@
         "prev_minors_year": 2022.0,
         "rAll": 26.05,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": 124.64,
@@ -62403,7 +62403,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU",
         "teams": "",
         "vSzn": "",
@@ -65104,7 +65104,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": "",
@@ -92394,7 +92394,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB",
         "≥100": 0.28
       },
@@ -94073,7 +94073,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATL",
         "≥100": 0.221
       },
@@ -95568,7 +95568,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB",
         "≥100": 0.06
       },
@@ -98420,7 +98420,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "≥100": 0.14800000000000002
       },
@@ -101657,7 +101657,7 @@
         "person_key": "tristan beck",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF"
       },
       {
@@ -103862,7 +103862,7 @@
         "person_key": "parker mushinski",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU"
       },
       {
@@ -104492,7 +104492,7 @@
         "person_key": "sean reid foley",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM"
       },
       {
@@ -110337,7 +110337,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "BAL",
         "teams": "",
         "≥100": 0.25
@@ -111033,7 +111033,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "≥100": 0.222
@@ -119464,7 +119464,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB",
         "≥100": 0.292
       },
@@ -120177,7 +120177,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "≥100": 0.316
       },
@@ -121005,7 +121005,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -",
         "≥100": 0.375
       },
@@ -122615,7 +122615,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATL",
         "≥100": 0.3
       },
@@ -122776,7 +122776,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SD",
         "≥100": 0.16699999999999998
       },
@@ -128687,7 +128687,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "≥100": 0.33299999999999996
       },
@@ -131028,7 +131028,7 @@
         "person_key": "domingo gonzalez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -132603,7 +132603,7 @@
         "person_key": "yariel rodriguez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {

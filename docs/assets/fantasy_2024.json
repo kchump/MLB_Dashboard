@@ -11227,7 +11227,7 @@
         "prev_minors_year": "",
         "rAll": -11.32,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "BAL",
         "teams": "",
         "vSzn": -315.27,
@@ -15835,7 +15835,7 @@
         "prev_minors_year": "",
         "rAll": -22.16,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR",
         "teams": "",
         "vSzn": -483.45,
@@ -18355,7 +18355,7 @@
         "prev_minors_year": "",
         "rAll": 2.05,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "vSzn": 424.59,
@@ -21091,7 +21091,7 @@
         "prev_minors_year": "",
         "rAll": 5.19,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": -406.62,
@@ -26995,7 +26995,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATL",
         "teams": "",
         "vSzn": "",
@@ -27499,7 +27499,7 @@
         "prev_minors_year": "",
         "rAll": 1.97,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SD",
         "teams": "",
         "vSzn": -235.35,
@@ -33979,7 +33979,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "TEX",
         "teams": "",
         "vSzn": "",
@@ -53046,7 +53046,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": -149.49,
@@ -56477,7 +56477,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": "",
@@ -66843,7 +66843,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU",
         "teams": "",
         "vSzn": "",
@@ -69033,7 +69033,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": 31.29,
@@ -96994,7 +96994,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR",
         "≥100": 0.242
       },
@@ -98581,7 +98581,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATL",
         "≥100": 0.19399999999999998
       },
@@ -100145,7 +100145,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "TEX",
         "≥100": 0.08900000000000001
       },
@@ -102537,7 +102537,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.161
       },
@@ -105611,7 +105611,7 @@
         "person_key": "yariel rodriguez",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR"
       },
       {
@@ -106304,7 +106304,7 @@
         "person_key": "tristan beck",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF"
       },
       {
@@ -108824,7 +108824,7 @@
         "person_key": "parker mushinski",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU"
       },
       {
@@ -109496,7 +109496,7 @@
         "person_key": "sean reid foley",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM"
       },
       {
@@ -115359,6 +115359,27 @@
         "role": "sp",
         "sort_bucket": 3,
         "team": "TOR"
+      },
+      {
+        "All": -1.26,
+        "BB%": 0.071,
+        "Con": 51.63,
+        "Days +/-": 0.2797029702970293,
+        "Disc": 1.35,
+        "IP": 73.0,
+        "K": 69.0,
+        "K%": 0.226,
+        "Stf": -13.18,
+        "Strike%": 0.6509999999999999,
+        "SwStr%": 0.107,
+        "Velo": 90.77000000000001,
+        "WHIP": 1.2465753424657535,
+        "name": "Grant Rogers",
+        "person_key": "grant rogers",
+        "pitch_role": "SP",
+        "role": "sp",
+        "sort_bucket": 1,
+        "team": "TOR"
       }
     ]
   },
@@ -116583,7 +116604,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "BAL",
         "teams": "",
         "≥100": 0.0
@@ -117015,7 +117036,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "≥100": 0.185
@@ -117447,7 +117468,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "≥100": 0.0
@@ -124535,7 +124556,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "BAL",
         "≥100": 0.0
       },
@@ -126030,7 +126051,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR",
         "≥100": 0.444
       },
@@ -126927,7 +126948,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "≥100": 0.0
       },
@@ -127732,7 +127753,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYM",
         "≥100": 0.217
       },
@@ -129549,7 +129570,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATL",
         "≥100": 0.111
       },
@@ -129710,7 +129731,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SD",
         "≥100": 0.25
       },
@@ -137756,7 +137777,7 @@
         "person_key": "yariel rodriguez",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR"
       },
       {
@@ -140948,7 +140969,7 @@
         "person_key": "parker mushinski",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU"
       },
       {
@@ -141536,7 +141557,7 @@
         "person_key": "sean reid foley",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM"
       },
       {

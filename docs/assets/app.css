@@ -1128,14 +1128,32 @@ body.soft_theme #matchups table.matchup_table.compact_matchup_table tbody tr:nth
   min-width: 190px;
 }
 
-.matchup_table th.fantasy_divider_before,
-.matchup_table td.fantasy_divider_before {
-  border-left: 2px solid var(--border) !important;
+#matchups table.matchup_table th.fantasy_divider_before,
+#matchups table.matchup_table td.fantasy_divider_before,
+#matchups table.matchup_table.compact_matchup_table th.fantasy_divider_before,
+#matchups table.matchup_table.compact_matchup_table td.fantasy_divider_before {
+  border-left: 2px solid #b8c2d2 !important;
 }
 
-.matchup_table th.fantasy_divider_before_light,
-.matchup_table td.fantasy_divider_before_light {
-  border-left: 1px solid var(--border) !important;
+#matchups table.matchup_table th.fantasy_divider_before_light,
+#matchups table.matchup_table td.fantasy_divider_before_light,
+#matchups table.matchup_table.compact_matchup_table th.fantasy_divider_before_light,
+#matchups table.matchup_table.compact_matchup_table td.fantasy_divider_before_light {
+  border-left: 1px solid #c7d0de !important;
+}
+
+body.soft_theme #matchups table.matchup_table th.fantasy_divider_before,
+body.soft_theme #matchups table.matchup_table td.fantasy_divider_before,
+body.soft_theme #matchups table.matchup_table.compact_matchup_table th.fantasy_divider_before,
+body.soft_theme #matchups table.matchup_table.compact_matchup_table td.fantasy_divider_before {
+  border-left-color: #7c8796 !important;
+}
+
+body.soft_theme #matchups table.matchup_table th.fantasy_divider_before_light,
+body.soft_theme #matchups table.matchup_table td.fantasy_divider_before_light,
+body.soft_theme #matchups table.matchup_table.compact_matchup_table th.fantasy_divider_before_light,
+body.soft_theme #matchups table.matchup_table.compact_matchup_table td.fantasy_divider_before_light {
+  border-left-color: #6f7c8c !important;
 }
 
 /* .fantasy_table th:first-child,

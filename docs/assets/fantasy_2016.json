@@ -2731,7 +2731,7 @@
         "prev_minors_year": "",
         "rAll": 7.89,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BOS",
         "teams": "",
         "vSzn": 630.27,
@@ -80184,7 +80184,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BOS",
         "teams": "",
         "≥100": 0.222
