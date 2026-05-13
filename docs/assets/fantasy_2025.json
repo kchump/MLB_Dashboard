@@ -2875,7 +2875,7 @@
         "prev_minors_year": "",
         "rAll": 23.22,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATH",
         "teams": "",
         "vSzn": 46.26,
@@ -3451,7 +3451,7 @@
         "prev_minors_year": "",
         "rAll": -10.93,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "teams": "",
         "vSzn": -455.85,
@@ -3667,7 +3667,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATH",
         "teams": "",
         "vSzn": "",
@@ -13315,7 +13315,7 @@
         "prev_minors_year": "",
         "rAll": 12.51,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "BAL",
         "teams": "",
         "vSzn": -341.16,
@@ -16627,7 +16627,7 @@
         "prev_minors_year": "",
         "rAll": -24.1,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "NYY,TB",
         "vSzn": -353.49,
@@ -17131,7 +17131,7 @@
         "prev_minors_year": "",
         "rAll": 18.36,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYY",
         "teams": "",
         "vSzn": -178.41,
@@ -28579,7 +28579,7 @@
         "prev_minors_year": "",
         "rAll": 2.63,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIL",
         "teams": "",
         "vSzn": 334.59,
@@ -29587,7 +29587,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MIL",
         "teams": "",
         "vSzn": "",
@@ -30019,7 +30019,7 @@
         "prev_minors_year": "",
         "rAll": -1.45,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "PIT",
         "teams": "",
         "vSzn": -253.83,
@@ -30811,7 +30811,7 @@
         "prev_minors_year": 2024.0,
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT",
         "teams": "",
         "vSzn": "",
@@ -32971,7 +32971,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ATL",
         "teams": "",
         "vSzn": "",
@@ -33187,7 +33187,7 @@
         "prev_minors_year": "",
         "rAll": -10.71,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL",
         "teams": "",
         "vSzn": -265.98,
@@ -39235,7 +39235,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "ATL,NYM",
         "vSzn": "",
@@ -43699,7 +43699,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": "",
@@ -46587,7 +46587,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU",
         "teams": "",
         "vSzn": "",
@@ -47609,7 +47609,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR",
         "teams": "",
         "vSzn": "",
@@ -54617,7 +54617,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BAL",
         "teams": "",
         "vSzn": -258.88,
@@ -72575,7 +72575,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL",
         "teams": "",
         "vSzn": "",
@@ -84111,7 +84111,7 @@
         "prev_minors_year": "",
         "rAll": 10.15,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "vSzn": 400.65,
@@ -84476,7 +84476,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "vSzn": "",
@@ -88418,7 +88418,7 @@
         "prev_minors_year": "",
         "rAll": -37.02,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL",
         "teams": "",
         "vSzn": -509.1,
@@ -100122,7 +100122,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "≥100": 0.17300000000000001
       },
@@ -100214,7 +100214,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATH",
         "≥100": 0.225
       },
@@ -100283,7 +100283,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.284
       },
@@ -104768,7 +104768,7 @@
         "pos": "1B",
         "pos2": "OF",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MIL",
         "≥100": 0.145
       },
@@ -105021,7 +105021,7 @@
         "pos": "C",
         "pos2": "1B",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT",
         "≥100": 0.33299999999999996
       },
@@ -105274,7 +105274,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ATL",
         "≥100": 0.10400000000000001
       },
@@ -105918,7 +105918,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.23199999999999998
       },
@@ -106700,7 +106700,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "≥100": 0.20600000000000002
       },
@@ -109253,7 +109253,7 @@
         "pos": "2B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR",
         "≥100": 0.083
       },
@@ -110684,29 +110684,6 @@
         "≥100": 0.266
       },
       {
-        "AVG": 0.259,
-        "All": -2.31,
-        "Con": -31.06,
-        "Disc": -6.03,
-        "HR": 5.0,
-        "L Eye": 0.7656765676567657,
-        "OBP": 0.319,
-        "OPS": 0.754,
-        "PA": 119.0,
-        "R Eye": 0.7137745974955277,
-        "SLG": 0.435,
-        "SwSp%": 0.325,
-        "Whiff%": 0.262,
-        "name": "Reed Trimble",
-        "person_key": "reed trimble",
-        "pos": "OF",
-        "pos2": "",
-        "role": "batters",
-        "sort_bucket": 1,
-        "team": "BAL",
-        "≥100": 0.221
-      },
-      {
         "AVG": 0.239,
         "All": 10.58,
         "Con": -13.81,
@@ -110952,7 +110929,7 @@
         "person_key": "logan vanwey",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU"
       },
       {
@@ -111120,7 +111097,7 @@
         "person_key": "nick sandlin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR"
       },
       {
@@ -112317,7 +112294,7 @@
         "person_key": "grant wolfram",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BAL"
       },
       {
@@ -116118,7 +116095,7 @@
         "person_key": "jose espada",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL"
       },
       {
@@ -120131,7 +120108,7 @@
         "person_key": "trevor rogers",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL"
       },
       {
@@ -120173,7 +120150,7 @@
         "person_key": "tyler wells",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "BAL"
       },
       {
@@ -120908,7 +120885,7 @@
         "person_key": "tanner gordon",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL"
       },
       {
@@ -123810,6 +123787,27 @@
         "team": "KC"
       },
       {
+        "All": -16.66,
+        "BB%": 0.115,
+        "Con": 23.32,
+        "Days +/-": -0.14629948364888123,
+        "Disc": -6.75,
+        "IP": 35.0,
+        "K": 32.0,
+        "K%": 0.204,
+        "Stf": 10.45,
+        "Strike%": 0.613,
+        "SwStr%": 0.136,
+        "Velo": 92.24,
+        "WHIP": 1.457142857142857,
+        "name": "Alek Manoah",
+        "person_key": "alek manoah",
+        "pitch_role": "",
+        "role": "sp",
+        "sort_bucket": 0,
+        "team": "LAA"
+      },
+      {
         "All": -21.64,
         "BB%": 0.25,
         "Con": 28.68,
@@ -124374,7 +124372,7 @@
         "pitch_role": "SP",
         "role": "sp",
         "sort_bucket": 3,
-        "team": "COL"
+        "team": "DET"
       },
       {
         "All": -37.46,
@@ -126187,7 +126185,7 @@
         "pos": "UTIL",
         "pos2": "MI/3B/OF",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "NYY,TB",
         "≥100": 0.33299999999999996
@@ -126211,7 +126209,7 @@
         "pos": "SS",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYY",
         "teams": "",
         "≥100": 0.3
@@ -127723,7 +127721,7 @@
         "pos": "DH",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIL",
         "teams": "",
         "≥100": 0.292
@@ -131861,7 +131859,7 @@
         "pos": "SS",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATH",
         "≥100": 0.174
       },
@@ -132045,7 +132043,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "≥100": 0.14800000000000002
       },
@@ -132137,7 +132135,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATH",
         "≥100": 0.0
       },
@@ -132206,7 +132204,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.28600000000000003
       },
@@ -135541,7 +135539,7 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "BAL",
         "≥100": 0.28600000000000003
       },
@@ -136576,7 +136574,7 @@
         "pos": "UTIL",
         "pos2": "MI/3B/OF",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "≥100": 0.0
       },
@@ -136737,7 +136735,7 @@
         "pos": "SS",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYY",
         "≥100": 0.281
       },
@@ -141015,7 +141013,7 @@
         "pos": "1B",
         "pos2": "OF",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MIL",
         "≥100": 0.2
       },
@@ -141176,7 +141174,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "PIT",
         "≥100": 0.35700000000000004
       },
@@ -141406,7 +141404,7 @@
         "pos": "C",
         "pos2": "1B",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT",
         "≥100": 0.25
       },
@@ -142119,7 +142117,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ATL",
         "≥100": 0.0
       },
@@ -142188,7 +142186,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL",
         "≥100": 0.0
       },
@@ -144327,7 +144325,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "≥100": 0.217
       },
@@ -147156,7 +147154,7 @@
         "pos": "2B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR",
         "≥100": 0.158
       },
@@ -148619,7 +148617,7 @@
         "person_key": "logan vanwey",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU"
       },
       {
@@ -148850,7 +148848,7 @@
         "person_key": "nick sandlin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR"
       },
       {
@@ -150845,7 +150843,7 @@
         "person_key": "grant wolfram",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BAL"
       },
       {
@@ -155780,7 +155778,7 @@
         "person_key": "jose espada",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL"
       },
       {
@@ -160822,7 +160820,7 @@
         "person_key": "tanner gordon",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL"
       },
       {
