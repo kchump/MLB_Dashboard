@@ -404,9 +404,9 @@
       "worst": 0.57
     },
     "majors|hitters|L ≥75": {
-      "best": 0.5,
+      "best": 0.45,
       "fmt": "pct",
-      "gold": 0.6,
+      "gold": 0.5,
       "neutral_hi": 0.21,
       "neutral_lo": 0.2,
       "worst": 0.05
@@ -615,9 +615,9 @@
       "worst": 0.57
     },
     "majors|hitters|R ≥75": {
-      "best": 0.5,
+      "best": 0.45,
       "fmt": "pct",
-      "gold": 0.6,
+      "gold": 0.5,
       "neutral_hi": 0.21,
       "neutral_lo": 0.2,
       "worst": 0.05
@@ -1014,7 +1014,7 @@
     "majors|rp|CB Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1038,7 +1038,7 @@
     "majors|rp|CH Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1070,7 +1070,7 @@
     "majors|rp|CT Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1126,7 +1126,7 @@
     "majors|rp|FB Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1176,7 +1176,7 @@
     "majors|rp|KN Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1535,7 +1535,7 @@
     "majors|rp|SI Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1559,7 +1559,7 @@
     "majors|rp|SL Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1583,7 +1583,7 @@
     "majors|rp|SP Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1607,7 +1607,7 @@
     "majors|rp|SW Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1673,7 +1673,7 @@
     "majors|rp|Velo": {
       "best": 98,
       "fmt": "num",
-      "gold": 99,
+      "gold": 98.5,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89
@@ -1830,7 +1830,7 @@
     "majors|sp|CB Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1854,7 +1854,7 @@
     "majors|sp|CH Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1886,7 +1886,7 @@
     "majors|sp|CT Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1942,7 +1942,7 @@
     "majors|sp|FB Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -1992,7 +1992,7 @@
     "majors|sp|KN Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2351,7 +2351,7 @@
     "majors|sp|SI Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2375,7 +2375,7 @@
     "majors|sp|SL Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2399,7 +2399,7 @@
     "majors|sp|SP Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2423,7 +2423,7 @@
     "majors|sp|SW Stf": {
       "best": 40,
       "fmt": "num",
-      "gold": 50,
+      "gold": 45,
       "neutral_hi": 21,
       "neutral_lo": 20,
       "worst": 0
@@ -2489,7 +2489,7 @@
     "majors|sp|Velo": {
       "best": 98,
       "fmt": "num",
-      "gold": 99,
+      "gold": 98.5,
       "neutral_hi": 94,
       "neutral_lo": 92,
       "worst": 89

@@ -5019,7 +5019,7 @@ if (is_gold_cell) {
         side_text,
         paths: [path],
         opts: {
-          drop_cols: ['Team', 'Opp', 'Away', 'Bats', 'Throws'],
+          drop_cols: ['Year', 'Team', 'Opp', 'Away', 'Bats', 'Throws'],
           compact_table: true,
           link_role: 'starters'
         }
@@ -5352,7 +5352,7 @@ function build_personalized_hitter_fallback_rows(year_lists_obj, hitters_list, p
         title: title_matchup,
         paths: sorted_matchup_paths,
         opts: {
-          drop_cols: ['Team', 'Pitcher', 'Opp', 'Away', 'IP', 'Bats', 'Throws'],
+          drop_cols: ['Year', 'Team', 'Pitcher', 'Opp', 'Away', 'IP', 'Bats', 'Throws'],
           gold_mode: 'hitter',
           link_role: 'batters'
         }
@@ -6646,7 +6646,7 @@ function sort_table_rows_by_all(table) {
             opts: {
               override_rows: matchup_override_rows,
               keep_all_pitch_cols: true,
-              drop_cols: ['+KN'],
+              drop_cols: ['Year', '+KN'],
               gold_mode: 'hitter',
               link_role: 'batters',
               skip_clear: true
@@ -6674,7 +6674,7 @@ function sort_table_rows_by_all(table) {
             opts: {
               dummy_rows: fallback_dummy_rows,
               keep_all_pitch_cols: true,
-              drop_cols: ['+KN'],
+              drop_cols: ['Year', '+KN'],
               skip_clear: true,
   link_role: 'batters'
             }
@@ -7455,7 +7455,7 @@ async function submit() {
 
   await render_stacked_section('Probable Pitchers', pitcher_paths, {
     override_rows: pitcher_override_rows,
-    drop_cols: ['Bats', 'Throws'],
+    drop_cols: ['Year', 'Bats', 'Throws'],
     link_role: 'starters'
   });
   apply_matchups_table_dividers(results_root, mode, 'pitchers');
@@ -7463,7 +7463,7 @@ async function submit() {
   await render_stacked_section('Matchups', matchup_paths, {
     override_rows: matchup_override_rows,
     keep_all_pitch_cols: true,
-    drop_cols: ['+KN'],
+    drop_cols: ['Year', '+KN'],
     gold_mode: 'hitter',
     link_role: 'batters'
   });
@@ -7477,7 +7477,7 @@ async function submit() {
     {
       dummy_rows: fallback_dummy_rows,
       keep_all_pitch_cols: true,
-      drop_cols: ['+KN'],
+      drop_cols: ['Year', '+KN'],
       link_role: 'batters',
       gold_mode: 'hitter'
     }
@@ -8126,7 +8126,7 @@ write_matchups_url_state({ rows: url_rows });
 await render_stacked_section('Matchups', matchup_paths, {
 override_rows: matchup_override_rows,
 keep_all_pitch_cols: true,
-drop_cols: ['+KN'],
+drop_cols: ['Year', '+KN'],
 gold_mode: 'hitter',
 link_role: 'batters'
 });
@@ -8134,7 +8134,7 @@ link_role: 'batters'
     await render_stacked_section('Fallback', [], {
       dummy_rows: fallback_dummy_rows,
       keep_all_pitch_cols: true,
-      drop_cols: ['+KN'],
+      drop_cols: ['Year', '+KN'],
 link_role: 'batters'
     });
 
@@ -8425,7 +8425,7 @@ for (const block of pitcher_blocks) {
         paths: matchup_paths,
         opts: {
           override_rows: matchup_override_rows,
-          drop_cols: ['Team', 'Away', 'Bats', 'Throws'],
+          drop_cols: ['Year', 'Team', 'Away', 'Bats', 'Throws'],
           link_role: 'starters',
           skip_clear: true
         }
@@ -8685,7 +8685,7 @@ apply_same_team_filter();
     await render_many(paths, {
       invert_stats: true,
       override_rows,
-      drop_cols: ['Pitcher', 'IP', 'Away', 'Bats', 'Throws'],
+      drop_cols: ['Year', 'Pitcher', 'IP', 'Away', 'Bats', 'Throws'],
       link_role: 'batters',
       pitcher_link_role: 'bullpen'
     });
