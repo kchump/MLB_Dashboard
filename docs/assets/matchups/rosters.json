@@ -290,7 +290,6 @@
     "Nolan Arenado": "ARI",
     "Nolan Gorman": "STL",
     "Nolan Schanuel": "LAA",
-    "Omar Martinez": "LAA",
     "Oneil Cruz": "PIT",
     "Oswald Peraza": "LAA",
     "Otto Lopez": "MIA",
@@ -593,7 +592,6 @@
       "Josh Lowe",
       "Mike Trout",
       "Nolan Schanuel",
-      "Omar Martinez",
       "Oswald Peraza",
       "Sebastian Rivero",
       "Vaughn Grissom",
@@ -867,6 +865,7 @@
     "Brad Keller": "PHI",
     "Brad Lord": "WAS",
     "Bradgley Rodriguez": "SD",
+    "Brandan Bidois": "PIT",
     "Brandon Pfaadt": "ARI",
     "Brandyn Garcia": "ARI",
     "Brant Hurter": "DET",
@@ -1076,8 +1075,7 @@
     "Yohan Ramirez": "PIT",
     "Yuki Matsui": "SD",
     "Zach Agnos": "COL",
-    "Zack Kelly": "BOS",
-    "Zak Kent": "WAS"
+    "Zack Kelly": "BOS"
   },
   "relievers_by_team": {
     "ARI": [
@@ -1288,6 +1286,7 @@
       "Tim Mayza"
     ],
     "PIT": [
+      "Brandan Bidois",
       "Dennis Santana",
       "Evan Sisk",
       "Gregory Soto",
@@ -1373,8 +1372,7 @@
       "Orlando Ribalta",
       "Paxton Schultz",
       "PJ Poulin",
-      "Richard Lovelady",
-      "Zak Kent"
+      "Richard Lovelady"
     ]
   },
   "starter_team_map": {

@@ -4587,7 +4587,7 @@ function infer_matchup_link_roles(header, explicit_role, explicit_pitcher_role) 
     const gold_mode = String(options.gold_mode || '').trim();
 
     // Remove Park / ParkFactor columns and hide empty pitch columns
-    const drop_cols = new Set(['Throws', 'Bats', 'Park', 'ParkFactor', ...requested_drop_cols]);
+    const drop_cols = new Set(['Year', 'Throws', 'Bats', 'Park', 'ParkFactor', ...requested_drop_cols]);
 
     const pitch_cols = new Set([
       '+FB', '+SI', '+CT', '+SL', '+SW', '+CB', '+CH', '+SP', '+KN'
@@ -7556,7 +7556,7 @@ if (mode === 'best_and_worst_hitters') {
       .map(x => x.path);
 
     const best_worst_drop_cols = [
-      'Away', 'Opp', '+FB', '+SI', '+CT', '+SL', '+SW', '+CB', '+CH', '+SP', '+KN', 'Bats', 'Throws'
+      'Year', 'Away', 'Opp', '+FB', '+SI', '+CT', '+SL', '+SW', '+CB', '+CH', '+SP', '+KN', 'Bats', 'Throws'
     ];
 
     await render_multiple_fragments([
