@@ -859,7 +859,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL",
         "teams": "",
         "vSzn": "",
@@ -2299,7 +2299,7 @@
         "prev_minors_year": "",
         "rAll": -67.23,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "NYY",
         "teams": "",
         "vSzn": 234.69,
@@ -3595,7 +3595,7 @@
         "prev_minors_year": "",
         "rAll": -10.1,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "COL",
         "teams": "",
         "vSzn": 422.73,
@@ -10291,7 +10291,7 @@
         "prev_minors_year": "",
         "rAll": -4.86,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TB",
         "teams": "",
         "vSzn": 451.38,
@@ -13531,7 +13531,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL",
         "teams": "",
         "vSzn": "",
@@ -42506,7 +42506,7 @@
         "prev_minors_year": "",
         "rAll": 7.79,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD",
         "teams": "",
         "vSzn": 176.9,
@@ -46229,7 +46229,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "LAA",
         "teams": "",
         "vSzn": -700.08,
@@ -67985,7 +67985,7 @@
         "prev_minors_year": "",
         "rAll": 22.75,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL",
         "teams": "",
         "vSzn": 107.31,
@@ -69518,7 +69518,7 @@
         "prev_minors_year": "",
         "rAll": 37.4,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TB",
         "teams": "",
         "vSzn": 402.36,
@@ -84708,7 +84708,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "NYY",
         "teams": "",
         "≥100": 0.19399999999999998
@@ -85572,7 +85572,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TB",
         "teams": "",
         "≥100": 0.23800000000000002
@@ -88270,7 +88270,7 @@
         "person_key": "max fried",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL"
       },
       {
@@ -88390,7 +88390,7 @@
         "person_key": "blake snell",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TB"
       },
       {
@@ -89685,7 +89685,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "COL",
         "≥100": 0.33299999999999996
       },
@@ -96259,7 +96259,7 @@
         "person_key": "matt strahm",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD"
       },
       {
@@ -96742,7 +96742,7 @@
         "person_key": "jose suarez",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "LAA"
       },
       {
@@ -99453,7 +99453,7 @@
         "person_key": "max fried",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL"
       },
       {

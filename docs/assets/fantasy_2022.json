@@ -859,7 +859,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAA",
         "teams": "",
         "vSzn": "",
@@ -1867,7 +1867,7 @@
         "prev_minors_year": "",
         "rAll": -27.06,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SF",
         "teams": "",
         "vSzn": -678.39,
@@ -4963,7 +4963,7 @@
         "prev_minors_year": "",
         "rAll": -17.23,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "NYY",
         "teams": "",
         "vSzn": 78.09,
@@ -7915,7 +7915,7 @@
         "prev_minors_year": "",
         "rAll": 20.77,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS",
         "teams": "",
         "vSzn": -23.31,
@@ -19579,7 +19579,7 @@
         "prev_minors_year": "",
         "rAll": 18.82,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "BOS,CIN",
         "vSzn": -21.18,
@@ -45043,7 +45043,7 @@
         "prev_minors_year": "",
         "rAll": 25.9,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS",
         "teams": "",
         "vSzn": 30.26,
@@ -53073,7 +53073,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA",
         "teams": "",
         "vSzn": 4.94,
@@ -59132,7 +59132,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BOS",
         "teams": "",
         "vSzn": "",
@@ -71033,7 +71033,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "DET",
         "teams": "",
         "vSzn": "",
@@ -71471,7 +71471,7 @@
         "prev_minors_year": "",
         "rAll": 11.12,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PHI",
         "teams": "",
         "vSzn": 47.89,
@@ -73004,7 +73004,7 @@
         "prev_minors_year": "",
         "rAll": 50.84,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL",
         "teams": "",
         "vSzn": 552.09,
@@ -75340,7 +75340,7 @@
         "prev_minors_year": "",
         "rAll": 27.57,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD",
         "teams": "",
         "vSzn": 201.27,
@@ -92958,7 +92958,7 @@
         "person_key": "blake snell",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD"
       },
       {
@@ -94469,7 +94469,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "NYY",
         "teams": "",
         "≥100": 0.16699999999999998
@@ -98667,7 +98667,7 @@
         "person_key": "bailey falter",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PHI"
       },
       {
@@ -98767,7 +98767,7 @@
         "person_key": "max fried",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL"
       },
       {
@@ -99007,7 +99007,7 @@
         "person_key": "blake snell",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD"
       },
       {
@@ -99984,7 +99984,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SF",
         "≥100": 0.0
       },
@@ -100674,7 +100674,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "NYY",
         "≥100": 0.348
       },
@@ -101387,7 +101387,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS",
         "≥100": 0.0
       },
@@ -104469,7 +104469,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "≥100": 0.5
       },
@@ -112168,7 +112168,7 @@
         "person_key": "jose suarez",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA"
       },
       {
@@ -115467,7 +115467,7 @@
         "person_key": "casey mize",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "DET"
       },
       {
@@ -115551,7 +115551,7 @@
         "person_key": "bailey falter",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PHI"
       },
       {
@@ -115929,7 +115929,7 @@
         "person_key": "max fried",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL"
       },
       {
@@ -116391,7 +116391,7 @@
         "person_key": "blake snell",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD"
       },
       {

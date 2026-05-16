@@ -2587,7 +2587,7 @@
         "prev_minors_year": "",
         "rAll": 18.4,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "NYY",
         "teams": "",
         "vSzn": -185.19,
@@ -4099,7 +4099,7 @@
         "prev_minors_year": "",
         "rAll": -1.72,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "COL",
         "teams": "",
         "vSzn": 241.71,
@@ -11947,7 +11947,7 @@
         "prev_minors_year": "",
         "rAll": -2.77,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD",
         "teams": "",
         "vSzn": -64.77,
@@ -38544,7 +38544,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD",
         "teams": "",
         "vSzn": "",
@@ -42851,7 +42851,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA",
         "teams": "",
         "vSzn": "",
@@ -61760,7 +61760,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "DET",
         "teams": "",
         "vSzn": "",
@@ -63147,7 +63147,7 @@
         "prev_minors_year": "",
         "rAll": 20.74,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL",
         "teams": "",
         "vSzn": 359.4,
@@ -64972,7 +64972,7 @@
         "prev_minors_year": "",
         "rAll": 31.24,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TB",
         "teams": "",
         "vSzn": 84.36,
@@ -77655,7 +77655,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "NYY",
         "teams": "",
         "≥100": 0.235
@@ -79263,7 +79263,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD",
         "teams": "",
         "≥100": 0.316
@@ -81735,7 +81735,7 @@
         "person_key": "matt strahm",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD"
       },
       {
@@ -83737,7 +83737,7 @@
         "person_key": "max fried",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL"
       },
       {
@@ -83957,7 +83957,7 @@
         "person_key": "blake snell",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TB"
       },
       {
@@ -85173,7 +85173,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.0
       },
@@ -85610,7 +85610,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "NYY",
         "≥100": 0.2
       },
@@ -86070,7 +86070,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "COL",
         "≥100": 0.353
       },
@@ -88209,7 +88209,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD",
         "≥100": 0.4
       },
@@ -95578,7 +95578,7 @@
         "person_key": "matt strahm",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD"
       },
       {
@@ -96334,7 +96334,7 @@
         "person_key": "jose suarez",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA"
       },
       {
