@@ -41,7 +41,6 @@
     "Brandon Nimmo": "TEX",
     "Brandon Valenzuela": "TOR",
     "Brayan Rocchio": "CLE",
-    "Brendan Donovan": "SEA",
     "Brent Rooker": "ATH",
     "Brenton Doyle": "COL",
     "Brett Baty": "NYM",
@@ -81,6 +80,7 @@
     "Colby Thomas": "ATH",
     "Cole Young": "SEA",
     "Colson Montgomery": "CHW",
+    "Colt Emerson": "SEA",
     "Colt Keith": "DET",
     "Colton Cowser": "BAL",
     "Connor Joe": "SEA",
@@ -738,8 +738,8 @@
       "Xander Bogaerts"
     ],
     "SEA": [
-      "Brendan Donovan",
       "Cole Young",
+      "Colt Emerson",
       "Connor Joe",
       "Dominic Canzone",
       "J.P. Crawford",
@@ -849,8 +849,6 @@
     "Aaron Bummer": "ATL",
     "Abner Uribe": "MIL",
     "Adrian Morejon": "SD",
-    "Alek Jacob": "SD",
-    "Alek Manoah": "LAA",
     "Alex Hoppe": "SEA",
     "Alex Lange": "KC",
     "Alex Vesia": "LAD",
@@ -867,6 +865,7 @@
     "Austin Warren": "NYM",
     "Bailey Falter": "KC",
     "Blake Treinen": "LAD",
+    "Blas Castano": "COL",
     "Brad Keller": "PHI",
     "Brad Lord": "WAS",
     "Bradgley Rodriguez": "SD",
@@ -893,9 +892,9 @@
     "Cameron Foster": "BAL",
     "Camilo Doval": "NYY",
     "Casey Legumina": "TB",
-    "Charlie Barnes": "LAD",
     "Chase Shugart": "PHI",
     "Chase Silseth": "LAA",
+    "Chayce McDermott": "LAD",
     "Codi Heuer": "CLE",
     "Cody Bolton": "HOU",
     "Cole Sulser": "TB",
@@ -944,7 +943,6 @@
     "Ian Seymour": "TB",
     "Isaac Mattson": "PIT",
     "JT Brubaker": "SF",
-    "Jack Dreyer": "LAD",
     "Jack Perkins": "ATH",
     "Jacob Latz": "TEX",
     "Jacob Webb": "CHC",
@@ -955,7 +953,6 @@
     "Jalen Beeks": "TEX",
     "Jared Shuster": "STL",
     "Jason Adam": "SD",
-    "Javier Assad": "CHC",
     "Jayden Murray": "HOU",
     "Jeff Hoffman": "TOR",
     "Jeremiah Estrada": "SD",
@@ -964,7 +961,6 @@
     "Joe Mantiply": "TOR",
     "Joel Kuhnel": "ATH",
     "Joel Peguero": "SF",
-    "Joey Gerber": "NYM",
     "John King": "MIA",
     "John Schreiber": "KC",
     "Jonathan Bowlan": "PHI",
@@ -1016,6 +1012,7 @@
     "Orlando Ribalta": "WAS",
     "PJ Poulin": "WAS",
     "Paul Blackburn": "NYY",
+    "Paul Gervase": "LAD",
     "Paul Sewald": "ARI",
     "Paxton Schultz": "WAS",
     "Pete Fairbanks": "MIA",
@@ -1030,6 +1027,7 @@
     "Robert Suarez": "ATL",
     "Ron Marinaccio": "SD",
     "Ryan Borucki": "SF",
+    "Ryan Johnson": "LAA",
     "Ryan Rolison": "CHC",
     "Ryan Thompson": "ARI",
     "Ryan Watson": "BOS",
@@ -1064,6 +1062,7 @@
     "Trevor Martin": "TB",
     "Trevor Megill": "MIL",
     "Trevor Richards": "CHW",
+    "Ty Blach": "CHC",
     "Tyler Alexander": "TEX",
     "Tyler Davis": "CHW",
     "Tyler Holton": "DET",
@@ -1075,13 +1074,13 @@
     "Victor Vodnik": "COL",
     "Wandy Peralta": "SD",
     "Will Klein": "LAD",
+    "Will Vest": "DET",
     "Wyatt Mills": "LAD",
     "Yariel Rodriguez": "TOR",
     "Yennier Cano": "BAL",
     "Yoendrys Gomez": "MIN",
     "Yohan Ramirez": "PIT",
     "Yuki Matsui": "SD",
-    "Zach Agnos": "COL",
     "Zack Kelly": "BOS"
   },
   "relievers_by_team": {
@@ -1137,10 +1136,10 @@
       "Ethan Roberts",
       "Hoby Milner",
       "Jacob Webb",
-      "Javier Assad",
       "Phil Maton",
       "Ryan Rolison",
-      "Trent Thornton"
+      "Trent Thornton",
+      "Ty Blach"
     ],
     "CHW": [
       "Brandon Eisert",
@@ -1174,14 +1173,14 @@
     ],
     "COL": [
       "Antonio Senzatela",
+      "Blas Castano",
       "Brennan Bernardino",
       "Jaden Hill",
       "Juan Mejia",
       "Sammy Peralta",
       "Seth Halvorsen",
       "Tanner Gordon",
-      "Victor Vodnik",
-      "Zach Agnos"
+      "Victor Vodnik"
     ],
     "DET": [
       "Brant Hurter",
@@ -1191,7 +1190,8 @@
       "Enmanuel De Jesus",
       "Kenley Jansen",
       "Kyle Finnegan",
-      "Tyler Holton"
+      "Tyler Holton",
+      "Will Vest"
     ],
     "HOU": [
       "AJ Blubaugh",
@@ -1214,21 +1214,21 @@
       "Steven Cruz"
     ],
     "LAA": [
-      "Alek Manoah",
       "Brent Suter",
       "Chase Silseth",
       "Jose Fermin",
       "Kirby Yates",
+      "Ryan Johnson",
       "Ryan Zeferjahn",
       "Sam Bachman"
     ],
     "LAD": [
       "Alex Vesia",
       "Blake Treinen",
-      "Charlie Barnes",
+      "Chayce McDermott",
       "Edgardo Henriquez",
-      "Jack Dreyer",
       "Kyle Hurt",
+      "Paul Gervase",
       "Tanner Scott",
       "Will Klein",
       "Wyatt Mills"
@@ -1268,7 +1268,6 @@
       "Craig Kimbrel",
       "Devin Williams",
       "Huascar Brazoban",
-      "Joey Gerber",
       "Luke Weaver",
       "Sean Manaea",
       "Tobias Myers"
@@ -1305,7 +1304,6 @@
     ],
     "SD": [
       "Adrian Morejon",
-      "Alek Jacob",
       "Bradgley Rodriguez",
       "Jason Adam",
       "Jeremiah Estrada",
@@ -1432,7 +1430,6 @@
     "Elmer Rodriguez": "NYY",
     "Emerson Hancock": "SEA",
     "Emmet Sheehan": "LAD",
-    "Eric Lauer": "TOR",
     "Erick Fedde": "CHW",
     "Eury Perez": "MIA",
     "Foster Griffin": "WAS",
@@ -1441,6 +1438,7 @@
     "Gavin Williams": "CLE",
     "George Kirby": "SEA",
     "Grant Holmes": "ATL",
+    "Grayson Rodriguez": "LAA",
     "Griffin Canning": "SD",
     "Griffin Jax": "TB",
     "J.T. Ginn": "ATH",
@@ -1474,6 +1472,7 @@
     "Landen Roupp": "SF",
     "Logan Gilbert": "SEA",
     "Logan Henderson": "MIL",
+    "Lucas Giolito": "SD",
     "Luis Castillo": "SEA",
     "Luis Severino": "ATH",
     "MacKenzie Gore": "TEX",
@@ -1508,7 +1507,6 @@
     "Robbie Ray": "SF",
     "Robert Gasser": "MIL",
     "Roki Sasaki": "LAD",
-    "Ryan Johnson": "LAA",
     "Ryan Weathers": "NYY",
     "Ryne Nelson": "ARI",
     "Sandy Alcantara": "MIA",
@@ -1530,7 +1528,6 @@
     "Trevor McDonald": "SF",
     "Trevor Rogers": "BAL",
     "Trey Yesavage": "TOR",
-    "Ty Madden": "DET",
     "Tyler Mahle": "SF",
     "Walbert Urena": "LAA",
     "Walker Buehler": "SD",
@@ -1618,8 +1615,7 @@
       "Casey Mize",
       "Framber Valdez",
       "Jack Flaherty",
-      "Keider Montero",
-      "Ty Madden"
+      "Keider Montero"
     ],
     "HOU": [
       "Lance McCullers Jr.",
@@ -1636,11 +1632,11 @@
       "Stephen Kolek"
     ],
     "LAA": [
+      "Grayson Rodriguez",
       "Jack Kochanowicz",
       "Jose Soriano",
       "Mitch Farris",
       "Reid Detmers",
-      "Ryan Johnson",
       "Walbert Urena"
     ],
     "LAD": [
@@ -1701,6 +1697,7 @@
     ],
     "SD": [
       "Griffin Canning",
+      "Lucas Giolito",
       "Michael King",
       "Randy Vasquez",
       "Walker Buehler"
@@ -1744,7 +1741,6 @@
     "TOR": [
       "Adam Macko",
       "Dylan Cease",
-      "Eric Lauer",
       "Kevin Gausman",
       "Patrick Corbin",
       "Trey Yesavage"

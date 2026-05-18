@@ -3451,7 +3451,7 @@
         "prev_minors_year": "",
         "rAll": -0.71,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "NYY",
         "teams": "",
         "vSzn": 222.84,
@@ -43873,7 +43873,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SEA",
         "teams": "",
         "vSzn": "",
@@ -58254,7 +58254,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": "",
@@ -58327,7 +58327,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "vSzn": "",
@@ -58400,7 +58400,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "vSzn": -397.35,
@@ -58473,7 +58473,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "HOU",
         "teams": "",
         "vSzn": "",
@@ -63950,7 +63950,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIL",
         "teams": "",
         "vSzn": "",
@@ -67746,7 +67746,7 @@
         "prev_minors_year": "",
         "rAll": 60.69,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHW",
         "teams": "",
         "vSzn": 614.13,
@@ -77799,7 +77799,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "NYY",
         "teams": "",
         "≥100": 0.182
@@ -83295,7 +83295,7 @@
         "person_key": "adam cimber",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -83315,7 +83315,7 @@
         "person_key": "ryan tepera",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHC"
       },
       {
@@ -84257,7 +84257,7 @@
         "person_key": "lucas giolito",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHW"
       },
       {
@@ -85909,7 +85909,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "NYY",
         "≥100": 0.0
       },
@@ -95687,27 +95687,6 @@
         "team": "SD"
       },
       {
-        "All": -4.0,
-        "BB%": 0.0,
-        "Con": -35.18,
-        "Days +/-": 0.5555555555555531,
-        "Disc": 0.3,
-        "IP": 1.0,
-        "K": 1.0,
-        "K%": 0.14300000000000002,
-        "Stf": 5.72,
-        "Strike%": 0.667,
-        "SwStr%": 0.111,
-        "Velo": 90.7,
-        "WHIP": 4.0,
-        "name": "Griffin Jax",
-        "person_key": "griffin jax",
-        "pitch_role": "RP",
-        "role": "rp",
-        "sort_bucket": 0,
-        "team": "MiLB"
-      },
-      {
         "All": 32.89,
         "BB%": 0.0,
         "Con": 69.0,
@@ -96481,7 +96460,7 @@
         "person_key": "joey gerber",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SEA"
       },
       {
@@ -99463,7 +99442,7 @@
         "person_key": "adam cimber",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -99484,7 +99463,7 @@
         "person_key": "mitch white",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "LAD"
       },
       {
@@ -99505,7 +99484,7 @@
         "person_key": "ryan tepera",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHC"
       },
       {
@@ -99526,7 +99505,7 @@
         "person_key": "brett cecil",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -100412,6 +100391,27 @@
         "role": "sp",
         "sort_bucket": 0,
         "team": "CHW"
+      },
+      {
+        "All": -4.0,
+        "BB%": 0.0,
+        "Con": -35.18,
+        "Days +/-": 0.5555555555555531,
+        "Disc": 0.3,
+        "IP": 1.0,
+        "K": 1.0,
+        "K%": 0.14300000000000002,
+        "Stf": 5.72,
+        "Strike%": 0.667,
+        "SwStr%": 0.111,
+        "Velo": 90.7,
+        "WHIP": 4.0,
+        "name": "Griffin Jax",
+        "person_key": "griffin jax",
+        "pitch_role": "RP",
+        "role": "sp",
+        "sort_bucket": 0,
+        "team": "MiLB"
       },
       {
         "All": 11.59,

@@ -1406,7 +1406,15 @@ async function load_page(file, page_id) {
   init_matchups_page_if_present(content);
   init_fantasy_page_if_present(content);
   apply_mobile_scale();
-  refresh_custom_player_lists_ui();
+  // refresh_custom_player_lists_ui();
+  //TODO see if this breaks, this was to stop it from snapping to the top of the team ribbon
+render_favorites_sidebar();
+render_watchlist_sidebar();
+update_sidebar_custom_icons(document);
+sync_player_page_action_buttons();
+
+const search = document.getElementById('player_search');
+apply_search_and_filters((search && search.value) ? search.value : '');
 
   const active = document.querySelector(`.toc_link[data-page="${pid}"]`);
   if (active) {
