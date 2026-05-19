@@ -21,7 +21,7 @@
     },
     "majors|hitters|AVG": {
       "best": 0.32,
-      "gold": 0.34,
+      "gold": 0.33,
       "neutral_hi": 0.27,
       "neutral_lo": 0.25,
       "worst": 0.2
@@ -421,7 +421,7 @@
     },
     "majors|hitters|OBP": {
       "best": 0.4,
-      "gold": 0.42,
+      "gold": 0.41,
       "neutral_hi": 0.35,
       "neutral_lo": 0.33,
       "worst": 0.28
@@ -484,7 +484,7 @@
     "majors|hitters|Pts +/-": {
       "best": 0.3,
       "fmt": "pct",
-      "gold": 0.4,
+      "gold": 0.35,
       "neutral_hi": 0.1,
       "neutral_lo": 0.05,
       "worst": -0.2
@@ -778,7 +778,7 @@
     },
     "majors|hitters|SLG": {
       "best": 0.58,
-      "gold": 0.63,
+      "gold": 0.6,
       "neutral_hi": 0.45,
       "neutral_lo": 0.43,
       "worst": 0.35
@@ -2576,7 +2576,7 @@
     },
     "minors|hitters|AVG": {
       "best": 0.32,
-      "gold": 0.34,
+      "gold": 0.33,
       "neutral_hi": 0.27,
       "neutral_lo": 0.25,
       "worst": 0.2
@@ -2640,7 +2640,7 @@
     },
     "minors|hitters|OBP": {
       "best": 0.4,
-      "gold": 0.42,
+      "gold": 0.41,
       "neutral_hi": 0.35,
       "neutral_lo": 0.33,
       "worst": 0.28
@@ -2711,7 +2711,7 @@
     },
     "minors|hitters|SLG": {
       "best": 0.58,
-      "gold": 0.63,
+      "gold": 0.6,
       "neutral_hi": 0.45,
       "neutral_lo": 0.43,
       "worst": 0.35
@@ -3204,14 +3204,14 @@
     },
     "playoffs|hitters|AVG": {
       "best": 0.32,
-      "gold": 0.34,
+      "gold": 0.33,
       "neutral_hi": 0.27,
       "neutral_lo": 0.25,
       "worst": 0.2
     },
     "playoffs|hitters|OBP": {
       "best": 0.4,
-      "gold": 0.42,
+      "gold": 0.41,
       "neutral_hi": 0.35,
       "neutral_lo": 0.33,
       "worst": 0.28
@@ -3282,7 +3282,7 @@
     },
     "playoffs|hitters|SLG": {
       "best": 0.58,
-      "gold": 0.63,
+      "gold": 0.6,
       "neutral_hi": 0.45,
       "neutral_lo": 0.43,
       "worst": 0.35
@@ -3621,14 +3621,14 @@
     },
     "spring|hitters|AVG": {
       "best": 0.32,
-      "gold": 0.34,
+      "gold": 0.33,
       "neutral_hi": 0.27,
       "neutral_lo": 0.25,
       "worst": 0.2
     },
     "spring|hitters|OBP": {
       "best": 0.4,
-      "gold": 0.42,
+      "gold": 0.41,
       "neutral_hi": 0.35,
       "neutral_lo": 0.33,
       "worst": 0.28
@@ -3642,7 +3642,7 @@
     },
     "spring|hitters|SLG": {
       "best": 0.58,
-      "gold": 0.63,
+      "gold": 0.6,
       "neutral_hi": 0.45,
       "neutral_lo": 0.43,
       "worst": 0.35

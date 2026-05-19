@@ -146,6 +146,7 @@ async function sort_active_team_sidebar_lists_by_fval() {
     'inactive',
     'retired',
     'top_prospects',
+    'top_100_prospects',
     'top prospects',
     'wbc',
   ]);
@@ -311,6 +312,7 @@ async function render_custom_sidebar_list(list_id, empty_id, people_set) {
       'inactive',
       'retired',
       'top_prospects',
+      'top_100_prospects',
       'top prospects',
       'wbc',
     ]);
@@ -2676,6 +2678,42 @@ function repaint_gold_plot_bars(plot, is_dark) {
     plot.querySelectorAll('g.barlayer path, g.barlayer rect, g.trace.bars path, g.trace.bars rect')
   );
 
+  function opacity_num(v, fallback = 1) {
+    const n = Number(v);
+    return Number.isFinite(n) ? n : fallback;
+  }
+
+  function restore_original_opacity(r) {
+    const orig_opacity = r.dataset.orig_opacity || '';
+    const orig_fill_opacity = r.dataset.orig_fill_opacity || '';
+
+    if (orig_opacity) {
+      r.style.opacity = orig_opacity;
+      r.setAttribute('opacity', orig_opacity);
+    } else {
+      r.style.removeProperty('opacity');
+      r.removeAttribute('opacity');
+    }
+
+    if (orig_fill_opacity) {
+      r.style.fillOpacity = orig_fill_opacity;
+      r.setAttribute('fill-opacity', orig_fill_opacity);
+    } else {
+      r.style.removeProperty('fill-opacity');
+      r.removeAttribute('fill-opacity');
+    }
+  }
+
+  function write_fill(r, fill) {
+    if (fill) {
+      r.style.fill = fill;
+      r.setAttribute('fill', fill);
+    } else {
+      r.style.removeProperty('fill');
+      r.removeAttribute('fill');
+    }
+  }
+
   bar_shapes.forEach(r => {
     if (r.dataset.orig_fill === undefined) {
       r.dataset.orig_fill = r.style.fill || r.getAttribute('fill') || '';
@@ -2693,9 +2731,9 @@ function repaint_gold_plot_bars(plot, is_dark) {
     if (!orig_fill) return;
 
     const parsed = parse_svg_fill(orig_fill);
-    const elem_opacity = Number(r.dataset.orig_fill_opacity || r.dataset.orig_opacity || 1);
+    const elem_opacity = opacity_num(r.dataset.orig_fill_opacity || r.dataset.orig_opacity || 1);
     const color_alpha = parsed && parsed.a != null ? parsed.a : 1;
-    const combined_opacity = color_alpha * elem_opacity;
+    const combined_opacity = Math.max(0, Math.min(1, color_alpha * elem_opacity));
 
     if (is_gold_stat_fill(orig_fill)) {
       apply_gold_gradient_fill(r, 'third', combined_opacity);
@@ -2706,21 +2744,12 @@ function repaint_gold_plot_bars(plot, is_dark) {
       return;
     }
 
-    if (is_dark && is_stat_fill(orig_fill)) {
-      const dark_fill = blend_rgba_fill_on_table_base(orig_fill, elem_opacity);
-      r.style.fill = dark_fill;
-      r.setAttribute('fill', dark_fill);
-      r.style.opacity = '1';
-      r.setAttribute('opacity', '1');
-      r.style.fillOpacity = '1';
-      r.setAttribute('fill-opacity', '1');
-      return;
-    }
+    const display_fill = is_dark && is_stat_fill(orig_fill)
+      ? dark_mode_stat_fill(orig_fill)
+      : orig_fill;
 
-    if (orig_fill) {
-      r.style.fill = orig_fill;
-      r.setAttribute('fill', orig_fill);
-    }
+    write_fill(r, display_fill);
+    restore_original_opacity(r);
   });
 }
 /* ################# */
