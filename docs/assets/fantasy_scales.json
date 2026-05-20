@@ -290,9 +290,9 @@
       "worst": 0.2
     },
     "majors|hitters|K%": {
-      "best": 0.14,
+      "best": 0.16,
       "fmt": "pct",
-      "gold": 0.12,
+      "gold": 0.14,
       "higher_is_better": false,
       "neutral_hi": 0.22,
       "neutral_lo": 0.23,
@@ -395,9 +395,9 @@
       "worst": 0.45
     },
     "majors|hitters|L swDisc": {
-      "best": 0.38,
+      "best": 0.4,
       "fmt": "pct",
-      "gold": 0.36,
+      "gold": 0.38,
       "higher_is_better": false,
       "neutral_hi": 0.48,
       "neutral_lo": 0.49,
@@ -436,7 +436,7 @@
     "majors|hitters|Outfield Jump": {
       "best": 4,
       "fmt": "num",
-      "gold": 5,
+      "gold": 4.5,
       "neutral_hi": 1,
       "neutral_lo": -1,
       "worst": -4
@@ -606,9 +606,9 @@
       "worst": 0.45
     },
     "majors|hitters|R swDisc": {
-      "best": 0.38,
+      "best": 0.4,
       "fmt": "pct",
-      "gold": 0.36,
+      "gold": 0.38,
       "higher_is_better": false,
       "neutral_hi": 0.48,
       "neutral_lo": 0.49,
@@ -893,13 +893,13 @@
       "worst": -300
     },
     "majors|hitters|Whiff%": {
-      "best": 0.15,
+      "best": 0.17,
       "fmt": "pct",
-      "gold": 0.12,
+      "gold": 0.15,
       "higher_is_better": false,
       "neutral_hi": 0.25,
       "neutral_lo": 0.26,
-      "worst": 0.4
+      "worst": 0.35
     },
     "majors|hitters|Wk/PA": {
       "best": 0.18,
