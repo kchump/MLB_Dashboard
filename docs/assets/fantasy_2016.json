@@ -2443,7 +2443,7 @@
         "prev_minors_year": "",
         "rAll": -16.78,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET",
         "teams": "",
         "vSzn": -374.52,
@@ -39758,7 +39758,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET",
         "teams": "",
         "vSzn": "",
@@ -61660,7 +61660,7 @@
         "prev_minors_year": "",
         "rAll": 44.35,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "HOU",
         "teams": "",
         "vSzn": 206.7,
@@ -76990,7 +76990,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SF",
         "teams": "",
         "vSzn": "",
@@ -84366,7 +84366,7 @@
         "person_key": "ty blach",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SF"
       },
       {
@@ -98542,7 +98542,7 @@
         "person_key": "ty blach",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SF"
       },
       {

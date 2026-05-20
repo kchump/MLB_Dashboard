@@ -5323,7 +5323,7 @@
         "prev_minors_year": "",
         "rAll": -17.36,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW",
         "teams": "",
         "vSzn": -34.65,
@@ -9643,7 +9643,7 @@
         "prev_minors_year": "",
         "rAll": -8.27,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SF",
         "teams": "",
         "vSzn": -381.36,
@@ -40387,7 +40387,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": "",
@@ -41411,7 +41411,7 @@
         "prev_minors_year": "",
         "rAll": 27.25,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "ATL,TEX",
         "vSzn": 152.22,
@@ -42141,7 +42141,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "TEX",
         "teams": "",
         "vSzn": -354.6,
@@ -43601,7 +43601,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYY",
         "teams": "",
         "vSzn": "",
@@ -68496,7 +68496,7 @@
         "prev_minors_year": "",
         "rAll": -13.99,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SD",
         "teams": "",
         "vSzn": -368.73,
@@ -81855,7 +81855,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "BAL,SF",
         "vSzn": "",
@@ -90007,7 +90007,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW",
         "≥100": 0.25
       },
@@ -95941,7 +95941,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "SF",
         "≥100": 0.0
       }
@@ -96091,7 +96091,7 @@
         "person_key": "chris martin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -97456,7 +97456,7 @@
         "person_key": "codi heuer",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -99516,7 +99516,7 @@
         "person_key": "eric lauer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SD"
       },
       {
@@ -100650,7 +100650,7 @@
         "person_key": "ty blach",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -"
       },
       {

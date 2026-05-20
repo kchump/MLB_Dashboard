@@ -1939,7 +1939,7 @@
         "prev_minors_year": "",
         "rAll": -39.32,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET",
         "teams": "",
         "vSzn": -442.14,
@@ -36361,7 +36361,7 @@
         "prev_minors_year": "",
         "rAll": -47.13,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYY",
         "teams": "",
         "vSzn": -616.15,
@@ -36872,7 +36872,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIN",
         "teams": "",
         "vSzn": "",
@@ -58628,7 +58628,7 @@
         "prev_minors_year": "",
         "rAll": 6.61,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "HOU",
         "teams": "",
         "vSzn": 106.86,
@@ -79715,7 +79715,7 @@
         "person_key": "lance mccullers jr",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "HOU"
       },
       {
@@ -87499,7 +87499,7 @@
         "person_key": "chris martin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYY"
       },
       {
@@ -91134,7 +91134,7 @@
         "person_key": "lance mccullers jr",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "HOU"
       },
       {
@@ -92730,7 +92730,7 @@
         "person_key": "ty blach",
         "pitch_role": "SP",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB"
       },
       {

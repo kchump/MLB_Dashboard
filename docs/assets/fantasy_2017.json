@@ -3523,7 +3523,7 @@
         "prev_minors_year": "",
         "rAll": -22.99,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "DET",
         "teams": "",
         "vSzn": -135.12,
@@ -5827,7 +5827,7 @@
         "prev_minors_year": "",
         "rAll": 6.97,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SF",
         "teams": "",
         "vSzn": -303.57,
@@ -63113,7 +63113,7 @@
         "prev_minors_year": "",
         "rAll": -17.92,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "HOU",
         "teams": "",
         "vSzn": 134.37,
@@ -78589,7 +78589,7 @@
         "prev_minors_year": "",
         "rAll": -48.15,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SF",
         "teams": "",
         "vSzn": -327.78,
@@ -84701,7 +84701,7 @@
         "person_key": "lance mccullers jr",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "HOU"
       },
       {
@@ -93714,7 +93714,7 @@
         "person_key": "lance mccullers jr",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "HOU"
       },
       {
@@ -94974,7 +94974,7 @@
         "person_key": "ty blach",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SF"
       },
       {
