@@ -53842,7 +53842,7 @@
         "prev_minors_year": "",
         "rAll": 16.3,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "STL",
         "teams": "",
         "vSzn": 74.32,
@@ -65962,7 +65962,7 @@
         "prev_minors_year": "",
         "rAll": -29.2,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": -171.93,
@@ -68079,7 +68079,7 @@
         "prev_minors_year": "",
         "rAll": 23.14,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": 380.91,
@@ -85574,7 +85574,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -95486,7 +95486,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {

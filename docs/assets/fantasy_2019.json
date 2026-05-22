@@ -56522,7 +56522,7 @@
         "prev_minors_year": "",
         "rAll": 5.2,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "STL",
         "teams": "",
         "vSzn": 71.01,
@@ -68277,7 +68277,7 @@
         "prev_minors_year": "",
         "rAll": 4.46,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": -185.7,
@@ -70978,7 +70978,7 @@
         "prev_minors_year": "",
         "rAll": -2.21,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": -210.11,
@@ -87728,7 +87728,7 @@
         "person_key": "john brebbia",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "STL"
       },
       {
@@ -99747,7 +99747,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
