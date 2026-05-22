@@ -29,7 +29,6 @@
     "Austin Riley": "ATL",
     "Austin Wells": "NYY",
     "Ben Rice": "NYY",
-    "Billy Cook": "PIT",
     "Blake Dunn": "CIN",
     "Blake Perkins": "MIL",
     "Blaze Alexander": "BAL",
@@ -49,6 +48,7 @@
     "Brice Turang": "MIL",
     "Brooks Lee": "MIN",
     "Bryan Reynolds": "PIT",
+    "Bryan Torres": "STL",
     "Bryce Eldridge": "SF",
     "Bryce Harper": "PHI",
     "Bryce Johnson": "SD",
@@ -85,7 +85,6 @@
     "Colt Emerson": "SEA",
     "Colt Keith": "DET",
     "Colton Cowser": "BAL",
-    "Connor Joe": "SEA",
     "Connor Norby": "MIA",
     "Connor Wong": "BOS",
     "Corbin Carroll": "ARI",
@@ -119,6 +118,7 @@
     "Endy Rodriguez": "PIT",
     "Eric Haase": "SF",
     "Ernie Clement": "TOR",
+    "Esmerlyn Valdez": "PIT",
     "Esteury Ruiz": "MIA",
     "Evan Carter": "TEX",
     "Ezequiel Duran": "TEX",
@@ -126,6 +126,7 @@
     "Fernando Tatis Jr.": "SD",
     "Freddie Freeman": "LAD",
     "Freddy Fermin": "SD",
+    "Gabriel Gonzalez": "MIN",
     "Gabriel Moreno": "ARI",
     "Gage Workman": "DET",
     "Garrett Mitchell": "MIL",
@@ -252,7 +253,6 @@
     "Matt Chapman": "SF",
     "Matt McLain": "CIN",
     "Matt Olson": "ATL",
-    "Matt Shaw": "CHC",
     "Matt Vierling": "DET",
     "Mauricio Dubon": "ATL",
     "Max Muncy": "LAD",
@@ -276,7 +276,6 @@
     "Munetaka Murakami": "CHW",
     "Myles Straw": "TOR",
     "Nasim Nunez": "WAS",
-    "Nathan Church": "STL",
     "Nathaniel Lowe": "CIN",
     "Nick Allen": "HOU",
     "Nick Castellanos": "SD",
@@ -304,6 +303,7 @@
     "Patrick Wisdom": "SEA",
     "Paul Goldschmidt": "NYY",
     "Pedro Pages": "STL",
+    "Pedro Ramirez": "CHC",
     "Pete Alonso": "BAL",
     "Pete Crow-Armstrong": "CHC",
     "Petey Halpin": "CLE",
@@ -335,7 +335,6 @@
     "Shea Langeliers": "ATH",
     "Shohei Ohtani": "LAD",
     "Spencer Horwitz": "PIT",
-    "Spencer Jones": "NYY",
     "Spencer Steer": "CIN",
     "Spencer Torkelson": "DET",
     "Starling Marte": "KC",
@@ -364,6 +363,7 @@
     "Tyrone Taylor": "NYM",
     "Vaughn Grissom": "LAA",
     "Victor Caratini": "MIN",
+    "Victor Robles": "SEA",
     "Victor Scott II": "STL",
     "Vidal Brujan": "NYM",
     "Vinnie Pasquantino": "KC",
@@ -474,13 +474,13 @@
       "Carson Kelly",
       "Dansby Swanson",
       "Ian Happ",
-      "Matt Shaw",
       "Michael Busch",
       "Michael Conforto",
       "Miguel Amaya",
       "Moises Ballesteros",
       "Nicky Lopez",
       "Nico Hoerner",
+      "Pedro Ramirez",
       "Pete Crow-Armstrong",
       "Seiya Suzuki"
     ],
@@ -654,6 +654,7 @@
       "Austin Martin",
       "Brooks Lee",
       "Byron Buxton",
+      "Gabriel Gonzalez",
       "James Outman",
       "Josh Bell",
       "Kody Clemens",
@@ -691,7 +692,6 @@
       "Max Schuemann",
       "Paul Goldschmidt",
       "Ryan McMahon",
-      "Spencer Jones",
       "Trent Grisham"
     ],
     "PHI": [
@@ -710,10 +710,10 @@
       "Trea Turner"
     ],
     "PIT": [
-      "Billy Cook",
       "Brandon Lowe",
       "Bryan Reynolds",
       "Endy Rodriguez",
+      "Esmerlyn Valdez",
       "Henry Davis",
       "Jake Mangum",
       "Jared Triolo",
@@ -742,7 +742,6 @@
     "SEA": [
       "Cole Young",
       "Colt Emerson",
-      "Connor Joe",
       "Dominic Canzone",
       "J.P. Crawford",
       "Jhonny Pereda",
@@ -752,7 +751,8 @@
       "Mitch Garver",
       "Patrick Wisdom",
       "Randy Arozarena",
-      "Rob Refsnyder"
+      "Rob Refsnyder",
+      "Victor Robles"
     ],
     "SF": [
       "Bryce Eldridge",
@@ -771,13 +771,13 @@
     ],
     "STL": [
       "Alec Burleson",
+      "Bryan Torres",
       "Cesar Prieto",
       "Ivan Herrera",
       "JJ Wetherholt",
       "Jordan Walker",
       "Jose Fermin",
       "Masyn Winn",
-      "Nathan Church",
       "Nolan Gorman",
       "Pedro Pages",
       "Thomas Saggese",
@@ -854,6 +854,7 @@
     "Alex Hoppe": "SEA",
     "Alex Lange": "KC",
     "Alex Vesia": "LAD",
+    "Alimber Santa": "HOU",
     "Andres Munoz": "SEA",
     "Andrew Alvarez": "WAS",
     "Andrew Kittredge": "BAL",
@@ -1058,6 +1059,7 @@
     "Tayler Saucedo": "LAA",
     "Taylor Clarke": "ARI",
     "Taylor Rogers": "MIN",
+    "Tayron Guerrero": "BOS",
     "Tejay Antone": "CIN",
     "Tim Herrin": "CLE",
     "Tim Hill": "NYY",
@@ -1085,10 +1087,8 @@
     "Yennier Cano": "BAL",
     "Yoendrys Gomez": "MIN",
     "Yohan Ramirez": "PIT",
-    "Yovanny Cruz": "NYY",
     "Yuki Matsui": "SD",
-    "Zach Agnos": "COL",
-    "Zack Kelly": "BOS"
+    "Zach Agnos": "COL"
   },
   "relievers_by_team": {
     "ARI": [
@@ -1138,8 +1138,8 @@
       "Jovani Moran",
       "Justin Slaten",
       "Ryan Watson",
-      "Tyler Samaniego",
-      "Zack Kelly"
+      "Tayron Guerrero",
+      "Tyler Samaniego"
     ],
     "CHC": [
       "Caleb Thielbar",
@@ -1206,6 +1206,7 @@
     ],
     "HOU": [
       "AJ Blubaugh",
+      "Alimber Santa",
       "Bryan Abreu",
       "Bryan King",
       "Enyel De Los Santos",
@@ -1292,8 +1293,7 @@
       "Jake Bird",
       "Paul Blackburn",
       "Ryan Yarbrough",
-      "Tim Hill",
-      "Yovanny Cruz"
+      "Tim Hill"
     ],
     "PHI": [
       "Brad Keller",

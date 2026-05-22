@@ -11,9 +11,9 @@
       "start": 3
     },
     "majors|hitters|90ft": {
-      "best": 3.8,
+      "best": 3.85,
       "fmt": "num",
-      "gold": 3.75,
+      "gold": 3.8,
       "higher_is_better": false,
       "neutral_hi": 4,
       "neutral_lo": 4.05,
@@ -845,9 +845,9 @@
       "worst": -100
     },
     "majors|hitters|Sprint Speed": {
-      "best": 29.5,
+      "best": 29,
       "fmt": "num",
-      "gold": 30,
+      "gold": 29.5,
       "neutral_hi": 27.5,
       "neutral_lo": 26.5,
       "worst": 25
