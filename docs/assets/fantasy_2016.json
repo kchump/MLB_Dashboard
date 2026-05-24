@@ -39611,7 +39611,7 @@
         "prev_minors_year": "",
         "rAll": 18.1,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ATH",
         "teams": "",
         "vSzn": 91.19,
@@ -64287,7 +64287,7 @@
         "prev_minors_year": "",
         "rAll": 3.86,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA",
         "teams": "",
         "vSzn": -88.68,
@@ -92816,7 +92816,7 @@
         "person_key": "danny coulombe",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ATH"
       },
       {
@@ -96955,7 +96955,7 @@
         "person_key": "taijuan walker",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA"
       },
       {

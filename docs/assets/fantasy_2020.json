@@ -68,7 +68,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 0,
-        "team": "LAA",
+        "team": "SEA",
         "teams": "",
         "vSzn": "",
         "≥100": 0.125
@@ -500,7 +500,7 @@
         "rAll": 17.61,
         "role": "batters",
         "sort_bucket": 0,
-        "team": "HOU",
+        "team": "BOS",
         "teams": "",
         "vSzn": -206.61,
         "≥100": 0.2
@@ -6619,7 +6619,7 @@
         "prev_minors_year": "",
         "rAll": 9.2,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR",
         "teams": "",
         "vSzn": 152.34,
@@ -19507,7 +19507,7 @@
         "prev_minors_year": "",
         "rAll": -8.48,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "teams": "",
         "vSzn": -608.31,
@@ -39053,7 +39053,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MIL",
         "teams": "",
         "vSzn": "",
@@ -39491,7 +39491,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIN",
         "teams": "",
         "vSzn": "",
@@ -42119,7 +42119,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "vSzn": "",
@@ -67525,7 +67525,7 @@
         "prev_minors_year": "",
         "rAll": -64.28,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "SEA,TOR",
         "vSzn": -188.13,
@@ -78375,7 +78375,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR",
         "teams": "",
         "≥100": 0.28600000000000003
@@ -81919,7 +81919,7 @@
         "person_key": "justin topa",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MIL"
       },
       {
@@ -85180,7 +85180,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 0,
-        "team": "HOU",
+        "team": "BOS",
         "≥100": ""
       },
       {
@@ -90538,7 +90538,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "≥100": 0.0
       },
@@ -100913,7 +100913,7 @@
         "person_key": "edward cabrera",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB"
       },
       {

@@ -68,8 +68,8 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 0,
-        "team": "LAA",
-        "teams": "",
+        "team": "- - -",
+        "teams": "SF,SEA",
         "vSzn": "",
         "≥100": 0.15
       },
@@ -788,8 +788,8 @@
         "rAll": -13.73,
         "role": "batters",
         "sort_bucket": 0,
-        "team": "HOU",
-        "teams": "",
+        "team": "- - -",
+        "teams": "BOS,HOU",
         "vSzn": -216.27,
         "≥100": 0.1536
       },
@@ -11515,7 +11515,7 @@
         "prev_minors_year": "",
         "rAll": 14.58,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR",
         "teams": "",
         "vSzn": -24.96,
@@ -26419,7 +26419,7 @@
         "prev_minors_year": "",
         "rAll": -29.69,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "teams": "",
         "vSzn": -576.6,
@@ -45771,7 +45771,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MIL",
         "teams": "",
         "vSzn": "",
@@ -46574,7 +46574,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIN",
         "teams": "",
         "vSzn": "",
@@ -51392,7 +51392,7 @@
         "prev_minors_year": "",
         "rAll": 33.35,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "vSzn": 214.26,
@@ -52122,7 +52122,7 @@
         "prev_minors_year": "",
         "rAll": 36.0,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIL",
         "teams": "",
         "vSzn": 43.57,
@@ -76579,7 +76579,7 @@
         "prev_minors_year": "",
         "rAll": 23.06,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIA",
         "teams": "",
         "vSzn": 78.78,
@@ -78915,7 +78915,7 @@
         "prev_minors_year": "",
         "rAll": 10.75,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "NYM",
         "teams": "",
         "vSzn": 18.99,
@@ -87340,7 +87340,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 0,
-        "team": "LAA",
+        "team": "- - -",
         "≥100": 0.168
       },
       {
@@ -91075,7 +91075,7 @@
         "person_key": "caleb ferguson",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD"
       },
       {
@@ -91474,7 +91474,7 @@
         "person_key": "pj poulin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -93261,7 +93261,7 @@
         "person_key": "edward cabrera",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIA"
       },
       {
@@ -94227,8 +94227,8 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 0,
-        "team": "HOU",
-        "teams": "",
+        "team": "- - -",
+        "teams": "BOS,HOU",
         "≥100": 0.182
       },
       {
@@ -100017,7 +100017,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 0,
-        "team": "HOU",
+        "team": "- - -",
         "≥100": 0.0
       },
       {
@@ -102730,7 +102730,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR",
         "≥100": 0.217
       },
@@ -106502,7 +106502,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "≥100": 0.0
       },
@@ -111237,7 +111237,7 @@
         "person_key": "danny coulombe",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIN"
       },
       {
@@ -112182,7 +112182,7 @@
         "person_key": "caleb ferguson",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD"
       },
       {
@@ -112833,7 +112833,7 @@
         "person_key": "pj poulin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -117287,7 +117287,7 @@
         "person_key": "taijuan walker",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "NYM"
       },
       {
