@@ -346,6 +346,14 @@
       "neutral_lo": 1.4,
       "worst": 0.05
     },
+    "majors|hitters|L IAA%": {
+      "best": 0.65,
+      "fmt": "pct",
+      "gold": 0.68,
+      "neutral_hi": 0.55,
+      "neutral_lo": 0.54,
+      "worst": 0.4
+    },
     "majors|hitters|L Pwr": {
       "best": 2.8,
       "fmt": "num",
@@ -556,6 +564,14 @@
       "neutral_hi": 1.5,
       "neutral_lo": 1.4,
       "worst": 0.5
+    },
+    "majors|hitters|R IAA%": {
+      "best": 0.65,
+      "fmt": "pct",
+      "gold": 0.68,
+      "neutral_hi": 0.55,
+      "neutral_lo": 0.54,
+      "worst": 0.4
     },
     "majors|hitters|R Pwr": {
       "best": 2.8,
