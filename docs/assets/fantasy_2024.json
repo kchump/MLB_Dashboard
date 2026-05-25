@@ -24619,7 +24619,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "DET",
         "teams": "",
         "vSzn": "",
@@ -46838,7 +46838,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TEX",
         "teams": "",
         "vSzn": "",
@@ -48006,7 +48006,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE",
         "teams": "",
         "vSzn": "",
@@ -50561,7 +50561,7 @@
         "prev_minors_year": "",
         "rAll": -7.2,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL",
         "teams": "",
         "vSzn": -178.88,
@@ -62460,7 +62460,7 @@
         "prev_minors_year": "",
         "rAll": 28.38,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "",
         "vSzn": -99.72,
@@ -89326,7 +89326,7 @@
         "prev_minors_year": "",
         "rAll": -29.78,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "WAS",
         "teams": "",
         "vSzn": -336.09,
@@ -98383,7 +98383,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "DET",
         "≥100": 0.231
       },
@@ -104678,7 +104678,7 @@
         "person_key": "cole winn",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TEX"
       },
       {
@@ -104909,7 +104909,7 @@
         "person_key": "erik sabrowski",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE"
       },
       {
@@ -105308,7 +105308,7 @@
         "person_key": "albert suarez",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL"
       },
       {
@@ -115478,27 +115478,6 @@
         "team": "NYY"
       },
       {
-        "All": 16.71,
-        "BB%": 0.07400000000000001,
-        "Con": 58.74,
-        "Days +/-": 0.11623036649214619,
-        "Disc": 11.78,
-        "IP": 70.1,
-        "K": 73.0,
-        "K%": 0.285,
-        "Stf": 16.65,
-        "Strike%": 0.642,
-        "SwStr%": 0.161,
-        "Velo": 92.3,
-        "WHIP": 1.109004739336493,
-        "name": "Jack Wenninger",
-        "person_key": "jack wenninger",
-        "pitch_role": "FLEX",
-        "role": "sp",
-        "sort_bucket": 3,
-        "team": "NYM"
-      },
-      {
         "All": -7.09,
         "BB%": 0.087,
         "Con": 34.62,
@@ -115643,27 +115622,6 @@
         "pitch_role": "SP",
         "role": "sp",
         "sort_bucket": 3,
-        "team": "TOR"
-      },
-      {
-        "All": -1.26,
-        "BB%": 0.071,
-        "Con": 51.63,
-        "Days +/-": 0.2797029702970293,
-        "Disc": 1.35,
-        "IP": 73.0,
-        "K": 69.0,
-        "K%": 0.226,
-        "Stf": -13.18,
-        "Strike%": 0.6509999999999999,
-        "SwStr%": 0.107,
-        "Velo": 90.77000000000001,
-        "WHIP": 1.2465753424657535,
-        "name": "Grant Rogers",
-        "person_key": "grant rogers",
-        "pitch_role": "SP",
-        "role": "sp",
-        "sort_bucket": 1,
         "team": "TOR"
       }
     ]
@@ -119165,7 +119123,7 @@
         "person_key": "erik sabrowski",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE"
       },
       {
@@ -124700,7 +124658,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB",
         "≥100": 0.125
       },
@@ -128932,7 +128890,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "DET",
         "≥100": 0.077
       },
@@ -137391,7 +137349,7 @@
         "person_key": "albert suarez",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL"
       },
       {
@@ -140121,7 +140079,7 @@
         "person_key": "luis garcia rp",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -"
       },
       {
@@ -146129,7 +146087,7 @@
         "person_key": "jake irvin",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "WAS"
       },
       {

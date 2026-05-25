@@ -16051,7 +16051,7 @@
         "prev_minors_year": "",
         "rAll": 25.26,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "DET",
         "teams": "",
         "vSzn": -710.94,
@@ -54312,7 +54312,7 @@
         "prev_minors_year": "",
         "rAll": 28.44,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD",
         "teams": "",
         "vSzn": 155.11,
@@ -59276,7 +59276,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "BOS",
         "teams": "",
         "vSzn": "",
@@ -90571,7 +90571,7 @@
         "person_key": "cole winn",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB"
       },
       {
@@ -98010,7 +98010,7 @@
         "person_key": "luis garcia rp",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD"
       },
       {
@@ -103903,7 +103903,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "DET",
         "≥100": 0.348
       },

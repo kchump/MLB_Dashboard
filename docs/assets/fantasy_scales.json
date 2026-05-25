@@ -103,14 +103,6 @@
       "neutral_lo": -2,
       "worst": -10
     },
-    "majors|hitters|Blast%": {
-      "best": 0.24,
-      "fmt": "pct",
-      "gold": 0.26,
-      "neutral_hi": 0.19,
-      "neutral_lo": 0.18,
-      "worst": 0.1
-    },
     "majors|hitters|Blocking Runs": {
       "best": 10,
       "fmt": "num",
@@ -346,14 +338,6 @@
       "neutral_lo": 1.4,
       "worst": 0.05
     },
-    "majors|hitters|L IAA%": {
-      "best": 0.65,
-      "fmt": "pct",
-      "gold": 0.68,
-      "neutral_hi": 0.55,
-      "neutral_lo": 0.54,
-      "worst": 0.4
-    },
     "majors|hitters|L Pwr": {
       "best": 2.8,
       "fmt": "num",
@@ -418,6 +402,11 @@
       "neutral_hi": 0.21,
       "neutral_lo": 0.2,
       "worst": 0.05
+    },
+    "majors|hitters|LA": {
+      "fmt": "num",
+      "neutral_hi": 20,
+      "neutral_lo": 10
     },
     "majors|hitters|LHP": {
       "best": 40,
@@ -564,14 +553,6 @@
       "neutral_hi": 1.5,
       "neutral_lo": 1.4,
       "worst": 0.5
-    },
-    "majors|hitters|R IAA%": {
-      "best": 0.65,
-      "fmt": "pct",
-      "gold": 0.68,
-      "neutral_hi": 0.55,
-      "neutral_lo": 0.54,
-      "worst": 0.4
     },
     "majors|hitters|R Pwr": {
       "best": 2.8,

@@ -40553,7 +40553,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SF",
         "teams": "",
         "vSzn": "",
@@ -42305,7 +42305,7 @@
         "prev_minors_year": "",
         "rAll": 11.03,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PHI",
         "teams": "",
         "vSzn": -6.34,
@@ -91435,7 +91435,7 @@
         "person_key": "albert suarez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SF"
       },
       {

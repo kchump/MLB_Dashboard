@@ -12091,7 +12091,7 @@
         "prev_minors_year": "",
         "rAll": 41.88,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 3,
         "team": "DET",
         "teams": "",
         "vSzn": -92.79,
@@ -50532,7 +50532,7 @@
         "prev_minors_year": "",
         "rAll": -2.07,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "STL",
         "teams": "",
         "vSzn": 68.65,
@@ -55861,7 +55861,7 @@
         "prev_minors_year": "",
         "rAll": 34.99,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": 45.91,
@@ -56518,7 +56518,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "BOS",
         "teams": "",
         "vSzn": "",
@@ -91023,7 +91023,7 @@
         "person_key": "luis garcia rp",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "STL"
       },
       {
@@ -96477,7 +96477,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 3,
         "team": "DET",
         "≥100": 0.455
       },
@@ -107177,7 +107177,7 @@
         "person_key": "luis garcia rp",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "STL"
       },
       {

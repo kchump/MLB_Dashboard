@@ -20083,7 +20083,7 @@
         "prev_minors_year": "",
         "rAll": 0.96,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "DET",
         "teams": "",
         "vSzn": -404.25,
@@ -58093,7 +58093,7 @@
         "prev_minors_year": "",
         "rAll": 21.81,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD",
         "teams": "",
         "vSzn": -294.07,
@@ -62619,7 +62619,7 @@
         "prev_minors_year": "",
         "rAll": -38.14,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL",
         "teams": "",
         "vSzn": -693.62,
@@ -84156,7 +84156,7 @@
         "prev_minors_year": "",
         "rAll": -38.99,
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 2,
         "team": "WAS",
         "teams": "",
         "vSzn": -402.45,
@@ -93971,7 +93971,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "DET",
         "≥100": 0.19399999999999998
       },
@@ -100316,7 +100316,7 @@
         "person_key": "cole winn",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB"
       },
       {
@@ -104159,7 +104159,7 @@
         "person_key": "codi heuer",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -104264,7 +104264,7 @@
         "person_key": "connor seabold",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL"
       },
       {
@@ -106828,7 +106828,7 @@
         "person_key": "troy melton",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -108508,7 +108508,7 @@
         "person_key": "jake irvin",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 2,
         "team": "WAS"
       },
       {
@@ -122278,7 +122278,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "DET",
         "≥100": 0.192
       },
@@ -134707,7 +134707,7 @@
         "person_key": "luis garcia rp",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD"
       },
       {
@@ -136009,7 +136009,7 @@
         "person_key": "connor seabold",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL"
       },
       {
@@ -141198,7 +141198,7 @@
         "person_key": "jake irvin",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 3,
+        "sort_bucket": 2,
         "team": "WAS"
       },
       {

@@ -43475,7 +43475,7 @@
         "prev_minors_year": "",
         "rAll": -10.21,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PHI",
         "teams": "",
         "vSzn": -181.59,
@@ -92493,7 +92493,7 @@
         "person_key": "albert suarez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
