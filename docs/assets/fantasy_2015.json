@@ -2371,7 +2371,7 @@
         "prev_minors_year": "",
         "rAll": -27.85,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "vSzn": -315.03,
@@ -37237,7 +37237,7 @@
         "prev_minors_year": "",
         "rAll": 25.3,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SD",
         "teams": "",
         "vSzn": 455.64,
@@ -59796,7 +59796,7 @@
         "prev_minors_year": "",
         "rAll": 9.96,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW",
         "teams": "",
         "vSzn": 215.4,
@@ -76153,7 +76153,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "≥100": 0.222
@@ -81087,7 +81087,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "≥100": 0.25
       },
@@ -91260,7 +91260,7 @@
         "person_key": "jose quintana",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW"
       },
       {

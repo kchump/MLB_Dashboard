@@ -3163,7 +3163,7 @@
         "prev_minors_year": "",
         "rAll": -29.78,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SEA",
         "teams": "",
         "vSzn": -277.83,
@@ -9427,7 +9427,7 @@
         "prev_minors_year": "",
         "rAll": 29.86,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BOS",
         "teams": "",
         "vSzn": 229.11,
@@ -14611,7 +14611,7 @@
         "prev_minors_year": "",
         "rAll": -27.38,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIL",
         "teams": "",
         "vSzn": -260.91,
@@ -26563,7 +26563,7 @@
         "prev_minors_year": "",
         "rAll": 19.29,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR",
         "teams": "",
         "vSzn": -378.18,
@@ -41918,7 +41918,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "KC",
         "teams": "",
         "vSzn": "",
@@ -44327,7 +44327,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TB",
         "teams": "",
         "vSzn": "",
@@ -50751,8 +50751,8 @@
         "prev_minors_year": "",
         "rAll": -5.76,
         "role": "rp",
-        "sort_bucket": 1,
-        "team": "NYM",
+        "sort_bucket": 0,
+        "team": "TB",
         "teams": "",
         "vSzn": -393.68,
         "≥50 Qual": 1.0
@@ -50897,7 +50897,7 @@
         "prev_minors_year": "",
         "rAll": 46.86,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ATL",
         "teams": "",
         "vSzn": 50.54,
@@ -69368,7 +69368,7 @@
         "prev_minors_year": "",
         "rAll": -7.28,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE",
         "teams": "",
         "vSzn": -21.39,
@@ -73018,7 +73018,7 @@
         "prev_minors_year": "",
         "rAll": 6.33,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW",
         "teams": "",
         "vSzn": 161.22,
@@ -73967,7 +73967,7 @@
         "prev_minors_year": "",
         "rAll": -0.21,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "LAA,SF",
         "vSzn": -569.28,
@@ -88543,7 +88543,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BOS",
         "teams": "",
         "≥100": 0.273
@@ -91043,8 +91043,8 @@
         "person_key": "craig kimbrel",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
-        "team": "NYM"
+        "sort_bucket": 0,
+        "team": "TB"
       },
       {
         "All": 44.32,
@@ -91063,7 +91063,7 @@
         "person_key": "a j minter",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ATL"
       },
       {
@@ -92085,7 +92085,7 @@
         "person_key": "dylan cease",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW"
       },
       {
@@ -95120,7 +95120,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.33299999999999996
       },
@@ -95787,7 +95787,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BOS",
         "≥100": 0.2
       },
@@ -100939,7 +100939,7 @@
         "pos": "2B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR",
         "≥100": 0.10300000000000001
       },
@@ -107240,7 +107240,7 @@
         "person_key": "a j minter",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ATL"
       },
       {
@@ -111127,7 +111127,7 @@
         "person_key": "aaron civale",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE"
       },
       {
@@ -111841,7 +111841,7 @@
         "person_key": "dylan cease",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW"
       },
       {
@@ -112051,7 +112051,7 @@
         "person_key": "jose quintana",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {
