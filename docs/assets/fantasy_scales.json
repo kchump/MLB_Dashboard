@@ -80,11 +80,8 @@
       "worst": 10
     },
     "majors|hitters|Bad%": {
-      "best": 0.3,
       "fmt": "pct",
       "higher_is_better": false,
-      "neutral_hi": 0.38,
-      "neutral_lo": 0.39,
       "worst": 0.45
     },
     "majors|hitters|Bar/PA": {
@@ -106,15 +103,15 @@
     "majors|hitters|Blocking Runs": {
       "best": 10,
       "fmt": "num",
-      "gold": 15,
+      "gold": 12,
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -10
     },
     "majors|hitters|Blocks Above Avg": {
-      "best": 12,
+      "best": 10,
       "fmt": "num",
-      "gold": 15,
+      "gold": 12,
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -15
@@ -248,9 +245,9 @@
       "worst": -70
     },
     "majors|hitters|Framing Runs": {
-      "best": 12,
+      "best": 10,
       "fmt": "num",
-      "gold": 15,
+      "gold": 12,
       "neutral_hi": 2,
       "neutral_lo": -2,
       "worst": -15
@@ -405,8 +402,8 @@
     },
     "majors|hitters|LA": {
       "fmt": "num",
-      "neutral_hi": 18,
-      "neutral_lo": 10
+      "neutral_hi": 24,
+      "neutral_lo": 12
     },
     "majors|hitters|LHP": {
       "best": 40,
@@ -447,8 +444,9 @@
       "worst": -10
     },
     "majors|hitters|P/PA": {
-      "best": 4.3,
+      "best": 4.2,
       "fmt": "num",
+      "gold": 4.3,
       "neutral_hi": 3.9,
       "neutral_lo": 3.8,
       "worst": 3.4
@@ -495,10 +493,7 @@
       "worst": 0.12
     },
     "majors|hitters|Qual%": {
-      "best": 0.55,
       "fmt": "pct",
-      "neutral_hi": 0.47,
-      "neutral_lo": 0.46,
       "worst": 0.4
     },
     "majors|hitters|R": {

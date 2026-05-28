@@ -19507,7 +19507,7 @@
         "prev_minors_year": "",
         "rAll": -8.48,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "KC",
         "teams": "",
         "vSzn": -608.31,
@@ -22819,7 +22819,7 @@
         "prev_minors_year": "",
         "rAll": 4.57,
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CHW",
         "teams": "",
         "vSzn": -292.47,
@@ -27643,7 +27643,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "DET",
         "teams": "",
         "vSzn": "",
@@ -36715,7 +36715,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": "",
@@ -52704,7 +52704,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "SD,SEA",
         "vSzn": -395.69,
@@ -60442,7 +60442,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "WAS",
         "teams": "",
         "vSzn": "",
@@ -61028,7 +61028,7 @@
         "prev_minors_year": "",
         "rAll": -16.86,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "CLE",
         "teams": "",
         "vSzn": -18.99,
@@ -80343,7 +80343,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CHW",
         "teams": "",
         "≥100": 0.0
@@ -82899,7 +82899,7 @@
         "person_key": "dan altavilla",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -90538,7 +90538,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "KC",
         "≥100": 0.0
       },
@@ -91619,7 +91619,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CHW",
         "≥100": 0.33299999999999996
       },
@@ -95299,7 +95299,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CLE",
         "≥100": 0.33299999999999996
       },
@@ -98475,7 +98475,7 @@
         "person_key": "matt bowman",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -100092,7 +100092,7 @@
         "person_key": "austin voth",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "WAS"
       },
       {
@@ -100220,7 +100220,7 @@
         "person_key": "aaron civale",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "CLE"
       },
       {

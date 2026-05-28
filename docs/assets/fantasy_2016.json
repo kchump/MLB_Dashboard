@@ -50634,7 +50634,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "SEA",
         "teams": "",
         "vSzn": "",
@@ -50780,7 +50780,7 @@
         "prev_minors_year": "",
         "rAll": 26.5,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "STL",
         "teams": "",
         "vSzn": 92.72,
@@ -94790,7 +94790,7 @@
         "person_key": "dan altavilla",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "SEA"
       },
       {

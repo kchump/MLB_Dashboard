@@ -931,7 +931,7 @@
         "prev_minors_year": "",
         "rAll": -24.51,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SEA",
         "teams": "",
         "vSzn": -518.52,
@@ -22171,7 +22171,7 @@
         "prev_minors_year": "",
         "rAll": -0.82,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD",
         "teams": "",
         "vSzn": -738.39,
@@ -26419,7 +26419,7 @@
         "prev_minors_year": "",
         "rAll": -29.69,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "KC",
         "teams": "",
         "vSzn": -576.6,
@@ -29443,7 +29443,7 @@
         "prev_minors_year": "",
         "rAll": 1.65,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "vSzn": -486.24,
@@ -33547,7 +33547,7 @@
         "prev_minors_year": "",
         "rAll": -7.16,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "ARI,SD",
         "vSzn": -707.91,
@@ -68839,7 +68839,7 @@
         "prev_minors_year": "",
         "rAll": -1.03,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "BAL,WAS",
         "vSzn": -362.95,
@@ -69279,7 +69279,7 @@
         "prev_minors_year": "",
         "rAll": -5.04,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIL",
         "teams": "",
         "vSzn": -582.6,
@@ -69936,7 +69936,7 @@
         "prev_minors_year": "",
         "rAll": 32.45,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "CLE",
         "teams": "",
         "vSzn": -152.52,
@@ -71615,7 +71615,7 @@
         "prev_minors_year": "",
         "rAll": 11.12,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PHI",
         "teams": "",
         "vSzn": 47.89,
@@ -87431,7 +87431,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SEA",
         "≥100": 0.314
       },
@@ -88535,7 +88535,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SD",
         "≥100": 0.18899999999999997
       },
@@ -90398,7 +90398,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.013999999999999999
       },
@@ -91474,7 +91474,7 @@
         "person_key": "pj poulin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -93093,7 +93093,7 @@
         "person_key": "jesse scholtens",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "MiLB"
       },
       {
@@ -98752,7 +98752,7 @@
         "person_key": "aaron civale",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "CLE"
       },
       {
@@ -98952,7 +98952,7 @@
         "person_key": "bailey falter",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PHI"
       },
       {
@@ -106502,7 +106502,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "KC",
         "≥100": 0.0
       },
@@ -108480,7 +108480,7 @@
         "pos": "SS",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "≥100": 0.125
       },
@@ -112833,7 +112833,7 @@
         "person_key": "pj poulin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -115565,7 +115565,7 @@
         "person_key": "aaron civale",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "CLE"
       },
       {
@@ -115838,7 +115838,7 @@
         "person_key": "bailey falter",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PHI"
       },
       {

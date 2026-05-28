@@ -4252,8 +4252,15 @@ function rgba_from_two_sided_value(v, worst, neutral_lo, neutral_hi, best, alpha
 
   if (vv >= nlo && vv <= nhi) return '';
 
-  const frac = (vv - worst) / (best - worst);
-  const f = clamp(frac, 0, 1);
+  let f;
+
+  if (vv < nlo) {
+    const frac = (vv - worst) / (nlo - worst);
+    f = 0.5 * clamp(frac, 0, 1);
+  } else {
+    const frac = (vv - nhi) / (best - nhi);
+    f = 0.5 + (0.5 * clamp(frac, 0, 1));
+  }
 
   const alpha_min = 0.25;
   const alpha_max = 0.95;
@@ -4928,7 +4935,7 @@ append_matchup_player_link(
           if (Number.isFinite(v)) {
             td.textContent = `${display_stat(v * 100, 1)}%`;
 
-            const gold_at = key === 'Pts +/-' ? 0.35 : 0.60;
+            const gold_at = key === 'Pts +/-' ? 0.35 : 0.50;
 
             if (v >= gold_at) {
               td.style.background = gold_gradient_fill(alpha_mult);
@@ -6833,7 +6840,22 @@ if (mode === 'projected_pitchers') {
 
       if (req_id !== projected_req_id) return;
 
-      await render_many(paths, { link_role: 'starters' });
+const projected_pitcher_drop_cols = [
+  '+FB',
+  '+SI',
+  '+CT',
+  '+SL',
+  '+SW',
+  '+CB',
+  '+CH',
+  '+SP',
+  '+KN',
+];
+      // await render_many(paths, { link_role: 'starters' });
+      await render_many(paths, {
+  link_role: 'starters',
+  drop_cols: projected_pitcher_drop_cols
+}); //TODO drop pitch columns
       apply_matchups_table_dividers(results_root, mode, 'default');
       sort_first_results_table_by_team_name();
 
@@ -8760,49 +8782,49 @@ setTimeout(() => submit(), 0);
 //#################################################################### Matchups table dividers ####################################################################
 const matchups_table_divider_config = {
   gameday_matchup: {
-    pitcher: { heavy_before: ['+All', 'Consistency', '+FB', 'All', 'FB', 'RHB'], light_before: ['+SL', '+CH'] },
-    lineup: { heavy_before: ['+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
+    pitcher: { heavy_before: ['Score', '+All', 'Consistency', '+FB', 'All', 'FB', 'RHB'], light_before: ['+SL', '+CH'] },
+    lineup: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
     fallback: { heavy_before: ['All', 'Consistency', 'Year', 'LHP', 'RHP', 'FB'], light_before: [] },
   },
 
   projected_pitchers: {
-    default: { heavy_before: ['+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
+    default: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
   },
 
   weekly_starting_pitcher_moves: {
-  default: { heavy_before: ['+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
+  default: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
 },
 
   best_worst_hitters: {
-    default: { heavy_before: ['+All', 'Consistency'], light_before: ['Pitcher'] },
+    default: { heavy_before: ['Score', '+All', 'Consistency'], light_before: ['Pitcher'] },
   },
 
   specific_starting_pitchers: {
-    default: { heavy_before: ['+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
+    default: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
   },
 
   specific_hitters: {
-    default: { heavy_before: ['+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
+    default: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
   },
 
   todays_favorited_players: {
-    pitchers: { heavy_before: ['+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
-    matchups: { heavy_before: ['+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
+    pitchers: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
+    matchups: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
     fallback: { heavy_before: ['All', 'Consistency', 'RHP', 'LHP', 'FB',], light_before: ['Opp'] },
   },
 
   todays_fantasy_lineup: {
-    matchups: { heavy_before: ['+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
+    matchups: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
     fallback: { heavy_before: ['All', 'Consistency', 'RHP', 'LHP', 'FB'], light_before: ['Opp'] },
   },
 
   weekly_fantasy_hitter_moves: {
-    matchups: { heavy_before: ['+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
+    matchups: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
     fallback: { heavy_before: ['All', 'Consistency'], light_before: ['Opp'] },
   },
 
   reliever_inning: {
-    default: { heavy_before: ['+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
+    default: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
   },
 };
 //#################

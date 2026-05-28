@@ -655,7 +655,7 @@ body.sidebar_hidden .content {
 }
 
 #matchups .static_page {
-  max-width: 1300px;
+  max-width: 1500px;
   min-width: 0;
   overflow-x: hidden;
 }
