@@ -4111,6 +4111,26 @@ rows_plus.addEventListener('click', (e) => {
     return s;
   }
   //#################
+  function matchup_col_width(header_text, options) {
+    const mode_key = String(options?.mode_key || '').trim();
+    const h = String(header_text || '').trim();
+
+    if (mode_key !== 'gameday_matchup') return '';
+
+    if (h === 'Pitcher' || h === 'Hitter' || h === 'Name') return '150px';
+    if (h === 'IP' || h === 'PA') return '58px';
+    if (h === 'Score' || h === '+All' || h === 'All' || h === 'RHP' || h === 'LHP' || h === 'RHB' || h === 'LHB') return '72px';
+    if (h === 'Consistency' || h === 'Pts +/-' || h === 'Days +/-') return '128px';
+    if (h === 'Away' || h === 'Opp' || h === 'Team') return '70px';
+
+    if ([
+      '+FB', '+SI', '+CT', '+SL', '+SW', '+CB', '+CH', '+SP', '+KN',
+      'FB', 'SI', 'CT', 'SL', 'SW', 'CB', 'CH', 'SP', 'KN'
+    ].includes(h)) return '72px';
+
+    return '80px';
+  }
+  //#################
   function header_index(header, name) {
     return (header || []).findIndex(h => String(h || '').trim() === String(name || '').trim());
   }
@@ -4349,7 +4369,7 @@ function matchup_gold_threshold(header_text, gold_mode) {
   //#################
   function is_matchup_stat_col(header_text) {
     const h = String(header_text || '').trim();
-    return h.startsWith('+');
+    return h.startsWith('+') || h === 'Score';
   }
   //#################
   function extract_table_parts(fragment_html) {
@@ -4784,23 +4804,37 @@ function infer_matchup_link_roles(header, explicit_role, explicit_pitcher_role) 
         r[c_idx] = (v == null || String(v).trim() === '') ? '—' : String(v);
       });
 
-      const anchors = ['+All', 'All', 'RHP', 'RHB', 'LHP', 'LHB'];
-      let anchor_idx = -1;
+    const anchors = ['+All', 'All', 'RHP', 'RHB', 'LHP', 'LHB'];
+    let anchor_idx = -1;
 
-      header.forEach((h, i) => {
-        if (anchors.includes(String(h || '').trim())) anchor_idx = i;
+    header.forEach((h, i) => {
+      if (anchors.includes(String(h || '').trim())) anchor_idx = i;
+    });
+
+    if (anchor_idx >= 0 && c_idx !== anchor_idx + 1) {
+      const moved_header = header.splice(c_idx, 1)[0];
+      const insert_idx = c_idx < anchor_idx ? anchor_idx : anchor_idx + 1;
+      header.splice(insert_idx, 0, moved_header);
+
+      rows.forEach(r => {
+        const moved_cell = r.splice(c_idx, 1)[0];
+        r.splice(insert_idx, 0, moved_cell);
       });
+    }
 
-      if (anchor_idx >= 0 && c_idx !== anchor_idx + 1) {
-        const moved_header = header.splice(c_idx, 1)[0];
-        const insert_idx = c_idx < anchor_idx ? anchor_idx : anchor_idx + 1;
-        header.splice(insert_idx, 0, moved_header);
+    const score_idx = header.findIndex(h => String(h || '').trim() === 'Score');
+    const all_idx = header.findIndex(h => String(h || '').trim() === '+All');
 
-        rows.forEach(r => {
-          const moved_cell = r.splice(c_idx, 1)[0];
-          r.splice(insert_idx, 0, moved_cell);
-        });
-      }
+    if (score_idx >= 0 && all_idx >= 0 && score_idx !== all_idx - 1) {
+      const moved_header = header.splice(score_idx, 1)[0];
+      const insert_idx = score_idx < all_idx ? all_idx - 1 : all_idx;
+      header.splice(insert_idx, 0, moved_header);
+
+      rows.forEach(r => {
+        const moved_cell = r.splice(score_idx, 1)[0];
+        r.splice(insert_idx, 0, moved_cell);
+      });
+    }
     }
     //#################
     function decimals_in_raw(raw) {
@@ -4828,7 +4862,24 @@ function infer_matchup_link_roles(header, explicit_role, explicit_pitcher_role) 
     if (compact_table) {
       table.classList.add('compact_matchup_table');
     }
+    //gameday columns lining up
+    const use_gameday_col_widths = String(options.mode_key || '').trim() === 'gameday_matchup';
 
+    if (use_gameday_col_widths) {
+      table.classList.add('gameday_matchup_table');
+
+      const colgroup = document.createElement('colgroup');
+
+      header.forEach(h => {
+        const col = document.createElement('col');
+        const w = matchup_col_width(h, options);
+        if (w) col.style.width = w;
+        colgroup.appendChild(col);
+      });
+
+      table.appendChild(colgroup);
+    }
+    //gameday columns above
     const thead = document.createElement('thead');
     const trh = document.createElement('tr');
     header.forEach(h => {
@@ -4881,7 +4932,7 @@ append_matchup_player_link(
               td.textContent = (v > 0 ? `+${txt}` : String(txt));
             }
 
-            const is_all = String(h || '').trim() === '+All';
+            const is_all = ['+All', 'Score'].includes(String(h || '').trim());
             const worst = is_all ? -40 : -70;
             const best = is_all ? 40 : 70;
             const gold_at = matchup_gold_threshold(h, gold_mode);
@@ -4986,7 +5037,8 @@ if (is_gold_cell) {
     const parts = extract_table_parts(html);
     if (!parts || !parts.header_cells.length || !parts.row_cells.length) return NaN;
 
-    const idx_all = parts.header_cells.findIndex(h => String(h || '').trim() === '+All');
+    let idx_all = parts.header_cells.findIndex(h => String(h || '').trim() === 'Score');
+    if (idx_all < 0) idx_all = parts.header_cells.findIndex(h => String(h || '').trim() === '+All');
     if (idx_all < 0) return NaN;
 
     return parse_matchup_stat_number(parts.row_cells[idx_all]);
@@ -5065,6 +5117,7 @@ if (is_gold_cell) {
         opts: {
           drop_cols: ['Year', 'Team', 'Opp', 'Away', 'Bats', 'Throws'],
           compact_table: true,
+          mode_key: 'gameday_matchup',
           link_role: 'starters'
         }
       };
@@ -5261,8 +5314,10 @@ function build_personalized_hitter_fallback_rows(year_lists_obj, hitters_list, p
 
     if (can_use_handed_score) {
       score_val = handed_score_val;
-    } else {
+    } else if (!pitcher_throw) {
       score_val = fallback_display_all(rec, current_year);
+    } else {
+      score_val = NaN;
     }
 
     if (pitcher_rec && pitcher_throw && eff_side) {
@@ -5398,6 +5453,7 @@ function build_personalized_hitter_fallback_rows(year_lists_obj, hitters_list, p
         opts: {
           drop_cols: ['Year', 'Team', 'Pitcher', 'Opp', 'Away', 'IP', 'Bats', 'Throws'],
           gold_mode: 'hitter',
+          mode_key: 'gameday_matchup',
           link_role: 'batters'
         }
       });
@@ -6064,8 +6120,8 @@ function find_fragment_key_loose(obj, wanted_name) {
       //#################
       function reset_sort_button() {
         if (!sort_btn) return;
-        sort_btn.dataset.mode = 'all';
-        sort_btn.textContent = 'Sort +All';
+        sort_btn.dataset.mode = 'team';
+        sort_btn.textContent = 'Sort Team Name';
       }
 
       const submit_btn = document.createElement('button');
@@ -6127,9 +6183,9 @@ function find_fragment_key_loose(obj, wanted_name) {
       }
 
       function sort_by_all_desc() {
-        let idx_all = header_index_for('+All');
+        let idx_all = header_index_for('Score');
+        if (idx_all < 0) idx_all = header_index_for('+All');
         if (idx_all < 0) idx_all = header_index_for('All');
-        if (idx_all < 0) return;
 
         sort_results_by_col_idx(idx_all, (a, b, idx) => {
           const av = parse_sort_num(a.children[idx] ? a.children[idx].textContent : '');
@@ -6177,8 +6233,8 @@ function find_fragment_key_loose(obj, wanted_name) {
         sort_btn = document.createElement('button');
         sort_btn.type = 'button';
         sort_btn.className = 'matchups_submit';
-        sort_btn.textContent = 'Sort +All';
-        sort_btn.dataset.mode = 'all';
+        sort_btn.textContent = 'Sort Team Name';
+        sort_btn.dataset.mode = 'team';
 
         sort_btn.addEventListener('click', (e) => {
           e.preventDefault();
@@ -6193,7 +6249,7 @@ function find_fragment_key_loose(obj, wanted_name) {
             } else {
               sort_by_entry_order();
               sort_btn.dataset.mode = 'all';
-              sort_btn.textContent = 'Sort +All';
+              sort_btn.textContent = 'Sort Score';
             }
             return;
           }
@@ -6205,7 +6261,7 @@ function find_fragment_key_loose(obj, wanted_name) {
           } else {
             sort_by_team_name();
             sort_btn.dataset.mode = 'all';
-            sort_btn.textContent = 'Sort +All';
+            sort_btn.textContent = 'Sort Score';
           }
         });
 
@@ -6574,8 +6630,8 @@ function sort_table_rows_by_all(table) {
   const tbody = table.querySelector('tbody');
   if (!thead || !tbody) return;
 
-  const ths = Array.from(thead.querySelectorAll('th'));
-  let idx_all = ths.findIndex(th => String(th.textContent || '').trim() === '+All');
+  let idx_all = ths.findIndex(th => String(th.textContent || '').trim() === 'Score');
+  if (idx_all < 0) idx_all = ths.findIndex(th => String(th.textContent || '').trim() === '+All');
   if (idx_all < 0) idx_all = ths.findIndex(th => String(th.textContent || '').trim() === 'All');
   if (idx_all < 0) idx_all = ths.findIndex(th => String(th.textContent || '').trim() === 'RHP');
   if (idx_all < 0) idx_all = ths.findIndex(th => String(th.textContent || '').trim() === 'LHP');
@@ -6840,24 +6896,24 @@ if (mode === 'projected_pitchers') {
 
       if (req_id !== projected_req_id) return;
 
-const projected_pitcher_drop_cols = [
-  '+FB',
-  '+SI',
-  '+CT',
-  '+SL',
-  '+SW',
-  '+CB',
-  '+CH',
-  '+SP',
-  '+KN',
-];
-      // await render_many(paths, { link_role: 'starters' });
+      const projected_pitcher_drop_cols = [
+        '+FB',
+        '+SI',
+        '+CT',
+        '+SL',
+        '+SW',
+        '+CB',
+        '+CH',
+        '+SP',
+        '+KN',
+      ];
       await render_many(paths, {
-  link_role: 'starters',
-  drop_cols: projected_pitcher_drop_cols
-}); //TODO drop pitch columns
+        link_role: 'starters',
+        drop_cols: projected_pitcher_drop_cols,
+        compact_table: true
+      }); //TODO drop pitch columns
       apply_matchups_table_dividers(results_root, mode, 'default');
-      sort_first_results_table_by_team_name();
+      sort_all_results_tables_by_all();
 
     } catch (e) {
       dbg('projected_pitchers submit error', e);
@@ -7557,7 +7613,7 @@ if (should_auto_submit_matchups_mode(mode)) {
 }
 return;
 }
-//#################################################################### Mode: best_worst_hitters ####################################################################
+//#################################################################### Mode: best_and_worst_hitters ####################################################################
 if (mode === 'best_and_worst_hitters') {
 
   const day_obj = make_select('matchups_bw_day','Day');
@@ -8746,7 +8802,8 @@ apply_same_team_filter();
       override_rows,
       drop_cols: ['Year', 'Pitcher', 'IP', 'Away', 'Bats', 'Throws'],
       link_role: 'batters',
-      pitcher_link_role: 'bullpen'
+      pitcher_link_role: 'bullpen',
+      compact_table: true
     });
     apply_matchups_table_dividers(results_root, mode, 'default');
   }
@@ -8795,7 +8852,7 @@ const matchups_table_divider_config = {
   default: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
 },
 
-  best_worst_hitters: {
+  best_and_worst_hitters: {
     default: { heavy_before: ['Score', '+All', 'Consistency'], light_before: ['Pitcher'] },
   },
 
@@ -8820,7 +8877,7 @@ const matchups_table_divider_config = {
 
   weekly_fantasy_hitter_moves: {
     matchups: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
-    fallback: { heavy_before: ['All', 'Consistency'], light_before: ['Opp'] },
+    fallback: { heavy_before: ['All', 'Consistency', 'RHP', 'LHP'], light_before: ['Opp'] },
   },
 
   reliever_inning: {
@@ -8942,12 +8999,12 @@ const fantasy_display_columns = {
     ],
     sp: [
       'Name', 'Team',
-      'Pts', 'PPG', 'Score', 'All', 'rAll', 'S All', , 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'Rarity', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
+      'Pts', 'PPG', 'Score', 'All', 'rAll', 'S All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'Rarity', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
       'FB Stf', 'FB R', 'FB L', 'SI Stf', 'SI R', 'SI L', 'CT Stf', 'CT R', 'CT L', 'SL Stf', 'SL R', 'SL L', 'SW Stf', 'SW R', 'SW L', 'CB Stf', 'CB R', 'CB L', 'CH Stf', 'CH R', 'CH L', 'SP Stf', 'SP R', 'SP L'
     ],
     rp: [
       'Name', 'Team',
-      'Pts', 'PPG', 'Score', 'All', 'rAll', 'S All', , 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'Rarity', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'BS', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
+      'Pts', 'PPG', 'Score', 'All', 'rAll', 'S All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn', 'Velo', 'Stf', 'Rarity', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'BS', 'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
       'FB Stf', 'FB R', 'FB L', 'SI Stf', 'SI R', 'SI L', 'CT Stf', 'CT R', 'CT L', 'SL Stf', 'SL R', 'SL L', 'SW Stf', 'SW R', 'SW L', 'CB Stf', 'CB R', 'CB L', 'CH Stf', 'CH R', 'CH L', 'SP Stf', 'SP R', 'SP L'
     ],
   },
@@ -8967,6 +9024,20 @@ const fantasy_display_columns = {
     rp: ['Name', 'Team', 'Velo', 'Stf', 'All', 'Con', 'Disc', 'IP', 'K', 'WHIP', 'SwStr%', 'Days +/-', 'BB%', 'K%'],
   },
 };
+/* ################# */
+fantasy_display_columns.majors.pitchers = [
+  'Name', 'Role', 'Team',
+  'Pts', 'PPG', 'Score', 'All', 'rAll', 'S All', 'Con', 'Disc', 'Val', 'S Val', 'vSzn',
+  'Velo', 'Stf', 'Rarity', 'LCon', 'LDisc', 'W', 'L', 'IP', 'BB', 'K', 'QS/SV', 'BS',
+  'ERA', 'WHIP', 'Days +/-', 'BB%', 'K%', 'SwStr%', 'CSW%', '≥50 Qual',
+  'FB Stf', 'FB R', 'FB L', 'SI Stf', 'SI R', 'SI L', 'CT Stf', 'CT R', 'CT L',
+  'SL Stf', 'SL R', 'SL L', 'SW Stf', 'SW R', 'SW L', 'CB Stf', 'CB R', 'CB L',
+  'CH Stf', 'CH R', 'CH L', 'SP Stf', 'SP R', 'SP L'
+];
+
+fantasy_display_columns.playoffs.pitchers = ['Name', 'Role', ...fantasy_display_columns.playoffs.sp.filter(col => col !== 'Name')];
+fantasy_display_columns.spring.pitchers = ['Name', 'Role', ...fantasy_display_columns.spring.sp.filter(col => col !== 'Name')];
+fantasy_display_columns.minors.pitchers = ['Name', 'Role', ...fantasy_display_columns.minors.sp.filter(col => col !== 'Name')];
 /* ################# */
 const fantasy_sort_columns = {
   majors: {
@@ -9000,15 +9071,30 @@ const fantasy_sort_columns = {
   },
 };
 /* ################# */
-const fantasy_hitter_positions = ['All', 'C', '1B', '2B', '3B', 'SS', 'OF', 'DH', 'P'];
+fantasy_sort_columns.majors.pitchers = fantasy_sort_columns.majors.rp;
+fantasy_sort_columns.playoffs.pitchers = fantasy_sort_columns.playoffs.sp;
+fantasy_sort_columns.spring.pitchers = fantasy_sort_columns.spring.sp;
+fantasy_sort_columns.minors.pitchers = fantasy_sort_columns.minors.sp;
+/* ################# */
+function fantasy_hitter_position_options() {
+  const base = ['ALL', 'C', '1B', '2B', '3B', 'SS', 'OF', 'DH'];
+
+  if (Number(fantasy_state.year) < 2022) {
+    base.push('P');
+  }
+
+  return base;
+}
 /* ################# */
 const fantasy_qual_options = {
   hitters: ['', '25', '50', '100', '200', '300', '400', '500'],
+  pitchers: ['', '5', '10', '25', '50', '100', '150'],
   sp: ['', '10', '25', '50', '100', '150'],
   rp: ['', '5', '10', '25', '50'],
 };
 /* ################# */
 const fantasy_sidebar_team_cache = new Map();
+const fantasy_page_lookup = new Map();
 /* ################# */
 function fantasy_qualifier_label() {
   return fantasy_state.section === 'hitters' ? 'Min PA' : 'Min IP';
@@ -9192,6 +9278,20 @@ function fantasy_role_to_page_role(role) {
   return 'batters';
 }
 /* ################# */
+function fantasy_build_page_lookup() {
+  fantasy_page_lookup.clear();
+
+  document.querySelectorAll('.toc_link[data-page]').forEach(link => {
+    const person_key = String(link.getAttribute('data-person_key') || '').trim();
+    const role = String(link.getAttribute('data-role') || '').trim();
+    const page = String(link.getAttribute('data-page') || '').trim();
+
+    if (!person_key || !role || !page) return;
+
+    fantasy_page_lookup.set(`${role}|${person_key}`, page);
+  });
+}
+/* ################# */
 function fantasy_lookup_sidebar_team(row) {
   const person_key = String(row.person_key || '').trim();
   const role = fantasy_role_to_page_role(row.role);
@@ -9231,13 +9331,31 @@ function fantasy_find_toc_link(row) {
   return null;
 }
 /* ################# */
+// function fantasy_player_link(row) {
+//   const safe_name = escape_html(row.name || '');
+//   const person_key = String(row.person_key || '');
+//   const role = fantasy_role_to_page_role(row.role);
+
+//   return `
+//     <a href="#" class="fantasy_player_link" data-person_key="${escape_html(person_key)}" data-role="${escape_html(role)}">${safe_name}</a>
+//   `;
+// }
 function fantasy_player_link(row) {
   const safe_name = escape_html(row.name || '');
   const person_key = String(row.person_key || '');
   const role = fantasy_role_to_page_role(row.role);
 
+  const page_id = fantasy_page_lookup.get(`${role}|${person_key}`) || '';
+  const href = page_id ? `#${page_id}` : '#';
+
   return `
-    <a href="#" class="fantasy_player_link" data-person_key="${escape_html(person_key)}" data-role="${escape_html(role)}">${safe_name}</a>
+    <a
+      href="${escape_html(href)}"
+      class="fantasy_player_link"
+      data-person_key="${escape_html(person_key)}"
+      data-role="${escape_html(role)}"
+      data-page_id="${escape_html(page_id)}"
+    >${safe_name}</a>
   `;
 }
 /* ################# */
@@ -9310,12 +9428,75 @@ function fantasy_last_team_from_teams_value(teams_value) {
   return teams.length ? teams[teams.length - 1] : '';
 }
 /* ################# */
+function fantasy_clean_team_value(team) {
+  const s = String(team || '').trim();
+  const upper = s.toUpperCase();
+
+  if (!s) return '';
+
+  const retired_match = upper.match(/^RETIRED:+(.+)$/);
+  if (retired_match) {
+    const retired_team = retired_match[1].trim();
+
+    if (!retired_team || retired_team === 'JOURNEYMEN') {
+      return '';
+    }
+
+    return retired_team;
+  }
+
+  const blocked = new Set([
+    'CHICAGO',
+    'LOS ANGELES',
+    'NEW YORK',
+    'RETIRED',
+    'JOURNEYMEN',
+  ]);
+
+  if (blocked.has(upper)) return '';
+
+  return s;
+}
+/* ################# */
+function fantasy_team_values_from_row(row) {
+  return fantasy_split_teams_value(row.Teams || row.teams)
+    .map(team => fantasy_clean_team_value(team))
+    .filter(team => team);
+}
+/* ################# */
 function fantasy_effective_team(row) {
   const display_team = String(row.team || '').trim();
   const display_team_upper = display_team.toUpperCase();
 
   if (fantasy_is_multi_team_placeholder(display_team)) {
     return display_team;
+  }
+
+  const teams_from_row = fantasy_team_values_from_row(row);
+
+  if (
+    display_team_upper.startsWith('RETIRED:') ||
+    display_team_upper === 'RETIRED' ||
+    display_team_upper === 'JOURNEYMEN'
+  ) {
+    const cleaned_display_team = fantasy_clean_team_value(display_team);
+
+    if (cleaned_display_team) {
+      return cleaned_display_team;
+    }
+
+    if (teams_from_row.length) {
+      return teams_from_row[teams_from_row.length - 1];
+    }
+
+    const sidebar_team = fantasy_lookup_sidebar_team(row);
+    const cleaned_sidebar_team = fantasy_clean_team_value(sidebar_team);
+
+    if (cleaned_sidebar_team && !fantasy_is_multi_team_placeholder(cleaned_sidebar_team)) {
+      return cleaned_sidebar_team;
+    }
+
+    return '';
   }
 
   const wbc_teams = new Set([
@@ -9333,13 +9514,17 @@ function fantasy_effective_team(row) {
   ]);
 
   if (placeholder_teams.has(display_team_upper)) {
+    if (teams_from_row.length) {
+      return teams_from_row[teams_from_row.length - 1];
+    }
+
     const sidebar_team = fantasy_lookup_sidebar_team(row);
     if (sidebar_team && !fantasy_is_multi_team_placeholder(sidebar_team)) {
-      return sidebar_team;
+      return fantasy_clean_team_value(sidebar_team);
     }
   }
 
-  return display_team;
+  return fantasy_clean_team_value(display_team);
 }
 /* ################# */
 function fantasy_row_with_position_fallback(row, data) {
@@ -9385,13 +9570,14 @@ function fantasy_team_options(data) {
           fantasy_state.scope === 'majors' &&
           fantasy_is_multi_team_placeholder(raw_team)
         ) {
-          return fantasy_split_teams_value(row.Teams || row.teams);
+          return fantasy_team_values_from_row(row);
         }
 
         return display_team ? [display_team] : [];
       })
     )
   )
+    .filter(team => fantasy_clean_team_value(team))
     .filter(team => team && team.toUpperCase() !== 'FA')
     .filter(team => team.toUpperCase() !== 'FREE AGENTS')
     .filter(team => team.toUpperCase() !== 'FREE AGENT')
@@ -9401,7 +9587,27 @@ function fantasy_team_options(data) {
 }
 /* ################# */
 function fantasy_current_rows(data) {
-  let rows = data?.[fantasy_state.scope]?.[fantasy_state.section] || [];
+  let rows;
+
+  if (fantasy_state.section === 'pitchers') {
+    const sp_rows = (data?.[fantasy_state.scope]?.sp || []).map(row => ({
+      ...row,
+      fantasy_role_label: 'SP',
+      fantasy_source_section: 'sp',
+      role: row.role || 'sp',
+    }));
+
+    const rp_rows = (data?.[fantasy_state.scope]?.rp || []).map(row => ({
+      ...row,
+      fantasy_role_label: 'RP',
+      fantasy_source_section: 'rp',
+      role: row.role || 'rp',
+    }));
+
+    rows = [...sp_rows, ...rp_rows];
+  } else {
+    rows = data?.[fantasy_state.scope]?.[fantasy_state.section] || [];
+  }
 
   rows = rows.map(row => ({
     ...row,
@@ -9420,21 +9626,22 @@ function fantasy_filter_rows(data) {
 
   rows = rows.filter(row => !fantasy_is_removed(row));
 
-if (fantasy_state.team !== 'ALL') {
-  rows = rows.filter(row => {
-    const raw_team = String(row.team || '').trim();
-    const display_team = String(row.display_team || fantasy_effective_team(row) || '').trim().toUpperCase();
+  if (fantasy_state.team !== 'ALL') {
+    rows = rows.filter(row => {
+      const selected_team = String(fantasy_state.team || '').trim().toUpperCase();
+      const raw_team = String(row.team || '').trim();
+      const display_team = String(row.display_team || fantasy_effective_team(row) || '').trim().toUpperCase();
 
-    if (display_team === fantasy_state.team) {
-      return true;
-    }
+      if (display_team === selected_team) {
+        return true;
+      }
 
     if (
       fantasy_state.scope === 'majors' &&
       fantasy_is_multi_team_placeholder(raw_team)
     ) {
-      const teams = fantasy_split_teams_value(row.Teams || row.teams).map(team => team.toUpperCase());
-      return teams.includes(fantasy_state.team);
+      const teams = fantasy_team_values_from_row(row).map(team => team.toUpperCase());
+      return teams.includes(selected_team);
     }
 
     return false;
@@ -9623,6 +9830,7 @@ function fantasy_build_controls_html(data) {
 
   const section_options = [
     ['hitters', 'Hitters'],
+    ['pitchers', 'Pitchers'],
     ['sp', 'SP'],
     ['rp', 'RP'],
   ].map(([value, label]) => `<option value="${value}" ${value === fantasy_state.section ? 'selected' : ''}>${label}</option>`).join('');
@@ -9646,7 +9854,10 @@ function fantasy_build_controls_html(data) {
       <div>
         <div class="matchups_label">Position</div>
         <select id="fantasy_hitter_pos" class="matchups_select">
-          ${fantasy_hitter_positions.map(value => `<option value="${value}" ${value === fantasy_state.hitter_pos ? 'selected' : ''}>${value}</option>`).join('')}
+          ${fantasy_hitter_position_options().map(value => {
+            const label = value === 'ALL' ? 'All' : value;
+            return `<option value="${value}" ${value === fantasy_state.hitter_pos ? 'selected' : ''}>${label}</option>`;
+          }).join('')}
         </select>
       </div>
     `
@@ -9727,13 +9938,14 @@ function fantasy_column_divider_class(col) {
   };
 
   const light_dividers_by_section = {
-    hitters: new Set('L Hit',),
+    hitters: new Set(['L Hit']),
     sp: new Set(['IP', 'SI Stf', 'CT Stf', 'SL Stf', 'SW Stf', 'CB Stf', 'CH Stf', 'SP Stf']),
     rp: new Set(['IP', 'SI Stf', 'CT Stf', 'SL Stf', 'SW Stf', 'CB Stf', 'CH Stf', 'SP Stf']),
   };
 
-  const heavy = heavy_dividers_by_section[fantasy_state.section] || new Set();
-  const light = light_dividers_by_section[fantasy_state.section] || new Set();
+  const divider_section = fantasy_state.section === 'pitchers' ? 'sp' : fantasy_state.section;
+  const heavy = heavy_dividers_by_section[divider_section] || new Set();
+  const light = light_dividers_by_section[divider_section] || new Set();
 
   if (heavy.has(col)) return ' fantasy_divider_before';
   if (light.has(col)) return ' fantasy_divider_before_light';
@@ -9762,9 +9974,16 @@ function fantasy_display_label(col) {
 /* ################# */
 function fantasy_gradient_source_key(row, col) {
   const scope = String(fantasy_state.scope || '');
-  const section = String(fantasy_state.section || '');
+  let section = String(fantasy_state.section || '');
 
-  if (!col || col === 'Name' || col === 'Pos' || col === '2nd Pos' || col === 'Team') {
+  if (section === 'pitchers') {
+    section = String(row.fantasy_source_section || row.role || 'sp');
+
+    if (section === 'starters') section = 'sp';
+    if (section === 'bullpen') section = 'rp';
+  }
+
+  if (!col || col === 'Name' || col === 'Role' || col === 'Pos' || col === '2nd Pos' || col === 'Team') {
     return '';
   }
 
@@ -10191,7 +10410,13 @@ function fantasy_gradient_style(row, col, value) {
   // if (!spec) return '';
   let spec = panel_lookup[source_key];
 
-  if (fantasy_state.scope === 'majors' && fantasy_state.section === 'rp') {
+  if (
+    fantasy_state.scope === 'majors' &&
+    (
+      fantasy_state.section === 'rp' ||
+      (fantasy_state.section === 'pitchers' && row.fantasy_source_section === 'rp')
+    )
+  ) {
     if (col === 'PPG' || col === 'S PPG') {
       spec = {
         ...(spec || {}),
@@ -10347,9 +10572,11 @@ function fantasy_build_table_html(rows) {
         value = escape_html(String(row.pos || ''));
       } else if (col === '2nd Pos') {
         value = escape_html(String(row.pos2 || ''));
-} else if (col === 'Team') {
-  value = escape_html(String(row.display_team || fantasy_effective_team(row) || row.team || ''));
-      } else {
+      } else if (col === 'Role') {
+        value = escape_html(String(row.fantasy_role_label || ''));
+      } else if (col === 'Team') {
+        value = escape_html(String(row.display_team || fantasy_effective_team(row) || row.team || ''));
+            } else {
         let raw = row[col];
 
         if (String(col).startsWith('S ') && (raw === 0 || raw === 0.0)) {
@@ -10364,7 +10591,7 @@ function fantasy_build_table_html(rows) {
       const use_white_text = fantasy_should_use_white_text(row, col, gradient_style);
       const cell_fill_class = use_white_text ? 'fantasy_cell_fill fantasy_cell_fill_white_text' : 'fantasy_cell_fill';
 
-      if (col === 'Name' || col === 'Pos' || col === '2nd Pos' || col === 'Team') {
+      if (col === 'Name' || col === 'Role' || col === 'Pos' || col === '2nd Pos' || col === 'Team') {
         return `<td class="${cls}">${value}</td>`;
       }
 
@@ -10524,6 +10751,14 @@ async function render_fantasy_page() {
     fantasy_state.year = Number(window.year_page_lookup ? Object.keys(window.year_page_lookup).sort().slice(-1)[0] : new Date().getFullYear());
   }
 
+  if (
+    fantasy_state.section === 'hitters' &&
+    fantasy_state.hitter_pos === 'P' &&
+    Number(fantasy_state.year) >= 2022
+  ) {
+    fantasy_state.hitter_pos = 'ALL';
+  }
+
   if (!fantasy_state.sort_key) {
     fantasy_state.sort_key = fantasy_default_sort_key();
     fantasy_state.sort_desc = fantasy_sort_desc(fantasy_state.sort_key);
@@ -10535,6 +10770,7 @@ async function render_fantasy_page() {
     await load_fantasy_scales();
     const data = await load_fantasy_data(fantasy_state.year);
     controls_root.innerHTML = fantasy_build_controls_html(data);
+    fantasy_build_page_lookup();
     const rows = fantasy_sort_rows(fantasy_filter_rows(data));
     results_root.innerHTML = fantasy_build_table_html(rows);
     fantasy_bind_top_scroll(results_root, scroll_state);

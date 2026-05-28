@@ -11,13 +11,13 @@
     "Alejandro Osuna": "TEX",
     "Alex Bregman": "CHC",
     "Alex Call": "LAD",
+    "Alex Freeland": "LAD",
     "Alex Jackson": "MIN",
     "Alika Williams": "ATH",
     "Amed Rosario": "NYY",
     "Andres Chaparro": "WAS",
     "Andres Gimenez": "TOR",
     "Andrew Benintendi": "CHW",
-    "Andrew McCutchen": "TEX",
     "Andrew Vaughn": "MIL",
     "Andruw Monasterio": "BOS",
     "Andy Pages": "LAD",
@@ -115,7 +115,6 @@
     "Eli White": "ATL",
     "Elly De La Cruz": "CIN",
     "Endy Rodriguez": "PIT",
-    "Enrique Hernandez": "LAD",
     "Eric Haase": "SF",
     "Eric Wagaman": "NYM",
     "Ernie Clement": "TOR",
@@ -605,9 +604,9 @@
     ],
     "LAD": [
       "Alex Call",
+      "Alex Freeland",
       "Andy Pages",
       "Dalton Rushing",
-      "Enrique Hernandez",
       "Freddie Freeman",
       "Hyeseong Kim",
       "Kyle Tucker",
@@ -800,7 +799,6 @@
     ],
     "TEX": [
       "Alejandro Osuna",
-      "Andrew McCutchen",
       "Brandon Nimmo",
       "Danny Jansen",
       "Evan Carter",
@@ -899,7 +897,6 @@
     "Carlos Rodriguez": "MIL",
     "Casey Legumina": "TB",
     "Chad Patrick": "MIL",
-    "Chase Lee": "TOR",
     "Chase Shugart": "PHI",
     "Chase Silseth": "LAA",
     "Chris Martin": "TEX",
@@ -919,6 +916,7 @@
     "Devin Williams": "NYM",
     "Didier Fuentes": "ATL",
     "Drew Anderson": "DET",
+    "Drew Pomeranz": "LAA",
     "Dylan Dodd": "ATL",
     "Dylan Lee": "ATL",
     "Edgardo Henriquez": "LAD",
@@ -970,6 +968,7 @@
     "John Schreiber": "KC",
     "Jonah Tong": "NYM",
     "Jonathan Bowlan": "PHI",
+    "Jonathan Heasley": "TB",
     "Jonathan Hernandez": "LAD",
     "Jonathan Loaisiga": "ARI",
     "Jordan Leasure": "CHW",
@@ -989,7 +988,6 @@
     "Keegan Akin": "BAL",
     "Keegan Thompson": "COL",
     "Kendry Rojas": "MIN",
-    "Kenley Jansen": "DET",
     "Kevin Ginkel": "ARI",
     "Kevin Kelly": "TB",
     "Kirby Yates": "LAA",
@@ -1058,7 +1056,6 @@
     "Tanner Banks": "PHI",
     "Tanner Gordon": "COL",
     "Tanner Scott": "LAD",
-    "Tayler Saucedo": "LAA",
     "Taylor Clarke": "ARI",
     "Taylor Rogers": "MIN",
     "Tejay Antone": "CIN",
@@ -1071,7 +1068,6 @@
     "Trent Thornton": "CHC",
     "Trevor Megill": "MIL",
     "Trevor Richards": "CHW",
-    "Trey Gibson": "BAL",
     "Tyler Alexander": "TEX",
     "Tyler Davis": "CHW",
     "Tyler Holton": "DET",
@@ -1130,7 +1126,6 @@
       "Grant Wolfram",
       "Keegan Akin",
       "Rico Garcia",
-      "Trey Gibson",
       "Tyler Wells",
       "Yennier Cano"
     ],
@@ -1202,7 +1197,6 @@
       "Brenan Hanifee",
       "Drew Anderson",
       "Enmanuel De Jesus",
-      "Kenley Jansen",
       "Kyle Finnegan",
       "Ricky Vanasco",
       "Tyler Holton",
@@ -1232,11 +1226,11 @@
     "LAA": [
       "Brent Suter",
       "Chase Silseth",
+      "Drew Pomeranz",
       "Jose Fermin",
       "Kirby Yates",
       "Ryan Zeferjahn",
-      "Sam Bachman",
-      "Tayler Saucedo"
+      "Sam Bachman"
     ],
     "LAD": [
       "Alex Vesia",
@@ -1367,6 +1361,7 @@
       "Garrett Cleavinger",
       "Hunter Bigge",
       "Ian Seymour",
+      "Jonathan Heasley",
       "Kevin Kelly"
     ],
     "TEX": [
@@ -1382,7 +1377,6 @@
     "TOR": [
       "Austin Voth",
       "Braydon Fisher",
-      "Chase Lee",
       "Jeff Hoffman",
       "Louie Varland",
       "Mason Fluharty",
@@ -1534,6 +1528,7 @@
     "Tomoyuki Sugano": "COL",
     "Trevor McDonald": "SF",
     "Trevor Rogers": "BAL",
+    "Trey Gibson": "BAL",
     "Trey Yesavage": "TOR",
     "Troy Melton": "DET",
     "Tyler Mahle": "SF",
@@ -1574,7 +1569,8 @@
       "Chris Bassitt",
       "Kyle Bradish",
       "Shane Baz",
-      "Trevor Rogers"
+      "Trevor Rogers",
+      "Trey Gibson"
     ],
     "BOS": [
       "Brayan Bello",

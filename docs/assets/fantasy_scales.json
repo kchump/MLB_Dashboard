@@ -402,7 +402,7 @@
     },
     "majors|hitters|LA": {
       "fmt": "num",
-      "neutral_hi": 24,
+      "neutral_hi": 22,
       "neutral_lo": 12
     },
     "majors|hitters|LHP": {

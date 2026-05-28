@@ -514,6 +514,27 @@ body.sidebar_hidden .content {
 /* =============================================================================
    Matchups
    ============================================================================= */
+#matchups .gameday_matchup_table {
+  table-layout: fixed !important;
+  width: max-content !important;
+  min-width: 0 !important;
+}
+
+#matchups .matchups_gameday_section .matchup_table_wrap {
+  width: max-content;
+  max-width: 100%;
+}
+
+#matchups_results_root .compact_matchup_table {
+  width: max-content;
+  min-width: 0;
+}
+
+#matchups_results_root .compact_matchup_table th,
+#matchups_results_root .compact_matchup_table td {
+  white-space: nowrap;
+}
+
 .matchups_header {
   padding: 6px 2px 0 2px;
   font-size: 12px;
