@@ -4346,14 +4346,14 @@ function gold_gradient_fill(alpha_mult = 1) {
   )`;
 }
   //#################
-function matchup_gold_threshold(header_text, gold_mode) {
+function matchup_gold_threshold(header_text, gold_mode) { //makes stuff gold based on pitcher and hitter thresholds
   const h = String(header_text || '').trim();
   const mode = String(gold_mode || '').trim();
 
   const is_hitter_mode = mode === 'hitter';
   const is_pitcher_mode = !is_hitter_mode;
 
-  if (h === '+All' || h === 'All' || h === 'RHP' || h === 'LHP' || h === 'RHB' || h === 'LHB') {
+  if (h === 'Score' || h === '+All' || h === 'All' || h === 'RHP' || h === 'LHP' || h === 'RHB' || h === 'LHB') {
     return is_hitter_mode ? 100 : 50;
   }
 
@@ -6120,10 +6120,9 @@ function find_fragment_key_loose(obj, wanted_name) {
       //#################
       function reset_sort_button() {
         if (!sort_btn) return;
-        sort_btn.dataset.mode = 'team';
+        sort_btn.dataset.mode = 'score';
         sort_btn.textContent = 'Sort Team Name';
       }
-
       const submit_btn = document.createElement('button');
       submit_btn.type = 'button';
       submit_btn.textContent = submit_text || 'Submit';
@@ -6149,7 +6148,7 @@ function find_fragment_key_loose(obj, wanted_name) {
 
       wrap.appendChild(submit_btn);
       wrap.appendChild(clear_btn);
-
+      //#################
       function parse_sort_num(s) {
         const raw = String(s || '').trim();
         if (!raw || raw === '—') return NaN;
@@ -6157,7 +6156,7 @@ function find_fragment_key_loose(obj, wanted_name) {
         const m = x.match(/-?(?:\d+(?:\.\d*)?|\.\d+)/);
         return m ? Number(m[0]) : NaN;
       }
-
+      //#################
       function sort_results_by_col_idx(col_idx, cmp) {
         const results = document.getElementById('matchups_results_root');
         if (!results) return;
@@ -6172,7 +6171,7 @@ function find_fragment_key_loose(obj, wanted_name) {
         trs.sort((a, b) => cmp(a, b, col_idx));
         trs.forEach(tr => tbody.appendChild(tr));
       }
-
+      //#################
       function header_index_for(label) {
         const results = document.getElementById('matchups_results_root');
         const table = results ? results.querySelector('table.matchup_table') : null;
@@ -6181,7 +6180,7 @@ function find_fragment_key_loose(obj, wanted_name) {
         const ths = Array.from(table.querySelectorAll('thead th'));
         return ths.findIndex(th => String(th.textContent || '').trim() === label);
       }
-
+      //#################
       function sort_by_all_desc() {
         let idx_all = header_index_for('Score');
         if (idx_all < 0) idx_all = header_index_for('+All');
@@ -6200,7 +6199,7 @@ function find_fragment_key_loose(obj, wanted_name) {
           return 0;
         });
       }
-
+      //#################
       function sort_by_team_name() {
         const idx_team = header_index_for('Team');
         const idx_opp = header_index_for('+All');
@@ -6220,7 +6219,7 @@ function find_fragment_key_loose(obj, wanted_name) {
           return 0;
         });
       }
-
+      //#################
       function sort_by_entry_order() {
         sort_results_by_col_idx(0, (a, b) => {
           const ae = Number(a.dataset.entryOrder || 0);
@@ -6234,7 +6233,7 @@ function find_fragment_key_loose(obj, wanted_name) {
         sort_btn.type = 'button';
         sort_btn.className = 'matchups_submit';
         sort_btn.textContent = 'Sort Team Name';
-        sort_btn.dataset.mode = 'team';
+        sort_btn.dataset.mode = 'score';
 
         sort_btn.addEventListener('click', (e) => {
           e.preventDefault();
@@ -6254,14 +6253,14 @@ function find_fragment_key_loose(obj, wanted_name) {
             return;
           }
 
-          if (m === 'all') {
-            sort_by_all_desc();
-            sort_btn.dataset.mode = 'team';
-            sort_btn.textContent = 'Sort by Team Name';
-          } else {
+          if (m === 'score') {
             sort_by_team_name();
-            sort_btn.dataset.mode = 'all';
+            sort_btn.dataset.mode = 'team';
             sort_btn.textContent = 'Sort Score';
+          } else {
+            sort_by_all_desc();
+            sort_btn.dataset.mode = 'score';
+            sort_btn.textContent = 'Sort Team Name';
           }
         });
 
@@ -7592,6 +7591,7 @@ async function submit() {
     {
       dummy_rows: fallback_dummy_rows,
       keep_all_pitch_cols: true,
+      compact_table: true,
       drop_cols: ['Year', '+KN'],
       link_role: 'batters',
       gold_mode: 'hitter'

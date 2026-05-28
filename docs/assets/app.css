@@ -676,7 +676,7 @@ body.sidebar_hidden .content {
 }
 
 #matchups .static_page {
-  max-width: 1500px;
+  max-width: 1700px;
   min-width: 0;
   overflow-x: hidden;
 }
@@ -1946,4 +1946,14 @@ body.sidebar_hidden .toggle_sidebar {
       overflow-x: hidden;
     }
   }
+}
+
+#matchups .matchup_table_wrap:has(.compact_matchup_table) {
+  width: max-content !important;
+  max-width: 100% !important;
+}
+
+#matchups table.matchup_table.compact_matchup_table {
+  width: max-content !important;
+  min-width: 0 !important;
 }
