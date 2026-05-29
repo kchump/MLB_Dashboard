@@ -4459,7 +4459,7 @@
         "prev_minors_year": "",
         "rAll": 30.31,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT",
         "teams": "",
         "vSzn": 108.78,
@@ -4747,7 +4747,7 @@
         "prev_minors_year": "",
         "rAll": 4.64,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW",
         "teams": "",
         "vSzn": -495.69,
@@ -9283,7 +9283,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 3,
         "team": "BAL",
         "teams": "",
         "vSzn": "",
@@ -17203,7 +17203,7 @@
         "prev_minors_year": "",
         "rAll": -11.43,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "CLE",
         "teams": "",
         "vSzn": -403.2,
@@ -48822,7 +48822,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS",
         "teams": "",
         "vSzn": -40.06,
@@ -62546,7 +62546,7 @@
         "prev_minors_year": "",
         "rAll": -38.14,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": -693.62,
@@ -64517,7 +64517,7 @@
         "prev_minors_year": "",
         "rAll": 22.87,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SF",
         "teams": "",
         "vSzn": -52.6,
@@ -91280,7 +91280,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW",
         "≥100": 0.2
       },
@@ -92062,7 +92062,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 3,
         "team": "BAL",
         "≥100": 0.268
       },
@@ -94960,7 +94960,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.23800000000000002
       },
@@ -101093,7 +101093,7 @@
         "person_key": "garrett whitlock",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS"
       },
       {
@@ -104243,7 +104243,7 @@
         "person_key": "connor seabold",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -117195,7 +117195,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT",
         "≥100": 0.33299999999999996
       },
@@ -117287,7 +117287,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW",
         "≥100": 0.0
       },
@@ -118713,7 +118713,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 3,
         "team": "BAL",
         "≥100": 0.214
       },
@@ -121473,7 +121473,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "CLE",
         "≥100": 0.16699999999999998
       },
@@ -136009,7 +136009,7 @@
         "person_key": "connor seabold",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -136429,7 +136429,7 @@
         "person_key": "john brebbia",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SF"
       },
       {
@@ -138256,7 +138256,7 @@
         "person_key": "tyler samaniego",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {

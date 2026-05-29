@@ -71,6 +71,7 @@
     "Chad Stevens": "COL",
     "Chadwick Tromp": "ATL",
     "Chandler Simpson": "TB",
+    "Charles McAdoo": "TOR",
     "Chase DeLauter": "CLE",
     "Chase Meidroth": "CHW",
     "Christian Vazquez": "HOU",
@@ -118,7 +119,6 @@
     "Eric Haase": "SF",
     "Eric Wagaman": "NYM",
     "Ernie Clement": "TOR",
-    "Esmerlyn Valdez": "PIT",
     "Esteury Ruiz": "MIA",
     "Eugenio Suarez": "CIN",
     "Evan Carter": "TEX",
@@ -226,7 +226,6 @@
     "Kyle Tucker": "LAD",
     "Lane Thomas": "KC",
     "Lawrence Butler": "ATH",
-    "Lenyn Sosa": "TOR",
     "Leody Taveras": "BAL",
     "Liam Hicks": "MIA",
     "Logan O'Hoppe": "LAA",
@@ -289,7 +288,6 @@
     "Oneil Cruz": "PIT",
     "Orlando Arcia": "MIN",
     "Oswald Peraza": "LAA",
-    "Otto Kemp": "PHI",
     "Otto Lopez": "MIA",
     "Owen Caissie": "MIA",
     "Ozzie Albies": "ATL",
@@ -372,7 +370,6 @@
     "Wenceel Perez": "DET",
     "Weston Wilson": "BAL",
     "Will Benson": "CIN",
-    "Will Brennan": "SF",
     "Will Smith": "LAD",
     "Willi Castro": "COL",
     "William Contreras": "MIL",
@@ -703,7 +700,6 @@
       "J.T. Realmuto",
       "Justin Crawford",
       "Kyle Schwarber",
-      "Otto Kemp",
       "Rafael Marchan",
       "Trea Turner"
     ],
@@ -711,7 +707,6 @@
       "Brandon Lowe",
       "Bryan Reynolds",
       "Endy Rodriguez",
-      "Esmerlyn Valdez",
       "Henry Davis",
       "Jake Mangum",
       "Jared Triolo",
@@ -764,7 +759,6 @@
       "Matt Chapman",
       "Rafael Devers",
       "Victor Bericoto",
-      "Will Brennan",
       "Willy Adames"
     ],
     "STL": [
@@ -815,12 +809,12 @@
     "TOR": [
       "Andres Gimenez",
       "Brandon Valenzuela",
+      "Charles McAdoo",
       "Daulton Varsho",
       "Ernie Clement",
       "George Springer",
       "Jesus Sanchez",
       "Kazuma Okamoto",
-      "Lenyn Sosa",
       "Myles Straw",
       "Nathan Lukes",
       "Tyler Heineman",
@@ -892,6 +886,7 @@
     "Caleb Kilian": "SF",
     "Caleb Thielbar": "CHC",
     "Calvin Faucher": "MIA",
+    "Cameron Weston": "BAL",
     "Camilo Doval": "NYY",
     "Carlos Carrasco": "ATL",
     "Carlos Rodriguez": "MIL",
@@ -904,6 +899,7 @@
     "Codi Heuer": "CLE",
     "Coleman Crow": "MIL",
     "Colin Holderman": "CLE",
+    "Connor Seabold": "TOR",
     "Cooper Criswell": "SEA",
     "Craig Kimbrel": "TB",
     "DL Hall": "MIL",
@@ -917,6 +913,7 @@
     "Didier Fuentes": "ATL",
     "Drew Anderson": "DET",
     "Drew Pomeranz": "LAA",
+    "Drew Sommers": "DET",
     "Dylan Dodd": "ATL",
     "Dylan Lee": "ATL",
     "Edgardo Henriquez": "LAD",
@@ -931,7 +928,6 @@
     "Fernando Cruz": "NYY",
     "Gabe Speier": "SEA",
     "Garrett Cleavinger": "TB",
-    "Garrett Whitlock": "BOS",
     "Gavin Collyer": "TEX",
     "George Soriano": "STL",
     "Gordon Graceffo": "STL",
@@ -1064,7 +1060,6 @@
     "Tim Mayza": "PHI",
     "Tobias Myers": "NYM",
     "Tony Santillan": "CIN",
-    "Travis Adams": "MIN",
     "Trent Thornton": "CHC",
     "Trevor Megill": "MIL",
     "Trevor Richards": "CHW",
@@ -1073,6 +1068,7 @@
     "Tyler Holton": "DET",
     "Tyler Kinley": "ATL",
     "Tyler Rogers": "TOR",
+    "Tyler Samaniego": "BOS",
     "Tyler Wells": "BAL",
     "Tyron Guerrero": "BOS",
     "Wandy Peralta": "SD",
@@ -1123,6 +1119,7 @@
     "BAL": [
       "Andrew Kittredge",
       "Anthony Nunez",
+      "Cameron Weston",
       "Grant Wolfram",
       "Keegan Akin",
       "Rico Garcia",
@@ -1132,11 +1129,11 @@
     "BOS": [
       "Aroldis Chapman",
       "Danny Coulombe",
-      "Garrett Whitlock",
       "Greg Weissert",
       "Jovani Moran",
       "Justin Slaten",
       "Ryan Watson",
+      "Tyler Samaniego",
       "Tyron Guerrero"
     ],
     "CHC": [
@@ -1196,6 +1193,7 @@
     "DET": [
       "Brenan Hanifee",
       "Drew Anderson",
+      "Drew Sommers",
       "Enmanuel De Jesus",
       "Kyle Finnegan",
       "Ricky Vanasco",
@@ -1271,7 +1269,6 @@
       "Kendry Rojas",
       "Simeon Woods Richardson",
       "Taylor Rogers",
-      "Travis Adams",
       "Yoendrys Gomez"
     ],
     "NYM": [
@@ -1377,6 +1374,7 @@
     "TOR": [
       "Austin Voth",
       "Braydon Fisher",
+      "Connor Seabold",
       "Jeff Hoffman",
       "Louie Varland",
       "Mason Fluharty",
@@ -1528,7 +1526,6 @@
     "Tomoyuki Sugano": "COL",
     "Trevor McDonald": "SF",
     "Trevor Rogers": "BAL",
-    "Trey Gibson": "BAL",
     "Trey Yesavage": "TOR",
     "Troy Melton": "DET",
     "Tyler Mahle": "SF",
@@ -1569,8 +1566,7 @@
       "Chris Bassitt",
       "Kyle Bradish",
       "Shane Baz",
-      "Trevor Rogers",
-      "Trey Gibson"
+      "Trevor Rogers"
     ],
     "BOS": [
       "Brayan Bello",

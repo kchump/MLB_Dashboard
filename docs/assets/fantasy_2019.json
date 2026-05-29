@@ -1939,7 +1939,7 @@
         "prev_minors_year": "",
         "rAll": 28.95,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PHI",
         "teams": "",
         "vSzn": 294.3,
@@ -56666,7 +56666,7 @@
         "prev_minors_year": "",
         "rAll": 5.2,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "STL",
         "teams": "",
         "vSzn": 71.01,
@@ -87872,7 +87872,7 @@
         "person_key": "john brebbia",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "STL"
       },
       {

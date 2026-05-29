@@ -2155,7 +2155,7 @@
         "prev_minors_year": "",
         "rAll": 33.14,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PHI",
         "teams": "",
         "vSzn": 163.68,
@@ -85593,7 +85593,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PHI",
         "≥100": 0.0
       },

@@ -2803,7 +2803,7 @@
         "prev_minors_year": "",
         "rAll": -13.18,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PHI",
         "teams": "",
         "vSzn": 124.05,
@@ -44546,7 +44546,7 @@
         "prev_minors_year": "",
         "rAll": 50.87,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS",
         "teams": "",
         "vSzn": 321.95,
@@ -56518,7 +56518,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "BOS",
         "teams": "",
         "vSzn": "",
@@ -60314,7 +60314,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SF",
         "teams": "",
         "vSzn": "",
@@ -90663,7 +90663,7 @@
         "person_key": "garrett whitlock",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS"
       },
       {
@@ -93648,7 +93648,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PHI",
         "≥100": 0.171
       },
@@ -105980,7 +105980,7 @@
         "person_key": "garrett whitlock",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS"
       },
       {
