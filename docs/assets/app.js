@@ -4107,8 +4107,23 @@ rows_plus.addEventListener('click', (e) => {
   //#################
   function matchup_display_header(h) {
     const s = String(h || '').trim();
-    if (s === 'Pts +/-' || s === 'Days +/-') return 'Consistency';
-    return s;
+
+    const display_map = {
+      '+All': 'Pitches +/-',
+      '+FB': 'FB +/-',
+      '+SI': 'SI +/-',
+      '+CT': 'CT +/-',
+      '+SL': 'SL +/-',
+      '+SW': 'SW +/-',
+      '+CB': 'CB +/-',
+      '+CH': 'CH +/-',
+      '+SP': 'SP +/-',
+      '+KN': 'KN +/-',
+      'Pts +/-': 'Consistency',
+      'Days +/-': 'Consistency',
+    };
+
+    return display_map[s] || s;
   }
   //#################
   function matchup_col_width(header_text, options) {
@@ -4716,14 +4731,14 @@ function infer_matchup_link_roles(header, explicit_role, explicit_pitcher_role) 
 
       return '';
     }
-
+    //#################
     function consistency_col_idx() {
       return header.findIndex(h => {
         const hh = String(h || '').trim();
         return hh === 'Pts +/-' || hh === 'Days +/-' || hh === 'Consistency';
       });
     }
-
+    //#################
     function row_name_for_consistency(r, key) {
       const cols = header.map(h => String(h || '').trim());
 
@@ -4738,7 +4753,7 @@ function infer_matchup_link_roles(header, explicit_role, explicit_pitcher_role) 
 
       return idx >= 0 ? String(r[idx] || '').trim() : '';
     }
-
+    //#################
     function consistency_year_pack() {
       const by_year = (matchups_lists && matchups_lists.by_year && typeof matchups_lists.by_year === 'object')
         ? matchups_lists.by_year
@@ -4758,7 +4773,7 @@ function infer_matchup_link_roles(header, explicit_role, explicit_pitcher_role) 
       const ys = Object.keys(by_year).sort((a, b) => Number(b) - Number(a));
       return ys.length ? by_year[ys[0]] : {};
     }
-
+    //#################
     function consistency_rec_for_row(r, key) {
       const nm = row_name_for_consistency(r, key);
       if (!nm) return null;
@@ -4884,6 +4899,7 @@ function infer_matchup_link_roles(header, explicit_role, explicit_pitcher_role) 
     const trh = document.createElement('tr');
     header.forEach(h => {
       const th = document.createElement('th');
+      th.dataset.rawHeader = String(h || '').trim();
       th.textContent = matchup_display_header(h);
       trh.appendChild(th);
     });
@@ -6177,8 +6193,14 @@ function find_fragment_key_loose(obj, wanted_name) {
         const table = results ? results.querySelector('table.matchup_table') : null;
         if (!table) return -1;
 
+        const target = String(label || '').trim();
         const ths = Array.from(table.querySelectorAll('thead th'));
-        return ths.findIndex(th => String(th.textContent || '').trim() === label);
+
+        return ths.findIndex(th => {
+          const raw = String(th.dataset.rawHeader || '').trim();
+          const shown = String(th.textContent || '').trim();
+          return raw === target || shown === target;
+        });
       }
       //#################
       function sort_by_all_desc() {
@@ -6629,11 +6651,20 @@ function sort_table_rows_by_all(table) {
   const tbody = table.querySelector('tbody');
   if (!thead || !tbody) return;
 
-  let idx_all = ths.findIndex(th => String(th.textContent || '').trim() === 'Score');
-  if (idx_all < 0) idx_all = ths.findIndex(th => String(th.textContent || '').trim() === '+All');
-  if (idx_all < 0) idx_all = ths.findIndex(th => String(th.textContent || '').trim() === 'All');
-  if (idx_all < 0) idx_all = ths.findIndex(th => String(th.textContent || '').trim() === 'RHP');
-  if (idx_all < 0) idx_all = ths.findIndex(th => String(th.textContent || '').trim() === 'LHP');
+  const ths = Array.from(thead.querySelectorAll('th'));
+
+  function th_matches(th, label) {
+    const target = String(label || '').trim();
+    const raw = String(th.dataset.rawHeader || '').trim();
+    const shown = String(th.textContent || '').trim();
+    return raw === target || shown === target;
+  }
+
+  let idx_all = ths.findIndex(th => th_matches(th, 'Score'));
+  if (idx_all < 0) idx_all = ths.findIndex(th => th_matches(th, '+All'));
+  if (idx_all < 0) idx_all = ths.findIndex(th => th_matches(th, 'All'));
+  if (idx_all < 0) idx_all = ths.findIndex(th => th_matches(th, 'RHP'));
+  if (idx_all < 0) idx_all = ths.findIndex(th => th_matches(th, 'LHP'));
   if (idx_all < 0) return;
 
   const trs = Array.from(tbody.querySelectorAll('tr'));
@@ -6738,19 +6769,21 @@ function sort_table_rows_by_all(table) {
           const matchup_mount = document.createElement('div');
           hitter_block.appendChild(matchup_mount);
 
-          await render_section_into(matchup_mount, {
-            title: '',
-            hide_title: true,
-            paths: matchup_paths,
-            opts: {
-              override_rows: matchup_override_rows,
-              keep_all_pitch_cols: true,
-              drop_cols: ['Year', '+KN'],
-              gold_mode: 'hitter',
-              link_role: 'batters',
-              skip_clear: true
-            }
-          });
+        await render_section_into(matchup_mount, {
+          title: '',
+          hide_title: true,
+          paths: matchup_paths,
+          opts: {
+            override_rows: matchup_override_rows,
+            keep_all_pitch_cols: true,
+            drop_cols: ['Year', '+KN'],
+            gold_mode: 'hitter',
+            link_role: 'batters',
+            skip_clear: true
+          }
+        });
+
+        apply_matchups_table_dividers(matchup_mount, 'weekly_fantasy_hitter_moves', 'matchups');
         }
 
         if (fallback_dummy_rows.length) {
@@ -6766,18 +6799,20 @@ function sort_table_rows_by_all(table) {
           const fallback_mount = document.createElement('div');
           hitter_block.appendChild(fallback_mount);
 
-          await render_section_into(fallback_mount, {
-            title: '',
-            hide_title: true,
-            paths: [],
-            opts: {
-              dummy_rows: fallback_dummy_rows,
-              keep_all_pitch_cols: true,
-              drop_cols: ['Year', '+KN'],
-              skip_clear: true,
-  link_role: 'batters'
-            }
-          });
+        await render_section_into(fallback_mount, {
+          title: '',
+          hide_title: true,
+          paths: [],
+          opts: {
+            dummy_rows: fallback_dummy_rows,
+            keep_all_pitch_cols: true,
+            drop_cols: ['Year', '+KN'],
+            skip_clear: true,
+            link_role: 'batters'
+          }
+        });
+
+        apply_matchups_table_dividers(fallback_mount, 'weekly_fantasy_hitter_moves', 'fallback');
         }
       }
 
@@ -7403,7 +7438,7 @@ function combine_fallback_dummy_rows(sections) {
   const preferred = [
     'Name', 'PA',
     'All', 'RHP', 'LHP',
-    'Consistency',
+    'Pts +/-',
     'FB', 'SI', 'CT', 'SL', 'SW', 'CB', 'CH', 'SP',
     'Year'
   ];
@@ -7413,7 +7448,7 @@ function combine_fallback_dummy_rows(sections) {
 
   rows.forEach(r => {
     (r.header_cells || []).forEach(h => {
-      const hh = matchup_display_header(h);
+      const hh = String(h || '').trim();
       if (hh && !seen.has(hh)) {
         seen.add(hh);
         found.push(hh);
@@ -7429,7 +7464,7 @@ function combine_fallback_dummy_rows(sections) {
     const row_map = {};
 
     (r.header_cells || []).forEach((h, i) => {
-      row_map[matchup_display_header(h)] = (r.row_cells || [])[i];
+      row_map[String(h || '').trim()] = (r.row_cells || [])[i];
     });
 
     return {
@@ -8238,21 +8273,23 @@ write_matchups_url_state({ rows: url_rows });
 
     clear_results();
 
-await render_stacked_section('Matchups', matchup_paths, {
-override_rows: matchup_override_rows,
-keep_all_pitch_cols: true,
-drop_cols: ['Year', '+KN'],
-gold_mode: 'hitter',
-link_role: 'batters'
-});
+    await render_stacked_section('Matchups', matchup_paths, {
+      override_rows: matchup_override_rows,
+      keep_all_pitch_cols: true,
+      drop_cols: ['Year', '+KN'],
+      gold_mode: 'hitter',
+      link_role: 'batters'
+    });
 
     await render_stacked_section('Fallback', [], {
       dummy_rows: fallback_dummy_rows,
       keep_all_pitch_cols: true,
       drop_cols: ['Year', '+KN'],
-link_role: 'batters'
+      link_role: 'batters'
     });
 
+    apply_matchups_table_dividers(results_root, mode, 'matchups');
+    apply_matchups_table_dividers(results_root, mode, 'fallback');
     sort_all_results_tables_by_all();
   }
   //#################
@@ -8385,8 +8422,6 @@ multi_form_state.weekly_fantasy_hitter_moves.n = clamp_rows_n(multi_form_state.w
     }
 
     await render_hitter_week_blocks(hitter_blocks);
-    apply_matchups_table_dividers(results_root, mode, 'matchups');
-apply_matchups_table_dividers(results_root, mode, 'fallback');
   }
   //#################
   function clear_mode() {
@@ -8545,10 +8580,11 @@ for (const block of pitcher_blocks) {
           skip_clear: true
         }
       });
+
+      apply_matchups_table_dividers(mount, 'weekly_starting_pitcher_moves', 'default');
     }
 
     sort_all_results_tables_by_all();
-    apply_matchups_table_dividers(results_root, mode, 'default');
   }
 
   //#################
@@ -8877,7 +8913,7 @@ const matchups_table_divider_config = {
 
   weekly_fantasy_hitter_moves: {
     matchups: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
-    fallback: { heavy_before: ['All', 'Consistency', 'RHP', 'LHP'], light_before: ['Opp'] },
+    fallback: { heavy_before: ['All', 'Consistency', 'RHP', 'LHP', 'FB'], light_before: ['SL', 'CH', 'Opp'] },
   },
 
   reliever_inning: {
@@ -8912,9 +8948,11 @@ function apply_matchups_table_dividers(root, mode, section_key = 'default') {
     if (!headers.length) return;
 
     headers.forEach((th, idx) => {
-      const label = normalize_matchups_header_text(th.textContent);
-      const add_heavy = heavy_before.has(label);
-      const add_light = light_before.has(label);
+      const raw_label = normalize_matchups_header_text(th.dataset.rawHeader || '');
+      const shown_label = normalize_matchups_header_text(th.textContent);
+
+      const add_heavy = heavy_before.has(raw_label) || heavy_before.has(shown_label);
+      const add_light = light_before.has(raw_label) || light_before.has(shown_label);
 
       if (!add_heavy && !add_light) return;
 
