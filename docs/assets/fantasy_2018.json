@@ -5827,7 +5827,7 @@
         "prev_minors_year": "",
         "rAll": 14.97,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "STL",
         "teams": "",
         "vSzn": -359.61,
@@ -42599,7 +42599,7 @@
         "prev_minors_year": "",
         "rAll": -35.89,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SF",
         "teams": "",
         "vSzn": -723.87,
@@ -43621,7 +43621,7 @@
         "prev_minors_year": "",
         "rAll": 31.82,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS",
         "teams": "",
         "vSzn": 400.97,
@@ -53987,7 +53987,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA",
         "teams": "",
         "vSzn": -211.4,
@@ -63915,7 +63915,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS",
         "teams": "",
         "vSzn": "",
@@ -64209,7 +64209,7 @@
         "prev_minors_year": "",
         "rAll": 5.38,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYY",
         "teams": "",
         "vSzn": 797.7,
@@ -84448,7 +84448,7 @@
         "person_key": "craig kimbrel",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS"
       },
       {
@@ -85390,7 +85390,7 @@
         "person_key": "luis severino",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYY"
       },
       {
@@ -92745,7 +92745,7 @@
         "person_key": "pierce johnson",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SF"
       },
       {
@@ -94257,7 +94257,7 @@
         "person_key": "dan altavilla",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA"
       },
       {

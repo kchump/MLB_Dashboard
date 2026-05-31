@@ -4675,7 +4675,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "STL",
         "teams": "",
         "vSzn": "",
@@ -41721,7 +41721,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHC",
         "teams": "",
         "vSzn": "",
@@ -42378,7 +42378,7 @@
         "prev_minors_year": "",
         "rAll": 36.94,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS",
         "teams": "",
         "vSzn": 696.07,
@@ -52379,7 +52379,7 @@
         "prev_minors_year": "",
         "rAll": 10.17,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SEA",
         "teams": "",
         "vSzn": -295.21,
@@ -63258,7 +63258,7 @@
         "prev_minors_year": "",
         "rAll": 78.35,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYY",
         "teams": "",
         "vSzn": 571.08,
@@ -83995,7 +83995,7 @@
         "person_key": "craig kimbrel",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS"
       },
       {
@@ -84817,7 +84817,7 @@
         "person_key": "luis severino",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYY"
       },
       {
@@ -92968,7 +92968,7 @@
         "person_key": "dan altavilla",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SEA"
       },
       {
