@@ -6331,7 +6331,7 @@
         "prev_minors_year": "",
         "rAll": -2.31,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATL",
         "teams": "",
         "vSzn": -443.31,
@@ -25051,7 +25051,7 @@
         "prev_minors_year": "",
         "rAll": -26.2,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "vSzn": -27.96,
@@ -49174,7 +49174,7 @@
         "prev_minors_year": "",
         "rAll": 29.15,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PHI",
         "teams": "",
         "vSzn": 253.89,
@@ -58956,7 +58956,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIL",
         "teams": "",
         "vSzn": "",
@@ -106232,7 +106232,7 @@
         "person_key": "jack dreyer",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -107093,7 +107093,7 @@
         "person_key": "rob zastryzny",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIL"
       },
       {
@@ -115478,6 +115478,48 @@
         "team": "KC"
       },
       {
+        "All": -8.15,
+        "BB%": 0.174,
+        "Con": 67.05,
+        "Days +/-": -0.4027777777777778,
+        "Disc": -4.43,
+        "IP": 14.0,
+        "K": 19.0,
+        "K%": 0.275,
+        "Stf": 18.01,
+        "Strike%": 0.5589999999999999,
+        "SwStr%": 0.10400000000000001,
+        "Velo": 95.8,
+        "WHIP": 1.8571428571428572,
+        "name": "Carlos Lagrange",
+        "person_key": "carlos lagrange",
+        "pitch_role": "FLEX",
+        "role": "sp",
+        "sort_bucket": 3,
+        "team": "NYY"
+      },
+      {
+        "All": 16.71,
+        "BB%": 0.07400000000000001,
+        "Con": 58.74,
+        "Days +/-": 0.11623036649214619,
+        "Disc": 11.78,
+        "IP": 70.1,
+        "K": 73.0,
+        "K%": 0.285,
+        "Stf": 16.65,
+        "Strike%": 0.642,
+        "SwStr%": 0.161,
+        "Velo": 92.3,
+        "WHIP": 1.109004739336493,
+        "name": "Jack Wenninger",
+        "person_key": "jack wenninger",
+        "pitch_role": "FLEX",
+        "role": "sp",
+        "sort_bucket": 3,
+        "team": "NYM"
+      },
+      {
         "All": -7.09,
         "BB%": 0.087,
         "Con": 34.62,
@@ -115622,6 +115664,27 @@
         "pitch_role": "SP",
         "role": "sp",
         "sort_bucket": 3,
+        "team": "TOR"
+      },
+      {
+        "All": -1.26,
+        "BB%": 0.071,
+        "Con": 51.63,
+        "Days +/-": 0.2797029702970293,
+        "Disc": 1.35,
+        "IP": 73.0,
+        "K": 69.0,
+        "K%": 0.226,
+        "Stf": -13.18,
+        "Strike%": 0.6509999999999999,
+        "SwStr%": 0.107,
+        "Velo": 90.77000000000001,
+        "WHIP": 1.2465753424657535,
+        "name": "Grant Rogers",
+        "person_key": "grant rogers",
+        "pitch_role": "SP",
+        "role": "sp",
+        "sort_bucket": 1,
         "team": "TOR"
       }
     ]
@@ -118023,7 +118086,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "≥100": 0.0
@@ -119343,7 +119406,7 @@
         "person_key": "matt strahm",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PHI"
       },
       {
@@ -123370,7 +123433,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATL",
         "≥100": 0.33299999999999996
       },
@@ -129074,7 +129137,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "≥100": 0.0
       },
@@ -137055,7 +137118,7 @@
         "person_key": "matt strahm",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PHI"
       },
       {
@@ -138588,7 +138651,7 @@
         "person_key": "paul gervase",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -139323,7 +139386,7 @@
         "person_key": "rob zastryzny",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIL"
       },
       {

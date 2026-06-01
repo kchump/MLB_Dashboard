@@ -10003,7 +10003,7 @@
         "prev_minors_year": "",
         "rAll": 16.46,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "KC",
         "teams": "",
         "vSzn": -333.09,
@@ -38688,7 +38688,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SD",
         "teams": "",
         "vSzn": "",
@@ -81879,7 +81879,7 @@
         "person_key": "matt strahm",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SD"
       },
       {
@@ -87824,7 +87824,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "KC",
         "≥100": 0.4
       },
@@ -95745,7 +95745,7 @@
         "person_key": "matt strahm",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SD"
       },
       {

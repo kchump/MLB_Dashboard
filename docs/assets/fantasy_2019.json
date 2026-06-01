@@ -8779,7 +8779,7 @@
         "prev_minors_year": "",
         "rAll": 25.8,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "KC",
         "teams": "",
         "vSzn": -256.2,
@@ -42650,7 +42650,7 @@
         "prev_minors_year": "",
         "rAll": 7.79,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SD",
         "teams": "",
         "vSzn": 176.9,
@@ -90703,7 +90703,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "KC",
         "≥100": 0.0
       },
@@ -96403,7 +96403,7 @@
         "person_key": "matt strahm",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SD"
       },
       {

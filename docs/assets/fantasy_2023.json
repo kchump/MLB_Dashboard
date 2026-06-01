@@ -5179,7 +5179,7 @@
         "prev_minors_year": "",
         "rAll": -15.41,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA",
         "teams": "",
         "vSzn": -320.37,
@@ -20443,7 +20443,7 @@
         "prev_minors_year": "",
         "rAll": -1.78,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "vSzn": 23.07,
@@ -47143,7 +47143,7 @@
         "prev_minors_year": "",
         "rAll": -26.29,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PHI",
         "teams": "",
         "vSzn": 9.08,
@@ -55319,7 +55319,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PIT",
         "teams": "",
         "vSzn": -403.27,
@@ -91372,7 +91372,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA",
         "≥100": 0.34600000000000003
       },
@@ -94017,7 +94017,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "≥100": 0.41200000000000003
       },
@@ -102437,7 +102437,7 @@
         "person_key": "rob zastryzny",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PIT"
       },
       {
@@ -111771,7 +111771,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "≥100": 0.25
@@ -113347,7 +113347,7 @@
         "person_key": "matt strahm",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PHI"
       },
       {
@@ -117402,7 +117402,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA",
         "≥100": 0.0
       },
@@ -122370,7 +122370,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "≥100": 0.25
       },
@@ -132061,7 +132061,7 @@
         "person_key": "matt strahm",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PHI"
       },
       {
@@ -134140,7 +134140,7 @@
         "person_key": "rob zastryzny",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PIT"
       },
       {

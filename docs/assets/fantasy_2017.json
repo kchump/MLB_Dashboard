@@ -40188,7 +40188,7 @@
         "prev_minors_year": "",
         "rAll": 4.27,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "KC",
         "teams": "",
         "vSzn": -389.65,
@@ -41867,7 +41867,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "vSzn": "",
@@ -91393,7 +91393,7 @@
         "person_key": "matt strahm",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "KC"
       },
       {
