@@ -8275,7 +8275,7 @@
         "prev_minors_year": "",
         "rAll": 21.32,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": -63.06,
@@ -42137,7 +42137,7 @@
         "prev_minors_year": "",
         "rAll": -5.96,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL",
         "teams": "",
         "vSzn": -176.79,
@@ -47247,7 +47247,7 @@
         "prev_minors_year": "",
         "rAll": -29.55,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR",
         "teams": "",
         "vSzn": -296.2,
@@ -50167,7 +50167,7 @@
         "prev_minors_year": "",
         "rAll": -27.66,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "KC",
         "teams": "",
         "vSzn": -929.62,
@@ -51189,7 +51189,7 @@
         "prev_minors_year": "",
         "rAll": 20.92,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIA",
         "teams": "",
         "vSzn": -275.84,
@@ -90603,7 +90603,7 @@
         "person_key": "chris martin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATL"
       },
       {
@@ -95419,7 +95419,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "≥100": 0.217
       },
@@ -106526,7 +106526,7 @@
         "person_key": "ryan borucki",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR"
       },
       {
@@ -107303,7 +107303,7 @@
         "person_key": "zach pop",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIA"
       },
       {

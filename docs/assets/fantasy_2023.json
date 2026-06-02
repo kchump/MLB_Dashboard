@@ -13531,7 +13531,7 @@
         "prev_minors_year": "",
         "rAll": 14.99,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": -101.34,
@@ -17275,7 +17275,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": "",
@@ -18355,7 +18355,7 @@
         "prev_minors_year": "",
         "rAll": 9.62,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CIN",
         "teams": "",
         "vSzn": -160.47,
@@ -45099,7 +45099,7 @@
         "prev_minors_year": "",
         "rAll": 4.29,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS",
         "teams": "",
         "vSzn": 376.04,
@@ -53202,7 +53202,7 @@
         "prev_minors_year": "",
         "rAll": 44.64,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PIT",
         "teams": "",
         "vSzn": 444.83,
@@ -59188,7 +59188,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR",
         "teams": "",
         "vSzn": "",
@@ -93442,7 +93442,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ARI",
         "≥100": 0.18899999999999997
       },
@@ -93580,7 +93580,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CIN",
         "≥100": 0.376
       },
@@ -99833,7 +99833,7 @@
         "person_key": "logan vanwey",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -102017,7 +102017,7 @@
         "person_key": "ryan borucki",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PIT"
       },
       {
@@ -103025,7 +103025,7 @@
         "person_key": "josh white",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -103298,7 +103298,7 @@
         "person_key": "zach pop",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR"
       },
       {
@@ -106217,7 +106217,7 @@
         "person_key": "ricky vanasco",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB"
       },
       {
@@ -111219,7 +111219,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "≥100": 0.14300000000000002
@@ -120208,7 +120208,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "≥100": 0.375
       },
@@ -121496,7 +121496,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ARI",
         "≥100": 0.455
       },
@@ -130990,7 +130990,7 @@
         "person_key": "logan vanwey",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -133741,7 +133741,7 @@
         "person_key": "ryan borucki",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PIT"
       },
       {
@@ -134917,7 +134917,7 @@
         "person_key": "zach pop",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR"
       },
       {

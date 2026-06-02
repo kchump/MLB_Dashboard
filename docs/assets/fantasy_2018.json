@@ -39898,7 +39898,7 @@
         "prev_minors_year": "",
         "rAll": -11.29,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TEX",
         "teams": "",
         "vSzn": -235.98,
@@ -42234,7 +42234,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "TOR",
         "teams": "",
         "vSzn": -163.53,
@@ -92430,7 +92430,7 @@
         "person_key": "chris martin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TEX"
       },
       {

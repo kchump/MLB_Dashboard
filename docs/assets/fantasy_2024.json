@@ -16987,7 +16987,7 @@
         "prev_minors_year": "",
         "rAll": 28.37,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": 171.06,
@@ -21451,7 +21451,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "DET,PHI",
         "vSzn": "",
@@ -22603,7 +22603,7 @@
         "prev_minors_year": "",
         "rAll": 15.37,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CIN",
         "teams": "",
         "vSzn": 224.61,
@@ -46327,7 +46327,7 @@
         "prev_minors_year": "",
         "rAll": -1.87,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS",
         "teams": "",
         "vSzn": 108.16,
@@ -56474,7 +56474,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PIT",
         "teams": "",
         "vSzn": "",
@@ -61876,7 +61876,7 @@
         "prev_minors_year": 2023.0,
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TB",
         "teams": "",
         "vSzn": "",
@@ -63555,7 +63555,7 @@
         "prev_minors_year": "",
         "rAll": 49.33,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR",
         "teams": "",
         "vSzn": -375.8,
@@ -73191,7 +73191,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "DET,LAD",
         "vSzn": "",
@@ -77719,7 +77719,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "DET",
         "teams": "",
         "vSzn": "",
@@ -97348,7 +97348,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.37799999999999995
       },
@@ -98084,7 +98084,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "≥100": 0.222
       },
@@ -104174,7 +104174,7 @@
         "person_key": "logan vanwey",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -106547,7 +106547,7 @@
         "person_key": "ryan borucki",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PIT"
       },
       {
@@ -107639,7 +107639,7 @@
         "person_key": "tyler zuber",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TB"
       },
       {
@@ -107660,7 +107660,7 @@
         "person_key": "josh ekness",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB"
       },
       {
@@ -107996,7 +107996,7 @@
         "person_key": "zach pop",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR"
       },
       {
@@ -110915,7 +110915,7 @@
         "person_key": "ricky vanasco",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -"
       },
       {
@@ -111778,7 +111778,7 @@
         "person_key": "ty madden",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "DET"
       },
       {
@@ -115476,27 +115476,6 @@
         "role": "sp",
         "sort_bucket": 0,
         "team": "KC"
-      },
-      {
-        "All": -8.15,
-        "BB%": 0.174,
-        "Con": 67.05,
-        "Days +/-": -0.4027777777777778,
-        "Disc": -4.43,
-        "IP": 14.0,
-        "K": 19.0,
-        "K%": 0.275,
-        "Stf": 18.01,
-        "Strike%": 0.5589999999999999,
-        "SwStr%": 0.10400000000000001,
-        "Velo": 95.8,
-        "WHIP": 1.8571428571428572,
-        "name": "Carlos Lagrange",
-        "person_key": "carlos lagrange",
-        "pitch_role": "FLEX",
-        "role": "sp",
-        "sort_bucket": 3,
-        "team": "NYY"
       },
       {
         "All": 16.71,
@@ -120988,7 +120967,7 @@
         "person_key": "ty madden",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "DET"
       },
       {
@@ -126630,7 +126609,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.2
       },
@@ -126722,7 +126701,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "≥100": 0.235
       },
@@ -128171,7 +128150,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "≥100": 0.14300000000000002
       },
@@ -128447,7 +128426,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CIN",
         "≥100": 1.0
       },
@@ -135963,7 +135942,7 @@
         "person_key": "logan vanwey",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -136488,7 +136467,7 @@
         "person_key": "chris martin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "BOS"
       },
       {
@@ -136551,7 +136530,7 @@
         "person_key": "luis curvelo",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -138945,7 +138924,7 @@
         "person_key": "ryan borucki",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PIT"
       },
       {
@@ -140415,7 +140394,7 @@
         "person_key": "zach pop",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR"
       },
       {
@@ -143882,7 +143861,7 @@
         "person_key": "ty madden",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "DET"
       },
       {

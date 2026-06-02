@@ -41555,7 +41555,7 @@
         "prev_minors_year": "",
         "rAll": 27.25,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "ATL,TEX",
         "vSzn": 152.22,
@@ -45059,7 +45059,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR",
         "teams": "",
         "vSzn": "",
@@ -96235,7 +96235,7 @@
         "person_key": "chris martin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {

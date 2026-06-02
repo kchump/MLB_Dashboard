@@ -11299,7 +11299,7 @@
         "prev_minors_year": "",
         "rAll": 17.18,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": -263.76,
@@ -14395,7 +14395,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": "",
@@ -43435,7 +43435,7 @@
         "prev_minors_year": "",
         "rAll": 41.18,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "Chicago,Los Angeles",
         "vSzn": 139.61,
@@ -50151,7 +50151,7 @@
         "prev_minors_year": "",
         "rAll": -1.57,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "SEA,TOR",
         "vSzn": -330.35,
@@ -55188,7 +55188,7 @@
         "prev_minors_year": "",
         "rAll": 23.25,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "MIA,TOR",
         "vSzn": -87.8,
@@ -88190,7 +88190,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "ARI",
         "≥100": 0.172
       },
@@ -91012,7 +91012,7 @@
         "person_key": "joel peguero",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB"
       },
       {
@@ -97390,7 +97390,7 @@
         "person_key": "chris martin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {
@@ -98090,7 +98090,7 @@
         "person_key": "zach pop",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -"
       },
       {
@@ -102684,7 +102684,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "≥100": 0.364
       },
@@ -103443,7 +103443,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "ARI",
         "≥100": 0.14300000000000002
       },
@@ -110502,7 +110502,7 @@
         "person_key": "chris martin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {
@@ -111930,7 +111930,7 @@
         "person_key": "ryan borucki",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -"
       },
       {
@@ -112812,7 +112812,7 @@
         "person_key": "zach pop",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -"
       },
       {

@@ -1491,9 +1491,9 @@
       "worst": -300
     },
     "majors|rp|S WHIP": {
-      "best": 1.0,
+      "best": 1.05,
       "fmt": "num",
-      "gold": 0.95,
+      "gold": 1,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -1676,8 +1676,8 @@
       "start": 5
     },
     "majors|rp|WHIP": {
-      "best": 1.0,
-      "gold": 0.95,
+      "best": 1.05,
+      "gold": 1,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -2307,9 +2307,9 @@
       "worst": -300
     },
     "majors|sp|S WHIP": {
-      "best": 1.0,
+      "best": 1.05,
       "fmt": "num",
-      "gold": 0.95,
+      "gold": 1,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -2492,8 +2492,8 @@
       "start": 15
     },
     "majors|sp|WHIP": {
-      "best": 1.0,
-      "gold": 0.95,
+      "best": 1.05,
+      "gold": 1,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -2936,8 +2936,8 @@
       "worst": 89
     },
     "minors|rp|WHIP": {
-      "best": 1.0,
-      "gold": 0.95,
+      "best": 1.05,
+      "gold": 1,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -3171,8 +3171,8 @@
       "worst": 89
     },
     "minors|sp|WHIP": {
-      "best": 1.0,
-      "gold": 0.95,
+      "best": 1.05,
+      "gold": 1,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -3434,8 +3434,8 @@
       "worst": 89
     },
     "playoffs|rp|WHIP": {
-      "best": 1.0,
-      "gold": 0.95,
+      "best": 1.05,
+      "gold": 1,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -3596,8 +3596,8 @@
       "worst": 89
     },
     "playoffs|sp|WHIP": {
-      "best": 1.0,
-      "gold": 0.95,
+      "best": 1.05,
+      "gold": 1,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -3851,8 +3851,8 @@
       "worst": 89
     },
     "spring|rp|WHIP": {
-      "best": 1.0,
-      "gold": 0.95,
+      "best": 1.05,
+      "gold": 1,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
@@ -4013,8 +4013,8 @@
       "worst": 89
     },
     "spring|sp|WHIP": {
-      "best": 1.0,
-      "gold": 0.95,
+      "best": 1.05,
+      "gold": 1,
       "higher_is_better": false,
       "neutral_hi": 1.2,
       "neutral_lo": 1.25,
