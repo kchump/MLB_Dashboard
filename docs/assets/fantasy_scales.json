@@ -93,12 +93,12 @@
       "worst": 0
     },
     "majors|hitters|Baserunning": {
-      "best": 10,
+      "best": 8,
       "fmt": "num",
-      "gold": 12,
+      "gold": 10,
       "neutral_hi": 2,
       "neutral_lo": -2,
-      "worst": -10
+      "worst": -8
     },
     "majors|hitters|Blocking Runs": {
       "best": 10,
