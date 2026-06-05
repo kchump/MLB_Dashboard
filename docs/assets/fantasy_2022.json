@@ -2011,7 +2011,7 @@
         "prev_minors_year": "",
         "rAll": -27.06,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": -678.39,
@@ -6475,7 +6475,7 @@
         "prev_minors_year": "",
         "rAll": -8.39,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": -9.3,
@@ -13675,7 +13675,7 @@
         "prev_minors_year": "",
         "rAll": -26.08,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PHI",
         "teams": "",
         "vSzn": -326.88,
@@ -15187,7 +15187,7 @@
         "prev_minors_year": "",
         "rAll": 7.27,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "CIN",
         "teams": "",
         "vSzn": -218.7,
@@ -22315,7 +22315,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATL",
         "teams": "",
         "vSzn": "",
@@ -41611,7 +41611,7 @@
         "prev_minors_year": "",
         "rAll": 3.47,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": -248.79,
@@ -45771,7 +45771,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIL",
         "teams": "",
         "vSzn": "",
@@ -49932,7 +49932,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR",
         "teams": "",
         "vSzn": "",
@@ -51757,7 +51757,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "Los Angeles,New York",
         "vSzn": "",
@@ -57305,7 +57305,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "vSzn": "",
@@ -60225,7 +60225,7 @@
         "prev_minors_year": "",
         "rAll": 18.81,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": -296.04,
@@ -60298,7 +60298,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": "",
@@ -60371,7 +60371,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "NYY,TB",
         "vSzn": "",
@@ -60444,7 +60444,7 @@
         "prev_minors_year": "",
         "rAll": -47.22,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA",
         "teams": "",
         "vSzn": -357.48,
@@ -60517,7 +60517,7 @@
         "prev_minors_year": "",
         "rAll": 17.95,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "ARI,LAD",
         "vSzn": -145.85,
@@ -60590,7 +60590,7 @@
         "prev_minors_year": "",
         "rAll": 12.15,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA",
         "teams": "",
         "vSzn": 81.22,
@@ -90375,7 +90375,7 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "≥100": 0.2
       },
@@ -91138,7 +91138,7 @@
         "person_key": "rob zastryzny",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {
@@ -91705,7 +91705,7 @@
         "person_key": "tommy kahnle",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAD"
       },
       {
@@ -91957,7 +91957,7 @@
         "person_key": "mike mayers",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA"
       },
       {
@@ -91978,7 +91978,7 @@
         "person_key": "reyes moronta",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -91999,7 +91999,7 @@
         "person_key": "ty buttrey",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -93114,7 +93114,7 @@
         "person_key": "brandon pfaadt",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB"
       },
       {
@@ -95570,7 +95570,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PHI",
         "teams": "",
         "≥100": 0.106
@@ -98210,7 +98210,7 @@
         "person_key": "tommy kahnle",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAD"
       },
       {
@@ -100292,7 +100292,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "≥100": 0.0
       },
@@ -101281,7 +101281,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ARI",
         "≥100": 0.375
       },
@@ -103282,7 +103282,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PHI",
         "≥100": 0.25
       },
@@ -111867,7 +111867,7 @@
         "person_key": "matt gage",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR"
       },
       {
@@ -112266,7 +112266,7 @@
         "person_key": "rob zastryzny",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {
@@ -113127,7 +113127,7 @@
         "person_key": "tommy kahnle",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAD"
       },
       {
@@ -113736,7 +113736,7 @@
         "person_key": "noe ramirez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ARI"
       },
       {
@@ -113757,7 +113757,7 @@
         "person_key": "felix pena",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -113778,7 +113778,7 @@
         "person_key": "blake parker",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -113799,7 +113799,7 @@
         "person_key": "mike mayers",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA"
       },
       {
@@ -113820,7 +113820,7 @@
         "person_key": "reyes moronta",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -113841,7 +113841,7 @@
         "person_key": "cam bedrosian",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -113862,7 +113862,7 @@
         "person_key": "jose quijada",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA"
       },
       {
