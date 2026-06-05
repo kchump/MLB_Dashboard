@@ -787,7 +787,7 @@
         "prev_minors_year": 2022.0,
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU",
         "teams": "",
         "vSzn": "",
@@ -3811,7 +3811,7 @@
         "prev_minors_year": "",
         "rAll": -22.47,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TEX",
         "teams": "",
         "vSzn": 824.79,
@@ -54954,7 +54954,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CIN",
         "teams": "",
         "vSzn": "",
@@ -71087,7 +71087,7 @@
         "prev_minors_year": "",
         "rAll": -17.73,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL",
         "teams": "",
         "vSzn": -276.7,
@@ -90824,7 +90824,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU",
         "≥100": 0.099
       },
@@ -102384,7 +102384,7 @@
         "person_key": "lyon richardson",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CIN"
       },
       {
@@ -106269,7 +106269,7 @@
         "person_key": "austin voth",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL"
       },
       {
@@ -110521,7 +110521,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TEX",
         "teams": "",
         "≥100": 0.37
@@ -116093,7 +116093,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU",
         "≥100": 0.0
       },
@@ -117105,7 +117105,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TEX",
         "≥100": 0.625
       },
@@ -134150,7 +134150,7 @@
         "person_key": "lyon richardson",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CIN"
       },
       {
@@ -138308,7 +138308,7 @@
         "person_key": "austin voth",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL"
       },
       {

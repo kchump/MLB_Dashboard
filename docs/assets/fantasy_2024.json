@@ -787,7 +787,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU",
         "teams": "",
         "vSzn": "",
@@ -4675,7 +4675,7 @@
         "prev_minors_year": "",
         "rAll": 3.12,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TEX",
         "teams": "",
         "vSzn": 623.4,
@@ -58518,7 +58518,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CIN",
         "teams": "",
         "vSzn": "",
@@ -73118,7 +73118,7 @@
         "prev_minors_year": "",
         "rAll": 2.98,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA",
         "teams": "",
         "vSzn": -64.76,
@@ -94753,7 +94753,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU",
         "≥100": 0.05
       },
@@ -106998,7 +106998,7 @@
         "person_key": "lyon richardson",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CIN"
       },
       {
@@ -115551,27 +115551,6 @@
         "team": "KC"
       },
       {
-        "All": -8.15,
-        "BB%": 0.174,
-        "Con": 67.05,
-        "Days +/-": -0.4027777777777778,
-        "Disc": -4.43,
-        "IP": 14.0,
-        "K": 19.0,
-        "K%": 0.275,
-        "Stf": 18.01,
-        "Strike%": 0.5589999999999999,
-        "SwStr%": 0.10400000000000001,
-        "Velo": 95.8,
-        "WHIP": 1.8571428571428572,
-        "name": "Carlos Lagrange",
-        "person_key": "carlos lagrange",
-        "pitch_role": "FLEX",
-        "role": "sp",
-        "sort_bucket": 3,
-        "team": "NYY"
-      },
-      {
         "All": 16.71,
         "BB%": 0.07400000000000001,
         "Con": 58.74,
@@ -122034,7 +122013,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "HOU",
         "≥100": 0.14300000000000002
       },
@@ -123046,7 +123025,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TEX",
         "≥100": 0.16699999999999998
       },
@@ -143050,7 +143029,7 @@
         "person_key": "austin voth",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA"
       },
       {
