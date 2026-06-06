@@ -428,12 +428,12 @@
       "worst": 0.6
     },
     "majors|hitters|Outfield Jump": {
-      "best": 4,
+      "best": 3,
       "fmt": "num",
-      "gold": 4.5,
+      "gold": 4,
       "neutral_hi": 1,
       "neutral_lo": -1,
-      "worst": -4
+      "worst": -3
     },
     "majors|hitters|Outs Above Average": {
       "best": 12,
