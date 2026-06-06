@@ -181,9 +181,20 @@ async function sort_active_team_sidebar_lists_by_fval() {
 
     const team = String(team_block?.dataset?.team || '').trim().toUpperCase();
     const division = String(division_block?.dataset?.division || '').trim().toLowerCase();
+    const block_text = String(
+      team_block?.dataset?.team ||
+      division_block?.dataset?.division ||
+      division_block?.querySelector('.division_title')?.textContent ||
+      team_block?.querySelector('.team_title')?.textContent ||
+      ''
+    ).trim().toLowerCase();
+
+    const is_top_prospects_block =
+      division.includes('prospect') ||
+      block_text.includes('prospect');
 
     if (!team || ['FA', 'FREE AGENTS', 'FREE_AGENTS'].includes(team)) continue;
-    if (excluded_divisions.has(division)) continue;
+    if (excluded_divisions.has(division) && !is_top_prospects_block) continue;
 
     const ul = role_list.querySelector('.player_list');
     if (!ul) continue;
@@ -218,12 +229,19 @@ async function sort_active_team_sidebar_lists_by_fval() {
       }));
 
       rows.sort((x, y) => {
-        if (x.has_val && y.has_val) {
-          const val_cmp = y.val - x.val;
-          if (val_cmp !== 0) return val_cmp;
-        }
+        if (is_top_prospects_block) {
+          const x_rank = get_sidebar_prospect_rank_sort_key(x.li);
+          const y_rank = get_sidebar_prospect_rank_sort_key(y.li);
 
-        if (x.has_val !== y.has_val) return x.has_val ? -1 : 1;
+          if (x_rank !== y_rank) return x_rank - y_rank;
+        } else {
+          if (x.has_val && y.has_val) {
+            const val_cmp = y.val - x.val;
+            if (val_cmp !== 0) return val_cmp;
+          }
+
+          if (x.has_val !== y.has_val) return x.has_val ? -1 : 1;
+        }
 
         const last_cmp = x.last_sort.localeCompare(y.last_sort);
         if (last_cmp !== 0) return last_cmp;
@@ -253,6 +271,16 @@ async function sort_active_team_sidebar_lists_by_fval() {
 
     await flush_group();
   }
+}
+/* ################# */
+function get_sidebar_prospect_rank_sort_key(li) {
+  const text = String(li?.textContent || '').replace(/[★✓]/g, ' ').trim();
+  const m = text.match(/#\s*(\d+)\s*Prospect/i);
+
+  if (!m) return 999999;
+
+  const n = Number(m[1]);
+  return Number.isFinite(n) ? n : 999999;
 }
 /* ################# */
 function get_sidebar_last_name_sort_key(a) {
