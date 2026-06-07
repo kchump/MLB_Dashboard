@@ -193,7 +193,7 @@ async function sort_active_team_sidebar_lists_by_fval() {
       division.includes('prospect') ||
       block_text.includes('prospect');
 
-    if (!team || ['FA', 'FREE AGENTS', 'FREE_AGENTS'].includes(team)) continue;
+    if (!team) continue;
     if (excluded_divisions.has(division) && !is_top_prospects_block) continue;
 
     const ul = role_list.querySelector('.player_list');
@@ -333,7 +333,7 @@ async function render_custom_sidebar_list(list_id, empty_id, people_set) {
     const team = String(team_block?.dataset?.team || '').trim().toUpperCase();
     const division = String(division_block?.dataset?.division || '').trim().toLowerCase();
 
-    if (!team || team === 'FA' || team === 'FREE AGENTS' || team === 'FREE_AGENTS') return false;
+    if (!team) return false;
 
     const excluded_divisions = new Set([
       'foreign',

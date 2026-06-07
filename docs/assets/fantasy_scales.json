@@ -22,7 +22,7 @@
     "majors|hitters|AVG": {
       "best": 0.32,
       "gold": 0.33,
-      "neutral_hi": 0.27,
+      "neutral_hi": 0.28,
       "neutral_lo": 0.25,
       "worst": 0.2
     },
@@ -2569,7 +2569,7 @@
     "minors|hitters|AVG": {
       "best": 0.32,
       "gold": 0.33,
-      "neutral_hi": 0.27,
+      "neutral_hi": 0.28,
       "neutral_lo": 0.25,
       "worst": 0.2
     },
@@ -3197,7 +3197,7 @@
     "playoffs|hitters|AVG": {
       "best": 0.32,
       "gold": 0.33,
-      "neutral_hi": 0.27,
+      "neutral_hi": 0.28,
       "neutral_lo": 0.25,
       "worst": 0.2
     },
@@ -3614,7 +3614,7 @@
     "spring|hitters|AVG": {
       "best": 0.32,
       "gold": 0.33,
-      "neutral_hi": 0.27,
+      "neutral_hi": 0.28,
       "neutral_lo": 0.25,
       "worst": 0.2
     },

@@ -1003,7 +1003,7 @@
         "prev_minors_year": "",
         "rAll": 30.04,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "ATL,KC",
         "vSzn": 28.86,
@@ -2659,7 +2659,7 @@
         "prev_minors_year": "",
         "rAll": 47.02,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR",
         "teams": "",
         "vSzn": -187.32,
@@ -25267,7 +25267,7 @@
         "prev_minors_year": "",
         "rAll": 4.63,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": -94.77,
@@ -44692,7 +44692,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN",
         "teams": "",
         "vSzn": "",
@@ -47247,7 +47247,7 @@
         "prev_minors_year": "",
         "rAll": -29.55,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": -296.2,
@@ -88015,7 +88015,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "ATL,KC",
         "≥100": 0.524
@@ -93602,7 +93602,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR",
         "≥100": 0.19
       },
@@ -94821,7 +94821,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB",
         "≥100": 0.5
       },
@@ -100571,7 +100571,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "≥100": 0.33299999999999996
       },
@@ -106526,7 +106526,7 @@
         "person_key": "ryan borucki",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TOR"
       },
       {
@@ -107345,7 +107345,7 @@
         "person_key": "cole henry",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB"
       },
       {

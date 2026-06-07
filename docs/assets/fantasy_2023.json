@@ -1147,7 +1147,7 @@
         "prev_minors_year": "",
         "rAll": 28.15,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAA",
         "teams": "",
         "vSzn": 36.15,
@@ -1507,7 +1507,7 @@
         "prev_minors_year": "",
         "rAll": 41.71,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIA",
         "teams": "",
         "vSzn": 345.99,
@@ -4315,7 +4315,7 @@
         "prev_minors_year": "",
         "rAll": 26.43,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR",
         "teams": "",
         "vSzn": -20.49,
@@ -8347,7 +8347,7 @@
         "prev_minors_year": "",
         "rAll": -14.86,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "LAD",
         "teams": "",
         "vSzn": -186.12,
@@ -10651,7 +10651,7 @@
         "prev_minors_year": 2022.0,
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYY",
         "teams": "",
         "vSzn": "",
@@ -28219,7 +28219,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PHI",
         "teams": "",
         "vSzn": "",
@@ -33187,7 +33187,7 @@
         "prev_minors_year": "",
         "rAll": -40.82,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": -279.69,
@@ -48968,7 +48968,7 @@
         "prev_minors_year": "",
         "rAll": -14.34,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN",
         "teams": "",
         "vSzn": -208.99,
@@ -53275,7 +53275,7 @@
         "prev_minors_year": "",
         "rAll": 44.64,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT",
         "teams": "",
         "vSzn": 444.83,
@@ -92434,7 +92434,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYY",
         "≥100": 0.17800000000000002
       },
@@ -95631,7 +95631,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PHI",
         "≥100": 0.249
       },
@@ -101187,7 +101187,7 @@
         "person_key": "jovani moran",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN"
       },
       {
@@ -102111,7 +102111,7 @@
         "person_key": "ryan borucki",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT"
       },
       {
@@ -102426,7 +102426,7 @@
         "person_key": "luis mey",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -110353,7 +110353,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIA",
         "teams": "",
         "≥100": 0.0
@@ -110737,7 +110737,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "LAD",
         "teams": "",
         "≥100": 0.0
@@ -116300,7 +116300,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIA",
         "≥100": 0.133
       },
@@ -117266,7 +117266,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR",
         "≥100": 0.125
       },
@@ -118462,7 +118462,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "LAD",
         "≥100": 0.5
       },
@@ -125270,7 +125270,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PHI",
         "≥100": 0.25
       },
@@ -127087,7 +127087,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "≥100": 0.16699999999999998
       },
@@ -132617,7 +132617,7 @@
         "person_key": "jovani moran",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN"
       },
       {
@@ -133835,7 +133835,7 @@
         "person_key": "ryan borucki",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT"
       },
       {
