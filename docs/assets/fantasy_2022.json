@@ -3739,7 +3739,7 @@
         "prev_minors_year": "",
         "rAll": 8.86,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SEA",
         "teams": "",
         "vSzn": -617.64,
@@ -87707,7 +87707,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SEA",
         "≥100": 0.171
       },
@@ -89639,7 +89639,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.152
       },
