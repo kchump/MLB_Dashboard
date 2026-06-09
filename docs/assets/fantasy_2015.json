@@ -59066,7 +59066,7 @@
         "prev_minors_year": "",
         "rAll": -15.05,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATH",
         "teams": "",
         "vSzn": -160.39,
@@ -60453,7 +60453,7 @@
         "prev_minors_year": "",
         "rAll": -28.51,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SEA",
         "teams": "",
         "vSzn": 53.91,
@@ -91197,7 +91197,7 @@
         "person_key": "chris bassitt",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATH"
       },
       {
@@ -91365,7 +91365,7 @@
         "person_key": "taijuan walker",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SEA"
       },
       {

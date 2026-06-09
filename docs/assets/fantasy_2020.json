@@ -1363,7 +1363,7 @@
         "prev_minors_year": "",
         "rAll": -13.99,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SEA",
         "teams": "",
         "vSzn": -42.27,
@@ -11371,7 +11371,7 @@
         "prev_minors_year": "",
         "rAll": 3.97,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": 249.66,
@@ -22747,7 +22747,7 @@
         "prev_minors_year": "",
         "rAll": 28.47,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "PIT",
         "teams": "",
         "vSzn": -227.49,
@@ -42265,7 +42265,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "STL",
         "teams": "",
         "vSzn": "",
@@ -60515,7 +60515,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CIN",
         "teams": "",
         "vSzn": "",
@@ -62707,7 +62707,7 @@
         "prev_minors_year": "",
         "rAll": -20.97,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATH",
         "teams": "",
         "vSzn": 22.17,
@@ -67525,7 +67525,7 @@
         "prev_minors_year": "",
         "rAll": -64.28,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "SEA,TOR",
         "vSzn": -188.13,
@@ -83861,7 +83861,7 @@
         "person_key": "chris bassitt",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATH"
       },
       {
@@ -88192,7 +88192,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "≥100": 0.6
       },
@@ -91596,7 +91596,7 @@
         "pos": "2B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "PIT",
         "≥100": 0.0
       },
@@ -96312,7 +96312,7 @@
         "person_key": "jake woodford",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "STL"
       },
       {
@@ -100113,7 +100113,7 @@
         "person_key": "joel kuhnel",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CIN"
       },
       {
@@ -100472,7 +100472,7 @@
         "person_key": "chris bassitt",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ATH"
       },
       {
