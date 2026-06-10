@@ -63703,7 +63703,7 @@
         "prev_minors_year": "",
         "rAll": 6.57,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "PIT",
         "teams": "",
         "vSzn": 270.6,
@@ -63995,7 +63995,7 @@
         "prev_minors_year": "",
         "rAll": 10.22,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE",
         "teams": "",
         "vSzn": 265.8,
@@ -96871,7 +96871,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE"
       },
       {

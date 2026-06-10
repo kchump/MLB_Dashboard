@@ -4459,7 +4459,7 @@
         "prev_minors_year": "",
         "rAll": -4.77,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ARI",
         "teams": "",
         "vSzn": -166.29,
@@ -12015,7 +12015,7 @@
         "name": "Andrew Vaughn",
         "person_key": "andrew vaughn",
         "pos": "1B",
-        "pos2": "OF",
+        "pos2": "",
         "prev_minors_year": "",
         "rAll": 6.55,
         "role": "batters",
@@ -40387,7 +40387,7 @@
         "prev_minors_year": "",
         "rAll": 2.18,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SF",
         "teams": "",
         "vSzn": 131.22,
@@ -42064,7 +42064,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "LAA",
         "teams": "",
         "vSzn": "",
@@ -44546,7 +44546,7 @@
         "prev_minors_year": "",
         "rAll": 50.87,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BOS",
         "teams": "",
         "vSzn": 321.95,
@@ -46444,7 +46444,7 @@
         "prev_minors_year": "",
         "rAll": -48.12,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "CHC",
         "teams": "",
         "vSzn": -593.17,
@@ -47466,7 +47466,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CIN",
         "teams": "",
         "vSzn": "",
@@ -49510,7 +49510,7 @@
         "prev_minors_year": "",
         "rAll": 41.21,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "COL",
         "teams": "",
         "vSzn": -169.05,
@@ -52357,7 +52357,7 @@
         "prev_minors_year": "",
         "rAll": -48.71,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": -126.36,
@@ -73018,7 +73018,7 @@
         "prev_minors_year": "",
         "rAll": 6.33,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHW",
         "teams": "",
         "vSzn": 161.22,
@@ -75281,7 +75281,7 @@
         "prev_minors_year": "",
         "rAll": 6.65,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYY",
         "teams": "",
         "vSzn": 38.76,
@@ -76157,7 +76157,7 @@
         "prev_minors_year": "",
         "rAll": -0.54,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "NYM",
         "teams": "",
         "vSzn": -278.07,
@@ -90559,7 +90559,7 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SF",
         "teams": "",
         "≥100": 0.0
@@ -90663,7 +90663,7 @@
         "person_key": "garrett whitlock",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BOS"
       },
       {
@@ -92085,7 +92085,7 @@
         "person_key": "dylan cease",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHW"
       },
       {
@@ -94177,7 +94177,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ARI",
         "≥100": 0.419
       },
@@ -105217,7 +105217,7 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SF",
         "≥100": 0.0
       },
@@ -105980,7 +105980,7 @@
         "person_key": "garrett whitlock",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BOS"
       },
       {
@@ -106904,7 +106904,7 @@
         "person_key": "tyler kinley",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "COL"
       },
       {
@@ -107576,7 +107576,7 @@
         "person_key": "james karinchak",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -111841,7 +111841,7 @@
         "person_key": "dylan cease",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHW"
       },
       {
@@ -112282,7 +112282,7 @@
         "person_key": "jameson taillon",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYY"
       },
       {

@@ -3235,7 +3235,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ARI",
         "teams": "",
         "vSzn": "",
@@ -36571,7 +36571,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN",
         "teams": "",
         "vSzn": "",
@@ -42776,7 +42776,7 @@
         "prev_minors_year": "",
         "rAll": 12.98,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "COL",
         "teams": "",
         "vSzn": -9.87,
@@ -44017,7 +44017,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SEA",
         "teams": "",
         "vSzn": "",
@@ -45258,7 +45258,7 @@
         "prev_minors_year": "",
         "rAll": 26.2,
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": 404.81,
@@ -63875,7 +63875,7 @@
         "prev_minors_year": "",
         "rAll": -22.44,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHW",
         "teams": "",
         "vSzn": -396.87,
@@ -66649,7 +66649,7 @@
         "prev_minors_year": "",
         "rAll": 49.56,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE",
         "teams": "",
         "vSzn": 243.81,
@@ -82499,7 +82499,7 @@
         "person_key": "james karinchak",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -84001,7 +84001,7 @@
         "person_key": "dylan cease",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHW"
       },
       {
@@ -84281,7 +84281,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE"
       },
       {
@@ -85984,7 +85984,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ARI",
         "≥100": 0.25
       },
@@ -95253,7 +95253,7 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MIN",
         "≥100": 0.0
       },
@@ -96438,7 +96438,7 @@
         "person_key": "tyler kinley",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "COL"
       },
       {
@@ -96627,7 +96627,7 @@
         "person_key": "joey gerber",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "SEA"
       },
       {
@@ -96858,7 +96858,7 @@
         "person_key": "james karinchak",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
