@@ -5035,7 +5035,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS",
         "teams": "",
         "vSzn": "",
@@ -5251,7 +5251,7 @@
         "prev_minors_year": "",
         "rAll": -14.03,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYY",
         "teams": "",
         "vSzn": -695.43,
@@ -12595,7 +12595,7 @@
         "prev_minors_year": "",
         "rAll": -15.27,
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": 215.16,
@@ -14539,7 +14539,7 @@
         "prev_minors_year": "",
         "rAll": 17.1,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "LAD",
         "teams": "",
         "vSzn": 302.85,
@@ -52983,7 +52983,7 @@
         "prev_minors_year": 2022.0,
         "rAll": 21.87,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": 264.97,
@@ -54954,7 +54954,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "CIN",
         "teams": "",
         "vSzn": "",
@@ -84083,7 +84083,7 @@
         "prev_minors_year": "",
         "rAll": -43.24,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PHI",
         "teams": "",
         "vSzn": -300.39,
@@ -91472,7 +91472,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS",
         "≥100": 0.23199999999999998
       },
@@ -91541,7 +91541,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYY",
         "≥100": 0.281
       },
@@ -92852,7 +92852,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "TOR",
         "≥100": 0.23199999999999998
       },
@@ -98349,7 +98349,7 @@
         "pos": "3B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.215
       },
@@ -102079,7 +102079,7 @@
         "person_key": "ryan walker",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF"
       },
       {
@@ -102457,7 +102457,7 @@
         "person_key": "lyon richardson",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "CIN"
       },
       {
@@ -104326,7 +104326,7 @@
         "person_key": "codi heuer",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -111551,7 +111551,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "LAD",
         "teams": "",
         "≥100": 0.364
@@ -117544,7 +117544,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS",
         "≥100": 0.0
       },
@@ -117613,7 +117613,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYY",
         "≥100": 0.5
       },
@@ -120074,7 +120074,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "TOR",
         "≥100": 0.14300000000000002
       },
@@ -120741,7 +120741,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "LAD",
         "≥100": 0.41200000000000003
       },
@@ -131661,7 +131661,7 @@
         "person_key": "domingo gonzalez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -134244,7 +134244,7 @@
         "person_key": "lyon richardson",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "CIN"
       },
       {
@@ -141302,7 +141302,7 @@
         "person_key": "taijuan walker",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "PHI"
       },
       {

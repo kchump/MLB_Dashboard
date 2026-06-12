@@ -2443,7 +2443,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "DET",
         "teams": "",
         "vSzn": "",
@@ -6907,7 +6907,7 @@
         "prev_minors_year": "",
         "rAll": 34.5,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "LAD",
         "teams": "",
         "vSzn": 611.31,
@@ -48616,7 +48616,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "CHW",
         "teams": "",
         "vSzn": 294.55,
@@ -67525,7 +67525,7 @@
         "prev_minors_year": "",
         "rAll": -64.28,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "SEA,TOR",
         "vSzn": -188.13,
@@ -78423,7 +78423,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "LAD",
         "teams": "",
         "≥100": 0.267
@@ -82659,7 +82659,7 @@
         "person_key": "codi heuer",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "CHW"
       },
       {
@@ -85685,7 +85685,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "DET",
         "≥100": 0.0
       },
@@ -86973,7 +86973,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "LAD",
         "≥100": 0.0
       },
@@ -97572,7 +97572,7 @@
         "person_key": "codi heuer",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "CHW"
       },
       {
