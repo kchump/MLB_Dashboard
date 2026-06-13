@@ -4387,7 +4387,7 @@
         "prev_minors_year": "",
         "rAll": -11.49,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "STL",
         "teams": "",
         "vSzn": -402.06,
@@ -39173,7 +39173,7 @@
         "prev_minors_year": "",
         "rAll": 49.67,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "vSzn": 982.03,
@@ -41071,7 +41071,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "WAS",
         "teams": "",
         "vSzn": -28.02,
@@ -62097,7 +62097,7 @@
         "prev_minors_year": "",
         "rAll": -35.78,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "NYM",
         "teams": "",
         "vSzn": -154.9,
@@ -82796,7 +82796,7 @@
         "person_key": "kenley jansen",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD"
       },
       {
@@ -82916,7 +82916,7 @@
         "person_key": "joe ross",
         "pitch_role": "SP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "WAS"
       },
       {
@@ -92711,7 +92711,7 @@
         "person_key": "kenley jansen",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD"
       },
       {
@@ -93047,7 +93047,7 @@
         "person_key": "joe ross",
         "pitch_role": "SP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "WAS"
       },
       {
