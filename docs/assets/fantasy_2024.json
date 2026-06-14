@@ -52021,7 +52021,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "teams": "",
         "vSzn": "",
@@ -62752,7 +62752,7 @@
         "prev_minors_year": "",
         "rAll": -30.36,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "vSzn": -288.72,
@@ -105631,7 +105631,7 @@
         "person_key": "mason englert",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET"
       },
       {
@@ -115673,6 +115673,27 @@
         "role": "sp",
         "sort_bucket": 3,
         "team": "PHI"
+      },
+      {
+        "All": -6.97,
+        "BB%": 0.12,
+        "Con": 28.57,
+        "Days +/-": -0.3841480254073456,
+        "Disc": -1.5,
+        "IP": 73.1,
+        "K": 75.0,
+        "K%": 0.25,
+        "Stf": 9.45,
+        "Strike%": 0.6,
+        "SwStr%": 0.13699999999999998,
+        "Velo": 94.9,
+        "WHIP": 1.3772727272727274,
+        "name": "Khristian Curtis",
+        "person_key": "khristian curtis",
+        "pitch_role": "SP",
+        "role": "sp",
+        "sort_bucket": 3,
+        "team": "PIT"
       },
       {
         "All": 13.21,
@@ -137819,7 +137840,7 @@
         "person_key": "mason englert",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET"
       },
       {
@@ -140213,7 +140234,7 @@
         "person_key": "craig kimbrel",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "BAL"
       },
       {

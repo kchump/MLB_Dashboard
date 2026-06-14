@@ -54531,7 +54531,7 @@
         "prev_minors_year": "",
         "rAll": -15.15,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "vSzn": -101.47,
@@ -112665,7 +112665,7 @@
         "person_key": "craig kimbrel",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD"
       },
       {

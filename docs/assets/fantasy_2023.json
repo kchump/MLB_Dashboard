@@ -49844,7 +49844,7 @@
         "prev_minors_year": "",
         "rAll": -32.21,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "DET",
         "teams": "",
         "vSzn": -402.83,
@@ -58531,7 +58531,7 @@
         "prev_minors_year": "",
         "rAll": 52.63,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PHI",
         "teams": "",
         "vSzn": 21.58,
@@ -101428,7 +101428,7 @@
         "person_key": "mason englert",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "DET"
       },
       {
@@ -114395,7 +114395,7 @@
         "person_key": "craig kimbrel",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PHI"
       },
       {
@@ -132963,7 +132963,7 @@
         "person_key": "mason englert",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "DET"
       },
       {
@@ -134937,7 +134937,7 @@
         "person_key": "craig kimbrel",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PHI"
       },
       {
