@@ -1651,7 +1651,7 @@
         "prev_minors_year": "",
         "rAll": 5.39,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CLE",
         "teams": "",
         "vSzn": 619.65,
@@ -81515,7 +81515,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CLE",
         "teams": "",
         "≥100": 0.154
@@ -85930,7 +85930,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CLE",
         "≥100": 0.16699999999999998
       },

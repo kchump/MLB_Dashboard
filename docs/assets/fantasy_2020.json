@@ -2515,7 +2515,7 @@
         "prev_minors_year": "",
         "rAll": 47.07,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CLE",
         "teams": "",
         "vSzn": 648.81,
@@ -9427,7 +9427,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TEX",
         "teams": "",
         "vSzn": "",
@@ -43069,7 +43069,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 3,
-        "team": "ATL",
+        "team": "CHW",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -77775,7 +77775,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CLE",
         "teams": "",
         "≥100": 0.667
@@ -85708,7 +85708,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CLE",
         "≥100": 0.444
       },
@@ -87709,7 +87709,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TEX",
         "≥100": 0.0
       },
@@ -95322,7 +95322,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.0
       }
