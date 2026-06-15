@@ -6,6 +6,7 @@
     "Alec Bohm": "PHI",
     "Alec Burleson": "STL",
     "Alejandro Kirk": "TOR",
+    "Alejandro Osuna": "TEX",
     "Alex Bregman": "CHC",
     "Alex Call": "LAD",
     "Alex Freeland": "LAD",
@@ -267,7 +268,6 @@
     "Michael Busch": "CHC",
     "Michael Conforto": "CHC",
     "Michael Harris II": "ATL",
-    "Michael Helman": "TEX",
     "Michael Massey": "KC",
     "Mickey Gasper": "BOS",
     "Miguel Amaya": "CHC",
@@ -806,6 +806,7 @@
       "Yandy Diaz"
     ],
     "TEX": [
+      "Alejandro Osuna",
       "Brandon Nimmo",
       "Cody Freeman",
       "Corey Seager",
@@ -816,7 +817,6 @@
       "Josh Jung",
       "Justin Foscue",
       "Kyle Higashioka",
-      "Michael Helman",
       "Nicky Lopez",
       "Wyatt Langford"
     ],
@@ -878,6 +878,7 @@
     "Brad Keller": "PHI",
     "Brad Lord": "WAS",
     "Bradgley Rodriguez": "SD",
+    "Brady Basso": "ATH",
     "Brandan Bidois": "PIT",
     "Brandon Eisert": "CHW",
     "Brandyn Garcia": "ARI",
@@ -938,7 +939,6 @@
     "Dylan Smith": "SF",
     "Edgardo Henriquez": "LAD",
     "Eduard Bazardo": "SEA",
-    "Eli Morgan": "KC",
     "Elvis Alvarado": "ATH",
     "Enmanuel De Jesus": "DET",
     "Enyel De Los Santos": "HOU",
@@ -997,7 +997,6 @@
     "Justin Lawrence": "MIN",
     "Justin Slaten": "BOS",
     "Justin Sterner": "ATH",
-    "Keaton Winn": "SF",
     "Keegan Akin": "BAL",
     "Kenley Jansen": "DET",
     "Kevin Ginkel": "ARI",
@@ -1080,6 +1079,7 @@
     "Trent Thornton": "CHC",
     "Trevor Megill": "MIL",
     "Trevor Richards": "CHW",
+    "Tristan Beck": "SF",
     "Tyler Alexander": "TEX",
     "Tyler Davis": "CHW",
     "Tyler Holton": "DET",
@@ -1111,6 +1111,7 @@
       "Taylor Clarke"
     ],
     "ATH": [
+      "Brady Basso",
       "Elvis Alvarado",
       "Hogan Harris",
       "Jose Suarez",
@@ -1226,7 +1227,6 @@
       "Alex Lange",
       "Beck Way",
       "Daniel Lynch IV",
-      "Eli Morgan",
       "John Schreiber",
       "Lucas Erceg",
       "Mason Black",
@@ -1350,10 +1350,10 @@
       "Dylan Smith",
       "Erik Miller",
       "JT Brubaker",
-      "Keaton Winn",
       "Reiver Sanmartin",
       "Ryan Walker",
-      "Sam Hentges"
+      "Sam Hentges",
+      "Tristan Beck"
     ],
     "STL": [
       "Chris Roycroft",
@@ -1468,7 +1468,6 @@
     "Jesus Luzardo": "PHI",
     "Joe Ryan": "MIN",
     "Joey Cantillo": "CLE",
-    "Joey Estes": "ATH",
     "Jose Soriano": "LAA",
     "Justin Wrobleski": "LAD",
     "Kai-Wei Teng": "HOU",
@@ -1566,8 +1565,7 @@
       "Gage Jump",
       "J.T. Ginn",
       "Jack Perkins",
-      "Jeffrey Springs",
-      "Joey Estes"
+      "Jeffrey Springs"
     ],
     "ATL": [
       "Bryce Elder",

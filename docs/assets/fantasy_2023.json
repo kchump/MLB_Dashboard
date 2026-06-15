@@ -4387,7 +4387,7 @@
         "prev_minors_year": "",
         "rAll": -12.48,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA",
         "teams": "",
         "vSzn": -568.5,
@@ -53056,7 +53056,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SF",
         "teams": "",
         "vSzn": 156.46,
@@ -53348,7 +53348,7 @@
         "prev_minors_year": 2022.0,
         "rAll": 26.05,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": 124.64,
@@ -63276,7 +63276,7 @@
         "prev_minors_year": "",
         "rAll": 21.61,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE",
         "teams": "",
         "vSzn": -81.69,
@@ -72622,7 +72622,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "ATH",
         "teams": "",
         "vSzn": "",
@@ -91357,7 +91357,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA",
         "≥100": 0.171
       },
@@ -102121,7 +102121,7 @@
         "person_key": "keaton winn",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SF"
       },
       {
@@ -102205,7 +102205,7 @@
         "person_key": "tristan beck",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF"
       },
       {
@@ -106680,7 +106680,7 @@
         "person_key": "joey estes",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "ATH"
       },
       {
@@ -136323,7 +136323,7 @@
         "person_key": "eli morgan",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE"
       },
       {

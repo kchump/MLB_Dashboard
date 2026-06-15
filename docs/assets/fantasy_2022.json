@@ -3739,7 +3739,7 @@
         "prev_minors_year": "",
         "rAll": 8.86,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA",
         "teams": "",
         "vSzn": -617.64,
@@ -59860,7 +59860,7 @@
         "prev_minors_year": "",
         "rAll": -12.08,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE",
         "teams": "",
         "vSzn": 6.56,
@@ -87707,7 +87707,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SEA",
         "≥100": 0.171
       },
@@ -98290,7 +98290,7 @@
         "person_key": "eli morgan",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CLE"
       },
       {
