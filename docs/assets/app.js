@@ -133,6 +133,38 @@ function update_sidebar_custom_icons(root) {
       a.appendChild(watch_icon);
     }
 
+    if (fav_icon.dataset.bound !== '1') {
+      fav_icon.dataset.bound = '1';
+      fav_icon.title = 'Toggle favorite';
+
+      fav_icon.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const key = sidebar_entity_key_from_link(a);
+        if (!key) return;
+
+        toggle_favorite_person(key);
+        refresh_custom_player_lists_ui();
+      });
+    }
+
+    if (watch_icon.dataset.bound !== '1') {
+      watch_icon.dataset.bound = '1';
+      watch_icon.title = 'Toggle watchlist';
+
+      watch_icon.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const key = sidebar_entity_key_from_link(a);
+        if (!key) return;
+
+        toggle_watchlist_person(key);
+        refresh_custom_player_lists_ui();
+      });
+    }
+
     fav_icon.classList.toggle('active', favorites.has(entity_key));
     watch_icon.classList.toggle('active', watchlist.has(entity_key));
   });
@@ -156,9 +188,9 @@ async function sort_active_team_sidebar_lists_by_fval() {
     'il',
     'prospects',
     'top prospects',
-    'minors',
-    'minor league',
-    'minor leagues',
+    // 'minors',
+    // 'minor league',
+    // 'minor leagues',
     'foreign',
     'inactive',
     'retired',
@@ -171,7 +203,7 @@ async function sort_active_team_sidebar_lists_by_fval() {
     if (excluded_group_labels.has(s)) return false;
     if (s.includes('injured')) return false;
     if (s.includes('prospect')) return false;
-    if (s.includes('minor')) return false;
+    // if (s.includes('minor')) return false;
     return true;
   }
 
@@ -216,17 +248,20 @@ async function sort_active_team_sidebar_lists_by_fval() {
 
       const rows = await Promise.all(group.map(async li => {
         const a = li.querySelector('.toc_link[data-person_key]');
-        const val = a ? get_sidebar_fval_from_lookup(fval_lookup, a.dataset.person_key, role) : null;
+        const stat_vals = a ? get_sidebar_fval_from_lookup(fval_lookup, a.dataset.person_key, role) : null;
 
         return {
           li,
-          val: val == null ? -Infinity : Number(val),
-          has_val: val != null && Number.isFinite(Number(val)),
+          pts: stat_vals?.pts == null ? -Infinity : Number(stat_vals.pts),
+          score: stat_vals?.score == null ? -Infinity : Number(stat_vals.score),
+          has_pts: stat_vals?.pts != null && Number.isFinite(Number(stat_vals.pts)),
+          has_score: stat_vals?.score != null && Number.isFinite(Number(stat_vals.score)),
+          pos_sort: get_pos_sort_key(a),
           last_sort: get_sidebar_last_name_sort_key(a),
           full_sort: get_sidebar_full_name_sort_key(a),
           page_sort: String(a?.dataset?.page || ''),
         };
-      }));
+    }));
 
       rows.sort((x, y) => {
         if (is_top_prospects_block) {
@@ -234,14 +269,29 @@ async function sort_active_team_sidebar_lists_by_fval() {
           const y_rank = get_sidebar_prospect_rank_sort_key(y.li);
 
           if (x_rank !== y_rank) return x_rank - y_rank;
-        } else {
-          if (x.has_val && y.has_val) {
-            const val_cmp = y.val - x.val;
-            if (val_cmp !== 0) return val_cmp;
-          }
+          } else {
+            const x_is_hitter = x.pos_sort !== 999;
+            const y_is_hitter = y.pos_sort !== 999;
 
-          if (x.has_val !== y.has_val) return x.has_val ? -1 : 1;
-        }
+            if (x_is_hitter && y_is_hitter) {
+              const pos_cmp = x.pos_sort - y.pos_sort;
+              if (pos_cmp !== 0) return pos_cmp;
+            }
+
+            if (x.has_pts && y.has_pts) {
+              const pts_cmp = y.pts - x.pts;
+              if (pts_cmp !== 0) return pts_cmp;
+            }
+
+            if (x.has_pts !== y.has_pts) return x.has_pts ? -1 : 1;
+
+            if (x.has_score && y.has_score) {
+              const score_cmp = y.score - x.score;
+              if (score_cmp !== 0) return score_cmp;
+            }
+
+            if (x.has_score !== y.has_score) return x.has_score ? -1 : 1;
+          }
 
         const last_cmp = x.last_sort.localeCompare(y.last_sort);
         if (last_cmp !== 0) return last_cmp;
@@ -281,6 +331,44 @@ function get_sidebar_prospect_rank_sort_key(li) {
 
   const n = Number(m[1]);
   return Number.isFinite(n) ? n : 999999;
+}
+/* ################# */
+function get_pos_sort_key(a) {
+  const pos_order = {
+    'C': 1,
+    '1B': 2,
+    '2B': 3,
+    '3B': 4,
+    'SS': 5,
+    'OF': 6,
+    'UTIL': 7,
+    'DH': 8,
+    'P': 9,
+  };
+
+  const role = String(a?.dataset?.role || '').trim().toLowerCase();
+  if (role !== 'batters' && role !== 'hitters' && role !== 'hitter' && role !== 'lineup') {
+    return 999;
+  }
+
+  const name = String(a?.dataset?.name || '').trim();
+  const text = String(a?.textContent || '')
+    .replace(/[★✓]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  const tail = name && text.toLowerCase().startsWith(name.toLowerCase())
+    ? text.slice(name.length).trim()
+    : text;
+
+  const match = tail.match(/\b(C|1B|2B|3B|SS|OF|DH|SP|RP|P)(?:\/(C|1B|2B|3B|SS|OF|UTIL|DH|SP|RP|P))?\b/i);
+  if (!match) return 999;
+
+  let primary_pos = String(match[1] || '').toUpperCase();
+
+  if (primary_pos === 'SP' || primary_pos === 'RP') primary_pos = 'P';
+
+  return pos_order[primary_pos] || 999;
 }
 /* ################# */
 function get_sidebar_last_name_sort_key(a) {
@@ -350,43 +438,6 @@ async function render_custom_sidebar_list(list_id, empty_id, people_set) {
     return true;
   }
 
-  function get_pos_sort_key(a) {
-    const pos_order = {
-      'C': 1,
-      '1B': 2,
-      '2B': 3,
-      '3B': 4,
-      'SS': 5,
-      'OF': 6,
-      'DH': 7,
-      'P': 8,
-    };
-
-    const role = String(a?.dataset?.role || '').trim().toLowerCase();
-    if (role !== 'batters' && role !== 'hitters' && role !== 'hitter' && role !== 'lineup') {
-      return 999;
-    }
-
-    const name = String(a?.dataset?.name || '').trim();
-    const text = String(a?.textContent || '')
-      .replace(/[★✓]/g, '')
-      .replace(/\s+/g, ' ')
-      .trim();
-
-    const tail = name && text.toLowerCase().startsWith(name.toLowerCase())
-      ? text.slice(name.length).trim()
-      : text;
-
-    const match = tail.match(/\b(C|1B|2B|3B|SS|OF|DH|SP|RP|P)(?:\/(C|1B|2B|3B|SS|OF|DH|SP|RP|P))?\b/i);
-    if (!match) return 999;
-
-    let primary_pos = String(match[1] || '').toUpperCase();
-
-    if (primary_pos === 'SP' || primary_pos === 'RP') primary_pos = 'P';
-
-    return pos_order[primary_pos] || 999;
-  }
-
   function grouped_section_key(a) {
     const role = String(a?.dataset?.role || '').trim().toLowerCase();
 
@@ -452,14 +503,17 @@ async function render_custom_sidebar_list(list_id, empty_id, people_set) {
       //   : null;
       const lookup = await sidebar_fval_lookup_for_year(sort_year);
 
-      const val = use_fval
+      const stat_vals = use_fval
         ? get_sidebar_fval_from_lookup(lookup, a.dataset.person_key, fantasy_role_for_sidebar_link(a))
         : null;
 
       return {
         a,
         use_fval,
-        fval: val == null ? -Infinity : Number(val),
+        pts: stat_vals?.pts == null ? -Infinity : Number(stat_vals.pts),
+        score: stat_vals?.score == null ? -Infinity : Number(stat_vals.score),
+        has_pts: stat_vals?.pts != null && Number.isFinite(Number(stat_vals.pts)),
+        has_score: stat_vals?.score != null && Number.isFinite(Number(stat_vals.score)),
         pos_sort: get_pos_sort_key(a),
         last_sort: get_last_name_sort_key(a),
         full_sort: get_full_name_sort_key(a),
@@ -477,16 +531,22 @@ async function render_custom_sidebar_list(list_id, empty_id, people_set) {
       }
 
       if (x.use_fval && y.use_fval) {
-        const x_has_fval = Number.isFinite(x.fval);
-        const y_has_fval = Number.isFinite(y.fval);
-
-        if (x_has_fval && y_has_fval) {
-          const fval_cmp = y.fval - x.fval;
-          if (fval_cmp !== 0) return fval_cmp;
+        if (x.has_pts && y.has_pts) {
+          const pts_cmp = y.pts - x.pts;
+          if (pts_cmp !== 0) return pts_cmp;
         }
 
-        if (x_has_fval !== y_has_fval) {
-          return x_has_fval ? -1 : 1;
+        if (x.has_pts !== y.has_pts) {
+          return x.has_pts ? -1 : 1;
+        }
+
+        if (x.has_score && y.has_score) {
+          const score_cmp = y.score - x.score;
+          if (score_cmp !== 0) return score_cmp;
+        }
+
+        if (x.has_score !== y.has_score) {
+          return x.has_score ? -1 : 1;
         }
       }
 
@@ -965,11 +1025,17 @@ async function sidebar_fval_lookup_for_year(year) {
           if (!norm_key) return;
 
           const pts_num = Number(row.Pts);
+          const score_num = Number(row.Score);
+
           const has_pts = row.Pts !== '' && row.Pts != null && Number.isFinite(pts_num);
+          const has_score = row.Score !== '' && row.Score != null && Number.isFinite(score_num);
 
-          if (!has_pts) return;
+          if (!has_pts && !has_score) return;
 
-          out.set(`${section}__${norm_key}`, pts_num);
+          out.set(`${section}__${norm_key}`, {
+            pts: has_pts ? pts_num : null,
+            score: has_score ? score_num : null,
+          });
         });
       }
     }
@@ -3982,10 +4048,10 @@ function init_matchups_page_if_present(content_root) {
   mode_select.style.borderRadius = '10px';
 
   const modes = [
+    ['todays_favorited_players', "Project Today's Favorited Players"],
     ['gameday_matchup', 'Gameday Matchup Preview'],
     ['projected_pitchers', 'Projected Starting Pitchers'],
     ['best_and_worst_hitters', 'Projected Best and Worst Hitters'],
-    ['todays_favorited_players', "Project Today's Favorited Players"],
     ['todays_fantasy_lineup', "Project Today's Fantasy Lineup"],
     ['weekly_fantasy_hitter_moves', "Project Weekly Fantasy Hitter Moves"],
     ['weekly_starting_pitcher_moves', "Project Weekly Starting Pitcher Moves"],
@@ -9975,7 +10041,7 @@ function fantasy_build_controls_html(data) {
           ${team_options_html}
         </select>
 
-        <span class="matchups_disclaimer">Pre-2025 positions not 100% accurate until I enter them myself, teams can be wonky (WIP)</span>
+        <span class="matchups_disclaimer">Pre-2025 positions and teams WIP</span>
       </div>
     </div>
 

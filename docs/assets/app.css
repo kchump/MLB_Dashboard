@@ -1,7 +1,7 @@
 /* =============================================================================
    ============================================================================= */
 :root {
-  --sidebar-w: 340px;
+  --sidebar-w: 370px;
 
   --bg: #ffffff;
   --content_bg: #ffffff;
@@ -250,6 +250,9 @@ body.sidebar_hidden .content {
   line-height: 1;
   opacity: 0.18;
   vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto;
 }
 
 .fav_icon.active {
