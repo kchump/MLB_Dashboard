@@ -1507,7 +1507,7 @@
         "prev_minors_year": "",
         "rAll": 15.7,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL",
         "teams": "",
         "vSzn": -676.23,
@@ -5035,7 +5035,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "ATL,MIL",
         "vSzn": "",
@@ -8419,7 +8419,7 @@
         "prev_minors_year": "",
         "rAll": 43.77,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": 75.06,
@@ -29731,7 +29731,7 @@
         "prev_minors_year": "",
         "rAll": 7.87,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "DET",
         "teams": "",
         "vSzn": -609.6,
@@ -33331,7 +33331,7 @@
         "prev_minors_year": "",
         "rAll": -26.84,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHC",
         "teams": "",
         "vSzn": -214.59,
@@ -88183,7 +88183,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "ATL,MIL",
         "≥100": 0.0
@@ -93234,7 +93234,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL",
         "≥100": 0.667
       },
@@ -94430,7 +94430,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "≥100": 0.2
       },
@@ -95465,7 +95465,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TOR",
         "≥100": 0.139
       },
@@ -101997,7 +101997,7 @@
         "pos": "SS",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "DET",
         "≥100": 0.25
       },
@@ -103216,7 +103216,7 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHC",
         "≥100": ""
       },
@@ -106358,7 +106358,7 @@
         "person_key": "victor vodnik",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -112177,7 +112177,7 @@
         "person_key": "kyle hart",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {

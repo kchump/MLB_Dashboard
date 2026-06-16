@@ -2443,7 +2443,7 @@
         "prev_minors_year": "",
         "rAll": -44.68,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "COL,LAD,SF",
         "vSzn": -992.4,
@@ -3955,7 +3955,7 @@
         "prev_minors_year": "",
         "rAll": 47.19,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "TEX",
         "teams": "",
         "vSzn": -310.47,
@@ -8491,7 +8491,7 @@
         "prev_minors_year": "",
         "rAll": -3.81,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATL",
         "teams": "",
         "vSzn": -141.03,
@@ -13747,7 +13747,7 @@
         "prev_minors_year": "",
         "rAll": 24.95,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": 202.02,
@@ -13815,7 +13815,7 @@
         "name": "Jordan Lawlar",
         "person_key": "jordan lawlar",
         "pos": "3B",
-        "pos2": "",
+        "pos2": "OF",
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
@@ -35995,7 +35995,7 @@
         "prev_minors_year": "",
         "rAll": -0.82,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "teams": "",
         "vSzn": -489.99,
@@ -38299,7 +38299,7 @@
         "prev_minors_year": "",
         "rAll": -4.74,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHC",
         "teams": "",
         "vSzn": -172.32,
@@ -51669,7 +51669,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": "",
@@ -94071,7 +94071,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.091
       },
@@ -94531,7 +94531,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.33299999999999996
       },
@@ -97958,7 +97958,7 @@
         "pos": "SS",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "≥100": 0.3
       },
@@ -100000,7 +100000,7 @@
         "person_key": "jayden murray",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -100987,7 +100987,7 @@
         "person_key": "mitch spence",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -101806,7 +101806,7 @@
         "person_key": "victor vodnik",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -108591,7 +108591,7 @@
         "person_key": "tobias myers",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -110855,7 +110855,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATL",
         "teams": "",
         "≥100": 0.222
@@ -111455,7 +111455,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "≥100": 0.23600000000000002
@@ -117245,7 +117245,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "TEX",
         "≥100": 0.2
       },
@@ -118625,7 +118625,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ATL",
         "≥100": 0.375
       },
@@ -120465,7 +120465,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ARI",
         "≥100": 0.304
       },
@@ -122397,7 +122397,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.4
       },
@@ -123064,7 +123064,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.25
       },
@@ -128377,7 +128377,7 @@
         "pos": "SS",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "DET",
         "≥100": 0.375
       },
@@ -131199,7 +131199,7 @@
         "person_key": "jayden murray",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -132396,7 +132396,7 @@
         "person_key": "mitch spence",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -133551,7 +133551,7 @@
         "person_key": "victor vodnik",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {

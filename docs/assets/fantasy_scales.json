@@ -1,12 +1,12 @@
 {
   "panel_scale_lookup": {
     "majors|hitters|2B": {
-      "end": 50,
+      "end": 40,
       "mode": "good_only",
       "start": 30
     },
     "majors|hitters|3B": {
-      "end": 10,
+      "end": 8,
       "mode": "good_only",
       "start": 3
     },
@@ -59,7 +59,7 @@
       "worst": -8
     },
     "majors|hitters|BB": {
-      "end": 120,
+      "end": 100,
       "mode": "good_only",
       "start": 80
     },
@@ -261,12 +261,12 @@
       "worst": -55
     },
     "majors|hitters|H": {
-      "end": 220,
+      "end": 200,
       "mode": "good_only",
       "start": 170
     },
     "majors|hitters|HR": {
-      "end": 50,
+      "end": 40,
       "mode": "good_only",
       "start": 20
     },
@@ -497,7 +497,7 @@
       "worst": 0.4
     },
     "majors|hitters|R": {
-      "end": 120,
+      "end": 110,
       "mode": "good_only",
       "start": 70
     },
@@ -615,7 +615,7 @@
       "worst": 0.05
     },
     "majors|hitters|RBI": {
-      "end": 120,
+      "end": 110,
       "mode": "good_only",
       "start": 70
     },
@@ -716,7 +716,7 @@
       "worst": -300
     },
     "majors|hitters|SB": {
-      "end": 50,
+      "end": 40,
       "mode": "good_only",
       "start": 10
     },
@@ -1141,12 +1141,12 @@
       "worst": 0.41
     },
     "majors|rp|IP": {
-      "end": 90,
+      "end": 80,
       "mode": "good_only",
       "start": 50
     },
     "majors|rp|K": {
-      "end": 100,
+      "end": 90,
       "mode": "good_only",
       "start": 50
     },
@@ -1671,7 +1671,7 @@
       "worst": 89
     },
     "majors|rp|W": {
-      "end": 10,
+      "end": 8,
       "mode": "good_only",
       "start": 5
     },
@@ -1957,7 +1957,7 @@
       "worst": 0.41
     },
     "majors|sp|IP": {
-      "end": 220,
+      "end": 200,
       "mode": "good_only",
       "start": 150
     },
@@ -2125,7 +2125,7 @@
       "worst": 0.31
     },
     "majors|sp|QS/SV": {
-      "end": 23,
+      "end": 20,
       "mode": "good_only",
       "start": 10
     },
@@ -2487,9 +2487,9 @@
       "worst": 89
     },
     "majors|sp|W": {
-      "end": 20,
+      "end": 18,
       "mode": "good_only",
-      "start": 15
+      "start": 14
     },
     "majors|sp|WHIP": {
       "best": 1.05,

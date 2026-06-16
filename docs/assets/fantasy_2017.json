@@ -2371,7 +2371,7 @@
         "prev_minors_year": "",
         "rAll": 0.29,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIL",
         "teams": "",
         "vSzn": -433.05,
@@ -86022,7 +86022,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MIL",
         "≥100": 0.0
       },
