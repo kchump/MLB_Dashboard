@@ -931,7 +931,7 @@
         "prev_minors_year": "",
         "rAll": 17.24,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "PHI",
         "teams": "",
         "vSzn": -471.96,
@@ -43767,7 +43767,7 @@
         "prev_minors_year": "",
         "rAll": 4.51,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "KC",
         "teams": "",
         "vSzn": -25.44,
@@ -92892,7 +92892,7 @@
         "person_key": "brad keller",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "KC"
       },
       {

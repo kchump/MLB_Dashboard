@@ -361,7 +361,7 @@ function get_pos_sort_key(a) {
     ? text.slice(name.length).trim()
     : text;
 
-  const match = tail.match(/\b(C|1B|2B|3B|SS|OF|DH|SP|RP|P)(?:\/(C|1B|2B|3B|SS|OF|UTIL|DH|SP|RP|P))?\b/i);
+  const match = tail.match(/\b(C|1B|2B|3B|SS|OF|UTIL|DH|SP|RP|P)(?:\/(C|1B|2B|3B|SS|OF|UTIL|DH|SP|RP|P))?\b/i);
   if (!match) return 999;
 
   let primary_pos = String(match[1] || '').toUpperCase();

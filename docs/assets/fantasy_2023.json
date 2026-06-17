@@ -139,7 +139,7 @@
         "prev_minors_year": "",
         "rAll": -34.41,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "HOU",
         "teams": "",
         "vSzn": 46.74,
@@ -2803,7 +2803,7 @@
         "prev_minors_year": "",
         "rAll": -1.2,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SEA",
         "teams": "",
         "vSzn": -63.36,
@@ -3019,7 +3019,7 @@
         "prev_minors_year": "",
         "rAll": 6.82,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SEA",
         "teams": "",
         "vSzn": 406.11,
@@ -3091,7 +3091,7 @@
         "prev_minors_year": "",
         "rAll": -18.9,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TB",
         "teams": "",
         "vSzn": 182.04,
@@ -15403,7 +15403,7 @@
         "prev_minors_year": "",
         "rAll": 10.47,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "STL",
         "teams": "",
         "vSzn": -8.67,
@@ -19646,12 +19646,12 @@
         "Whiff%": 0.2452,
         "name": "Luis Rengifo",
         "person_key": "luis rengifo",
-        "pos": "2B",
-        "pos2": "3B",
+        "pos": "3B",
+        "pos2": "2B",
         "prev_minors_year": "",
         "rAll": 28.52,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "LAA",
         "teams": "",
         "vSzn": 323.61,
@@ -19791,7 +19791,7 @@
         "name": "David Hamilton",
         "person_key": "david hamilton",
         "pos": "2B",
-        "pos2": "",
+        "pos2": "SS",
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
@@ -24187,7 +24187,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TB",
         "teams": "",
         "vSzn": "",
@@ -25838,8 +25838,8 @@
         "Whiff%": 0.1789,
         "name": "Luis Garcia Jr.",
         "person_key": "luis garcia jr",
-        "pos": "2B",
-        "pos2": "",
+        "pos": "1B",
+        "pos2": "2B",
         "prev_minors_year": "",
         "rAll": -14.31,
         "role": "batters",
@@ -34195,7 +34195,7 @@
         "prev_minors_year": "",
         "rAll": -2.83,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR",
         "teams": "",
         "vSzn": -492.81,
@@ -35923,7 +35923,7 @@
         "prev_minors_year": "",
         "rAll": 1.47,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ATH",
         "teams": "",
         "vSzn": -210.69,
@@ -35995,7 +35995,7 @@
         "prev_minors_year": "",
         "rAll": -0.82,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "DET",
         "teams": "",
         "vSzn": -489.99,
@@ -48236,7 +48236,7 @@
         "prev_minors_year": "",
         "rAll": 35.33,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "STL",
         "teams": "",
         "vSzn": 432.97,
@@ -53857,7 +53857,7 @@
         "prev_minors_year": "",
         "rAll": 12.76,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHC",
         "teams": "",
         "vSzn": -191.88,
@@ -54295,7 +54295,7 @@
         "prev_minors_year": "",
         "rAll": -12.42,
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": -343.0,
@@ -59040,7 +59040,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "KC",
         "teams": "",
         "vSzn": -796.02,
@@ -59697,7 +59697,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "WAS",
         "teams": "",
         "vSzn": "",
@@ -71744,7 +71744,7 @@
         "prev_minors_year": "",
         "rAll": -21.46,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "HOU",
         "teams": "",
         "vSzn": -428.37,
@@ -84081,7 +84081,7 @@
         "prev_minors_year": "",
         "rAll": -31.55,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": 103.86,
@@ -91774,7 +91774,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.23800000000000002
       },
@@ -92165,7 +92165,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB",
         "≥100": 0.15
       },
@@ -95431,7 +95431,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TB",
         "≥100": 0.154
       },
@@ -98467,7 +98467,7 @@
         "pos": "SS",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "DET",
         "≥100": 0.3
       },
@@ -100624,7 +100624,7 @@
         "person_key": "jayden murray",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -102892,7 +102892,7 @@
         "person_key": "daniel palencia",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHC"
       },
       {
@@ -102934,7 +102934,7 @@
         "person_key": "gavin hollowell",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -104026,7 +104026,7 @@
         "person_key": "brad keller",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "KC"
       },
       {
@@ -104278,7 +104278,7 @@
         "person_key": "jackson rutledge",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "WAS"
       },
       {
@@ -111026,7 +111026,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "HOU",
         "teams": "",
         "≥100": 0.444
@@ -111290,7 +111290,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TB",
         "teams": "",
         "≥100": 0.667
@@ -115688,7 +115688,7 @@
         "person_key": "hunter brown",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "HOU"
       },
       {
@@ -116774,7 +116774,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "HOU",
         "≥100": 0.35700000000000004
       },
@@ -117625,7 +117625,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "SEA",
         "≥100": 0.5
       },
@@ -117694,7 +117694,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TB",
         "≥100": 0.5710000000000001
       },
@@ -117878,7 +117878,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.0
       },
@@ -121857,7 +121857,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "STL",
         "≥100": 0.308
       },
@@ -123076,7 +123076,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "LAA",
         "≥100": 0.33299999999999996
       },
@@ -124594,7 +124594,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TB",
         "≥100": 0.105
       },
@@ -128251,7 +128251,7 @@
         "pos": "2B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TOR",
         "≥100": 0.132
       },
@@ -129125,7 +129125,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ATH",
         "≥100": 0.5
       },
@@ -129148,7 +129148,7 @@
         "pos": "SS",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "DET",
         "≥100": 0.375
       },
@@ -132016,7 +132016,7 @@
         "person_key": "jayden murray",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -133360,7 +133360,7 @@
         "person_key": "ryan helsley",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "STL"
       },
       {
@@ -134872,7 +134872,7 @@
         "person_key": "gavin hollowell",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -135838,7 +135838,7 @@
         "person_key": "brad keller",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "KC"
       },
       {
@@ -136111,7 +136111,7 @@
         "person_key": "jackson rutledge",
         "pitch_role": "",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "WAS"
       },
       {
@@ -139305,7 +139305,7 @@
         "person_key": "hunter brown",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "HOU"
       },
       {
@@ -142014,7 +142014,7 @@
         "person_key": "kodai senga",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYM"
       },
       {
