@@ -139,7 +139,6 @@
     "Gavin Sheets": "SD",
     "George Springer": "TOR",
     "Geraldo Perdomo": "ARI",
-    "Gleyber Torres": "DET",
     "Gunnar Henderson": "BAL",
     "Ha-Seong Kim": "ATL",
     "Hao Yu  Lee": "DET",
@@ -367,6 +366,7 @@
     "Tyler Soderstrom": "ATH",
     "Tyler Stephenson": "CIN",
     "Tyler Tolbert": "KC",
+    "Vaughn Grissom": "LAA",
     "Victor Bericoto": "SF",
     "Victor Caratini": "MIN",
     "Victor Mesa Jr.": "TB",
@@ -548,7 +548,6 @@
     "DET": [
       "Colt Keith",
       "Dillon Dingler",
-      "Gleyber Torres",
       "Hao Yu  Lee",
       "Jahmai Jones",
       "Jake Rogers",
@@ -603,6 +602,7 @@
       "Nolan Schanuel",
       "Oswald Peraza",
       "Trey Mancini",
+      "Vaughn Grissom",
       "Wade Meckler",
       "Zach Neto"
     ],
@@ -1016,6 +1016,7 @@
     "Max Lazar": "PHI",
     "Michael Petersen": "MIA",
     "Michael Rucker": "SEA",
+    "Mike Burrows": "HOU",
     "Mike Paredes": "MIN",
     "Mitchell Parker": "WAS",
     "Nate Pearson": "HOU",
@@ -1218,6 +1219,7 @@
       "Bryan King",
       "Enyel De Los Santos",
       "Josh Hader",
+      "Mike Burrows",
       "Nate Pearson",
       "Steven Okert"
     ],
@@ -1427,6 +1429,7 @@
     "Cade Cavalli": "WAS",
     "Cam Schlittler": "NYY",
     "Carlos Rodon": "NYY",
+    "Casey Mize": "DET",
     "Chase Burns": "CIN",
     "Chris Sale": "ATL",
     "Colin Rea": "CHC",
@@ -1495,7 +1498,6 @@
     "Michael McGreevy": "STL",
     "Michael Soroka": "ARI",
     "Michael Wacha": "KC",
-    "Mike Burrows": "HOU",
     "Mike Paredes": "MIN",
     "Miles Mikolas": "WAS",
     "Mitch Farris": "LAA",
@@ -1623,6 +1625,7 @@
       "Tomoyuki Sugano"
     ],
     "DET": [
+      "Casey Mize",
       "Framber Valdez",
       "Keider Montero",
       "Tarik Skubal",
@@ -1631,7 +1634,6 @@
     "HOU": [
       "Hunter Brown",
       "Kai-Wei Teng",
-      "Mike Burrows",
       "Peter Lambert",
       "Spencer Arrighetti",
       "Tatsuya Imai"
