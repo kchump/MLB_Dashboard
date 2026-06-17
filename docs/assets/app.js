@@ -207,7 +207,7 @@ async function sort_active_team_sidebar_lists_by_fval() {
     return true;
   }
 
-  for (const role_list of document.querySelectorAll('.team_block .role_list')) {
+  for (const role_list of document.querySelectorAll('.team_block .role_list, .division_block[data-division*="prospect"] .role_list')) {
     const team_block = role_list.closest('.team_block');
     const division_block = role_list.closest('.division_block');
 
@@ -225,7 +225,7 @@ async function sort_active_team_sidebar_lists_by_fval() {
       division.includes('prospect') ||
       block_text.includes('prospect');
 
-    if (!team) continue;
+    if (!team && !is_top_prospects_block) continue;
     if (excluded_divisions.has(division) && !is_top_prospects_block) continue;
 
     const ul = role_list.querySelector('.player_list');
@@ -240,7 +240,7 @@ async function sort_active_team_sidebar_lists_by_fval() {
     async function flush_group() {
       if (!group.length) return;
 
-      if (!group_label_is_fval_sortable(group_label)) {
+      if (!is_top_prospects_block && !group_label_is_fval_sortable(group_label)) {
         group.forEach(li => ul.appendChild(li));
         group = [];
         return;
