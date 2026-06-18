@@ -448,6 +448,41 @@ async function render_custom_sidebar_list(list_id, empty_id, people_set) {
     return 'Lineup';
   }
 
+    function team_info_for_sidebar_link(a) {
+    const team_block = a?.closest?.('.team_block');
+    if (!team_block) return null;
+
+    const team = String(team_block.dataset.team || '').trim().toUpperCase();
+    const logo = team_block.querySelector('.team_logo');
+    const logo_src = logo ? String(logo.getAttribute('src') || '').trim() : '';
+
+    if (!team || !logo_src) return null;
+
+    return {
+      team,
+      logo_src,
+      logo_alt: String(logo.getAttribute('alt') || team).trim(),
+    };
+  }
+
+  function add_team_logo_to_custom_clone(clone, source_a) {
+    const info = team_info_for_sidebar_link(source_a);
+    if (!info) return;
+
+    const a = clone.querySelector('.toc_link[data-person_key]');
+    if (!a || a.querySelector(':scope > .custom_player_team_logo')) return;
+
+    a.dataset.team = info.team;
+
+    const img = document.createElement('img');
+    img.className = 'custom_player_team_logo';
+    img.src = info.logo_src;
+    img.alt = info.logo_alt;
+    img.title = info.team;
+
+    a.insertBefore(img, a.firstChild);
+  }
+  
   const section_order = ['Rotation', 'Bullpen', 'Lineup'];
   const grouped = new Map(section_order.map(section => [section, []]));
 
@@ -568,6 +603,7 @@ async function render_custom_sidebar_list(list_id, empty_id, people_set) {
       if (!li) return;
 
       const clone = li.cloneNode(true);
+      add_team_logo_to_custom_clone(clone, a);
 
       clone.style.display = '';
       clone.querySelectorAll('[style]').forEach(el => {
@@ -607,12 +643,53 @@ async function render_custom_sidebar_list(list_id, empty_id, people_set) {
   update_sidebar_custom_icons(list);
 }
 /* ################# */
+function sync_custom_sidebar_team_ribbon(list_id) {
+  const list = document.getElementById(list_id);
+  if (!list) return;
+
+  const block = list.closest('.division_block');
+  const title = block?.querySelector?.('.division_title');
+  if (!block || !title) return;
+
+  let ribbon = title.querySelector(':scope > .division_logos');
+  if (!ribbon) {
+    ribbon = document.createElement('span');
+    ribbon.className = 'division_logos custom_sidebar_team_ribbon';
+    title.appendChild(ribbon);
+  }
+
+  ribbon.innerHTML = '';
+
+  const seen = new Set();
+
+  list.querySelectorAll('.toc_link[data-team]').forEach(a => {
+    const team = String(a.dataset.team || '').trim().toUpperCase();
+    if (!team || seen.has(team)) return;
+
+    const img_src = a.querySelector(':scope > .custom_player_team_logo')?.getAttribute('src') || '';
+    if (!img_src) return;
+
+    seen.add(team);
+
+    const img = document.createElement('img');
+    img.className = 'division_logo';
+    img.src = img_src;
+    img.alt = team;
+    img.title = team;
+    ribbon.appendChild(img);
+  });
+
+  ribbon.style.display = seen.size ? '' : 'none';
+}
+/* ################# */
 async function render_favorites_sidebar() {
   await render_custom_sidebar_list('favorites_list', 'favorites_empty', get_favorites());
+  sync_custom_sidebar_team_ribbon('favorites_list');
 }
 /* ################# */
 async function render_watchlist_sidebar() {
   await render_custom_sidebar_list('watchlist_list', 'watchlist_empty', get_watchlist());
+  sync_custom_sidebar_team_ribbon('watchlist_list');
 }
 /* ################# */
 function current_page_person_key() {
@@ -638,6 +715,280 @@ function current_page_storage_key() {
   return sidebar_entity_key_from_values(person_key, page_id);
 }
 /* ################# */
+let compare_payload_cache = null;
+/* ################# */
+async function load_compare_payload() {
+  if (compare_payload_cache) return compare_payload_cache;
+
+  try {
+    const r = await fetch('assets/compare.json', { cache: 'no-store' });
+    if (!r.ok) return null;
+
+    compare_payload_cache = await r.json();
+    return compare_payload_cache;
+  } catch (e) {
+    return null;
+  }
+}
+/* ################# */
+function compare_role_group_for_link(a) {
+  const role = String(a?.dataset?.role || '').trim().toLowerCase();
+
+  if (role === 'rotation' || role === 'sp' || role === 'starter' || role === 'starters') return 'rotation';
+  if (role === 'bullpen' || role === 'rp' || role === 'reliever' || role === 'relievers') return 'bullpen';
+  if (role === 'lineup' || role === 'batters' || role === 'hitters' || role === 'hitter') return 'lineup';
+
+  return '';
+}
+/* ################# */
+function compare_label_for_role_group(role_group) {
+  if (role_group === 'rotation') return 'starter';
+  if (role_group === 'bullpen') return 'reliever';
+  return 'hitter';
+}
+/* ################# */
+function get_compare_peer_links_for_active_page() {
+  const active = document.querySelector('.toc_link.active[data-person_key][data-page]');
+  if (!active) return [];
+
+  const role_group = compare_role_group_for_link(active);
+  if (!role_group) return [];
+
+  const role_list = active.closest('.role_list');
+  if (!role_list) return [];
+
+  const active_page = String(active.dataset.page || '').trim();
+
+  return Array.from(role_list.querySelectorAll('.toc_link[data-person_key][data-page][data-file]'))
+    .filter(a => compare_role_group_for_link(a) === role_group)
+    .filter(a => String(a.dataset.page || '').trim() !== active_page)
+    .sort((x, y) => {
+      const x_name = String(x.dataset.name || x.textContent || '').replace(/[★✓]/g, '').trim().toLowerCase();
+      const y_name = String(y.dataset.name || y.textContent || '').replace(/[★✓]/g, '').trim().toLowerCase();
+      return x_name.localeCompare(y_name);
+    });
+}
+/* ################# */
+function compare_hash_for_pages(page_ids) {
+  const clean_pages = page_ids
+    .map(x => String(x || '').trim())
+    .filter(Boolean);
+
+  return '#compare?players=' + clean_pages.map(encodeURIComponent).join(';');
+}
+/* ################# */
+function parse_compare_hash_players() {
+  const raw = String(window.location.hash || '');
+  const q = raw.includes('?') ? raw.slice(raw.indexOf('?') + 1) : '';
+  const params = new URLSearchParams(q);
+  const players_raw = String(params.get('players') || '').trim();
+
+  return players_raw
+    .split(';')
+    .map(x => {
+      try {
+        return decodeURIComponent(x);
+      } catch (e) {
+        return x;
+      }
+    })
+    .map(x => String(x || '').trim())
+    .filter(Boolean);
+}
+/* ################# */
+function escape_attr(s) {
+  return escape_html(s).replaceAll('`', '&#96;');
+}
+/* ################# */
+function compare_num(v) {
+  const n = Number(v);
+  return Number.isFinite(n) ? n : null;
+}
+/* ################# */
+function compare_clamp01(v) {
+  const n = Number(v);
+  if (!Number.isFinite(n)) return 0;
+  return Math.max(0, Math.min(1, n));
+}
+/* ################# */
+function compare_scale_frac(value, spec) {
+  const v = compare_num(value);
+  if (v == null || !spec) return null;
+
+  if (spec.mode === 'good_only' || spec.mode === 'bad_only') {
+    const start = compare_num(spec.start);
+    const end = compare_num(spec.end);
+    if (start == null || end == null || start === end) return null;
+
+    let frac = (v - start) / (end - start);
+    if (spec.mode === 'bad_only' || spec.higher_is_better === false) {
+      frac = 1 - frac;
+    }
+
+    return compare_clamp01(frac);
+  }
+
+  const worst = compare_num(spec.worst);
+  const best = compare_num(spec.best);
+  if (worst == null || best == null || worst === best) return null;
+
+  return compare_clamp01((v - worst) / (best - worst));
+}
+/* ################# */
+function compare_is_gold(value, spec) {
+  const v = compare_num(value);
+  const gold = compare_num(spec?.gold);
+  if (v == null || gold == null) return false;
+
+  if (spec?.higher_is_better === false || spec?.mode === 'bad_only') {
+    return v <= gold;
+  }
+
+  return v >= gold;
+}
+/* ################# */
+function compare_color_class(value, spec) {
+  const frac = compare_scale_frac(value, spec);
+  if (frac == null) return '';
+
+  if (compare_is_gold(value, spec)) return 'compare_gold';
+  if (frac >= 0.50) return 'compare_red';
+  return 'compare_blue';
+}
+/* ################# */
+function compare_cell_html(cell, scales) {
+  const display = String(cell?.display ?? cell?.value ?? '').trim();
+  const spec = scales?.[cell?.scale_key] || null;
+  const cls = compare_color_class(cell?.value, spec);
+
+  return `<td class='compare_stat_cell ${cls}'>${escape_html(display)}</td>`;
+}
+/* ################# */
+function compare_table_html(tbl, scales) {
+  const headers = Array.isArray(tbl?.headers) ? tbl.headers : [];
+  const cells = Array.isArray(tbl?.cells) ? tbl.cells : [];
+
+  return `
+    <table class='compare_stats_table'>
+      <thead>
+        <tr>${headers.map(h => `<th>${escape_html(h)}</th>`).join('')}</tr>
+      </thead>
+      <tbody>
+        <tr>${cells.map(c => compare_cell_html(c, scales)).join('')}</tr>
+      </tbody>
+    </table>
+  `;
+}
+/* ################# */
+function compare_bar_html(row, scales) {
+  const spec = scales?.[row?.scale_key] || null;
+  const frac = compare_scale_frac(row?.value, spec);
+  const cls = compare_color_class(row?.value, spec);
+  const width = frac == null ? 0 : Math.round(frac * 1000) / 10;
+
+  return `
+    <div class='compare_panel_row'>
+      <div class='compare_panel_label'>${escape_html(row?.label || '')}</div>
+      <div class='compare_bar_track'>
+        <div class='compare_bar_fill ${cls}' style='width:${width}%;'></div>
+      </div>
+      <div class='compare_panel_value'>${escape_html(row?.display ?? row?.value ?? '')}</div>
+    </div>
+  `;
+}
+/* ################# */
+function compare_panel_html(panel, scales) {
+  const rows = Array.isArray(panel?.rows) ? panel.rows : [];
+  if (!rows.length) return '';
+
+  return `
+    <div class='compare_panel'>
+      <div class='compare_panel_title'>${escape_html(panel?.title || '')}</div>
+      <div class='compare_panel_axis'>
+        <span>POOR</span>
+        <span>AVERAGE</span>
+        <span>GREAT</span>
+      </div>
+      ${rows.map(row => compare_bar_html(row, scales)).join('')}
+    </div>
+  `;
+}
+/* ################# */
+function compare_player_card_html(player, scales) {
+  const stats_tables = Array.isArray(player?.stats_tables) ? player.stats_tables : [];
+  const panels = Array.isArray(player?.panels) ? player.panels : [];
+  const photo_src = String(player?.photo_src || '').trim();
+
+  return `
+    <div class='compare_player_card'>
+      <div class='compare_player_name'>${escape_html(player?.name || '')}</div>
+      ${photo_src ? `<img class='compare_player_photo' src='${escape_attr(photo_src)}' alt='${escape_attr(player?.name || '')}'>` : ''}
+      <div class='compare_stats_block'>
+        ${stats_tables.map(tbl => compare_table_html(tbl, scales)).join('')}
+      </div>
+      <div class='compare_panels_block'>
+        ${panels.map(panel => compare_panel_html(panel, scales)).join('')}
+      </div>
+    </div>
+  `;
+}
+/* ################# */
+async function render_compare_page_from_hash() {
+  const content = document.getElementById('content_root');
+  if (!content) return;
+
+  const page_ids = parse_compare_hash_players();
+  if (!page_ids.length) return;
+
+  const payload = await load_compare_payload();
+  const players_lookup = payload?.players || {};
+  const scales = payload?.scales || {};
+
+  const players = page_ids
+    .map(pid => players_lookup[pid])
+    .filter(Boolean);
+
+  if (!players.length) {
+    content.innerHTML = `
+      <div class='compare_page'>
+        <div class='compare_header'>
+          <button type='button' class='compare_back_btn'>← Back</button>
+          <div class='compare_title'>Compare</div>
+        </div>
+        <div class='compare_empty'>No compare data found. Rebuild assets/compare.json.</div>
+      </div>
+    `;
+    return;
+  }
+
+  const role_label = compare_label_for_role_group(players[0]?.role_group);
+
+  content.innerHTML = `
+    <div class='compare_page'>
+      <div class='compare_header'>
+        <button type='button' class='compare_back_btn'>← Back</button>
+        <div>
+          <div class='compare_title'>Compare ${role_label}s</div>
+          <div class='compare_subtitle'>${players.length} players</div>
+        </div>
+      </div>
+      <div class='compare_grid'>
+        ${players.map(player => compare_player_card_html(player, scales)).join('')}
+      </div>
+    </div>
+  `;
+
+  const back_btn = content.querySelector('.compare_back_btn');
+  back_btn?.addEventListener('click', () => {
+    const first_page = String(page_ids[0] || '').trim();
+    if (first_page) activate_page(first_page);
+  });
+
+  active_page_id = 'compare';
+  active_content_file = '';
+
+  document.querySelectorAll('.toc_link').forEach(a => a.classList.remove('active'));
+}
 /* ################# */
 function sync_player_page_action_buttons() {
   const content = document.getElementById('content_root');
@@ -673,6 +1024,27 @@ function sync_player_page_action_buttons() {
     actions_row.appendChild(watchlist_btn);
   }
 
+  let compare_wrap = actions_row.querySelector('.compare_page_wrap');
+  if (!compare_wrap) {
+    compare_wrap = document.createElement('div');
+    compare_wrap.className = 'compare_page_wrap';
+
+    const compare_btn = document.createElement('button');
+    compare_btn.type = 'button';
+    compare_btn.className = 'compare_page_btn';
+    compare_btn.textContent = 'Compare';
+
+    const compare_sel = document.createElement('select');
+    compare_sel.className = 'compare_page_select';
+
+    compare_wrap.appendChild(compare_btn);
+    compare_wrap.appendChild(compare_sel);
+    actions_row.appendChild(compare_wrap);
+  }
+
+  const compare_btn = compare_wrap.querySelector('.compare_page_btn');
+  const compare_sel = compare_wrap.querySelector('.compare_page_select');
+
   const is_favorite = get_favorites().has(storage_key);
   const is_watchlist = get_watchlist().has(storage_key);
 
@@ -683,6 +1055,28 @@ function sync_player_page_action_buttons() {
   watchlist_btn.classList.toggle('active', is_watchlist);
   watchlist_btn.setAttribute('aria-pressed', is_watchlist ? 'true' : 'false');
   watchlist_btn.textContent = is_watchlist ? '✓ Watchlist' : '+ Watchlist';
+
+  const active = document.querySelector('.toc_link.active[data-person_key][data-page]');
+  const active_page = String(active?.dataset?.page || active_page_id || '').trim();
+  const role_group = compare_role_group_for_link(active);
+  const role_label = compare_label_for_role_group(role_group);
+  const peers = get_compare_peer_links_for_active_page();
+
+  compare_sel.innerHTML = '';
+
+  const ph = document.createElement('option');
+  ph.value = '';
+  ph.textContent = `Select ${role_label}`;
+  compare_sel.appendChild(ph);
+
+  peers.forEach(a => {
+    const opt = document.createElement('option');
+    opt.value = String(a.dataset.page || '').trim();
+    opt.textContent = String(a.dataset.name || a.textContent || '').replace(/[★✓]/g, '').trim();
+    compare_sel.appendChild(opt);
+  });
+
+  compare_wrap.style.display = peers.length && active_page ? 'inline-flex' : 'none';
 
   if (favorite_btn.dataset.bound !== '1') {
     favorite_btn.dataset.bound = '1';
@@ -702,6 +1096,26 @@ function sync_player_page_action_buttons() {
       toggle_watchlist_person(key);
       refresh_custom_player_lists_ui();
     });
+  }
+
+  function go_compare() {
+    const other_page = String(compare_sel.value || '').trim();
+    const current_page = String(document.querySelector('.toc_link.active[data-page]')?.dataset?.page || active_page_id || '').trim();
+
+    if (!current_page || !other_page) return;
+
+    window.location.hash = compare_hash_for_pages([current_page, other_page]);
+    render_compare_page_from_hash();
+  }
+
+  if (compare_btn.dataset.bound !== '1') {
+    compare_btn.dataset.bound = '1';
+    compare_btn.addEventListener('click', go_compare);
+  }
+
+  if (compare_sel.dataset.bound !== '1') {
+    compare_sel.dataset.bound = '1';
+    compare_sel.addEventListener('change', go_compare);
   }
 }
 /* ################# */
@@ -2073,30 +2487,10 @@ function apply_mobile_scale() {
   const content = document.getElementById('content_root');
   if (!content) return;
 
-  const is_touch_mobile = window.matchMedia('(max-width: 900px) and (pointer: coarse)').matches;
-  const page = content.querySelector('.player_page');
-  const has_static = !!page && !!page.querySelector('.static_page');
-
-  const ua = navigator.userAgent || '';
-  const is_ios = /iPhone|iPad|iPod/.test(ua);
-
-  if (!is_touch_mobile || !page || has_static || is_ios) {
-    content.style.transform = '';
-    content.style.transformOrigin = '';
-    content.style.width = '';
-    content.style.maxWidth = '';
-    return;
-  }
-
-  const pad = 20;
-  const base_width = 1350;
-  const target_w = Math.max(320, window.innerWidth - pad);
-  const scale = Math.min(1, target_w / base_width);
-
-  content.style.transform = `scale(${scale})`;
-  content.style.transformOrigin = 'top left';
-  content.style.width = `${Math.ceil(base_width * scale)}px`;
-  content.style.maxWidth = 'none';
+  content.style.transform = '';
+  content.style.transformOrigin = '';
+  content.style.width = '';
+  content.style.maxWidth = '';
 }
 /* ################# */
 function wrap_player_page_scroll_shell(root) {

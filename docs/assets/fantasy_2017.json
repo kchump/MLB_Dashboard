@@ -495,7 +495,7 @@
         "name": "Jorge Soler",
         "person_key": "jorge soler",
         "pos": "OF",
-        "pos2": "",
+        "pos2": "DH",
         "prev_minors_year": "",
         "rAll": -24.47,
         "role": "batters",
@@ -19147,7 +19147,7 @@
         "prev_minors_year": "",
         "rAll": -13.56,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "BAL",
         "teams": "",
         "vSzn": -3.15,
@@ -64718,7 +64718,7 @@
         "prev_minors_year": "",
         "rAll": 51.04,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "WAS",
         "teams": "",
         "vSzn": 781.65,
@@ -66251,7 +66251,7 @@
         "prev_minors_year": "",
         "rAll": 49.54,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": 401.37,
@@ -84877,7 +84877,7 @@
         "person_key": "max scherzer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "WAS"
       },
       {
@@ -85017,7 +85017,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {

@@ -567,7 +567,7 @@
         "name": "Yordan Alvarez",
         "person_key": "yordan alvarez",
         "pos": "OF",
-        "pos2": "",
+        "pos2": "DH",
         "prev_minors_year": "",
         "rAll": 40.2,
         "role": "batters",
@@ -1719,7 +1719,7 @@
         "name": "Jorge Soler",
         "person_key": "jorge soler",
         "pos": "OF",
-        "pos2": "",
+        "pos2": "DH",
         "prev_minors_year": "",
         "rAll": 9.96,
         "role": "batters",
@@ -2367,7 +2367,7 @@
         "name": "Vaughn Grissom",
         "person_key": "vaughn grissom",
         "pos": "2B",
-        "pos2": "SS",
+        "pos2": "1B/SS",
         "prev_minors_year": "",
         "rAll": 26.55,
         "role": "batters",
@@ -2947,7 +2947,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CIN",
         "teams": "",
         "vSzn": "",
@@ -6615,7 +6615,7 @@
         "name": "Kyle Manzardo",
         "person_key": "kyle manzardo",
         "pos": "1B",
-        "pos2": "",
+        "pos2": "DH",
         "prev_minors_year": "",
         "rAll": 2.07,
         "role": "batters",
@@ -9927,7 +9927,7 @@
         "name": "Matt Wallner",
         "person_key": "matt wallner",
         "pos": "OF",
-        "pos2": "",
+        "pos2": "DH",
         "prev_minors_year": "",
         "rAll": -18.36,
         "role": "batters",
@@ -12735,7 +12735,7 @@
         "name": "Masataka Yoshida",
         "person_key": "masataka yoshida",
         "pos": "OF",
-        "pos2": "",
+        "pos2": "DH",
         "prev_minors_year": "",
         "rAll": -13.27,
         "role": "batters",
@@ -40459,7 +40459,7 @@
         "prev_minors_year": "",
         "rAll": 1.23,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT",
         "teams": "",
         "vSzn": -699.03,
@@ -54353,7 +54353,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ATL",
         "teams": "",
         "vSzn": "",
@@ -54645,7 +54645,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL",
         "teams": "",
         "vSzn": "",
@@ -60266,7 +60266,7 @@
         "prev_minors_year": 2023.0,
         "rAll": 45.64,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "STL",
         "teams": "",
         "vSzn": -30.56,
@@ -75452,7 +75452,7 @@
         "prev_minors_year": "",
         "rAll": -20.33,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "MIL,TB",
         "vSzn": -192.27,
@@ -81949,7 +81949,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TEX",
         "teams": "",
         "vSzn": 45.42,
@@ -87935,7 +87935,7 @@
         "prev_minors_year": "",
         "rAll": 8.34,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": -331.11,
@@ -95701,7 +95701,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CIN",
         "≥100": 0.105
       },
@@ -96460,7 +96460,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB",
         "≥100": 0.111
       },
@@ -103521,7 +103521,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.161
       },
@@ -106987,7 +106987,7 @@
         "person_key": "jimmy herget",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ATL"
       },
       {
@@ -107029,7 +107029,7 @@
         "person_key": "seth halvorsen",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL"
       },
       {
@@ -107365,7 +107365,7 @@
         "person_key": "matt gage",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -108163,7 +108163,7 @@
         "person_key": "chris roycroft",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "STL"
       },
       {
@@ -113436,7 +113436,7 @@
         "person_key": "max scherzer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TEX"
       },
       {
@@ -116714,27 +116714,6 @@
         "role": "sp",
         "sort_bucket": 1,
         "team": "MiLB"
-      },
-      {
-        "All": 16.71,
-        "BB%": 0.07400000000000001,
-        "Con": 58.74,
-        "Days +/-": 0.11623036649214619,
-        "Disc": 11.78,
-        "IP": 70.1,
-        "K": 73.0,
-        "K%": 0.285,
-        "Stf": 16.65,
-        "Strike%": 0.642,
-        "SwStr%": 0.161,
-        "Velo": 92.3,
-        "WHIP": 1.109004739336493,
-        "name": "Jack Wenninger",
-        "person_key": "jack wenninger",
-        "pitch_role": "FLEX",
-        "role": "sp",
-        "sort_bucket": 3,
-        "team": "NYM"
       },
       {
         "All": -5.11,
@@ -121942,7 +121921,7 @@
         "person_key": "aaron civale",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -124863,7 +124842,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB",
         "≥100": 1.0
       },
@@ -134408,7 +134387,7 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.111
       },
@@ -135903,7 +135882,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT",
         "≥100": 0.273
       },
@@ -139574,7 +139553,7 @@
         "person_key": "jimmy herget",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ATL"
       },
       {
@@ -139679,7 +139658,7 @@
         "person_key": "seth halvorsen",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL"
       },
       {
@@ -144553,7 +144532,7 @@
         "person_key": "aaron civale",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {

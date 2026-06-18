@@ -3307,7 +3307,7 @@
         "prev_minors_year": "",
         "rAll": -28.22,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "ATH,CIN",
         "vSzn": -351.48,
@@ -15183,7 +15183,7 @@
         "name": "Masataka Yoshida",
         "person_key": "masataka yoshida",
         "pos": "DH",
-        "pos2": "",
+        "pos2": "DH",
         "prev_minors_year": "",
         "rAll": 43.04,
         "role": "batters",
@@ -44203,7 +44203,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "CIN,SD",
         "vSzn": "",
@@ -44491,7 +44491,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SF",
         "teams": "",
         "vSzn": "",
@@ -59719,7 +59719,7 @@
         "prev_minors_year": "",
         "rAll": 8.02,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": -129.48,
@@ -60084,7 +60084,7 @@
         "prev_minors_year": "",
         "rAll": 31.6,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "COL",
         "teams": "",
         "vSzn": -326.76,
@@ -62274,7 +62274,7 @@
         "prev_minors_year": "",
         "rAll": -6.38,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "DET,SF",
         "vSzn": -150.63,
@@ -62785,7 +62785,7 @@
         "prev_minors_year": 2024.0,
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CIN",
         "teams": "",
         "vSzn": "",
@@ -66435,7 +66435,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "STL",
         "teams": "",
         "vSzn": -810.83,
@@ -80088,7 +80088,7 @@
         "prev_minors_year": "",
         "rAll": 8.35,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "CHW,MIL",
         "vSzn": -335.2,
@@ -80307,7 +80307,7 @@
         "prev_minors_year": "",
         "rAll": 11.75,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "ATH",
         "teams": "",
         "vSzn": -150.48,
@@ -87534,7 +87534,7 @@
         "prev_minors_year": "",
         "rAll": -55.82,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR",
         "teams": "",
         "vSzn": -197.13,
@@ -94980,7 +94980,7 @@
         "prev_minors_year": "",
         "rAll": -17.97,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "ATL,NYY",
         "vSzn": -717.29,
@@ -102263,7 +102263,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CLE",
         "≥100": 0.34600000000000003
       },
@@ -102332,7 +102332,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.28800000000000003
       },
@@ -108979,7 +108979,7 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.304
       },
@@ -110612,7 +110612,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "≥100": 0.168
       },
@@ -110796,7 +110796,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SF",
         "≥100": 0.131
       },
@@ -114983,7 +114983,7 @@
         "person_key": "matt gage",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -115088,7 +115088,7 @@
         "person_key": "reiver sanmartin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CIN"
       },
       {
@@ -115781,7 +115781,7 @@
         "person_key": "chris roycroft",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "STL"
       },
       {
@@ -120592,7 +120592,7 @@
         "person_key": "aaron civale",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -120655,7 +120655,7 @@
         "person_key": "luis morales",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "ATH"
       },
       {
@@ -122251,7 +122251,7 @@
         "person_key": "max scherzer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR"
       },
       {
@@ -123868,7 +123868,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -125888,27 +125888,6 @@
         "team": "STL"
       },
       {
-        "All": 24.25,
-        "BB%": 0.11,
-        "Con": 66.02,
-        "Days +/-": 0.02627939142461974,
-        "Disc": -1.2,
-        "IP": 59.0,
-        "K": 61.0,
-        "K%": 0.249,
-        "Stf": 10.55,
-        "Strike%": 0.628,
-        "SwStr%": 0.105,
-        "Velo": 93.9,
-        "WHIP": 1.1694915254237288,
-        "name": "JR Ritchie",
-        "person_key": "jr ritchie",
-        "pitch_role": "FLEX",
-        "role": "sp",
-        "sort_bucket": 0,
-        "team": "ATL"
-      },
-      {
         "All": -3.44,
         "BB%": 0.271,
         "Con": 58.68,
@@ -125949,27 +125928,6 @@
         "role": "sp",
         "sort_bucket": 1,
         "team": "NYM"
-      },
-      {
-        "All": 6.36,
-        "BB%": 0.09,
-        "Con": 14.65,
-        "Days +/-": 0.12800132472263628,
-        "Disc": 0.82,
-        "IP": 116.2,
-        "K": 123.0,
-        "K%": 0.23600000000000002,
-        "Stf": 19.98,
-        "Strike%": 0.642,
-        "SwStr%": 0.139,
-        "Velo": 96.41,
-        "WHIP": 1.5085714285714285,
-        "name": "Andrew Painter",
-        "person_key": "andrew painter",
-        "pitch_role": "",
-        "role": "sp",
-        "sort_bucket": 0,
-        "team": "PHI"
       },
       {
         "All": -11.88,
@@ -126161,27 +126119,6 @@
         "team": "KC"
       },
       {
-        "All": 33.34,
-        "BB%": 0.125,
-        "Con": 111.75,
-        "Days +/-": 0.2083333333333324,
-        "Disc": 8.85,
-        "IP": 2.0,
-        "K": 2.0,
-        "K%": 0.25,
-        "Stf": 32.42,
-        "Strike%": 0.6559999999999999,
-        "SwStr%": 0.188,
-        "Velo": 95.4,
-        "WHIP": 1.0,
-        "name": "Karson Milbrandt",
-        "person_key": "karson milbrandt",
-        "pitch_role": "FLEX",
-        "role": "sp",
-        "sort_bucket": 3,
-        "team": "MIA"
-      },
-      {
         "All": -20.53,
         "BB%": 0.11,
         "Con": 21.64,
@@ -126222,6 +126159,27 @@
         "role": "sp",
         "sort_bucket": 3,
         "team": "NYY"
+      },
+      {
+        "All": -9.56,
+        "BB%": 0.064,
+        "Con": 45.79,
+        "Days +/-": -0.00898876404494317,
+        "Disc": -0.23,
+        "IP": 24.2,
+        "K": 24.0,
+        "K%": 0.22899999999999998,
+        "Stf": 6.14,
+        "Strike%": 0.625,
+        "SwStr%": 0.09,
+        "Velo": 89.4,
+        "WHIP": 1.4594594594594594,
+        "name": "Tucker Davidson",
+        "person_key": "tucker davidson",
+        "pitch_role": "FLEX",
+        "role": "sp",
+        "sort_bucket": 1,
+        "team": "PHI"
       },
       {
         "All": 6.53,
@@ -126369,6 +126327,27 @@
         "role": "sp",
         "sort_bucket": 3,
         "team": "TOR"
+      },
+      {
+        "All": -22.51,
+        "BB%": 0.087,
+        "Con": 3.79,
+        "Days +/-": -0.17549491706795023,
+        "Disc": 1.72,
+        "IP": 33.2,
+        "K": 38.0,
+        "K%": 0.253,
+        "Stf": 18.5,
+        "Strike%": 0.621,
+        "SwStr%": 0.124,
+        "Velo": 94.7,
+        "WHIP": 1.425742574257426,
+        "name": "Riley Cornelio",
+        "person_key": "riley cornelio",
+        "pitch_role": "FLEX",
+        "role": "sp",
+        "sort_bucket": 1,
+        "team": "WAS"
       },
       {
         "All": 21.5,
@@ -127044,7 +127023,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CLE",
         "teams": "",
         "≥100": 0.2
@@ -131362,7 +131341,7 @@
         "person_key": "aaron civale",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -132002,7 +131981,7 @@
         "person_key": "max scherzer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR"
       },
       {
@@ -133697,7 +133676,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "≥100": 0.312
       },
@@ -135698,7 +135677,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.25
       },
@@ -147428,7 +147407,7 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.125
       },
@@ -149130,7 +149109,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "≥100": 0.14300000000000002
       },
@@ -149314,7 +149293,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SF",
         "≥100": 0.125
       },
@@ -153725,7 +153704,7 @@
         "person_key": "jimmy herget",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -153830,7 +153809,7 @@
         "person_key": "seth halvorsen",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "COL"
       },
       {
@@ -154481,7 +154460,7 @@
         "person_key": "matt gage",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -154628,7 +154607,7 @@
         "person_key": "reiver sanmartin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CIN"
       },
       {
@@ -155657,7 +155636,7 @@
         "person_key": "chris roycroft",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "STL"
       },
       {
@@ -159943,7 +159922,7 @@
         "person_key": "aaron civale",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -162064,7 +162043,7 @@
         "person_key": "max scherzer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TOR"
       },
       {
@@ -164059,7 +164038,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {

@@ -567,7 +567,7 @@
         "name": "Yordan Alvarez",
         "person_key": "yordan alvarez",
         "pos": "OF",
-        "pos2": "",
+        "pos2": "DH",
         "prev_minors_year": "",
         "rAll": -7.36,
         "role": "batters",
@@ -1503,7 +1503,7 @@
         "name": "Jorge Soler",
         "person_key": "jorge soler",
         "pos": "OF",
-        "pos2": "",
+        "pos2": "DH",
         "prev_minors_year": "",
         "rAll": 41.71,
         "role": "batters",
@@ -1935,7 +1935,7 @@
         "name": "Vaughn Grissom",
         "person_key": "vaughn grissom",
         "pos": "2B",
-        "pos2": "SS",
+        "pos2": "1B/SS",
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
@@ -2443,7 +2443,7 @@
         "prev_minors_year": "",
         "rAll": -44.68,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "COL,LAD,SF",
         "vSzn": -992.4,
@@ -7911,7 +7911,7 @@
         "name": "Matt Wallner",
         "person_key": "matt wallner",
         "pos": "OF",
-        "pos2": "",
+        "pos2": "DH",
         "prev_minors_year": "",
         "rAll": 7.57,
         "role": "batters",
@@ -9927,7 +9927,7 @@
         "name": "Masataka Yoshida",
         "person_key": "masataka yoshida",
         "pos": "OF",
-        "pos2": "",
+        "pos2": "DH",
         "prev_minors_year": "",
         "rAll": -9.99,
         "role": "batters",
@@ -33907,7 +33907,7 @@
         "prev_minors_year": "",
         "rAll": -60.53,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHC",
         "teams": "",
         "vSzn": -571.38,
@@ -38227,7 +38227,7 @@
         "prev_minors_year": "",
         "rAll": 8.72,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT",
         "teams": "",
         "vSzn": -181.68,
@@ -38947,7 +38947,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "teams": "",
         "vSzn": "",
@@ -51812,7 +51812,7 @@
         "prev_minors_year": "",
         "rAll": -10.0,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAA",
         "teams": "",
         "vSzn": -428.98,
@@ -53345,7 +53345,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "HOU",
         "teams": "",
         "vSzn": "",
@@ -53783,7 +53783,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CIN",
         "teams": "",
         "vSzn": "",
@@ -73057,7 +73057,7 @@
         "prev_minors_year": "",
         "rAll": -10.2,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "CLE,TB",
         "vSzn": 3.09,
@@ -78605,7 +78605,7 @@
         "prev_minors_year": "",
         "rAll": 2.66,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "NYM,TEX",
         "vSzn": 230.49,
@@ -83277,7 +83277,7 @@
         "prev_minors_year": "",
         "rAll": -23.0,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": -736.74,
@@ -99482,7 +99482,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "≥100": 0.14800000000000002
       },
@@ -102861,7 +102861,7 @@
         "person_key": "matt gage",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "HOU"
       },
       {
@@ -107525,7 +107525,7 @@
         "person_key": "aaron civale",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -116243,7 +116243,7 @@
         "person_key": "max scherzer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {
@@ -128231,7 +128231,7 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHC",
         "≥100": 1.0
       },
@@ -129979,7 +129979,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "PIT",
         "≥100": 0.33299999999999996
       },
@@ -130186,7 +130186,7 @@
         "pos": "C",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "KC",
         "≥100": 0.33299999999999996
       },
@@ -134442,7 +134442,7 @@
         "person_key": "jimmy herget",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAA"
       },
       {
@@ -134778,7 +134778,7 @@
         "person_key": "matt gage",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "HOU"
       },
       {
@@ -134862,7 +134862,7 @@
         "person_key": "reiver sanmartin",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CIN"
       },
       {
@@ -139715,7 +139715,7 @@
         "person_key": "aaron civale",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "- - -"
       },
       {
@@ -140765,7 +140765,7 @@
         "person_key": "max scherzer",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {
@@ -141899,7 +141899,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM"
       },
       {
@@ -142256,7 +142256,7 @@
         "person_key": "andrew painter",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB"
       },
       {

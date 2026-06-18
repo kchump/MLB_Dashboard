@@ -1,7 +1,7 @@
 /* =============================================================================
    ============================================================================= */
 :root {
-  --sidebar-w: 380px;
+  --sidebar-w: 400px;
 
   --bg: #ffffff;
   --content_bg: #ffffff;
@@ -242,6 +242,16 @@ body.sidebar_hidden .content {
   margin-top: 0;
 }
 
+.custom_player_team_logo {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: -2px;
+  margin-right: 6px;
+  opacity: 0.95;
+}
+
 .fav_icon,
 .watch_icon {
   display: inline-block;
@@ -339,6 +349,11 @@ body.sidebar_hidden .content {
   gap: 6px;
   flex-wrap: wrap;
   max-width: 190px;
+}
+
+.custom_sidebar_team_ribbon {
+  max-width: 145px;
+  justify-content: flex-end;
 }
 
 .division_logo {
@@ -688,7 +703,7 @@ body.sidebar_hidden .content {
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 
 #matchups .matchup_block {
@@ -1551,6 +1566,281 @@ body.soft_theme .fantasy_player_link:hover {
   border-color: rgba(20, 90, 95, 0.28);
   background: rgba(20, 90, 95, 0.08);
 }
+
+.compare_page_wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.compare_page_btn,
+.compare_back_btn {
+  border: 1px solid var(--border);
+  background: var(--control_bg);
+  color: var(--text_soft);
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1.1;
+}
+
+.compare_page_btn:hover,
+.compare_back_btn:hover {
+  background: var(--panel);
+}
+
+.compare_page_select {
+  border: 1px solid var(--border);
+  background: var(--control_bg);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 6px 8px;
+  font-size: 12px;
+  max-width: 190px;
+}
+
+.compare_page {
+  width: 100%;
+  box-sizing: border-box;
+  color: var(--text);
+}
+
+.compare_header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 16px 0;
+}
+
+.compare_title {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.compare_subtitle,
+.compare_empty {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.compare_grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(300px, 360px);
+  gap: 18px;
+  align-items: start;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.compare_player_card {
+  border: 1px solid var(--border);
+  background: var(--panel_2);
+  border-radius: 14px;
+  padding: 12px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.compare_player_name {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.compare_player_photo {
+  display: block;
+  max-width: 145px;
+  height: auto;
+  margin: 0 auto 10px auto;
+}
+
+.compare_stats_block {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.compare_stats_table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 11.5px;
+  table-layout: fixed;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.compare_stats_table th,
+.compare_stats_table td {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 6px 4px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.compare_stats_table th {
+  background: var(--panel);
+  font-weight: 800;
+}
+
+.compare_stats_table th:last-child,
+.compare_stats_table td:last-child {
+  border-right: 0;
+}
+
+.compare_stats_table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.compare_panels_block {
+  display: grid;
+  gap: 14px;
+}
+
+.compare_panel {
+  min-width: 0;
+}
+
+.compare_panel_title {
+  text-align: center;
+  font-weight: 800;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.compare_panel_axis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-size: 9px;
+  color: var(--muted);
+  font-weight: 700;
+  margin: 0 52px 3px 82px;
+}
+
+.compare_panel_axis span:nth-child(1) {
+  text-align: left;
+}
+
+.compare_panel_axis span:nth-child(2) {
+  text-align: center;
+}
+
+.compare_panel_axis span:nth-child(3) {
+  text-align: right;
+}
+
+.compare_panel_row {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr) 46px;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.compare_panel_label {
+  font-size: 11px;
+  text-align: right;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.compare_panel_value {
+  font-size: 11px;
+  text-align: left;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.compare_bar_track {
+  height: 18px;
+  background: rgb(235,240,248);
+  border-left: 1px solid rgba(150,150,150,0.65);
+  border-right: 1px solid rgba(150,150,150,0.65);
+  position: relative;
+  overflow: hidden;
+}
+
+.compare_bar_track::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: rgba(150,150,150,0.65);
+  z-index: 2;
+}
+
+.compare_bar_fill {
+  height: 100%;
+  min-width: 1px;
+}
+
+.compare_red {
+  background: rgba(210,35,35,0.82);
+}
+
+.compare_blue {
+  background: rgba(35,85,210,0.72);
+}
+
+.compare_gold {
+  background: linear-gradient(90deg, #F9F295 0%, #E0AA3E 45%, #FAF398 72%, #B88A44 100%);
+  color: #000;
+}
+
+.compare_stat_cell.compare_red,
+.compare_stat_cell.compare_blue {
+  color: #fff;
+}
+
+.compare_stat_cell.compare_gold {
+  color: #000;
+}
+
+body.soft_theme .compare_bar_track {
+  background: #3b424b;
+}
+
+@media (max-width: 900px) {
+  .compare_page_wrap {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .compare_page_btn,
+  .compare_page_select {
+    min-height: 40px;
+  }
+
+  .compare_page_select {
+    flex: 1;
+    max-width: none;
+  }
+
+  .compare_grid {
+    grid-auto-columns: minmax(290px, 86vw);
+  }
+
+  .compare_panel_row {
+    grid-template-columns: 72px minmax(0, 1fr) 44px;
+  }
+
+  .compare_panel_axis {
+    margin-left: 78px;
+    margin-right: 50px;
+  }
+}
 /* NEW STUFF */
 
 .player_page .plotly-graph-div {
@@ -1959,4 +2249,29 @@ body.sidebar_hidden .toggle_sidebar {
 #matchups table.matchup_table.compact_matchup_table {
   width: max-content !important;
   min-width: min(100%, 640px) !important;
+}
+
+@media (max-width: 900px) {
+  .player_page {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .player_page_scroll {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .player_page_inner {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .content {
+    overflow-x: hidden;
+  }
 }

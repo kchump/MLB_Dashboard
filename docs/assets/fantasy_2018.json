@@ -495,7 +495,7 @@
         "name": "Jorge Soler",
         "person_key": "jorge soler",
         "pos": "OF",
-        "pos2": "",
+        "pos2": "DH",
         "prev_minors_year": "",
         "rAll": -2.84,
         "role": "batters",
@@ -787,7 +787,7 @@
         "prev_minors_year": "",
         "rAll": -0.95,
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "BAL",
         "teams": "",
         "vSzn": -536.1,
@@ -20587,7 +20587,7 @@
         "prev_minors_year": "",
         "rAll": 10.53,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL",
         "teams": "",
         "vSzn": -50.61,
@@ -66253,7 +66253,7 @@
         "prev_minors_year": "",
         "rAll": 29.12,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "WAS",
         "teams": "",
         "vSzn": 772.53,
@@ -68151,7 +68151,7 @@
         "prev_minors_year": "",
         "rAll": 23.14,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": 380.91,
@@ -85670,7 +85670,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -92661,7 +92661,7 @@
         "person_key": "jimmy herget",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -95582,7 +95582,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
