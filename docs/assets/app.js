@@ -325,7 +325,7 @@ async function sort_active_team_sidebar_lists_by_fval() {
 /* ################# */
 function get_sidebar_prospect_rank_sort_key(li) {
   const text = String(li?.textContent || '').replace(/[★✓]/g, ' ').trim();
-  const m = text.match(/#\s*(\d+)\s*Prospect/i);
+  const m = text.match(/\bMLB\s*#\s*(\d+)\b/i) || text.match(/#\s*(\d+)/i);
 
   if (!m) return 999999;
 
@@ -703,7 +703,7 @@ function current_page_person_key() {
 }
 /* ################# */
 function current_page_storage_key() {
-  const active = document.querySelector('.toc_link.active[data-person_key][data-page]');
+    const active = get_active_compare_link();
   if (active) return sidebar_entity_key_from_link(active);
 
   const year_buttons = document.querySelector('#content_root .year_buttons[data-person_key]');
@@ -747,26 +747,155 @@ function compare_label_for_role_group(role_group) {
   return 'hitter';
 }
 /* ################# */
-function get_compare_peer_links_for_active_page() {
-  const active = document.querySelector('.toc_link.active[data-person_key][data-page]');
+function fantasy_section_for_compare_role_group(role_group) {
+  if (role_group === 'lineup') return 'hitters';
+  if (role_group === 'rotation') return 'sp';
+  if (role_group === 'bullpen') return 'rp';
+  return '';
+}
+/* ################# */
+function get_clean_compare_link_text(a) {
+  const clone = a.cloneNode(true);
+
+  clone.querySelectorAll('.fav_icon, .watch_icon, .custom_player_team_logo').forEach(el => el.remove());
+
+  return String(clone.textContent || '')
+    .replace(/[★✓]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+/* ################# */
+function get_compare_link_team(a, fantasy_row = null) {
+  const sidebar_team = String(a?.closest?.('.team_block')?.dataset?.team || '').trim().toUpperCase();
+  if (sidebar_team) return sidebar_team;
+
+  const fantasy_team = String(fantasy_row?.team || '').trim().toUpperCase();
+  if (fantasy_team && fantasy_team !== 'MILB') return fantasy_team;
+
+  return 'Other';
+}
+/* ################# */
+function compare_fantasy_rows_for_role(data, role_group) {
+  const section = fantasy_section_for_compare_role_group(role_group);
+  if (!data || !section) return [];
+
+  const rows = [];
+
+  for (const scope_val of Object.values(data)) {
+    if (!scope_val || typeof scope_val !== 'object') continue;
+
+    const section_rows = scope_val[section];
+    if (!Array.isArray(section_rows)) continue;
+
+    section_rows.forEach(row => rows.push(row));
+  }
+
+  return rows;
+}
+/* ################# */
+function build_compare_sidebar_link_lookup(role_group) {
+  const out = new Map();
+
+  Array.from(document.querySelectorAll('.team_block .toc_link[data-person_key][data-page][data-file]'))
+    .filter(a => compare_role_group_for_link(a) === role_group)
+    .forEach(a => {
+      const norm_key = normalize_matchup_person_key(a.dataset.person_key || a.dataset.name || get_clean_compare_link_text(a));
+      if (!norm_key || out.has(norm_key)) return;
+      out.set(norm_key, a);
+    });
+
+  return out;
+}
+/* ################# */
+function compare_num_or_neg_inf(v) {
+  const n = Number(v);
+  return Number.isFinite(n) ? n : -Infinity;
+}
+/* ################# */
+function get_real_sidebar_link_for_page(page_id) {
+  const page = String(page_id || '').trim();
+  if (!page) return null;
+
+  return Array.from(document.querySelectorAll('.team_block .toc_link[data-person_key][data-page][data-file]'))
+    .find(a => String(a.dataset.page || '').trim() === page) || null;
+}
+/* ################# */
+function get_active_compare_link() {
+  const active_page = String(active_page_id || document.querySelector('.toc_link.active[data-page]')?.dataset?.page || '').trim();
+  const real = get_real_sidebar_link_for_page(active_page);
+  if (real) return real;
+
+  return document.querySelector('.toc_link.active[data-person_key][data-page]');
+}
+/* ################# */
+async function get_compare_peer_links_for_active_page() {
+  const active = get_active_compare_link();
   if (!active) return [];
 
   const role_group = compare_role_group_for_link(active);
   if (!role_group) return [];
 
-  const role_list = active.closest('.role_list');
-  if (!role_list) return [];
-
   const active_page = String(active.dataset.page || '').trim();
+  const sort_year = String(window.DEFAULT_SEASON_YEAR || new Date().getFullYear());
 
-  return Array.from(role_list.querySelectorAll('.toc_link[data-person_key][data-page][data-file]'))
-    .filter(a => compare_role_group_for_link(a) === role_group)
-    .filter(a => String(a.dataset.page || '').trim() !== active_page)
-    .sort((x, y) => {
-      const x_name = String(x.dataset.name || x.textContent || '').replace(/[★✓]/g, '').trim().toLowerCase();
-      const y_name = String(y.dataset.name || y.textContent || '').replace(/[★✓]/g, '').trim().toLowerCase();
-      return x_name.localeCompare(y_name);
+  const data = await load_fantasy_year(sort_year);
+  const fantasy_rows = compare_fantasy_rows_for_role(data, role_group);
+  const sidebar_lookup = build_compare_sidebar_link_lookup(role_group);
+
+  const out = [];
+  const seen_pages = new Set();
+
+  fantasy_rows.forEach(row => {
+    const norm_key = normalize_matchup_person_key(row.person_key || row.name || '');
+    if (!norm_key) return;
+
+    const a = sidebar_lookup.get(norm_key);
+    if (!a) return;
+
+    const page = String(a.dataset.page || '').trim();
+    if (!page || page === active_page || seen_pages.has(page)) return;
+
+    seen_pages.add(page);
+
+    out.push({
+      a,
+      row,
+      page,
+      team: get_compare_link_team(a, row),
+      name: String(row.name || get_clean_compare_link_text(a)).trim(),
+      pts: compare_num_or_neg_inf(row.Pts),
+      score: compare_num_or_neg_inf(row.Score),
     });
+  });
+
+  out.sort((x, y) => {
+    const team_cmp = x.team.localeCompare(y.team);
+    if (team_cmp !== 0) return team_cmp;
+
+    const x_has_pts = x.pts !== -Infinity;
+    const y_has_pts = y.pts !== -Infinity;
+
+    if (x_has_pts && y_has_pts) {
+      const pts_cmp = y.pts - x.pts;
+      if (pts_cmp !== 0) return pts_cmp;
+    }
+
+    if (x_has_pts !== y_has_pts) return x_has_pts ? -1 : 1;
+
+    const x_has_score = x.score !== -Infinity;
+    const y_has_score = y.score !== -Infinity;
+
+    if (x_has_score && y_has_score) {
+      const score_cmp = y.score - x.score;
+      if (score_cmp !== 0) return score_cmp;
+    }
+
+    if (x_has_score !== y_has_score) return x_has_score ? -1 : 1;
+
+    return x.name.toLowerCase().localeCompare(y.name.toLowerCase());
+  });
+
+  return out;
 }
 /* ################# */
 function compare_hash_for_pages(page_ids) {
@@ -815,13 +944,15 @@ function compare_scale_frac(value, spec) {
   const v = compare_num(value);
   if (v == null || !spec) return null;
 
+  const higher_is_better = spec.higher_is_better !== false;
+
   if (spec.mode === 'good_only' || spec.mode === 'bad_only') {
     const start = compare_num(spec.start);
     const end = compare_num(spec.end);
     if (start == null || end == null || start === end) return null;
 
     let frac = (v - start) / (end - start);
-    if (spec.mode === 'bad_only' || spec.higher_is_better === false) {
+    if (spec.mode === 'bad_only' || !higher_is_better) {
       frac = 1 - frac;
     }
 
@@ -829,10 +960,40 @@ function compare_scale_frac(value, spec) {
   }
 
   const worst = compare_num(spec.worst);
+  const neutral_lo = compare_num(spec.neutral_lo);
+  const neutral_hi = compare_num(spec.neutral_hi);
   const best = compare_num(spec.best);
+
   if (worst == null || best == null || worst === best) return null;
 
-  return compare_clamp01((v - worst) / (best - worst));
+  if (neutral_lo != null && neutral_hi != null) {
+    if (higher_is_better) {
+      if (v <= neutral_lo) {
+        return 0.5 * compare_clamp01((v - worst) / (neutral_lo - worst));
+      }
+
+      if (v <= neutral_hi) {
+        return 0.5;
+      }
+
+      return 0.5 + (0.5 * compare_clamp01((v - neutral_hi) / (best - neutral_hi)));
+    }
+
+    if (v >= neutral_lo) {
+      return 0.5 * compare_clamp01((worst - v) / (worst - neutral_lo));
+    }
+
+    if (v >= neutral_hi) {
+      return 0.5;
+    }
+
+    return 0.5 + (0.5 * compare_clamp01((neutral_hi - v) / (neutral_hi - best)));
+  }
+
+  let frac = (v - worst) / (best - worst);
+  if (!higher_is_better) frac = 1 - frac;
+
+  return compare_clamp01(frac);
 }
 /* ################# */
 function compare_is_gold(value, spec) {
@@ -852,13 +1013,41 @@ function compare_color_class(value, spec) {
   if (frac == null) return '';
 
   if (compare_is_gold(value, spec)) return 'compare_gold';
-  if (frac >= 0.50) return 'compare_red';
-  return 'compare_blue';
+
+  if (frac >= 0.52) return 'compare_red';
+  if (frac <= 0.48) return 'compare_blue';
+
+  return '';
+}
+/* ################# */
+function compare_format_value(value, fmt) {
+  const f = String(fmt || '').trim().toLowerCase();
+
+  if (value == null || value === '') return '';
+
+  const n = Number(value);
+  if (!Number.isFinite(n)) return String(value);
+
+  if (f === 'text') return String(value);
+  if (f === 'int') return String(Math.round(n));
+  if (f === 'ip1') return n.toFixed(1);
+  if (f === 'avg') return n.toFixed(3).replace(/^0/, '');
+  if (f === 'pct') return `${(n * 100).toFixed(2)}%`;
+  if (f === 'num') return n.toFixed(2);
+
+  return String(value);
+}
+/* ################# */
+function compare_display_value(obj) {
+  const display = obj?.display;
+  if (display != null && String(display).trim() !== '') return String(display);
+
+  return compare_format_value(obj?.value, obj?.fmt || obj?.scale?.fmt);
 }
 /* ################# */
 function compare_cell_html(cell, scales) {
-  const display = String(cell?.display ?? cell?.value ?? '').trim();
-  const spec = scales?.[cell?.scale_key] || null;
+  const display = compare_display_value(cell);
+  const spec = cell?.scale || scales?.[cell?.scale_key] || cell || null;
   const cls = compare_color_class(cell?.value, spec);
 
   return `<td class='compare_stat_cell ${cls}'>${escape_html(display)}</td>`;
@@ -881,10 +1070,11 @@ function compare_table_html(tbl, scales) {
 }
 /* ################# */
 function compare_bar_html(row, scales) {
-  const spec = scales?.[row?.scale_key] || null;
+  const spec = row?.scale || scales?.[row?.scale_key] || row || null;
   const frac = compare_scale_frac(row?.value, spec);
   const cls = compare_color_class(row?.value, spec);
   const width = frac == null ? 0 : Math.round(frac * 1000) / 10;
+  const display = compare_display_value(row);
 
   return `
     <div class='compare_panel_row'>
@@ -892,7 +1082,7 @@ function compare_bar_html(row, scales) {
       <div class='compare_bar_track'>
         <div class='compare_bar_fill ${cls}' style='width:${width}%;'></div>
       </div>
-      <div class='compare_panel_value'>${escape_html(row?.display ?? row?.value ?? '')}</div>
+      <div class='compare_panel_value'>${escape_html(display)}</div>
     </div>
   `;
 }
@@ -944,10 +1134,27 @@ async function render_compare_page_from_hash() {
   const players_lookup = payload?.players || {};
   const scales = payload?.scales || {};
 
-  const players = page_ids
-    .map(pid => players_lookup[pid])
-    .filter(Boolean);
+  function compare_lookup_player(pid) {
+    const page = String(pid || '').trim();
+    if (!page) return null;
 
+    if (players_lookup[page]) return players_lookup[page];
+
+    const parts = page.split('-');
+    if (parts.length < 3) return null;
+
+    const suffix = parts.slice(1).join('-');
+    const matches = Object.entries(players_lookup)
+      .filter(([key]) => key.endsWith(`-${suffix}`));
+
+    if (matches.length === 1) return matches[0][1];
+
+    return null;
+  }
+
+  const players = page_ids
+    .map(pid => compare_lookup_player(pid))
+    .filter(Boolean);
   if (!players.length) {
     content.innerHTML = `
       <div class='compare_page'>
@@ -990,7 +1197,7 @@ async function render_compare_page_from_hash() {
   document.querySelectorAll('.toc_link').forEach(a => a.classList.remove('active'));
 }
 /* ################# */
-function sync_player_page_action_buttons() {
+async function sync_player_page_action_buttons() {
   const content = document.getElementById('content_root');
   if (!content) return;
 
@@ -1037,13 +1244,30 @@ function sync_player_page_action_buttons() {
     const compare_sel = document.createElement('select');
     compare_sel.className = 'compare_page_select';
 
+    const compare_add_btn = document.createElement('button');
+    compare_add_btn.type = 'button';
+    compare_add_btn.className = 'compare_add_btn';
+    compare_add_btn.textContent = '+ Add';
+
+    const compare_selected = document.createElement('div');
+    compare_selected.className = 'compare_selected_players';
+
     compare_wrap.appendChild(compare_btn);
     compare_wrap.appendChild(compare_sel);
+    compare_wrap.appendChild(compare_add_btn);
+    compare_wrap.appendChild(compare_selected);
     actions_row.appendChild(compare_wrap);
   }
 
   const compare_btn = compare_wrap.querySelector('.compare_page_btn');
   const compare_sel = compare_wrap.querySelector('.compare_page_select');
+
+  const compare_add_btn = compare_wrap.querySelector('.compare_add_btn');
+  const compare_selected = compare_wrap.querySelector('.compare_selected_players');
+
+  if (!compare_wrap.compare_pages) {
+    compare_wrap.compare_pages = [];
+  }
 
   const is_favorite = get_favorites().has(storage_key);
   const is_watchlist = get_watchlist().has(storage_key);
@@ -1056,11 +1280,11 @@ function sync_player_page_action_buttons() {
   watchlist_btn.setAttribute('aria-pressed', is_watchlist ? 'true' : 'false');
   watchlist_btn.textContent = is_watchlist ? '✓ Watchlist' : '+ Watchlist';
 
-  const active = document.querySelector('.toc_link.active[data-person_key][data-page]');
+  const active = get_active_compare_link();
   const active_page = String(active?.dataset?.page || active_page_id || '').trim();
   const role_group = compare_role_group_for_link(active);
   const role_label = compare_label_for_role_group(role_group);
-  const peers = get_compare_peer_links_for_active_page();
+  const peers = await get_compare_peer_links_for_active_page();
 
   compare_sel.innerHTML = '';
 
@@ -1069,12 +1293,29 @@ function sync_player_page_action_buttons() {
   ph.textContent = `Select ${role_label}`;
   compare_sel.appendChild(ph);
 
-  peers.forEach(a => {
+  let current_team_group = '';
+
+  peers.forEach(peer => {
+    if (peer.team !== current_team_group) {
+      current_team_group = peer.team;
+
+      const group = document.createElement('optgroup');
+      group.label = `${peer.team} — ${role_label}s`;
+      compare_sel.appendChild(group);
+    }
+
     const opt = document.createElement('option');
-    opt.value = String(a.dataset.page || '').trim();
-    opt.textContent = String(a.dataset.name || a.textContent || '').replace(/[★✓]/g, '').trim();
-    compare_sel.appendChild(opt);
+    opt.value = peer.page;
+    opt.textContent = peer.name;
+
+    compare_sel.lastElementChild.appendChild(opt);
   });
+
+  compare_wrap.compare_pages = (compare_wrap.compare_pages || [])
+    .filter(page => peers.some(peer => peer.page === page))
+    .slice(0, 2);
+
+  render_compare_selected();
 
   compare_wrap.style.display = peers.length && active_page ? 'inline-flex' : 'none';
 
@@ -1098,13 +1339,51 @@ function sync_player_page_action_buttons() {
     });
   }
 
+  function render_compare_selected() {
+    if (!compare_selected) return;
+
+    compare_selected.innerHTML = '';
+
+    compare_wrap.compare_pages.forEach(page => {
+      const peer = peers.find(x => x.page === page);
+      if (!peer) return;
+
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'compare_selected_chip';
+      chip.textContent = `× ${peer.name}`;
+      chip.title = 'Remove from comparison';
+
+      chip.addEventListener('click', () => {
+        compare_wrap.compare_pages = compare_wrap.compare_pages.filter(x => x !== page);
+        render_compare_selected();
+      });
+
+      compare_selected.appendChild(chip);
+    });
+  }
+
+  function add_compare_selection() {
+    const page = String(compare_sel.value || '').trim();
+    if (!page) return;
+
+    if (compare_wrap.compare_pages.includes(page)) return;
+    if (compare_wrap.compare_pages.length >= 2) return;
+
+    compare_wrap.compare_pages.push(page);
+    compare_sel.value = '';
+    render_compare_selected();
+  }
+
   function go_compare() {
-    const other_page = String(compare_sel.value || '').trim();
-    const current_page = String(document.querySelector('.toc_link.active[data-page]')?.dataset?.page || active_page_id || '').trim();
+    const current_page = String(get_active_compare_link()?.dataset?.page || active_page_id || '').trim();
+    const other_pages = (compare_wrap.compare_pages || [])
+      .map(x => String(x || '').trim())
+      .filter(Boolean);
 
-    if (!current_page || !other_page) return;
+    if (!current_page || !other_pages.length) return;
 
-    window.location.hash = compare_hash_for_pages([current_page, other_page]);
+    window.location.hash = compare_hash_for_pages([current_page, ...other_pages]);
     render_compare_page_from_hash();
   }
 
@@ -1113,9 +1392,9 @@ function sync_player_page_action_buttons() {
     compare_btn.addEventListener('click', go_compare);
   }
 
-  if (compare_sel.dataset.bound !== '1') {
-    compare_sel.dataset.bound = '1';
-    compare_sel.addEventListener('change', go_compare);
+  if (compare_add_btn.dataset.bound !== '1') {
+    compare_add_btn.dataset.bound = '1';
+    compare_add_btn.addEventListener('click', add_compare_selection);
   }
 }
 /* ################# */
@@ -1124,7 +1403,7 @@ async function refresh_custom_player_lists_ui() {
   await render_favorites_sidebar();
   await render_watchlist_sidebar();
   update_sidebar_custom_icons(document);
-  sync_player_page_action_buttons();
+  await sync_player_page_action_buttons();
 
   const search = document.getElementById('player_search');
   apply_search_and_filters((search && search.value) ? search.value : '');
@@ -1921,7 +2200,7 @@ async function load_page(file, page_id) {
   await render_favorites_sidebar();
   await render_watchlist_sidebar();
   update_sidebar_custom_icons(document);
-  sync_player_page_action_buttons();
+  await sync_player_page_action_buttons();
 
   const search = document.getElementById('player_search');
   apply_search_and_filters((search && search.value) ? search.value : '');
@@ -1995,12 +2274,14 @@ function default_page_id() {
   return 'home';
 }
 /* ################# */
-// function on_hash_change() {
-//   const pid = default_page_id();
-//   activate_page(pid);
-// }
 function on_hash_change() { /* back button works now? */
+  const raw_hash = String(window.location.hash || '');
   const pid = default_page_id();
+
+  if (pid === 'compare' || raw_hash.startsWith('#compare?')) {
+    render_compare_page_from_hash();
+    return;
+  }
 
   let a = null;
   document.querySelectorAll('.toc_link').forEach(x => {
@@ -6966,7 +7247,7 @@ function find_fragment_key_loose(obj, wanted_name) {
         row_div.className = 'matchups_form_row';
 
         const { wrap: h_wrap, sel: h_sel } = make_select(`matchups_hitter_${i}`, `Hitter ${i + 1}`);
-        set_grouped_or_flat(h_sel, year_lists.hitters_by_team, hitters, 'Select hitter');
+        set_grouped_or_flat(h_sel, year_lists.hitters_by_team, hitters, 'Select Hitter');
 
         h_sel.classList.add('matchups_select_hitter_long');
         row_div.appendChild(h_wrap);
@@ -8468,14 +8749,14 @@ if (mode === 'specific_hitters') {
     row_div.className = 'matchups_form_row';
 
     const { wrap: h_wrap, sel: h_sel } = make_select(`matchups_hitter_${i}`, `Hitter ${i + 1}`);
-    set_grouped_or_flat(h_sel, year_lists.hitters_by_team, hitters, 'Select hitter');
+    set_grouped_or_flat(h_sel, year_lists.hitters_by_team, hitters, 'Select Hitter');
 
     const { wrap: s_wrap, sel: s_sel } = make_select(`matchups_side_${i}`, 'Away/Home');
     set_select_options(s_sel, ['Away', 'Home'], 'Select');
 
     const { wrap: p_wrap, sel: p_sel } = make_select(`matchups_pitcher_${i}`, 'Pitcher');
     const pitcher_groups = build_pitcher_groups(year_lists);
-    set_grouped_or_flat(p_sel, pitcher_groups, pitchers, 'Select pitcher');
+    set_grouped_or_flat(p_sel, pitcher_groups, pitchers, 'Select Pitcher');
 
     h_sel.classList.add('matchups_select_hitter_long');
     s_sel.classList.add('matchups_select_side_short');
