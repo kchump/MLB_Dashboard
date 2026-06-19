@@ -1710,10 +1710,10 @@ body.soft_theme .fantasy_player_link:hover {
 }
 
 .compare_panel_title {
-  text-align: center;
-  font-weight: 800;
+  font-weight: 400;
   font-size: 14px;
-  margin-bottom: 4px;
+  margin: 0 82px 4px 126px;
+  text-align: center;
 }
 
 .compare_panel_axis {
@@ -1722,7 +1722,7 @@ body.soft_theme .fantasy_player_link:hover {
   font-size: 9px;
   color: var(--muted);
   font-weight: 700;
-  margin: 0 52px 3px 82px;
+  margin: 0 82px 3px 126px;
 }
 
 .compare_panel_axis span:nth-child(1) {
@@ -2470,10 +2470,6 @@ body.soft_theme .compare_bar_track {
   font-weight: 400;
 }
 
-.compare_panel_title {
-  font-weight: 700;
-}
-
 .compare_panel_label,
 .compare_panel_value {
   font-weight: 400;
@@ -2510,4 +2506,25 @@ body.soft_theme .compare_bar_track {
 
 .matchups_team_logo_text {
   display: none;
+}
+
+.wbc_sidebar_player_logo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+@media (max-width: 900px) {
+  .compare_panel_title {
+    margin-left: 100px;
+    margin-right: 70px;
+  }
+
+  .compare_panel_axis {
+    margin-left: 100px;
+    margin-right: 70px;
+  }
 }

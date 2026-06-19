@@ -12,6 +12,140 @@ let retired_players_set = new Set();
 const fantasy_year_cache = new Map();
 const favorites_storage_key = 'mlb_dash_favorites';
 const watchlist_storage_key = 'mlb_dash_watchlist';
+const sidebar_team_logo_cache = {
+  loaded: false,
+  by_team: new Map(),
+};
+/* ################# */
+async function load_sidebar_team_logos() {
+  if (sidebar_team_logo_cache.loaded) return sidebar_team_logo_cache.by_team;
+
+  try {
+    const r = await fetch('assets/team_logos.json', { cache: 'no-store' });
+    if (!r.ok) {
+      sidebar_team_logo_cache.loaded = true;
+      return sidebar_team_logo_cache.by_team;
+    }
+
+    const data = await r.json();
+    const rows = Array.isArray(data) ? data : Object.entries(data);
+
+    rows.forEach(row => {
+      if (Array.isArray(row)) {
+        sidebar_team_logo_cache.by_team.set(
+          String(row[0] || '').trim().toUpperCase(),
+          String(row[1] || '').trim()
+        );
+        return;
+      }
+
+      const team = String(row.team || row.Team || row.code || row.abbr || '').trim().toUpperCase();
+      const logo_src = String(row.logo_src || row.logo || row.src || row.url || '').trim();
+
+      if (team && logo_src) {
+        sidebar_team_logo_cache.by_team.set(team, logo_src);
+      }
+    });
+
+    sidebar_team_logo_cache.loaded = true;
+    return sidebar_team_logo_cache.by_team;
+  } catch (e) {
+    sidebar_team_logo_cache.loaded = true;
+    return sidebar_team_logo_cache.by_team;
+  }
+}
+/* ################# */
+function sidebar_clean_mlb_logo_team(team) {
+  let s = String(team || '').trim();
+  if (!s) return '';
+
+  const upper = s.toUpperCase();
+
+  if (upper.startsWith('RETIRED::')) {
+    s = s.slice('retired::'.length).trim();
+  } else if (upper.startsWith('RETIRED:')) {
+    s = s.slice('retired:'.length).trim();
+  }
+
+  const team_key = s.toUpperCase();
+
+  const blocked_teams = new Set([
+    '',
+    'AUS', 'BRA', 'CAN', 'CO', 'CUB', 'CZE', 'DR', 'GB', 'GBR',
+    'ISR', 'ITA', 'JPN', 'KOR', 'MEX', 'NED', 'NIC', 'PAN',
+    'PR', 'TAI', 'TPE', 'USA', 'VEN',
+    'WBC',
+    'FA',
+    'FREE AGENT',
+    'FREE AGENTS',
+    'JOURNEYMEN',
+    'TOP 100 PROSPECTS',
+    'TOP PROSPECTS',
+  ]);
+
+  if (blocked_teams.has(team_key)) return '';
+
+  return team_key;
+}
+/* ################# */
+function sidebar_mlb_team_for_wbc_link(wbc_link) {
+  const person_key = String(wbc_link?.dataset?.person_key || '').trim();
+  if (!person_key) return '';
+
+  const country_team = String(wbc_link.dataset.team || '').trim().toUpperCase();
+
+  const matches = Array.from(document.querySelectorAll(`.toc_link[data-person_key="${CSS.escape(person_key)}"]`))
+    .filter(a => !a.closest('.division_block[data-division="wbc"]'));
+
+  const teams = [];
+
+  matches.forEach(a => {
+    const team = sidebar_clean_mlb_logo_team(a.dataset.team);
+    if (!team) return;
+    if (team === country_team) return;
+    if (!sidebar_team_logo_cache.by_team.has(team)) return;
+
+    teams.push(team);
+  });
+
+  if (!teams.length) return '';
+
+  const counts = new Map();
+
+  teams.forEach(team => {
+    counts.set(team, (counts.get(team) || 0) + 1);
+  });
+
+  return Array.from(counts.entries())
+    .sort((a, b) => {
+      const count_cmp = b[1] - a[1];
+      if (count_cmp !== 0) return count_cmp;
+
+      return a[0].localeCompare(b[0]);
+    })[0][0];
+}
+/* ################# */
+function add_wbc_sidebar_player_logos(root) {
+  const scope = root || document;
+
+  scope.querySelectorAll('.division_block[data-division="wbc"] .toc_link[data-person_key]').forEach(a => {
+    if (a.querySelector(':scope > .wbc_sidebar_player_logo')) return;
+
+    const team = sidebar_mlb_team_for_wbc_link(a);
+    if (!team) return;
+
+    const logo_src = sidebar_team_logo_cache.by_team.get(team);
+    if (!logo_src) return;
+
+    const img = document.createElement('img');
+    img.className = 'wbc_sidebar_player_logo';
+    img.src = logo_src;
+    img.alt = team;
+    img.title = team;
+
+    a.insertBefore(img, a.firstChild);
+  });
+}
 /* ################# */
 function get_stored_people(storage_key) {
   try {
@@ -1121,16 +1255,71 @@ function compare_team_cell_html(team) {
   `;
 }
 /* ################# */
+function compare_parse_rgba(fill) {
+  const s = String(fill || '').trim();
+
+  let m = s.match(/^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?\s*\)$/i);
+  if (m) {
+    return {
+      r: Number(m[1]),
+      g: Number(m[2]),
+      b: Number(m[3]),
+      a: m[4] == null ? 1 : Number(m[4]),
+    };
+  }
+
+  return null;
+}
+/* ################# */
+function compare_blend_on_light_base(c) {
+  if (!c) return null;
+
+  const a = Number.isFinite(c.a) ? Math.max(0, Math.min(1, c.a)) : 1;
+  const base = { r: 235, g: 240, b: 248 };
+
+  return {
+    r: c.r * a + base.r * (1 - a),
+    g: c.g * a + base.g * (1 - a),
+    b: c.b * a + base.b * (1 - a),
+  };
+}
+/* ################# */
+function compare_fill_should_use_white_text(fill) {
+  const c = compare_blend_on_light_base(compare_parse_rgba(fill));
+  if (!c) return false;
+
+  const is_blue = c.b - c.r >= 25 && c.b - c.g >= 15;
+  const is_red = c.r - c.g >= 25 && c.r - c.b >= 15;
+
+  if (!is_blue && !is_red) return false;
+
+  const lum = (0.2126 * c.r) + (0.7152 * c.g) + (0.0722 * c.b);
+  return lum < 150;
+}
+/* ################# */
 function compare_cell_html(cell, scales) {
   const display = compare_display_value(cell);
   const fill = String(cell?.fill_color || '').trim();
   const is_gold = cell?.is_gold === true;
 
-  const cls = is_gold
-    ? 'compare_gold'
-    : '';
+  const cls = is_gold ? 'compare_gold' : '';
+  const style_parts = [];
 
-  const style = (!is_gold && fill) ? ` style="background:${escape_attr(fill)};"` : '';
+  if (!is_gold && fill) {
+    style_parts.push(`background:${escape_attr(fill)}`);
+
+    if (compare_fill_should_use_white_text(fill)) {
+      style_parts.push('color:#fff');
+    } else {
+      style_parts.push('color:#000');
+    }
+  }
+
+  if (is_gold) {
+    style_parts.push('color:#000');
+  }
+
+  const style = style_parts.length ? ` style="${style_parts.join(';')};"` : '';
 
   let content = escape_html(display);
 
@@ -1139,22 +1328,6 @@ function compare_cell_html(cell, scales) {
   }
 
   return `<td class='compare_stat_cell ${cls}'${style}>${content}</td>`;
-}
-/* ################# */
-function compare_table_html(tbl, scales) {
-  const headers = Array.isArray(tbl?.headers) ? tbl.headers : [];
-  const cells = Array.isArray(tbl?.cells) ? tbl.cells : [];
-
-  return `
-    <table class='compare_stats_table'>
-      <thead>
-        <tr>${headers.map(h => `<th>${escape_html(h)}</th>`).join('')}</tr>
-      </thead>
-      <tbody>
-        <tr>${cells.map(c => compare_cell_html(c, scales)).join('')}</tr>
-      </tbody>
-    </table>
-  `;
 }
 /* ################# */
 function compare_bar_html(row, scales) {
@@ -1508,6 +1681,9 @@ if (compare_sel.dataset.bound !== '1') {
 }
 /* ################# */
 async function refresh_custom_player_lists_ui() {
+  await load_sidebar_team_logos();
+  add_wbc_sidebar_player_logos(document);
+
   await sort_active_team_sidebar_lists_by_fval();
   await render_favorites_sidebar();
   await render_watchlist_sidebar();
@@ -2306,7 +2482,12 @@ async function load_page(file, page_id) {
   apply_mobile_scale();
   // refresh_custom_player_lists_ui();
   //TODO see if this breaks, this was to stop it from snapping to the top of the team ribbon
-  await render_favorites_sidebar();
+await load_sidebar_team_logos();
+add_wbc_sidebar_player_logos(document);
+repaint_standard_stats_tables(content);
+requestAnimationFrame(() => repaint_standard_stats_tables(content));
+
+await render_favorites_sidebar();
   await render_watchlist_sidebar();
   update_sidebar_custom_icons(document);
   await sync_player_page_action_buttons();
@@ -3172,8 +3353,11 @@ function get_css_var(name, fallback = '') {
 }
 /* ################# */
 function team_logo_src_for_code(team) {
-  const t = String(team || '').trim().toUpperCase();
+  const t = sidebar_clean_mlb_logo_team(team);
   if (!t) return '';
+
+  const cached_src = sidebar_team_logo_cache.by_team.get(t);
+  if (cached_src) return cached_src;
 
   const logo = document.querySelector(`.team_block[data-team="${CSS.escape(t)}"] .team_logo`);
   return logo ? String(logo.getAttribute('src') || '').trim() : '';
@@ -4106,7 +4290,10 @@ if (toggle_sidebar_btn) {
   }
 
   sync_clear_btn();
-  refresh_custom_player_lists_ui();
+  load_sidebar_team_logos().then(() => {
+    add_wbc_sidebar_player_logos(document);
+    refresh_custom_player_lists_ui();
+  });
 
   const cb_minors = document.getElementById('filter_hide_minors');
   if (cb_minors) cb_minors.addEventListener('change', () => apply_search_and_filters((search && search.value) ? search.value : ''));
