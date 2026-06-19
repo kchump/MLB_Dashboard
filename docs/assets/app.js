@@ -16,6 +16,40 @@ const sidebar_team_logo_cache = {
   loaded: false,
   by_team: new Map(),
 };
+
+/* ################# */
+function sidebar_clean_mlb_logo_team(team) {
+  let s = String(team || '').trim();
+  if (!s) return '';
+
+  const upper = s.toUpperCase();
+
+  if (upper.startsWith('RETIRED::')) {
+    s = s.slice('retired::'.length).trim();
+  } else if (upper.startsWith('RETIRED:')) {
+    s = s.slice('retired:'.length).trim();
+  }
+
+  const team_key = s.toUpperCase();
+
+  const blocked_teams = new Set([
+    '',
+    'AUS', 'BRA', 'CAN', 'CO', 'CUB', 'CZE', 'DR', 'GB', 'GBR',
+    'ISR', 'ITA', 'JPN', 'KOR', 'MEX', 'NED', 'NIC', 'PAN',
+    'PR', 'TAI', 'TPE', 'USA', 'VEN',
+    'WBC',
+    'FA',
+    'FREE AGENT',
+    'FREE AGENTS',
+    'JOURNEYMEN',
+    'TOP 100 PROSPECTS',
+    'TOP PROSPECTS',
+  ]);
+
+  if (blocked_teams.has(team_key)) return '';
+
+  return team_key;
+}
 /* ################# */
 async function load_sidebar_team_logos() {
   sidebar_team_logo_cache.by_team.clear();
@@ -40,7 +74,11 @@ function sidebar_mlb_team_for_link(source_link, excluded_division_names = []) {
   const person_key = String(source_link?.dataset?.person_key || '').trim();
   if (!person_key) return '';
 
-  const source_team = String(source_link.dataset.team || '').trim().toUpperCase();
+const source_team = sidebar_clean_mlb_logo_team(
+  source_link.dataset.team ||
+  source_link.closest?.('.team_block')?.dataset?.team ||
+  ''
+);
   const excluded = new Set((excluded_division_names || []).map(x => String(x || '').trim().toLowerCase()));
 
   const matches = Array.from(document.querySelectorAll(`.toc_link[data-person_key="${CSS.escape(person_key)}"]`))
@@ -52,7 +90,11 @@ function sidebar_mlb_team_for_link(source_link, excluded_division_names = []) {
   const teams = [];
 
   matches.forEach(a => {
-    const team = sidebar_clean_mlb_logo_team(a.dataset.team);
+const team = sidebar_clean_mlb_logo_team(
+  a.dataset.team ||
+  a.closest?.('.team_block')?.dataset?.team ||
+  ''
+);
     if (!team) return;
     if (team === source_team) return;
 
@@ -1600,6 +1642,7 @@ async function render_compare_page_from_hash() {
 
   document.querySelectorAll('.toc_link').forEach(a => a.classList.remove('active'));
 }
+
 /* ################# */
 async function sync_player_page_action_buttons() {
   const content = document.getElementById('content_root');
