@@ -828,6 +828,58 @@ function get_active_compare_link() {
   return document.querySelector('.toc_link.active[data-person_key][data-page]');
 }
 /* ################# */
+function compare_lookup_player_from_payload(compare_players, page) {
+  const pid = String(page || '').trim();
+  if (!pid) return null;
+
+  if (compare_players[pid]) return compare_players[pid];
+
+  const parts = pid.split('-');
+  if (parts.length < 3) return null;
+
+  const suffix = parts.slice(1).join('-');
+  const matches = Object.entries(compare_players)
+    .filter(([key]) => key.endsWith(`-${suffix}`));
+
+  if (matches.length === 1) return matches[0][1];
+
+  return null;
+}
+/* ################# */
+function compare_link_is_minors(a, fantasy_row = null) {
+  return String(fantasy_row?.team || '').trim().toUpperCase() === 'MILB' ||
+    String(a?.dataset?.is_minors || '') === '1' ||
+    get_clean_compare_link_text(a).toLowerCase().includes(' minors');
+}
+/* ################# */
+function compare_player_has_required_panels(player, is_minors) {
+  if (!player) return false;
+
+  const panel_titles = new Set((player?.panels || []).map(p => String(p.title || '').trim()));
+
+  if (!panel_titles.has('Overall')) return false;
+  if (is_minors && !panel_titles.has('Minors')) return false;
+
+  return true;
+}
+/* ################# */
+async function active_compare_page_is_eligible(active, role_group) {
+  if (!active || !role_group) return false;
+
+  const page = String(active.dataset.page || '').trim();
+  if (!page) return false;
+
+  const payload = await load_compare_payload();
+  const players_lookup = payload?.players || {};
+  const player = compare_lookup_player_from_payload(players_lookup, page);
+  if (!player) return false;
+
+  const player_role_group = String(player.role_group || '').trim().toLowerCase();
+  if (player_role_group && player_role_group !== role_group) return false;
+
+  return compare_player_has_required_panels(player, compare_link_is_minors(active));
+}
+/* ################# */
 async function get_compare_peer_links_for_active_page() {
   const active = get_active_compare_link();
   if (!active) return [];
@@ -857,16 +909,10 @@ async function get_compare_peer_links_for_active_page() {
     const page = String(a.dataset.page || '').trim();
     if (!page || page === active_page || seen_pages.has(page)) return;
 
-    const compare_player = compare_players[page];
-    const panel_titles = new Set((compare_player?.panels || []).map(p => String(p.title || '').trim()));
+const compare_player = compare_lookup_player_from_payload(compare_players, page);
+const is_minors = compare_link_is_minors(a, row);
 
-    if (!panel_titles.has('Overall')) return;
-
-    const is_minors = String(row.team || '').trim().toUpperCase() === 'MILB' ||
-      String(a.dataset.is_minors || '') === '1' ||
-      get_clean_compare_link_text(a).toLowerCase().includes(' minors');
-
-    if (is_minors && !panel_titles.has('Minors')) return;
+if (!compare_player_has_required_panels(compare_player, is_minors)) return;
 
     seen_pages.add(page);
 
@@ -1058,13 +1104,41 @@ function compare_display_value(obj) {
   return compare_format_value(obj?.value, obj?.fmt || obj?.scale?.fmt);
 }
 /* ################# */
+function compare_team_cell_html(team) {
+  const t = String(team || '').trim().toUpperCase();
+  if (!t) return '';
+
+  const logo = document.querySelector(`.team_block[data-team="${CSS.escape(t)}"] .team_logo`);
+  const src = logo ? String(logo.getAttribute('src') || '').trim() : '';
+
+  if (!src) return escape_html(team);
+
+  return `
+    <span class='compare_team_cell'>
+      <img class='compare_team_logo' src='${escape_attr(src)}' alt='${escape_attr(t)}'>
+      <span>${escape_html(team)}</span>
+    </span>
+  `;
+}
+/* ################# */
 function compare_cell_html(cell, scales) {
   const display = compare_display_value(cell);
   const fill = String(cell?.fill_color || '').trim();
-  const style = fill ? ` style="background:${escape_attr(fill)};"` : '';
-  const cls = fill ? '' : compare_color_class(cell?.value, cell?.scale || scales?.[cell?.scale_key] || cell || null);
+  const is_gold = cell?.is_gold === true;
 
-  return `<td class='compare_stat_cell ${cls}'${style}>${escape_html(display)}</td>`;
+  const cls = is_gold
+    ? 'compare_gold'
+    : '';
+
+  const style = (!is_gold && fill) ? ` style="background:${escape_attr(fill)};"` : '';
+
+  let content = escape_html(display);
+
+  if (String(cell?.key || '').trim() === 'Team' && display) {
+    content = compare_team_cell_html(display);
+  }
+
+  return `<td class='compare_stat_cell ${cls}'${style}>${content}</td>`;
 }
 /* ################# */
 function compare_table_html(tbl, scales) {
@@ -1092,13 +1166,16 @@ function compare_bar_html(row, scales) {
   const width = frac == null ? 0 : Math.round(frac * 1000) / 10;
   const display = compare_display_value(row);
   const fill = String(row?.fill_color || '').trim();
-  const style = fill ? `background:${escape_attr(fill)};` : '';
+  const is_gold = row?.is_gold === true;
+
+  const cls = is_gold ? ' compare_gold' : '';
+  const style = (!is_gold && fill) ? `background:${escape_attr(fill)};` : '';
 
   return `
     <div class='compare_panel_row'>
       <div class='compare_panel_label'>${escape_html(row?.label || '')}</div>
       <div class='compare_bar_track'>
-        <div class='compare_bar_fill' style='width:${width}%;${style}'></div>
+        <div class='compare_bar_fill${cls}' style='width:${width}%;${style}'></div>
       </div>
       <div class='compare_panel_value'>${escape_html(display)}</div>
     </div>
@@ -1262,26 +1339,31 @@ async function sync_player_page_action_buttons() {
     const compare_sel = document.createElement('select');
     compare_sel.className = 'compare_page_select';
 
-    const compare_add_btn = document.createElement('button');
-    compare_add_btn.type = 'button';
-    compare_add_btn.className = 'compare_add_btn';
-    compare_add_btn.textContent = '+ Add';
+    // const compare_add_btn = document.createElement('button');
+    // compare_add_btn.type = 'button';
+    // compare_add_btn.className = 'compare_add_btn';
+    // compare_add_btn.textContent = '+ Add';
 
     const compare_selected = document.createElement('div');
     compare_selected.className = 'compare_selected_players';
 
     compare_wrap.appendChild(compare_btn);
     compare_wrap.appendChild(compare_sel);
-    compare_wrap.appendChild(compare_add_btn);
+    // compare_wrap.appendChild(compare_add_btn);
     compare_wrap.appendChild(compare_selected);
     actions_row.appendChild(compare_wrap);
   }
 
-  const compare_btn = compare_wrap.querySelector('.compare_page_btn');
-  const compare_sel = compare_wrap.querySelector('.compare_page_select');
+  // const compare_btn = compare_wrap.querySelector('.compare_page_btn');
+  // const compare_sel = compare_wrap.querySelector('.compare_page_select');
 
-  const compare_add_btn = compare_wrap.querySelector('.compare_add_btn');
-  const compare_selected = compare_wrap.querySelector('.compare_selected_players');
+  // const compare_add_btn = compare_wrap.querySelector('.compare_add_btn');
+  // const compare_selected = compare_wrap.querySelector('.compare_selected_players');
+  const compare_btn = compare_wrap.querySelector('.compare_page_btn');
+const compare_sel = compare_wrap.querySelector('.compare_page_select');
+const compare_selected = compare_wrap.querySelector('.compare_selected_players');
+
+compare_wrap.querySelector('.compare_add_btn')?.remove();
 
   if (!compare_wrap.compare_pages) {
     compare_wrap.compare_pages = [];
@@ -1298,17 +1380,29 @@ async function sync_player_page_action_buttons() {
   watchlist_btn.setAttribute('aria-pressed', is_watchlist ? 'true' : 'false');
   watchlist_btn.textContent = is_watchlist ? '✓ Watchlist' : '+ Watchlist';
 
-  const active = get_active_compare_link();
-  const active_page = String(active?.dataset?.page || active_page_id || '').trim();
-  const role_group = compare_role_group_for_link(active);
-  const role_label = compare_label_for_role_group(role_group);
-  const peers = await get_compare_peer_links_for_active_page();
+const active = get_active_compare_link();
+const active_page = String(active?.dataset?.page || active_page_id || '').trim();
+const role_group = compare_role_group_for_link(active);
+const active_compare_eligible = active && active_page && role_group
+  ? await active_compare_page_is_eligible(active, role_group)
+  : false;
 
-  compare_sel.innerHTML = '';
+const role_label = active_compare_eligible ? compare_label_for_role_group(role_group) : '';
+const peers = active_compare_eligible ? await get_compare_peer_links_for_active_page() : [];
 
+compare_sel.innerHTML = '';
+
+compare_wrap.compare_pages = (compare_wrap.compare_pages || [])
+  .filter(page => peers.some(peer => peer.page === page))
+  .slice(0, 2);
+
+if (!active_compare_eligible || !peers.length) {
+  compare_wrap.style.display = 'none';
+  if (compare_selected) compare_selected.innerHTML = '';
+} else {
   const ph = document.createElement('option');
   ph.value = '';
-  ph.textContent = `Select ${role_label}`;
+  ph.textContent = 'Select Player';
   compare_sel.appendChild(ph);
 
   let current_team_group = '';
@@ -1318,7 +1412,8 @@ async function sync_player_page_action_buttons() {
       current_team_group = peer.team;
 
       const group = document.createElement('optgroup');
-      group.label = `${peer.team} — ${role_label}s`;
+      // group.label = `${peer.team} — ${role_label}s`;
+      group.label = peer.team;
       compare_sel.appendChild(group);
     }
 
@@ -1329,13 +1424,9 @@ async function sync_player_page_action_buttons() {
     compare_sel.lastElementChild.appendChild(opt);
   });
 
-  compare_wrap.compare_pages = (compare_wrap.compare_pages || [])
-    .filter(page => peers.some(peer => peer.page === page))
-    .slice(0, 2);
-
   render_compare_selected();
-
-  compare_wrap.style.display = peers.length && active_page ? 'inline-flex' : 'none';
+  compare_wrap.style.display = 'inline-flex';
+}
 
   if (favorite_btn.dataset.bound !== '1') {
     favorite_btn.dataset.bound = '1';
@@ -1410,10 +1501,10 @@ async function sync_player_page_action_buttons() {
     compare_btn.addEventListener('click', go_compare);
   }
 
-  if (compare_add_btn.dataset.bound !== '1') {
-    compare_add_btn.dataset.bound = '1';
-    compare_add_btn.addEventListener('click', add_compare_selection);
-  }
+if (compare_sel.dataset.bound !== '1') {
+  compare_sel.dataset.bound = '1';
+  compare_sel.addEventListener('change', add_compare_selection);
+}
 }
 /* ################# */
 async function refresh_custom_player_lists_ui() {
@@ -3080,6 +3171,75 @@ function get_css_var(name, fallback = '') {
   return String(v || '').trim() || fallback;
 }
 /* ################# */
+function team_logo_src_for_code(team) {
+  const t = String(team || '').trim().toUpperCase();
+  if (!t) return '';
+
+  const logo = document.querySelector(`.team_block[data-team="${CSS.escape(t)}"] .team_logo`);
+  return logo ? String(logo.getAttribute('src') || '').trim() : '';
+}
+/* ################# */
+function get_column_header_for_text_node(text_node) {
+  const column_block = get_column_block_for_text_node(text_node);
+  if (!column_block) return '';
+
+  return normalize_table_header_label(get_column_header_text(column_block));
+}
+/* ################# */
+function replace_team_table_text_with_logo(text_node) {
+  if (!text_node || !text_node.closest('g.table')) return false;
+
+  const header = get_column_header_for_text_node(text_node);
+  if (header !== 'team') return false;
+
+  const team = String(text_node.textContent || '').trim().toUpperCase();
+  if (!team || team === 'TEAM') return false;
+
+  const logo_src = team_logo_src_for_code(team);
+  if (!logo_src) return false;
+
+  const holder = get_cell_holder_for_text_node(text_node) || text_node.parentNode;
+  if (!holder) return false;
+
+  holder.querySelectorAll(':scope > image.player_page_team_logo').forEach(img => img.remove());
+
+  let box;
+  try {
+    box = text_node.getBBox();
+  } catch (e) {
+    return false;
+  }
+
+  const size = 18;
+  const img = document.createElementNS(svg_ns(), 'image');
+  img.classList.add('player_page_team_logo');
+  img.setAttribute('href', logo_src);
+  img.setAttributeNS('http://www.w3.org/1999/xlink', 'href', logo_src);
+  img.setAttribute('x', String(box.x + (box.width / 2) - (size / 2)));
+  img.setAttribute('y', String(box.y + (box.height / 2) - (size / 2)));
+  img.setAttribute('width', String(size));
+  img.setAttribute('height', String(size));
+  img.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+  img.dataset.team = team;
+
+  holder.appendChild(img);
+
+  text_node.style.visibility = 'hidden';
+  text_node.dataset.team_logo_replaced = '1';
+
+  return true;
+}
+/* ################# */
+function restore_team_table_text_if_needed(text_node) {
+  if (!text_node || text_node.dataset.team_logo_replaced !== '1') return;
+
+  text_node.style.removeProperty('visibility');
+  delete text_node.dataset.team_logo_replaced;
+
+  const holder = get_cell_holder_for_text_node(text_node) || text_node.parentNode;
+  holder?.querySelectorAll(':scope > image.player_page_team_logo').forEach(img => img.remove());
+}
+/* ################# */
 function get_table_default_text_fill() {
   return get_css_var('--text', '#1c1c1c');
 }
@@ -3730,6 +3890,12 @@ function repaint_standard_stats_tables(root) {
       const orig_fill = t.dataset.orig_fill || '';
 
       if (t.closest('g.table')) {
+        if (replace_team_table_text_with_logo(t)) {
+          return;
+        }
+
+        restore_team_table_text_if_needed(t);
+
         const cell_fill = get_table_text_cell_fill(t);
         const use_white = should_use_white_table_text(t, cell_fill);
         const use_gold_black = should_use_black_bold_gold_text(t, cell_fill);
@@ -4093,6 +4259,24 @@ function team_logo_html(team) {
   if (!t) return '';
 
   return `<img class="matchups_team_logo" src="./team_logos/${t}.png" alt="${t}" loading="lazy">`;
+}
+//#################
+function append_matchup_team_logo(td, team) {
+  const t = normalize_matchups_team_code(team);
+
+  if (!t) {
+    td.textContent = String(team || '').trim() || '—';
+    return;
+  }
+
+  td.textContent = '';
+  td.classList.add('matchups_team_logo_cell');
+  td.innerHTML = team_logo_html(t);
+
+  const text = document.createElement('span');
+  text.className = 'matchups_team_logo_text';
+  text.textContent = t;
+  td.appendChild(text);
 }
 //#################
 function side_aliases(side) {
@@ -5713,7 +5897,15 @@ function infer_matchup_link_roles(header, explicit_role, explicit_pitcher_role) 
           return;
         }
 
-        const h = (header && header[j]) ? header[j] : '';
+const h = (header && header[j]) ? header[j] : '';
+const h_clean = String(h || '').trim();
+
+if (h_clean === 'Team' || h_clean === 'Opp') {
+  append_matchup_team_logo(td, raw);
+  tr.appendChild(td);
+  return;
+}
+
 append_matchup_player_link(
   td,
   raw,
@@ -9920,6 +10112,58 @@ const fantasy_qual_options = {
 /* ################# */
 const fantasy_sidebar_team_cache = new Map();
 const fantasy_page_lookup = new Map();
+
+const fantasy_team_logo_cache = {
+  loaded: false,
+  by_team: new Map(),
+};
+/* ################# */
+async function load_fantasy_team_logos() {
+  if (fantasy_team_logo_cache.loaded) return fantasy_team_logo_cache.by_team;
+
+  const resp = await fetch('assets/team_logos.json', { cache: 'no-store' });
+  if (!resp.ok) {
+    fantasy_team_logo_cache.loaded = true;
+    return fantasy_team_logo_cache.by_team;
+  }
+
+  const data = await resp.json();
+  const rows = Array.isArray(data) ? data : Object.entries(data);
+
+  rows.forEach(row => {
+    if (Array.isArray(row)) {
+      fantasy_team_logo_cache.by_team.set(String(row[0] || '').trim().toUpperCase(), String(row[1] || '').trim());
+      return;
+    }
+
+    const team = String(row.team || row.Team || row.code || row.abbr || '').trim().toUpperCase();
+    const logo_src = String(row.logo_src || row.logo || row.src || row.url || '').trim();
+
+    if (team && logo_src) {
+      fantasy_team_logo_cache.by_team.set(team, logo_src);
+    }
+  });
+
+  fantasy_team_logo_cache.loaded = true;
+  return fantasy_team_logo_cache.by_team;
+}
+/* ################# */
+function fantasy_team_logo_html(team) {
+  const team_key = String(team || '').trim().toUpperCase();
+  if (!team_key) return '';
+
+  const logo_src = fantasy_team_logo_cache.by_team.get(team_key);
+  if (!logo_src) return escape_html(team_key);
+
+  return `
+    <img
+      class="fantasy_team_logo"
+      src="${escape_html(logo_src)}"
+      alt="${escape_html(team_key)}"
+      title="${escape_html(team_key)}"
+    >
+  `;
+}
 /* ################# */
 function fantasy_qualifier_label() {
   return fantasy_state.section === 'hitters' ? 'Min PA' : 'Min IP';
@@ -11399,9 +11643,12 @@ function fantasy_build_table_html(rows) {
         value = escape_html(String(row.pos2 || ''));
       } else if (col === 'Role') {
         value = escape_html(String(row.fantasy_role_label || ''));
+      // } else if (col === 'Team') {
+      //   value = escape_html(String(row.display_team || fantasy_effective_team(row) || row.team || ''));
+      //       } else {
       } else if (col === 'Team') {
-        value = escape_html(String(row.display_team || fantasy_effective_team(row) || row.team || ''));
-            } else {
+        value = fantasy_team_logo_html(row.display_team || fantasy_effective_team(row) || row.team || '');
+      } else {
         let raw = row[col];
 
         if (String(col).startsWith('S ') && (raw === 0 || raw === 0.0)) {
@@ -11592,7 +11839,10 @@ async function render_fantasy_page() {
   controls_root.innerHTML = fantasy_build_controls_html({ majors: {}, playoffs: {}, spring: {}, minors: {} });
 
   try {
+    // await load_fantasy_scales();
+    // const data = await load_fantasy_data(fantasy_state.year);
     await load_fantasy_scales();
+    await load_fantasy_team_logos();
     const data = await load_fantasy_data(fantasy_state.year);
     controls_root.innerHTML = fantasy_build_controls_html(data);
     fantasy_build_page_lookup();

@@ -19430,7 +19430,7 @@
         "Whiff%": 0.2676,
         "name": "Christian Yelich",
         "person_key": "christian yelich",
-        "pos": "OF",
+        "pos": "DH",
         "pos2": "",
         "prev_minors_year": "",
         "rAll": -5.99,
@@ -104747,11 +104747,11 @@
         "SwStr%": 0.124,
         "Velo": 98.01,
         "WHIP": 2.283582089552239,
-        "name": "Tayron Guerrero",
-        "person_key": "tayron guerrero",
+        "name": "Tyron Guerrero",
+        "person_key": "tyron guerrero",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -136580,11 +136580,11 @@
         "SwStr%": 0.107,
         "Velo": 96.96000000000001,
         "WHIP": 5.0,
-        "name": "Tayron Guerrero",
-        "person_key": "tayron guerrero",
+        "name": "Tyron Guerrero",
+        "person_key": "tyron guerrero",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {

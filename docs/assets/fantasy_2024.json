@@ -23750,7 +23750,7 @@
         "Whiff%": 0.231,
         "name": "Christian Yelich",
         "person_key": "christian yelich",
-        "pos": "OF",
+        "pos": "DH",
         "pos2": "",
         "prev_minors_year": "",
         "rAll": 1.19,
@@ -109440,11 +109440,11 @@
         "SwStr%": 0.122,
         "Velo": 100.68,
         "WHIP": 1.836734693877551,
-        "name": "Tayron Guerrero",
-        "person_key": "tayron guerrero",
+        "name": "Tyron Guerrero",
+        "person_key": "tyron guerrero",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
