@@ -997,7 +997,8 @@ function compare_fantasy_rows_for_role(data, role_group) {
 function build_compare_sidebar_link_lookup(role_group) {
   const out = new Map();
 
-  Array.from(document.querySelectorAll('.team_block .toc_link[data-person_key][data-page][data-file]'))
+  Array.from(document.querySelectorAll('.toc_link[data-person_key][data-page][data-file]'))
+    .filter(a => !a.closest('.favorites_block') && !a.closest('.watchlist_block'))
     .filter(a => compare_role_group_for_link(a) === role_group)
     .forEach(a => {
       const norm_key = normalize_matchup_person_key(a.dataset.person_key || a.dataset.name || get_clean_compare_link_text(a));
@@ -1047,21 +1048,41 @@ function compare_lookup_player_from_payload(compare_players, page) {
   return null;
 }
 /* ################# */
-function compare_link_is_minors(a, fantasy_row = null) {
-  return String(fantasy_row?.team || '').trim().toUpperCase() === 'MILB' ||
+function compare_link_is_minors(a, fantasy_row = null, compare_player = null) {
+  const team = String(fantasy_row?.team || '').trim().toUpperCase();
+  const link_text = get_clean_compare_link_text(a).toLowerCase();
+  const division = String(a?.closest?.('.division_block')?.dataset?.division || '').trim().toLowerCase();
+  const panels = Array.isArray(compare_player?.panels) ? compare_player.panels : [];
+
+  const has_minors_panel = panels.some(panel => {
+    const title = String(panel?.title || '').trim().toLowerCase();
+    return title === 'minors' || title.startsWith('minors ');
+  });
+
+  return team === 'MILB' ||
     String(a?.dataset?.is_minors || '') === '1' ||
-    get_clean_compare_link_text(a).toLowerCase().includes(' minors');
+    link_text.includes(' minors') ||
+    division.includes('prospect') ||
+    has_minors_panel;
+}
+/* ################# */
+function compare_panel_title_matches(title, label) {
+  const t = String(title || '').trim().toLowerCase();
+  const l = String(label || '').trim().toLowerCase();
+
+  return t === l || t.startsWith(`${l} `) || t.startsWith(`${l} (`);
 }
 /* ################# */
 function compare_player_has_required_panels(player, is_minors) {
   if (!player) return false;
 
-  const panel_titles = new Set((player?.panels || []).map(p => String(p.title || '').trim()));
+  const panels = Array.isArray(player?.panels) ? player.panels : [];
+  const has_overall = panels.some(panel => compare_panel_title_matches(panel?.title, 'Overall'));
+  const has_minors = panels.some(panel => compare_panel_title_matches(panel?.title, 'Minors'));
 
-  if (!panel_titles.has('Overall')) return false;
-  if (is_minors && !panel_titles.has('Minors')) return false;
+  if (is_minors) return has_minors;
 
-  return true;
+  return has_overall;
 }
 /* ################# */
 async function active_compare_page_is_eligible(active, role_group) {
@@ -1078,7 +1099,7 @@ async function active_compare_page_is_eligible(active, role_group) {
   const player_role_group = String(player.role_group || '').trim().toLowerCase();
   if (player_role_group && player_role_group !== role_group) return false;
 
-  return compare_player_has_required_panels(player, compare_link_is_minors(active));
+  return compare_player_has_required_panels(player, compare_link_is_minors(active, null, player));
 }
 /* ################# */
 async function get_compare_peer_links_for_active_page() {
@@ -1475,7 +1496,6 @@ function compare_blend_on_base(c, is_dark) {
 /* ################# */
 function compare_cell_text_color(fill, is_gold, is_dark) {
   if (is_gold) return '#000';
-
   if (!fill) return '';
 
   const c = compare_blend_on_base(compare_parse_rgba(fill), is_dark);
@@ -1486,10 +1506,9 @@ function compare_cell_text_color(fill, is_gold, is_dark) {
   const is_goldish = c.r >= 175 && c.g >= 125 && c.b <= 105;
 
   if (is_goldish) return '#000';
-  if (!is_blue && !is_red) return is_dark ? 'var(--text)' : '#000';
+  if (is_blue || is_red) return '#fff';
 
-  const lum = (0.2126 * c.r) + (0.7152 * c.g) + (0.0722 * c.b);
-  return lum < 150 ? '#fff' : '#000';
+  return is_dark ? 'var(--text)' : '#000';
 }
 /* ################# */
 function compare_cell_html(cell, scales) {
