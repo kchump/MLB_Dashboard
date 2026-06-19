@@ -839,6 +839,8 @@ async function get_compare_peer_links_for_active_page() {
   const sort_year = String(window.DEFAULT_SEASON_YEAR || new Date().getFullYear());
 
   const data = await load_fantasy_year(sort_year);
+  const compare_payload = await load_compare_payload();
+  const compare_players = compare_payload?.players || {};
   const fantasy_rows = compare_fantasy_rows_for_role(data, role_group);
   const sidebar_lookup = build_compare_sidebar_link_lookup(role_group);
 
@@ -854,6 +856,17 @@ async function get_compare_peer_links_for_active_page() {
 
     const page = String(a.dataset.page || '').trim();
     if (!page || page === active_page || seen_pages.has(page)) return;
+
+    const compare_player = compare_players[page];
+    const panel_titles = new Set((compare_player?.panels || []).map(p => String(p.title || '').trim()));
+
+    if (!panel_titles.has('Overall')) return;
+
+    const is_minors = String(row.team || '').trim().toUpperCase() === 'MILB' ||
+      String(a.dataset.is_minors || '') === '1' ||
+      get_clean_compare_link_text(a).toLowerCase().includes(' minors');
+
+    if (is_minors && !panel_titles.has('Minors')) return;
 
     seen_pages.add(page);
 
@@ -1047,10 +1060,11 @@ function compare_display_value(obj) {
 /* ################# */
 function compare_cell_html(cell, scales) {
   const display = compare_display_value(cell);
-  const spec = cell?.scale || scales?.[cell?.scale_key] || cell || null;
-  const cls = compare_color_class(cell?.value, spec);
+  const fill = String(cell?.fill_color || '').trim();
+  const style = fill ? ` style="background:${escape_attr(fill)};"` : '';
+  const cls = fill ? '' : compare_color_class(cell?.value, cell?.scale || scales?.[cell?.scale_key] || cell || null);
 
-  return `<td class='compare_stat_cell ${cls}'>${escape_html(display)}</td>`;
+  return `<td class='compare_stat_cell ${cls}'${style}>${escape_html(display)}</td>`;
 }
 /* ################# */
 function compare_table_html(tbl, scales) {
@@ -1070,17 +1084,21 @@ function compare_table_html(tbl, scales) {
 }
 /* ################# */
 function compare_bar_html(row, scales) {
+  const row_frac = Number(row?.frac);
   const spec = row?.scale || scales?.[row?.scale_key] || row || null;
-  const frac = compare_scale_frac(row?.value, spec);
-  const cls = compare_color_class(row?.value, spec);
+  const calc_frac = compare_scale_frac(row?.value, spec);
+  const frac = Number.isFinite(row_frac) ? row_frac : calc_frac;
+
   const width = frac == null ? 0 : Math.round(frac * 1000) / 10;
   const display = compare_display_value(row);
+  const fill = String(row?.fill_color || '').trim();
+  const style = fill ? `background:${escape_attr(fill)};` : '';
 
   return `
     <div class='compare_panel_row'>
       <div class='compare_panel_label'>${escape_html(row?.label || '')}</div>
       <div class='compare_bar_track'>
-        <div class='compare_bar_fill ${cls}' style='width:${width}%;'></div>
+        <div class='compare_bar_fill' style='width:${width}%;${style}'></div>
       </div>
       <div class='compare_panel_value'>${escape_html(display)}</div>
     </div>
@@ -7180,7 +7198,7 @@ function find_fragment_key_loose(obj, wanted_name) {
         row_div.className = 'matchups_form_row';
 
         const { wrap: p_wrap, sel: p_sel } = make_select(`matchups_pitcher_${i}`, `Pitcher ${i + 1}`);
-        set_grouped_or_flat(p_sel, year_lists.pitchers_sp_by_team, year_lists.pitchers_sp, 'Select starter');
+        set_grouped_or_flat(p_sel, year_lists.pitchers_sp_by_team, year_lists.pitchers_sp, 'Select SP');
 
         p_sel.classList.add('matchups_select_pitcher_long');
         row_div.appendChild(p_wrap);
@@ -8526,7 +8544,7 @@ if (mode === 'specific_starting_pitchers') {
     row_div.className = 'matchups_form_row';
 
     const pitcher_obj = make_select(`matchups_pitcher_${i}`, `Pitcher ${i + 1}`);
-    set_grouped_or_flat(pitcher_obj.sel, year_lists.pitchers_sp_by_team, year_lists.pitchers_sp, 'Select starter');
+    set_grouped_or_flat(pitcher_obj.sel, year_lists.pitchers_sp_by_team, year_lists.pitchers_sp, 'Select SP');
 
     const side_obj = build_side_select(`matchups_side_${i}`);
     const team_obj = make_select(`matchups_team_${i}`, 'Opp');
@@ -8715,7 +8733,7 @@ if (mode === 'specific_hitters') {
     }
 
     rebuild_select_keep_value(row.p_sel, () => {
-      set_grouped_or_flat(row.p_sel, base_groups, [], 'Select pitcher');
+      set_grouped_or_flat(row.p_sel, base_groups, [], 'Select Pitcher');
     });
   }
   //#################
@@ -9381,7 +9399,7 @@ if (mode === 'reliever_inning') {
     pitcher_obj.sel,
     year_lists.pitchers_rp_by_team,
     year_lists.pitchers_rp,
-    'Select reliever'
+    'Select RP'
   );
   const pitcher_sel = pitcher_obj.sel;
 
