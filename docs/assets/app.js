@@ -3694,7 +3694,7 @@ function replace_team_table_text_with_logo(text_node) {
   if (!text_node || !text_node.closest('g.table')) return false;
 
   const header = get_column_header_for_text_node(text_node);
-    if (!team || team === 'TEAM' || team === '- - -' || team === '---' || team === '--') return false;
+  if (header !== 'team') return false;
 
   const team = String(text_node.textContent || '').trim().toUpperCase();
   if (!team || team === 'TEAM') return false;
