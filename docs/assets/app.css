@@ -2445,3 +2445,69 @@ body.soft_theme .compare_bar_track {
     margin-right: 70px;
   }
 }
+.compare_team_cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.compare_team_logo {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  display: inline-block;
+}
+.compare_gold {
+  background: linear-gradient(90deg, #F9F295 0%, #E0AA3E 45%, #FAF398 72%, #B88A44 100%) !important;
+  color: #000 !important;
+}
+.compare_stats_table th {
+  font-weight: 700;
+}
+
+.compare_stats_table td {
+  font-weight: 400;
+}
+
+.compare_panel_title {
+  font-weight: 700;
+}
+
+.compare_panel_label,
+.compare_panel_value {
+  font-weight: 400;
+}
+
+.compare_player_name {
+  font-weight: 800;
+}
+
+.fantasy_team_logo {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.fantasy_td_center .fantasy_team_logo {
+  vertical-align: middle;
+}
+
+.matchups_team_logo_cell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.matchups_team_logo_cell .matchups_team_logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.matchups_team_logo_text {
+  display: none;
+}
