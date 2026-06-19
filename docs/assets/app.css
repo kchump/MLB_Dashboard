@@ -2407,33 +2407,6 @@ body.soft_theme .compare_bar_track {
   background: #3b424b;
 }
 
-@media (max-width: 900px) {
-  .compare_page {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .compare_grid {
-    grid-auto-columns: minmax(330px, 88vw);
-    width: max-content;
-    min-width: 100%;
-    overflow-x: visible;
-  }
-
-  .compare_player_card {
-    width: auto;
-    max-width: none;
-  }
-
-  .compare_panel_row {
-    grid-template-columns: 92px minmax(0, 1fr) 62px;
-  }
-
-  .compare_panel_axis {
-    margin-left: 100px;
-    margin-right: 70px;
-  }
-}
 .compare_team_cell {
   display: inline-flex;
   align-items: center;
@@ -2581,4 +2554,106 @@ body.soft_theme .compare_stat_cell.compare_blue {
 
 body.soft_theme .compare_stat_cell.compare_gold {
   color: #000;
+}
+
+body.soft_theme .compare_stats_table th {
+  background: #272c33;
+  color: var(--text);
+}
+
+body.soft_theme .compare_stats_table td {
+  background: #3b424b;
+  color: var(--text);
+}
+
+body.soft_theme .compare_stats_table td.compare_stat_cell {
+  background-clip: padding-box;
+}
+
+body.soft_theme .compare_stats_table th {
+  background: #272c33;
+  color: var(--text);
+}
+
+body.soft_theme .compare_stats_table td {
+  background: #3b424b;
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --mobile_zoom: 0.82;
+  }
+
+  .app {
+    zoom: var(--mobile_zoom);
+    width: calc(100% / var(--mobile_zoom));
+    min-height: calc(100vh / var(--mobile_zoom));
+  }
+
+  .sidebar {
+    max-height: 58vh;
+  }
+
+  .toggle_sidebar {
+    position: sticky;
+    top: 8px;
+    left: 0;
+    z-index: 99999;
+    margin: 0 0 10px 0;
+  }
+
+  body.sidebar_hidden .toggle_sidebar {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    margin: 0;
+  }
+
+  .content {
+    overflow-x: hidden;
+  }
+
+  .content:has(.compare_page) {
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .compare_page {
+    width: max-content;
+    min-width: 100%;
+    padding: 8px 12px 32px 12px;
+  }
+
+  .compare_grid {
+    width: max-content;
+    min-width: 100%;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(330px, 88vw);
+    overflow-x: visible;
+  }
+
+  .compare_page_wrap {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    width: 100%;
+    max-width: 100%;
+    gap: 8px;
+  }
+
+  .compare_page_btn {
+    min-width: 0;
+    width: auto;
+  }
+
+  .compare_page_select {
+    width: min(220px, 100%);
+    max-width: 220px;
+    min-width: 0;
+  }
+
+  .compare_selected_players {
+    grid-column: 1 / -1;
+  }
 }

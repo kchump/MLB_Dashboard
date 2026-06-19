@@ -49,6 +49,10 @@ function sidebar_clean_mlb_logo_team(team) {
     'MINORS',
     'MINOR LEAGUE',
     'MINOR LEAGUES',
+    '- - -',
+    '---',
+    '--',
+    'MISC',
   ]);
 
   if (blocked_teams.has(team_key)) return '';
@@ -1475,15 +1479,50 @@ function compare_darken_stat_fill_for_dark_mode(fill) {
   });
 }
 /* ################# */
+function compare_fill_is_plain_light_cell(fill) {
+  const c = compare_parse_rgba(fill);
+  if (!c || c.a === 0) return false;
+
+  const is_light_body =
+    Math.abs(c.r - 235) <= 18 &&
+    Math.abs(c.g - 240) <= 18 &&
+    Math.abs(c.b - 248) <= 18;
+
+  const is_light_alt =
+    Math.abs(c.r - 226) <= 22 &&
+    Math.abs(c.g - 233) <= 22 &&
+    Math.abs(c.b - 243) <= 22;
+
+  return is_light_body || is_light_alt;
+}
+/* ################# */
+function compare_blend_compare_stat_fill_on_light_base(fill) {
+  if (!fill) return '';
+
+  const c = compare_parse_rgba(fill);
+  if (!c) return fill;
+
+  const a = Number.isFinite(c.a) ? Math.max(0, Math.min(1, c.a)) : 1;
+  const base = { r: 235, g: 240, b: 248 };
+
+  return compare_rgba_string({
+    r: c.r * a + base.r * (1 - a),
+    g: c.g * a + base.g * (1 - a),
+    b: c.b * a + base.b * (1 - a),
+    a: 1,
+  });
+}
+/* ################# */
 function compare_display_fill(fill, is_dark) {
   if (!fill) return '';
 
-  if (is_dark && compare_is_light_table_base(fill)) {
-    return '#3b424b';
+  if (compare_fill_is_plain_light_cell(fill)) {
+    return is_dark ? '#3b424b' : fill;
   }
 
-  if (is_dark && compare_is_stat_fill(fill)) {
-    return compare_darken_stat_fill_for_dark_mode(fill);
+  if (compare_is_stat_fill(fill)) {
+    const blended = compare_blend_compare_stat_fill_on_light_base(fill);
+    return is_dark ? compare_darken_stat_fill_for_dark_mode(blended) : blended;
   }
 
   return fill;
@@ -3655,7 +3694,7 @@ function replace_team_table_text_with_logo(text_node) {
   if (!text_node || !text_node.closest('g.table')) return false;
 
   const header = get_column_header_for_text_node(text_node);
-  if (header !== 'team') return false;
+    if (!team || team === 'TEAM' || team === '- - -' || team === '---' || team === '--') return false;
 
   const team = String(text_node.textContent || '').trim().toUpperCase();
   if (!team || team === 'TEAM') return false;
