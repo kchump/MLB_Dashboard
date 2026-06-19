@@ -36,55 +36,25 @@ async function load_sidebar_team_logos() {
   return sidebar_team_logo_cache.by_team;
 }
 /* ################# */
-function sidebar_clean_mlb_logo_team(team) {
-  let s = String(team || '').trim();
-  if (!s) return '';
-
-  const upper = s.toUpperCase();
-
-  if (upper.startsWith('RETIRED::')) {
-    s = s.slice('retired::'.length).trim();
-  } else if (upper.startsWith('RETIRED:')) {
-    s = s.slice('retired:'.length).trim();
-  }
-
-  const team_key = s.toUpperCase();
-
-  const blocked_teams = new Set([
-    '',
-    'AUS', 'BRA', 'CAN', 'CO', 'CUB', 'CZE', 'DR', 'GB', 'GBR',
-    'ISR', 'ITA', 'JPN', 'KOR', 'MEX', 'NED', 'NIC', 'PAN',
-    'PR', 'TAI', 'TPE', 'USA', 'VEN',
-    'WBC',
-    'FA',
-    'FREE AGENT',
-    'FREE AGENTS',
-    'JOURNEYMEN',
-    'TOP 100 PROSPECTS',
-    'TOP PROSPECTS',
-  ]);
-
-  if (blocked_teams.has(team_key)) return '';
-
-  return team_key;
-}
-/* ################# */
-function sidebar_mlb_team_for_wbc_link(wbc_link) {
-  const person_key = String(wbc_link?.dataset?.person_key || '').trim();
+function sidebar_mlb_team_for_link(source_link, excluded_division_names = []) {
+  const person_key = String(source_link?.dataset?.person_key || '').trim();
   if (!person_key) return '';
 
-  const country_team = String(wbc_link.dataset.team || '').trim().toUpperCase();
+  const source_team = String(source_link.dataset.team || '').trim().toUpperCase();
+  const excluded = new Set((excluded_division_names || []).map(x => String(x || '').trim().toLowerCase()));
 
   const matches = Array.from(document.querySelectorAll(`.toc_link[data-person_key="${CSS.escape(person_key)}"]`))
-    .filter(a => !a.closest('.division_block[data-division="wbc"]'));
+    .filter(a => {
+      const div = String(a.closest('.division_block')?.dataset?.division || '').trim().toLowerCase();
+      return !excluded.has(div);
+    });
 
   const teams = [];
 
   matches.forEach(a => {
     const team = sidebar_clean_mlb_logo_team(a.dataset.team);
     if (!team) return;
-    if (team === country_team) return;
-    if (!sidebar_team_logo_cache.by_team.has(team)) return;
+    if (team === source_team) return;
 
     teams.push(team);
   });
@@ -104,6 +74,10 @@ function sidebar_mlb_team_for_wbc_link(wbc_link) {
 
       return a[0].localeCompare(b[0]);
     })[0][0];
+}
+/* ################# */
+function sidebar_mlb_team_for_wbc_link(wbc_link) {
+  return sidebar_mlb_team_for_link(wbc_link, ['wbc']);
 }
 /* ################# */
 function add_wbc_sidebar_player_logos(root) {
@@ -758,6 +732,45 @@ async function render_custom_sidebar_list(list_id, empty_id, people_set) {
   update_sidebar_custom_icons(list);
 }
 /* ################# */
+function sync_mapped_sidebar_team_ribbon(division_selector, excluded_division_names = []) {
+  const block = document.querySelector(division_selector);
+  if (!block) return;
+
+  const title = block.querySelector('.division_title');
+  if (!title) return;
+
+  let ribbon = title.querySelector(':scope > .division_logos');
+  if (!ribbon) {
+    ribbon = document.createElement('span');
+    ribbon.className = 'division_logos custom_sidebar_team_ribbon';
+    title.appendChild(ribbon);
+  }
+
+  ribbon.innerHTML = '';
+
+  const seen = new Set();
+
+  block.querySelectorAll('.toc_link[data-person_key]').forEach(a => {
+    const team = sidebar_mlb_team_for_link(a, excluded_division_names);
+    if (!team || seen.has(team)) return;
+
+    const logo_src = team_logo_src_for_code(team);
+    if (!logo_src) return;
+
+    seen.add(team);
+
+    const img = document.createElement('img');
+    img.className = 'division_logo';
+    img.src = logo_src;
+    img.alt = team;
+    img.title = team;
+
+    ribbon.appendChild(img);
+  });
+
+  ribbon.style.display = seen.size ? '' : 'none';
+}
+/* ################# */
 function sync_custom_sidebar_team_ribbon(list_id) {
   const list = document.getElementById(list_id);
   if (!list) return;
@@ -1223,15 +1236,17 @@ function compare_team_cell_html(team) {
   const t = String(team || '').trim().toUpperCase();
   if (!t) return '';
 
-  const logo = document.querySelector(`.team_block[data-team="${CSS.escape(t)}"] .team_logo`);
+  const logo = Array.from(document.querySelectorAll('.team_block[data-team]'))
+    .find(tb => String(tb.dataset.team || '').trim().toUpperCase() === t)
+    ?.querySelector('.team_logo');
+
   const src = logo ? String(logo.getAttribute('src') || '').trim() : '';
 
   if (!src) return escape_html(team);
 
   return `
-    <span class='compare_team_cell'>
+    <span class='compare_team_cell' title='${escape_attr(t)}'>
       <img class='compare_team_logo' src='${escape_attr(src)}' alt='${escape_attr(t)}'>
-      <span>${escape_html(team)}</span>
     </span>
   `;
 }
@@ -1277,27 +1292,151 @@ function compare_fill_should_use_white_text(fill) {
   const lum = (0.2126 * c.r) + (0.7152 * c.g) + (0.0722 * c.b);
   return lum < 150;
 }
+function compare_parse_rgba(fill) {
+  const s = String(fill || '').trim();
+
+  let m = s.match(/^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?\s*\)$/i);
+  if (m) {
+    return {
+      r: Number(m[1]),
+      g: Number(m[2]),
+      b: Number(m[3]),
+      a: m[4] == null ? 1 : Number(m[4]),
+    };
+  }
+
+  return null;
+}
+/* ################# */
+function compare_rgba_string(c) {
+  if (!c) return '';
+  const a = c.a == null ? 1 : c.a;
+  return `rgba(${Math.round(c.r)},${Math.round(c.g)},${Math.round(c.b)},${a})`;
+}
+/* ################# */
+function compare_is_light_table_base(fill) {
+  const c = compare_parse_rgba(fill);
+  if (!c) return false;
+
+  return (
+    Math.abs(c.r - 235) <= 12 &&
+    Math.abs(c.g - 240) <= 12 &&
+    Math.abs(c.b - 248) <= 12
+  );
+}
+/* ################# */
+function compare_is_stat_fill(fill) {
+  const c = compare_parse_rgba(fill);
+  if (!c || c.a === 0) return false;
+
+  const blue_like = (c.b - c.r >= 30) && (c.b - c.g >= 18);
+  const red_like = (c.r - c.g >= 30) && (c.r - c.b >= 18);
+  const gold_like = (
+    c.r >= 180 &&
+    c.g >= 125 &&
+    c.b <= 95 &&
+    (c.r - c.b >= 65) &&
+    (c.g - c.b >= 30)
+  );
+
+  return blue_like || red_like || gold_like;
+}
+/* ################# */
+function compare_darken_stat_fill_for_dark_mode(fill) {
+  const c = compare_parse_rgba(fill);
+  if (!c || c.a === 0) return fill;
+
+  if (!compare_is_stat_fill(fill)) return fill;
+
+  const gold_like = (
+    c.r >= 180 &&
+    c.g >= 125 &&
+    c.b <= 95 &&
+    (c.r - c.b >= 65) &&
+    (c.g - c.b >= 30)
+  );
+
+  if (gold_like) return fill;
+
+  const lum = (0.2126 * c.r) + (0.7152 * c.g) + (0.0722 * c.b);
+  if (lum < 150) return fill;
+
+  const strength = Math.min(0.35, Math.max(0.12, (lum - 150) / 220));
+
+  return compare_rgba_string({
+    r: c.r * (1 - strength),
+    g: c.g * (1 - strength),
+    b: c.b * (1 - strength),
+    a: c.a,
+  });
+}
+/* ################# */
+function compare_display_fill(fill, is_dark) {
+  if (!fill) return '';
+
+  if (is_dark && compare_is_light_table_base(fill)) {
+    return '#3b424b';
+  }
+
+  if (is_dark && compare_is_stat_fill(fill)) {
+    return compare_darken_stat_fill_for_dark_mode(fill);
+  }
+
+  return fill;
+}
+/* ################# */
+function compare_blend_on_base(c, is_dark) {
+  if (!c) return null;
+
+  const a = Number.isFinite(c.a) ? Math.max(0, Math.min(1, c.a)) : 1;
+  const base = is_dark
+    ? { r: 59, g: 66, b: 75 }
+    : { r: 235, g: 240, b: 248 };
+
+  return {
+    r: c.r * a + base.r * (1 - a),
+    g: c.g * a + base.g * (1 - a),
+    b: c.b * a + base.b * (1 - a),
+  };
+}
+/* ################# */
+function compare_cell_text_color(fill, is_gold, is_dark) {
+  if (is_gold) return '#000';
+
+  if (!fill) return '';
+
+  const c = compare_blend_on_base(compare_parse_rgba(fill), is_dark);
+  if (!c) return '';
+
+  const is_blue = c.b - c.r >= 25 && c.b - c.g >= 15;
+  const is_red = c.r - c.g >= 25 && c.r - c.b >= 15;
+  const is_goldish = c.r >= 175 && c.g >= 125 && c.b <= 105;
+
+  if (is_goldish) return '#000';
+  if (!is_blue && !is_red) return is_dark ? 'var(--text)' : '#000';
+
+  const lum = (0.2126 * c.r) + (0.7152 * c.g) + (0.0722 * c.b);
+  return lum < 150 ? '#fff' : '#000';
+}
 /* ################# */
 function compare_cell_html(cell, scales) {
   const display = compare_display_value(cell);
   const fill = String(cell?.fill_color || '').trim();
   const is_gold = cell?.is_gold === true;
+  const is_dark = document.body.classList.contains('soft_theme');
 
   const cls = is_gold ? 'compare_gold' : '';
   const style_parts = [];
 
-  if (!is_gold && fill) {
-    style_parts.push(`background:${escape_attr(fill)}`);
+  const display_fill = compare_display_fill(fill, is_dark);
 
-    if (compare_fill_should_use_white_text(fill)) {
-      style_parts.push('color:#fff');
-    } else {
-      style_parts.push('color:#000');
-    }
+  if (!is_gold && display_fill) {
+    style_parts.push(`background:${escape_attr(display_fill)}`);
   }
 
-  if (is_gold) {
-    style_parts.push('color:#000');
+  const text_fill = compare_cell_text_color(display_fill, is_gold, is_dark);
+  if (text_fill) {
+    style_parts.push(`color:${text_fill}`);
   }
 
   const style = style_parts.length ? ` style="${style_parts.join(';')};"` : '';
@@ -1427,7 +1566,7 @@ async function render_compare_page_from_hash() {
           <button type='button' class='compare_back_btn'>← Back</button>
           <div class='compare_title'>Compare</div>
         </div>
-        <div class='compare_empty'>No compare data found. Rebuild assets/compare.json.</div>
+        <div class='compare_empty'>No compare data found. Message me if you think this is supposed to work, lol.</div>
       </div>
     `;
     return;
@@ -1440,7 +1579,7 @@ async function render_compare_page_from_hash() {
       <div class='compare_header'>
         <button type='button' class='compare_back_btn'>← Back</button>
         <div>
-          <div class='compare_title'>Compare ${role_label}s</div>
+          <div class='compare_title'>Compare Players</div>
           <div class='compare_subtitle'>${players.length} players</div>
         </div>
       </div>
@@ -1680,6 +1819,8 @@ if (compare_sel.dataset.bound !== '1') {
 async function refresh_custom_player_lists_ui() {
   await load_sidebar_team_logos();
   add_wbc_sidebar_player_logos(document);
+sync_mapped_sidebar_team_ribbon('.division_block[data-division="top_100_prospects"]', ['top_100_prospects', 'top_prospects']);
+sync_mapped_sidebar_team_ribbon('.division_block[data-division="top_prospects"]', ['top_100_prospects', 'top_prospects']);
 
   await sort_active_team_sidebar_lists_by_fval();
   await render_favorites_sidebar();
@@ -2481,6 +2622,8 @@ async function load_page(file, page_id) {
   //TODO see if this breaks, this was to stop it from snapping to the top of the team ribbon
 await load_sidebar_team_logos();
 add_wbc_sidebar_player_logos(document);
+sync_mapped_sidebar_team_ribbon('.division_block[data-division="top_100_prospects"]', ['top_100_prospects', 'top_prospects']);
+sync_mapped_sidebar_team_ribbon('.division_block[data-division="top_prospects"]', ['top_100_prospects', 'top_prospects']);
 repaint_standard_stats_tables(content);
 requestAnimationFrame(() => repaint_standard_stats_tables(content));
 
@@ -3373,14 +3516,14 @@ function get_column_header_for_text_node(text_node) {
 function replace_team_table_text_with_logo(text_node) {
   if (!text_node || !text_node.closest('g.table')) return false;
 
-  const header = get_column_header_for_text_node(text_node);
-  if (header !== 'team') return false;
-
   const team = String(text_node.textContent || '').trim().toUpperCase();
   if (!team || team === 'TEAM') return false;
 
   const logo_src = team_logo_src_for_code(team);
-  if (!logo_src) return false;
+  if (!logo_src) {
+    restore_team_table_text_if_needed(text_node);
+    return false;
+  }
 
   const holder = get_cell_holder_for_text_node(text_node) || text_node.parentNode;
   if (!holder) return false;
@@ -4290,10 +4433,12 @@ if (toggle_sidebar_btn) {
   }
 
   sync_clear_btn();
-  load_sidebar_team_logos().then(() => {
-    add_wbc_sidebar_player_logos(document);
-    refresh_custom_player_lists_ui();
-  });
+load_sidebar_team_logos().then(() => {
+  add_wbc_sidebar_player_logos(document);
+  sync_mapped_sidebar_team_ribbon('.division_block[data-division="top_100_prospects"]', ['top_100_prospects', 'top_prospects']);
+  sync_mapped_sidebar_team_ribbon('.division_block[data-division="top_prospects"]', ['top_100_prospects', 'top_prospects']);
+  refresh_custom_player_lists_ui();
+});
 
   const cb_minors = document.getElementById('filter_hide_minors');
   if (cb_minors) cb_minors.addEventListener('change', () => apply_search_and_filters((search && search.value) ? search.value : ''));
@@ -10303,10 +10448,18 @@ const fantasy_page_lookup = new Map();
 function fantasy_team_logo_html(team) {
   const team_key = String(team || '').trim().toUpperCase();
   if (!team_key) return '';
+  if (team_key === '- - -' || team_key === '---') return '';
 
   if (typeof team_logo_html === 'function') {
     const html = String(team_logo_html(team_key) || '').trim();
-    if (html) return html;
+
+    if (html) {
+      return `
+        <span class="fantasy_team_logo_wrap" title="${escape_html(team_key)}">
+          ${html}
+        </span>
+      `;
+    }
   }
 
   return escape_html(team_key);

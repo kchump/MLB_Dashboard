@@ -1761,13 +1761,15 @@ body.soft_theme .fantasy_player_link:hover {
   white-space: nowrap;
 }
 
-.compare_bar_track {
-  height: 18px;
-  background: rgb(235,240,248);
-  border-left: 1px solid rgba(150,150,150,0.65);
-  border-right: 1px solid rgba(150,150,150,0.65);
-  position: relative;
-  overflow: hidden;
+.compare_bar_track::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: rgba(150,150,150,0.65);
+  z-index: 2;
 }
 
 .compare_bar_track::before {
@@ -2527,4 +2529,45 @@ body.soft_theme .compare_bar_track {
     margin-left: 100px;
     margin-right: 70px;
   }
+}
+
+.compare_panel_title {
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0 82px 4px 126px;
+  text-align: center;
+}
+
+.compare_panel_axis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-size: 9px;
+  color: var(--muted);
+  font-weight: 700;
+  margin: 0 82px 3px 126px;
+}
+
+.compare_panel_title {
+  margin: 0 78px 4px 118px;
+}
+
+.compare_panel_axis {
+  margin: 0 78px 3px 118px;
+}
+
+.fantasy_team_logo_wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 34px;
+}
+
+.fantasy_team_logo_wrap img,
+.fantasy_team_logo {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin: 0 auto;
 }
