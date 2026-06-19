@@ -160,19 +160,26 @@ function add_wbc_sidebar_player_logos(root) {
 }
 /* ################# */
 function add_top_prospect_sidebar_player_logos(root) {
-  add_mapped_sidebar_player_logos(
-    root,
-    '.division_block[data-division="top_100_prospects"]',
-    ['top_100_prospects', 'top_prospects'],
-    'wbc_sidebar_player_logo'
-  );
+  const scope = root || document;
 
-  add_mapped_sidebar_player_logos(
-    root,
-    '.division_block[data-division="top_prospects"]',
-    ['top_100_prospects', 'top_prospects'],
-    'wbc_sidebar_player_logo'
-  );
+  scope.querySelectorAll('.team_block[data-team="Top 100 Prospects"] .toc_link[data-page]').forEach(a => {
+    if (a.querySelector(':scope > .wbc_sidebar_player_logo')) return;
+
+    const page = String(a.dataset.page || '').trim();
+    const team = sidebar_clean_mlb_logo_team(page.split('-')[0] || '');
+    if (!team) return;
+
+    const logo_src = sidebar_team_logo_cache.by_team.get(team) || team_logo_src_for_code(team);
+    if (!logo_src) return;
+
+    const img = document.createElement('img');
+    img.className = 'wbc_sidebar_player_logo';
+    img.src = logo_src;
+    img.alt = team;
+    img.title = team;
+
+    a.insertBefore(img, a.firstChild);
+  });
 }
 /* ################# */
 function get_stored_people(storage_key) {
@@ -1348,6 +1355,8 @@ function compare_team_cell_html(team) {
 function compare_parse_rgba(fill) {
   const s = String(fill || '').trim();
 
+  if (!s || s === 'none' || s === 'transparent') return null;
+
   let m = s.match(/^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?\s*\)$/i);
   if (m) {
     return {
@@ -1355,6 +1364,22 @@ function compare_parse_rgba(fill) {
       g: Number(m[2]),
       b: Number(m[3]),
       a: m[4] == null ? 1 : Number(m[4]),
+    };
+  }
+
+  m = s.match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
+  if (m) {
+    let hex = m[1];
+
+    if (hex.length === 3) {
+      hex = hex.split('').map(x => x + x).join('');
+    }
+
+    return {
+      r: parseInt(hex.slice(0, 2), 16),
+      g: parseInt(hex.slice(2, 4), 16),
+      b: parseInt(hex.slice(4, 6), 16),
+      a: 1,
     };
   }
 
@@ -1386,21 +1411,6 @@ function compare_fill_should_use_white_text(fill) {
   const lum = (0.2126 * c.r) + (0.7152 * c.g) + (0.0722 * c.b);
   return lum < 150;
 }
-function compare_parse_rgba(fill) {
-  const s = String(fill || '').trim();
-
-  let m = s.match(/^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?\s*\)$/i);
-  if (m) {
-    return {
-      r: Number(m[1]),
-      g: Number(m[2]),
-      b: Number(m[3]),
-      a: m[4] == null ? 1 : Number(m[4]),
-    };
-  }
-
-  return null;
-}
 /* ################# */
 function compare_rgba_string(c) {
   if (!c) return '';
@@ -1410,12 +1420,12 @@ function compare_rgba_string(c) {
 /* ################# */
 function compare_is_light_table_base(fill) {
   const c = compare_parse_rgba(fill);
-  if (!c) return false;
+  if (!c || c.a === 0) return false;
 
   return (
-    Math.abs(c.r - 235) <= 12 &&
-    Math.abs(c.g - 240) <= 12 &&
-    Math.abs(c.b - 248) <= 12
+    Math.abs(c.r - 235) <= 16 &&
+    Math.abs(c.g - 240) <= 16 &&
+    Math.abs(c.b - 248) <= 16
   );
 }
 /* ################# */
@@ -1496,10 +1506,15 @@ function compare_blend_on_base(c, is_dark) {
 /* ################# */
 function compare_cell_text_color(fill, is_gold, is_dark) {
   if (is_gold) return '#000';
-  if (!fill) return '';
+
+  if (!fill) {
+    return is_dark ? 'var(--text)' : '#000';
+  }
 
   const c = compare_blend_on_base(compare_parse_rgba(fill), is_dark);
-  if (!c) return '';
+  if (!c) {
+    return is_dark ? 'var(--text)' : '#000';
+  }
 
   const is_blue = c.b - c.r >= 25 && c.b - c.g >= 15;
   const is_red = c.r - c.g >= 25 && c.r - c.b >= 15;
@@ -3602,10 +3617,38 @@ function team_logo_src_for_code(team) {
 }
 /* ################# */
 function get_column_header_for_text_node(text_node) {
-  const column_block = get_column_block_for_text_node(text_node);
-  if (!column_block) return '';
+  if (!text_node || !text_node.closest('g.table')) return '';
 
-  return normalize_table_header_label(get_column_header_text(column_block));
+  const box = text_node.getBoundingClientRect();
+  const text_mid_x = box.x + (box.width / 2);
+  const text_y = box.y;
+
+  const candidates = Array.from(text_node.closest('g.table').querySelectorAll('text'))
+    .filter(t => t !== text_node)
+    .map(t => {
+      const b = t.getBoundingClientRect();
+
+      return {
+        t,
+        text: String(t.textContent || '').trim(),
+        mid_x: b.x + (b.width / 2),
+        y: b.y,
+        dx: Math.abs((b.x + (b.width / 2)) - text_mid_x),
+        dy: text_y - b.y,
+      };
+    })
+    .filter(x => x.text && x.dy > 0 && x.dy < 80)
+    .sort((a, b) => {
+      const dx_cmp = a.dx - b.dx;
+      if (dx_cmp !== 0) return dx_cmp;
+
+      return a.dy - b.dy;
+    });
+
+  const best = candidates[0];
+  if (!best || best.dx > 32) return '';
+
+  return normalize_table_header_label(best.text);
 }
 /* ################# */
 function replace_team_table_text_with_logo(text_node) {

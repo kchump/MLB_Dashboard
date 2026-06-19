@@ -2559,3 +2559,26 @@ body.soft_theme .compare_bar_track {
   object-fit: contain;
   margin: 0 auto;
 }
+
+body.soft_theme .compare_stats_table th {
+  background: #272c33;
+  color: var(--text);
+}
+
+body.soft_theme .compare_stats_table td {
+  background: #3b424b;
+  color: var(--text);
+}
+
+body.soft_theme .compare_stats_table td[style*='background'] {
+  background-clip: padding-box;
+}
+
+body.soft_theme .compare_stat_cell.compare_red,
+body.soft_theme .compare_stat_cell.compare_blue {
+  color: #fff;
+}
+
+body.soft_theme .compare_stat_cell.compare_gold {
+  color: #000;
+}
