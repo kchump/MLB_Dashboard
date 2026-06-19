@@ -18,41 +18,22 @@ const sidebar_team_logo_cache = {
 };
 /* ################# */
 async function load_sidebar_team_logos() {
-  if (sidebar_team_logo_cache.loaded) return sidebar_team_logo_cache.by_team;
+  sidebar_team_logo_cache.by_team.clear();
 
-  try {
-    const r = await fetch('assets/team_logos.json', { cache: 'no-store' });
-    if (!r.ok) {
-      sidebar_team_logo_cache.loaded = true;
-      return sidebar_team_logo_cache.by_team;
+  document.querySelectorAll('.team_block[data-team]').forEach(team_block => {
+    const team = sidebar_clean_mlb_logo_team(team_block.dataset.team);
+    if (!team) return;
+
+    const logo = team_block.querySelector('.team_logo');
+    const logo_src = String(logo?.getAttribute('src') || `./team_logos/${team}.png`).trim();
+
+    if (logo_src) {
+      sidebar_team_logo_cache.by_team.set(team, logo_src);
     }
+  });
 
-    const data = await r.json();
-    const rows = Array.isArray(data) ? data : Object.entries(data);
-
-    rows.forEach(row => {
-      if (Array.isArray(row)) {
-        sidebar_team_logo_cache.by_team.set(
-          String(row[0] || '').trim().toUpperCase(),
-          String(row[1] || '').trim()
-        );
-        return;
-      }
-
-      const team = String(row.team || row.Team || row.code || row.abbr || '').trim().toUpperCase();
-      const logo_src = String(row.logo_src || row.logo || row.src || row.url || '').trim();
-
-      if (team && logo_src) {
-        sidebar_team_logo_cache.by_team.set(team, logo_src);
-      }
-    });
-
-    sidebar_team_logo_cache.loaded = true;
-    return sidebar_team_logo_cache.by_team;
-  } catch (e) {
-    sidebar_team_logo_cache.loaded = true;
-    return sidebar_team_logo_cache.by_team;
-  }
+  sidebar_team_logo_cache.loaded = true;
+  return sidebar_team_logo_cache.by_team;
 }
 /* ################# */
 function sidebar_clean_mlb_logo_team(team) {
@@ -1328,6 +1309,22 @@ function compare_cell_html(cell, scales) {
   }
 
   return `<td class='compare_stat_cell ${cls}'${style}>${content}</td>`;
+}
+/* ################# */
+function compare_table_html(tbl, scales) {
+  const headers = Array.isArray(tbl?.headers) ? tbl.headers : [];
+  const cells = Array.isArray(tbl?.cells) ? tbl.cells : [];
+
+  return `
+    <table class='compare_stats_table'>
+      <thead>
+        <tr>${headers.map(h => `<th>${escape_html(h)}</th>`).join('')}</tr>
+      </thead>
+      <tbody>
+        <tr>${cells.map(c => compare_cell_html(c, scales)).join('')}</tr>
+      </tbody>
+    </table>
+  `;
 }
 /* ################# */
 function compare_bar_html(row, scales) {
@@ -3360,7 +3357,10 @@ function team_logo_src_for_code(team) {
   if (cached_src) return cached_src;
 
   const logo = document.querySelector(`.team_block[data-team="${CSS.escape(t)}"] .team_logo`);
-  return logo ? String(logo.getAttribute('src') || '').trim() : '';
+  const dom_src = String(logo?.getAttribute('src') || '').trim();
+  if (dom_src) return dom_src;
+
+  return `./team_logos/${t}.png`;
 }
 /* ################# */
 function get_column_header_for_text_node(text_node) {
@@ -10299,57 +10299,17 @@ const fantasy_qual_options = {
 /* ################# */
 const fantasy_sidebar_team_cache = new Map();
 const fantasy_page_lookup = new Map();
-
-const fantasy_team_logo_cache = {
-  loaded: false,
-  by_team: new Map(),
-};
-/* ################# */
-async function load_fantasy_team_logos() {
-  if (fantasy_team_logo_cache.loaded) return fantasy_team_logo_cache.by_team;
-
-  const resp = await fetch('assets/team_logos.json', { cache: 'no-store' });
-  if (!resp.ok) {
-    fantasy_team_logo_cache.loaded = true;
-    return fantasy_team_logo_cache.by_team;
-  }
-
-  const data = await resp.json();
-  const rows = Array.isArray(data) ? data : Object.entries(data);
-
-  rows.forEach(row => {
-    if (Array.isArray(row)) {
-      fantasy_team_logo_cache.by_team.set(String(row[0] || '').trim().toUpperCase(), String(row[1] || '').trim());
-      return;
-    }
-
-    const team = String(row.team || row.Team || row.code || row.abbr || '').trim().toUpperCase();
-    const logo_src = String(row.logo_src || row.logo || row.src || row.url || '').trim();
-
-    if (team && logo_src) {
-      fantasy_team_logo_cache.by_team.set(team, logo_src);
-    }
-  });
-
-  fantasy_team_logo_cache.loaded = true;
-  return fantasy_team_logo_cache.by_team;
-}
 /* ################# */
 function fantasy_team_logo_html(team) {
   const team_key = String(team || '').trim().toUpperCase();
   if (!team_key) return '';
 
-  const logo_src = fantasy_team_logo_cache.by_team.get(team_key);
-  if (!logo_src) return escape_html(team_key);
+  if (typeof team_logo_html === 'function') {
+    const html = String(team_logo_html(team_key) || '').trim();
+    if (html) return html;
+  }
 
-  return `
-    <img
-      class="fantasy_team_logo"
-      src="${escape_html(logo_src)}"
-      alt="${escape_html(team_key)}"
-      title="${escape_html(team_key)}"
-    >
-  `;
+  return escape_html(team_key);
 }
 /* ################# */
 function fantasy_qualifier_label() {
@@ -12029,7 +11989,6 @@ async function render_fantasy_page() {
     // await load_fantasy_scales();
     // const data = await load_fantasy_data(fantasy_state.year);
     await load_fantasy_scales();
-    await load_fantasy_team_logos();
     const data = await load_fantasy_data(fantasy_state.year);
     controls_root.innerHTML = fantasy_build_controls_html(data);
     fantasy_build_page_lookup();
