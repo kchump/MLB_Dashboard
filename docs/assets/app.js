@@ -44,6 +44,11 @@ function sidebar_clean_mlb_logo_team(team) {
     'JOURNEYMEN',
     'TOP 100 PROSPECTS',
     'TOP PROSPECTS',
+    'MLB',
+    'MILB',
+    'MINORS',
+    'MINOR LEAGUE',
+    'MINOR LEAGUES',
   ]);
 
   if (blocked_teams.has(team_key)) return '';
@@ -118,30 +123,56 @@ const team = sidebar_clean_mlb_logo_team(
     })[0][0];
 }
 /* ################# */
-function sidebar_mlb_team_for_wbc_link(wbc_link) {
-  return sidebar_mlb_team_for_link(wbc_link, ['wbc']);
+/* ################# */
+function sidebar_mlb_team_for_mapped_link(source_link, excluded_division_names = []) {
+  return sidebar_mlb_team_for_link(source_link, excluded_division_names);
 }
 /* ################# */
-function add_wbc_sidebar_player_logos(root) {
+function add_mapped_sidebar_player_logos(root, division_selector, excluded_division_names = [], logo_class = 'wbc_sidebar_player_logo') {
   const scope = root || document;
 
-  scope.querySelectorAll('.division_block[data-division="wbc"] .toc_link[data-person_key]').forEach(a => {
-    if (a.querySelector(':scope > .wbc_sidebar_player_logo')) return;
+  scope.querySelectorAll(`${division_selector} .toc_link[data-person_key]`).forEach(a => {
+    if (a.querySelector(`:scope > .${logo_class}`)) return;
 
-    const team = sidebar_mlb_team_for_wbc_link(a);
+    const team = sidebar_mlb_team_for_mapped_link(a, excluded_division_names);
     if (!team) return;
 
-    const logo_src = sidebar_team_logo_cache.by_team.get(team);
+    const logo_src = sidebar_team_logo_cache.by_team.get(team) || team_logo_src_for_code(team);
     if (!logo_src) return;
 
     const img = document.createElement('img');
-    img.className = 'wbc_sidebar_player_logo';
+    img.className = logo_class;
     img.src = logo_src;
     img.alt = team;
     img.title = team;
 
     a.insertBefore(img, a.firstChild);
   });
+}
+/* ################# */
+function add_wbc_sidebar_player_logos(root) {
+  add_mapped_sidebar_player_logos(
+    root,
+    '.division_block[data-division="wbc"]',
+    ['wbc'],
+    'wbc_sidebar_player_logo'
+  );
+}
+/* ################# */
+function add_top_prospect_sidebar_player_logos(root) {
+  add_mapped_sidebar_player_logos(
+    root,
+    '.division_block[data-division="top_100_prospects"]',
+    ['top_100_prospects', 'top_prospects'],
+    'wbc_sidebar_player_logo'
+  );
+
+  add_mapped_sidebar_player_logos(
+    root,
+    '.division_block[data-division="top_prospects"]',
+    ['top_100_prospects', 'top_prospects'],
+    'wbc_sidebar_player_logo'
+  );
 }
 /* ################# */
 function get_stored_people(storage_key) {
@@ -1862,6 +1893,7 @@ if (compare_sel.dataset.bound !== '1') {
 async function refresh_custom_player_lists_ui() {
   await load_sidebar_team_logos();
   add_wbc_sidebar_player_logos(document);
+  add_top_prospect_sidebar_player_logos(document);
 sync_mapped_sidebar_team_ribbon('.division_block[data-division="top_100_prospects"]', ['top_100_prospects', 'top_prospects']);
 sync_mapped_sidebar_team_ribbon('.division_block[data-division="top_prospects"]', ['top_100_prospects', 'top_prospects']);
 
@@ -2665,6 +2697,7 @@ async function load_page(file, page_id) {
   //TODO see if this breaks, this was to stop it from snapping to the top of the team ribbon
 await load_sidebar_team_logos();
 add_wbc_sidebar_player_logos(document);
+add_top_prospect_sidebar_player_logos(document);
 sync_mapped_sidebar_team_ribbon('.division_block[data-division="top_100_prospects"]', ['top_100_prospects', 'top_prospects']);
 sync_mapped_sidebar_team_ribbon('.division_block[data-division="top_prospects"]', ['top_100_prospects', 'top_prospects']);
 repaint_standard_stats_tables(content);
@@ -3558,6 +3591,9 @@ function get_column_header_for_text_node(text_node) {
 /* ################# */
 function replace_team_table_text_with_logo(text_node) {
   if (!text_node || !text_node.closest('g.table')) return false;
+
+  const header = get_column_header_for_text_node(text_node);
+  if (header !== 'team') return false;
 
   const team = String(text_node.textContent || '').trim().toUpperCase();
   if (!team || team === 'TEAM') return false;
@@ -4478,6 +4514,7 @@ if (toggle_sidebar_btn) {
   sync_clear_btn();
 load_sidebar_team_logos().then(() => {
   add_wbc_sidebar_player_logos(document);
+  add_top_prospect_sidebar_player_logos(document);
   sync_mapped_sidebar_team_ribbon('.division_block[data-division="top_100_prospects"]', ['top_100_prospects', 'top_prospects']);
   sync_mapped_sidebar_team_ribbon('.division_block[data-division="top_prospects"]', ['top_100_prospects', 'top_prospects']);
   refresh_custom_player_lists_ui();
