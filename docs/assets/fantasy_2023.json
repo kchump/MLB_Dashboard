@@ -3307,7 +3307,7 @@
         "prev_minors_year": "",
         "rAll": 6.44,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHC",
         "teams": "",
         "vSzn": -471.54,
@@ -3955,7 +3955,7 @@
         "prev_minors_year": "",
         "rAll": 47.19,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TEX",
         "teams": "",
         "vSzn": -310.47,
@@ -5179,7 +5179,7 @@
         "prev_minors_year": "",
         "rAll": -15.41,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SEA",
         "teams": "",
         "vSzn": -320.37,
@@ -11731,7 +11731,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "teams": "",
         "vSzn": "",
@@ -12379,7 +12379,7 @@
         "prev_minors_year": "",
         "rAll": -7.86,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "vSzn": -300.78,
@@ -23179,7 +23179,7 @@
         "prev_minors_year": "",
         "rAll": 30.96,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SF",
         "teams": "",
         "vSzn": -349.86,
@@ -64806,7 +64806,7 @@
         "prev_minors_year": "",
         "rAll": 34.3,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": -373.49,
@@ -75393,7 +75393,7 @@
         "prev_minors_year": "",
         "rAll": -45.13,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SD",
         "teams": "",
         "vSzn": -100.38,
@@ -79116,7 +79116,7 @@
         "prev_minors_year": "",
         "rAll": -14.11,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ARI",
         "teams": "",
         "vSzn": -278.01,
@@ -91800,7 +91800,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHC",
         "≥100": 0.18899999999999997
       },
@@ -92099,7 +92099,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SEA",
         "≥100": 0.34600000000000003
       },
@@ -93249,7 +93249,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "LAD",
         "≥100": 0.17300000000000001
       },
@@ -108554,7 +108554,7 @@
         "person_key": "ryne nelson",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ARI"
       },
       {
@@ -112081,7 +112081,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TOR",
         "teams": "",
         "≥100": 0.0
@@ -116323,7 +116323,7 @@
         "person_key": "ryne nelson",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ARI"
       },
       {
@@ -117858,7 +117858,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "CHC",
         "≥100": 0.071
       },
@@ -118111,7 +118111,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TEX",
         "≥100": 0.2
       },
@@ -118456,7 +118456,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SEA",
         "≥100": 0.0
       },
@@ -120871,7 +120871,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TOR",
         "≥100": 0.158
       },
@@ -124413,7 +124413,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "SF",
         "≥100": 1.0
       },
@@ -137508,7 +137508,7 @@
         "person_key": "drew smith",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM"
       },
       {
@@ -140933,7 +140933,7 @@
         "person_key": "ryne nelson",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "ARI"
       },
       {
