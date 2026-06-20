@@ -1593,7 +1593,41 @@ function compare_cell_html(cell, scales) {
     content = compare_team_cell_html(display);
   }
 
-  return `<td class='compare_stat_cell ${cls}'${style}>${content}</td>`;
+  return `<td class='compare_stat_cell ${cls}' data-fill-color='${escape_attr(fill)}' data-is-gold='${is_gold ? '1' : '0'}'${style}>${content}</td>`;
+}
+/* ################# */
+function refresh_compare_table_cell_theme(root) {
+  const scope = root || document;
+  const is_dark = document.body.classList.contains('soft_theme');
+
+  scope.querySelectorAll('.compare_stat_cell').forEach(td => {
+    const fill = String(td.dataset.fillColor || '').trim();
+    const is_gold = td.dataset.isGold === '1';
+
+    td.classList.toggle('compare_gold', is_gold);
+
+    if (is_gold) {
+      td.style.background = '';
+      td.style.color = '#000';
+      return;
+    }
+
+    const display_fill = compare_display_fill(fill, is_dark);
+
+    if (display_fill) {
+      td.style.background = display_fill;
+    } else {
+      td.style.removeProperty('background');
+    }
+
+    const text_fill = compare_cell_text_color(display_fill, is_gold, is_dark);
+
+    if (text_fill) {
+      td.style.color = text_fill;
+    } else {
+      td.style.removeProperty('color');
+    }
+  });
 }
 /* ################# */
 function compare_table_html(tbl, scales) {
@@ -1658,10 +1692,15 @@ function compare_player_card_html(player, scales) {
   const stats_tables = Array.isArray(player?.stats_tables) ? player.stats_tables : [];
   const panels = Array.isArray(player?.panels) ? player.panels : [];
   const photo_src = String(player?.photo_src || '').trim();
+  const page_id = String(player?.page_id || '').trim();
+
+  const name_html = page_id
+    ? `<a href='#${encodeURIComponent(page_id)}' class='compare_player_name_link' data-page='${escape_attr(page_id)}'>${escape_html(player?.name || '')}</a>`
+    : escape_html(player?.name || '');
 
   return `
     <div class='compare_player_card'>
-      <div class='compare_player_name'>${escape_html(player?.name || '')}</div>
+      <div class='compare_player_name'>${name_html}</div>
       ${photo_src ? `<img class='compare_player_photo' src='${escape_attr(photo_src)}' alt='${escape_attr(player?.name || '')}'>` : ''}
       <div class='compare_stats_block'>
         ${stats_tables.map(tbl => compare_table_html(tbl, scales)).join('')}
@@ -1735,6 +1774,21 @@ async function render_compare_page_from_hash() {
     </div>
   `;
 
+    content.querySelectorAll('.compare_player_name_link[data-page]').forEach(a => {
+    if (a.dataset.bound === '1') return;
+    a.dataset.bound = '1';
+
+    a.addEventListener('click', e => {
+      e.preventDefault();
+
+      const page = String(a.dataset.page || '').trim();
+      if (!page) return;
+
+      activate_page(page);
+    });
+  });
+  
+    refresh_compare_table_cell_theme(content);
   const back_btn = content.querySelector('.compare_back_btn');
   back_btn?.addEventListener('click', () => {
     const first_page = String(page_ids[0] || '').trim();
@@ -2656,6 +2710,10 @@ function set_soft_theme(enabled) {
   repaint_standard_stats_tables(document);
   requestAnimationFrame(() => repaint_standard_stats_tables(document));
   setTimeout(() => repaint_standard_stats_tables(document), 60);
+  
+    refresh_compare_table_cell_theme(document);
+  requestAnimationFrame(() => refresh_compare_table_cell_theme(document));
+  setTimeout(() => refresh_compare_table_cell_theme(document), 60);
 }
 /* ################# */
 function set_division_collapsed(div_id, collapsed) {
