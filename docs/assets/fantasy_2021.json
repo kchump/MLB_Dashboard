@@ -5755,7 +5755,7 @@
         "prev_minors_year": "",
         "rAll": 14.84,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TEX",
         "teams": "",
         "vSzn": -167.73,
@@ -10147,7 +10147,7 @@
         "prev_minors_year": "",
         "rAll": -2.49,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYY",
         "teams": "",
         "vSzn": -386.67,
@@ -34123,7 +34123,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "PIT",
         "teams": "",
         "vSzn": "",
@@ -42720,7 +42720,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "STL",
         "teams": "",
         "vSzn": "",
@@ -46808,7 +46808,7 @@
         "prev_minors_year": "",
         "rAll": 20.0,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "LAD",
         "teams": "",
         "vSzn": 508.34,
@@ -60386,7 +60386,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "SF",
         "teams": "",
         "vSzn": "",
@@ -91001,7 +91001,7 @@
         "person_key": "blake treinen",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "LAD"
       },
       {
@@ -94694,7 +94694,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB",
         "≥100": 0.5
       },
@@ -94901,7 +94901,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TEX",
         "≥100": 0.25
       },
@@ -95039,7 +95039,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MiLB",
         "≥100": 0.5
       },
@@ -96120,7 +96120,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "NYY",
         "≥100": 0.16699999999999998
       },
@@ -103641,7 +103641,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "PIT",
         "≥100": 0.41700000000000004
       },
@@ -105820,7 +105820,7 @@
         "person_key": "jordan hicks",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "STL"
       },
       {
@@ -106660,7 +106660,7 @@
         "person_key": "blake treinen",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "LAD"
       },
       {
