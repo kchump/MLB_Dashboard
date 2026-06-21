@@ -1088,12 +1088,16 @@ function compare_player_has_required_panels(player, is_minors) {
   if (!player) return false;
 
   const panels = Array.isArray(player?.panels) ? player.panels : [];
+  const stats_tables = Array.isArray(player?.stats_tables) ? player.stats_tables : [];
+
   const has_overall = panels.some(panel => compare_panel_title_matches(panel?.title, 'Overall'));
   const has_minors = panels.some(panel => compare_panel_title_matches(panel?.title, 'Minors'));
 
-  if (is_minors) return has_minors;
+  if (is_minors) {
+    return has_minors || has_overall || stats_tables.length > 0;
+  }
 
-  return has_overall;
+  return has_overall || stats_tables.length > 0;
 }
 /* ################# */
 async function active_compare_page_is_eligible(active, role_group) {

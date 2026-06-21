@@ -67397,7 +67397,7 @@
         "WHIP": 1.62,
         "name": "Mike Burrows",
         "person_key": "mike burrows",
-        "pitch_role": "",
+        "pitch_role": "FLEX",
         "prev_minors_year": "",
         "rAll": -6.6,
         "role": "sp",
@@ -77548,7 +77548,7 @@
         "prev_minors_year": "",
         "rAll": 31.65,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 4,
         "team": "IL15",
         "teams": "",
         "vSzn": -56.22,
@@ -139351,7 +139351,7 @@
         "WHIP": 1.0754716981132075,
         "name": "Mike Burrows",
         "person_key": "mike burrows",
-        "pitch_role": "",
+        "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 0,
         "team": "HOU"
@@ -142860,7 +142860,7 @@
         "person_key": "ryne nelson",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 4,
         "team": "IL15"
       },
       {
