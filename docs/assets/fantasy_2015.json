@@ -355,7 +355,7 @@
         "prev_minors_year": "",
         "rAll": -9.98,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "vSzn": -171.87,
@@ -60453,7 +60453,7 @@
         "prev_minors_year": "",
         "rAll": -28.51,
         "role": "sp",
-        "sort_bucket": 4,
+        "sort_bucket": 0,
         "team": "SEA",
         "teams": "",
         "vSzn": 53.91,
@@ -75865,7 +75865,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "≥100": 0.429
@@ -80650,7 +80650,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CHC",
         "≥100": 0.0
       },
@@ -91344,7 +91344,7 @@
         "person_key": "taijuan walker",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 4,
+        "sort_bucket": 0,
         "team": "SEA"
       },
       {
