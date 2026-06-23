@@ -28147,7 +28147,7 @@
         "prev_minors_year": "",
         "rAll": -40.97,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "CHC,TB",
         "vSzn": -282.63,
@@ -59974,7 +59974,7 @@
         "prev_minors_year": "",
         "rAll": -32.08,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL",
         "teams": "",
         "vSzn": -679.97,
@@ -89687,7 +89687,7 @@
         "prev_minors_year": "",
         "rAll": -31.91,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 4,
         "team": "PHI",
         "teams": "",
         "vSzn": -939.23,
@@ -103245,7 +103245,7 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.261
       },
@@ -105391,7 +105391,7 @@
         "person_key": "blas castano",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "MiLB"
       },
       {
@@ -115095,7 +115095,7 @@
         "person_key": "taijuan walker",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 4,
         "team": "PHI"
       },
       {
@@ -116716,6 +116716,48 @@
         "team": "MiLB"
       },
       {
+        "All": -8.15,
+        "BB%": 0.174,
+        "Con": 67.05,
+        "Days +/-": -0.4027777777777778,
+        "Disc": -4.43,
+        "IP": 14.0,
+        "K": 19.0,
+        "K%": 0.275,
+        "Stf": 18.01,
+        "Strike%": 0.5589999999999999,
+        "SwStr%": 0.10400000000000001,
+        "Velo": 95.8,
+        "WHIP": 1.8571428571428572,
+        "name": "Carlos Lagrange",
+        "person_key": "carlos lagrange",
+        "pitch_role": "FLEX",
+        "role": "sp",
+        "sort_bucket": 3,
+        "team": "NYY"
+      },
+      {
+        "All": 16.71,
+        "BB%": 0.07400000000000001,
+        "Con": 58.74,
+        "Days +/-": 0.11623036649214619,
+        "Disc": 11.78,
+        "IP": 70.1,
+        "K": 73.0,
+        "K%": 0.285,
+        "Stf": 16.65,
+        "Strike%": 0.642,
+        "SwStr%": 0.161,
+        "Velo": 92.3,
+        "WHIP": 1.109004739336493,
+        "name": "Jack Wenninger",
+        "person_key": "jack wenninger",
+        "pitch_role": "FLEX",
+        "role": "sp",
+        "sort_bucket": 3,
+        "team": "NYM"
+      },
+      {
         "All": -5.11,
         "BB%": 0.087,
         "Con": 37.06,
@@ -116797,27 +116839,6 @@
         "pitch_role": "SP",
         "role": "sp",
         "sort_bucket": 3,
-        "team": "TOR"
-      },
-      {
-        "All": -1.26,
-        "BB%": 0.071,
-        "Con": 51.63,
-        "Days +/-": 0.2797029702970293,
-        "Disc": 1.35,
-        "IP": 73.0,
-        "K": 69.0,
-        "K%": 0.226,
-        "Stf": -13.18,
-        "Strike%": 0.6509999999999999,
-        "SwStr%": 0.107,
-        "Velo": 90.77000000000001,
-        "WHIP": 1.2465753424657535,
-        "name": "Grant Rogers",
-        "person_key": "grant rogers",
-        "pitch_role": "SP",
-        "role": "sp",
-        "sort_bucket": 1,
         "team": "TOR"
       }
     ]
@@ -131374,7 +131395,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "≥100": 0.5
       },
@@ -135767,7 +135788,7 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.0
       },
@@ -137516,7 +137537,7 @@
         "person_key": "blas castano",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 2,
         "team": "MiLB"
       },
       {
@@ -140645,7 +140666,7 @@
         "person_key": "justin lawrence",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL"
       },
       {
@@ -147199,7 +147220,7 @@
         "person_key": "taijuan walker",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 4,
         "team": "PHI"
       },
       {

@@ -30811,7 +30811,7 @@
         "prev_minors_year": "",
         "rAll": 19.02,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "TEX",
         "teams": "",
         "vSzn": 97.47,
@@ -71852,7 +71852,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 4,
         "team": "ARI",
         "teams": "",
         "vSzn": "",
@@ -96875,7 +96875,7 @@
         "person_key": "justin lawrence",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB"
       },
       {

@@ -32467,7 +32467,7 @@
         "prev_minors_year": "",
         "rAll": -13.78,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TEX",
         "teams": "",
         "vSzn": -245.67,
@@ -49071,7 +49071,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL",
         "teams": "",
         "vSzn": "",
@@ -77470,7 +77470,7 @@
         "prev_minors_year": "",
         "rAll": -44.76,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 4,
         "team": "NYM",
         "teams": "",
         "vSzn": -505.14,
@@ -103158,7 +103158,7 @@
         "pos": "1B",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "TEX",
         "≥100": 0.5
       },
@@ -107017,7 +107017,7 @@
         "person_key": "justin lawrence",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL"
       },
       {
@@ -112836,7 +112836,7 @@
         "person_key": "taijuan walker",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 4,
         "team": "NYM"
       },
       {
