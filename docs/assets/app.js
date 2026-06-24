@@ -1063,18 +1063,11 @@ function compare_link_is_minors(a, fantasy_row = null, compare_player = null) {
   const team = String(fantasy_row?.team || '').trim().toUpperCase();
   const link_text = get_clean_compare_link_text(a).toLowerCase();
   const division = String(a?.closest?.('.division_block')?.dataset?.division || '').trim().toLowerCase();
-  const panels = Array.isArray(compare_player?.panels) ? compare_player.panels : [];
-
-  const has_minors_panel = panels.some(panel => {
-    const title = String(panel?.title || '').trim().toLowerCase();
-    return title === 'minors' || title.startsWith('minors ');
-  });
 
   return team === 'MILB' ||
     String(a?.dataset?.is_minors || '') === '1' ||
     link_text.includes(' minors') ||
-    division.includes('prospect') ||
-    has_minors_panel;
+    division.includes('prospect');
 }
 /* ################# */
 function compare_panel_title_matches(title, label) {
@@ -1093,11 +1086,7 @@ function compare_player_has_required_panels(player, is_minors) {
   const has_overall = panels.some(panel => compare_panel_title_matches(panel?.title, 'Overall'));
   const has_minors = panels.some(panel => compare_panel_title_matches(panel?.title, 'Minors'));
 
-  if (is_minors) {
-    return has_minors || has_overall || stats_tables.length > 0;
-  }
-
-  return has_overall || stats_tables.length > 0;
+  return has_overall || has_minors || stats_tables.length > 0;
 }
 /* ################# */
 async function active_compare_page_is_eligible(active, role_group) {

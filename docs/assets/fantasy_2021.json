@@ -1507,7 +1507,7 @@
         "prev_minors_year": "",
         "rAll": 15.7,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL",
         "teams": "",
         "vSzn": -676.23,
@@ -1939,7 +1939,7 @@
         "prev_minors_year": "",
         "rAll": -19.52,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TB",
         "teams": "",
         "vSzn": -75.09,
@@ -4459,7 +4459,7 @@
         "prev_minors_year": "",
         "rAll": -4.77,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": -166.29,
@@ -11947,7 +11947,7 @@
         "prev_minors_year": "",
         "rAll": -24.32,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA",
         "teams": "",
         "vSzn": -598.14,
@@ -33259,7 +33259,7 @@
         "prev_minors_year": "",
         "rAll": 40.09,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL",
         "teams": "",
         "vSzn": 166.29,
@@ -68635,7 +68635,7 @@
         "prev_minors_year": "",
         "rAll": -46.79,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "WAS",
         "teams": "",
         "vSzn": -537.47,
@@ -73674,7 +73674,7 @@
         "prev_minors_year": "",
         "rAll": -8.28,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": 345.99,
@@ -77908,7 +77908,7 @@
         "prev_minors_year": "",
         "rAll": 35.24,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW",
         "teams": "",
         "vSzn": 390.81,
@@ -88305,7 +88305,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TB",
         "teams": "",
         "≥100": 0.455
@@ -92663,7 +92663,7 @@
         "person_key": "lucas giolito",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW"
       },
       {
@@ -93452,7 +93452,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "BAL",
         "≥100": 0.667
       },
@@ -93567,7 +93567,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TB",
         "≥100": 0.6
       },
@@ -94395,7 +94395,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ARI",
         "≥100": 0.419
       },
@@ -103411,7 +103411,7 @@
         "pos": "OF",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "COL",
         "≥100": 0.28600000000000003
       },
@@ -107605,7 +107605,7 @@
         "person_key": "jackson rutledge",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB"
       },
       {
@@ -111175,7 +111175,7 @@
         "person_key": "austin voth",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "WAS"
       },
       {
@@ -112920,7 +112920,7 @@
         "person_key": "lucas giolito",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW"
       },
       {

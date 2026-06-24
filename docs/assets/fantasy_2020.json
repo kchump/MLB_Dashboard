@@ -1435,7 +1435,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TB",
         "teams": "",
         "vSzn": "",
@@ -3235,7 +3235,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ARI",
         "teams": "",
         "vSzn": "",
@@ -9787,7 +9787,7 @@
         "prev_minors_year": "",
         "rAll": 11.47,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "LAA",
         "teams": "",
         "vSzn": -767.22,
@@ -60514,7 +60514,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "WAS",
         "teams": "",
         "vSzn": "",
@@ -64458,7 +64458,7 @@
         "prev_minors_year": "",
         "rAll": 33.34,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": 883.08,
@@ -68035,7 +68035,7 @@
         "prev_minors_year": "",
         "rAll": 60.69,
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW",
         "teams": "",
         "vSzn": 614.13,
@@ -77776,7 +77776,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "TB",
         "teams": "",
         "≥100": 0.483
@@ -84186,7 +84186,7 @@
         "person_key": "shane bieber",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {
@@ -84546,7 +84546,7 @@
         "person_key": "lucas giolito",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CHW"
       },
       {
@@ -85485,7 +85485,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.0
       },
@@ -86129,7 +86129,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "ARI",
         "≥100": 0.25
       },
@@ -100237,7 +100237,7 @@
         "person_key": "austin voth",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "WAS"
       },
       {
