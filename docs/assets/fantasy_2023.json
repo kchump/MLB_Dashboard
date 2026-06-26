@@ -3811,7 +3811,7 @@
         "prev_minors_year": "",
         "rAll": -22.47,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TEX",
         "teams": "",
         "vSzn": 824.79,
@@ -23539,7 +23539,7 @@
         "prev_minors_year": "",
         "rAll": 12.57,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TEX",
         "teams": "",
         "vSzn": 426.36,
@@ -24763,7 +24763,7 @@
         "prev_minors_year": "",
         "rAll": -23.25,
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": -426.81,
@@ -54367,7 +54367,7 @@
         "prev_minors_year": "",
         "rAll": -12.42,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "COL",
         "teams": "",
         "vSzn": -343.0,
@@ -54732,7 +54732,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CIN",
         "teams": "",
         "vSzn": "",
@@ -56411,7 +56411,7 @@
         "prev_minors_year": "",
         "rAll": -4.87,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL",
         "teams": "",
         "vSzn": -215.52,
@@ -81306,7 +81306,7 @@
         "prev_minors_year": "",
         "rAll": -10.2,
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "DET",
         "teams": "",
         "vSzn": -179.61,
@@ -86045,13 +86045,13 @@
         "Velo": 94.05,
         "W": 4.0,
         "WHIP": 1.35,
-        "name": "Vince Velazquez",
-        "person_key": "vince velazquez",
+        "name": "Vince Velasquez",
+        "person_key": "vince velasquez",
         "pitch_role": "SP",
         "prev_minors_year": "",
         "rAll": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHC",
         "teams": "",
         "vSzn": -71.55,
@@ -95323,7 +95323,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB",
         "≥100": 0.151
       },
@@ -95714,7 +95714,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "NYM",
         "≥100": 0.31
       },
@@ -100981,7 +100981,7 @@
         "person_key": "tyler ferguson",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -103102,7 +103102,7 @@
         "person_key": "gavin hollowell",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "COL"
       },
       {
@@ -103207,7 +103207,7 @@
         "person_key": "tony santillan",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "CIN"
       },
       {
@@ -111575,7 +111575,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TEX",
         "teams": "",
         "≥100": 0.37
@@ -113231,7 +113231,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TEX",
         "teams": "",
         "≥100": 0.109
@@ -118159,7 +118159,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "TEX",
         "≥100": 0.625
       },
@@ -124438,7 +124438,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB",
         "≥100": 0.33299999999999996
       },
@@ -124645,7 +124645,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "TEX",
         "≥100": 0.5
       },
@@ -124921,7 +124921,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "NYM",
         "≥100": 0.33299999999999996
       },
@@ -132541,7 +132541,7 @@
         "person_key": "tyler ferguson",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -135061,7 +135061,7 @@
         "person_key": "gavin hollowell",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "COL"
       },
       {
@@ -135481,7 +135481,7 @@
         "person_key": "justin lawrence",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "COL"
       },
       {
@@ -141468,7 +141468,7 @@
         "person_key": "matthew boyd",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "DET"
       },
       {
@@ -142808,11 +142808,11 @@
         "SwStr%": 0.193,
         "Velo": 93.47,
         "WHIP": 1.2,
-        "name": "Vince Velazquez",
-        "person_key": "vince velazquez",
+        "name": "Vince Velasquez",
+        "person_key": "vince velasquez",
         "pitch_role": "SP",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CHC"
       },
       {
