@@ -3451,7 +3451,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "ARI",
         "teams": "",
         "vSzn": "",
@@ -8059,7 +8059,7 @@
         "prev_minors_year": "",
         "rAll": 12.26,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "KC",
         "teams": "",
         "vSzn": -33.21,
@@ -14611,7 +14611,7 @@
         "prev_minors_year": "",
         "rAll": -27.38,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIL",
         "teams": "",
         "vSzn": -260.91,
@@ -16411,7 +16411,7 @@
         "prev_minors_year": "",
         "rAll": 25.7,
         "role": "batters",
-        "sort_bucket": 5,
+        "sort_bucket": 0,
         "team": "MIN",
         "teams": "",
         "vSzn": 219.93,
@@ -47756,7 +47756,7 @@
         "prev_minors_year": "",
         "rAll": 27.5,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -",
         "teams": "CLE,HOU",
         "vSzn": -136.73,
@@ -68707,7 +68707,7 @@
         "prev_minors_year": "",
         "rAll": -46.79,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "WAS",
         "teams": "",
         "vSzn": -537.47,
@@ -76520,7 +76520,7 @@
         "prev_minors_year": "",
         "rAll": -0.54,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": -278.07,
@@ -77031,7 +77031,7 @@
         "prev_minors_year": "",
         "rAll": -25.94,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": -442.47,
@@ -91206,7 +91206,7 @@
         "person_key": "phil maton",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "- - -"
       },
       {
@@ -94195,7 +94195,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "ARI",
         "≥100": 0.14300000000000002
       },
@@ -95736,7 +95736,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "KC",
         "≥100": ""
       },
@@ -98013,7 +98013,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 5,
+        "sort_bucket": 4,
         "team": "MiLB",
         "≥100": 0.2
       },
@@ -98220,7 +98220,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 5,
+        "sort_bucket": 0,
         "team": "MIN",
         "≥100": 0.304
       },
@@ -107710,7 +107710,7 @@
         "person_key": "gus varland",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -111343,7 +111343,7 @@
         "person_key": "austin voth",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "WAS"
       },
       {
@@ -111870,7 +111870,7 @@
         "person_key": "simeon woods richardson",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MiLB"
       },
       {
@@ -112857,7 +112857,7 @@
         "person_key": "david peterson",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM"
       },
       {

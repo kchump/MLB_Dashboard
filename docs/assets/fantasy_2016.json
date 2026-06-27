@@ -2443,7 +2443,7 @@
         "prev_minors_year": "",
         "rAll": 40.91,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": 534.87,
@@ -4963,7 +4963,7 @@
         "prev_minors_year": "",
         "rAll": 23.44,
         "role": "batters",
-        "sort_bucket": 5,
+        "sort_bucket": 0,
         "team": "MIN",
         "teams": "",
         "vSzn": -59.76,
@@ -63995,7 +63995,7 @@
         "prev_minors_year": "",
         "rAll": 10.22,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "vSzn": 265.8,
@@ -80208,7 +80208,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "teams": "",
         "≥100": 0.244
@@ -85176,7 +85176,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE",
         "≥100": 0.188
       },
@@ -96871,7 +96871,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "CLE"
       },
       {

@@ -4963,7 +4963,7 @@
         "prev_minors_year": "",
         "rAll": -1.2,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "teams": "CIN,SF,SEA",
         "vSzn": -516.24,
@@ -11083,7 +11083,7 @@
         "prev_minors_year": "",
         "rAll": 14.32,
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "KC,SEA",
         "vSzn": 82.98,
@@ -19219,7 +19219,7 @@
         "prev_minors_year": "",
         "rAll": -22.95,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIL",
         "teams": "",
         "vSzn": -222.06,
@@ -19507,7 +19507,7 @@
         "prev_minors_year": "",
         "rAll": -0.04,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "KC",
         "teams": "",
         "vSzn": -20.55,
@@ -21307,7 +21307,7 @@
         "prev_minors_year": "",
         "rAll": 1.89,
         "role": "batters",
-        "sort_bucket": 5,
+        "sort_bucket": 0,
         "team": "MIN",
         "teams": "",
         "vSzn": -22.71,
@@ -50659,7 +50659,7 @@
         "prev_minors_year": "",
         "rAll": 47.8,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "HOU",
         "teams": "",
         "vSzn": -63.61,
@@ -51827,7 +51827,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ATH",
         "teams": "",
         "vSzn": -679.59,
@@ -52995,7 +52995,7 @@
         "prev_minors_year": "",
         "rAll": 37.51,
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD",
         "teams": "",
         "vSzn": 17.44,
@@ -69055,7 +69055,7 @@
         "prev_minors_year": "",
         "rAll": -1.03,
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "BAL,WAS",
         "vSzn": -362.95,
@@ -72561,7 +72561,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MIN",
         "teams": "",
         "vSzn": "",
@@ -75335,7 +75335,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "sp",
-        "sort_bucket": 4,
+        "sort_bucket": 2,
         "team": "ARI",
         "teams": "",
         "vSzn": "",
@@ -78328,7 +78328,7 @@
         "prev_minors_year": "",
         "rAll": -16.46,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": 16.65,
@@ -78985,7 +78985,7 @@
         "prev_minors_year": "",
         "rAll": 6.91,
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM",
         "teams": "",
         "vSzn": -216.06,
@@ -88476,7 +88476,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "- - -",
         "≥100": 0.061
       },
@@ -88959,7 +88959,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "MiLB",
         "≥100": 0.11900000000000001
       },
@@ -91372,7 +91372,7 @@
         "person_key": "zak kent",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 3,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -91750,7 +91750,7 @@
         "person_key": "jared koenig",
         "pitch_role": "FLEX",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "ATH"
       },
       {
@@ -91918,7 +91918,7 @@
         "person_key": "robert suarez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD"
       },
       {
@@ -93873,7 +93873,7 @@
         "person_key": "ryne nelson",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 4,
+        "sort_bucket": 2,
         "team": "ARI"
       },
       {
@@ -96044,7 +96044,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "- - -",
         "teams": "KC,SEA",
         "≥100": 0.35700000000000004
@@ -98648,7 +98648,7 @@
         "person_key": "robert suarez",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "SD"
       },
       {
@@ -100190,7 +100190,7 @@
         "person_key": "david peterson",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM"
       },
       {
@@ -105400,7 +105400,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "MIL",
         "≥100": 0.0
       },
@@ -105975,7 +105975,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 5,
+        "sort_bucket": 0,
         "team": "MIN",
         "≥100": 0.263
       },
@@ -111704,7 +111704,7 @@
         "person_key": "mitch spence",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "MiLB"
       },
       {
@@ -112754,7 +112754,7 @@
         "person_key": "phil maton",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "HOU"
       },
       {
@@ -116683,7 +116683,7 @@
         "person_key": "simeon woods richardson",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "team": "MIN"
       },
       {
@@ -117271,7 +117271,7 @@
         "person_key": "ryne nelson",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 4,
+        "sort_bucket": 2,
         "team": "ARI"
       },
       {
@@ -117775,7 +117775,7 @@
         "person_key": "carlos carrasco",
         "pitch_role": "",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM"
       },
       {
@@ -117922,7 +117922,7 @@
         "person_key": "david peterson",
         "pitch_role": "FLEX",
         "role": "sp",
-        "sort_bucket": 1,
+        "sort_bucket": 0,
         "team": "NYM"
       },
       {

@@ -992,15 +992,23 @@ function compare_fantasy_rows_for_role(data, role_group) {
   if (!data || !section) return [];
 
   const rows = [];
+  const allowed_scopes = ['majors', 'minors'];
 
-  for (const scope_val of Object.values(data)) {
-    if (!scope_val || typeof scope_val !== 'object') continue;
+  allowed_scopes.forEach(scope_name => {
+    const scope_val = data[scope_name];
+    if (!scope_val || typeof scope_val !== 'object') return;
 
-    const section_rows = scope_val[section];
-    if (!Array.isArray(section_rows)) continue;
+    if (Array.isArray(scope_val[section])) {
+      scope_val[section].forEach(row => rows.push(row));
+    }
 
-    section_rows.forEach(row => rows.push(row));
-  }
+    if (scope_name === 'minors' && (section === 'sp' || section === 'rp')) {
+      ['pitchers', section === 'sp' ? 'rp' : 'sp'].forEach(fallback_section => {
+        if (!Array.isArray(scope_val[fallback_section])) return;
+        scope_val[fallback_section].forEach(row => rows.push(row));
+      });
+    }
+  });
 
   return rows;
 }
