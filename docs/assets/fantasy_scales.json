@@ -1300,7 +1300,7 @@
     "majors|rp|PPG": {
       "best": 23,
       "fmt": "num",
-      "gold": 25,
+      "gold": 24,
       "neutral_hi": 17,
       "neutral_lo": 15,
       "worst": 10
@@ -2123,7 +2123,7 @@
     "majors|sp|PPG": {
       "best": 23,
       "fmt": "num",
-      "gold": 25,
+      "gold": 24,
       "neutral_hi": 17,
       "neutral_lo": 15,
       "worst": 10

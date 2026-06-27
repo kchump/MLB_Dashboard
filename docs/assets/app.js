@@ -1088,6 +1088,8 @@ function compare_panel_title_matches(title, label) {
 function compare_player_has_required_panels(player, is_minors) {
   if (!player) return false;
 
+  if (player.compare_eligible === false) return false;
+
   const panels = Array.isArray(player?.panels) ? player.panels : [];
   const stats_tables = Array.isArray(player?.stats_tables) ? player.stats_tables : [];
 
