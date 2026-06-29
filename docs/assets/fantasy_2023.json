@@ -17275,7 +17275,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ARI",
         "teams": "",
         "vSzn": "",
@@ -94242,7 +94242,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ARI",
         "≥100": 0.18899999999999997
       },
@@ -122644,7 +122644,7 @@
         "pos": "",
         "pos2": "",
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "ARI",
         "≥100": 0.455
       },
