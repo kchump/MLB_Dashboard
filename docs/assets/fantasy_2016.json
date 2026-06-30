@@ -715,7 +715,7 @@
         "prev_minors_year": "",
         "rAll": 12.68,
         "role": "batters",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "NYY",
         "teams": "",
         "vSzn": -328.5,
@@ -2875,7 +2875,7 @@
         "prev_minors_year": "",
         "rAll": -35.1,
         "role": "batters",
-        "sort_bucket": 2,
+        "sort_bucket": 0,
         "team": "HOU",
         "teams": "",
         "vSzn": -565.23,
@@ -41071,7 +41071,7 @@
         "prev_minors_year": "",
         "rAll": "",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS",
         "teams": "",
         "vSzn": -28.02,
@@ -82916,7 +82916,7 @@
         "person_key": "joe ross",
         "pitch_role": "SP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS"
       },
       {
@@ -92753,7 +92753,7 @@
         "person_key": "anthony banda",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB"
       },
       {
@@ -92963,7 +92963,7 @@
         "person_key": "emilio pagan",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 1,
         "team": "MiLB"
       },
       {
@@ -93047,7 +93047,7 @@
         "person_key": "joe ross",
         "pitch_role": "SP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 1,
         "team": "WAS"
       },
       {
