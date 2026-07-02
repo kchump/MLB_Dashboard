@@ -268,14 +268,23 @@ function bind_toc_link_clicks(scope) {
     if (a.dataset.click_bound === '1') return;
     a.dataset.click_bound = '1';
 
-    const page_id = a.dataset.page;
-    const file = a.dataset.file;
-    if (!page_id || !file) return;
+  const page_id = a.dataset.page;
+  const file = a.dataset.file;
+  if (!page_id) return;
 
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      activate_page(page_id);
-    });
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (page_id === 'trade') {
+      window.location.hash = '#trade';
+      render_trade_page_from_hash();
+      return;
+    }
+
+    if (!file) return;
+
+    activate_page(page_id);
+  });
   });
 }
 /* ################# */
@@ -1578,12 +1587,14 @@ function compare_cell_html(cell, scales) {
   const style_parts = [];
 
   const display_fill = compare_display_fill(fill, is_dark);
+  const fallback_fill = is_dark ? '#3b424b' : '#ebf0f8';
+  const final_fill = display_fill || fallback_fill;
 
-  if (!is_gold && display_fill) {
-    style_parts.push(`background:${escape_attr(display_fill)}`);
+  if (!is_gold && final_fill) {
+    style_parts.push(`background:${escape_attr(final_fill)}`);
   }
 
-  const text_fill = compare_cell_text_color(display_fill, is_gold, is_dark);
+    const text_fill = compare_cell_text_color(final_fill, is_gold, is_dark);
   if (text_fill) {
     style_parts.push(`color:${text_fill}`);
   }
@@ -1616,14 +1627,12 @@ function refresh_compare_table_cell_theme(root) {
     }
 
     const display_fill = compare_display_fill(fill, is_dark);
+    const fallback_fill = is_dark ? '#3b424b' : '#ebf0f8';
+    const final_fill = display_fill || fallback_fill;
 
-    if (display_fill) {
-      td.style.background = display_fill;
-    } else {
-      td.style.removeProperty('background');
-    }
+    td.style.background = final_fill;
 
-    const text_fill = compare_cell_text_color(display_fill, is_gold, is_dark);
+    const text_fill = compare_cell_text_color(final_fill, is_gold, is_dark);
 
     if (text_fill) {
       td.style.color = text_fill;
@@ -1713,6 +1722,442 @@ function compare_player_card_html(player, scales) {
       </div>
     </div>
   `;
+}
+/* ################# */
+function trade_hash_for_state(state) {
+  const side_count = Math.min(3, Math.max(2, Number(state?.side_count || 2)));
+  const raw_counts = Array.isArray(state?.player_counts) ? state.player_counts : [];
+
+  const player_counts = Array.from({ length: side_count }, (_, i) => {
+    const n = Number(raw_counts[i] || 1);
+    return Math.min(5, Math.max(1, Number.isFinite(n) ? n : 1));
+  });
+
+  const sides = Array.from({ length: side_count }, (_, i) => {
+    return (state?.sides?.[i] || [])
+      .map(x => String(x || '').trim())
+      .filter(Boolean)
+      .slice(0, player_counts[i])
+      .join(',');
+  }).join(';');
+
+  const params = new URLSearchParams();
+  params.set('side_count', String(side_count));
+  params.set('counts', player_counts.join(','));
+  params.set('sides', sides);
+
+  return '#trade?' + params.toString();
+}
+/* ################# */
+function parse_trade_hash_state() {
+  const raw = String(window.location.hash || '');
+  const q = raw.includes('?') ? raw.slice(raw.indexOf('?') + 1) : '';
+  const params = new URLSearchParams(q);
+
+  const sides_raw = String(params.get('sides') || '').trim();
+  const parsed_sides = sides_raw
+    ? sides_raw
+      .split(';')
+      .map(side => side.split(',').map(x => String(x || '').trim()).filter(Boolean))
+    : [];
+
+  const raw_side_count = Number(params.get('side_count') || parsed_sides.length || 2);
+  const side_count = Math.min(3, Math.max(2, Number.isFinite(raw_side_count) ? raw_side_count : 2));
+
+  const count_parts = String(params.get('counts') || '')
+    .split(',')
+    .map(x => Number(x));
+
+  const player_counts = Array.from({ length: side_count }, (_, i) => {
+    const n = count_parts[i];
+    return Math.min(5, Math.max(1, Number.isFinite(n) ? n : 1));
+  });
+
+  const sides = Array.from({ length: side_count }, (_, i) => {
+    return (parsed_sides[i] || []).slice(0, player_counts[i]);
+  });
+
+  return {
+    side_count,
+    player_counts,
+    sides,
+  };
+}
+/* ################# */
+function trade_role_label(role_group) {
+  if (role_group === 'rotation') return 'Starters';
+  if (role_group === 'bullpen') return 'Relievers';
+  if (role_group === 'lineup') return 'Hitters';
+  return 'Players';
+}
+/* ################# */
+function trade_player_type_from_payload_player(player) {
+  const role_group = String(player?.role_group || '').trim().toLowerCase();
+
+  if (role_group === 'rotation') return 'rotation';
+  if (role_group === 'bullpen') return 'bullpen';
+  if (role_group === 'lineup') return 'lineup';
+
+  return '';
+}
+/* ################# */
+function x_team_sort(team) {
+  const t = String(team || '').trim().toUpperCase();
+  if (t === 'MILB') return 'ZZZ_MILB';
+  if (t === 'OTHER') return 'ZZZ_OTHER';
+  return t;
+}
+/* ################# */
+function trade_team_for_candidate(page, player) {
+  const team = String(player?.team || '').trim().toUpperCase();
+  if (team && team !== 'MILB') return team;
+
+  const parts = String(page || '').split('-');
+  const page_team = String(parts[0] || '').trim().toUpperCase();
+
+  return page_team || 'Other';
+}
+/* ################# */
+function trade_candidates_from_payload(players_lookup) {
+  return Object.entries(players_lookup || {})
+    .map(([page, player]) => ({
+      page,
+      player,
+      name: String(player?.name || page).trim(),
+      role_group: trade_player_type_from_payload_player(player),
+      team: trade_team_for_candidate(page, player),
+    }))
+    .filter(x => x.page && x.name && x.role_group)
+    .filter(x => compare_player_has_required_panels(x.player, false))
+    .sort((a, b) => {
+      const team_cmp = x_team_sort(a.team).localeCompare(x_team_sort(b.team));
+      if (team_cmp !== 0) return team_cmp;
+
+      const role_cmp = trade_role_label(a.role_group).localeCompare(trade_role_label(b.role_group));
+      if (role_cmp !== 0) return role_cmp;
+
+      return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+    });
+}
+/* ################# */
+function trade_side_total_html(side_players) {
+  let pts = 0;
+  let score = 0;
+  let pts_n = 0;
+  let score_n = 0;
+
+  side_players.forEach(player => {
+    const tables = Array.isArray(player?.stats_tables) ? player.stats_tables : [];
+
+    tables.forEach(tbl => {
+      const headers = Array.isArray(tbl?.headers) ? tbl.headers : [];
+      const cells = Array.isArray(tbl?.cells) ? tbl.cells : [];
+
+      headers.forEach((h, i) => {
+        const key = String(h || '').trim();
+        const val = Number(cells[i]?.value);
+
+        if (!Number.isFinite(val)) return;
+
+        if (key === 'Pts') {
+          pts += val;
+          pts_n += 1;
+        }
+
+        if (key === 'Score') {
+          score += val;
+          score_n += 1;
+        }
+      });
+    });
+  });
+
+  const pts_text = pts_n ? pts.toFixed(1) : '—';
+  const score_text = score_n ? score.toFixed(1) : '—';
+
+  return `
+    <div class='trade_side_total'>
+      <span>Pts: <b>${escape_html(pts_text)}</b></span>
+      <span>Score: <b>${escape_html(score_text)}</b></span>
+    </div>
+  `;
+}
+/* ################# */
+function trade_select_html(side_i, slot_i, selected_page, candidates) {
+  const selected_player = candidates.find(x => x.page === selected_page);
+  const selected_role = selected_player?.role_group || 'lineup';
+
+  const type_options = [
+    ['lineup', 'Hitters'],
+    ['rotation', 'Starters'],
+    ['bullpen', 'Relievers'],
+  ];
+
+  const grouped = new Map();
+
+  candidates
+    .filter(x => x.role_group === selected_role)
+    .forEach(x => {
+      const team = String(x.team || 'Other').trim().toUpperCase();
+      if (!grouped.has(team)) grouped.set(team, []);
+      grouped.get(team).push(x);
+    });
+
+  const player_options = Array.from(grouped.entries())
+    .sort((a, b) => x_team_sort(a[0]).localeCompare(x_team_sort(b[0])))
+    .map(([team, players]) => {
+      const opts = players
+        .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+        .map(x => `<option value='${escape_attr(x.page)}'${x.page === selected_page ? ' selected' : ''}>${escape_html(x.name)}</option>`)
+        .join('');
+
+      return `<optgroup label='${escape_attr(team)} — ${escape_attr(trade_role_label(selected_role))}'>${opts}</optgroup>`;
+    })
+    .join('');
+
+  return `
+    <div class='trade_slot_controls' data-side='${side_i}' data-slot='${slot_i}'>
+      <select class='trade_type_select'>
+        ${type_options.map(([value, label]) => `<option value='${value}'${value === selected_role ? ' selected' : ''}>${label}</option>`).join('')}
+      </select>
+      <select class='trade_player_select'>
+        <option value=''>Select Player</option>
+        ${player_options}
+      </select>
+    </div>
+  `;
+}
+/* ################# */
+function trade_side_html(side_i, side_pages, candidates, players_lookup, scales, player_count) {
+  const side_players = side_pages
+    .slice(0, player_count)
+    .map(page => compare_lookup_player_from_payload(players_lookup, page))
+    .filter(Boolean);
+
+  const controls = Array.from({ length: player_count }, (_, slot_i) => {
+    return trade_select_html(side_i, slot_i, side_pages[slot_i] || '', candidates);
+  }).join('');
+
+  const side_label = side_i === 0 ? 'Team A' : side_i === 1 ? 'Team B' : 'Team C';
+
+  return `
+    <div class='trade_side' data-trade-side='${side_i}'>
+      <div class='trade_side_header'>
+        <div class='trade_side_title'>${side_label}</div>
+      </div>
+      <div class='trade_controls_grid'>
+        ${controls}
+      </div>
+      <div class='trade_cards'>
+        ${side_players.map(player => compare_player_card_html(player, scales)).join('')}
+      </div>
+    </div>
+  `;
+}
+/* ################# */
+function trade_top_controls_html(state) {
+  const side_count = Number(state?.side_count || 2);
+  const player_counts = Array.isArray(state?.player_counts) ? state.player_counts : [];
+
+  const side_count_options = [2, 3].map(n => {
+    return `<option value='${n}'${n === side_count ? ' selected' : ''}>${n}</option>`;
+  }).join('');
+
+  const side_count_control = `
+    <div class='trade_top_control'>
+      <div class='trade_top_label'>Sides</div>
+      <select class='trade_side_count_select'>
+        ${side_count_options}
+      </select>
+    </div>
+  `;
+
+  const player_count_controls = Array.from({ length: side_count }, (_, i) => {
+    const side_label = i === 0 ? 'Team A Players' : i === 1 ? 'Team B Players' : 'Team C Players';
+    const selected_count = Number(player_counts[i] || 1);
+
+    const opts = [1, 2, 3, 4, 5].map(n => {
+      return `<option value='${n}'${n === selected_count ? ' selected' : ''}>${n}</option>`;
+    }).join('');
+
+    return `
+      <div class='trade_top_control'>
+        <div class='trade_top_label'>${side_label}</div>
+        <select class='trade_count_select' data-side='${i}'>
+          ${opts}
+        </select>
+      </div>
+    `;
+  }).join('');
+
+  return `
+    <div class='trade_top_controls'>
+      ${side_count_control}
+      ${player_count_controls}
+    </div>
+  `;
+}
+/* ################# */
+async function render_trade_page_from_hash() {
+  const content = document.getElementById('content_root');
+  if (!content) return;
+
+  const payload = await load_compare_payload();
+  const players_lookup = payload?.players || {};
+  const scales = payload?.scales || {};
+  const candidates = trade_candidates_from_payload(players_lookup);
+  const state = parse_trade_hash_state();
+
+  content.innerHTML = `
+    <div class='trade_page'>
+      <div class='compare_header'>
+        <button type='button' class='compare_back_btn'>← Back</button>
+        <div>
+          <div class='compare_title'>Trade Calculator</div>
+          <div class='compare_subtitle'>${state.side_count} sides · up to 5 players per side</div>
+        </div>
+      </div>
+      ${trade_top_controls_html(state)}
+      <div class='trade_grid'>
+        ${state.sides.map((side_pages, side_i) => {
+          return trade_side_html(
+            side_i,
+            side_pages,
+            candidates,
+            players_lookup,
+            scales,
+            state.player_counts[side_i] || 1
+          );
+        }).join('')}
+      </div>
+    </div>
+  `;
+
+  content.querySelectorAll('.compare_player_name_link[data-page]').forEach(a => {
+    if (a.dataset.bound === '1') return;
+    a.dataset.bound = '1';
+
+    a.addEventListener('click', e => {
+      e.preventDefault();
+
+      const page = String(a.dataset.page || '').trim();
+      if (!page) return;
+
+      activate_page(page);
+    });
+  });
+
+  const side_count_select = content.querySelector('.trade_side_count_select');
+  side_count_select?.addEventListener('change', () => {
+    const next_state = parse_trade_hash_state();
+    const next_side_count = Math.min(3, Math.max(2, Number(side_count_select.value || 2)));
+
+    next_state.side_count = next_side_count;
+    next_state.sides = next_state.sides.slice(0, next_side_count);
+    next_state.player_counts = next_state.player_counts.slice(0, next_side_count);
+
+    while (next_state.sides.length < next_side_count) next_state.sides.push([]);
+    while (next_state.player_counts.length < next_side_count) next_state.player_counts.push(1);
+
+    window.location.hash = trade_hash_for_state(next_state);
+    render_trade_page_from_hash();
+  });
+
+  content.querySelectorAll('.trade_count_select[data-side]').forEach(sel => {
+    sel.addEventListener('change', () => {
+      const side_i = Number(sel.dataset.side);
+      const next_state = parse_trade_hash_state();
+
+      while (next_state.player_counts.length <= side_i) next_state.player_counts.push(1);
+      while (next_state.sides.length <= side_i) next_state.sides.push([]);
+
+      next_state.player_counts[side_i] = Math.min(5, Math.max(1, Number(sel.value || 1)));
+      next_state.sides[side_i] = next_state.sides[side_i].slice(0, next_state.player_counts[side_i]);
+
+      window.location.hash = trade_hash_for_state(next_state);
+      render_trade_page_from_hash();
+    });
+  });
+
+  content.querySelectorAll('.trade_slot_controls').forEach(row => {
+    const side_i = Number(row.dataset.side);
+    const slot_i = Number(row.dataset.slot);
+    const type_sel = row.querySelector('.trade_type_select');
+    const player_sel = row.querySelector('.trade_player_select');
+
+    function rebuild_players() {
+      const role_group = String(type_sel.value || '').trim();
+      const current = String(player_sel.value || '').trim();
+
+      player_sel.innerHTML = '<option value="">Select Player</option>';
+
+      const grouped = new Map();
+
+      candidates
+        .filter(x => x.role_group === role_group)
+        .forEach(x => {
+          const team = String(x.team || 'Other').trim().toUpperCase();
+          if (!grouped.has(team)) grouped.set(team, []);
+          grouped.get(team).push(x);
+        });
+
+      Array.from(grouped.entries())
+        .sort((a, b) => x_team_sort(a[0]).localeCompare(x_team_sort(b[0])))
+        .forEach(([team, players]) => {
+          const group = document.createElement('optgroup');
+          group.label = `${team} — ${trade_role_label(role_group)}`;
+
+          players
+            .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+            .forEach(x => {
+              const opt = document.createElement('option');
+              opt.value = x.page;
+              opt.textContent = x.name;
+              opt.selected = x.page === current;
+              group.appendChild(opt);
+            });
+
+          player_sel.appendChild(group);
+        });
+    }
+
+    function sync_trade_hash() {
+      const next_state = parse_trade_hash_state();
+
+      while (next_state.sides.length <= side_i) next_state.sides.push([]);
+      while (next_state.player_counts.length <= side_i) next_state.player_counts.push(1);
+
+      next_state.sides[side_i][slot_i] = String(player_sel.value || '').trim();
+      next_state.sides[side_i] = next_state.sides[side_i].filter(Boolean).slice(0, next_state.player_counts[side_i]);
+
+      window.location.hash = trade_hash_for_state(next_state);
+      render_trade_page_from_hash();
+    }
+
+    type_sel.addEventListener('change', () => {
+      player_sel.value = '';
+      rebuild_players();
+    });
+
+    player_sel.addEventListener('change', sync_trade_hash);
+  });
+
+  refresh_compare_table_cell_theme(content);
+
+  const back_btn = content.querySelector('.compare_back_btn');
+  back_btn?.addEventListener('click', () => {
+    const first_page = state.sides.flat().find(Boolean);
+    if (first_page) {
+      activate_page(first_page);
+    } else {
+      activate_page(default_page_id() || 'home');
+    }
+  });
+
+  active_page_id = 'trade';
+  active_content_file = '';
+
+  document.querySelectorAll('.toc_link').forEach(a => a.classList.remove('active'));
 }
 /* ################# */
 async function render_compare_page_from_hash() {
@@ -1907,7 +2352,7 @@ compare_sel.innerHTML = '';
 
 compare_wrap.compare_pages = (compare_wrap.compare_pages || [])
   .filter(page => peers.some(peer => peer.page === page))
-  .slice(0, 2);
+  .slice(0, 4);
 
 if (!active_compare_eligible || !peers.length) {
   compare_wrap.style.display = 'none';
@@ -1990,7 +2435,7 @@ if (!active_compare_eligible || !peers.length) {
     if (!page) return;
 
     if (compare_wrap.compare_pages.includes(page)) return;
-    if (compare_wrap.compare_pages.length >= 2) return;
+    if (compare_wrap.compare_pages.length >= 4) return;
 
     compare_wrap.compare_pages.push(page);
     compare_sel.value = '';
@@ -2920,6 +3365,11 @@ function on_hash_change() { /* back button works now? */
 
   if (pid === 'compare' || raw_hash.startsWith('#compare?')) {
     render_compare_page_from_hash();
+    return;
+  }
+
+  if (pid === 'trade' || raw_hash.startsWith('#trade?')) {
+    render_trade_page_from_hash();
     return;
   }
 
@@ -9301,423 +9751,7 @@ setTimeout(() => submit(), 0);
 }
   return;
 }
-//#################################################################### Mode: specific_starting_pitchers ####################################################################
-if (mode === 'specific_starting_pitchers') {
-  const rows = [];
-  //#################
-  function add_row(i) {
-    const row_div = document.createElement('div');
-    row_div.className = 'matchups_form_row';
 
-    const pitcher_obj = make_select(`matchups_pitcher_${i}`, `Pitcher ${i + 1}`);
-    set_grouped_or_flat(pitcher_obj.sel, year_lists.pitchers_sp_by_team, year_lists.pitchers_sp, 'Select SP');
-
-    const side_obj = build_side_select(`matchups_side_${i}`);
-    const team_obj = make_select(`matchups_team_${i}`, 'Opp');
-    pitcher_obj.sel.style.width = '310px';
-    side_obj.sel.style.width = '88px';
-    team_obj.sel.style.width = '92px';
-    //#################
-    function refresh_team_for_row() {
-      const { sp_map } = get_pitcher_team_maps();
-      const p_team = sp_map[String(pitcher_obj.sel.value || '').trim()] || '';
-      const allowed_teams = p_team ? teams.filter(t => String(t) !== String(p_team)) : teams;
-
-      set_select_options(team_obj.sel, allowed_teams, 'Select team');
-
-      if (p_team && String(team_obj.sel.value || '').trim() === String(p_team)) {
-        team_obj.sel.value = '';
-      }
-
-      sync_select_placeholder_class(team_obj.sel);
-    }
-
-    pitcher_obj.sel.addEventListener('change', () => {
-      refresh_team_for_row();
-      clear_results();
-    });
-
-    refresh_team_for_row();
-
-    row_div.appendChild(pitcher_obj.wrap);
-    row_div.appendChild(side_obj.wrap);
-    row_div.appendChild(team_obj.wrap);
-
-    form_root.appendChild(row_div);
-
-    const saved = (multi_form_state.specific_starting_pitchers.rows && multi_form_state.specific_starting_pitchers.rows[i])
-      ? multi_form_state.specific_starting_pitchers.rows[i]
-      : null;
-
-    if (saved) {
-      pitcher_obj.sel.value = saved.pitcher || '';
-      side_obj.sel.value = saved.side || '';
-      refresh_team_for_row();
-      team_obj.sel.value = saved.team || '';
-
-      sync_select_placeholder_class(pitcher_obj.sel);
-      sync_select_placeholder_class(side_obj.sel);
-      sync_select_placeholder_class(team_obj.sel);
-    }
-
-    rows.push({ p_sel: pitcher_obj.sel, s_sel: side_obj.sel, t_sel: team_obj.sel });
-  }
-  const url_rows_raw = String(initial_matchups_params.get('rows') || '').trim();
-  if (url_rows_raw && !multi_form_state.specific_starting_pitchers.rows.length) {
-    multi_form_state.specific_starting_pitchers.rows = url_rows_raw.split(';').map(x => {
-      const parts = x.split('|').map(decode_matchups_url_part);
-      return {
-        pitcher: parts[0] || '',
-        side: parts[1] || '',
-        team: parts[2] || ''
-      };
-    }).filter(x => x.pitcher || x.side || x.team);
-
-    multi_form_state.specific_starting_pitchers.n = clamp_rows_n(multi_form_state.specific_starting_pitchers.rows.length || 1);
-  }
-  const st = multi_form_state.specific_starting_pitchers;
-  const n = clamp_rows_n(st.n);
-  st.n = n;
-
-  for (let i = 0; i < n; i++) add_row(i);
-
-  const side_toggle = document.createElement('div');
-  side_toggle.style.display = 'flex';
-  side_toggle.style.gap = '8px';
-  side_toggle.style.margin = '10px 0 6px 0';
-  side_toggle.style.alignItems = 'center';
-
-  const away_btn = document.createElement('button');
-  away_btn.type = 'button';
-  away_btn.className = 'matchups_submit';
-  away_btn.textContent = 'Away';
-
-  const home_btn = document.createElement('button');
-  home_btn.type = 'button';
-  home_btn.className = 'matchups_submit';
-  home_btn.textContent = 'Home';
-
-  function set_all_sides(v) {
-    rows.forEach(r => {
-      r.s_sel.value = v;
-      sync_select_placeholder_class(r.s_sel);
-    });
-    clear_results();
-  }
-
-  away_btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    set_all_sides('Away');
-  });
-
-  home_btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    set_all_sides('Home');
-  });
-
-  side_toggle.appendChild(away_btn);
-  side_toggle.appendChild(home_btn);
-
-  form_root.insertBefore(side_toggle, form_root.firstChild?.nextSibling || form_root.firstChild);
-  //#################
-  async function submit() {
-    snapshot_multi_state('specific_starting_pitchers');
-
-    const y = year_sel.value;
-    if (!y) return;
-    const url_rows = rows
-      .map(r => [
-        encode_matchups_url_part(r.p_sel.value),
-        encode_matchups_url_part(r.s_sel.value),
-        encode_matchups_url_part(r.t_sel.value)
-      ].join('|'))
-      .filter(x => x.replace(/\|/g, '').trim())
-      .join(';');
-
-    write_matchups_url_state({ year: y, rows: url_rows });
-
-    const resolved_rows = rows
-      .filter(r => r.p_sel.value && r.s_sel.value && r.t_sel.value)
-      .map(r => {
-        const path = resolve_sp_vs_team_path(idx, y, r.p_sel.value, r.s_sel.value, r.t_sel.value);
-
-        return {
-          path,
-          requested_side: r.s_sel.value
-        };
-      })
-      .filter(x => x.path);
-
-    const seen = new Set();
-    const uniq = [];
-    const override_rows = [];
-
-    for (const x of resolved_rows) {
-      if (seen.has(x.path)) continue;
-      seen.add(x.path);
-      uniq.push(x.path);
-      override_rows.push({ Away: x.requested_side });
-    }
-
-    await render_many(uniq, {
-      override_rows,
-      link_role: 'starters'
-    });
-    apply_matchups_table_dividers(results_root, mode, 'default');
-  }
-  //#################
-  function clear_mode() {
-    clear_results();
-    multi_form_state.specific_starting_pitchers.rows = [];
-    multi_form_state.specific_starting_pitchers.n = 1;
-    form_root.dataset.skip_snapshot = '1';
-    sync_row_controls();
-    build_form();
-  }
-
-  build_action_buttons(submit, clear_mode);
-  if (should_auto_submit_matchups_mode(mode)) {
-setTimeout(() => submit(), 0);
-}
-  return;
-}
-//#################################################################### Mode: specific_hitters ####################################################################
-if (mode === 'specific_hitters') {
-  const rows = [];
-
-  //#################
-  function refresh_row_pitchers(row) {
-    const hitter_team_map = get_hitter_team_map();
-    const hitter_team = hitter_team_map[String(row.h_sel.value || '').trim()] || '';
-
-    const starter_groups = Array.isArray(year_lists.pitchers_sp_by_team) ? year_lists.pitchers_sp_by_team : [];
-    const reliever_groups = Array.isArray(year_lists.pitchers_rp_by_team) ? year_lists.pitchers_rp_by_team : [];
-    let base_groups = starter_groups.concat(reliever_groups);
-
-    if (hitter_team) {
-      base_groups = filter_groups_excluding_team(base_groups, hitter_team);
-    }
-
-    rebuild_select_keep_value(row.p_sel, () => {
-      set_grouped_or_flat(row.p_sel, base_groups, [], 'Select Pitcher');
-    });
-  }
-  //#################
-  function pitcher_role_for_row(row) {
-    const pitcher_name = String(row?.p_sel?.value || '').trim();
-    if (!pitcher_name) return 'starters';
-
-    const wanted = normalize_matchup_person_key(pitcher_name);
-
-    const rp_groups = Array.isArray(year_lists.pitchers_rp_by_team) ? year_lists.pitchers_rp_by_team : [];
-    for (const g of rp_groups) {
-      const opts = Array.isArray(g.options) ? g.options : [];
-      if (opts.some(x => normalize_matchup_person_key(x) === wanted)) {
-        return 'bullpen';
-      }
-    }
-
-    const sp_groups = Array.isArray(year_lists.pitchers_sp_by_team) ? year_lists.pitchers_sp_by_team : [];
-    for (const g of sp_groups) {
-      const opts = Array.isArray(g.options) ? g.options : [];
-      if (opts.some(x => normalize_matchup_person_key(x) === wanted)) {
-        return 'starters';
-      }
-    }
-
-    return 'starters';
-  }
-    //#################
-  function add_row(i) {
-    const row_div = document.createElement('div');
-    row_div.className = 'matchups_form_row';
-
-    const { wrap: h_wrap, sel: h_sel } = make_select(`matchups_hitter_${i}`, `Hitter ${i + 1}`);
-    set_grouped_or_flat(h_sel, year_lists.hitters_by_team, hitters, 'Select Hitter');
-
-    const { wrap: s_wrap, sel: s_sel } = make_select(`matchups_side_${i}`, 'Away/Home');
-    set_select_options(s_sel, ['Away', 'Home'], 'Select');
-
-    const { wrap: p_wrap, sel: p_sel } = make_select(`matchups_pitcher_${i}`, 'Pitcher');
-    const pitcher_groups = build_pitcher_groups(year_lists);
-    set_grouped_or_flat(p_sel, pitcher_groups, pitchers, 'Select Pitcher');
-
-    h_sel.classList.add('matchups_select_hitter_long');
-    s_sel.classList.add('matchups_select_side_short');
-    p_sel.classList.add('matchups_select_pitcher_long');
-
-    row_div.appendChild(h_wrap);
-    row_div.appendChild(s_wrap);
-    row_div.appendChild(p_wrap);
-
-    form_root.appendChild(row_div);
-
-    const row = { h_sel, s_sel, p_sel };
-    rows.push(row);
-
-    h_sel.addEventListener('change', () => {
-      refresh_row_pitchers(row);
-      clear_results();
-    });
-
-    s_sel.addEventListener('change', () => {
-      refresh_row_pitchers(row);
-      clear_results();
-    });
-
-    const saved = (multi_form_state.specific_hitters.rows && multi_form_state.specific_hitters.rows[i])
-      ? multi_form_state.specific_hitters.rows[i]
-      : null;
-
-    if (saved) {
-      row.h_sel.value = saved.hitter || '';
-      row.s_sel.value = saved.side || '';
-      refresh_row_pitchers(row);
-      row.p_sel.value = saved.pitcher || '';
-
-      sync_select_placeholder_class(row.h_sel);
-      sync_select_placeholder_class(row.s_sel);
-      sync_select_placeholder_class(row.p_sel);
-    }
-  }
-  const url_rows_raw = String(initial_matchups_params.get('rows') || '').trim();
-  if (url_rows_raw && !multi_form_state.specific_hitters.rows.length) {
-    multi_form_state.specific_hitters.rows = url_rows_raw.split(';').map(x => {
-      const parts = x.split('|').map(decode_matchups_url_part);
-      return {
-        hitter: parts[0] || '',
-        side: parts[1] || '',
-        pitcher: parts[2] || ''
-      };
-    }).filter(x => x.hitter || x.side || x.pitcher);
-
-    multi_form_state.specific_hitters.n = clamp_rows_n(multi_form_state.specific_hitters.rows.length || 1);
-  }
-  const st = multi_form_state.specific_hitters;
-
-  const n = clamp_rows_n(st.n);
-  st.n = n;
-
-  for (let i = 0; i < n; i++) add_row(i);
-
-  const side_toggle = document.createElement('div');
-  side_toggle.style.display = 'flex';
-  side_toggle.style.gap = '8px';
-  side_toggle.style.margin = '10px 0 6px 0';
-  side_toggle.style.alignItems = 'center';
-
-  const away_btn = document.createElement('button');
-  away_btn.type = 'button';
-  away_btn.className = 'matchups_submit';
-  away_btn.textContent = 'Away';
-
-  const home_btn = document.createElement('button');
-  home_btn.type = 'button';
-  home_btn.className = 'matchups_submit';
-  home_btn.textContent = 'Home';
-  //#################
-  function set_all_sides(v) {
-    rows.forEach(r => {
-      r.s_sel.value = v;
-      sync_select_placeholder_class(r.s_sel);
-      refresh_row_pitchers(r);
-    });
-    clear_results();
-  }
-
-  away_btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    set_all_sides('Away');
-  });
-
-  home_btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    set_all_sides('Home');
-  });
-
-  side_toggle.appendChild(away_btn);
-  side_toggle.appendChild(home_btn);
-
-  form_root.insertBefore(side_toggle, form_root.firstChild?.nextSibling || form_root.firstChild);
-  //#################
-  async function submit() {
-    snapshot_multi_state('specific_hitters');
-
-    const y = year_sel.value;
-    if (!y) return;
-    const url_rows = rows
-      .map(r => [
-        encode_matchups_url_part(r.h_sel.value),
-        encode_matchups_url_part(r.s_sel.value),
-        encode_matchups_url_part(r.p_sel.value)
-      ].join('|'))
-      .filter(x => x.replace(/\|/g, '').trim())
-      .join(';');
-
-    write_matchups_url_state({ year: y, rows: url_rows });
-
-    const paths = [];
-    const override_rows = [];
-    const dummy_rows = [];
-    const row_link_roles = [];
-
-    for (const r of rows) {
-      const hitter_name = String(r.h_sel.value || '').trim();
-      const side = String(r.s_sel.value || '').trim();
-      const pitcher_name = String(r.p_sel.value || '').trim();
-
-      if (!hitter_name || !side || !pitcher_name) continue;
-      const pitcher_link_role = pitcher_role_for_row(r);
-
-      const path = resolve_hvp_with_pf_fallback(idx, y, hitter_name, side, pitcher_name);
-
-      if (path) {
-        paths.push(path);
-        override_rows.push({ Away: side });
-        row_link_roles.push(pitcher_link_role);
-        continue;
-      }
-
-      const fallback_rows = build_personalized_hitter_fallback_rows(
-        year_lists,
-        [hitter_name],
-        pitcher_name,
-        y
-      );
-
-      if (fallback_rows.length) {
-        dummy_rows.push(fallback_rows[0]);
-        override_rows.push({ Away: side });
-        row_link_roles.push(pitcher_link_role);
-      }
-    }
-    await render_many(paths, {
-      dummy_rows,
-      override_rows,
-      keep_all_pitch_cols: true,
-      gold_mode: 'hitter',
-      link_role: 'batters',
-      row_pitcher_link_roles: row_link_roles
-    });
-    apply_matchups_table_dividers(results_root, mode, 'default');
-  }
-
-  //#################
-  function clear_mode() {
-    clear_results();
-    multi_form_state.specific_hitters.rows = [];
-    multi_form_state.specific_hitters.n = 1;
-    form_root.dataset.skip_snapshot = '1';
-    sync_row_controls();
-    build_form();
-  }
-
-  build_action_buttons(submit, clear_mode);
-  if (should_auto_submit_matchups_mode(mode)) {
-setTimeout(() => submit(), 0);
-}
-  return;
-}
 //#################################################################### Mode: todays_fantasy_lineup ####################################################################
 if (mode === 'todays_fantasy_lineup') {
   const url_rows_raw = String(initial_matchups_params.get('rows') || '').trim();
@@ -10156,6 +10190,473 @@ for (const block of pitcher_blocks) {
     setTimeout(() => submit(), 0);
   }
 
+  return;
+}
+//#################################################################### Mode: specific_hitters ####################################################################
+if (mode === 'specific_hitters') {
+  const rows = [];
+
+  //#################
+  //#################
+  function clean_pitcher_group_team(label) {
+    return String(label || '')
+      .replace(/\s+—\s+Starters$/i, '')
+      .replace(/\s+—\s+Relievers$/i, '')
+      .trim();
+  }
+  //#################
+  function build_specific_hitter_pitcher_groups() {
+    const starter_groups = Array.isArray(year_lists.pitchers_sp_by_team) ? year_lists.pitchers_sp_by_team : [];
+    const reliever_groups = Array.isArray(year_lists.pitchers_rp_by_team) ? year_lists.pitchers_rp_by_team : [];
+
+    const starters_by_team = new Map();
+    const relievers_by_team = new Map();
+    const teams = new Set();
+
+    starter_groups.forEach(g => {
+      const team = clean_pitcher_group_team(g.label);
+      if (!team) return;
+
+      teams.add(team);
+      starters_by_team.set(team, g);
+    });
+
+    reliever_groups.forEach(g => {
+      const team = clean_pitcher_group_team(g.label);
+      if (!team) return;
+
+      teams.add(team);
+      relievers_by_team.set(team, g);
+    });
+
+    const out = [];
+
+    Array.from(teams).sort((a, b) => a.localeCompare(b)).forEach(team => {
+      const sg = starters_by_team.get(team);
+      const rg = relievers_by_team.get(team);
+
+      if (sg && Array.isArray(sg.options) && sg.options.length) {
+        out.push(sg);
+      }
+
+      if (rg && Array.isArray(rg.options) && rg.options.length) {
+        out.push(rg);
+      }
+    });
+
+    return out;
+  }
+  //#################
+  function refresh_row_pitchers(row) {
+    const hitter_team_map = get_hitter_team_map();
+    const hitter_team = hitter_team_map[String(row.h_sel.value || '').trim()] || '';
+
+    let base_groups = build_specific_hitter_pitcher_groups();
+
+    if (hitter_team) {
+      base_groups = filter_groups_excluding_team(base_groups, hitter_team);
+    }
+
+    rebuild_select_keep_value(row.p_sel, () => {
+      set_grouped_or_flat(row.p_sel, base_groups, [], 'Select Pitcher');
+    });
+  }
+  //#################
+  function pitcher_role_for_row(row) {
+    const pitcher_name = String(row?.p_sel?.value || '').trim();
+    if (!pitcher_name) return 'starters';
+
+    const wanted = normalize_matchup_person_key(pitcher_name);
+
+    function in_groups(groups) {
+      if (!Array.isArray(groups)) return false;
+
+      return groups.some(g => {
+        const opts = Array.isArray(g.options) ? g.options : [];
+        return opts.some(x => normalize_matchup_person_key(x) === wanted);
+      });
+    }
+
+    const sp_groups = Array.isArray(year_lists.pitchers_sp_by_team) ? year_lists.pitchers_sp_by_team : [];
+    const rp_groups = Array.isArray(year_lists.pitchers_rp_by_team) ? year_lists.pitchers_rp_by_team : [];
+
+    const in_sp = in_groups(sp_groups);
+    const in_rp = in_groups(rp_groups);
+
+    if (in_sp) return 'starters';
+    if (in_rp) return 'bullpen';
+
+    return 'starters';
+  }
+    //#################
+  function add_row(i) {
+    const row_div = document.createElement('div');
+    row_div.className = 'matchups_form_row';
+
+    const { wrap: h_wrap, sel: h_sel } = make_select(`matchups_hitter_${i}`, `Hitter ${i + 1}`);
+    set_grouped_or_flat(h_sel, year_lists.hitters_by_team, hitters, 'Select Hitter');
+
+    const { wrap: s_wrap, sel: s_sel } = make_select(`matchups_side_${i}`, 'Away/Home');
+    set_select_options(s_sel, ['Away', 'Home'], 'Select');
+
+    const { wrap: p_wrap, sel: p_sel } = make_select(`matchups_pitcher_${i}`, 'Pitcher');
+    const pitcher_groups = build_pitcher_groups(year_lists);
+    set_grouped_or_flat(p_sel, pitcher_groups, pitchers, 'Select Pitcher');
+
+    h_sel.classList.add('matchups_select_hitter_long');
+    s_sel.classList.add('matchups_select_side_short');
+    p_sel.classList.add('matchups_select_pitcher_long');
+
+    row_div.appendChild(h_wrap);
+    row_div.appendChild(s_wrap);
+    row_div.appendChild(p_wrap);
+
+    form_root.appendChild(row_div);
+
+    const row = { h_sel, s_sel, p_sel };
+    rows.push(row);
+
+    h_sel.addEventListener('change', () => {
+      refresh_row_pitchers(row);
+      clear_results();
+    });
+
+    s_sel.addEventListener('change', () => {
+      refresh_row_pitchers(row);
+      clear_results();
+    });
+
+    const saved = (multi_form_state.specific_hitters.rows && multi_form_state.specific_hitters.rows[i])
+      ? multi_form_state.specific_hitters.rows[i]
+      : null;
+
+    if (saved) {
+      row.h_sel.value = saved.hitter || '';
+      row.s_sel.value = saved.side || '';
+      refresh_row_pitchers(row);
+      row.p_sel.value = saved.pitcher || '';
+
+      sync_select_placeholder_class(row.h_sel);
+      sync_select_placeholder_class(row.s_sel);
+      sync_select_placeholder_class(row.p_sel);
+    }
+  }
+  const url_rows_raw = String(initial_matchups_params.get('rows') || '').trim();
+  if (url_rows_raw && !multi_form_state.specific_hitters.rows.length) {
+    multi_form_state.specific_hitters.rows = url_rows_raw.split(';').map(x => {
+      const parts = x.split('|').map(decode_matchups_url_part);
+      return {
+        hitter: parts[0] || '',
+        side: parts[1] || '',
+        pitcher: parts[2] || ''
+      };
+    }).filter(x => x.hitter || x.side || x.pitcher);
+
+    multi_form_state.specific_hitters.n = clamp_rows_n(multi_form_state.specific_hitters.rows.length || 1);
+  }
+  const st = multi_form_state.specific_hitters;
+
+  const n = clamp_rows_n(st.n);
+  st.n = n;
+
+  for (let i = 0; i < n; i++) add_row(i);
+
+  const side_toggle = document.createElement('div');
+  side_toggle.style.display = 'flex';
+  side_toggle.style.gap = '8px';
+  side_toggle.style.margin = '10px 0 6px 0';
+  side_toggle.style.alignItems = 'center';
+
+  const away_btn = document.createElement('button');
+  away_btn.type = 'button';
+  away_btn.className = 'matchups_submit';
+  away_btn.textContent = 'Away';
+
+  const home_btn = document.createElement('button');
+  home_btn.type = 'button';
+  home_btn.className = 'matchups_submit';
+  home_btn.textContent = 'Home';
+  //#################
+  function set_all_sides(v) {
+    rows.forEach(r => {
+      r.s_sel.value = v;
+      sync_select_placeholder_class(r.s_sel);
+      refresh_row_pitchers(r);
+    });
+    clear_results();
+  }
+
+  away_btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    set_all_sides('Away');
+  });
+
+  home_btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    set_all_sides('Home');
+  });
+
+  side_toggle.appendChild(away_btn);
+  side_toggle.appendChild(home_btn);
+
+  form_root.insertBefore(side_toggle, form_root.firstChild?.nextSibling || form_root.firstChild);
+  //#################
+  async function submit() {
+    snapshot_multi_state('specific_hitters');
+
+    const y = year_sel.value;
+    if (!y) return;
+    const url_rows = rows
+      .map(r => [
+        encode_matchups_url_part(r.h_sel.value),
+        encode_matchups_url_part(r.s_sel.value),
+        encode_matchups_url_part(r.p_sel.value)
+      ].join('|'))
+      .filter(x => x.replace(/\|/g, '').trim())
+      .join(';');
+
+    write_matchups_url_state({ year: y, rows: url_rows });
+
+    const paths = [];
+    const override_rows = [];
+    const dummy_rows = [];
+    const row_link_roles = [];
+
+    for (const r of rows) {
+      const hitter_name = String(r.h_sel.value || '').trim();
+      const side = String(r.s_sel.value || '').trim();
+      const pitcher_name = String(r.p_sel.value || '').trim();
+
+      if (!hitter_name || !side || !pitcher_name) continue;
+      const pitcher_link_role = pitcher_role_for_row(r);
+
+      const path = resolve_hvp_with_pf_fallback(idx, y, hitter_name, side, pitcher_name);
+
+      if (path) {
+        paths.push(path);
+        override_rows.push({ Away: side });
+        row_link_roles.push(pitcher_link_role);
+        continue;
+      }
+
+      const fallback_rows = build_personalized_hitter_fallback_rows(
+        year_lists,
+        [hitter_name],
+        pitcher_name,
+        y
+      );
+
+      if (fallback_rows.length) {
+        dummy_rows.push(fallback_rows[0]);
+        override_rows.push({ Away: side });
+        row_link_roles.push(pitcher_link_role);
+      }
+    }
+    await render_many(paths, {
+      dummy_rows,
+      override_rows,
+      keep_all_pitch_cols: true,
+      gold_mode: 'hitter',
+      link_role: 'batters',
+      row_pitcher_link_roles: row_link_roles
+    });
+    apply_matchups_table_dividers(results_root, mode, 'default');
+  }
+
+  //#################
+  function clear_mode() {
+    clear_results();
+    multi_form_state.specific_hitters.rows = [];
+    multi_form_state.specific_hitters.n = 1;
+    form_root.dataset.skip_snapshot = '1';
+    sync_row_controls();
+    build_form();
+  }
+
+  build_action_buttons(submit, clear_mode);
+  if (should_auto_submit_matchups_mode(mode)) {
+setTimeout(() => submit(), 0);
+}
+  return;
+}
+//#################################################################### Mode: specific_starting_pitchers ####################################################################
+if (mode === 'specific_starting_pitchers') {
+  const rows = [];
+  //#################
+  function add_row(i) {
+    const row_div = document.createElement('div');
+    row_div.className = 'matchups_form_row';
+
+    const pitcher_obj = make_select(`matchups_pitcher_${i}`, `Pitcher ${i + 1}`);
+    set_grouped_or_flat(pitcher_obj.sel, year_lists.pitchers_sp_by_team, year_lists.pitchers_sp, 'Select SP');
+
+    const side_obj = build_side_select(`matchups_side_${i}`);
+    const team_obj = make_select(`matchups_team_${i}`, 'Opp');
+    pitcher_obj.sel.style.width = '310px';
+    side_obj.sel.style.width = '88px';
+    team_obj.sel.style.width = '92px';
+    //#################
+    function refresh_team_for_row() {
+      const { sp_map } = get_pitcher_team_maps();
+      const p_team = sp_map[String(pitcher_obj.sel.value || '').trim()] || '';
+      const allowed_teams = p_team ? teams.filter(t => String(t) !== String(p_team)) : teams;
+
+      set_select_options(team_obj.sel, allowed_teams, 'Select team');
+
+      if (p_team && String(team_obj.sel.value || '').trim() === String(p_team)) {
+        team_obj.sel.value = '';
+      }
+
+      sync_select_placeholder_class(team_obj.sel);
+    }
+
+    pitcher_obj.sel.addEventListener('change', () => {
+      refresh_team_for_row();
+      clear_results();
+    });
+
+    refresh_team_for_row();
+
+    row_div.appendChild(pitcher_obj.wrap);
+    row_div.appendChild(side_obj.wrap);
+    row_div.appendChild(team_obj.wrap);
+
+    form_root.appendChild(row_div);
+
+    const saved = (multi_form_state.specific_starting_pitchers.rows && multi_form_state.specific_starting_pitchers.rows[i])
+      ? multi_form_state.specific_starting_pitchers.rows[i]
+      : null;
+
+    if (saved) {
+      pitcher_obj.sel.value = saved.pitcher || '';
+      side_obj.sel.value = saved.side || '';
+      refresh_team_for_row();
+      team_obj.sel.value = saved.team || '';
+
+      sync_select_placeholder_class(pitcher_obj.sel);
+      sync_select_placeholder_class(side_obj.sel);
+      sync_select_placeholder_class(team_obj.sel);
+    }
+
+    rows.push({ p_sel: pitcher_obj.sel, s_sel: side_obj.sel, t_sel: team_obj.sel });
+  }
+  const url_rows_raw = String(initial_matchups_params.get('rows') || '').trim();
+  if (url_rows_raw && !multi_form_state.specific_starting_pitchers.rows.length) {
+    multi_form_state.specific_starting_pitchers.rows = url_rows_raw.split(';').map(x => {
+      const parts = x.split('|').map(decode_matchups_url_part);
+      return {
+        pitcher: parts[0] || '',
+        side: parts[1] || '',
+        team: parts[2] || ''
+      };
+    }).filter(x => x.pitcher || x.side || x.team);
+
+    multi_form_state.specific_starting_pitchers.n = clamp_rows_n(multi_form_state.specific_starting_pitchers.rows.length || 1);
+  }
+  const st = multi_form_state.specific_starting_pitchers;
+  const n = clamp_rows_n(st.n);
+  st.n = n;
+
+  for (let i = 0; i < n; i++) add_row(i);
+
+  const side_toggle = document.createElement('div');
+  side_toggle.style.display = 'flex';
+  side_toggle.style.gap = '8px';
+  side_toggle.style.margin = '10px 0 6px 0';
+  side_toggle.style.alignItems = 'center';
+
+  const away_btn = document.createElement('button');
+  away_btn.type = 'button';
+  away_btn.className = 'matchups_submit';
+  away_btn.textContent = 'Away';
+
+  const home_btn = document.createElement('button');
+  home_btn.type = 'button';
+  home_btn.className = 'matchups_submit';
+  home_btn.textContent = 'Home';
+
+  function set_all_sides(v) {
+    rows.forEach(r => {
+      r.s_sel.value = v;
+      sync_select_placeholder_class(r.s_sel);
+    });
+    clear_results();
+  }
+
+  away_btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    set_all_sides('Away');
+  });
+
+  home_btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    set_all_sides('Home');
+  });
+
+  side_toggle.appendChild(away_btn);
+  side_toggle.appendChild(home_btn);
+
+  form_root.insertBefore(side_toggle, form_root.firstChild?.nextSibling || form_root.firstChild);
+  //#################
+  async function submit() {
+    snapshot_multi_state('specific_starting_pitchers');
+
+    const y = year_sel.value;
+    if (!y) return;
+    const url_rows = rows
+      .map(r => [
+        encode_matchups_url_part(r.p_sel.value),
+        encode_matchups_url_part(r.s_sel.value),
+        encode_matchups_url_part(r.t_sel.value)
+      ].join('|'))
+      .filter(x => x.replace(/\|/g, '').trim())
+      .join(';');
+
+    write_matchups_url_state({ year: y, rows: url_rows });
+
+    const resolved_rows = rows
+      .filter(r => r.p_sel.value && r.s_sel.value && r.t_sel.value)
+      .map(r => {
+        const path = resolve_sp_vs_team_path(idx, y, r.p_sel.value, r.s_sel.value, r.t_sel.value);
+
+        return {
+          path,
+          requested_side: r.s_sel.value
+        };
+      })
+      .filter(x => x.path);
+
+    const seen = new Set();
+    const uniq = [];
+    const override_rows = [];
+
+    for (const x of resolved_rows) {
+      if (seen.has(x.path)) continue;
+      seen.add(x.path);
+      uniq.push(x.path);
+      override_rows.push({ Away: x.requested_side });
+    }
+
+    await render_many(uniq, {
+      override_rows,
+      link_role: 'starters'
+    });
+    apply_matchups_table_dividers(results_root, mode, 'default');
+  }
+  //#################
+  function clear_mode() {
+    clear_results();
+    multi_form_state.specific_starting_pitchers.rows = [];
+    multi_form_state.specific_starting_pitchers.n = 1;
+    form_root.dataset.skip_snapshot = '1';
+    sync_row_controls();
+    build_form();
+  }
+
+  build_action_buttons(submit, clear_mode);
+  if (should_auto_submit_matchups_mode(mode)) {
+setTimeout(() => submit(), 0);
+}
   return;
 }
 //#################################################################### Mode: reliever_inning ####################################################################
