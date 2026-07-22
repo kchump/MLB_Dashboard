@@ -938,6 +938,7 @@ function current_page_storage_key() {
 }
 /* ################# */
 let compare_payload_cache = null;
+let compare_sidebar_link_lookup = null;
 /* ################# */
 async function load_compare_payload() {
   if (compare_payload_cache) return compare_payload_cache;
@@ -1099,8 +1100,11 @@ function get_real_sidebar_link_for_page(page_id) {
   const page = String(page_id || '').trim();
   if (!page) return null;
 
-  return Array.from(document.querySelectorAll('.team_block .toc_link[data-person_key][data-page][data-file]'))
-    .find(a => String(a.dataset.page || '').trim() === page) || null;
+  if (!compare_sidebar_link_lookup) {
+    compare_sidebar_link_lookup = build_compare_sidebar_link_lookup();
+  }
+
+  return compare_sidebar_link_lookup.get(page) || null;
 }
 /* ################# */
 function get_active_compare_link() {
@@ -2712,20 +2716,28 @@ async function render_compare_page_from_hash() {
 
   document.querySelectorAll('.toc_link').forEach(a => a.classList.remove('active'));
 }
-
 /* ################# */
-async function sync_player_page_action_buttons() {
+function sync_player_page_action_buttons() {
   const content = document.getElementById('content_root');
   if (!content) return;
 
+  const sync_page_id = String(active_page_id || '').trim();
   const header = content.querySelector('.player_header');
   if (!header) return;
 
   const person_key = current_page_person_key();
   const storage_key = current_page_storage_key();
   if (!person_key || !storage_key) return;
+  /* ################# */
+  function sync_is_stale() {
+    return (
+      document.getElementById('content_root') !== content ||
+      String(active_page_id || '').trim() !== sync_page_id
+    );
+  }
 
   let actions_row = content.querySelector('.player_header_actions');
+
   if (!actions_row) {
     actions_row = document.createElement('div');
     actions_row.className = 'player_header_actions';
@@ -2733,6 +2745,7 @@ async function sync_player_page_action_buttons() {
   }
 
   let favorite_btn = actions_row.querySelector('.favorite_page_btn');
+
   if (!favorite_btn) {
     favorite_btn = document.createElement('button');
     favorite_btn.type = 'button';
@@ -2741,6 +2754,7 @@ async function sync_player_page_action_buttons() {
   }
 
   let watchlist_btn = actions_row.querySelector('.watchlist_page_btn');
+
   if (!watchlist_btn) {
     watchlist_btn = document.createElement('button');
     watchlist_btn.type = 'button';
@@ -2749,6 +2763,7 @@ async function sync_player_page_action_buttons() {
   }
 
   let compare_wrap = actions_row.querySelector('.compare_page_wrap');
+
   if (!compare_wrap) {
     compare_wrap = document.createElement('div');
     compare_wrap.className = 'compare_page_wrap';
@@ -2761,7 +2776,7 @@ async function sync_player_page_action_buttons() {
     const compare_sel = document.createElement('input');
     compare_sel.type = 'text';
     compare_sel.className = 'compare_page_select compare_page_input';
-    compare_sel.placeholder = 'Type player name';
+    compare_sel.placeholder = 'Loading players…';
     compare_sel.setAttribute('autocomplete', 'off');
 
     const compare_list = document.createElement('datalist');
@@ -2777,11 +2792,12 @@ async function sync_player_page_action_buttons() {
     compare_wrap.appendChild(compare_sel);
     compare_wrap.appendChild(compare_list);
     compare_wrap.appendChild(compare_msg);
-    compare_sel.setAttribute('list', compare_list.id);
-    // compare_wrap.appendChild(compare_add_btn);
     compare_wrap.appendChild(compare_selected);
+
+    compare_sel.setAttribute('list', compare_list.id);
     actions_row.appendChild(compare_wrap);
   }
+
   const compare_btn = compare_wrap.querySelector('.compare_page_btn');
   const compare_sel = compare_wrap.querySelector('.compare_page_select');
   const compare_list = compare_wrap.querySelector('datalist');
@@ -2805,50 +2821,13 @@ async function sync_player_page_action_buttons() {
   watchlist_btn.setAttribute('aria-pressed', is_watchlist ? 'true' : 'false');
   watchlist_btn.textContent = is_watchlist ? '✓ Watchlist' : '+ Watchlist';
 
-  const active = get_active_compare_link();
-  const active_page = String(active?.dataset?.page || active_page_id || '').trim();
-  const role_group = compare_role_group_for_link(active);
-  const active_compare_eligible = active && active_page && role_group
-  ? await active_compare_page_is_eligible(active, role_group)
-  : false;
-
-  const role_label = active_compare_eligible ? compare_label_for_role_group(role_group) : '';
-  const all_peers = active_compare_eligible
-    ? await get_compare_peer_links_for_active_page({ include_ineligible: true })
-    : [];
-
-  const peers = all_peers.filter(peer => peer.eligible);
-
-  if (compare_list) compare_list.innerHTML = '';
-  if (compare_msg) compare_msg.textContent = '';
-  compare_sel.value = '';
-
-  compare_wrap.compare_pages = (compare_wrap.compare_pages || [])
-    .filter(page => peers.some(peer => peer.page === page))
-    .slice(0, 4);
-
-  if (!active_compare_eligible || !all_peers.length) {
-    compare_wrap.style.display = 'none';
-    if (compare_selected) compare_selected.innerHTML = '';
-  } else {
-    all_peers.forEach(peer => {
-      const opt = document.createElement('option');
-      opt.value = peer.name;
-      opt.label = `${peer.team}`;
-      opt.dataset.page = peer.page;
-      opt.dataset.eligible = peer.eligible ? '1' : '0';
-      compare_list?.appendChild(opt);
-    });
-
-    render_compare_selected();
-    compare_wrap.style.display = 'inline-flex';
-  }
-
   if (favorite_btn.dataset.bound !== '1') {
     favorite_btn.dataset.bound = '1';
+
     favorite_btn.addEventListener('click', () => {
       const key = current_page_storage_key();
       if (!key) return;
+
       toggle_favorite_person(key);
       refresh_custom_player_lists_ui();
     });
@@ -2856,109 +2835,251 @@ async function sync_player_page_action_buttons() {
 
   if (watchlist_btn.dataset.bound !== '1') {
     watchlist_btn.dataset.bound = '1';
+
     watchlist_btn.addEventListener('click', () => {
       const key = current_page_storage_key();
       if (!key) return;
+
       toggle_watchlist_person(key);
       refresh_custom_player_lists_ui();
     });
   }
 
-  function render_compare_selected() {
-    if (!compare_selected) return;
+  compare_wrap.style.display = 'inline-flex';
+  compare_wrap.setAttribute('aria-busy', 'true');
 
-    compare_selected.innerHTML = '';
+  compare_sel.disabled = true;
+  compare_sel.placeholder = 'Loading players…';
 
-    compare_wrap.compare_pages.forEach(page => {
-      const peer = peers.find(x => x.page === page);
-      if (!peer) return;
+  compare_btn.disabled = true;
 
-      const chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'compare_selected_chip';
-      chip.textContent = `× ${peer.name}`;
-      chip.title = 'Remove from comparison';
+  if (compare_msg) {
+    compare_msg.textContent = '';
+  }
+  /* ################# */
+  async function load_compare_controls() {
+    const active = get_active_compare_link();
+    const active_page = String(
+      active?.dataset?.page ||
+      active_page_id ||
+      ''
+    ).trim();
 
-      chip.addEventListener('click', () => {
-        compare_wrap.compare_pages = compare_wrap.compare_pages.filter(x => x !== page);
-        render_compare_selected();
+    const role_group = compare_role_group_for_link(active);
+
+    const active_compare_eligible = active && active_page && role_group
+      ? await active_compare_page_is_eligible(active, role_group)
+      : false;
+
+    if (sync_is_stale()) return;
+
+    const all_peers = active_compare_eligible
+      ? await get_compare_peer_links_for_active_page({
+          include_ineligible: true,
+        })
+      : [];
+
+    if (sync_is_stale()) return;
+
+    const peers = all_peers.filter(peer => peer.eligible);
+
+    if (compare_list) {
+      compare_list.innerHTML = '';
+    }
+
+    if (compare_msg) {
+      compare_msg.textContent = '';
+    }
+
+    compare_sel.value = '';
+
+    compare_wrap.compare_pages = (
+      compare_wrap.compare_pages || []
+    )
+      .filter(page => peers.some(peer => peer.page === page))
+      .slice(0, 4);
+    /* ################# */
+    function render_compare_selected() {
+      if (!compare_selected) return;
+
+      compare_selected.innerHTML = '';
+
+      compare_wrap.compare_pages.forEach(page => {
+        const peer = peers.find(x => x.page === page);
+        if (!peer) return;
+
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'compare_selected_chip';
+        chip.textContent = `× ${peer.name}`;
+        chip.title = 'Remove from comparison';
+
+        chip.addEventListener('click', () => {
+          compare_wrap.compare_pages = compare_wrap.compare_pages.filter(
+            x => x !== page
+          );
+
+          render_compare_selected();
+        });
+
+        compare_selected.appendChild(chip);
+      });
+    }
+    /* ################# */
+    function add_compare_selection() {
+      const raw = String(compare_sel.value || '').trim();
+      const norm = normalize_matchup_person_key(raw);
+
+      if (compare_msg) {
+        compare_msg.textContent = '';
+      }
+
+      if (!norm) return;
+
+      const matches = all_peers.filter(peer => {
+        return normalize_matchup_person_key(peer.name) === norm;
       });
 
-      compare_selected.appendChild(chip);
-    });
-  }
+      if (!matches.length) {
+        if (compare_msg) {
+          compare_msg.textContent = 'Not in list';
+        }
 
-  function add_compare_selection() {
-    const raw = String(compare_sel.value || '').trim();
-    const norm = normalize_matchup_person_key(raw);
+        return;
+      }
 
-    if (compare_msg) compare_msg.textContent = '';
+      const peer = matches[0];
 
-    if (!norm) return;
+      if (!peer.eligible) {
+        if (compare_msg) {
+          compare_msg.textContent = 'Not in compare data';
+        }
 
-    const matches = all_peers.filter(peer => normalize_matchup_person_key(peer.name) === norm);
+        return;
+      }
 
-    if (!matches.length) {
-      if (compare_msg) compare_msg.textContent = 'Not in list';
-      return;
-    }
+      const page = String(peer.page || '').trim();
+      if (!page) return;
 
-    const peer = matches[0];
+      if (compare_wrap.compare_pages.includes(page)) {
+        compare_sel.value = '';
+        return;
+      }
 
-    if (!peer.eligible) {
-      if (compare_msg) compare_msg.textContent = 'Not in compare data';
-      return;
-    }
+      if (compare_wrap.compare_pages.length >= 4) {
+        if (compare_msg) {
+          compare_msg.textContent = 'max 4 players';
+        }
 
-    const page = String(peer.page || '').trim();
-    if (!page) return;
+        return;
+      }
 
-    if (compare_wrap.compare_pages.includes(page)) {
+      compare_wrap.compare_pages.push(page);
       compare_sel.value = '';
+      render_compare_selected();
+    }
+    /* ################# */
+    function go_compare() {
+      const current_page = String(
+        get_active_compare_link()?.dataset?.page ||
+        active_page_id ||
+        ''
+      ).trim();
+
+      const other_pages = (compare_wrap.compare_pages || [])
+        .map(x => String(x || '').trim())
+        .filter(Boolean);
+
+      if (!current_page || !other_pages.length) return;
+
+      window.location.hash = compare_hash_for_pages([
+        current_page,
+        ...other_pages,
+      ]);
+
+      render_compare_page_from_hash();
+    }
+
+    if (!active_compare_eligible || !all_peers.length) {
+      compare_wrap.style.display = 'none';
+
+      if (compare_selected) {
+        compare_selected.innerHTML = '';
+      }
+
+      compare_wrap.removeAttribute('aria-busy');
       return;
     }
 
-    if (compare_wrap.compare_pages.length >= 4) {
-      if (compare_msg) compare_msg.textContent = 'max 4 players';
-      return;
-    }
+    all_peers.forEach(peer => {
+      const opt = document.createElement('option');
 
-    compare_wrap.compare_pages.push(page);
-    compare_sel.value = '';
-    render_compare_selected();
-  }
+      opt.value = peer.name;
+      opt.label = `${peer.team}`;
+      opt.dataset.page = peer.page;
+      opt.dataset.eligible = peer.eligible ? '1' : '0';
 
-  function go_compare() {
-    const current_page = String(get_active_compare_link()?.dataset?.page || active_page_id || '').trim();
-    const other_pages = (compare_wrap.compare_pages || [])
-      .map(x => String(x || '').trim())
-      .filter(Boolean);
-
-    if (!current_page || !other_pages.length) return;
-
-    window.location.hash = compare_hash_for_pages([current_page, ...other_pages]);
-    render_compare_page_from_hash();
-  }
-
-  if (compare_btn.dataset.bound !== '1') {
-    compare_btn.dataset.bound = '1';
-    compare_btn.addEventListener('click', go_compare);
-  }
-
-  if (compare_sel.dataset.bound !== '1') {
-    compare_sel.dataset.bound = '1';
-
-    compare_sel.addEventListener('input', () => {
-      if (compare_msg) compare_msg.textContent = '';
+      compare_list?.appendChild(opt);
     });
 
-    compare_sel.addEventListener('change', add_compare_selection);
+    render_compare_selected();
 
-    compare_sel.addEventListener('keydown', e => {
-      if (e.key !== 'Enter') return;
+    compare_wrap.style.display = 'inline-flex';
+    compare_wrap.removeAttribute('aria-busy');
 
-      e.preventDefault();
-      add_compare_selection();
+    compare_sel.disabled = false;
+    compare_sel.placeholder = 'Type player name';
+
+    compare_btn.disabled = false;
+
+    if (compare_btn.dataset.bound !== '1') {
+      compare_btn.dataset.bound = '1';
+      compare_btn.addEventListener('click', go_compare);
+    }
+
+    if (compare_sel.dataset.bound !== '1') {
+      compare_sel.dataset.bound = '1';
+
+      compare_sel.addEventListener('input', () => {
+        if (compare_msg) {
+          compare_msg.textContent = '';
+        }
+      });
+
+      compare_sel.addEventListener('change', add_compare_selection);
+
+      compare_sel.addEventListener('keydown', e => {
+        if (e.key !== 'Enter') return;
+
+        e.preventDefault();
+        add_compare_selection();
+      });
+    }
+  }
+
+  if (
+    compare_wrap.dataset.compareLoadingPage !== sync_page_id &&
+    compare_wrap.dataset.compareReadyPage !== sync_page_id
+  ) {
+    compare_wrap.dataset.compareLoadingPage = sync_page_id;
+
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        load_compare_controls()
+          .then(() => {
+            if (sync_is_stale()) return;
+
+            delete compare_wrap.dataset.compareLoadingPage;
+            compare_wrap.dataset.compareReadyPage = sync_page_id;
+          })
+          .catch(() => {
+            if (sync_is_stale()) return;
+
+            delete compare_wrap.dataset.compareLoadingPage;
+            compare_wrap.removeAttribute('aria-busy');
+            compare_wrap.style.display = 'none';
+          });
+      }, 0);
     });
   }
 }
@@ -3864,7 +3985,7 @@ async function load_page(file, page_id) {
   await render_watchlist_sidebar();
   await sync_sidebar_streak_emojis(document);
   update_sidebar_custom_icons(document);
-  await sync_player_page_action_buttons();
+  sync_player_page_action_buttons();
 
   const search = document.getElementById('player_search');
   apply_search_and_filters((search && search.value) ? search.value : '');
