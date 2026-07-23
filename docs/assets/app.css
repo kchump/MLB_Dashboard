@@ -2973,7 +2973,13 @@ body.soft_theme .fantasy_trends_table tbody tr:nth-child(even) td.fantasy_trends
   width: 58px;
   min-width: 58px;
   max-width: 76px;
-  font-weight: 600 !important;
+  font-weight: 400 !important;
+}
+
+.fantasy_trends_table th.fantasy_trends_position_column,
+.fantasy_trends_table th.fantasy_trends_position_column .fantasy_trends_sort_btn,
+.fantasy_trends_table td.fantasy_trends_position_column {
+  font-weight: 400;
 }
 
 body.soft_theme .fantasy_trends_table tbody tr:nth-child(even) td:first-child {
@@ -3157,16 +3163,6 @@ body.soft_theme .fantasy_trends_player_link:hover {
   }
 }
 
-.fantasy_trends_top_scroll {
-  display: block;
-  width: 100%;
-  height: 14px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scrollbar-width: auto;
-  scrollbar-color: #8d99aa #edf1f5;
-}
-
 .fantasy_trends_top_scroll_inner {
   height: 1px;
 }
@@ -3215,10 +3211,6 @@ body.soft_theme .fantasy_trends_player_link:hover {
   z-index: 5;
 }
 
-.fantasy_trends_position_cell {
-  font-weight: 400;
-}
-
 body.soft_theme .fantasy_trends_top_scroll,
 body.soft_theme .fantasy_trends_table_wrap {
   scrollbar-color: #687689 #202631;
@@ -3238,6 +3230,61 @@ body.soft_theme .fantasy_trends_table_wrap::-webkit-scrollbar-thumb {
 body.soft_theme .fantasy_trends_table th.fantasy_trends_sticky_name,
 body.soft_theme .fantasy_trends_table td.fantasy_trends_sticky_name {
   background: var(--fantasy-table-background, #111722);
+}
+
+.fantasy_trends_table_wrap {
+  overflow-x: auto;
+  scrollbar-width: auto;
+  scrollbar-color: var(--scroll_thumb) var(--scroll_track);
+  scrollbar-gutter: stable;
+}
+
+.fantasy_trends_table_wrap::-webkit-scrollbar {
+  width: 13px;
+  height: 13px;
+}
+
+.fantasy_trends_table_wrap::-webkit-scrollbar-track {
+  background: var(--scroll_track);
+  border-radius: 999px;
+}
+
+.fantasy_trends_table_wrap::-webkit-scrollbar-thumb {
+  min-width: 48px;
+  background: var(--scroll_thumb);
+  border: 1px solid var(--scroll_track);
+  border-radius: 999px;
+}
+
+.fantasy_trends_table_wrap::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll_thumb_hover);
+}
+
+.fantasy_trends_table_pitchers th,
+.fantasy_trends_table_pitchers td {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.fantasy_trends_table_pitchers .fantasy_cell_fill {
+  min-width: 43px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.fantasy_trends_table_pitchers th:nth-child(12),
+.fantasy_trends_table_pitchers td:nth-child(12),
+.fantasy_trends_table_pitchers th:nth-child(19),
+.fantasy_trends_table_pitchers td:nth-child(19) {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.fantasy_trends_table_pitchers th:nth-child(12) .fantasy_trends_sort_btn,
+.fantasy_trends_table_pitchers th:nth-child(19) .fantasy_trends_sort_btn {
+  padding-left: 2px;
+  padding-right: 2px;
+  font-size: 11px;
 }
 /*====================================================================
 ====================================================================

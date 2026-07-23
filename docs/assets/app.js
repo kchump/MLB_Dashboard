@@ -16074,12 +16074,34 @@ function fantasy_trends_column_label(key) {
   );
 }
 /* ################# */
-function fantasy_trends_format_value(key, value) {
+function fantasy_trends_format_value(
+  key,
+  value,
+  section
+) {
   if (
     value == null ||
     value === ''
   ) {
     return '—';
+  }
+
+  if (
+    section === 'hitters' &&
+    (
+      key === 'S Pts +/-' ||
+      key === 'Pts +/-'
+    )
+  ) {
+    const number = fantasy_trends_num(
+      value
+    );
+
+    if (number == null) {
+      return '—';
+    }
+
+    return `${(number * 100).toFixed(2)}%`;
   }
 
   const formatted = fantasy_fmt(
@@ -16202,6 +16224,12 @@ function fantasy_trends_column_class(key) {
   if (key === 'name') {
     classes.push(
       'fantasy_trends_sticky_name'
+    );
+  }
+
+  if (key === 'pos') {
+    classes.push(
+      'fantasy_trends_position_column'
     );
   }
 
@@ -16334,7 +16362,8 @@ function fantasy_trends_cell_html(
         ${escape_html(
           fantasy_trends_format_value(
             key,
-            row?.[key]
+            row?.[key],
+            section
           )
         )}
       </div>
@@ -16511,15 +16540,8 @@ function fantasy_trends_table_html(
       </div>
 
       <div class='fantasy_trends_scroll_shell'>
-        <div
-          class='fantasy_trends_top_scroll'
-          aria-hidden='true'
-        >
-          <div class='fantasy_trends_top_scroll_inner'></div>
-        </div>
-
         <div class='fantasy_trends_table_wrap'>
-          <table class='fantasy_trends_table'>
+          <table class='fantasy_trends_table fantasy_trends_table_${table_type}'>
             <thead>
               <tr>
                 ${columns.map(key => {
@@ -16796,7 +16818,7 @@ function fantasy_trends_results_html(data) {
       )}
 
       ${fantasy_trends_section_html(
-        'Buy Low/Target',
+        "Buy Low/Target (use your own descretion - some guys we know just have no dawg in 'em",
         'undervalued',
         data
       )}
@@ -16947,10 +16969,6 @@ function bind_fantasy_trends_scrollbars(
       );
     }
 
-    const top_scroll = block.querySelector(
-      '.fantasy_trends_top_scroll'
-    );
-
     const table_wrap = block.querySelector(
       '.fantasy_trends_table_wrap'
     );
@@ -16960,75 +16978,37 @@ function bind_fantasy_trends_scrollbars(
     );
 
     if (
-      !top_scroll ||
       !table_wrap ||
       !table
     ) {
       return;
     }
 
-    let syncing_from_top = false;
-    let syncing_from_bottom = false;
-
-    top_scroll.addEventListener(
-      'scroll',
-      () => {
-        if (syncing_from_bottom) {
-          return;
-        }
-
-        syncing_from_top = true;
-        table_wrap.scrollLeft = top_scroll.scrollLeft;
-        syncing_from_top = false;
-      }
-    );
-
-    table_wrap.addEventListener(
-      'scroll',
-      () => {
-        if (syncing_from_top) {
-          return;
-        }
-
-        syncing_from_bottom = true;
-        top_scroll.scrollLeft = table_wrap.scrollLeft;
-        syncing_from_bottom = false;
-      }
-    );
-
     const saved_left = Number(
       scroll_state?.[observer_key] || 0
     );
 
-    const sync_layout = () => {
-      fantasy_trends_sync_top_scroll(
-        block
+    const restore_scroll = () => {
+      table_wrap.scrollLeft = Math.min(
+        saved_left,
+        Math.max(
+          0,
+          table_wrap.scrollWidth - table_wrap.clientWidth
+        )
       );
-
-      table_wrap.scrollLeft = saved_left;
-      top_scroll.scrollLeft = saved_left;
     };
 
     requestAnimationFrame(() => {
-      sync_layout();
+      restore_scroll();
 
       requestAnimationFrame(
-        sync_layout
-      );
-
-      setTimeout(
-        sync_layout,
-        60
+        restore_scroll
       );
     });
 
     if (window.ResizeObserver) {
       const resize_observer = new ResizeObserver(
-        () => {
-          fantasy_trends_sync_top_scroll(
-            block
-          );
-        }
+        restore_scroll
       );
 
       resize_observer.observe(
