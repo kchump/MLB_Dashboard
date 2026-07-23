@@ -15297,7 +15297,7 @@ function fantasy_trends_is_undervalued(row, section) {
     streak_all >= 15 &&
     rall >= 10 &&
     consistency >= 0 &&
-    onsistency < 12
+    consistency < 12
   );
 
   return (
@@ -15443,6 +15443,34 @@ function fantasy_trends_is_overvalued(row, section) {
       recent_production_fade
     )
   );
+}
+/* ################# */
+function fantasy_trends_hitter_position_values(row) {
+  const values = [
+    row?.pos,
+    row?.Pos,
+    row?.pos2,
+    row?.['2nd'],
+  ];
+
+  return [
+    ...new Set(
+      values
+        .flatMap(value => {
+          return String(
+            value || ''
+          )
+            .toUpperCase()
+            .split(/[\/,|]+/);
+        })
+        .map(value => {
+          return value.trim();
+        })
+        .filter(value => {
+          return value;
+        })
+    ),
+  ];
 }
 /* ################# */
 function fantasy_trends_hitter_matches_position(row, selected_position) {
