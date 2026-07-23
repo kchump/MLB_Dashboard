@@ -3233,7 +3233,7 @@ body.soft_theme .fantasy_trends_table td.fantasy_trends_sticky_name {
 }
 
 .fantasy_trends_table_wrap {
-  overflow-x: auto;
+  overflow-x: scroll;
   scrollbar-width: auto;
   scrollbar-color: var(--scroll_thumb) var(--scroll_track);
   scrollbar-gutter: stable;
@@ -3280,11 +3280,65 @@ body.soft_theme .fantasy_trends_table td.fantasy_trends_sticky_name {
   padding-right: 3px;
 }
 
-.fantasy_trends_table_pitchers th:nth-child(12) .fantasy_trends_sort_btn,
-.fantasy_trends_table_pitchers th:nth-child(19) .fantasy_trends_sort_btn {
-  padding-left: 2px;
-  padding-right: 2px;
-  font-size: 11px;
+.fantasy_trends_table_pitchers th,
+.fantasy_trends_table_pitchers td {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.fantasy_trends_table_pitchers .fantasy_trends_sort_btn {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.fantasy_trends_table_pitchers .fantasy_cell_fill {
+  min-width: 40px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.fantasy_trends_table_pitchers th:nth-child(2),
+.fantasy_trends_table_pitchers td:nth-child(2) {
+  width: 70px;
+  min-width: 70px;
+}
+
+.fantasy_trends_table_pitchers th:nth-child(3),
+.fantasy_trends_table_pitchers td:nth-child(3) {
+  width: 44px;
+  min-width: 44px;
+}
+
+.fantasy_trends_table_pitchers th:nth-child(4),
+.fantasy_trends_table_pitchers td:nth-child(4),
+.fantasy_trends_table_pitchers th:nth-child(5),
+.fantasy_trends_table_pitchers td:nth-child(5),
+.fantasy_trends_table_pitchers th:nth-child(9),
+.fantasy_trends_table_pitchers td:nth-child(9),
+.fantasy_trends_table_pitchers th:nth-child(10),
+.fantasy_trends_table_pitchers td:nth-child(10),
+.fantasy_trends_table_pitchers th:nth-child(11),
+.fantasy_trends_table_pitchers td:nth-child(11) {
+  width: 64px;
+  min-width: 64px;
+}
+
+.fantasy_trends_table_pitchers th:nth-child(6),
+.fantasy_trends_table_pitchers td:nth-child(6),
+.fantasy_trends_table_pitchers th:nth-child(7),
+.fantasy_trends_table_pitchers td:nth-child(7),
+.fantasy_trends_table_pitchers th:nth-child(8),
+.fantasy_trends_table_pitchers td:nth-child(8) {
+  width: 72px;
+  min-width: 72px;
+}
+
+.fantasy_trends_table_pitchers th:nth-child(12),
+.fantasy_trends_table_pitchers td:nth-child(12),
+.fantasy_trends_table_pitchers th:nth-child(19),
+.fantasy_trends_table_pitchers td:nth-child(19) {
+  width: 92px;
+  min-width: 92px;
 }
 /*====================================================================
 ====================================================================

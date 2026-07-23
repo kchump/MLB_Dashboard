@@ -15135,7 +15135,7 @@ function fantasy_trends_is_free_agent(row, section) {
     }
   );
 
-  // Captures strong recent value, balanced quality, or one elite profile metric.
+  // strong recent value, balanced quality, or one elite profile metric
   const strong_profile = (
     rall >= 25 ||
     (
@@ -15146,14 +15146,14 @@ function fantasy_trends_is_free_agent(row, section) {
     all >= 20
   );
 
-  // Captures productive players whose current profile is positive and repeatable.
+  // current profile is positive and repeatable
   const productive_non_fake_streak = (
     consistency >= 20 &&
     score >= 0 &&
     all >= 0
   );
 
-  // Captures players producing useful games at an exceptional rate regardless of profile metrics.
+  // producing useful games at an exceptional rate regardless of profile metrics
   const elite_consistent_production = (
     consistency >= 35
   );
@@ -15207,13 +15207,34 @@ function fantasy_trends_is_undervalued(row, section) {
   const all = streak_all ?? season_all;
   const ppg = streak_ppg ?? season_ppg;
 
-  // Season PPG determines whether the player's established production is already too strong.
+  // PPG determines whether the player's established production is already too strong
   const threshold_ppg = season_ppg ?? streak_ppg;
 
   const consistency = fantasy_trends_consistency(
     row,
     section
   );
+
+  const role = fantasy_trends_role(
+    row,
+    section
+  );
+
+  if (
+    role === 'rp' &&
+    (
+      (
+        season_ppg != null &&
+        season_ppg < 4.5
+      ) ||
+      (
+        streak_ppg != null &&
+        streak_ppg < 4.5
+      )
+    )
+  ) {
+    return false;
+  }
 
   if (
     own_pct == null ||
@@ -15237,7 +15258,7 @@ function fantasy_trends_is_undervalued(row, section) {
     }
   );
 
-  // Captures a strong current profile whose recent aggregate results remain negative.
+  // strong current profile whose recent aggregate results remain negative
   const good_player_minor_slump = (
     score >= 40 &&
     all >= 5 &&
@@ -15255,7 +15276,7 @@ function fantasy_trends_is_undervalued(row, section) {
     )
   );
 
-  // Captures under-the-radar hot players while rejecting severely mismatched Score and All profiles.
+  // under-the-radar hot players while rejecting severely mismatched Score and All profiles
   const improving_player = (
     rall >= 25 &&
     (
@@ -15274,7 +15295,7 @@ function fantasy_trends_is_undervalued(row, section) {
     )
   );
 
-  // Captures a reliable hot streak with strong Score, All, and improved PPG.
+  // reliable hot streak with strong Score, All, and improved PPG
   const hot_target = (
     streak_score != null &&
     streak_all != null &&
@@ -15289,7 +15310,7 @@ function fantasy_trends_is_undervalued(row, section) {
     )
   );
 
-  // Captures a dominant profile even when consistency has not yet reached the reliable range.
+  // dominant profile even when consistency has not yet reached the reliable range
   const explosive_hot_target = (
     streak_score != null &&
     streak_all != null &&
@@ -16056,7 +16077,18 @@ function fantasy_trends_collect_rows(data, trend_type) {
   };
 }
 /* ################# */
-function fantasy_trends_column_label(key) {
+function fantasy_trends_column_label(key, table_type) {
+  if (table_type === 'pitchers') {
+    const pitcher_label_map = {
+      'S Days +/-': 'S Cons.',
+      'Days +/-': 'Cons.',
+    };
+
+    if (pitcher_label_map[key]) {
+      return pitcher_label_map[key];
+    }
+  }
+
   const label_map = {
     name: 'Name',
     pos: 'Pos',
@@ -16449,9 +16481,10 @@ function fantasy_trends_sort_header_html(key, trend_type, table_type) {
       >
         <span class='fantasy_trends_sort_label'>
           ${escape_html(
-            fantasy_trends_column_label(
-              key
-            )
+          fantasy_trends_column_label(
+            key,
+            table_type
+          )
           )}
         </span>
 
@@ -16818,7 +16851,7 @@ function fantasy_trends_results_html(data) {
       )}
 
       ${fantasy_trends_section_html(
-        "Buy Low/Target (use your own descretion - some guys we know just have no dawg in 'em",
+        "Buy Low/Target (use your own discretion - some guys we know just have no dawg in 'em)",
         'undervalued',
         data
       )}
