@@ -3156,6 +3156,89 @@ body.soft_theme .fantasy_trends_player_link:hover {
     max-height: 380px;
   }
 }
+
+.fantasy_trends_top_scroll {
+  display: block;
+  width: 100%;
+  height: 14px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: auto;
+  scrollbar-color: #8d99aa #edf1f5;
+}
+
+.fantasy_trends_top_scroll_inner {
+  height: 1px;
+}
+
+.fantasy_trends_top_scroll::-webkit-scrollbar,
+.fantasy_trends_table_wrap::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.fantasy_trends_top_scroll::-webkit-scrollbar-track,
+.fantasy_trends_table_wrap::-webkit-scrollbar-track {
+  background: #edf1f5;
+  border-radius: 999px;
+}
+
+.fantasy_trends_top_scroll::-webkit-scrollbar-thumb,
+.fantasy_trends_table_wrap::-webkit-scrollbar-thumb {
+  background: #8d99aa;
+  border: 2px solid #edf1f5;
+  border-radius: 999px;
+}
+
+.fantasy_trends_top_scroll::-webkit-scrollbar-thumb:hover,
+.fantasy_trends_table_wrap::-webkit-scrollbar-thumb:hover {
+  background: #687689;
+}
+
+.fantasy_trends_table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.fantasy_trends_table th.fantasy_trends_sticky_name,
+.fantasy_trends_table td.fantasy_trends_sticky_name {
+  position: sticky;
+  left: 0;
+  background: var(--fantasy-table-background, #fff);
+}
+
+.fantasy_trends_table th.fantasy_trends_sticky_name {
+  z-index: 8;
+}
+
+.fantasy_trends_table td.fantasy_trends_sticky_name {
+  z-index: 5;
+}
+
+.fantasy_trends_position_cell {
+  font-weight: 400;
+}
+
+body.soft_theme .fantasy_trends_top_scroll,
+body.soft_theme .fantasy_trends_table_wrap {
+  scrollbar-color: #687689 #202631;
+}
+
+body.soft_theme .fantasy_trends_top_scroll::-webkit-scrollbar-track,
+body.soft_theme .fantasy_trends_table_wrap::-webkit-scrollbar-track {
+  background: #202631;
+}
+
+body.soft_theme .fantasy_trends_top_scroll::-webkit-scrollbar-thumb,
+body.soft_theme .fantasy_trends_table_wrap::-webkit-scrollbar-thumb {
+  background: #687689;
+  border-color: #202631;
+}
+
+body.soft_theme .fantasy_trends_table th.fantasy_trends_sticky_name,
+body.soft_theme .fantasy_trends_table td.fantasy_trends_sticky_name {
+  background: var(--fantasy-table-background, #111722);
+}
 /*====================================================================
 ====================================================================
 ====================================================================

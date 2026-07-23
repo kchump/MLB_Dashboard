@@ -14771,8 +14771,6 @@ const fantasy_trends_pitcher_columns = [
   'All',
   'Con',
   'Disc',
-  'RHB',
-  'LHB',
   'Days +/-',
   'rAll',
   'IP',
@@ -15234,7 +15232,7 @@ function fantasy_trends_is_undervalued(row, section) {
     row,
     {
       hitters: 5.3,
-      rp: 6,
+      rp: 5.5,
       sp: 18,
     }
   );
@@ -15243,7 +15241,18 @@ function fantasy_trends_is_undervalued(row, section) {
   const good_player_minor_slump = (
     score >= 40 &&
     all >= 5 &&
-    rall < 0
+    (
+      (
+        streak_score != null &&
+        streak_all != null &&
+        streak_score >= 40 &&
+        streak_all >= 5
+      ) ||
+      (
+        rall < 0 &&
+        rall >= -15
+      )
+    )
   );
 
   // Captures under-the-radar hot players while rejecting severely mismatched Score and All profiles.
@@ -15288,7 +15297,7 @@ function fantasy_trends_is_undervalued(row, section) {
     streak_all >= 15 &&
     rall >= 10 &&
     consistency >= 0 &&
-    consistency < 15
+    onsistency < 12
   );
 
   return (
@@ -15358,6 +15367,11 @@ function fantasy_trends_is_overvalued(row, section) {
     return false;
   }
 
+  // A Score above 80 is too strong for the player to be considered on the Hot Seat.
+  if (score > 80) {
+    return false;
+  }
+
   const slump_ppg_floor = fantasy_trends_ppg_threshold(
     section,
     row,
@@ -15368,18 +15382,26 @@ function fantasy_trends_is_overvalued(row, section) {
     }
   );
 
-  // Captures players whose current Score and All are both meaningfully poor.
+  // Confirms that weak profile metrics are accompanied by actual negative results.
+  const negative_results = (
+    rall < 0 ||
+    consistency < 0
+  );
+
+  // Captures players whose Score and All are both poor and whose results have turned negative.
   const weak_profile = (
     score < -25 &&
-    all < -5
+    all < -5 &&
+    negative_results
   );
 
-  // Captures players whose current overall quality is severely negative.
+  // Captures severely weak All only after recent value or consistency becomes negative.
   const very_weak_all = (
-    all < -15
+    all < -15 &&
+    negative_results
   );
 
-  // Captures players with severely negative recent value who still retain meaningful PPG.
+  // Captures severely negative recent value while the player still retains meaningful PPG.
   const severe_slump = (
     rall <= -30 &&
     ppg >= slump_ppg_floor
@@ -15412,7 +15434,7 @@ function fantasy_trends_is_overvalued(row, section) {
 
   return (
     own_pct >= 40 &&
-    consistency < 15 &&
+    consistency < 12 &&
     (
       weak_profile ||
       very_weak_all ||
@@ -15421,30 +15443,6 @@ function fantasy_trends_is_overvalued(row, section) {
       recent_production_fade
     )
   );
-}
-/* ################# */
-function fantasy_trends_hitter_position_values(row) {
-  return [
-    row?.pos,
-    row?.Pos,
-    row?.position,
-    row?.pos2,
-    row?.['2nd Pos'],
-    row?.second_pos,
-  ]
-    .flatMap(value => {
-      return String(
-        value || ''
-      )
-        .toUpperCase()
-        .split(/[,/|]/);
-    })
-    .map(value => {
-      return value.trim();
-    })
-    .filter(value => {
-      return value;
-    });
 }
 /* ################# */
 function fantasy_trends_hitter_matches_position(row, selected_position) {
@@ -16188,6 +16186,7 @@ function fantasy_trends_column_class(key) {
     'Days +/-',
     'rAll',
     'SB',
+    'K',
     'OPS',
     'WHIP',
   ]);
@@ -16775,7 +16774,7 @@ function fantasy_trends_results_html(data) {
       )}
 
       ${fantasy_trends_section_html(
-        'Hot Seat',
+        'Hot Seat/Skeptical',
         'overvalued',
         data
       )}
