@@ -10359,9 +10359,11 @@ if (mode === 'projected_pitchers') {
       ];
       await render_many(paths, {
         link_role: 'starters',
+        link_year: y,
         drop_cols: projected_pitcher_drop_cols,
         compact_table: true,
         include_ownership: true,
+        ownership_year: y,
         ownership_role: 'starters'
       });
       apply_matchups_table_dividers(results_root, mode, 'default');
@@ -11213,6 +11215,7 @@ if (mode === 'best_and_worst_hitters') {
           gold_mode: 'hitter',
           link_role: 'batters',
           include_ownership: true,
+          ownership_year: y,
           ownership_role: 'hitters'
         },
         cell_class: 'matchups_best_worst_cell'
@@ -11225,6 +11228,7 @@ if (mode === 'best_and_worst_hitters') {
           gold_mode: 'hitter',
           link_role: 'batters',
           include_ownership: true,
+          ownership_year: y,
           ownership_role: 'hitters'
         },
         cell_class: 'matchups_best_worst_cell'
@@ -12474,7 +12478,7 @@ const matchups_table_divider_config = {
   },
 
   projected_pitchers: {
-    default: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
+    default: { heavy_before: ['Score', '+All', 'Consistency', '+FB', 'Own%'], light_before: ['+SL', '+CH'] },
   },
 
   weekly_starting_pitcher_moves: {
@@ -12482,7 +12486,7 @@ const matchups_table_divider_config = {
 },
 
   best_and_worst_hitters: {
-    default: { heavy_before: ['Score', '+All', 'Consistency'], light_before: ['Pitcher'] },
+    default: { heavy_before: ['Score', '+All', 'Consistency', 'Own%'], light_before: ['Pitcher'] },
   },
 
   specific_starting_pitchers: {
@@ -14716,16 +14720,25 @@ const fantasy_trends_state = {
 const fantasy_trends_hitter_columns = [
   'name',
   'Own%',
+  'pos',
   'team',
   'S PA',
   'S PPG',
   'S Score',
   'S All',
+  'S Con',
+  'S Disc',
   'S OPS',
+  'S Pts +/-',
   'Pts',
   'PPG',
   'Score',
   'All',
+  'Con',
+  'Disc',
+  'RHP',
+  'LHP',
+  'Pts +/-',
   'rAll',
   'PA',
   'R',
@@ -14736,6 +14749,7 @@ const fantasy_trends_hitter_columns = [
   'OBP',
   'SLG',
   'OPS',
+  'xOPS',
 ];
 /* ################# */
 const fantasy_trends_pitcher_columns = [
@@ -14746,18 +14760,27 @@ const fantasy_trends_pitcher_columns = [
   'S PPG',
   'S Score',
   'S All',
+  'S Con',
+  'S Disc',
   'S ERA',
   'S WHIP',
+  'S Days +/-',
   'Pts',
   'PPG',
   'Score',
   'All',
+  'Con',
+  'Disc',
+  'RHB',
+  'LHB',
+  'Days +/-',
   'rAll',
   'IP',
   'BB',
   'K',
   'ERA',
   'WHIP',
+  'pERA',
 ];
 /* ################# */
 function fantasy_trends_num(v) {
@@ -15078,75 +15101,6 @@ function fantasy_trends_is_free_agent(row, section) {
     'All'
   );
 
-  const ppg = fantasy_trends_current_or_season_num(
-    row,
-    'S PPG',
-    'PPG'
-  );
-
-  if (
-    own_pct == null ||
-    rall == null ||
-    score == null ||
-    all == null ||
-    ppg == null
-  ) {
-    return false;
-  }
-
-  if (rall < 5) {
-    return false;
-  }
-
-  const min_ppg = fantasy_trends_ppg_threshold(
-    section,
-    row,
-    {
-      hitters: 3,
-      rp: 4,
-      sp: 10,
-    }
-  );
-
-  return (
-    own_pct >= 1 &&
-    own_pct < 40 &&
-    (
-      rall >= 20 ||
-      (
-        score >= 40 &&
-        all >= 10
-      ) ||
-      (
-        score >= 60 ||
-        all >= 15
-      )
-    ) &&
-    ppg >= min_ppg
-  );
-}
-/* ################# */
-function fantasy_trends_is_undervalued(row, section) {
-  const own_pct = fantasy_trends_num(
-    row?.['Own%']
-  );
-
-  const rall = fantasy_trends_num(
-    row?.rAll
-  );
-
-  const score = fantasy_trends_current_or_season_num(
-    row,
-    'S Score',
-    'Score'
-  );
-
-  const all = fantasy_trends_current_or_season_num(
-    row,
-    'S All',
-    'All'
-  );
-
   const consistency = fantasy_trends_consistency(
     row,
     section
@@ -15169,23 +15123,185 @@ function fantasy_trends_is_undervalued(row, section) {
     return false;
   }
 
+  if (rall < 0) {
+    return false;
+  }
+
+  const min_ppg = fantasy_trends_ppg_threshold(
+    section,
+    row,
+    {
+      hitters: 2.8,
+      rp: 4.5,
+      sp: 8,
+    }
+  );
+
+  // Captures strong recent value, balanced quality, or one elite profile metric.
+  const strong_profile = (
+    rall >= 25 ||
+    (
+      score >= 40 &&
+      all >= 10
+    ) ||
+    score >= 60 ||
+    all >= 20
+  );
+
+  // Captures productive players whose current profile is positive and repeatable.
+  const productive_non_fake_streak = (
+    consistency >= 20 &&
+    score >= 0 &&
+    all >= 0
+  );
+
+  // Captures players producing useful games at an exceptional rate regardless of profile metrics.
+  const elite_consistent_production = (
+    consistency >= 35
+  );
+
+  return (
+    own_pct >= 1 &&
+    own_pct < 40 &&
+    ppg >= min_ppg &&
+    (
+      strong_profile ||
+      productive_non_fake_streak ||
+      elite_consistent_production
+    )
+  );
+}
+/* ################# */
+function fantasy_trends_is_undervalued(row, section) {
+  const own_pct = fantasy_trends_num(
+    row?.['Own%']
+  );
+
+  const rall = fantasy_trends_num(
+    row?.rAll
+  );
+
+  const streak_score = fantasy_trends_num(
+    row?.['S Score']
+  );
+
+  const streak_all = fantasy_trends_num(
+    row?.['S All']
+  );
+
+  const streak_ppg = fantasy_trends_num(
+    row?.['S PPG']
+  );
+
+  const season_score = fantasy_trends_num(
+    row?.Score
+  );
+
+  const season_all = fantasy_trends_num(
+    row?.All
+  );
+
+  const season_ppg = fantasy_trends_num(
+    row?.PPG
+  );
+
+  const score = streak_score ?? season_score;
+  const all = streak_all ?? season_all;
+  const ppg = streak_ppg ?? season_ppg;
+
+  // Season PPG determines whether the player's established production is already too strong.
+  const threshold_ppg = season_ppg ?? streak_ppg;
+
+  const consistency = fantasy_trends_consistency(
+    row,
+    section
+  );
+
+  if (
+    own_pct == null ||
+    rall == null ||
+    score == null ||
+    all == null ||
+    consistency == null ||
+    ppg == null ||
+    threshold_ppg == null
+  ) {
+    return false;
+  }
+
   const max_ppg = fantasy_trends_ppg_threshold(
     section,
     row,
     {
-      hitters: 5,
+      hitters: 5.3,
       rp: 6,
-      sp: 20,
+      sp: 18,
     }
+  );
+
+  // Captures a strong current profile whose recent aggregate results remain negative.
+  const good_player_minor_slump = (
+    score >= 40 &&
+    all >= 5 &&
+    rall < 0
+  );
+
+  // Captures under-the-radar hot players while rejecting severely mismatched Score and All profiles.
+  const improving_player = (
+    rall >= 25 &&
+    (
+      (
+        score >= 20 &&
+        all >= -15
+      ) ||
+      (
+        score >= 0 &&
+        all >= -5
+      ) ||
+      (
+        score >= -20 &&
+        all >= 5
+      )
+    )
+  );
+
+  // Captures a reliable hot streak with strong Score, All, and improved PPG.
+  const hot_target = (
+    streak_score != null &&
+    streak_all != null &&
+    streak_ppg != null &&
+    streak_score >= 75 &&
+    streak_all >= 20 &&
+    rall >= 10 &&
+    consistency >= 15 &&
+    (
+      season_ppg == null ||
+      streak_ppg >= season_ppg * 1.1
+    )
+  );
+
+  // Captures a dominant profile even when consistency has not yet reached the reliable range.
+  const explosive_hot_target = (
+    streak_score != null &&
+    streak_all != null &&
+    streak_score >= 80 &&
+    streak_all >= 15 &&
+    rall >= 10 &&
+    consistency >= 0 &&
+    consistency < 15
   );
 
   return (
     own_pct >= 40 &&
     own_pct < 95 &&
-    score >= 40 &&
-    all >= 5 &&
-    consistency >= 5 &&
-    ppg < max_ppg
+    consistency >= 0 &&
+    threshold_ppg < max_ppg &&
+    (
+      good_player_minor_slump ||
+      improving_player ||
+      hot_target ||
+      explosive_hot_target
+    )
   );
 }
 /* ################# */
@@ -15198,17 +15314,33 @@ function fantasy_trends_is_overvalued(row, section) {
     row?.rAll
   );
 
-  const score = fantasy_trends_current_or_season_num(
-    row,
-    'S Score',
-    'Score'
+  const streak_score = fantasy_trends_num(
+    row?.['S Score']
   );
 
-  const all = fantasy_trends_current_or_season_num(
-    row,
-    'S All',
-    'All'
+  const streak_all = fantasy_trends_num(
+    row?.['S All']
   );
+
+  const streak_ppg = fantasy_trends_num(
+    row?.['S PPG']
+  );
+
+  const season_score = fantasy_trends_num(
+    row?.Score
+  );
+
+  const season_all = fantasy_trends_num(
+    row?.All
+  );
+
+  const season_ppg = fantasy_trends_num(
+    row?.PPG
+  );
+
+  const score = streak_score ?? season_score;
+  const all = streak_all ?? season_all;
+  const ppg = streak_ppg ?? season_ppg;
 
   const consistency = fantasy_trends_consistency(
     row,
@@ -15220,16 +15352,74 @@ function fantasy_trends_is_overvalued(row, section) {
     rall == null ||
     score == null ||
     all == null ||
-    consistency == null
+    consistency == null ||
+    ppg == null
   ) {
     return false;
   }
 
-  return (
-    own_pct >= 70 &&
+  const slump_ppg_floor = fantasy_trends_ppg_threshold(
+    section,
+    row,
+    {
+      hitters: 4,
+      rp: 4.5,
+      sp: 14,
+    }
+  );
+
+  // Captures players whose current Score and All are both meaningfully poor.
+  const weak_profile = (
     score < -25 &&
-    all < -5 &&
-    consistency < 10
+    all < -5
+  );
+
+  // Captures players whose current overall quality is severely negative.
+  const very_weak_all = (
+    all < -15
+  );
+
+  // Captures players with severely negative recent value who still retain meaningful PPG.
+  const severe_slump = (
+    rall <= -30 &&
+    ppg >= slump_ppg_floor
+  );
+
+  // Captures a major recent profile collapse with negative consistency.
+  const recent_profile_collapse = (
+    streak_score != null &&
+    streak_all != null &&
+    consistency < 0 &&
+    streak_score <= -25 &&
+    (
+      streak_all < 0 ||
+      (
+        season_all != null &&
+        streak_all <= season_all - 15
+      )
+    )
+  );
+
+  // Captures a negative current profile with PPG at least 20% below the season rate.
+  const recent_production_fade = (
+    streak_score != null &&
+    season_ppg != null &&
+    streak_ppg != null &&
+    consistency < 0 &&
+    streak_score < 0 &&
+    streak_ppg <= season_ppg * 0.8
+  );
+
+  return (
+    own_pct >= 40 &&
+    consistency < 15 &&
+    (
+      weak_profile ||
+      very_weak_all ||
+      severe_slump ||
+      recent_profile_collapse ||
+      recent_production_fade
+    )
   );
 }
 /* ################# */
@@ -15371,6 +15561,12 @@ function fantasy_trends_sort_value(row, key) {
     return String(
       row?.name || ''
     ).toLowerCase();
+  }
+
+  if (key === 'pos') {
+    return (
+      row?.fantasy_trends_positions || []
+    ).join('/').toLowerCase();
   }
 
   if (key === 'team') {
@@ -15837,7 +16033,14 @@ function fantasy_trends_collect_rows(data, trend_type) {
 function fantasy_trends_column_label(key) {
   const label_map = {
     name: 'Name',
+    pos: 'Pos',
     team: 'Team',
+    'S Disc': 'S Approach',
+    Disc: 'Approach',
+    'S Pts +/-': 'S Consistency',
+    'Pts +/-': 'Consistency',
+    'S Days +/-': 'S Consistency',
+    'Days +/-': 'Consistency',
   };
 
   return label_map[key] || fantasy_display_label(
@@ -15978,11 +16181,15 @@ function fantasy_trends_column_class(key) {
 
   const divider_columns = new Set([
     'team',
-    'S WHIP',
-    'S OPS',
+    'S Pts +/-',
+    'S Days +/-',
+    'PPG',
+    'Pts +/-',
+    'Days +/-',
     'rAll',
     'SB',
-    'K',
+    'OPS',
+    'WHIP',
   ]);
 
   if (divider_columns.has(key)) {
@@ -16006,6 +16213,24 @@ function fantasy_trends_cell_html(
   const column_class = fantasy_trends_column_class(
     key
   );
+
+  if (key === 'pos') {
+    const positions = [
+      ...new Set(
+        row?.fantasy_trends_positions || []
+      ),
+    ];
+
+    return `
+      <td class='fantasy_trends_position_cell${column_class}'>
+        ${positions.length
+          ? escape_html(
+              positions.join('/')
+            )
+          : '—'}
+      </td>
+    `;
+  }
 
   if (key === 'name') {
     const remove_btn = `
@@ -16538,19 +16763,19 @@ function fantasy_trends_results_html(data) {
   return `
     <div class='fantasy_trends_sections'>
       ${fantasy_trends_section_html(
-        'Free Agents',
+        'Hot Free Agents',
         'free_agents',
         data
       )}
 
       ${fantasy_trends_section_html(
-        'Undervalued',
+        'Buy Low/Target',
         'undervalued',
         data
       )}
 
       ${fantasy_trends_section_html(
-        'Overvalued',
+        'Hot Seat',
         'overvalued',
         data
       )}
@@ -16661,15 +16886,8 @@ function fantasy_trends_sync_top_scroll(block) {
     )
   );
 
-  const viewport_width = Math.ceil(
-    table_wrap.clientWidth
-  );
-
   top_inner.style.width = `${scroll_width}px`;
-  top_scroll.style.display = scroll_width > viewport_width + 1
-    ? 'block'
-    : 'none';
-
+  top_scroll.style.display = 'block';
   top_scroll.scrollLeft = table_wrap.scrollLeft;
 }
 /* ################# */
