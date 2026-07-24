@@ -529,7 +529,7 @@
         "rAll": 1.88,
         "role": "batters",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "HOU",
         "teams": "",
         "vSzn": 156.99,
         "xOPS": 0.837,
@@ -1419,7 +1419,7 @@
         "rAll": -5.83,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "HOU",
         "teams": "",
         "vSzn": -737.22,
         "xOPS": 0.59,
@@ -2042,7 +2042,7 @@
         "rAll": -10.63,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "LAA",
         "teams": "",
         "vSzn": -560.7,
         "xOPS": 0.579,
@@ -2665,7 +2665,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "LAA",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.762,
@@ -3377,7 +3377,7 @@
         "rAll": -31.9,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ATH",
         "teams": "",
         "vSzn": 398.61,
         "xOPS": 0.885,
@@ -3733,7 +3733,7 @@
         "rAll": -21.71,
         "role": "batters",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "ATH",
         "teams": "",
         "vSzn": -202.2,
         "xOPS": 0.725,
@@ -4445,7 +4445,7 @@
         "rAll": -14.02,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ATH",
         "teams": "",
         "vSzn": -79.92,
         "xOPS": 0.657,
@@ -4623,7 +4623,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "ATH",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.413,
@@ -5246,7 +5246,7 @@
         "rAll": 26.6,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SEA",
         "teams": "",
         "vSzn": 46.02,
         "xOPS": 0.764,
@@ -6136,7 +6136,7 @@
         "rAll": -20.66,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SEA",
         "teams": "",
         "vSzn": -989.01,
         "xOPS": 0.534,
@@ -6759,7 +6759,7 @@
         "rAll": -10.23,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TEX",
         "teams": "",
         "vSzn": -58.92,
         "xOPS": 0.776,
@@ -7293,7 +7293,7 @@
         "rAll": 0.11,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TEX",
         "teams": "",
         "vSzn": -409.38,
         "xOPS": 0.658,
@@ -7471,7 +7471,7 @@
         "rAll": -5.71,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TEX",
         "teams": "",
         "vSzn": -629.82,
         "xOPS": 0.547,
@@ -7738,7 +7738,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "TEX",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.426,
@@ -7827,7 +7827,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TEX",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.351,
@@ -8094,7 +8094,7 @@
         "rAll": -22.66,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TOR",
         "teams": "",
         "vSzn": -767.1,
         "xOPS": 0.579,
@@ -8628,7 +8628,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "CHW",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.667,
@@ -9073,7 +9073,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "CHW",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.681,
@@ -9251,7 +9251,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL7",
+        "team": "CHW",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.694,
@@ -9518,7 +9518,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "CHW",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.655,
@@ -10586,7 +10586,7 @@
         "rAll": -29.87,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "CLE",
         "teams": "",
         "vSzn": -213.78,
         "xOPS": 0.704,
@@ -12544,7 +12544,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "DET",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.55,
@@ -12633,7 +12633,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "DET",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.664,
@@ -12722,7 +12722,7 @@
         "rAll": -14.1,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "DET",
         "teams": "",
         "vSzn": -395.64,
         "xOPS": 0.615,
@@ -13256,7 +13256,7 @@
         "rAll": 20.26,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "KC",
         "teams": "",
         "vSzn": 89.19,
         "xOPS": 0.707,
@@ -13345,7 +13345,7 @@
         "rAll": -1.23,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "KC",
         "teams": "",
         "vSzn": 470.31,
         "xOPS": 0.896,
@@ -13523,7 +13523,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "KC",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.604,
@@ -13790,7 +13790,7 @@
         "rAll": -16.33,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "KC",
         "teams": "",
         "vSzn": -500.55,
         "xOPS": 0.615,
@@ -16282,7 +16282,7 @@
         "rAll": 7.39,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "BAL",
         "teams": "",
         "vSzn": 261.36,
         "xOPS": 0.789,
@@ -16816,7 +16816,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "BAL",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.675,
@@ -16905,7 +16905,7 @@
         "rAll": 3.43,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "BAL",
         "teams": "",
         "vSzn": -79.74,
         "xOPS": 0.832,
@@ -17261,7 +17261,7 @@
         "rAll": -15.42,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "BAL",
         "teams": "",
         "vSzn": -210.87,
         "xOPS": 0.783,
@@ -17795,7 +17795,7 @@
         "rAll": -31.91,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "BOS",
         "teams": "",
         "vSzn": -735.0,
         "xOPS": 0.562,
@@ -17973,7 +17973,7 @@
         "rAll": 27.31,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "BOS",
         "teams": "",
         "vSzn": 23.01,
         "xOPS": 0.792,
@@ -18329,7 +18329,7 @@
         "rAll": -28.34,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "BOS",
         "teams": "",
         "vSzn": -417.51,
         "xOPS": 0.695,
@@ -19130,7 +19130,7 @@
         "rAll": -28.64,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "BOS",
         "teams": "",
         "vSzn": -595.71,
         "xOPS": 0.566,
@@ -19486,7 +19486,7 @@
         "rAll": 20.9,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "NYY",
         "teams": "",
         "vSzn": 510.27,
         "xOPS": 0.993,
@@ -19664,7 +19664,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "NYY",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.758,
@@ -21800,7 +21800,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TB",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.619,
@@ -23046,7 +23046,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TOR",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.479,
@@ -23135,7 +23135,7 @@
         "rAll": -28.09,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TOR",
         "teams": "",
         "vSzn": -236.79,
         "xOPS": 0.777,
@@ -23402,7 +23402,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TOR",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.538,
@@ -24737,7 +24737,7 @@
         "rAll": 3.45,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ARI",
         "teams": "",
         "vSzn": -445.26,
         "xOPS": 0.602,
@@ -24826,7 +24826,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ARI",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.769,
@@ -25093,7 +25093,7 @@
         "rAll": -23.46,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ARI",
         "teams": "",
         "vSzn": -371.73,
         "xOPS": 0.724,
@@ -25538,7 +25538,7 @@
         "rAll": -31.95,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "COL",
         "teams": "",
         "vSzn": -663.9,
         "xOPS": 0.544,
@@ -26784,7 +26784,7 @@
         "rAll": 36.3,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "LAD",
         "teams": "",
         "vSzn": 242.64,
         "xOPS": 0.866,
@@ -27852,7 +27852,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "LAD",
         "teams": "",
         "vSzn": "",
         "xOPS": 1.864,
@@ -28653,7 +28653,7 @@
         "rAll": -24.69,
         "role": "batters",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "SD",
         "teams": "",
         "vSzn": -282.6,
         "xOPS": 0.712,
@@ -29187,7 +29187,7 @@
         "rAll": -11.2,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SD",
         "teams": "",
         "vSzn": -352.74,
         "xOPS": 0.683,
@@ -29454,7 +29454,7 @@
         "rAll": -7.16,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SD",
         "teams": "",
         "vSzn": -268.74,
         "xOPS": 0.72,
@@ -29810,7 +29810,7 @@
         "rAll": -15.47,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SF",
         "teams": "",
         "vSzn": -301.8,
         "xOPS": 0.626,
@@ -30611,7 +30611,7 @@
         "rAll": -9.58,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SF",
         "teams": "",
         "vSzn": -678.87,
         "xOPS": 0.615,
@@ -30878,7 +30878,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SF",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.62,
@@ -32480,7 +32480,7 @@
         "rAll": -13.17,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "CHC",
         "teams": "",
         "vSzn": -367.98,
         "xOPS": 0.677,
@@ -33103,7 +33103,7 @@
         "rAll": -9.62,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "CIN",
         "teams": "",
         "vSzn": -224.4,
         "xOPS": 0.711,
@@ -33993,7 +33993,7 @@
         "rAll": 3.36,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "CIN",
         "teams": "",
         "vSzn": -295.32,
         "xOPS": 0.619,
@@ -34616,7 +34616,7 @@
         "rAll": -9.86,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "MIL",
         "teams": "",
         "vSzn": -289.08,
         "xOPS": 0.63,
@@ -35150,7 +35150,7 @@
         "rAll": -13.14,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "MIL",
         "teams": "",
         "vSzn": -568.23,
         "xOPS": 0.578,
@@ -35239,7 +35239,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "MIL",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.599,
@@ -36218,7 +36218,7 @@
         "rAll": 11.65,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "PIT",
         "teams": "",
         "vSzn": 192.96,
         "xOPS": 0.832,
@@ -36663,7 +36663,7 @@
         "rAll": 11.16,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "PIT",
         "teams": "",
         "vSzn": 162.48,
         "xOPS": 0.747,
@@ -37375,7 +37375,7 @@
         "rAll": 18.53,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "PIT",
         "teams": "",
         "vSzn": 78.39,
         "xOPS": 0.825,
@@ -37642,7 +37642,7 @@
         "rAll": -35.86,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "PIT",
         "teams": "",
         "vSzn": -195.42,
         "xOPS": 0.694,
@@ -38265,7 +38265,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "STL",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.679,
@@ -39600,7 +39600,7 @@
         "rAll": -11.88,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ATL",
         "teams": "",
         "vSzn": 225.9,
         "xOPS": 0.867,
@@ -40668,7 +40668,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "ATL",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.3,
@@ -40757,7 +40757,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ATL",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.445,
@@ -42181,7 +42181,7 @@
         "rAll": -4.6,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "MIA",
         "teams": "",
         "vSzn": -227.73,
         "xOPS": 0.712,
@@ -43249,7 +43249,7 @@
         "rAll": -12.71,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "NYM",
         "teams": "",
         "vSzn": -465.12,
         "xOPS": 0.724,
@@ -44584,7 +44584,7 @@
         "rAll": -46.17,
         "role": "batters",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "PHI",
         "teams": "",
         "vSzn": -415.95,
         "xOPS": 0.658,
@@ -45207,7 +45207,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "PHI",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.529,
@@ -46008,7 +46008,7 @@
         "rAll": -3.72,
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "WAS",
         "teams": "",
         "vSzn": -743.31,
         "xOPS": 0.577,
@@ -48411,7 +48411,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "LAA",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.506,
@@ -49924,7 +49924,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "SEA",
         "teams": "",
         "vSzn": "",
         "xOPS": 1.105,
@@ -50280,7 +50280,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SF",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.687,
@@ -51704,7 +51704,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "LAA",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.595,
@@ -52772,7 +52772,7 @@
         "rAll": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ATH",
         "teams": "",
         "vSzn": "",
         "xOPS": 0.755,
@@ -54925,7 +54925,7 @@
         "rAll": -0.12,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "ATH",
         "teams": "",
         "vSzn": -136.27,
         "≥50 Qual": 3.0
@@ -55003,7 +55003,7 @@
         "rAll": -43.82,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "ATH",
         "teams": "",
         "vSzn": -288.56,
         "≥50 Qual": 1.0
@@ -55783,7 +55783,7 @@
         "rAll": 54.59,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "SEA",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -56017,7 +56017,7 @@
         "rAll": 19.33,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "SEA",
         "teams": "",
         "vSzn": 40.19,
         "≥50 Qual": 3.0
@@ -56095,7 +56095,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "COL",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -56329,7 +56329,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "TEX",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -56407,7 +56407,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "TEX",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 3.0
@@ -56641,7 +56641,7 @@
         "rAll": 4.66,
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "TEX",
         "teams": "",
         "vSzn": -300.21,
         "≥50 Qual": 1.0
@@ -56797,7 +56797,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "TEX",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -57187,7 +57187,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "CHW",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 4.0
@@ -57499,7 +57499,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "CHW",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 1.0
@@ -57967,7 +57967,7 @@
         "rAll": -1.94,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "CLE",
         "teams": "",
         "vSzn": -214.4,
         "≥50 Qual": 2.0
@@ -58747,7 +58747,7 @@
         "rAll": 32.43,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "DET",
         "teams": "",
         "vSzn": -94.12,
         "≥50 Qual": 3.0
@@ -58825,7 +58825,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "DET",
         "teams": "",
         "vSzn": -212.64,
         "≥50 Qual": 2.0
@@ -59059,7 +59059,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "DET",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 1.0
@@ -59215,7 +59215,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "KC",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 0.0
@@ -59605,7 +59605,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "KC",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 3.0
@@ -59917,7 +59917,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "MIN",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -59995,7 +59995,7 @@
         "rAll": 20.81,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "MIN",
         "teams": "",
         "vSzn": -223.36,
         "≥50 Qual": 2.0
@@ -60541,7 +60541,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "BAL",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 3.0
@@ -60775,7 +60775,7 @@
         "rAll": 18.01,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "BAL",
         "teams": "",
         "vSzn": -206.64,
         "≥50 Qual": 2.0
@@ -61945,7 +61945,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "BOS",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -64051,7 +64051,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "TOR",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -64675,7 +64675,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "ARI",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 1.0
@@ -65377,7 +65377,7 @@
         "rAll": -5.48,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "COL",
         "teams": "",
         "vSzn": -182.11,
         "≥50 Qual": 2.0
@@ -65767,7 +65767,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "COL",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -65845,7 +65845,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "LAD",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -66157,7 +66157,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "LAD",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -66235,7 +66235,7 @@
         "rAll": 13.96,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "LAD",
         "teams": "",
         "vSzn": -324.99,
         "≥50 Qual": 1.0
@@ -66859,7 +66859,7 @@
         "rAll": 22.01,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "SD",
         "teams": "",
         "vSzn": -6.18,
         "≥50 Qual": 3.0
@@ -67171,7 +67171,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "SD",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -67405,7 +67405,7 @@
         "rAll": 34.18,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "SD",
         "teams": "",
         "vSzn": 163.57,
         "≥50 Qual": 1.0
@@ -67873,7 +67873,7 @@
         "rAll": -21.09,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "SF",
         "teams": "",
         "vSzn": -439.66,
         "≥50 Qual": 2.0
@@ -67951,7 +67951,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "SF",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 0.0
@@ -68341,7 +68341,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "SF",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 1.0
@@ -68731,7 +68731,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "CHC",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 4.0
@@ -68809,7 +68809,7 @@
         "rAll": -37.66,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "CHC",
         "teams": "",
         "vSzn": -728.9,
         "≥50 Qual": 2.0
@@ -68965,7 +68965,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "CHC",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 1.0
@@ -69121,7 +69121,7 @@
         "rAll": -6.79,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "CHC",
         "teams": "",
         "vSzn": -342.98,
         "≥50 Qual": 3.0
@@ -69511,7 +69511,7 @@
         "rAll": -8.91,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "CHC",
         "teams": "",
         "vSzn": -429.64,
         "≥50 Qual": 1.0
@@ -69589,7 +69589,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "CHC",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -69745,7 +69745,7 @@
         "rAll": 38.87,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "CIN",
         "teams": "",
         "vSzn": -330.44,
         "≥50 Qual": 2.0
@@ -69823,7 +69823,7 @@
         "rAll": 49.93,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "CIN",
         "teams": "",
         "vSzn": 222.62,
         "≥50 Qual": 2.0
@@ -70915,7 +70915,7 @@
         "rAll": 30.94,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "MIL",
         "teams": "",
         "vSzn": -27.22,
         "≥50 Qual": 4.0
@@ -70993,7 +70993,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "MIL",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 3.0
@@ -71851,7 +71851,7 @@
         "rAll": 3.76,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "PIT",
         "teams": "",
         "vSzn": 15.79,
         "≥50 Qual": 2.0
@@ -72007,7 +72007,7 @@
         "rAll": 31.48,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "STL",
         "teams": "",
         "vSzn": -294.74,
         "≥50 Qual": 3.0
@@ -72553,7 +72553,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "STL",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 5.0
@@ -72787,7 +72787,7 @@
         "rAll": 27.14,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "ATL",
         "teams": "",
         "vSzn": 391.96,
         "≥50 Qual": 3.0
@@ -73879,7 +73879,7 @@
         "rAll": 36.93,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "MIA",
         "teams": "",
         "vSzn": 84.1,
         "≥50 Qual": 2.0
@@ -74035,7 +74035,7 @@
         "rAll": 39.41,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "MIA",
         "teams": "",
         "vSzn": -190.52,
         "≥50 Qual": 3.0
@@ -74191,7 +74191,7 @@
         "rAll": 8.58,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "MIA",
         "teams": "",
         "vSzn": -31.29,
         "≥50 Qual": 3.0
@@ -74425,7 +74425,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "MIN",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 1.0
@@ -74581,7 +74581,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "MIA",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 0.0
@@ -74659,7 +74659,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "MIA",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 1.0
@@ -75127,7 +75127,7 @@
         "rAll": -8.09,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "WAS",
         "teams": "NYM,WAS",
         "vSzn": -381.63,
         "≥50 Qual": 1.0
@@ -75283,7 +75283,7 @@
         "rAll": -3.54,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "NYM",
         "teams": "",
         "vSzn": -492.39,
         "≥50 Qual": 2.0
@@ -75751,7 +75751,7 @@
         "rAll": 4.21,
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL15",
+        "team": "PHI",
         "teams": "",
         "vSzn": 139.72,
         "≥50 Qual": 3.0
@@ -75985,7 +75985,7 @@
         "rAll": -23.14,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "PHI",
         "teams": "",
         "vSzn": -528.57,
         "≥50 Qual": 2.0
@@ -76687,7 +76687,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "PHI",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 1.0
@@ -76921,7 +76921,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "WAS",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -77077,7 +77077,7 @@
         "rAll": 3.14,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "WAS",
         "teams": "",
         "vSzn": -400.21,
         "≥50 Qual": 2.0
@@ -78715,7 +78715,7 @@
         "rAll": -60.95,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "KC",
         "teams": "DET,KC,TOR",
         "vSzn": -466.8,
         "≥50 Qual": 2.0
@@ -79651,7 +79651,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "PIT",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -79885,7 +79885,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "ATH",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 1.0
@@ -80821,7 +80821,7 @@
         "rAll": -15.35,
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "MIL",
         "teams": "ATH,MIL",
         "vSzn": -573.1,
         "≥50 Qual": 4.0
@@ -81523,7 +81523,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "MIL",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 3.0
@@ -83005,7 +83005,7 @@
         "rAll": "",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "COL",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -84489,7 +84489,7 @@
         "rAll": 7.79,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "HOU",
         "teams": "",
         "vSzn": -340.37,
         "≥50 Qual": 3.0
@@ -85269,7 +85269,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "LAA",
         "teams": "",
         "vSzn": -453.3,
         "≥50 Qual": 1.0
@@ -85503,7 +85503,7 @@
         "rAll": -17.02,
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "LAA",
         "teams": "",
         "vSzn": -501.15,
         "≥50 Qual": 2.0
@@ -86283,7 +86283,7 @@
         "rAll": 12.24,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "ATH",
         "teams": "",
         "vSzn": -188.19,
         "≥50 Qual": 3.0
@@ -86439,7 +86439,7 @@
         "rAll": 12.26,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "ATH",
         "teams": "",
         "vSzn": -41.94,
         "≥50 Qual": 2.0
@@ -87843,7 +87843,7 @@
         "rAll": 2.3,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "TEX",
         "teams": "",
         "vSzn": -328.29,
         "≥50 Qual": 3.0
@@ -88077,7 +88077,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "TEX",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -89793,7 +89793,7 @@
         "rAll": -2.67,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "DET",
         "teams": "",
         "vSzn": -68.22,
         "≥50 Qual": 2.0
@@ -89949,7 +89949,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "DET",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 3.0
@@ -90417,7 +90417,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "KC",
         "teams": "",
         "vSzn": -357.69,
         "≥50 Qual": 3.0
@@ -90495,7 +90495,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "KC",
         "teams": "",
         "vSzn": -11.91,
         "≥50 Qual": 3.0
@@ -90885,7 +90885,7 @@
         "rAll": -22.81,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "KC",
         "teams": "",
         "vSzn": -149.37,
         "≥50 Qual": 3.0
@@ -91275,7 +91275,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "MIN",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 4.0
@@ -91743,7 +91743,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "MIN",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 3.0
@@ -91821,7 +91821,7 @@
         "rAll": -0.03,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "MIN",
         "teams": "",
         "vSzn": -91.5,
         "≥50 Qual": 3.0
@@ -92055,7 +92055,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "BAL",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 3.0
@@ -92133,7 +92133,7 @@
         "rAll": -18.93,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "BAL",
         "teams": "",
         "vSzn": -490.41,
         "≥50 Qual": 3.0
@@ -92679,7 +92679,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "BOS",
         "teams": "",
         "vSzn": -325.44,
         "≥50 Qual": 2.0
@@ -92835,7 +92835,7 @@
         "rAll": 35.6,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "BOS",
         "teams": "",
         "vSzn": 140.01,
         "≥50 Qual": 3.0
@@ -92991,7 +92991,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "BOS",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -93147,7 +93147,7 @@
         "rAll": 10.99,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "BOS",
         "teams": "",
         "vSzn": -27.78,
         "≥50 Qual": 3.0
@@ -94005,7 +94005,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "NYY",
         "teams": "",
         "vSzn": -26.25,
         "≥50 Qual": 2.0
@@ -94323,84 +94323,6 @@
         "≥50 Qual": 3.0
       },
       {
-        "Age": 31.0,
-        "All": 13.88,
-        "BB": 29.0,
-        "BB%": 0.0868,
-        "BS": 2.0,
-        "CB L": -15.08,
-        "CB R": 30.93,
-        "CB Stf": 48.14,
-        "CH L": 96.63,
-        "CH R": 4.08,
-        "CH Stf": 38.51,
-        "CSW%": 0.3089,
-        "CT L": -125.95,
-        "CT R": "",
-        "CT Stf": 13.93,
-        "Con": -1.48,
-        "Days +/-": 0.21129476584022047,
-        "Disc": 8.28,
-        "ERA": 3.89,
-        "FB L": -22.57,
-        "FB R": -57.84,
-        "FB Stf": 30.36,
-        "IP": 81.0,
-        "K": 82.0,
-        "K%": 0.2455,
-        "L": 7.0,
-        "LCon": 0.9189700639085099,
-        "LDisc": 35.302292717708475,
-        "Own%": 55.37,
-        "PPG": 7.89,
-        "Pts": 213.0,
-        "QS/SV": 4.0,
-        "Rarity": 1.58,
-        "S All": "",
-        "S Con": "",
-        "S Days +/-": "",
-        "S Disc": "",
-        "S ERA": "",
-        "S IP": "",
-        "S PPG": "",
-        "S Score": "",
-        "S Stf": "",
-        "S Val": "",
-        "S WHIP": "",
-        "S pERA": "",
-        "SI L": -41.95,
-        "SI R": 36.87,
-        "SI Stf": 14.17,
-        "SL L": "",
-        "SL R": "",
-        "SL Stf": "",
-        "SP L": "",
-        "SP R": "",
-        "SP Stf": "",
-        "SW L": -5.83,
-        "SW R": 42.77,
-        "SW Stf": 43.04,
-        "Score": 27.97,
-        "Stf": 33.12,
-        "SwStr%": 0.1475,
-        "Val": -81.53,
-        "Velo": 95.65,
-        "W": 6.0,
-        "WHIP": 1.25,
-        "name": "Griffin Jax",
-        "pERA": 3.94,
-        "person_key": "griffin jax",
-        "pitch_role": "FLEX",
-        "prev_minors_year": "",
-        "rAll": 25.85,
-        "role": "sp",
-        "sort_bucket": 0,
-        "team": "TB",
-        "teams": "",
-        "vSzn": -157.46,
-        "≥50 Qual": 3.0
-      },
-      {
         "Age": 35.0,
         "All": -3.29,
         "BB": 23.0,
@@ -94551,7 +94473,7 @@
         "rAll": -12.71,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "TB",
         "teams": "",
         "vSzn": -542.83,
         "≥50 Qual": 2.0
@@ -95253,7 +95175,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "TOR",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 3.0
@@ -95409,7 +95331,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "TOR",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -96033,7 +95955,7 @@
         "rAll": 31.65,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "ARI",
         "teams": "",
         "vSzn": -56.22,
         "≥50 Qual": 3.0
@@ -96111,7 +96033,7 @@
         "rAll": -32.01,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "ARI",
         "teams": "",
         "vSzn": -632.61,
         "≥50 Qual": 4.0
@@ -96189,7 +96111,7 @@
         "rAll": 44.52,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "ARI",
         "teams": "",
         "vSzn": 193.92,
         "≥50 Qual": 2.0
@@ -96813,7 +96735,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "COL",
         "teams": "",
         "vSzn": -467.1,
         "≥50 Qual": 3.0
@@ -96891,7 +96813,7 @@
         "rAll": 13.01,
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "COL",
         "teams": "",
         "vSzn": -90.41,
         "≥50 Qual": 5.0
@@ -97671,7 +97593,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "LAD",
         "teams": "",
         "vSzn": 497.49,
         "≥50 Qual": 2.0
@@ -98061,7 +97983,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "LAD",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 3.0
@@ -98217,7 +98139,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "SD",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 3.0
@@ -99387,7 +99309,7 @@
         "rAll": 22.24,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "SF",
         "teams": "",
         "vSzn": -228.84,
         "≥50 Qual": 2.0
@@ -99777,7 +99699,7 @@
         "rAll": 3.89,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "CHC",
         "teams": "",
         "vSzn": -522.15,
         "≥50 Qual": 3.0
@@ -99933,7 +99855,7 @@
         "rAll": 24.96,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "CHC",
         "teams": "",
         "vSzn": 361.62,
         "≥50 Qual": 2.0
@@ -100167,7 +100089,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "CHC",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 4.0
@@ -100245,7 +100167,7 @@
         "rAll": -7.34,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "CIN",
         "teams": "",
         "vSzn": -283.86,
         "≥50 Qual": 3.0
@@ -100479,7 +100401,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "CIN",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -101025,7 +100947,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "MIL",
         "teams": "",
         "vSzn": 229.5,
         "≥50 Qual": 1.0
@@ -101337,7 +101259,7 @@
         "rAll": 60.61,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "MIL",
         "teams": "",
         "vSzn": 493.8,
         "≥50 Qual": 3.0
@@ -103131,7 +103053,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "ATL",
         "teams": "",
         "vSzn": -9.57,
         "≥50 Qual": 2.0
@@ -104067,7 +103989,7 @@
         "rAll": 10.2,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "MIA",
         "teams": "",
         "vSzn": 240.9,
         "≥50 Qual": 2.0
@@ -104535,7 +104457,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "MIA",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 3.0
@@ -104847,7 +104769,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "NYM",
         "teams": "",
         "vSzn": 125.19,
         "≥50 Qual": 4.0
@@ -106329,7 +106251,7 @@
         "rAll": -24.43,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "WAS",
         "teams": "",
         "vSzn": -477.18,
         "≥50 Qual": 3.0
@@ -106407,7 +106329,7 @@
         "rAll": 6.81,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "WAS",
         "teams": "",
         "vSzn": 88.46,
         "≥50 Qual": 3.0
@@ -106563,7 +106485,7 @@
         "rAll": 19.44,
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "WAS",
         "teams": "",
         "vSzn": -93.3,
         "≥50 Qual": 2.0
@@ -106719,7 +106641,7 @@
         "rAll": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "SD",
         "teams": "",
         "vSzn": "",
         "≥50 Qual": 2.0
@@ -106797,7 +106719,7 @@
         "rAll": 6.98,
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15",
+        "team": "ARI",
         "teams": "",
         "vSzn": -427.44,
         "≥50 Qual": 2.0
@@ -108615,7 +108537,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "LAA",
         "≥100": 0.16699999999999998
       },
       {
@@ -108999,7 +108921,7 @@
         "pos2": "3B/OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ATH",
         "≥100": 0.294
       },
       {
@@ -109167,7 +109089,7 @@
         "pos2": "3B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SEA",
         "≥100": 0.0
       },
       {
@@ -109287,7 +109209,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SEA",
         "≥100": 0.1
       },
       {
@@ -109623,7 +109545,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "TEX",
         "≥100": 0.094
       },
       {
@@ -109695,7 +109617,7 @@
         "pos2": "OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TEX",
         "≥100": 0.132
       },
       {
@@ -109767,7 +109689,7 @@
         "pos2": "1B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TOR",
         "≥100": 0.0
       },
       {
@@ -109815,7 +109737,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "CHW",
         "≥100": 0.22899999999999998
       },
       {
@@ -109911,7 +109833,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "CHW",
         "≥100": 0.20800000000000002
       },
       {
@@ -109959,7 +109881,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL7",
+        "team": "CHW",
         "≥100": 0.35
       },
       {
@@ -110031,7 +109953,7 @@
         "pos2": "3B/SS",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "CHW",
         "≥100": 0.43799999999999994
       },
       {
@@ -110127,7 +110049,7 @@
         "pos2": "2B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "CLE",
         "≥100": 0.2
       },
       {
@@ -110511,7 +110433,7 @@
         "pos2": "2B/3B/OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "DET",
         "≥100": 0.5
       },
       {
@@ -110535,7 +110457,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "DET",
         "≥100": 0.21600000000000003
       },
       {
@@ -110799,7 +110721,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "KC",
         "≥100": 0.0
       },
       {
@@ -112023,7 +111945,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "TB",
         "≥100": 0.16899999999999998
       },
       {
@@ -112047,7 +111969,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TB",
         "≥100": 0.111
       },
       {
@@ -112287,7 +112209,7 @@
         "pos2": "3B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TOR",
         "≥100": 0.25
       },
       {
@@ -112335,7 +112257,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TOR",
         "≥100": 0.21600000000000003
       },
       {
@@ -112623,7 +112545,7 @@
         "pos2": "OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ARI",
         "≥100": 0.14300000000000002
       },
       {
@@ -112695,7 +112617,7 @@
         "pos2": "OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ARI",
         "≥100": 0.21100000000000002
       },
       {
@@ -112743,7 +112665,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "COL",
         "≥100": 0.11800000000000001
       },
       {
@@ -113199,7 +113121,7 @@
         "pos2": "1B/3B/OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "LAD",
         "≥100": 0.19
       },
       {
@@ -113463,7 +113385,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SD",
         "≥100": 0.09699999999999999
       },
       {
@@ -113583,7 +113505,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SF",
         "≥100": 0.308
       },
       {
@@ -113847,7 +113769,7 @@
         "pos2": "OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "CHC",
         "≥100": 0.083
       },
       {
@@ -114135,7 +114057,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "CIN",
         "≥100": 0.25
       },
       {
@@ -114351,7 +114273,7 @@
         "pos2": "SS",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "MIL",
         "≥100": 0.2
       },
       {
@@ -114639,7 +114561,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "PIT",
         "≥100": 1.0
       },
       {
@@ -114807,7 +114729,7 @@
         "pos2": "1B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "PIT",
         "≥100": 0.18600000000000003
       },
       {
@@ -114879,7 +114801,7 @@
         "pos2": "OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "PIT",
         "≥100": 0.33299999999999996
       },
       {
@@ -114999,7 +114921,7 @@
         "pos2": "2B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "STL",
         "≥100": 0.25
       },
       {
@@ -115263,7 +115185,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ATL",
         "≥100": 0.385
       },
       {
@@ -115383,7 +115305,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "ATL",
         "≥100": 0.16699999999999998
       },
       {
@@ -115407,7 +115329,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ATL",
         "≥100": 0.133
       },
       {
@@ -116343,7 +116265,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "PHI",
         "≥100": 0.179
       },
       {
@@ -117735,7 +117657,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "LAA",
         "≥100": 0.0
       },
       {
@@ -119055,7 +118977,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "SEA",
         "≥100": 0.132
       },
       {
@@ -119151,7 +119073,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SF",
         "≥100": 0.341
       },
       {
@@ -119943,7 +119865,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "LAA",
         "≥100": 0.214
       },
       {
@@ -120543,7 +120465,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ATH",
         "≥100": 0.171
       },
       {
@@ -121310,7 +121232,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "SEA"
       },
       {
         "All": 32.87,
@@ -121354,7 +121276,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "COL"
       },
       {
         "All": 18.91,
@@ -121508,7 +121430,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "TEX"
       },
       {
         "All": -10.64,
@@ -121640,7 +121562,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "TEX"
       },
       {
         "All": 9.16,
@@ -121728,7 +121650,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "CHW"
       },
       {
         "All": 28.21,
@@ -121794,7 +121716,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CHW"
       },
       {
         "All": -26.89,
@@ -121904,7 +121826,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CLE"
       },
       {
         "All": -14.07,
@@ -122102,7 +122024,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "DET"
       },
       {
         "All": 9.65,
@@ -122124,7 +122046,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "DET"
       },
       {
         "All": -24.47,
@@ -122168,7 +122090,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "KC"
       },
       {
         "All": 7.62,
@@ -122234,7 +122156,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIN"
       },
       {
         "All": 3.09,
@@ -122366,7 +122288,7 @@
         "pitch_role": "CL",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "BAL"
       },
       {
         "All": -12.75,
@@ -122410,7 +122332,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "BAL"
       },
       {
         "All": -15.71,
@@ -122652,7 +122574,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "BOS"
       },
       {
         "All": -38.38,
@@ -122894,7 +122816,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "TB"
       },
       {
         "All": -13.24,
@@ -122916,7 +122838,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "TB"
       },
       {
         "All": 18.29,
@@ -122982,7 +122904,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "TOR"
       },
       {
         "All": -6.48,
@@ -123070,7 +122992,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "TOR"
       },
       {
         "All": -15.54,
@@ -123158,7 +123080,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "ARI"
       },
       {
         "All": 13.49,
@@ -123268,7 +123190,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "ARI"
       },
       {
         "All": 17.62,
@@ -123466,7 +123388,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "COL"
       },
       {
         "All": 30.82,
@@ -123488,7 +123410,7 @@
         "pitch_role": "CL",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "LAD"
       },
       {
         "All": 26.36,
@@ -123598,7 +123520,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "LAD"
       },
       {
         "All": -5.62,
@@ -123642,7 +123564,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "SD"
       },
       {
         "All": 12.43,
@@ -123686,7 +123608,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "SD"
       },
       {
         "All": -20.47,
@@ -123796,7 +123718,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "SD"
       },
       {
         "All": 28.06,
@@ -123972,7 +123894,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "SF"
       },
       {
         "All": -19.18,
@@ -124104,7 +124026,7 @@
         "pitch_role": "CL",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CHC"
       },
       {
         "All": 12.28,
@@ -124126,7 +124048,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CHC"
       },
       {
         "All": 0.72,
@@ -124236,7 +124158,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CHC"
       },
       {
         "All": -36.76,
@@ -124258,7 +124180,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CHC"
       },
       {
         "All": -8.95,
@@ -124500,7 +124422,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "MIL"
       },
       {
         "All": 8.12,
@@ -124522,7 +124444,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIL"
       },
       {
         "All": 17.72,
@@ -124698,7 +124620,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "PIT"
       },
       {
         "All": 29.43,
@@ -124764,7 +124686,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "STL"
       },
       {
         "All": -20.25,
@@ -125116,7 +125038,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "MIN"
       },
       {
         "All": 1.65,
@@ -125160,7 +125082,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIA"
       },
       {
         "All": 60.21,
@@ -125182,7 +125104,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "MIA"
       },
       {
         "All": -1.35,
@@ -125270,7 +125192,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "NYM"
       },
       {
         "All": 16.1,
@@ -125424,7 +125346,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "NYM"
       },
       {
         "All": -8.37,
@@ -125446,7 +125368,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL15"
+        "team": "PHI"
       },
       {
         "All": 46.34,
@@ -125490,7 +125412,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "PHI"
       },
       {
         "All": 12.44,
@@ -125666,7 +125588,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "PHI"
       },
       {
         "All": 13.92,
@@ -125754,7 +125676,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "WAS"
       },
       {
         "All": -12.83,
@@ -126590,7 +126512,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "KC"
       },
       {
         "All": 7.44,
@@ -127294,7 +127216,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "PIT"
       },
       {
         "All": 41.05,
@@ -127470,7 +127392,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "ATH"
       },
       {
         "All": 41.34,
@@ -127888,7 +127810,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIL"
       },
       {
         "All": 28.63,
@@ -128086,7 +128008,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "MIL"
       },
       {
         "All": 15.7,
@@ -128636,7 +128558,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "COL"
       },
       {
         "All": -43.28,
@@ -129254,7 +129176,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "HOU"
       },
       {
         "All": -11.94,
@@ -129848,7 +129770,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "TEX"
       },
       {
         "All": -27.88,
@@ -129870,7 +129792,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "TEX"
       },
       {
         "All": 12.02,
@@ -129892,7 +129814,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "TEX"
       },
       {
         "All": 13.21,
@@ -130222,7 +130144,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "DET"
       },
       {
         "All": -18.74,
@@ -130310,7 +130232,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "DET"
       },
       {
         "All": 34.63,
@@ -130398,7 +130320,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "KC"
       },
       {
         "All": -21.85,
@@ -130420,7 +130342,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "KC"
       },
       {
         "All": 22.86,
@@ -130464,7 +130386,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "KC"
       },
       {
         "All": -24.95,
@@ -130596,7 +130518,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "MIN"
       },
       {
         "All": -6.29,
@@ -130706,7 +130628,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIN"
       },
       {
         "All": -14.74,
@@ -130728,7 +130650,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIN"
       },
       {
         "All": 18.11,
@@ -130926,7 +130848,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "BOS"
       },
       {
         "All": 18.29,
@@ -131102,7 +131024,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "NYY"
       },
       {
         "All": 18.74,
@@ -131234,7 +131156,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "TB"
       },
       {
         "All": -10.77,
@@ -131410,7 +131332,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "TOR"
       },
       {
         "All": -4.41,
@@ -131454,7 +131376,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "TOR"
       },
       {
         "All": -23.83,
@@ -131872,7 +131794,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "LAD"
       },
       {
         "All": 35.78,
@@ -132114,7 +132036,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "SF"
       },
       {
         "All": 14.77,
@@ -132312,7 +132234,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CIN"
       },
       {
         "All": 28.52,
@@ -132466,7 +132388,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "MIL"
       },
       {
         "All": 38.65,
@@ -132862,7 +132784,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "ATL"
       },
       {
         "All": 34.42,
@@ -132928,7 +132850,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "ATL"
       },
       {
         "All": 43.86,
@@ -133148,7 +133070,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "MIA"
       },
       {
         "All": 35.19,
@@ -133544,7 +133466,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "WAS"
       },
       {
         "All": -28.37,
@@ -133588,7 +133510,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "WAS"
       },
       {
         "All": -10.62,
@@ -133676,7 +133598,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "ARI"
       },
       {
         "All": -21.27,
@@ -135192,7 +135114,7 @@
         "pos2": "SS",
         "role": "batters",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "HOU",
         "≥100": 0.25
       },
       {
@@ -135456,7 +135378,7 @@
         "pos2": "OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "HOU",
         "≥100": 0.261
       },
       {
@@ -135624,7 +135546,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "LAA",
         "≥100": 0.5
       },
       {
@@ -135792,7 +135714,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "LAA",
         "≥100": 0.35700000000000004
       },
       {
@@ -136128,7 +136050,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ATH",
         "≥100": 0.361
       },
       {
@@ -136224,7 +136146,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "ATH",
         "≥100": 0.406
       },
       {
@@ -136416,7 +136338,7 @@
         "pos2": "3B/OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ATH",
         "≥100": 0.5
       },
       {
@@ -136464,7 +136386,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "ATH",
         "≥100": 0.41200000000000003
       },
       {
@@ -136680,7 +136602,7 @@
         "pos2": "3B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SEA",
         "≥100": 0.293
       },
       {
@@ -136920,7 +136842,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SEA",
         "≥100": 0.2
       },
       {
@@ -137232,7 +137154,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TEX",
         "≥100": 0.40700000000000003
       },
       {
@@ -137376,7 +137298,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TEX",
         "≥100": 0.444
       },
       {
@@ -137424,7 +137346,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TEX",
         "≥100": 0.348
       },
       {
@@ -137520,7 +137442,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "TEX",
         "≥100": 0.12
       },
       {
@@ -137664,7 +137586,7 @@
         "pos2": "1B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TOR",
         "≥100": 0.359
       },
       {
@@ -137808,7 +137730,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "CHW",
         "≥100": 0.293
       },
       {
@@ -137932,6 +137854,30 @@
         "≥100": 0.40700000000000003
       },
       {
+        "AVG": 0.286,
+        "All": "",
+        "Con": -13.39,
+        "Disc": -27.78,
+        "HR": 1.0,
+        "L Eye": 0.4888888888888889,
+        "OBP": 0.286,
+        "OPS": 0.762,
+        "Own%": 2.7,
+        "PA": 21.0,
+        "R Eye": 0.5970149253731343,
+        "SLG": 0.476,
+        "SwSp%": 0.444,
+        "Whiff%": 0.289,
+        "name": "Brooks Baldwin",
+        "person_key": "brooks baldwin",
+        "pos": "OF",
+        "pos2": "",
+        "role": "batters",
+        "sort_bucket": 4,
+        "team": "CHW",
+        "≥100": 0.16699999999999998
+      },
+      {
         "AVG": 0.25,
         "All": 3.04,
         "Con": 5.24,
@@ -137952,7 +137898,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "CHW",
         "≥100": 0.462
       },
       {
@@ -138000,7 +137946,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL7",
+        "team": "CHW",
         "≥100": 0.294
       },
       {
@@ -138096,7 +138042,7 @@
         "pos2": "3B/SS",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "CHW",
         "≥100": 0.33299999999999996
       },
       {
@@ -138384,7 +138330,7 @@
         "pos2": "2B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "CLE",
         "≥100": 0.37799999999999995
       },
       {
@@ -138984,7 +138930,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "DET",
         "≥100": 0.17600000000000002
       },
       {
@@ -139008,7 +138954,7 @@
         "pos2": "2B/3B/OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "DET",
         "≥100": 0.4
       },
       {
@@ -139032,7 +138978,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "DET",
         "≥100": 0.24100000000000002
       },
       {
@@ -139272,7 +139218,7 @@
         "pos2": "2B/SS",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "KC",
         "≥100": 0.439
       },
       {
@@ -139296,7 +139242,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "KC",
         "≥100": 0.462
       },
       {
@@ -139344,7 +139290,7 @@
         "pos2": "3B/OF",
         "role": "batters",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "KC",
         "≥100": 0.41700000000000004
       },
       {
@@ -139416,7 +139362,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "KC",
         "≥100": 0.29600000000000004
       },
       {
@@ -140304,7 +140250,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "BAL",
         "≥100": 0.19399999999999998
       },
       {
@@ -140448,7 +140394,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "BAL",
         "≥100": 0.233
       },
       {
@@ -140472,7 +140418,7 @@
         "pos2": "2B/SS/OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "BAL",
         "≥100": 0.467
       },
       {
@@ -140640,7 +140586,7 @@
         "pos2": "1B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "BAL",
         "≥100": 0.5770000000000001
       },
       {
@@ -140880,7 +140826,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "BOS",
         "≥100": 0.257
       },
       {
@@ -140928,7 +140874,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "BOS",
         "≥100": 0.341
       },
       {
@@ -141024,7 +140970,7 @@
         "pos2": "CI/2B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "BOS",
         "≥100": 0.05
       },
       {
@@ -141192,7 +141138,7 @@
         "pos2": "3B/SS",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "BOS",
         "≥100": 0.233
       },
       {
@@ -141336,7 +141282,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "NYY",
         "≥100": 0.485
       },
       {
@@ -141384,7 +141330,7 @@
         "pos2": "OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "NYY",
         "≥100": 0.632
       },
       {
@@ -141984,7 +141930,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "TB",
         "≥100": 0.0
       },
       {
@@ -142032,7 +141978,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TB",
         "≥100": 0.20800000000000002
       },
       {
@@ -142536,7 +142482,7 @@
         "pos2": "3B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TOR",
         "≥100": 0.452
       },
       {
@@ -142560,7 +142506,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TOR",
         "≥100": 0.314
       },
       {
@@ -142632,7 +142578,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "TOR",
         "≥100": 0.263
       },
       {
@@ -143016,7 +142962,7 @@
         "pos2": "OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ARI",
         "≥100": 0.371
       },
       {
@@ -143064,7 +143010,7 @@
         "pos2": "OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ARI",
         "≥100": 0.273
       },
       {
@@ -143208,7 +143154,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "COL",
         "≥100": 0.212
       },
       {
@@ -143640,7 +143586,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "LAD",
         "≥100": 0.28
       },
       {
@@ -144360,7 +144306,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "SD",
         "≥100": 0.381
       },
       {
@@ -144504,7 +144450,7 @@
         "pos2": "3B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SD",
         "≥100": 0.146
       },
       {
@@ -144624,7 +144570,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SD",
         "≥100": 0.16699999999999998
       },
       {
@@ -144768,7 +144714,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SF",
         "≥100": 0.455
       },
       {
@@ -144984,7 +144930,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SF",
         "≥100": 0.217
       },
       {
@@ -145080,7 +145026,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SF",
         "≥100": 0.33299999999999996
       },
       {
@@ -145512,7 +145458,7 @@
         "pos2": "OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "CHC",
         "≥100": 0.3
       },
       {
@@ -145752,7 +145698,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "CIN",
         "≥100": 0.348
       },
       {
@@ -145992,7 +145938,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "CIN",
         "≥100": 0.294
       },
       {
@@ -146304,7 +146250,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "MIL",
         "≥100": 0.261
       },
       {
@@ -146448,7 +146394,7 @@
         "pos2": "SS",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "MIL",
         "≥100": 0.233
       },
       {
@@ -146472,7 +146418,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "MIL",
         "≥100": 0.344
       },
       {
@@ -146808,7 +146754,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "PIT",
         "≥100": 0.583
       },
       {
@@ -146928,7 +146874,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "PIT",
         "≥100": 0.214
       },
       {
@@ -147144,7 +147090,7 @@
         "pos2": "1B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "PIT",
         "≥100": 0.055999999999999994
       },
       {
@@ -147192,7 +147138,7 @@
         "pos2": "OF",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "PIT",
         "≥100": 0.35700000000000004
       },
       {
@@ -147408,7 +147354,7 @@
         "pos2": "2B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "STL",
         "≥100": 0.2
       },
       {
@@ -147816,7 +147762,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ATL",
         "≥100": 0.44799999999999995
       },
       {
@@ -148560,7 +148506,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "MIA",
         "≥100": 0.17600000000000002
       },
       {
@@ -148872,7 +148818,7 @@
         "pos2": "3B",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "NYM",
         "≥100": 0.37799999999999995
       },
       {
@@ -149472,7 +149418,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "PHI",
         "≥100": 0.371
       },
       {
@@ -149640,7 +149586,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "PHI",
         "≥100": 0.038
       },
       {
@@ -149712,7 +149658,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 4,
-        "team": "IL60",
+        "team": "PHI",
         "≥100": 0.353
       },
       {
@@ -149952,7 +149898,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "WAS",
         "≥100": 0.125
       },
       {
@@ -151944,7 +151890,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "LAA",
         "≥100": 0.179
       },
       {
@@ -153720,7 +153666,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL60",
+        "team": "SEA",
         "≥100": 0.316
       },
       {
@@ -153912,7 +153858,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "SF",
         "≥100": 0.5
       },
       {
@@ -154968,7 +154914,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "LAA",
         "≥100": 0.095
       },
       {
@@ -155400,7 +155346,7 @@
         "pos2": "",
         "role": "batters",
         "sort_bucket": 2,
-        "team": "IL10",
+        "team": "ATH",
         "≥100": 0.4
       },
       {
@@ -156173,7 +156119,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "ATH"
       },
       {
         "All": -10.62,
@@ -156195,7 +156141,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "ATH"
       },
       {
         "All": -12.15,
@@ -156437,7 +156383,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "SEA"
       },
       {
         "All": 27.51,
@@ -156459,7 +156405,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "SEA"
       },
       {
         "All": -19.79,
@@ -156525,7 +156471,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "SEA"
       },
       {
         "All": -48.67,
@@ -156547,7 +156493,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "COL"
       },
       {
         "All": -24.44,
@@ -156701,7 +156647,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "TEX"
       },
       {
         "All": -40.22,
@@ -156723,7 +156669,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "TEX"
       },
       {
         "All": 27.09,
@@ -156789,7 +156735,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "TEX"
       },
       {
         "All": -36.84,
@@ -156921,7 +156867,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "TEX"
       },
       {
         "All": -2.3,
@@ -157053,7 +156999,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "CHW"
       },
       {
         "All": 17.73,
@@ -157141,7 +157087,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CHW"
       },
       {
         "All": 3.67,
@@ -157251,7 +157197,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "CHW"
       },
       {
         "All": 56.18,
@@ -157339,7 +157285,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CLE"
       },
       {
         "All": 1.73,
@@ -157559,7 +157505,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "DET"
       },
       {
         "All": 11.6,
@@ -157581,7 +157527,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "DET"
       },
       {
         "All": 7.69,
@@ -157669,7 +157615,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "DET"
       },
       {
         "All": -11.24,
@@ -157713,7 +157659,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "KC"
       },
       {
         "All": -20.03,
@@ -157823,7 +157769,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "KC"
       },
       {
         "All": -3.14,
@@ -157911,7 +157857,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIN"
       },
       {
         "All": -6.75,
@@ -157933,7 +157879,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIN"
       },
       {
         "All": 4.4,
@@ -158087,7 +158033,7 @@
         "pitch_role": "CL",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "BAL"
       },
       {
         "All": 35.02,
@@ -158153,7 +158099,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "BAL"
       },
       {
         "All": -4.77,
@@ -158505,7 +158451,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "BOS"
       },
       {
         "All": -23.74,
@@ -159099,7 +159045,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "TOR"
       },
       {
         "All": 18.35,
@@ -159297,7 +159243,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "ARI"
       },
       {
         "All": -38.9,
@@ -159539,7 +159485,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "COL"
       },
       {
         "All": -26.23,
@@ -159671,7 +159617,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "COL"
       },
       {
         "All": 5.15,
@@ -159693,7 +159639,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "COL"
       },
       {
         "All": 13.25,
@@ -159715,7 +159661,7 @@
         "pitch_role": "CL",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "LAD"
       },
       {
         "All": 17.14,
@@ -159803,7 +159749,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "LAD"
       },
       {
         "All": -21.5,
@@ -159825,7 +159771,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "LAD"
       },
       {
         "All": -17.58,
@@ -159979,7 +159925,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "SD"
       },
       {
         "All": 65.42,
@@ -160045,7 +159991,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "SD"
       },
       {
         "All": 2.36,
@@ -160155,7 +160101,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "SD"
       },
       {
         "All": 20.51,
@@ -160309,7 +160255,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "SF"
       },
       {
         "All": -16.04,
@@ -160331,7 +160277,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "SF"
       },
       {
         "All": -60.44,
@@ -160507,7 +160453,7 @@
         "pitch_role": "CL",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CHC"
       },
       {
         "All": -18.94,
@@ -160529,7 +160475,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CHC"
       },
       {
         "All": 21.61,
@@ -160573,7 +160519,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "CHC"
       },
       {
         "All": -45.17,
@@ -160617,7 +160563,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CHC"
       },
       {
         "All": 37.13,
@@ -160705,7 +160651,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CHC"
       },
       {
         "All": -40.77,
@@ -160727,7 +160673,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "CHC"
       },
       {
         "All": -8.81,
@@ -160771,7 +160717,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CHC"
       },
       {
         "All": -36.08,
@@ -160815,7 +160761,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CIN"
       },
       {
         "All": -12.77,
@@ -160837,7 +160783,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "CIN"
       },
       {
         "All": -14.16,
@@ -161167,7 +161113,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "MIL"
       },
       {
         "All": 8.98,
@@ -161189,7 +161135,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIL"
       },
       {
         "All": 20.54,
@@ -161211,7 +161157,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "MIL"
       },
       {
         "All": 2.59,
@@ -161475,7 +161421,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "PIT"
       },
       {
         "All": 40.86,
@@ -161519,7 +161465,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "STL"
       },
       {
         "All": -5.39,
@@ -161673,7 +161619,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "STL"
       },
       {
         "All": -39.91,
@@ -161739,7 +161685,7 @@
         "pitch_role": "CL",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "ATL"
       },
       {
         "All": 19.15,
@@ -162069,7 +162015,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIA"
       },
       {
         "All": 12.06,
@@ -162113,7 +162059,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "MIA"
       },
       {
         "All": 9.72,
@@ -162157,7 +162103,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIA"
       },
       {
         "All": 24.99,
@@ -162223,7 +162169,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "MIN"
       },
       {
         "All": 23.81,
@@ -162267,7 +162213,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIA"
       },
       {
         "All": 39.43,
@@ -162289,7 +162235,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "MIA"
       },
       {
         "All": -22.56,
@@ -162421,7 +162367,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "WAS"
       },
       {
         "All": -7.66,
@@ -162487,7 +162433,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "NYM"
       },
       {
         "All": 0.82,
@@ -162597,7 +162543,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "NYM"
       },
       {
         "All": -41.04,
@@ -162685,7 +162631,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL15"
+        "team": "PHI"
       },
       {
         "All": 11.38,
@@ -162751,7 +162697,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "PHI"
       },
       {
         "All": -6.65,
@@ -162949,7 +162895,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "PHI"
       },
       {
         "All": -39.14,
@@ -163015,7 +162961,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "WAS"
       },
       {
         "All": 23.61,
@@ -163059,7 +163005,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "WAS"
       },
       {
         "All": 10.73,
@@ -163961,7 +163907,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "KC"
       },
       {
         "All": -4.88,
@@ -164643,7 +164589,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "PIT"
       },
       {
         "All": 14.56,
@@ -164819,7 +164765,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "ATH"
       },
       {
         "All": 32.95,
@@ -165391,7 +165337,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIL"
       },
       {
         "All": 3.49,
@@ -165589,7 +165535,7 @@
         "pitch_role": "RP",
         "role": "rp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "MIL"
       },
       {
         "All": -26.84,
@@ -166537,7 +166483,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "HOU"
       },
       {
         "All": -26.79,
@@ -166735,7 +166681,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "LAA"
       },
       {
         "All": -2.37,
@@ -166801,7 +166747,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "LAA"
       },
       {
         "All": -6.41,
@@ -167065,7 +167011,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "ATH"
       },
       {
         "All": -23.97,
@@ -167109,7 +167055,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "ATH"
       },
       {
         "All": -22.37,
@@ -167681,7 +167627,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "TEX"
       },
       {
         "All": 19.02,
@@ -167769,7 +167715,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "TEX"
       },
       {
         "All": -10.17,
@@ -168297,7 +168243,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "DET"
       },
       {
         "All": 12.0,
@@ -168341,7 +168287,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "DET"
       },
       {
         "All": 21.21,
@@ -168451,7 +168397,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "KC"
       },
       {
         "All": 28.46,
@@ -168473,7 +168419,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "KC"
       },
       {
         "All": -37.02,
@@ -168583,7 +168529,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "KC"
       },
       {
         "All": -26.06,
@@ -168759,7 +168705,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "MIN"
       },
       {
         "All": 11.48,
@@ -168891,7 +168837,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIN"
       },
       {
         "All": -27.07,
@@ -168913,7 +168859,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIN"
       },
       {
         "All": 32.78,
@@ -168979,7 +168925,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "BAL"
       },
       {
         "All": -56.91,
@@ -169001,7 +168947,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "BAL"
       },
       {
         "All": 7.24,
@@ -169199,7 +169145,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "BOS"
       },
       {
         "All": -24.53,
@@ -169243,7 +169189,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "BOS"
       },
       {
         "All": 10.23,
@@ -169287,7 +169233,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "BOS"
       },
       {
         "All": 35.04,
@@ -169309,7 +169255,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "BOS"
       },
       {
         "All": 48.16,
@@ -169661,7 +169607,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "TB"
       },
       {
         "All": -8.46,
@@ -169708,28 +169654,6 @@
         "team": "TB"
       },
       {
-        "All": 13.58,
-        "BB%": 0.04,
-        "Con": -29.03,
-        "Days +/-": 0.21052631578947362,
-        "Disc": 23.48,
-        "IP": 7.1,
-        "K": 8.0,
-        "K%": 0.32,
-        "Own%": 55.37,
-        "Stf": 36.48,
-        "Strike%": 0.657,
-        "SwStr%": 0.162,
-        "Velo": 96.03999999999999,
-        "WHIP": 0.6818181818181819,
-        "name": "Griffin Jax",
-        "person_key": "griffin jax",
-        "pitch_role": "FLEX",
-        "role": "sp",
-        "sort_bucket": 0,
-        "team": "TB"
-      },
-      {
         "All": -39.44,
         "BB%": 0.081,
         "Con": -26.7,
@@ -169771,7 +169695,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "TB"
       },
       {
         "All": -6.12,
@@ -170013,7 +169937,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "TOR"
       },
       {
         "All": -43.45,
@@ -170057,7 +169981,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "TOR"
       },
       {
         "All": -33.14,
@@ -170079,7 +170003,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "TOR"
       },
       {
         "All": -54.91,
@@ -170255,7 +170179,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "ARI"
       },
       {
         "All": -20.89,
@@ -170277,7 +170201,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "ARI"
       },
       {
         "All": -1.34,
@@ -170299,7 +170223,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "ARI"
       },
       {
         "All": -77.88,
@@ -170475,7 +170399,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "COL"
       },
       {
         "All": 19.5,
@@ -170497,7 +170421,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "COL"
       },
       {
         "All": -17.48,
@@ -170717,7 +170641,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "LAD"
       },
       {
         "All": 27.15,
@@ -170827,7 +170751,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "LAD"
       },
       {
         "All": 18.02,
@@ -170893,7 +170817,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "SD"
       },
       {
         "All": -25.5,
@@ -171223,7 +171147,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "SF"
       },
       {
         "All": 15.12,
@@ -171267,7 +171191,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "SF"
       },
       {
         "All": -10.74,
@@ -171355,7 +171279,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CHC"
       },
       {
         "All": -37.34,
@@ -171399,7 +171323,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CHC"
       },
       {
         "All": -8.93,
@@ -171443,7 +171367,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "CHC"
       },
       {
         "All": -33.28,
@@ -171509,7 +171433,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "CIN"
       },
       {
         "All": -26.0,
@@ -171575,7 +171499,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "CIN"
       },
       {
         "All": 0.68,
@@ -171751,7 +171675,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "MIL"
       },
       {
         "All": 19.16,
@@ -171839,7 +171763,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIL"
       },
       {
         "All": -3.37,
@@ -172389,7 +172313,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "ATL"
       },
       {
         "All": -32.98,
@@ -172587,7 +172511,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "ATL"
       },
       {
         "All": 12.69,
@@ -172653,7 +172577,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "MIA"
       },
       {
         "All": -28.2,
@@ -172829,7 +172753,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "MIA"
       },
       {
         "All": 11.17,
@@ -172873,7 +172797,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "MIA"
       },
       {
         "All": 16.46,
@@ -172939,7 +172863,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "NYM"
       },
       {
         "All": 31.02,
@@ -173489,7 +173413,7 @@
         "pitch_role": "",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "WAS"
       },
       {
         "All": 14.91,
@@ -173511,7 +173435,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL15"
+        "team": "WAS"
       },
       {
         "All": -26.99,
@@ -173555,7 +173479,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 4,
-        "team": "IL60"
+        "team": "WAS"
       },
       {
         "All": 7.19,
@@ -173599,7 +173523,7 @@
         "pitch_role": "FLEX",
         "role": "sp",
         "sort_bucket": 2,
-        "team": "IL60"
+        "team": "WAS"
       },
       {
         "All": -20.46,
