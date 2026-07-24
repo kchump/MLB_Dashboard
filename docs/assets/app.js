@@ -14725,6 +14725,8 @@ const fantasy_trends_state = {
     pitchers: [],
   },
   scrollbar_observers: new Map(),
+  roster_person_keys: new Set(),
+  rosters_loaded: false,
   hide_injured: false,
   filters: {
     free_agents: {
@@ -14937,19 +14939,21 @@ function fantasy_trends_current_or_season_num(row, streak_key, season_key) {
 }
 /* ################# */
 function fantasy_trends_consistency(row, section) {
-  if (section === 'hitters') {
-    return fantasy_trends_current_or_season_num(
-      row,
-      'S Pts +/-',
-      'Pts +/-'
-    );
-  }
+  const consistency = section === 'hitters'
+    ? fantasy_trends_current_or_season_num(
+        row,
+        'S Pts +/-',
+        'Pts +/-'
+      )
+    : fantasy_trends_current_or_season_num(
+        row,
+        'S Days +/-',
+        'Days +/-'
+      );
 
-  return fantasy_trends_current_or_season_num(
-    row,
-    'S Days +/-',
-    'Days +/-'
-  );
+  return consistency == null
+    ? null
+    : consistency * 100;
 }
 /* ################# */
 function fantasy_trends_ppg_threshold(section, row, thresholds) {
@@ -15057,23 +15061,53 @@ function fantasy_trends_page_id_from_lookup(row, section) {
   ).trim();
 }
 /* ################# */
-function fantasy_trends_is_rostered(row, section) {
-  if (
-    row?.fantasy_trends_is_excluded != null
-  ) {
-    if (row.fantasy_trends_is_excluded) {
-      return false;
-    }
+async function fantasy_trends_load_rosters() {
+  if (fantasy_trends_state.rosters_loaded) {
+    return;
+  }
 
-    if (row.fantasy_trends_is_injured) {
-      return true;
-    }
+  const response = await fetch(
+    'assets/matchups/rosters.json'
+  );
 
-    return Boolean(
-      row.fantasy_trends_page_id
+  if (!response.ok) {
+    throw new Error(
+      'Missing matchup rosters'
     );
   }
 
+  const roster_data = await response.json();
+  const roster_person_keys = new Set();
+
+  const roster_maps = [
+    roster_data?.hitter_team_map,
+    roster_data?.starter_team_map,
+    roster_data?.reliever_team_map,
+  ];
+
+  roster_maps.forEach(roster_map => {
+    Object.keys(
+      roster_map || {}
+    ).forEach(name => {
+      const person_key = normalize_matchup_person_key(
+        name
+      );
+
+      if (person_key) {
+        roster_person_keys.add(
+          person_key
+        );
+      }
+    });
+  });
+
+  fantasy_trends_state.roster_person_keys =
+    roster_person_keys;
+
+  fantasy_trends_state.rosters_loaded = true;
+}
+/* ################# */
+function fantasy_trends_is_rostered(row, section) {
   if (fantasy_trends_is_excluded_status(row)) {
     return false;
   }
@@ -15082,33 +15116,16 @@ function fantasy_trends_is_rostered(row, section) {
     return true;
   }
 
-  const status = fantasy_trends_raw_team_status(
-    row
+  const person_key = normalize_matchup_person_key(
+    row?.person_key ||
+    row?.name ||
+    ''
   );
 
-  const excluded_non_roster_statuses = new Set([
-    '',
-    'FA',
-    'FREE AGENT',
-    'FREE AGENTS',
-    'MILB',
-    'UNK',
-    'RETIRED',
-    'JOURNEYMEN',
-  ]);
-
-  if (
-    excluded_non_roster_statuses.has(
-      status
-    )
-  ) {
-    return false;
-  }
-
   return Boolean(
-    fantasy_trends_page_id_from_lookup(
-      row,
-      section
+    person_key &&
+    fantasy_trends_state.roster_person_keys.has(
+      person_key
     )
   );
 }
@@ -16150,7 +16167,7 @@ function fantasy_trends_column_label(key, table_type) {
     'Days +/-': 'Cons.',
     'S Pts +/-': 'S Cons.',
     'Pts +/-': 'Cons.',
-    'S Disc': 'Appr.',
+    'S Disc': 'S Appr.',
     'Disc': 'Appr.',
   };
 
@@ -16372,15 +16389,15 @@ function fantasy_trends_column_class(key, table_type) {
     hitters: new Set([
       'team',
       'PPG',
-      'rAll',
       'SB',
       'OPS',
+      'S Pts +/-',
+      'S Days +/-',
     ]),
     pitchers: new Set([
       'team',
       'PPG',
-      'rAll',
-      'K',
+      'QS/SV',
       'WHIP',
     ]),
   };
@@ -16390,7 +16407,6 @@ function fantasy_trends_column_class(key, table_type) {
       'Own%',
       'S Score',
       'S Pts +/-',
-      'S OPS',
       'Score',
       'RHP',
       'Pts +/-',
@@ -16490,7 +16506,7 @@ function fantasy_trends_cell_html(
 
     return `
       <td class='fantasy_trends_name_cell${column_class}'>
-        <div class='fantasy_trends_name_cell_inner'>
+        <div class='fantasy_trends_name_cell_inner fantasy_name_cell'>
           ${fantasy_trends_name_html(
             row,
             section
@@ -16992,19 +17008,19 @@ function fantasy_trends_results_html(data) {
   return `
     <div class='fantasy_trends_sections'>
       ${fantasy_trends_section_html(
-        'Hot Free Agents',
+        'Hot Free Agents (and some platoon players you can ignore)',
         'free_agents',
         data
       )}
 
       ${fantasy_trends_section_html(
-        "Buy Low/Target (use your own discretion - some guys we know just have no dawg in 'em)",
+        "Buy Low/Target (use discretion - some guys we know have no dawg in 'em)",
         'undervalued',
         data
       )}
 
       ${fantasy_trends_section_html(
-        'Hot Seat/Skeptical',
+        'Hot Seat/Skeptical (or just a cold streak!)',
         'overvalued',
         data
       )}
@@ -17567,7 +17583,10 @@ async function render_fantasy_trends_page() {
   `;
 
   try {
-    await load_fantasy_scales();
+    await Promise.all([
+      load_fantasy_scales(),
+      fantasy_trends_load_rosters(),
+    ]);
 
     const data = await load_fantasy_data(
       year

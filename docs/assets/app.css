@@ -3150,8 +3150,10 @@ body.soft_theme .fantasy_trends_player_link:hover {
   }
 
   .fantasy_trends_undo_removals {
-    width: 100%;
-    min-height: 40px;
+    width: auto;
+    min-height: 36px;
+    padding: 6px 10px;
+    flex: 0 0 auto;
   }
 
   .fantasy_trends_filter_select {
@@ -3426,6 +3428,12 @@ body.soft_theme .fantasy_trends_table td.fantasy_trends_sticky_name {
   min-width: 0;
   overflow-x: scroll;
   overflow-y: auto;
+}
+
+body.soft_theme .fantasy_trends_table th.fantasy_trends_sticky_name,
+body.soft_theme .fantasy_trends_table td.fantasy_trends_sticky_name,
+body.soft_theme .fantasy_trends_name_cell {
+  background-color: #303741 !important;
 }
 /*====================================================================
 ====================================================================
