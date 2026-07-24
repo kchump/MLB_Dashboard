@@ -16144,12 +16144,10 @@ function fantasy_trends_format_value(
     return number.toFixed(1);
   }
 
-  return fantasy_format_value(
-    key,
+  return String(
     value
   );
 }
-/* ################# */
 /* ################# */
 function fantasy_trends_page_link(row, section) {
   if (row?.fantasy_trends_page_id) {
