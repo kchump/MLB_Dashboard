@@ -36,7 +36,6 @@
     "Blaze Jordan": "STL",
     "Bo Bichette": "NYM",
     "Braden Montgomery": "CHW",
-    "Braden Shewmake": "MIL",
     "Brandon Lowe": "PIT",
     "Brandon Marsh": "PHI",
     "Brandon Nimmo": "TEX",
@@ -98,6 +97,7 @@
     "Dansby Swanson": "CHC",
     "Daulton Varsho": "TOR",
     "David Fry": "CLE",
+    "David Hamilton": "MIL",
     "Davis Schneider": "TOR",
     "Daylen Lile": "WAS",
     "Denzer Guzman": "LAA",
@@ -233,7 +233,6 @@
     "Keibert Ruiz": "WAS",
     "Kerry Carpenter": "DET",
     "Ketel Marte": "ARI",
-    "Kevin Alcantara": "CHC",
     "Kevin McGonigle": "DET",
     "Kody Clemens": "MIN",
     "Kyle Karros": "COL",
@@ -474,7 +473,6 @@
       "Dansby Swanson",
       "Ian Happ",
       "Justin Dean",
-      "Kevin Alcantara",
       "Michael Busch",
       "Michael Conforto",
       "Miguel Amaya",
@@ -636,10 +634,10 @@
     "MIL": [
       "Andrew Vaughn",
       "Blake Perkins",
-      "Braden Shewmake",
       "Brice Turang",
       "Christian Yelich",
       "Cooper Pratt",
+      "David Hamilton",
       "Garrett Mitchell",
       "Gary Sanchez",
       "Jackson Chourio",
@@ -967,6 +965,7 @@
     "Jeff Hoffman": "TOR",
     "Jhoan Duran": "PHI",
     "Jimmy Herget": "COL",
+    "John King": "MIA",
     "John Schreiber": "KC",
     "Jonathan Bowlan": "PHI",
     "Jonathan Loaisiga": "ARI",
@@ -1081,9 +1080,7 @@
     "Yoendrys Gomez": "MIN",
     "Yohan Ramirez": "PIT",
     "Yuki Matsui": "SD",
-    "Yunior Tur": "ATH",
-    "Zach Agnos": "COL",
-    "Zach Brzykcy": "MIA"
+    "Zach Agnos": "COL"
   },
   "relievers_by_team": {
     "ARI": [
@@ -1103,8 +1100,7 @@
       "Hayden Juenger",
       "Hogan Harris",
       "Jose Suarez",
-      "Luis Medina",
-      "Yunior Tur"
+      "Luis Medina"
     ],
     "ATL": [
       "Danny Young",
@@ -1239,12 +1235,12 @@
       "Cade Gibson",
       "Calvin Faucher",
       "Dax Fulton",
+      "John King",
       "Lake Bachar",
       "Michael Petersen",
       "Pete Fairbanks",
       "Ryan Gusto",
-      "Tyler Zuber",
-      "Zach Brzykcy"
+      "Tyler Zuber"
     ],
     "MIL": [
       "Aaron Ashby",

@@ -215,6 +215,14 @@
       "neutral_lo": 0,
       "worst": -40
     },
+    "majors|hitters|DRS": {
+      "best": 12,
+      "fmt": "num",
+      "gold": 15,
+      "neutral_hi": 2,
+      "neutral_lo": -2,
+      "worst": -10
+    },
     "majors|hitters|Disc": {
       "best": 40,
       "fmt": "num",
@@ -1086,6 +1094,14 @@
       "neutral_lo": 0,
       "worst": -40
     },
+    "majors|rp|DRS": {
+      "best": 4,
+      "fmt": "num",
+      "gold": 5,
+      "neutral_hi": 2,
+      "neutral_lo": -2,
+      "worst": -5
+    },
     "majors|rp|Days +/-": {
       "best": 0.45,
       "fmt": "pct",
@@ -1899,6 +1915,14 @@
       "neutral_hi": 5,
       "neutral_lo": 0,
       "worst": -40
+    },
+    "majors|sp|DRS": {
+      "best": 4,
+      "fmt": "num",
+      "gold": 5,
+      "neutral_hi": 2,
+      "neutral_lo": -2,
+      "worst": -5
     },
     "majors|sp|Days +/-": {
       "best": 0.45,

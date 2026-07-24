@@ -16284,7 +16284,7 @@ function fantasy_trends_name_html(row, section) {
     return `
       <span
         class='fantasy_trends_player_name'
-        data-person-key='${escape_attr(person_key)}'
+        data-person_key='${escape_attr(person_key)}'
         data-role='${escape_attr(role)}'
       >
         ${name}
@@ -16297,8 +16297,8 @@ function fantasy_trends_name_html(row, section) {
       href='#${escape_attr(page)}'
       class='fantasy_player_link fantasy_trends_player_link'
       data-page='${escape_attr(page)}'
-      data-page-id='${escape_attr(page)}'
-      data-person-key='${escape_attr(person_key)}'
+      data-page_id='${escape_attr(page)}'
+      data-person_key='${escape_attr(person_key)}'
       data-role='${escape_attr(role)}'
     >${name}</a>
   `;
@@ -16394,6 +16394,7 @@ function fantasy_trends_column_class(key, table_type) {
       'Score',
       'RHP',
       'Pts +/-',
+      'rAll',
     ]),
     pitchers: new Set([
       'Own%',
@@ -16403,6 +16404,7 @@ function fantasy_trends_column_class(key, table_type) {
       'Score',
       'Stf',
       'Days +/-',
+      'rAll',
     ]),
   };
 
