@@ -15221,6 +15221,14 @@ function fantasy_trends_is_undervalued(row, section) {
   );
 
   if (
+    role === 'hitters' &&
+    threshold_ppg < 4 &&
+    rall < 0
+  ) {
+    return false;
+  }
+
+  if (
     role === 'rp' &&
     (
       (
@@ -16128,20 +16136,53 @@ function fantasy_trends_format_value(
     );
   }
 
-  if (key === 'xOPS') {
+  const three_decimal_no_leading_zero = new Set([
+    'AVG',
+    'OBP',
+    'SLG',
+    'OPS',
+    'S OPS',
+    'xOPS',
+  ]);
+
+  if (
+    three_decimal_no_leading_zero.has(
+      key
+    )
+  ) {
     return number
       .toFixed(3)
       .replace(/^(-?)0\./, '$1.');
   }
 
+  const two_decimal_stats = new Set([
+    'ERA',
+    'S ERA',
+    'WHIP',
+    'S WHIP',
+  ]);
+
   if (
-    section === 'hitters' &&
-    (
-      key === 'S Pts +/-' ||
-      key === 'Pts +/-'
+    two_decimal_stats.has(
+      key
     )
   ) {
-    return number.toFixed(1);
+    return number.toFixed(2);
+  }
+
+  const percentage_stats = new Set([
+    'Pts +/-',
+    'S Pts +/-',
+    'Days +/-',
+    'S Days +/-',
+  ]);
+
+  if (
+    percentage_stats.has(
+      key
+    )
+  ) {
+    return `${number.toFixed(2)}%`;
   }
 
   return String(
