@@ -15137,7 +15137,7 @@ function fantasy_trends_is_free_agent(row, section) {
 
   // strong recent value, balanced quality, or one elite profile metric
   const strong_profile = (
-    rall >= 25 ||
+    rall >= 30 ||
     (
       score >= 40 &&
       all >= 10
@@ -15286,7 +15286,7 @@ function fantasy_trends_is_undervalued(row, section) {
 
   // under-the-radar hot players while rejecting severely mismatched Score and All profiles
   const improving_player = (
-    rall >= 25 &&
+    rall >= 30 &&
     (
       (
         score >= 20 &&
@@ -16170,6 +16170,10 @@ function fantasy_trends_format_value(
     return number.toFixed(2);
   }
 
+  if (key === 'Own%') {
+    return `${number.toFixed(2)}%`;
+  }
+
   const percentage_stats = new Set([
     'Pts +/-',
     'S Pts +/-',
@@ -16182,12 +16186,8 @@ function fantasy_trends_format_value(
       key
     )
   ) {
-    return `${number.toFixed(2)}%`;
+    return `${(number * 100).toFixed(2)}%`;
   }
-
-  return String(
-    value
-  );
 }
 /* ################# */
 function fantasy_trends_page_link(row, section) {
@@ -16225,7 +16225,7 @@ function fantasy_trends_name_html(row, section) {
     return `
       <span
         class='fantasy_trends_player_name'
-        data-person_key='${escape_attr(person_key)}'
+        data-person-key='${escape_attr(person_key)}'
         data-role='${escape_attr(role)}'
       >
         ${name}
@@ -16238,8 +16238,8 @@ function fantasy_trends_name_html(row, section) {
       href='#${escape_attr(page)}'
       class='fantasy_player_link fantasy_trends_player_link'
       data-page='${escape_attr(page)}'
-      data-page_id='${escape_attr(page)}'
-      data-person_key='${escape_attr(person_key)}'
+      data-page-id='${escape_attr(page)}'
+      data-person-key='${escape_attr(person_key)}'
       data-role='${escape_attr(role)}'
     >${name}</a>
   `;
