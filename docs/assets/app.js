@@ -16118,15 +16118,17 @@ function fantasy_trends_format_value(
     return '—';
   }
 
-  if (key === 'xOPS') {
-    const number = fantasy_trends_num(
+  const number = fantasy_trends_num(
+    value
+  );
+
+  if (number == null) {
+    return String(
       value
     );
+  }
 
-    if (number == null) {
-      return '—';
-    }
-
+  if (key === 'xOPS') {
     return number
       .toFixed(3)
       .replace(/^(-?)0\./, '$1.');
@@ -16139,6 +16141,15 @@ function fantasy_trends_format_value(
       key === 'Pts +/-'
     )
   ) {
+    return number.toFixed(1);
+  }
+
+  return fantasy_format_value(
+    key,
+    value
+  );
+}
+/* ################# */
 /* ################# */
 function fantasy_trends_page_link(row, section) {
   if (row?.fantasy_trends_page_id) {
