@@ -14119,6 +14119,52 @@ function fantasy_should_use_white_text(row, col, gradient_style) {
   return /background:\s*rgba?\(/i.test(s);
 }
 /* ################# */
+function fantasy_pitcher_ppg_spec(
+  row,
+  col,
+  fallback_spec
+) {
+  if (
+    fantasy_state.scope !== 'majors' ||
+    ![
+      'PPG',
+      'S PPG',
+    ].includes(col)
+  ) {
+    return fallback_spec;
+  }
+
+  const pitch_role = String(
+    row?.pitch_role ||
+    row?.Role ||
+    ''
+  ).trim().toUpperCase();
+
+  if (pitch_role !== 'FLEX') {
+    return fallback_spec;
+  }
+
+  const combined_key = col === 'S PPG'
+    ? 'S Combined PPG'
+    : 'Combined PPG';
+
+  const combined_ppg = fantasy_num(
+    row?.[combined_key]
+  );
+
+  if (combined_ppg == null) {
+    return fallback_spec;
+  }
+
+  return {
+    worst: combined_ppg - 4,
+    neutral_lo: combined_ppg - 0.5,
+    neutral_hi: combined_ppg + 0.5,
+    best: combined_ppg + 5,
+    higher_is_better: true,
+  };
+}
+/* ################# */
 function fantasy_gradient_style(row, col, value) {
   if (!fantasy_state.show_gradients) return '';
   if (value == null) return '';
@@ -14135,20 +14181,31 @@ function fantasy_gradient_style(row, col, value) {
     fantasy_state.scope === 'majors' &&
     (
       fantasy_state.section === 'rp' ||
-      (fantasy_state.section === 'pitchers' && row.fantasy_source_section === 'rp')
+      (
+        fantasy_state.section === 'pitchers' &&
+        row.fantasy_source_section === 'rp'
+      )
+    ) &&
+    (
+      col === 'PPG' ||
+      col === 'S PPG'
     )
   ) {
-    if (col === 'PPG' || col === 'S PPG') {
-      spec = {
-        ...(spec || {}),
-        worst: 3.5,
-        neutral_lo: 4,
-        neutral_hi: 4.5,
-        best: 6.5,
-        higher_is_better: true,
-      };
-    }
+    spec = {
+      ...(spec || {}),
+      worst: 3.5,
+      neutral_lo: 4,
+      neutral_hi: 4.5,
+      best: 6.5,
+      higher_is_better: true,
+    };
   }
+
+  spec = fantasy_pitcher_ppg_spec(
+    row,
+    col,
+    spec
+  );
 
   if (!spec) return '';
 
@@ -14771,11 +14828,13 @@ const fantasy_trends_pitcher_columns = [
   'All',
   'Con',
   'Disc',
+  'Stf',
   'Days +/-',
   'rAll',
   'IP',
   'BB',
   'K',
+  'QS/SV',
   'ERA',
   'WHIP',
   'pERA',
@@ -16086,27 +16145,23 @@ function fantasy_trends_collect_rows(data, trend_type) {
 }
 /* ################# */
 function fantasy_trends_column_label(key, table_type) {
-  if (table_type === 'pitchers') {
-    const pitcher_label_map = {
-      'S Days +/-': 'S Cons.',
-      'Days +/-': 'Cons.',
-    };
+  const abbreviated_label_map = {
+    'S Days +/-': 'S Cons.',
+    'Days +/-': 'Cons.',
+    'S Pts +/-': 'S Cons.',
+    'Pts +/-': 'Cons.',
+    'S Disc': 'Appr.',
+    'Disc': 'Appr.',
+  };
 
-    if (pitcher_label_map[key]) {
-      return pitcher_label_map[key];
-    }
+  if (abbreviated_label_map[key]) {
+    return abbreviated_label_map[key];
   }
 
   const label_map = {
     name: 'Name',
     pos: 'Pos',
     team: 'Team',
-    'S Disc': 'S Approach',
-    Disc: 'Approach',
-    'S Pts +/-': 'S Consistency',
-    'Pts +/-': 'Consistency',
-    'S Days +/-': 'S Consistency',
-    'Days +/-': 'Consistency',
   };
 
   return label_map[key] || fantasy_display_label(
@@ -16298,7 +16353,7 @@ function fantasy_trends_gradient_style(row, key, section) {
   );
 }
 /* ################# */
-function fantasy_trends_column_class(key) {
+function fantasy_trends_column_class(key, table_type) {
   const classes = [];
 
   if (key === 'name') {
@@ -16313,23 +16368,61 @@ function fantasy_trends_column_class(key) {
     );
   }
 
-  const divider_columns = new Set([
-    'team',
-    'S Pts +/-',
-    'S Days +/-',
-    'PPG',
-    'Pts +/-',
-    'Days +/-',
-    'rAll',
-    'SB',
-    'K',
-    'OPS',
-    'WHIP',
-  ]);
+  const heavy_dividers_by_table = {
+    hitters: new Set([
+      'team',
+      'PPG',
+      'rAll',
+      'SB',
+      'OPS',
+    ]),
+    pitchers: new Set([
+      'team',
+      'PPG',
+      'rAll',
+      'K',
+      'WHIP',
+    ]),
+  };
 
-  if (divider_columns.has(key)) {
+  const light_dividers_by_table = {
+    hitters: new Set([
+      'Own%',
+      'S Score',
+      'S Pts +/-',
+      'S OPS',
+      'Score',
+      'RHP',
+      'Pts +/-',
+    ]),
+    pitchers: new Set([
+      'Own%',
+      'S Score',
+      'S Days +/-',
+      'S ERA',
+      'Score',
+      'Stf',
+      'Days +/-',
+    ]),
+  };
+
+  const heavy_dividers = (
+    heavy_dividers_by_table[table_type] ||
+    new Set()
+  );
+
+  const light_dividers = (
+    light_dividers_by_table[table_type] ||
+    new Set()
+  );
+
+  if (heavy_dividers.has(key)) {
     classes.push(
       'fantasy_trends_team_divider'
+    );
+  } else if (light_dividers.has(key)) {
+    classes.push(
+      'fantasy_divider_before_light'
     );
   }
 
@@ -16346,7 +16439,8 @@ function fantasy_trends_cell_html(
   table_type
 ) {
   const column_class = fantasy_trends_column_class(
-    key
+    key,
+    table_type
   );
 
   if (key === 'pos') {
@@ -16519,7 +16613,10 @@ function fantasy_trends_sort_header_html(key, trend_type, table_type) {
   }
 
   return `
-    <th class='${fantasy_trends_column_class(key).trim()}'>
+    <th class='${fantasy_trends_column_class(
+      key,
+      table_type
+    ).trim()}'>
       <button
         type='button'
         class='fantasy_trends_sort_btn${active_class}'
