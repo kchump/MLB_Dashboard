@@ -16118,13 +16118,7 @@ function fantasy_trends_format_value(
     return '—';
   }
 
-  if (
-    section === 'hitters' &&
-    (
-      key === 'S Pts +/-' ||
-      key === 'Pts +/-'
-    )
-  ) {
+  if (key === 'xOPS') {
     const number = fantasy_trends_num(
       value
     );
@@ -16133,18 +16127,18 @@ function fantasy_trends_format_value(
       return '—';
     }
 
-    return `${(number * 100).toFixed(2)}%`;
+    return number
+      .toFixed(3)
+      .replace(/^(-?)0\./, '$1.');
   }
 
-  const formatted = fantasy_fmt(
-    key,
-    value
-  );
-
-  return formatted === ''
-    ? '—'
-    : formatted;
-}
+  if (
+    section === 'hitters' &&
+    (
+      key === 'S Pts +/-' ||
+      key === 'Pts +/-'
+    )
+  ) {
 /* ################# */
 function fantasy_trends_page_link(row, section) {
   if (row?.fantasy_trends_page_id) {
