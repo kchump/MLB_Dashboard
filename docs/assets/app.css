@@ -3340,6 +3340,72 @@ body.soft_theme .fantasy_trends_table td.fantasy_trends_sticky_name {
   width: 92px;
   min-width: 92px;
 }
+
+#fantasy_trends,
+#fantasy_trends .static_page,
+#fantasy_trends_results_root,
+.fantasy_trends_sections,
+.fantasy_trends_section,
+.fantasy_trends_table_block,
+.fantasy_trends_scroll_shell {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.fantasy_trends_scroll_shell {
+  overflow: hidden;
+}
+
+.fantasy_trends_table_wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: scroll;
+  overflow-y: auto;
+}
+
+#fantasy_trends .player_page_scroll {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+#fantasy_trends .player_page_inner {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+#fantasy_trends .static_page,
+#fantasy_trends_root,
+#fantasy_trends_controls_root,
+#fantasy_trends_results_root,
+#fantasy_trends .fantasy_trends_sections,
+#fantasy_trends .fantasy_trends_section,
+#fantasy_trends .fantasy_trends_table_block,
+#fantasy_trends .fantasy_trends_scroll_shell {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+#fantasy_trends .fantasy_trends_scroll_shell {
+  display: block;
+  overflow: hidden;
+}
+
+#fantasy_trends .fantasy_trends_table_wrap {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: scroll;
+  overflow-y: auto;
+}
 /*====================================================================
 ====================================================================
 ====================================================================
