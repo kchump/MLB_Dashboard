@@ -16188,6 +16188,10 @@ function fantasy_trends_format_value(
   ) {
     return `${(number * 100).toFixed(2)}%`;
   }
+
+  return String(
+    value
+  );
 }
 /* ################# */
 function fantasy_trends_page_link(row, section) {
