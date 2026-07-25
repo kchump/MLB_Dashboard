@@ -15407,7 +15407,7 @@ function fantasy_trends_is_undervalued(row, section) {
 
   return (
     own_pct >= 40 &&
-    own_pct < 98 &&
+    own_pct < 90 &&
     consistency >= 0 &&
     threshold_ppg < max_ppg &&
     (
@@ -16232,6 +16232,7 @@ function fantasy_trends_format_value(
     'S ERA',
     'WHIP',
     'S WHIP',
+    'pERA',
   ]);
 
   if (
@@ -16393,13 +16394,14 @@ function fantasy_trends_column_class(key, table_type) {
       'OPS',
       'S Pts +/-',
       'S Days +/-',
+      'PA',
     ]),
     pitchers: new Set([
       'team',
       'PPG',
       'QS/SV',
       'WHIP',
-      'S Days +/-',
+      'IP',
     ]),
   };
 
