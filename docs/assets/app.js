@@ -16393,12 +16393,14 @@ function fantasy_trends_column_class(key, table_type) {
       'OPS',
       'S Pts +/-',
       'S Days +/-',
+      'rAll',
     ]),
     pitchers: new Set([
       'team',
       'PPG',
       'QS/SV',
       'WHIP',
+      'rAll',
     ]),
   };
 
