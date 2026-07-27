@@ -16394,6 +16394,7 @@ function fantasy_trends_column_class(key, table_type) {
       'OPS',
       'S Pts +/-',
       'S Days +/-',
+      'rAll',
       'PA',
     ]),
     pitchers: new Set([
@@ -16401,6 +16402,7 @@ function fantasy_trends_column_class(key, table_type) {
       'PPG',
       'QS/SV',
       'WHIP',
+      'rAll',
       'IP',
     ]),
   };
@@ -16441,7 +16443,9 @@ function fantasy_trends_column_class(key, table_type) {
     classes.push(
       'fantasy_trends_team_divider'
     );
-  } else if (light_dividers.has(key)) {
+  }
+
+  if (light_dividers.has(key)) {
     classes.push(
       'fantasy_divider_before_light'
     );
