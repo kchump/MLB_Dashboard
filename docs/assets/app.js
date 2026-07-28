@@ -15222,8 +15222,12 @@ function fantasy_trends_is_free_agent(row, section) {
     all >= 20
   );
 
-  // current profile is positive and repeatable
+  // current hitter profile is positive and repeatable
   const productive_non_fake_streak = (
+    fantasy_trends_role(
+      row,
+      section
+    ) === 'hitters' &&
     consistency >= 20 &&
     score >= 0 &&
     all >= 0
@@ -15231,6 +15235,10 @@ function fantasy_trends_is_free_agent(row, section) {
 
   // producing useful games at an exceptional rate regardless of profile metrics
   const elite_consistent_production = (
+    fantasy_trends_role(
+      row,
+      section
+    ) === 'hitters' &&
     consistency >= 35
   );
 
