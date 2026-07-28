@@ -7161,10 +7161,10 @@ function init_matchups_page_if_present(content_root) {
   mode_select.style.borderRadius = '10px';
 
   const modes = [
-    ['todays_favorited_players', "Project Today's Favorited Players"],
-    ['gameday_matchup', 'Gameday Matchup Preview'],
-    ['projected_pitchers', 'Projected Starting Pitchers'],
-    ['best_and_worst_hitters', 'Projected Best and Worst Hitters'],
+    ['todays_favorited_players', "☆☆ Project Today's Favorited Players"],
+    ['gameday_matchup', '☆ Gameday Matchup Preview'],
+    ['projected_pitchers', '☆ Projected Starting Pitchers'],
+    ['best_and_worst_hitters', '☆ Projected Best and Worst Hitters'],
     ['todays_fantasy_lineup', "Project Today's Fantasy Lineup"],
     ['weekly_fantasy_hitter_moves', "Project Weekly Fantasy Hitter Moves"],
     ['weekly_starting_pitcher_moves', "Project Weekly Starting Pitcher Moves"],
@@ -15344,8 +15344,8 @@ function fantasy_trends_is_undervalued(row, section) {
     section,
     row,
     {
-      hitters: 5.3,
-      rp: 5.5,
+      hitters: 4.7,
+      rp: 5,
       sp: 18,
     }
   );
