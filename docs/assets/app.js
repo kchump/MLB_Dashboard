@@ -14726,6 +14726,8 @@ const fantasy_trends_state = {
   },
   scrollbar_observers: new Map(),
   roster_person_keys: new Set(),
+  oos_person_keys: new Set(),
+  suspended_person_keys: new Set(),
   rosters_loaded: false,
   hide_injured: false,
   filters: {
@@ -15032,13 +15034,37 @@ function fantasy_trends_is_excluded_status(row) {
     'SUSPENDED',
   ]);
 
-  return fantasy_trends_status_values(
+  const has_excluded_row_status = fantasy_trends_status_values(
     row
   ).some(value => {
     return excluded_statuses.has(
       value
     );
   });
+
+  if (has_excluded_row_status) {
+    return true;
+  }
+
+  const person_key = String(
+    row?.person_key ||
+    normalize_matchup_person_key(
+      row?.name || ''
+    ) ||
+    ''
+  ).trim();
+
+  return Boolean(
+    person_key &&
+    (
+      fantasy_trends_state.oos_person_keys.has(
+        person_key
+      ) ||
+      fantasy_trends_state.suspended_person_keys.has(
+        person_key
+      )
+    )
+  );
 }
 /* ################# */
 function fantasy_trends_page_id_from_lookup(row, section) {
@@ -15059,6 +15085,60 @@ function fantasy_trends_page_id_from_lookup(row, section) {
       `${page_role}|${person_key}`
     ) || ''
   ).trim();
+}
+/* ################# */
+function fantasy_trends_load_sidebar_statuses() {
+  const oos_person_keys = new Set();
+  const suspended_person_keys = new Set();
+
+  document.querySelectorAll(
+    '[data-person_key], [data-person-key]'
+  ).forEach(element => {
+    if (element.closest('.fantasy_trends_table')) {
+      return;
+    }
+
+    const person_key = String(
+      element.dataset.person_key ||
+      element.dataset.personKey ||
+      ''
+    ).trim();
+
+    if (!person_key) {
+      return;
+    }
+
+    const status_element = element.closest(
+      '[data-is_oos], [data-is_susp], .sub_oos, .sub_susp, .tag_oos, .tag_susp'
+    ) || element;
+
+    const is_oos = (
+      status_element.dataset.is_oos === '1' ||
+      status_element.dataset.isOos === '1' ||
+      status_element.classList.contains('sub_oos') ||
+      status_element.classList.contains('tag_oos') ||
+      Boolean(status_element.closest('.sub_oos, .tag_oos'))
+    );
+
+    const is_suspended = (
+      status_element.dataset.is_susp === '1' ||
+      status_element.dataset.isSusp === '1' ||
+      status_element.classList.contains('sub_susp') ||
+      status_element.classList.contains('tag_susp') ||
+      Boolean(status_element.closest('.sub_susp, .tag_susp'))
+    );
+
+    if (is_oos) {
+      oos_person_keys.add(person_key);
+    }
+
+    if (is_suspended) {
+      suspended_person_keys.add(person_key);
+    }
+  });
+
+  fantasy_trends_state.oos_person_keys = oos_person_keys;
+  fantasy_trends_state.suspended_person_keys = suspended_person_keys;
 }
 /* ################# */
 async function fantasy_trends_load_rosters() {
@@ -16402,7 +16482,6 @@ function fantasy_trends_column_class(key, table_type) {
       'OPS',
       'S Pts +/-',
       'rAll',
-      'PA',
     ]),
     pitchers: new Set([
       'team',
@@ -16411,7 +16490,6 @@ function fantasy_trends_column_class(key, table_type) {
       'WHIP',
       'rAll',
       'S Days +/-',
-      'IP',
     ]),
   };
 
@@ -17620,6 +17698,7 @@ async function render_fantasy_trends_page() {
     }
 
     fantasy_trends_state.data = data;
+    fantasy_trends_load_sidebar_statuses();
 
     fantasy_build_page_lookup();
 
