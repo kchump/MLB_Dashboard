@@ -16401,7 +16401,6 @@ function fantasy_trends_column_class(key, table_type) {
       'SB',
       'OPS',
       'S Pts +/-',
-      'S Days +/-',
       'rAll',
       'PA',
     ]),
@@ -16411,6 +16410,7 @@ function fantasy_trends_column_class(key, table_type) {
       'QS/SV',
       'WHIP',
       'rAll',
+      'S Days +/-',
       'IP',
     ]),
   };
