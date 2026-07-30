@@ -15234,6 +15234,40 @@ function fantasy_trends_should_include_roster_status(row, section) {
   );
 }
 /* ################# */
+function fantasy_trends_passes_pitcher_whip(row, section, rall) {
+  const role = fantasy_trends_role(
+    row,
+    section
+  );
+
+  if (role === 'hitters') {
+    return true;
+  }
+
+  const streak_whip = fantasy_trends_num(
+    row?.['S WHIP']
+  );
+
+  const season_whip = fantasy_trends_num(
+    row?.WHIP
+  );
+
+  const whip = streak_whip ?? season_whip;
+
+  if (whip == null) {
+    return true;
+  }
+
+  if (
+    role === 'sp' &&
+    rall > 40
+  ) {
+    return true;
+  }
+
+  return whip <= 1.30;
+}
+/* ################# */
 function fantasy_trends_is_free_agent(row, section) {
   const own_pct = fantasy_trends_num(
     row?.['Own%']
@@ -15278,6 +15312,21 @@ function fantasy_trends_is_free_agent(row, section) {
   }
 
   if (rall < 0) {
+    return false;
+  }
+
+  const role = fantasy_trends_role(
+    row,
+    section
+  );
+
+  if (
+    !fantasy_trends_passes_pitcher_whip(
+      row,
+      section,
+      rall
+    )
+  ) {
     return false;
   }
 
@@ -15379,10 +15428,16 @@ function fantasy_trends_is_undervalued(row, section) {
     section
   );
 
-  const role = fantasy_trends_role(
-    row,
-    section
-  );
+  if (
+    rall != null &&
+    !fantasy_trends_passes_pitcher_whip(
+      row,
+      section,
+      rall
+    )
+  ) {
+    return false;
+  }
 
   if (
     role === 'hitters' &&
