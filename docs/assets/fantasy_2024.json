@@ -56748,7 +56748,7 @@
         "prev_minors_year": "",
         "rAll": 25.78,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 4,
         "team": "- - -",
         "teams": "Chicago,New York",
         "vSzn": -112.68,
@@ -156749,7 +156749,7 @@
         "IP": 41.0,
         "K": 26.0,
         "K%": 0.174,
-        "Own%": 34.87,
+        "Own%": "",
         "Stf": 17.82,
         "Strike%": 0.637,
         "SwStr%": 0.10800000000000001,
@@ -160390,7 +160390,7 @@
         "person_key": "mark leiter jr",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 4,
         "team": "- - -"
       },
       {

@@ -60647,7 +60647,7 @@
         "prev_minors_year": "",
         "rAll": -16.97,
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 4,
         "team": "NYY",
         "teams": "",
         "vSzn": -272.77,
@@ -167702,7 +167702,7 @@
         "IP": 3.1,
         "K": 3.0,
         "K%": 0.15,
-        "Own%": 20.14,
+        "Own%": "",
         "Stf": 1.77,
         "Strike%": 0.627,
         "SwStr%": 0.133,
@@ -193586,7 +193586,7 @@
         "person_key": "mark leiter jr",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 2,
+        "sort_bucket": 4,
         "team": "NYY"
       },
       {

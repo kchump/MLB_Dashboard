@@ -15423,6 +15423,10 @@ function fantasy_trends_is_undervalued(row, section) {
   // PPG determines whether the player's established production is already too strong
   const threshold_ppg = season_ppg ?? streak_ppg;
 
+  const role = fantasy_trends_role(
+    row,
+    section
+  );
   const consistency = fantasy_trends_consistency(
     row,
     section
