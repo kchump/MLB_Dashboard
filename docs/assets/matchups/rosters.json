@@ -177,6 +177,7 @@
     "Jake Cronenworth": "SD",
     "Jake Mangum": "PIT",
     "Jake McCarthy": "COL",
+    "Jake Rogers": "BAL",
     "Jakob Marsee": "MIA",
     "James McCann": "ARI",
     "James Outman": "DET",
@@ -446,6 +447,7 @@
       "Dylan Beavers",
       "Gunnar Henderson",
       "Jackson Holliday",
+      "Jake Rogers",
       "Jeremiah Jackson",
       "Leody Taveras",
       "Pete Alonso",
@@ -846,7 +848,6 @@
     ]
   },
   "reliever_team_map": {
-    "A.J. Minter": "NYM",
     "AJ Blubaugh": "HOU",
     "Aaron Ashby": "MIL",
     "Aaron Civale": "CHC",
@@ -863,6 +864,7 @@
     "Andrew Morris": "MIN",
     "Angel Chivilli": "NYY",
     "Anthony Nunez": "BAL",
+    "Antoine Kelly": "CHC",
     "Antonio Senzatela": "COL",
     "Aroldis Chapman": "BOS",
     "Ben Peoples": "TEX",
@@ -938,7 +940,6 @@
     "Gabriel Hughes": "COL",
     "Garrett Cleavinger": "TB",
     "Garrett Whitlock": "BOS",
-    "Gavin Hollowell": "CHC",
     "George Soriano": "STL",
     "Gerardo Carrillo": "ARI",
     "Gordon Graceffo": "STL",
@@ -1139,8 +1140,8 @@
     ],
     "CHC": [
       "Aaron Civale",
+      "Antoine Kelly",
       "Caleb Thielbar",
-      "Gavin Hollowell",
       "Jacob Webb",
       "Jake Woodford",
       "Ryan Rolison",
@@ -1265,7 +1266,6 @@
       "Yoendrys Gomez"
     ],
     "NYM": [
-      "A.J. Minter",
       "Brooks Raley",
       "Cionel Perez",
       "Daniel Duarte",

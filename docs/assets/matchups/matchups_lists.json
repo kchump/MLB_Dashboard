@@ -877,7 +877,7 @@
           "bats": "R",
           "display_all": -29.11,
           "in_hitter_matchups": true,
-          "mAll": -9.88,
+          "mAll": -5.34,
           "team": "CHW",
           "year": "2026"
         },
@@ -2769,7 +2769,7 @@
           "bats": "R",
           "display_all": -1.43,
           "in_hitter_matchups": true,
-          "mAll": 4.4,
+          "mAll": 0.64,
           "team": "TEX",
           "year": "2026"
         },
@@ -3949,7 +3949,7 @@
           "bats": "R",
           "display_all": -26.5,
           "in_hitter_matchups": false,
-          "mAll": 16.22,
+          "mAll": 16.86,
           "team": "DET",
           "year": "2026"
         },
@@ -4152,7 +4152,7 @@
           "bats": "R",
           "display_all": -2.48,
           "in_hitter_matchups": false,
-          "mAll": -6.78,
+          "mAll": -6.81,
           "team": "NYM",
           "year": "2026"
         },
@@ -5079,7 +5079,7 @@
           "bats": "R",
           "display_all": -7.91,
           "in_hitter_matchups": true,
-          "mAll": 26.22,
+          "mAll": 26.04,
           "team": "DET",
           "year": "07-22-26"
         },
@@ -6098,6 +6098,36 @@
           "team": "COL",
           "year": "2026"
         },
+        "Jake Rogers": {
+          "CB L": -22.59,
+          "CB R": 25.52,
+          "CH L": -59.81,
+          "CH R": 8.55,
+          "CT R": -47.31,
+          "FB L": 29.5,
+          "FB R": -46.19,
+          "LHP": -9.47,
+          "PA": 110.0,
+          "Pts +/-": -0.2647058823529412,
+          "RHP": -26.62,
+          "SI L": -7.32,
+          "SI R": 50.66,
+          "SL L": -44.54,
+          "SL R": -89.72,
+          "SP": 11.24,
+          "SP L": 11.24,
+          "SP R": 11.24,
+          "SW L": 34.64,
+          "SW R": 13.56,
+          "all": -23.75,
+          "all_col": "All",
+          "all_source": "All",
+          "bats": "R",
+          "display_all": -23.75,
+          "in_hitter_matchups": true,
+          "team": "BAL",
+          "year": "2026"
+        },
         "Jakob Marsee": {
           "CB R": 56.48,
           "CH R": 30.35,
@@ -6629,7 +6659,7 @@
           "bats": "L",
           "display_all": -1.15,
           "in_hitter_matchups": true,
-          "mAll": 19.78,
+          "mAll": 12.36,
           "team": "TOR",
           "year": "2026"
         },
@@ -6932,7 +6962,7 @@
           "bats": "R",
           "display_all": -48.08,
           "in_hitter_matchups": true,
-          "mAll": -33.71,
+          "mAll": -33.86,
           "team": "SF",
           "year": "2026"
         },
@@ -7635,7 +7665,7 @@
           "bats": "L",
           "display_all": -26.42,
           "in_hitter_matchups": true,
-          "mAll": -17.02,
+          "mAll": -15.36,
           "team": "KC",
           "year": "2026"
         },
@@ -7665,7 +7695,7 @@
           "bats": "L",
           "display_all": -41.05,
           "in_hitter_matchups": true,
-          "mAll": -13.0,
+          "mAll": -12.82,
           "team": "TEX",
           "year": "2026"
         },
@@ -10718,7 +10748,7 @@
           "bats": "L",
           "display_all": 22.94,
           "in_hitter_matchups": true,
-          "mAll": 40.24,
+          "mAll": 16.92,
           "team": "MIA",
           "year": "2026"
         },
@@ -11476,7 +11506,7 @@
           "bats": "R",
           "display_all": 32.87,
           "in_hitter_matchups": true,
-          "mAll": 15.49,
+          "mAll": 5.29,
           "team": "MIN",
           "year": "2026"
         },
@@ -11651,7 +11681,7 @@
           "bats": "R",
           "display_all": 11.24,
           "in_hitter_matchups": true,
-          "mAll": 8.27,
+          "mAll": 4.41,
           "team": "<NA>",
           "year": "2026"
         },
@@ -11890,7 +11920,7 @@
           "bats": "R",
           "display_all": -16.26,
           "in_hitter_matchups": true,
-          "mAll": -9.85,
+          "mAll": -15.23,
           "team": "ATL",
           "year": "2026"
         },
@@ -14075,34 +14105,6 @@
         }
       },
       "fallback_pitcher_all": {
-        "A.J. Minter": {
-          "CH": 63.55,
-          "CH L": 11.15,
-          "CH R": 73.25,
-          "CT": 17.99,
-          "CT L": -4.46,
-          "CT R": 40.69,
-          "Days +/-": -0.019354838709677247,
-          "FB": -100.53,
-          "FB L": -33.64,
-          "FB R": -149.08,
-          "IP": 23.0,
-          "LHB": -11.71,
-          "RHB": -19.46,
-          "SI": 2.17,
-          "SI L": 2.48,
-          "Stf": 24.4,
-          "Throws": "L",
-          "all": -15.86,
-          "all_col": "All",
-          "all_source": "All",
-          "display_all": -15.86,
-          "in_hitter_matchups": true,
-          "in_starter_matchups": false,
-          "mAll": -20.95,
-          "team": "MIN",
-          "year": "2026"
-        },
         "A.J. Puk": {
           "Throws": "L",
           "all_source": "mAll",
@@ -14805,6 +14807,16 @@
           "team": "BAL",
           "year": "2026"
         },
+        "Antoine Kelly": {
+          "Throws": "L",
+          "all_source": "mAll",
+          "display_all": 44.43,
+          "in_hitter_matchups": false,
+          "in_starter_matchups": false,
+          "mAll": 44.43,
+          "team": "CHC",
+          "year": "2026"
+        },
         "Antonio Senzatela": {
           "CB": -1.7,
           "CB L": -22.06,
@@ -15000,10 +15012,10 @@
         "Ben Joyce": {
           "Throws": "R",
           "all_source": "mAll",
-          "display_all": 60.31,
+          "display_all": 58.21,
           "in_hitter_matchups": true,
           "in_starter_matchups": false,
-          "mAll": 60.31,
+          "mAll": 58.21,
           "team": "LAA",
           "year": "2026"
         },
@@ -17248,10 +17260,10 @@
         "Cody Bradford": {
           "Throws": "L",
           "all_source": "mAll",
-          "display_all": -3.91,
+          "display_all": 15.07,
           "in_hitter_matchups": true,
           "in_starter_matchups": true,
-          "mAll": -3.91,
+          "mAll": 15.07,
           "team": "TEX",
           "year": "2026"
         },
@@ -18985,37 +18997,38 @@
         },
         "Eury Perez": {
           "CB": -22.62,
-          "CB L": -25.19,
+          "CB L": 3.66,
           "CH": 67.56,
-          "CH L": 87.99,
-          "CH R": -24.03,
+          "CH L": 45.86,
+          "CH R": 32.74,
           "Days +/-": 0.16901684292988617,
           "FB": 36.2,
-          "FB L": 24.76,
-          "FB R": 52.07,
-          "IP": 104.2,
-          "LHB": 36.38,
-          "RHB": 53.73,
+          "FB L": 117.38,
+          "FB R": 86.64,
+          "IP": 32.0,
+          "LHB": 75.08,
+          "RHB": 69.93,
+          "S Days +/-": 0.6178694158075595,
           "SI": 26.03,
-          "SI L": 19.37,
-          "SI R": 35.63,
+          "SI L": 59.4,
+          "SI R": 30.53,
           "SL": 48.64,
-          "SL L": 82.64,
-          "SL R": 11.38,
+          "SL L": 124.18,
+          "SL R": 14.11,
           "SW": 87.43,
-          "SW L": 31.81,
-          "SW R": 120.28,
-          "Stf": 44.37,
+          "SW L": -4.17,
+          "SW R": 128.91,
+          "Stf": 47.3,
           "Throws": "R",
-          "all": 43.53,
-          "all_col": "All",
+          "all": 73.04,
+          "all_col": "S All",
           "all_source": "All",
-          "display_all": 43.53,
+          "display_all": 73.04,
           "in_hitter_matchups": true,
           "in_starter_matchups": true,
           "mAll": 37.29,
           "team": "MIA",
-          "year": "2026"
+          "year": "07-05-26"
         },
         "Evan Phillips": {
           "CT": -17.0,
@@ -19073,7 +19086,7 @@
           "display_all": 26.08,
           "in_hitter_matchups": true,
           "in_starter_matchups": false,
-          "mAll": 14.98,
+          "mAll": 21.33,
           "team": "PIT",
           "year": "2026"
         },
@@ -19450,7 +19463,7 @@
           "all_col": "All",
           "all_source": "All",
           "display_all": 21.53,
-          "in_hitter_matchups": false,
+          "in_hitter_matchups": true,
           "in_starter_matchups": false,
           "mAll": 0.72,
           "team": "CHC",
@@ -24751,38 +24764,37 @@
         },
         "Noah Cameron": {
           "CB": 31.57,
-          "CB L": 103.3,
-          "CB R": -8.69,
+          "CB L": 71.1,
+          "CB R": 2.79,
           "CH": 31.72,
-          "CH L": -60.04,
-          "CH R": 60.77,
+          "CH L": 12.36,
+          "CH R": 132.47,
           "CT": 2.08,
-          "CT L": -43.38,
-          "CT R": 61.23,
+          "CT L": 47.42,
+          "CT R": 35.61,
           "Days +/-": -0.007220216606498242,
           "FB": -86.45,
-          "FB L": -53.9,
-          "FB R": -111.95,
-          "IP": 50.0,
-          "LHB": -9.46,
-          "RHB": -2.49,
-          "S Days +/-": -0.2911440516913717,
+          "FB L": 20.47,
+          "FB R": -121.5,
+          "IP": 15.0,
+          "LHB": 35.39,
+          "RHB": 24.36,
+          "S Days +/-": -0.2010309278350514,
           "SI": -13.13,
-          "SI L": -40.36,
-          "SI R": -139.11,
+          "SI L": 19.61,
           "SL": -23.66,
-          "SL L": 30.84,
-          "SL R": 3.92,
-          "Stf": 20.02,
+          "SL L": 32.19,
+          "SL R": 36.69,
+          "Stf": 28.25,
           "Throws": "L",
-          "all": -4.18,
+          "all": 26.77,
           "all_col": "S All",
           "all_source": "All",
-          "display_all": -4.18,
+          "display_all": 26.77,
           "in_hitter_matchups": true,
           "in_starter_matchups": true,
           "team": "KC",
-          "year": "06-13-26"
+          "year": "07-24-26"
         },
         "Noah Schultz": {
           "CB L": 30.28,
@@ -25547,6 +25559,7 @@
           "IP": 83.0,
           "LHB": -55.69,
           "RHB": 7.85,
+          "S Days +/-": 0.22891566265060181,
           "SI": -82.72,
           "SI L": -121.37,
           "SI R": -38.39,
@@ -25564,7 +25577,7 @@
           "in_starter_matchups": true,
           "mAll": 14.61,
           "team": "CIN",
-          "year": "2026"
+          "year": "07-24-26"
         },
         "Richard Lovelady": {
           "Days +/-": -0.134250163719712,
@@ -30828,6 +30841,7 @@
       "hvp_pitchers_by_hitter_side": {
         "A.J. Ewing": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -31174,6 +31188,7 @@
             "Zebby Matthews"
           ],
           "Home": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -32297,7 +32312,6 @@
         },
         "Agustin Ramirez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -33658,7 +33672,6 @@
         },
         "Alec Burleson": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -34299,7 +34312,6 @@
         },
         "Alejandro Kirk": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -34940,6 +34952,7 @@
         },
         "Alejandro Osuna": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -35687,7 +35700,6 @@
         },
         "Alek Thomas": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -37041,7 +37053,6 @@
         },
         "Alex Call": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -37684,7 +37695,6 @@
         },
         "Alex Freeland": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -38317,7 +38327,6 @@
         },
         "Alex Jackson": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -38558,7 +38567,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -41151,7 +41159,6 @@
         },
         "Andres Chaparro": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -41791,7 +41798,6 @@
         },
         "Andres Gimenez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -42432,7 +42438,6 @@
         },
         "Andrew Benintendi": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -45265,7 +45270,6 @@
         },
         "Andy Pages": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -45908,6 +45912,7 @@
         },
         "Angel Martinez": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -48123,6 +48128,7 @@
         },
         "Austin Hedges": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -48868,7 +48874,6 @@
         },
         "Austin Martin": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -49109,7 +49114,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -51661,6 +51665,7 @@
         },
         "Austin Wynns": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -54564,7 +54569,6 @@
         },
         "Blaze Jordan": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -55205,6 +55209,7 @@
         },
         "Bo Bichette": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -55551,6 +55556,7 @@
             "Zebby Matthews"
           ],
           "Home": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -55952,6 +55958,7 @@
         },
         "Bo Naylor": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -56697,7 +56704,6 @@
         },
         "Braden Montgomery": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -57338,7 +57344,6 @@
         },
         "Brady House": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -57978,7 +57983,6 @@
         },
         "Brandon Lowe": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -59337,6 +59341,7 @@
         },
         "Brandon Nimmo": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -60084,7 +60089,6 @@
         },
         "Brandon Valenzuela": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -61523,6 +61527,7 @@
         },
         "Brayan Rocchio": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -62268,6 +62273,7 @@
         },
         "Brett Baty": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -62614,6 +62620,7 @@
             "Zebby Matthews"
           ],
           "Home": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -64533,7 +64540,6 @@
         },
         "Brooks Lee": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -64774,7 +64780,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -65168,7 +65173,6 @@
         },
         "Bryan Reynolds": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -65808,7 +65812,6 @@
         },
         "Bryan Torres": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -66449,6 +66452,7 @@
         },
         "Bryce Eldridge": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -67914,7 +67918,6 @@
         },
         "Bryce Teodosio": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -69266,7 +69269,6 @@
         },
         "CJ Abrams": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -71452,7 +71454,6 @@
         },
         "Cam Smith": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -73599,6 +73600,7 @@
         },
         "Carson Benge": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -73945,6 +73947,7 @@
             "Zebby Matthews"
           ],
           "Home": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -75067,7 +75070,6 @@
         },
         "Carter Jensen": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -78635,6 +78637,7 @@
         },
         "Chase DeLauter": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -79380,7 +79383,6 @@
         },
         "Chase Meidroth": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -80021,7 +80023,6 @@
         },
         "Christian Vazquez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -80659,7 +80660,6 @@
         },
         "Christian Walker": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -82017,7 +82017,6 @@
         },
         "Christopher Morel": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -82258,7 +82257,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -85758,7 +85756,6 @@
         },
         "Colson Montgomery": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -87195,7 +87192,6 @@
         },
         "Colt Keith": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -88589,7 +88585,6 @@
         },
         "Connor Norby": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -91423,7 +91418,6 @@
         },
         "Dalton Rushing": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -92820,6 +92814,7 @@
         },
         "Daniel Schneemann": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -93565,6 +93560,7 @@
         },
         "Daniel Susac": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -95791,7 +95787,6 @@
         },
         "Daulton Varsho": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -96432,6 +96427,7 @@
         },
         "David Fry": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -97897,7 +97893,6 @@
         },
         "Davis Schneider": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -98538,7 +98533,6 @@
         },
         "Daylen Lile": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -99178,7 +99172,6 @@
         },
         "Denzer Guzman": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -100540,7 +100533,6 @@
         },
         "Dillon Dingler": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -104180,6 +104172,7 @@
         },
         "Drew Cavanaugh": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -104926,6 +104919,7 @@
         },
         "Drew Gilbert": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -105672,7 +105666,6 @@
         },
         "Drew Romo": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -107066,7 +107059,6 @@
         },
         "Dylan Crews": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -107706,7 +107698,6 @@
         },
         "Edgar Quero": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -111340,6 +111331,7 @@
         },
         "Elias Diaz": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -112841,7 +112833,6 @@
         },
         "Endy Rodriguez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -114231,7 +114222,6 @@
         },
         "Ernie Clement": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -114872,7 +114862,6 @@
         },
         "Esmerlyn Valdez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -115512,7 +115501,6 @@
         },
         "Esteury Ruiz": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -116908,6 +116896,7 @@
         },
         "Evan Carter": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -117655,7 +117644,6 @@
         },
         "Everson Pereira": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -118296,6 +118284,7 @@
         },
         "Ezequiel Duran": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -119841,6 +119830,7 @@
         },
         "Fernando Tatis Jr.": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -120586,6 +120576,7 @@
         },
         "Francisco Alvarez": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -120932,6 +120923,7 @@
             "Zebby Matthews"
           ],
           "Home": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -121333,6 +121325,7 @@
         },
         "Francisco Lindor": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -121679,6 +121672,7 @@
             "Zebby Matthews"
           ],
           "Home": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -122080,7 +122074,6 @@
         },
         "Freddie Freeman": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -122723,6 +122716,7 @@
         },
         "Freddy Fermin": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -123468,6 +123462,7 @@
         },
         "Gabriel Arias": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -127094,6 +127089,7 @@
         },
         "Gavin Sheets": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -127839,7 +127835,6 @@
         },
         "George Springer": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -129202,7 +129197,6 @@
         },
         "Gleyber Torres": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -129843,7 +129837,6 @@
         },
         "Graham Pauley": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -130485,7 +130478,6 @@
         },
         "Griffin Conine": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -131880,7 +131872,6 @@
         },
         "Hao-Yu Lee": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -132521,6 +132512,7 @@
         },
         "Heliot Ramos": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -134026,7 +134018,6 @@
         },
         "Henry Davis": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -134666,7 +134657,6 @@
         },
         "Heriberto Hernandez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -136822,7 +136812,6 @@
         },
         "Hyeseong Kim": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -138898,7 +138887,6 @@
         },
         "Isaac Collins": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -139531,7 +139519,6 @@
         },
         "Isaac Paredes": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -140169,7 +140156,6 @@
         },
         "Ivan Herrera": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -140810,7 +140796,6 @@
         },
         "J.C. Escarra": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -141051,7 +141036,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -143714,7 +143698,6 @@
         },
         "JJ Wetherholt": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -144355,7 +144338,6 @@
         },
         "Jac Caglianone": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -146461,6 +146443,7 @@
         },
         "Jackson Merrill": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -147206,7 +147189,6 @@
         },
         "Jacob Gonzalez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -148605,7 +148587,6 @@
         },
         "Jacob Young": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -150715,6 +150696,7 @@
         },
         "Jake Burger": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -151462,6 +151444,7 @@
         },
         "Jake Cronenworth": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -152207,7 +152190,6 @@
         },
         "Jake Mangum": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -153645,7 +153627,6 @@
         },
         "Jake Meyers": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -155036,7 +155017,6 @@
         },
         "Jakob Marsee": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -156400,7 +156380,6 @@
         },
         "James Outman": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -157041,7 +157020,6 @@
         },
         "James Wood": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -157681,7 +157659,6 @@
         },
         "Jared Triolo": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -158321,6 +158298,7 @@
         },
         "Jared Young": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -158667,6 +158645,7 @@
             "Zebby Matthews"
           ],
           "Home": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -159068,6 +159047,7 @@
         },
         "Jarred Kelenic": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -160565,6 +160545,7 @@
         },
         "Jase Bowen": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -162030,7 +162011,6 @@
         },
         "Javier Baez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -162671,7 +162651,6 @@
         },
         "Javier Sanoja": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -165545,7 +165524,6 @@
         },
         "Jeremy Pena": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -166183,6 +166161,7 @@
         },
         "Jesus Rodriguez": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -168447,7 +168426,6 @@
         },
         "Jimmy Crooks": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -169088,7 +169066,6 @@
         },
         "Jo Adell": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -169731,6 +169708,7 @@
         },
         "Joc Pederson": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -170478,7 +170456,6 @@
         },
         "Joe Mack": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -171842,7 +171819,6 @@
         },
         "Joey Loperfido": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -173200,7 +173176,6 @@
         },
         "Joey Wiemer": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -176031,7 +176006,6 @@
         },
         "Jorbit Vivas": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -177469,7 +177443,6 @@
         },
         "Jordan Walker": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -179554,6 +179527,7 @@
         },
         "Jorge Polanco": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -179900,6 +179874,7 @@
             "Zebby Matthews"
           ],
           "Home": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -180301,7 +180276,6 @@
         },
         "Jorge Soler": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -180944,7 +180918,6 @@
         },
         "Jose Altuve": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -182302,7 +182275,6 @@
         },
         "Jose Fermin": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -182943,6 +182915,7 @@
         },
         "Jose Ramirez": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -183688,7 +183661,6 @@
         },
         "Jose Siri": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -184331,7 +184303,6 @@
         },
         "Jose Tena": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -185725,7 +185696,6 @@
         },
         "Josh Bell": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -185966,7 +185936,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -186360,7 +186329,6 @@
         },
         "Josh Lowe": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -187799,7 +187767,6 @@
         },
         "Josh Rojas": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -188432,6 +188399,7 @@
         },
         "Josh Smith": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -189179,6 +189147,7 @@
         },
         "Juan Brito": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -190720,6 +190689,7 @@
         },
         "Jung Hoo Lee": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -192901,6 +192871,7 @@
         },
         "Justin Foscue": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -193648,6 +193619,7 @@
         },
         "Kahlil Watson": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -194393,7 +194365,6 @@
         },
         "Kazuma Okamoto": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -195788,7 +195759,6 @@
         },
         "Keibert Ruiz": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -197150,7 +197120,6 @@
         },
         "Kevin McGonigle": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -197791,7 +197760,6 @@
         },
         "Kody Clemens": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -198032,7 +198000,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -199224,6 +199191,7 @@
         },
         "Kyle Manzardo": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -200688,7 +200656,6 @@
         },
         "Kyle Stowers": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -201330,7 +201297,6 @@
         },
         "Kyle Tucker": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -201973,7 +201939,6 @@
         },
         "LaMonte Wade Jr.": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -202611,7 +202576,6 @@
         },
         "Lane Thomas": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -203244,7 +203208,6 @@
         },
         "Lars Nootbaar": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -204644,7 +204607,6 @@
         },
         "Leo Jimenez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -206835,7 +206797,6 @@
         },
         "Liam Hicks": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -207477,6 +207438,7 @@
         },
         "Logan O'Hoppe": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -208224,6 +208186,7 @@
         },
         "Luis Arraez": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -208970,6 +208933,7 @@
         },
         "Luis Campusano": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -209715,7 +209679,6 @@
         },
         "Luis Garcia Jr.": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -211075,6 +211038,7 @@
         },
         "Luis Rengifo": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -211820,6 +211784,7 @@
         },
         "Luis Robert Jr.": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -212166,6 +212131,7 @@
             "Zebby Matthews"
           ],
           "Home": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -212567,6 +212533,7 @@
         },
         "Luis Torrens": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -212913,6 +212880,7 @@
             "Zebby Matthews"
           ],
           "Home": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -213314,7 +213282,6 @@
         },
         "Luisangel Acuna": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -213955,7 +213922,6 @@
         },
         "Luke Keaschall": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -214196,7 +214162,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -215386,7 +215351,6 @@
         },
         "MJ Melendez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -215627,7 +215591,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -216021,6 +215984,7 @@
         },
         "Manny Machado": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -216766,7 +216730,6 @@
         },
         "Marcell Ozuna": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -217406,6 +217369,7 @@
         },
         "Marcus Semien": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -217752,6 +217716,7 @@
             "Zebby Matthews"
           ],
           "Home": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -218903,7 +218868,6 @@
         },
         "Masyn Winn": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -221020,7 +220984,6 @@
         },
         "Matt Vierling": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -221661,7 +221624,6 @@
         },
         "Matt Wallner": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -221902,7 +221864,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -223740,7 +223701,6 @@
         },
         "Max Muncy": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -228026,7 +227986,6 @@
         },
         "Michael Massey": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -230928,7 +230887,6 @@
         },
         "Miguel Rojas": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -231571,7 +231529,6 @@
         },
         "Miguel Vargas": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -232212,7 +232169,6 @@
         },
         "Mike Trout": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -235123,7 +235079,6 @@
         },
         "Mookie Betts": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -235766,7 +235721,6 @@
         },
         "Munetaka Murakami": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -236407,7 +236361,6 @@
         },
         "Myles Straw": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -237048,7 +237001,6 @@
         },
         "Nasim Nunez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -237688,7 +237640,6 @@
         },
         "Nathan Church": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -238329,7 +238280,6 @@
         },
         "Nathan Lukes": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -239724,7 +239674,6 @@
         },
         "Nelson Velazquez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -240365,7 +240314,6 @@
         },
         "Nick Allen": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -241719,7 +241667,6 @@
         },
         "Nick Gonzales": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -243118,7 +243065,6 @@
         },
         "Nick Loftin": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -243751,7 +243697,6 @@
         },
         "Nick Madrigal": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -244384,7 +244329,6 @@
         },
         "Nick Yorke": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -245024,6 +244968,7 @@
         },
         "Nicky Lopez": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -247968,7 +247913,6 @@
         },
         "Nolan Gorman": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -248609,7 +248553,6 @@
         },
         "Nolan Schanuel": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -249252,7 +249195,6 @@
         },
         "Oswald Peraza": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -249895,7 +249837,6 @@
         },
         "Otto Lopez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -251259,6 +251200,7 @@
         },
         "Patrick Bailey": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -252724,7 +252666,6 @@
         },
         "Pedro Pages": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -255560,6 +255501,7 @@
         },
         "Petey Halpin": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -256305,6 +256247,7 @@
         },
         "Rafael Devers": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -257051,7 +256994,6 @@
         },
         "Randal Grichuk": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -258488,6 +258430,7 @@
         },
         "Rhys Hoskins": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -259949,7 +259892,6 @@
         },
         "Riley Greene": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -261386,6 +261328,7 @@
         },
         "Rodolfo Duran": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -263603,7 +263546,6 @@
         },
         "Ronny Mauricio": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -263844,7 +263786,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -264238,7 +264179,6 @@
         },
         "Royce Lewis": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -264479,7 +264419,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -264873,7 +264812,6 @@
         },
         "Ryan Jeffers": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -265114,7 +265052,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -265508,7 +265445,6 @@
         },
         "Ryan Kreidler": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -265749,7 +265685,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -266863,7 +266798,6 @@
         },
         "Ryan O'Hearn": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -268941,7 +268875,6 @@
         },
         "Ryan Ward": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -270328,7 +270261,6 @@
         },
         "Salvador Perez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -270961,7 +270893,6 @@
         },
         "Sam Antonacci": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -272323,7 +272254,6 @@
         },
         "Shohei Ohtani": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -273686,7 +273616,6 @@
         },
         "Spencer Torkelson": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -274327,7 +274256,6 @@
         },
         "Starling Marte": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -275758,6 +275686,7 @@
         },
         "Steven Kwan": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -276503,6 +276432,7 @@
         },
         "Sung-Mun Song": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -278800,7 +278730,6 @@
         },
         "Taylor Trammell": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -280907,7 +280836,6 @@
         },
         "Teoscar Hernandez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -281550,7 +281478,6 @@
         },
         "Thomas Saggese": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -282913,7 +282840,6 @@
         },
         "Tommy Edman": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -284315,6 +284241,7 @@
         },
         "Travis Bazzana": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -286499,7 +286426,6 @@
         },
         "Trevor Larnach": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -286740,7 +286666,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -287134,7 +287059,6 @@
         },
         "Tristan Gray": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -287375,7 +287299,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -287769,7 +287692,6 @@
         },
         "Tristan Peters": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -289208,6 +289130,7 @@
         },
         "Ty France": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -289953,7 +289876,6 @@
         },
         "Tyler Callihan": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -291391,7 +291313,6 @@
         },
         "Tyler Heineman": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -294300,7 +294221,6 @@
         },
         "Tyler Tolbert": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -294933,6 +294853,7 @@
         },
         "Tyrone Taylor": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -295279,6 +295200,7 @@
             "Zebby Matthews"
           ],
           "Home": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -295680,7 +295602,6 @@
         },
         "Vaughn Grissom": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -296323,7 +296244,6 @@
         },
         "Victor Caratini": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -296564,7 +296484,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -298470,7 +298389,6 @@
         },
         "Victor Scott II": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -299111,7 +299029,6 @@
         },
         "Vladimir Guerrero Jr.": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -299752,7 +299669,6 @@
         },
         "Wade Meckler": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -304213,6 +304129,7 @@
         },
         "Willy Adames": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -305709,6 +305626,7 @@
         },
         "Wyatt Langford": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -306456,6 +306374,7 @@
         },
         "Xander Bogaerts": {
           "Away": [
+            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -307201,7 +307120,6 @@
         },
         "Xavier Edwards": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -307843,7 +307761,6 @@
         },
         "Yainer Diaz": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -309197,7 +309114,6 @@
         },
         "Yohendrick Pinango": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -309838,7 +309754,6 @@
         },
         "Yordan Alvarez": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -310476,7 +310391,6 @@
         },
         "Zach Cole": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -311114,7 +311028,6 @@
         },
         "Zach Dezenzo": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -311752,7 +311665,6 @@
         },
         "Zach McKinstry": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -312393,7 +312305,6 @@
         },
         "Zach Neto": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -313036,7 +312947,6 @@
         },
         "Zack Short": {
           "Away": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Civale",
             "Aaron Nola",
@@ -313277,7 +313187,6 @@
             "Zack Wheeler"
           ],
           "Home": [
-            "A.J. Minter",
             "Aaron Ashby",
             "Aaron Bummer",
             "Aaron Civale",
@@ -313702,6 +313611,7 @@
         "Anthony Bender",
         "Anthony Kay",
         "Anthony Nunez",
+        "Antoine Kelly",
         "Antonio Senzatela",
         "Aroldis Chapman",
         "Austin Warren",
@@ -314412,6 +314322,7 @@
           "label": "CHC",
           "options": [
             "Aaron Civale",
+            "Antoine Kelly",
             "Ben Brown",
             "Caleb Thielbar",
             "Colin Rea",
@@ -314743,7 +314654,6 @@
         {
           "label": "NYM",
           "options": [
-            "A.J. Minter",
             "Brooks Raley",
             "Bryan Hudson",
             "Christian Scott",
@@ -315048,6 +314958,7 @@
         "Anthony Bender",
         "Anthony Kay",
         "Anthony Nunez",
+        "Antoine Kelly",
         "Antonio Senzatela",
         "Aroldis Chapman",
         "Austin Warren",
@@ -315550,6 +315461,7 @@
           "label": "CHC",
           "options": [
             "Aaron Civale",
+            "Antoine Kelly",
             "Ben Brown",
             "Caleb Thielbar",
             "Colin Rea",
@@ -315805,7 +315717,6 @@
         {
           "label": "NYM",
           "options": [
-            "A.J. Minter",
             "Brooks Raley",
             "Bryan Hudson",
             "Cionel Perez",
