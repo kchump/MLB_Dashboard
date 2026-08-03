@@ -1,6 +1,7 @@
 {
   "hitter_team_map": {
     "A.J. Ewing": "NYM",
+    "Abimelec Ortiz": "WAS",
     "Adrian Del Castillo": "ARI",
     "Alan Roden": "MIN",
     "Alec Bohm": "PHI",
@@ -41,7 +42,6 @@
     "Brandon Nimmo": "TEX",
     "Brandon Valenzuela": "TOR",
     "Brayan Rocchio": "CLE",
-    "Brenton Doyle": "COL",
     "Brett Baty": "NYM",
     "Brett Sullivan": "COL",
     "Brian Navarreto": "MIA",
@@ -195,7 +195,7 @@
     "Jhostynxon Garcia": "PIT",
     "Jim Jarvis": "ATL",
     "Jimmy Crooks": "STL",
-    "Jo Adell": "LAA",
+    "Jo Adell": "CLE",
     "Joc Pederson": "TEX",
     "Joe Mack": "MIA",
     "Joey Bart": "ATL",
@@ -234,6 +234,7 @@
     "Ketel Marte": "ARI",
     "Kevin McGonigle": "DET",
     "Kody Clemens": "MIN",
+    "Kyle Isbel": "KC",
     "Kyle Karros": "COL",
     "Kyle Manzardo": "CLE",
     "Kyle Schwarber": "PHI",
@@ -247,9 +248,9 @@
     "Leody Taveras": "BAL",
     "Liam Hicks": "MIA",
     "Lucas Spence": "HOU",
-    "Luis Arraez": "SF",
+    "Luis Arraez": "PHI",
     "Luis Campusano": "SD",
-    "Luis Garcia Jr.": "WAS",
+    "Luis Garcia Jr.": "NYY",
     "Luis Lara": "MIL",
     "Luis Rengifo": "SD",
     "Luis Robert Jr.": "NYM",
@@ -269,7 +270,6 @@
     "Max Clark": "DET",
     "Max Kepler": "ARI",
     "Max Muncy": "LAD",
-    "Max Schuemann": "NYY",
     "Michael Busch": "CHC",
     "Michael Conforto": "CHC",
     "Michael Harris II": "ATL",
@@ -346,7 +346,6 @@
     "TJ Rumfield": "COL",
     "Taylor Trammell": "HOU",
     "Taylor Walls": "TB",
-    "Taylor Ward": "BAL",
     "Teoscar Hernandez": "LAD",
     "Tim Tawa": "ARI",
     "Tommy Edman": "LAD",
@@ -449,7 +448,6 @@
       "Jeremiah Jackson",
       "Leody Taveras",
       "Pete Alonso",
-      "Taylor Ward",
       "Tyler O'Neill",
       "Yohel Pozo"
     ],
@@ -520,6 +518,7 @@
       "Chase DeLauter",
       "David Fry",
       "Gabriel Arias",
+      "Jo Adell",
       "Jose Ramirez",
       "Kyle Manzardo",
       "Patrick Bailey",
@@ -529,7 +528,6 @@
       "Travis Bazzana"
     ],
     "COL": [
-      "Brenton Doyle",
       "Brett Sullivan",
       "Cole Carrigg",
       "Edouard Julien",
@@ -580,6 +578,7 @@
       "Jac Caglianone",
       "John Rave",
       "Josh Rojas",
+      "Kyle Isbel",
       "Luke Maile",
       "Michael Massey",
       "Nick Loftin",
@@ -589,7 +588,6 @@
     ],
     "LAA": [
       "Denzer Guzman",
-      "Jo Adell",
       "Jorge Soler",
       "Jose Siri",
       "Josh Lowe",
@@ -686,7 +684,7 @@
       "Jasson Dominguez",
       "Jazz Chisholm Jr.",
       "Jose Caballero",
-      "Max Schuemann",
+      "Luis Garcia Jr.",
       "Paul Goldschmidt",
       "Ryan McMahon",
       "Spencer Jones",
@@ -705,6 +703,7 @@
       "J.T. Realmuto",
       "Justin Crawford",
       "Kyle Schwarber",
+      "Luis Arraez",
       "Trea Turner"
     ],
     "PIT": [
@@ -761,7 +760,6 @@
       "Grant McCray",
       "Heliot Ramos",
       "Jung Hoo Lee",
-      "Luis Arraez",
       "Nate Furman",
       "Osleivis Basabe",
       "Rafael Devers",
@@ -828,6 +826,7 @@
       "Vladimir Guerrero Jr."
     ],
     "WAS": [
+      "Abimelec Ortiz",
       "Andres Chaparro",
       "Brady House",
       "CJ Abrams",
@@ -839,7 +838,6 @@
       "Jorbit Vivas",
       "Jose Tena",
       "Keibert Ruiz",
-      "Luis Garcia Jr.",
       "Nasim Nunez"
     ]
   },
@@ -847,16 +845,16 @@
     "A.J. Minter": "MIN",
     "AJ Blubaugh": "HOU",
     "Aaron Ashby": "MIL",
+    "Aaron Bummer": "KC",
     "Aaron Civale": "CHC",
     "Abner Uribe": "MIL",
     "Adrian Houser": "SF",
     "Adrian Morejon": "SD",
     "Albert Suarez": "BAL",
-    "Alex Cook": "TB",
-    "Alex Hoppe": "SEA",
     "Alex Lange": "KC",
     "Alex Vesia": "LAD",
     "Andres Munoz": "SEA",
+    "Andrew Alvarez": "WAS",
     "Andrew Kittredge": "BAL",
     "Andrew Morris": "MIN",
     "Angel Chivilli": "NYY",
@@ -872,12 +870,12 @@
     "Brandyn Garcia": "ARI",
     "Brayan Bello": "BOS",
     "Braydon Fisher": "TOR",
+    "Brenan Hanifee": "DET",
     "Brendon Little": "TOR",
     "Brennan Bernardino": "COL",
     "Brent Headrick": "NYY",
-    "Brent Suter": "LAA",
+    "Brent Suter": "ATL",
     "Brock Burke": "CIN",
-    "Brooks Raley": "NYM",
     "Bryan Abreu": "HOU",
     "Bryan Baker": "TB",
     "Bryan Hudson": "CHW",
@@ -886,7 +884,7 @@
     "Cade Gibson": "MIA",
     "Cade Smith": "CLE",
     "Caleb Ferguson": "CIN",
-    "Caleb Kilian": "SF",
+    "Caleb Kilian": "PHI",
     "Caleb Thielbar": "CHC",
     "Calvin Faucher": "MIA",
     "Cam Booser": "TB",
@@ -898,15 +896,14 @@
     "Chad Patrick": "MIL",
     "Chase Shugart": "PHI",
     "Chase Silseth": "TEX",
+    "Chris Martin": "TEX",
     "Chris Murphy": "CHW",
     "Chris Roycroft": "TB",
     "Clayton Beeter": "WAS",
     "Cole Wilcox": "SEA",
     "Cole Winn": "TEX",
     "Colin Holderman": "CLE",
-    "Craig Kimbrel": "TB",
     "Craig Yoho": "CLE",
-    "Cristian Javier": "HOU",
     "DL Hall": "MIL",
     "Daniel Duarte": "NYM",
     "Daniel Lynch IV": "KC",
@@ -929,6 +926,8 @@
     "Emilio Pagan": "CIN",
     "Enmanuel De Jesus": "DET",
     "Enyel De Los Santos": "HOU",
+    "Eric Lauer": "LAD",
+    "Erick Fedde": "CHW",
     "Erik Miller": "SF",
     "Erik Sabrowski": "CLE",
     "Evan Phillips": "LAD",
@@ -951,10 +950,9 @@
     "Griffin Canning": "SD",
     "Hayden Juenger": "ATH",
     "Hogan Harris": "ATH",
-    "Huascar Brazoban": "NYM",
+    "Huascar Brazoban": "CHW",
     "Hunter Gaddis": "CLE",
     "JT Brubaker": "SF",
-    "Jack Anderson": "MIN",
     "Jack Dreyer": "LAD",
     "Jacob Latz": "TEX",
     "Jacob Waguespack": "DET",
@@ -977,6 +975,7 @@
     "Jose Fermin": "LAA",
     "Jose Suarez": "ATH",
     "Josh Hader": "HOU",
+    "Josh Simpson": "SEA",
     "Josh Walker": "BAL",
     "Jovani Moran": "BOS",
     "Juan Mejia": "COL",
@@ -987,6 +986,7 @@
     "Keaton Winn": "SF",
     "Kendry Rojas": "MIN",
     "Kenley Jansen": "DET",
+    "Kervin Castro": "NYY",
     "Kevin Ginkel": "ARI",
     "Kevin Kelly": "TB",
     "Kirby Yates": "LAA",
@@ -1002,6 +1002,7 @@
     "Lucas Erceg": "KC",
     "Luis Gastelum": "STL",
     "Luis Medina": "ATH",
+    "Luke Murphy": "LAA",
     "Luke Weaver": "NYM",
     "Mason Barnett": "ATH",
     "Mason Fluharty": "TOR",
@@ -1026,10 +1027,8 @@
     "Raisel Iglesias": "ATL",
     "Randy Vasquez": "SD",
     "Rico Garcia": "BAL",
-    "Riley Cornelio": "WAS",
     "Riley O'Brien": "STL",
     "Robby Ahlstrom": "TEX",
-    "Robert Stock": "NYM",
     "Ron Marinaccio": "PIT",
     "Ryan Gusto": "MIA",
     "Ryan Rolison": "CHC",
@@ -1044,6 +1043,7 @@
     "Samy Natera Jr.": "LAA",
     "Scott Blewett": "ATH",
     "Sean Newcomb": "CHW",
+    "Seranthony Dominguez": "SEA",
     "Seth Johnson": "PHI",
     "Spencer Miles": "TOR",
     "Steven Cruz": "KC",
@@ -1082,7 +1082,6 @@
     "Yennier Cano": "BAL",
     "Yoendrys Gomez": "MIN",
     "Yohan Ramirez": "PIT",
-    "Yovanny Cruz": "NYY",
     "Yuki Matsui": "SD",
     "Zach Agnos": "COL",
     "Zach McCambley": "CIN"
@@ -1111,6 +1110,7 @@
       "Scott Blewett"
     ],
     "ATL": [
+      "Brent Suter",
       "Danny Young",
       "Didier Fuentes",
       "Dylan Dodd",
@@ -1154,7 +1154,9 @@
     "CHW": [
       "Bryan Hudson",
       "Chris Murphy",
+      "Erick Fedde",
       "Grant Taylor",
+      "Huascar Brazoban",
       "Jordan Hicks",
       "Sean Newcomb",
       "Trevor Richards",
@@ -1191,6 +1193,7 @@
       "Zach Agnos"
     ],
     "DET": [
+      "Brenan Hanifee",
       "Drew Anderson",
       "Drew Sommers",
       "Enmanuel De Jesus",
@@ -1204,13 +1207,13 @@
       "Bennett Sousa",
       "Bryan Abreu",
       "Bryan King",
-      "Cristian Javier",
       "Enyel De Los Santos",
       "Josh Hader",
       "Steven Okert",
       "Tatsuya Imai"
     ],
     "KC": [
+      "Aaron Bummer",
       "Alex Lange",
       "Daniel Lynch IV",
       "Easton McGee",
@@ -1221,9 +1224,9 @@
       "Steven Cruz"
     ],
     "LAA": [
-      "Brent Suter",
       "Jose Fermin",
       "Kirby Yates",
+      "Luke Murphy",
       "Ryan Zeferjahn",
       "Sam Bachman",
       "Samy Natera Jr."
@@ -1232,6 +1235,7 @@
       "Alex Vesia",
       "Edgardo Henriquez",
       "Edwin Diaz",
+      "Eric Lauer",
       "Evan Phillips",
       "Jack Dreyer",
       "Kyle Hurt",
@@ -1262,7 +1266,6 @@
     "MIN": [
       "A.J. Minter",
       "Andrew Morris",
-      "Jack Anderson",
       "Kendry Rojas",
       "Kody Funderburk",
       "Taylor Rogers",
@@ -1271,25 +1274,23 @@
       "Yoendrys Gomez"
     ],
     "NYM": [
-      "Brooks Raley",
       "Daniel Duarte",
       "Devin Williams",
-      "Huascar Brazoban",
       "Kodai Senga",
-      "Luke Weaver",
-      "Robert Stock"
+      "Luke Weaver"
     ],
     "NYY": [
       "Angel Chivilli",
       "Brent Headrick",
       "David Bednar",
       "Fernando Cruz",
+      "Kervin Castro",
       "Paul Blackburn",
       "Ryan Yarbrough",
-      "Tim Hill",
-      "Yovanny Cruz"
+      "Tim Hill"
     ],
     "PHI": [
+      "Caleb Kilian",
       "Chase Shugart",
       "Jhoan Duran",
       "Jonathan Bowlan",
@@ -1322,17 +1323,17 @@
       "Yuki Matsui"
     ],
     "SEA": [
-      "Alex Hoppe",
       "Andres Munoz",
       "Cole Wilcox",
       "Eduard Bazardo",
       "Gabe Speier",
       "Jose A. Ferrer",
-      "Michael Rucker"
+      "Josh Simpson",
+      "Michael Rucker",
+      "Seranthony Dominguez"
     ],
     "SF": [
       "Adrian Houser",
-      "Caleb Kilian",
       "Dylan Smith",
       "Erik Miller",
       "Jason Foley",
@@ -1351,12 +1352,10 @@
       "Ryne Stanek"
     ],
     "TB": [
-      "Alex Cook",
       "Bryan Baker",
       "Cam Booser",
       "Casey Legumina",
       "Chris Roycroft",
-      "Craig Kimbrel",
       "Garrett Cleavinger",
       "Kevin Kelly",
       "Steven Matz"
@@ -1364,6 +1363,7 @@
     "TEX": [
       "Ben Peoples",
       "Chase Silseth",
+      "Chris Martin",
       "Cole Winn",
       "Jacob Latz",
       "Peyton Gray",
@@ -1381,12 +1381,12 @@
       "Tyler Rogers"
     ],
     "WAS": [
+      "Andrew Alvarez",
       "Carson Palmquist",
       "Clayton Beeter",
       "Eddy Yean",
       "Max Kranick",
       "Orlando Ribalta",
-      "Riley Cornelio",
       "Tom Cosgrove",
       "Trevor Williams"
     ]
@@ -1419,22 +1419,21 @@
     "Colin Rea": "CHC",
     "Connelly Early": "WAS",
     "Connor Prielipp": "MIN",
+    "Cristian Javier": "HOU",
     "Cristopher Sanchez": "PHI",
     "David Peterson": "CHC",
     "Davis Martin": "CHW",
+    "Dean Kremer": "MIN",
     "Drew Rasmussen": "TB",
-    "Duncan Davitt": "CHW",
     "Dustin May": "STL",
     "Dylan Cease": "TOR",
     "Eduardo Rodriguez": "ARI",
     "Emerson Hancock": "SEA",
     "Emmet Sheehan": "LAD",
-    "Eric Lauer": "LAD",
-    "Erick Fedde": "CHW",
     "Eury Perez": "MIA",
     "Foster Griffin": "WAS",
     "Framber Valdez": "DET",
-    "Freddy Peralta": "NYM",
+    "Freddy Peralta": "TB",
     "Gage Jump": "ATH",
     "Gavin Williams": "CLE",
     "George Kirby": "SEA",
@@ -1461,10 +1460,9 @@
     "Jesus Luzardo": "PHI",
     "Joe Ryan": "MIN",
     "Joey Cantillo": "CLE",
-    "Jose Soriano": "LAA",
+    "Jose Soriano": "TOR",
     "Justin Wrobleski": "LAD",
     "Keider Montero": "DET",
-    "Kevin Gausman": "TOR",
     "Kumar Rocker": "TEX",
     "Kyle Bradish": "BAL",
     "Kyle Freeland": "COL",
@@ -1473,7 +1471,7 @@
     "Logan Gilbert": "SEA",
     "Logan Henderson": "MIL",
     "Logan Webb": "SF",
-    "Luinder Avila": "KC",
+    "Luis Castillo": "CHW",
     "MacKenzie Gore": "TEX",
     "Martin Perez": "ATL",
     "Matthew Boyd": "CHC",
@@ -1503,8 +1501,9 @@
     "Ranger Suarez": "BOS",
     "Reid Detmers": "LAA",
     "Rhett Lowder": "CIN",
-    "Robbie Ray": "SF",
+    "Riley Cornelio": "WAS",
     "Robert Gasser": "MIL",
+    "Robert Stock": "NYM",
     "Roki Sasaki": "LAD",
     "Ronel Blanco": "HOU",
     "Ryan Feltner": "COL",
@@ -1523,14 +1522,13 @@
     "Taj Bradley": "MIN",
     "Tanner Bibee": "CLE",
     "Tanner Gordon": "COL",
-    "Tarik Skubal": "DET",
+    "Tarik Skubal": "LAD",
     "Thomas Pannone": "MIL",
     "Tomoyuki Sugano": "COL",
     "Trevor Rogers": "BAL",
     "Trey Yesavage": "TOR",
     "Troy Melton": "DET",
     "Ty Madden": "DET",
-    "Tyler Mahle": "SF",
     "Tyler Phillips": "MIA",
     "Walbert Urena": "LAA",
     "Walker Buehler": "SD",
@@ -1583,8 +1581,7 @@
     "CHW": [
       "Anthony Kay",
       "Davis Martin",
-      "Duncan Davitt",
-      "Erick Fedde",
+      "Luis Castillo",
       "Noah Schultz",
       "Sean Burke"
     ],
@@ -1613,18 +1610,17 @@
       "Casey Mize",
       "Framber Valdez",
       "Keider Montero",
-      "Tarik Skubal",
       "Troy Melton",
       "Ty Madden"
     ],
     "HOU": [
+      "Cristian Javier",
       "Hayden Wesneski",
       "Hunter Brown",
       "Peter Lambert",
       "Ronel Blanco"
     ],
     "KC": [
-      "Luinder Avila",
       "Michael Wacha",
       "Noah Cameron",
       "Randy Dobnak",
@@ -1633,17 +1629,16 @@
     "LAA": [
       "Brett Kerry",
       "Grayson Rodriguez",
-      "Jose Soriano",
       "Mitch Farris",
       "Reid Detmers",
       "Walbert Urena"
     ],
     "LAD": [
       "Emmet Sheehan",
-      "Eric Lauer",
       "Justin Wrobleski",
       "Roki Sasaki",
       "Shohei Ohtani",
+      "Tarik Skubal",
       "Yoshinobu Yamamoto"
     ],
     "MIA": [
@@ -1663,13 +1658,14 @@
     "MIN": [
       "Bailey Ober",
       "Connor Prielipp",
+      "Dean Kremer",
       "Joe Ryan",
       "Taj Bradley"
     ],
     "NYM": [
       "Christian Scott",
-      "Freddy Peralta",
       "Nolan McLean",
+      "Robert Stock",
       "Sean Manaea",
       "Zac Thornton"
     ],
@@ -1709,9 +1705,7 @@
     "SF": [
       "Carson Whisenhunt",
       "Landen Roupp",
-      "Logan Webb",
-      "Robbie Ray",
-      "Tyler Mahle"
+      "Logan Webb"
     ],
     "STL": [
       "Andre Pallante",
@@ -1722,6 +1716,7 @@
     ],
     "TB": [
       "Drew Rasmussen",
+      "Freddy Peralta",
       "Griffin Jax",
       "Ian Seymour",
       "Nick Martinez"
@@ -1735,7 +1730,7 @@
     ],
     "TOR": [
       "Dylan Cease",
-      "Kevin Gausman",
+      "Jose Soriano",
       "Max Scherzer",
       "Shane Bieber",
       "Trey Yesavage"
@@ -1746,6 +1741,7 @@
       "Foster Griffin",
       "Jake Irvin",
       "Miles Mikolas",
+      "Riley Cornelio",
       "Zack Littell"
     ]
   }
