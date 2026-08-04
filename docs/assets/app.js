@@ -13183,7 +13183,7 @@ function fantasy_effective_team(row) {
 
   const placeholder_teams = new Set([
     '', 'UNK', 'MILB', 'FA', 'FREE AGENT', 'FREE AGENTS',
-    'IL', 'IL7', 'IL10', 'IL15', 'IL60',
+    'IL', 'IL7', 'IL-7', '7 Day IL', '7-Day IL', 'IL10', 'IL15', 'IL60',
   ]);
 
   if (placeholder_teams.has(display_team_upper)) {
@@ -15002,6 +15002,7 @@ function fantasy_trends_raw_team_status(row) {
 function fantasy_trends_is_injured(row) {
   const injured_statuses = new Set([
     'IL7',
+    'IL-7',
     'IL10',
     'IL15',
     '7-DAY IL',
