@@ -388,7 +388,6 @@
     "Yandy Diaz": "TB",
     "Yohel Pozo": "BAL",
     "Yordan Alvarez": "HOU",
-    "Zach Dezenzo": "HOU",
     "Zach McKinstry": "DET",
     "Zach Neto": "LAA"
   },
@@ -571,8 +570,7 @@
       "Nick Allen",
       "Taylor Trammell",
       "Yainer Diaz",
-      "Yordan Alvarez",
-      "Zach Dezenzo"
+      "Yordan Alvarez"
     ],
     "KC": [
       "Bobby Witt Jr.",
@@ -997,6 +995,7 @@
     "Kyle Hart": "SD",
     "Kyle Hurt": "LAD",
     "Lake Bachar": "PIT",
+    "Lazaro Estrada": "TOR",
     "Louie Varland": "TOR",
     "Lucas Erceg": "KC",
     "Luis Gastelum": "STL",
@@ -1030,7 +1029,6 @@
     "Rico Garcia": "BAL",
     "Riley O'Brien": "STL",
     "Robby Ahlstrom": "TEX",
-    "Ron Marinaccio": "PIT",
     "Ryan Rolison": "CHC",
     "Ryan Yarbrough": "NYY",
     "Ryan Zeferjahn": "CHC",
@@ -1048,6 +1046,7 @@
     "Steven Cruz": "KC",
     "Steven Matz": "TB",
     "Steven Okert": "HOU",
+    "Steven Wilson": "TB",
     "Tanner Gordon": "COL",
     "Tanner Scott": "LAD",
     "Tatsuya Imai": "HOU",
@@ -1067,7 +1066,6 @@
     "Trevor Williams": "WAS",
     "Tristan Beck": "SF",
     "Tyler Alexander": "TEX",
-    "Tyler Ferguson": "CHC",
     "Tyler Holton": "DET",
     "Tyler Kinley": "ATL",
     "Tyler Rogers": "TOR",
@@ -1148,8 +1146,7 @@
       "Jacob Webb",
       "Ryan Rolison",
       "Ryan Zeferjahn",
-      "Trent Thornton",
-      "Tyler Ferguson"
+      "Trent Thornton"
     ],
     "CHW": [
       "Bryan Hudson",
@@ -1310,7 +1307,6 @@
       "Lake Bachar",
       "Luke Weaver",
       "Mason Montgomery",
-      "Ron Marinaccio",
       "Yohan Ramirez"
     ],
     "SD": [
@@ -1363,6 +1359,7 @@
       "Garrett Cleavinger",
       "Kevin Kelly",
       "Steven Matz",
+      "Steven Wilson",
       "Tyler Wells"
     ],
     "TEX": [
@@ -1378,6 +1375,7 @@
       "Braydon Fisher",
       "Brendon Little",
       "Chase Lee",
+      "Lazaro Estrada",
       "Louie Varland",
       "Mason Fluharty",
       "Spencer Miles",
@@ -1408,6 +1406,7 @@
     "Brandon Pfaadt": "ARI",
     "Brandon Young": "BAL",
     "Braxton Ashcraft": "PIT",
+    "Braxton Garrett": "CHC",
     "Brett Kerry": "LAA",
     "Bryan Woo": "SEA",
     "Bryce Elder": "ATL",
@@ -1478,7 +1477,6 @@
     "Kyle Harrison": "MIL",
     "Kyle Leahy": "STL",
     "Landen Roupp": "SF",
-    "Lazaro Estrada": "TOR",
     "Logan Gilbert": "SEA",
     "Logan Henderson": "MIL",
     "Logan Webb": "SF",
@@ -1497,7 +1495,6 @@
     "Michael Wacha": "KC",
     "Miles Mikolas": "WAS",
     "Mitch Bratt": "ARI",
-    "Mitch Farris": "LAA",
     "Nathan Eovaldi": "TEX",
     "Nick Martinez": "TB",
     "Noah Cameron": "KC",
@@ -1583,6 +1580,7 @@
       "Sonny Gray"
     ],
     "CHC": [
+      "Braxton Garrett",
       "Colin Rea",
       "David Peterson",
       "Javier Assad",
@@ -1640,7 +1638,6 @@
     "LAA": [
       "Brett Kerry",
       "Grayson Rodriguez",
-      "Mitch Farris",
       "Reid Detmers",
       "Ryan Johnson",
       "Walbert Urena"
@@ -1748,7 +1745,6 @@
       "Dylan Cease",
       "Jameson Taillon",
       "Jose Soriano",
-      "Lazaro Estrada",
       "Max Scherzer",
       "Shane Bieber"
     ],
