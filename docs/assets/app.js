@@ -15336,7 +15336,7 @@ function fantasy_trends_is_free_agent(row, section) {
     row,
     {
       hitters: 2.8,
-      rp: 4.5,
+      rp: 5,
       sp: 8,
     }
   );
@@ -15457,11 +15457,11 @@ function fantasy_trends_is_undervalued(row, section) {
     (
       (
         season_ppg != null &&
-        season_ppg < 4.5
+        season_ppg < 5
       ) ||
       (
         streak_ppg != null &&
-        streak_ppg < 4.5
+        streak_ppg < 5
       )
     )
   ) {
