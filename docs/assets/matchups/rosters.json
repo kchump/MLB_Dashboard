@@ -24,6 +24,7 @@
     "Angel Genao": "CLE",
     "Angel Martinez": "CLE",
     "Anthony Seigler": "BOS",
+    "Austin Hays": "SD",
     "Austin Hedges": "CLE",
     "Austin Martin": "MIN",
     "Austin Riley": "ATL",
@@ -137,7 +138,6 @@
     "Freddy Fermin": "SD",
     "Gabriel Arias": "NYM",
     "Gabriel Moreno": "ARI",
-    "Gage Workman": "SD",
     "Garrett Mitchell": "MIL",
     "Garrett Stubbs": "PHI",
     "Gary Sanchez": "MIL",
@@ -721,9 +721,9 @@
       "Spencer Horwitz"
     ],
     "SD": [
+      "Austin Hays",
       "Fernando Tatis Jr.",
       "Freddy Fermin",
-      "Gage Workman",
       "Gavin Sheets",
       "Jackson Merrill",
       "Jake Cronenworth",
@@ -1024,7 +1024,6 @@
     "Philip Abner": "ARI",
     "Pierce Johnson": "CIN",
     "Raisel Iglesias": "ATL",
-    "Randy Vasquez": "SD",
     "Reiver Sanmartin": "SF",
     "Rico Garcia": "BAL",
     "Riley O'Brien": "STL",
@@ -1323,7 +1322,6 @@
       "Jeremiah Estrada",
       "Kyle Hart",
       "Mason Miller",
-      "Randy Vasquez",
       "Wandy Peralta",
       "Yuki Matsui"
     ],
@@ -1510,6 +1508,7 @@
     "Payton Tolle": "BOS",
     "Peter Lambert": "HOU",
     "Randy Dobnak": "KC",
+    "Randy Vasquez": "SD",
     "Ranger Suarez": "BOS",
     "Reid Detmers": "LAA",
     "Rhett Lowder": "CIN",
@@ -1705,6 +1704,7 @@
     "SD": [
       "Casey Mize",
       "Michael King",
+      "Randy Vasquez",
       "Robbie Ray",
       "Walker Buehler"
     ],
