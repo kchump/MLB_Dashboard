@@ -12,6 +12,7 @@
     "Alejandro Kirk": "TOR",
     "Alex Bregman": "CHC",
     "Alex Call": "LAD",
+    "Alex Jackson": "MIN",
     "Ali Sanchez": "NYY",
     "Alika Williams": "ATH",
     "Amed Rosario": "NYY",
@@ -28,7 +29,6 @@
     "Anthony Seigler": "BOS",
     "Austin Hays": "SD",
     "Austin Hedges": "CLE",
-    "Austin Martin": "MIN",
     "Austin Riley": "ATL",
     "Austin Wells": "NYY",
     "Austin Wynns": "TEX",
@@ -651,7 +651,7 @@
     ],
     "MIN": [
       "Alan Roden",
-      "Austin Martin",
+      "Alex Jackson",
       "Brooks Lee",
       "Byron Buxton",
       "Josh Bell",
@@ -1092,6 +1092,7 @@
     "Yovanny Cruz": "WAS",
     "Yuki Matsui": "SD",
     "Zach Agnos": "COL",
+    "Zach McCambley": "CIN",
     "Zack Littell": "ARI"
   },
   "relievers_by_team": {
@@ -1175,7 +1176,8 @@
       "Pierce Johnson",
       "Ron Marinaccio",
       "Sam Moll",
-      "Tejay Antone"
+      "Tejay Antone",
+      "Zach McCambley"
     ],
     "CLE": [
       "Cade Smith",
@@ -1513,6 +1515,7 @@
     "Paul Skenes": "PIT",
     "Payton Tolle": "BOS",
     "Peter Lambert": "HOU",
+    "Quinn Mathews": "STL",
     "Randy Dobnak": "KC",
     "Randy Vasquez": "SD",
     "Ranger Suarez": "BOS",
@@ -1735,7 +1738,8 @@
       "Hunter Dobbins",
       "Kyle Leahy",
       "Matthew Liberatore",
-      "Michael McGreevy"
+      "Michael McGreevy",
+      "Quinn Mathews"
     ],
     "TB": [
       "Drew Rasmussen",
