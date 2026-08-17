@@ -866,7 +866,6 @@
     "Ben Joyce": "LAA",
     "Bennett Sousa": "HOU",
     "Blake Weiman": "LAA",
-    "Brad Lord": "WAS",
     "Bradgley Rodriguez": "SD",
     "Bradley Hanner": "NYY",
     "Brady Basso": "ATH",
@@ -906,8 +905,8 @@
     "Craig Yoho": "CLE",
     "DL Hall": "MIL",
     "Daniel Duarte": "NYM",
-    "Danny Young": "ATL",
     "David Bednar": "NYY",
+    "David Peterson": "CHC",
     "Dedniel Nunez": "NYM",
     "Dennis Santana": "ARI",
     "Didier Fuentes": "ATL",
@@ -945,6 +944,7 @@
     "Hayden Juenger": "ATH",
     "Hogan Harris": "ATH",
     "Huascar Brazoban": "CHW",
+    "Hunter Barco": "PIT",
     "Hunter Gaddis": "CLE",
     "Isaac Mattson": "PIT",
     "JT Brubaker": "SF",
@@ -994,6 +994,7 @@
     "Kody Funderburk": "MIN",
     "Kyle Finnegan": "DET",
     "Kyle Hart": "SD",
+    "Kyle Hurt": "LAD",
     "Lake Bachar": "PIT",
     "Logan Allen": "CLE",
     "Louie Varland": "TOR",
@@ -1013,6 +1014,7 @@
     "Michael Fulmer": "LAA",
     "Michael Petersen": "MIA",
     "Michael Rucker": "SEA",
+    "Miguel Ullola": "HOU",
     "Nate Lavender": "NYM",
     "Nate Pearson": "KC",
     "Nick Davila": "SEA",
@@ -1116,7 +1118,6 @@
     ],
     "ATL": [
       "Brent Suter",
-      "Danny Young",
       "Didier Fuentes",
       "Dylan Dodd",
       "Dylan Lee",
@@ -1149,6 +1150,7 @@
       "Aaron Civale",
       "Caleb Thielbar",
       "Colin Rea",
+      "David Peterson",
       "Jacob Webb",
       "Ryan Rolison",
       "Ryan Zeferjahn",
@@ -1211,6 +1213,7 @@
       "Bryan King",
       "Enyel De Los Santos",
       "Josh Hader",
+      "Miguel Ullola",
       "Steven Okert",
       "Tatsuya Imai"
     ],
@@ -1243,6 +1246,7 @@
       "Evan Phillips",
       "Jack Dreyer",
       "Jonathan Hernandez",
+      "Kyle Hurt",
       "Tanner Scott"
     ],
     "MIA": [
@@ -1306,6 +1310,7 @@
     "PIT": [
       "Camilo Doval",
       "Gregory Soto",
+      "Hunter Barco",
       "Isaac Mattson",
       "Kirby Yates",
       "Lake Bachar",
@@ -1388,7 +1393,6 @@
       "Tyler Rogers"
     ],
     "WAS": [
-      "Brad Lord",
       "Clayton Beeter",
       "Jake Bird",
       "Max Kranick",
@@ -1409,6 +1413,7 @@
     "Bailey Ober": "MIN",
     "Blade Tidwell": "SF",
     "Blake Snell": "LAD",
+    "Brad Lord": "WAS",
     "Brady Singer": "CIN",
     "Brandon Pfaadt": "ARI",
     "Brandon Young": "BAL",
@@ -1433,7 +1438,6 @@
     "Cristian Javier": "HOU",
     "Cristopher Sanchez": "PHI",
     "Daniel Lynch IV": "KC",
-    "David Peterson": "CHC",
     "Dean Kremer": "MIN",
     "Drew Anderson": "DET",
     "Drew Rasmussen": "TB",
@@ -1456,7 +1460,6 @@
     "Grant Holmes": "ATL",
     "Grayson Rodriguez": "LAA",
     "Hayden Wesneski": "HOU",
-    "Hunter Barco": "PIT",
     "Hunter Brown": "HOU",
     "Hunter Dobbins": "STL",
     "Ian Seymour": "TB",
@@ -1475,7 +1478,6 @@
     "Joey Cantillo": "CLE",
     "Jose Soriano": "TOR",
     "Jose Urquidy": "CHW",
-    "Justin Wrobleski": "LAD",
     "Keider Montero": "DET",
     "Kevin Gausman": "CHC",
     "Kumar Rocker": "TEX",
@@ -1501,7 +1503,6 @@
     "Michael McGreevy": "STL",
     "Michael Soroka": "ARI",
     "Michael Wacha": "KC",
-    "Miguel Ullola": "HOU",
     "Mitch Bratt": "ARI",
     "Nick Lodolo": "CIN",
     "Nick Martinez": "TB",
@@ -1590,7 +1591,6 @@
     ],
     "CHC": [
       "Clay Holmes",
-      "David Peterson",
       "Edward Cabrera",
       "Kevin Gausman",
       "Matthew Boyd",
@@ -1635,7 +1635,6 @@
       "Cristian Javier",
       "Hayden Wesneski",
       "Hunter Brown",
-      "Miguel Ullola",
       "Peter Lambert"
     ],
     "KC": [
@@ -1655,7 +1654,6 @@
     "LAD": [
       "Blake Snell",
       "Eric Lauer",
-      "Justin Wrobleski",
       "Roki Sasaki",
       "Shohei Ohtani",
       "Tarik Skubal",
@@ -1709,7 +1707,6 @@
       "Braxton Ashcraft",
       "Bubba Chandler",
       "Carmen Mlodzinski",
-      "Hunter Barco",
       "Jared Jones",
       "Paul Skenes"
     ],
@@ -1760,6 +1757,7 @@
     ],
     "WAS": [
       "Andrew Alvarez",
+      "Brad Lord",
       "Cade Cavalli",
       "Jackson Kent",
       "Jake Irvin"
