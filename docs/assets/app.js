@@ -14730,6 +14730,7 @@ const fantasy_trends_state = {
   suspended_person_keys: new Set(),
   rosters_loaded: false,
   hide_injured: false,
+  hide_platoon_bench: false,
   filters: {
     free_agents: {
       hitters: 'ALL',
@@ -15022,6 +15023,12 @@ function fantasy_trends_is_injured(row) {
   });
 }
 /* ################# */
+function fantasy_trends_is_platoon_bench(row) {
+  return String(
+    row?.Platoon || ''
+  ).trim() !== '';
+}
+/* ################# */
 function fantasy_trends_is_excluded_status(row) {
   const excluded_statuses = new Set([
     'IL60',
@@ -15219,6 +15226,13 @@ function fantasy_trends_should_include_roster_status(row, section) {
   if (
     fantasy_trends_state.hide_injured &&
     is_injured
+  ) {
+    return false;
+  }
+
+  if (
+    fantasy_trends_state.hide_platoon_bench &&
+    fantasy_trends_is_platoon_bench(row)
   ) {
     return false;
   }
@@ -17153,6 +17167,19 @@ function fantasy_trends_controls_html() {
 
         <span>Hide injured players</span>
       </label>
+
+      <label
+        class='fantasy_trends_hide_injured_control'
+        for='fantasy_trends_hide_platoon_bench'
+      >
+        <input
+          id='fantasy_trends_hide_platoon_bench'
+          type='checkbox'
+          ${fantasy_trends_state.hide_platoon_bench ? 'checked' : ''}
+        >
+
+        <span>Hide Platoon/Bench</span>
+      </label>
     </div>
   `;
 }
@@ -17691,6 +17718,28 @@ function bind_fantasy_trends_controls(root) {
       () => {
         fantasy_trends_state.hide_injured = Boolean(
           hide_injured.checked
+        );
+
+        fantasy_trends_replace_all_tables();
+      }
+    );
+  }
+
+  const hide_platoon_bench = scope.querySelector(
+    '#fantasy_trends_hide_platoon_bench'
+  );
+
+  if (
+    hide_platoon_bench &&
+    hide_platoon_bench.dataset.bound !== '1'
+  ) {
+    hide_platoon_bench.dataset.bound = '1';
+
+    hide_platoon_bench.addEventListener(
+      'change',
+      () => {
+        fantasy_trends_state.hide_platoon_bench = Boolean(
+          hide_platoon_bench.checked
         );
 
         fantasy_trends_replace_all_tables();
