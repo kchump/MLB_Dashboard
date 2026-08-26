@@ -15024,9 +15024,15 @@ function fantasy_trends_is_injured(row) {
 }
 /* ################# */
 function fantasy_trends_is_platoon_bench(row) {
-  return String(
+  const platoon = String(
     row?.Platoon || ''
-  ).trim() !== '';
+  ).trim().toUpperCase();
+
+  return [
+    'L',
+    'R',
+    'Y',
+  ].includes(platoon);
 }
 /* ################# */
 function fantasy_trends_is_excluded_status(row) {
@@ -16516,13 +16522,12 @@ function fantasy_trends_gradient_style(row, key, section) {
     return '';
   }
 
-  const role_section = fantasy_trends_role(
-    row,
-    section
-  );
+  const fantasy_section = section === 'hitters'
+    ? 'hitters'
+    : 'pitchers';
 
   return fantasy_trends_with_fantasy_state(
-    role_section,
+    fantasy_section,
     () => {
       return fantasy_gradient_style(
         row,
