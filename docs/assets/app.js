@@ -15721,9 +15721,7 @@ function fantasy_trends_is_overvalued(row, section) {
 function fantasy_trends_hitter_position_values(row) {
   const values = [
     row?.pos,
-    row?.Pos,
     row?.pos2,
-    row?.['2nd'],
   ];
 
   return [
