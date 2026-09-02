@@ -944,9 +944,9 @@
       "worst": 0.6
     },
     "majors|hitters|≥100": {
-      "best": 0.4,
+      "best": 0.38,
       "fmt": "pct",
-      "gold": 0.42,
+      "gold": 0.4,
       "neutral_hi": 0.25,
       "neutral_lo": 0.24,
       "worst": 0.12
@@ -2652,9 +2652,9 @@
       "worst": 0.4
     },
     "minors|hitters|Minors ≥100": {
-      "best": 0.4,
+      "best": 0.38,
       "fmt": "pct",
-      "gold": 0.42,
+      "gold": 0.4,
       "neutral_hi": 0.25,
       "neutral_lo": 0.24,
       "worst": 0.12
@@ -2723,9 +2723,9 @@
       "worst": 0.4
     },
     "minors|hitters|Prev Minors ≥100": {
-      "best": 0.4,
+      "best": 0.38,
       "fmt": "pct",
-      "gold": 0.42,
+      "gold": 0.4,
       "neutral_hi": 0.25,
       "neutral_lo": 0.24,
       "worst": 0.12
@@ -3294,9 +3294,9 @@
       "worst": 0.4
     },
     "playoffs|hitters|Playoff ≥100": {
-      "best": 0.4,
+      "best": 0.38,
       "fmt": "pct",
-      "gold": 0.42,
+      "gold": 0.4,
       "neutral_hi": 0.25,
       "neutral_lo": 0.24,
       "worst": 0.12
@@ -3718,9 +3718,9 @@
       "worst": 0.4
     },
     "spring|hitters|Spring ≥100": {
-      "best": 0.4,
+      "best": 0.38,
       "fmt": "pct",
-      "gold": 0.42,
+      "gold": 0.4,
       "neutral_hi": 0.25,
       "neutral_lo": 0.24,
       "worst": 0.12

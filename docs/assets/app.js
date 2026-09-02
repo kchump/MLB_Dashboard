@@ -11193,13 +11193,13 @@ if (mode === 'best_and_worst_hitters') {
     const top20 = scored
       .filter(x => Number.isFinite(x.value) && x.value >= 0)
       .sort((a, b) => b.value - a.value)
-      .slice(0, 20)
+      .slice(0, 30)
       .map(x => x.path);
 
     const bottom20 = scored
       .filter(x => Number.isFinite(x.value) && x.value < 0)
       .sort((a, b) => a.value - b.value)
-      .slice(0, 20)
+      .slice(0, 30)
       .map(x => x.path);
 
     const best_worst_drop_cols = [
@@ -11208,7 +11208,7 @@ if (mode === 'best_and_worst_hitters') {
 
     await render_multiple_fragments([
       {
-        title: 'Top 20 Hitters',
+        title: 'Top 30 Hitters',
         paths: top20,
         opts: {
           drop_cols: best_worst_drop_cols,
@@ -11221,7 +11221,7 @@ if (mode === 'best_and_worst_hitters') {
         cell_class: 'matchups_best_worst_cell'
       },
       {
-        title: 'Bottom 20 Hitters',
+        title: 'Bottom 30 Hitters',
         paths: bottom20,
         opts: {
           drop_cols: best_worst_drop_cols,
