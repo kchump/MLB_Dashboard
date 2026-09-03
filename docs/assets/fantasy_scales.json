@@ -490,12 +490,12 @@
       "worst": -20
     },
     "majors|hitters|Pts +/-": {
-      "best": 0.3,
+      "best": 0.33,
       "fmt": "pct",
       "gold": 0.35,
-      "neutral_hi": 0.1,
-      "neutral_lo": 0.05,
-      "worst": -0.2
+      "neutral_hi": 0.14,
+      "neutral_lo": 0.13,
+      "worst": -0.15
     },
     "majors|hitters|Pwr/PA": {
       "best": 0.3,
@@ -699,12 +699,12 @@
       "worst": 3
     },
     "majors|hitters|S Pts +/-": {
-      "best": 0.3,
+      "best": 0.33,
       "fmt": "pct",
       "gold": 0.35,
-      "neutral_hi": 0.1,
-      "neutral_lo": 0.05,
-      "worst": -0.2
+      "neutral_hi": 0.14,
+      "neutral_lo": 0.13,
+      "worst": -0.15
     },
     "majors|hitters|S R Eye": {
       "best": 0.8,
