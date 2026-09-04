@@ -495,7 +495,7 @@
       "gold": 0.35,
       "neutral_hi": 0.14,
       "neutral_lo": 0.13,
-      "worst": -0.15
+      "worst": -0.1
     },
     "majors|hitters|Pwr/PA": {
       "best": 0.3,
@@ -704,7 +704,7 @@
       "gold": 0.35,
       "neutral_hi": 0.14,
       "neutral_lo": 0.13,
-      "worst": -0.15
+      "worst": -0.1
     },
     "majors|hitters|S R Eye": {
       "best": 0.8,

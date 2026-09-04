@@ -112,6 +112,7 @@
     "Denzel Clarke": "ATH",
     "Denzer Guzman": "LAA",
     "Derek Hill": "PHI",
+    "Deyvison De Los Santos": "MIA",
     "Dillon Dingler": "DET",
     "Dom Smith": "ATL",
     "Dominic Canzone": "SEA",
@@ -262,7 +263,6 @@
     "Lawrence Butler": "ATH",
     "Lazaro Montes": "SEA",
     "Leo Bernal": "STL",
-    "Leo Jimenez": "MIA",
     "Leody Taveras": "BAL",
     "Liam Hicks": "TB",
     "Logan O'Hoppe": "TEX",
@@ -367,6 +367,7 @@
     "Spencer Jones": "NYY",
     "Spencer Torkelson": "DET",
     "Steven Kwan": "CLE",
+    "Stuart Fairchild": "SEA",
     "Sung-Mun Song": "SD",
     "TJ Friedl": "CIN",
     "TJ Rumfield": "COL",
@@ -665,6 +666,7 @@
     "MIA": [
       "Agustin Ramirez",
       "Brian Navarreto",
+      "Deyvison De Los Santos",
       "Esteury Ruiz",
       "Graham Pauley",
       "Griffin Conine",
@@ -674,7 +676,6 @@
       "Javier Sanoja",
       "Joe Mack",
       "Kyle Stowers",
-      "Leo Jimenez",
       "Otto Lopez",
       "Owen Caissie"
     ],
@@ -802,6 +803,7 @@
       "Lazaro Montes",
       "Patrick Wisdom",
       "Randy Arozarena",
+      "Stuart Fairchild",
       "Taylor Ward",
       "Victor Robles",
       "Weston Wilson"
@@ -922,7 +924,6 @@
     "Andrew Morris": "MIN",
     "Andrew Sears": "DET",
     "Anthony Gose": "KC",
-    "Anthony Molina": "SF",
     "Antonio Senzatela": "MIL",
     "Aroldis Chapman": "BOS",
     "Austin Warren": "NYM",
@@ -1005,7 +1006,6 @@
     "Erik Sabrowski": "CLE",
     "Erik Tolman": "WAS",
     "Evan Phillips": "LAD",
-    "Evan Sisk": "PIT",
     "Gabe Speier": "SEA",
     "Garrett Acton": "MIN",
     "Garrett Cleavinger": "TB",
@@ -1042,7 +1042,6 @@
     "Jimmy Herget": "COL",
     "JoJo Romero": "MIL",
     "Joe Mantiply": "TOR",
-    "Joel Kuhnel": "MIL",
     "John Schreiber": "NYY",
     "Jonathan Bowlan": "PHI",
     "Jonathan Loaisiga": "ARI",
@@ -1071,7 +1070,7 @@
     "Kenley Jansen": "DET",
     "Kevin Ginkel": "ARI",
     "Kevin Kelly": "TB",
-    "Kirby Yates": "PIT",
+    "Khristian Curtis": "PIT",
     "Kodai Senga": "NYM",
     "Kody Funderburk": "MIN",
     "Kyle Finnegan": "DET",
@@ -1118,6 +1117,7 @@
     "Riley Cornelio": "WAS",
     "Riley O'Brien": "STL",
     "Robby Ahlstrom": "TEX",
+    "Ronel Blanco": "HOU",
     "Ryan Fernandez": "STL",
     "Ryan Rolison": "CHC",
     "Ryan Walker": "SF",
@@ -1166,6 +1166,7 @@
     "Victor Mederos": "ATL",
     "Victor Vodnik": "MIA",
     "Wandy Peralta": "SD",
+    "Wilber Dotel": "PIT",
     "Will Dion": "WAS",
     "Wyatt Olds": "BOS",
     "Yennier Cano": "BAL",
@@ -1306,6 +1307,7 @@
       "Enyel De Los Santos",
       "Josh Hader",
       "Kai-Wei Teng",
+      "Ronel Blanco",
       "Steven Okert",
       "Tatsuya Imai"
     ],
@@ -1361,7 +1363,6 @@
       "Chad Patrick",
       "DL Hall",
       "Grant Anderson",
-      "Joel Kuhnel",
       "JoJo Romero",
       "Trevor Megill"
     ],
@@ -1411,12 +1412,12 @@
     "PIT": [
       "Brandon Eisert",
       "Camilo Doval",
-      "Evan Sisk",
       "Gregory Soto",
-      "Kirby Yates",
+      "Khristian Curtis",
       "Lake Bachar",
       "Luke Weaver",
       "Mason Montgomery",
+      "Wilber Dotel",
       "Yohan Ramirez"
     ],
     "SD": [
@@ -1442,7 +1443,6 @@
       "Seranthony Dominguez"
     ],
     "SF": [
-      "Anthony Molina",
       "Braxton Roxby",
       "Carson Seymour",
       "Cesar Perdomo",
@@ -1630,7 +1630,6 @@
     "Robbie Ray": "SD",
     "Robert Gasser": "MIL",
     "Robert Stock": "NYM",
-    "Ronel Blanco": "HOU",
     "Ryan Feltner": "COL",
     "Ryan Gusto": "MIA",
     "Ryan Johnson": "LAA",
@@ -1747,8 +1746,7 @@
       "Ethan Pecko",
       "Hayden Wesneski",
       "Hunter Brown",
-      "Peter Lambert",
-      "Ronel Blanco"
+      "Peter Lambert"
     ],
     "KC": [
       "Daniel Lynch IV",
