@@ -61810,7 +61810,7 @@
         "Whiff%": 0.2741,
         "Who": "",
         "Wk/PA": 0.2645,
-        "info_tag": "",
+        "info_tag": "Minors",
         "manifest_name": "Christian Bethancourt",
         "name": "Christian Bethancourt",
         "name_raw": "Christian Bethancourt",
@@ -61849,7 +61849,7 @@
         "rAll SW R": "",
         "role": "batters",
         "sData": "",
-        "sort_bucket": 0,
+        "sort_bucket": 3,
         "spring_year": 2015.0,
         "stats_team": "ATL",
         "swCon": 0.5514018691588785,
@@ -613505,7 +613505,7 @@
         "person_key": "steven okert",
         "pitch_role": "RP",
         "role": "rp",
-        "sort_bucket": 0,
+        "sort_bucket": 2,
         "team": "MiLB"
       },
       {
