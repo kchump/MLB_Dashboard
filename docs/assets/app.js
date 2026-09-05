@@ -8326,14 +8326,14 @@ if (h_clean === 'Team' || h_clean === 'Opp') {
           if (Number.isFinite(v)) {
             td.textContent = `${display_stat(v * 100, 1)}%`;
 
-            const gold_at = key === 'Pts +/-' ? 0.35 : 0.50;
+            const gold_at = key === 'Pts +/-' ? 0.33 : 0.50;
 
             if (v >= gold_at) {
               td.style.background = gold_gradient_fill(alpha_mult);
               is_gold_cell = true;
             } else {
               const bg = key === 'Pts +/-'
-                ? rgba_from_two_sided_value(v, -0.20, 0.05, 0.10, 0.30, alpha_mult)
+                ? rgba_from_two_sided_value(v, -0.10, 0.13, 0.14, 0.30, alpha_mult)
                 : rgba_from_two_sided_value(v, -0.06, 0.14, 0.15, 0.50, alpha_mult);
 
               td.style.background = bg;
