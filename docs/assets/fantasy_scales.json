@@ -944,9 +944,9 @@
       "worst": 0.6
     },
     "majors|hitters|≥100": {
-      "best": 0.38,
+      "best": 0.36,
       "fmt": "pct",
-      "gold": 0.4,
+      "gold": 0.38,
       "neutral_hi": 0.25,
       "neutral_lo": 0.24,
       "worst": 0.12
@@ -1758,13 +1758,13 @@
       "worst": -300
     },
     "majors|rp|≥100": {
-      "best": 0.23,
+      "best": 0.25,
       "fmt": "pct",
-      "gold": 0.21,
+      "gold": 0.23,
       "higher_is_better": false,
-      "neutral_hi": 0.29,
-      "neutral_lo": 0.3,
-      "worst": 0.36
+      "neutral_hi": 0.3,
+      "neutral_lo": 0.31,
+      "worst": 0.37
     },
     "majors|rp|≥50 Qual": {
       "best": 5,
@@ -2580,13 +2580,13 @@
       "worst": -300
     },
     "majors|sp|≥100": {
-      "best": 0.23,
+      "best": 0.25,
       "fmt": "pct",
-      "gold": 0.21,
+      "gold": 0.23,
       "higher_is_better": false,
-      "neutral_hi": 0.29,
-      "neutral_lo": 0.3,
-      "worst": 0.36
+      "neutral_hi": 0.3,
+      "neutral_lo": 0.31,
+      "worst": 0.37
     },
     "majors|sp|≥50 Qual": {
       "best": 5,
@@ -2652,9 +2652,9 @@
       "worst": 0.4
     },
     "minors|hitters|Minors ≥100": {
-      "best": 0.38,
+      "best": 0.36,
       "fmt": "pct",
-      "gold": 0.4,
+      "gold": 0.38,
       "neutral_hi": 0.25,
       "neutral_lo": 0.24,
       "worst": 0.12
@@ -2723,9 +2723,9 @@
       "worst": 0.4
     },
     "minors|hitters|Prev Minors ≥100": {
-      "best": 0.38,
+      "best": 0.36,
       "fmt": "pct",
-      "gold": 0.4,
+      "gold": 0.38,
       "neutral_hi": 0.25,
       "neutral_lo": 0.24,
       "worst": 0.12
@@ -3294,9 +3294,9 @@
       "worst": 0.4
     },
     "playoffs|hitters|Playoff ≥100": {
-      "best": 0.38,
+      "best": 0.36,
       "fmt": "pct",
-      "gold": 0.4,
+      "gold": 0.38,
       "neutral_hi": 0.25,
       "neutral_lo": 0.24,
       "worst": 0.12
@@ -3718,9 +3718,9 @@
       "worst": 0.4
     },
     "spring|hitters|Spring ≥100": {
-      "best": 0.38,
+      "best": 0.36,
       "fmt": "pct",
-      "gold": 0.4,
+      "gold": 0.38,
       "neutral_hi": 0.25,
       "neutral_lo": 0.24,
       "worst": 0.12

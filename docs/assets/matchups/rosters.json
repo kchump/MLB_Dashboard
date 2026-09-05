@@ -1038,6 +1038,7 @@
     "Jakob Junis": "TEX",
     "Jared Simpson": "WAS",
     "Jason Foley": "SF",
+    "Javier Assad": "CHC",
     "Jeff Hoffman": "MIN",
     "Jefry Yan": "NYM",
     "Jhoan Duran": "PHI",
@@ -1045,6 +1046,7 @@
     "Jimmy Herget": "COL",
     "JoJo Romero": "MIL",
     "Joe Mantiply": "TOR",
+    "Joel Kuhnel": "SF",
     "John Schreiber": "NYY",
     "Jonathan Bowlan": "PHI",
     "Jonathan Loaisiga": "ARI",
@@ -1119,7 +1121,6 @@
     "Robby Ahlstrom": "TEX",
     "Ronel Blanco": "HOU",
     "Ryan Rolison": "CHC",
-    "Ryan Walker": "SF",
     "Ryan Watson": "LAA",
     "Ryan Yarbrough": "NYY",
     "Ryan Zeferjahn": "CHC",
@@ -1156,7 +1157,6 @@
     "Troy Taylor": "SEA",
     "Tyler Alexander": "TEX",
     "Tyler Davis": "CHW",
-    "Tyler Ferguson": "CHC",
     "Tyler Holton": "DET",
     "Tyler Kinley": "DET",
     "Tyler Rogers": "TOR",
@@ -1240,10 +1240,10 @@
       "Daniel Palencia",
       "David Peterson",
       "Jacob Webb",
+      "Javier Assad",
       "Ryan Rolison",
       "Ryan Zeferjahn",
-      "Trent Thornton",
-      "Tyler Ferguson"
+      "Trent Thornton"
     ],
     "CHW": [
       "Bryan Hudson",
@@ -1448,8 +1448,8 @@
       "Cesar Perdomo",
       "Dylan Smith",
       "Jason Foley",
+      "Joel Kuhnel",
       "Reiver Sanmartin",
-      "Ryan Walker",
       "Trent Harris"
     ],
     "STL": [
