@@ -50,6 +50,7 @@
     "Brett Bateman": "TOR",
     "Brett Baty": "NYM",
     "Brett Callahan": "DET",
+    "Brett Harris": "SF",
     "Brett Sullivan": "COL",
     "Brewer Hicklen": "ATL",
     "Brian Navarreto": "MIA",
@@ -75,7 +76,6 @@
     "Carson Kelly": "CHC",
     "Carter Jensen": "KC",
     "Cedric Mullins": "TB",
-    "Cesar Prieto": "STL",
     "Chandler Simpson": "TB",
     "Charles McAdoo": "TOR",
     "Chase DeLauter": "CLE",
@@ -281,6 +281,7 @@
     "Manny Machado": "SD",
     "Marcus Semien": "NYM",
     "Mark Vientos": "NYM",
+    "Masyn Winn": "STL",
     "Matt McLain": "CIN",
     "Matt Olson": "ATL",
     "Matt Shaw": "CHC",
@@ -317,6 +318,7 @@
     "Nick Fortes": "TB",
     "Nick Gonzales": "PIT",
     "Nick Loftin": "KC",
+    "Nick Madrigal": "TB",
     "Nick Morabito": "NYM",
     "Nick Sogard": "BOS",
     "Nicky Lopez": "TEX",
@@ -369,12 +371,10 @@
     "Spencer Jones": "NYY",
     "Spencer Torkelson": "DET",
     "Steven Kwan": "CLE",
-    "Stuart Fairchild": "SEA",
     "Sung-Mun Song": "SD",
     "TJ Friedl": "CIN",
     "TJ Rumfield": "COL",
     "Taylor Trammell": "HOU",
-    "Taylor Walls": "TB",
     "Taylor Ward": "SEA",
     "Teoscar Hernandez": "LAD",
     "Thomas Saggese": "STL",
@@ -419,7 +419,6 @@
     "Yordan Alvarez": "HOU",
     "Zac Veen": "COL",
     "Zach McKinstry": "DET",
-    "Zach Morgan": "SF",
     "Zach Neto": "LAA",
     "Zack Gelof": "ATH"
   },
@@ -805,13 +804,13 @@
       "Lazaro Montes",
       "Michael Arroyo",
       "Randy Arozarena",
-      "Stuart Fairchild",
       "Taylor Ward",
       "Victor Robles",
       "Weston Wilson"
     ],
     "SF": [
       "Andrew Knizner",
+      "Brett Harris",
       "Bryce Eldridge",
       "Christian Koss",
       "Drew Cavanaugh",
@@ -823,18 +822,17 @@
       "Osleivis Basabe",
       "Rafael Devers",
       "Shay Whitcomb",
-      "Turner Hill",
-      "Zach Morgan"
+      "Turner Hill"
     ],
     "STL": [
       "Alec Burleson",
       "Bryan Torres",
-      "Cesar Prieto",
       "Ivan Herrera",
       "Jordan Walker",
       "Jose Fermin",
       "Joshua Baez",
       "Leo Bernal",
+      "Masyn Winn",
       "Nathan Church",
       "Nolan Gorman",
       "Pedro Pages",
@@ -852,9 +850,9 @@
       "Kenny Piper",
       "Liam Hicks",
       "Nick Fortes",
+      "Nick Madrigal",
       "Richie Palacios",
       "Ryan Vilade",
-      "Taylor Walls",
       "Victor Mesa Jr.",
       "Yandy Diaz"
     ],
@@ -936,9 +934,11 @@
     "Blake Walston": "ARI",
     "Blake Weiman": "LAA",
     "Blas Castano": "COL",
+    "Brad Lord": "WAS",
     "Bradgley Rodriguez": "SD",
     "Bradley Blalock": "MIA",
     "Brady Basso": "ATH",
+    "Brandon Eisert": "PIT",
     "Brandyn Garcia": "ARI",
     "Brant Hurter": "DET",
     "Brayan Bello": "BOS",
@@ -1011,7 +1011,6 @@
     "Garrett Whitlock": "BOS",
     "Geoff Hartlieb": "ATH",
     "George Soriano": "STL",
-    "Gerardo Carrillo": "ARI",
     "Gordon Graceffo": "STL",
     "Graham Ashcraft": "CIN",
     "Grant Holman": "PHI",
@@ -1024,7 +1023,6 @@
     "Hoby Milner": "SEA",
     "Hogan Harris": "ATH",
     "Hunter Gaddis": "CLE",
-    "Isaac Mattson": "PIT",
     "Jack Dreyer": "LAD",
     "Jack Perkins": "ATH",
     "Jack Ralston": "MIA",
@@ -1066,6 +1064,7 @@
     "Justin Bruihl": "STL",
     "Justin Martinez": "ARI",
     "Justin Wrobleski": "LAD",
+    "Kade Strowd": "ARI",
     "Kenley Jansen": "DET",
     "Kevin Ginkel": "ARI",
     "Kevin Kelly": "TB",
@@ -1089,7 +1088,6 @@
     "Mason Miller": "SD",
     "Mason Montgomery": "PIT",
     "Matt Festa": "CLE",
-    "Matt Waldron": "WAS",
     "Michael Fulmer": "NYY",
     "Michael Lorenzen": "TOR",
     "Michael Petersen": "MIA",
@@ -1152,7 +1150,6 @@
     "Trevor Megill": "MIL",
     "Trevor Richards": "CHW",
     "Trevor Williams": "TEX",
-    "Troy Taylor": "SEA",
     "Ty Johnson": "TB",
     "Tyler Alexander": "TEX",
     "Tyler Davis": "CHW",
@@ -1175,7 +1172,8 @@
     "Yovanny Cruz": "WAS",
     "Yuki Matsui": "SD",
     "Yunior Tur": "ATH",
-    "Zach Agnos": "COL"
+    "Zach Agnos": "COL",
+    "Zak Kent": "WAS"
   },
   "relievers_by_team": {
     "ARI": [
@@ -1183,10 +1181,10 @@
       "Brandyn Garcia",
       "Dennis Santana",
       "Derek Law",
-      "Gerardo Carrillo",
       "Jonathan Loaisiga",
       "Juan Morillo",
       "Justin Martinez",
+      "Kade Strowd",
       "Kevin Ginkel",
       "Taylor Clarke"
     ],
@@ -1406,9 +1404,9 @@
       "Tim Mayza"
     ],
     "PIT": [
+      "Brandon Eisert",
       "Camilo Doval",
       "Gregory Soto",
-      "Isaac Mattson",
       "Khristian Curtis",
       "Lake Bachar",
       "Luke Weaver",
@@ -1436,8 +1434,7 @@
       "Hoby Milner",
       "Jose A. Ferrer",
       "Michael Rucker",
-      "Seranthony Dominguez",
-      "Troy Taylor"
+      "Seranthony Dominguez"
     ],
     "SF": [
       "Carson Seymour",
@@ -1496,15 +1493,16 @@
       "Tyler Rogers"
     ],
     "WAS": [
+      "Brad Lord",
       "Clayton Beeter",
       "Erik Tolman",
       "Jack Sinclair",
       "Jared Simpson",
       "Luis Perales",
-      "Matt Waldron",
       "Riley Cornelio",
       "Will Dion",
-      "Yovanny Cruz"
+      "Yovanny Cruz",
+      "Zak Kent"
     ]
   },
   "starter_team_map": {
@@ -1519,7 +1517,6 @@
     "Bailey Ober": "MIN",
     "Blade Tidwell": "SF",
     "Blake Snell": "LAD",
-    "Brad Lord": "WAS",
     "Brady Singer": "CIN",
     "Brandon Pfaadt": "ARI",
     "Brandon Sproat": "MIL",
@@ -1542,6 +1539,7 @@
     "Clay Holmes": "CHC",
     "Cody Bradford": "TEX",
     "Connor Prielipp": "MIN",
+    "Corbin Burnes": "ARI",
     "Cristian Javier": "HOU",
     "Cristopher Sanchez": "PHI",
     "Daniel Espino": "CLE",
@@ -1586,7 +1584,6 @@
     "Joe Ryan": "MIN",
     "Joey Cantillo": "CLE",
     "Jonah Tong": "NYM",
-    "Jose Cabrera": "ARI",
     "Jose Soriano": "TOR",
     "Kade Anderson": "SEA",
     "Keider Montero": "DET",
@@ -1665,8 +1662,8 @@
   "starters_by_team": {
     "ARI": [
       "Brandon Pfaadt",
+      "Corbin Burnes",
       "Eduardo Rodriguez",
-      "Jose Cabrera",
       "Merrill Kelly"
     ],
     "ATH": [
@@ -1871,7 +1868,6 @@
     ],
     "WAS": [
       "Andrew Alvarez",
-      "Brad Lord",
       "Cade Cavalli",
       "Jackson Kent",
       "Jake Irvin"
