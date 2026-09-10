@@ -35,7 +35,6 @@
     "Ben Rice": "NYY",
     "Ben Ross": "MIN",
     "Billy Cook": "PIT",
-    "Blaze Alexander": "BAL",
     "Bo Bichette": "NYM",
     "Bo Naylor": "MIL",
     "Bobby Witt Jr.": "KC",
@@ -204,6 +203,7 @@
     "Javier Sanoja": "MIA",
     "Jazz Chisholm Jr.": "NYY",
     "Jeff McNeil": "ATH",
+    "Jeremiah Jackson": "BAL",
     "Jeremy Pena": "HOU",
     "Jesus Sanchez": "TOR",
     "Jhonny Pereda": "SEA",
@@ -472,7 +472,6 @@
       "Sean Murphy"
     ],
     "BAL": [
-      "Blaze Alexander",
       "Carlos Narvaez",
       "Christian Encarnacion-Strand",
       "Coby Mayo",
@@ -481,6 +480,7 @@
       "Gunnar Henderson",
       "Heston Kjerstad",
       "Jackson Holliday",
+      "Jeremiah Jackson",
       "Leody Taveras",
       "Pete Alonso",
       "Rece Hinds",
@@ -931,12 +931,10 @@
     "Ben Joyce": "LAA",
     "Bennett Sousa": "HOU",
     "Blake Treinen": "LAD",
-    "Blake Walston": "ARI",
     "Blake Weiman": "LAA",
     "Blas Castano": "COL",
     "Brad Lord": "WAS",
     "Bradgley Rodriguez": "SD",
-    "Bradley Blalock": "MIA",
     "Brady Basso": "ATH",
     "Brandon Eisert": "PIT",
     "Brandyn Garcia": "ARI",
@@ -972,6 +970,7 @@
     "Chase Shugart": "PHI",
     "Chase Silseth": "TEX",
     "Chris Devenski": "NYM",
+    "Chris Murphy": "CHW",
     "Chris Roycroft": "ATH",
     "Clayton Beeter": "WAS",
     "Cole Sulser": "TB",
@@ -996,6 +995,7 @@
     "Dylan Lee": "ATL",
     "Dylan Smith": "SF",
     "Easton McGee": "KC",
+    "Eddy Yean": "WAS",
     "Edgardo Henriquez": "LAD",
     "Eduard Bazardo": "SEA",
     "Elieser Hernandez": "ATL",
@@ -1064,7 +1064,6 @@
     "Justin Bruihl": "STL",
     "Justin Martinez": "ARI",
     "Justin Wrobleski": "LAD",
-    "Kade Strowd": "ARI",
     "Kenley Jansen": "DET",
     "Kevin Ginkel": "ARI",
     "Kevin Kelly": "TB",
@@ -1101,6 +1100,7 @@
     "Orion Kerkering": "PHI",
     "Paul Blackburn": "NYY",
     "Paul Sewald": "TOR",
+    "Pete Fairbanks": "MIA",
     "Philip Abner": "SF",
     "Pierce Johnson": "CIN",
     "Raisel Iglesias": "ATL",
@@ -1172,19 +1172,16 @@
     "Yovanny Cruz": "WAS",
     "Yuki Matsui": "SD",
     "Yunior Tur": "ATH",
-    "Zach Agnos": "COL",
-    "Zak Kent": "WAS"
+    "Zach Agnos": "COL"
   },
   "relievers_by_team": {
     "ARI": [
-      "Blake Walston",
       "Brandyn Garcia",
       "Dennis Santana",
       "Derek Law",
       "Jonathan Loaisiga",
       "Juan Morillo",
       "Justin Martinez",
-      "Kade Strowd",
       "Kevin Ginkel",
       "Taylor Clarke"
     ],
@@ -1246,6 +1243,7 @@
     ],
     "CHW": [
       "Bryan Hudson",
+      "Chris Murphy",
       "Grant Taylor",
       "Hagen Smith",
       "Jordan Hicks",
@@ -1343,13 +1341,13 @@
       "Tanner Scott"
     ],
     "MIA": [
-      "Bradley Blalock",
       "Cade Gibson",
       "Calvin Faucher",
       "Dax Fulton",
       "Jack Ralston",
       "Josh Ekness",
       "Michael Petersen",
+      "Pete Fairbanks",
       "Tyler Zuber",
       "Victor Vodnik"
     ],
@@ -1495,14 +1493,14 @@
     "WAS": [
       "Brad Lord",
       "Clayton Beeter",
+      "Eddy Yean",
       "Erik Tolman",
       "Jack Sinclair",
       "Jared Simpson",
       "Luis Perales",
       "Riley Cornelio",
       "Will Dion",
-      "Yovanny Cruz",
-      "Zak Kent"
+      "Yovanny Cruz"
     ]
   },
   "starter_team_map": {
@@ -1514,6 +1512,7 @@
     "Andrew Painter": "PHI",
     "Anthony Kay": "CHW",
     "Anthony Molina": "SF",
+    "Bailey Falter": "ATL",
     "Bailey Ober": "MIN",
     "Blade Tidwell": "SF",
     "Blake Snell": "LAD",
@@ -1524,7 +1523,6 @@
     "Brandon Young": "BAL",
     "Braxton Ashcraft": "PIT",
     "Bryan Woo": "SEA",
-    "Bryce Elder": "ATL",
     "Bryce Miller": "SEA",
     "Bubba Chandler": "PIT",
     "Cade Cavalli": "WAS",
@@ -1608,6 +1606,7 @@
     "Merrill Kelly": "ARI",
     "Michael King": "SD",
     "Michael McGreevy": "STL",
+    "Michael Soroka": "ARI",
     "Michael Wacha": "KC",
     "Nick Lodolo": "CIN",
     "Nick Martinez": "TB",
@@ -1623,6 +1622,7 @@
     "Randy Dobnak": "KC",
     "Ranger Suarez": "BOS",
     "Reid Detmers": "LAA",
+    "Reynaldo Lopez": "ATL",
     "Rhett Lowder": "CIN",
     "Robbie Ray": "SD",
     "Robert Gasser": "MIL",
@@ -1655,6 +1655,7 @@
     "Yoshinobu Yamamoto": "LAD",
     "Yunior Marte": "SF",
     "Yusei Kikuchi": "LAA",
+    "Zac Gallen": "ARI",
     "Zac Thornton": "NYM",
     "Zack Wheeler": "PHI",
     "Zebby Matthews": "MIN"
@@ -1664,7 +1665,9 @@
       "Brandon Pfaadt",
       "Corbin Burnes",
       "Eduardo Rodriguez",
-      "Merrill Kelly"
+      "Merrill Kelly",
+      "Michael Soroka",
+      "Zac Gallen"
     ],
     "ATH": [
       "Gage Jump",
@@ -1673,10 +1676,11 @@
     ],
     "ATL": [
       "AJ Smith-Shawver",
-      "Bryce Elder",
+      "Bailey Falter",
       "Chris Sale",
       "Grant Holmes",
       "Martin Perez",
+      "Reynaldo Lopez",
       "Tyler Mahle"
     ],
     "BAL": [
