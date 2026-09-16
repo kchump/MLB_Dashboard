@@ -938,7 +938,7 @@
     "Bobby Miller": "LAD",
     "Brad Lord": "WAS",
     "Bradgley Rodriguez": "SD",
-    "Bradley Hanner": "NYY",
+    "Bradley Blalock": "MIA",
     "Brady Basso": "ATH",
     "Brandon Eisert": "PIT",
     "Brandyn Garcia": "ARI",
@@ -1018,7 +1018,6 @@
     "George Soriano": "STL",
     "Gordon Graceffo": "STL",
     "Graham Ashcraft": "CIN",
-    "Grant Holman": "PHI",
     "Grant Taylor": "CHW",
     "Grant Wolfram": "BAL",
     "Greg Weissert": "BOS",
@@ -1075,6 +1074,7 @@
     "Khristian Curtis": "PIT",
     "Kodai Senga": "NYM",
     "Kody Funderburk": "MIN",
+    "Kyle Backhus": "PHI",
     "Kyle Finnegan": "DET",
     "Kyle Hart": "SD",
     "Lake Bachar": "PIT",
@@ -1109,7 +1109,6 @@
     "Paul Blackburn": "NYY",
     "Paul Gervase": "LAD",
     "Paul Sewald": "TOR",
-    "Pete Fairbanks": "MIA",
     "Philip Abner": "SF",
     "Pierce Johnson": "CIN",
     "Raisel Iglesias": "ATL",
@@ -1177,6 +1176,7 @@
     "Yovanny Cruz": "WAS",
     "Yuki Matsui": "SD",
     "Yunior Tur": "ATH",
+    "Zac Gallen": "ARI",
     "Zach Agnos": "COL"
   },
   "relievers_by_team": {
@@ -1188,7 +1188,8 @@
       "Juan Morillo",
       "Justin Martinez",
       "Kevin Ginkel",
-      "Taylor Clarke"
+      "Taylor Clarke",
+      "Zac Gallen"
     ],
     "ATH": [
       "Brady Basso",
@@ -1347,13 +1348,13 @@
       "Tanner Scott"
     ],
     "MIA": [
+      "Bradley Blalock",
       "Cade Gibson",
       "Calvin Faucher",
       "Dax Fulton",
       "Jack Ralston",
       "Josh Ekness",
       "Michael Petersen",
-      "Pete Fairbanks",
       "Tyler Zuber",
       "Victor Vodnik"
     ],
@@ -1388,7 +1389,6 @@
       "Tobias Myers"
     ],
     "NYY": [
-      "Bradley Hanner",
       "Brent Headrick",
       "David Bednar",
       "John Schreiber",
@@ -1402,10 +1402,10 @@
       "Alex McFarlane",
       "Brooks Raley",
       "Chase Shugart",
-      "Grant Holman",
       "Jhoan Duran",
       "Jonathan Bowlan",
       "Jose Alvarado",
+      "Kyle Backhus",
       "Orion Kerkering",
       "Tanner Banks",
       "Tim Mayza"
@@ -1639,6 +1639,7 @@
     "Seth Lugo": "KC",
     "Shane Baz": "BAL",
     "Shane Drohan": "MIL",
+    "Shane McClanahan": "BOS",
     "Shota Imanaga": "CHC",
     "Sonny Gray": "BOS",
     "Spencer Arrighetti": "TOR",
@@ -1657,7 +1658,6 @@
     "Yoshinobu Yamamoto": "LAD",
     "Yunior Marte": "SF",
     "Yusei Kikuchi": "LAA",
-    "Zac Gallen": "ARI",
     "Zac Thornton": "NYM",
     "Zack Wheeler": "PHI",
     "Zebby Matthews": "MIN"
@@ -1668,8 +1668,7 @@
       "Corbin Burnes",
       "Eduardo Rodriguez",
       "Merrill Kelly",
-      "Michael Soroka",
-      "Zac Gallen"
+      "Michael Soroka"
     ],
     "ATH": [
       "Jacob Lopez",
@@ -1694,6 +1693,7 @@
       "Patrick Sandoval",
       "Payton Tolle",
       "Ranger Suarez",
+      "Shane McClanahan",
       "Sonny Gray"
     ],
     "CHC": [
