@@ -7341,7 +7341,7 @@ rows_plus.addEventListener('click', (e) => {
 
     if (h === 'Pitcher' || h === 'Hitter' || h === 'Name') return '150px';
     if (h === 'IP' || h === 'PA') return '58px';
-    if (h === 'Score' || h === '+All' || h === 'All' || h === 'RHP' || h === 'LHP' || h === 'RHB' || h === 'LHB') return '72px';
+    if (h === 'M Score' || h === '+All' || h === 'All' || h === 'RHP' || h === 'LHP' || h === 'RHB' || h === 'LHB') return '72px';
     if (h === 'Consistency' || h === 'Pts +/-' || h === 'Days +/-') return '128px';
     if (h === 'Away' || h === 'Opp' || h === 'Team') return '70px';
 
@@ -7575,7 +7575,7 @@ function matchup_gold_threshold(header_text, gold_mode) { //makes stuff gold bas
   const is_hitter_mode = mode === 'hitter';
   const is_pitcher_mode = !is_hitter_mode;
 
-  if (h === 'Score' || h === '+All' || h === 'All' || h === 'RHP' || h === 'LHP' || h === 'RHB' || h === 'LHB') {
+  if (h === 'M Score' || h === '+All' || h === 'All' || h === 'RHP' || h === 'LHP' || h === 'RHB' || h === 'LHB') {
     return is_hitter_mode ? 100 : 50;
   }
 
@@ -7591,7 +7591,7 @@ function matchup_gold_threshold(header_text, gold_mode) { //makes stuff gold bas
   //#################
   function is_matchup_stat_col(header_text) {
     const h = String(header_text || '').trim();
-    return h.startsWith('+') || h === 'Score';
+    return h.startsWith('+') || h === 'M Score';
   }
   //#################
   function extract_table_parts(fragment_html) {
@@ -8095,7 +8095,7 @@ function infer_matchup_link_roles(header, explicit_role, explicit_pitcher_role) 
       });
     }
 
-    const score_idx = header.findIndex(h => String(h || '').trim() === 'Score');
+    const score_idx = header.findIndex(h => String(h || '').trim() === 'M Score');
     const all_idx = header.findIndex(h => String(h || '').trim() === '+All');
 
     if (score_idx >= 0 && all_idx >= 0 && score_idx !== all_idx - 1) {
@@ -8272,7 +8272,7 @@ if (h_clean === 'Team' || h_clean === 'Opp') {
               td.textContent = (v > 0 ? `+${txt}` : String(txt));
             }
 
-            const is_all = ['+All', 'Score'].includes(String(h || '').trim());
+            const is_all = ['+All', 'M Score'].includes(String(h || '').trim());
             const worst = is_all ? -40 : -70;
             const best = is_all ? 40 : 70;
             const gold_at = matchup_gold_threshold(h, gold_mode);
@@ -8377,7 +8377,7 @@ if (is_gold_cell) {
     const parts = extract_table_parts(html);
     if (!parts || !parts.header_cells.length || !parts.row_cells.length) return NaN;
 
-    let idx_all = parts.header_cells.findIndex(h => String(h || '').trim() === 'Score');
+    let idx_all = parts.header_cells.findIndex(h => String(h || '').trim() === 'M Score');
     if (idx_all < 0) idx_all = parts.header_cells.findIndex(h => String(h || '').trim() === '+All');
     if (idx_all < 0) return NaN;
 
@@ -9608,7 +9608,7 @@ function find_fragment_key_loose(obj, wanted_name) {
       }
       //#################
       function sort_by_all_desc() {
-        let idx_all = header_index_for('Score');
+        let idx_all = header_index_for('M Score');
         if (idx_all < 0) idx_all = header_index_for('+All');
         if (idx_all < 0) idx_all = header_index_for('All');
 
@@ -9682,7 +9682,7 @@ function find_fragment_key_loose(obj, wanted_name) {
           if (m === 'score') {
             sort_by_team_name();
             sort_btn.dataset.mode = 'team';
-            sort_btn.textContent = 'Sort Score';
+            sort_btn.textContent = 'Sort M Score';
           } else {
             sort_by_all_desc();
             sort_btn.dataset.mode = 'score';
@@ -10076,7 +10076,7 @@ function sort_table_rows_by_all(table) {
     return raw === target || shown === target;
   }
 
-  let idx_all = ths.findIndex(th => th_matches(th, 'Score'));
+  let idx_all = ths.findIndex(th => th_matches(th, 'M Score'));
   if (idx_all < 0) idx_all = ths.findIndex(th => th_matches(th, '+All'));
   if (idx_all < 0) idx_all = ths.findIndex(th => th_matches(th, 'All'));
   if (idx_all < 0) idx_all = ths.findIndex(th => th_matches(th, 'RHP'));
@@ -12472,49 +12472,49 @@ setTimeout(() => submit(), 0);
 //#################################################################### Matchups table dividers ####################################################################
 const matchups_table_divider_config = {
   gameday_matchup: {
-    pitcher: { heavy_before: ['Score', '+All', 'Consistency', '+FB', 'All', 'FB', 'RHB'], light_before: ['+SL', '+CH'] },
-    lineup: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
+    pitcher: { heavy_before: ['M Score', '+All', 'Consistency', '+FB', 'All', 'FB', 'RHB'], light_before: ['+SL', '+CH'] },
+    lineup: { heavy_before: ['M Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
     fallback: { heavy_before: ['All', 'Consistency', 'Year', 'LHP', 'RHP', 'FB'], light_before: [] },
   },
 
   projected_pitchers: {
-    default: { heavy_before: ['Score', '+All', 'Consistency', '+FB', 'Own%'], light_before: ['+SL', '+CH'] },
+    default: { heavy_before: ['M Score', '+All', 'Consistency', '+FB', 'Own%'], light_before: ['+SL', '+CH'] },
   },
 
   weekly_starting_pitcher_moves: {
-  default: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
+  default: { heavy_before: ['M Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
 },
 
   best_and_worst_hitters: {
-    default: { heavy_before: ['Score', '+All', 'Consistency', 'Own%'], light_before: ['Pitcher'] },
+    default: { heavy_before: ['M Score', '+All', 'Consistency', 'Own%'], light_before: ['Pitcher'] },
   },
 
   specific_starting_pitchers: {
-    default: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
+    default: { heavy_before: ['M Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
   },
 
   specific_hitters: {
-    default: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
+    default: { heavy_before: ['M Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
   },
 
   todays_favorited_players: {
-    pitchers: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
-    matchups: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
+    pitchers: { heavy_before: ['M Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
+    matchups: { heavy_before: ['M Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
     fallback: { heavy_before: ['All', 'Consistency', 'RHP', 'LHP', 'FB',], light_before: ['Opp'] },
   },
 
   todays_fantasy_lineup: {
-    matchups: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
+    matchups: { heavy_before: ['M Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
     fallback: { heavy_before: ['All', 'Consistency', 'RHP', 'LHP', 'FB'], light_before: ['Opp'] },
   },
 
   weekly_fantasy_hitter_moves: {
-    matchups: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
+    matchups: { heavy_before: ['M Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH', 'Opp'] },
     fallback: { heavy_before: ['All', 'Consistency', 'RHP', 'LHP', 'FB'], light_before: ['SL', 'CH', 'Opp'] },
   },
 
   reliever_inning: {
-    default: { heavy_before: ['Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
+    default: { heavy_before: ['M Score', '+All', 'Consistency', '+FB'], light_before: ['+SL', '+CH'] },
   },
 };
 //#################

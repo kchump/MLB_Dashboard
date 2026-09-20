@@ -64,7 +64,7 @@
       "end": 100,
       "gold": 110,
       "mode": "good_only",
-      "start": 80
+      "start": 70
     },
     "majors|hitters|BB%": {
       "best": 0.16,
@@ -290,6 +290,12 @@
       "neutral_hi": 0.32,
       "neutral_lo": 0.31,
       "worst": 0.2
+    },
+    "majors|hitters|K": {
+      "end": 220,
+      "higher_is_better": false,
+      "mode": "bad_only",
+      "start": 170
     },
     "majors|hitters|K%": {
       "best": 0.16,
@@ -790,12 +796,6 @@
       "neutral_hi": 0.45,
       "neutral_lo": 0.43,
       "worst": 0.35
-    },
-    "majors|hitters|SO": {
-      "end": 220,
-      "higher_is_better": false,
-      "mode": "bad_only",
-      "start": 170
     },
     "majors|hitters|SP": {
       "best": 70,
