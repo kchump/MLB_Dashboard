@@ -966,12 +966,12 @@
       "start": 40
     },
     "majors|rp|BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "majors|rp|BS": {
@@ -1788,12 +1788,12 @@
       "start": 70
     },
     "majors|sp|BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "majors|sp|BS": {
@@ -2762,12 +2762,12 @@
       "worst": -40
     },
     "minors|rp|BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "minors|rp|Con": {
@@ -2811,12 +2811,12 @@
       "worst": 0.15
     },
     "minors|rp|Minors BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "minors|rp|Minors Con": {
@@ -2876,12 +2876,12 @@
       "worst": 89
     },
     "minors|rp|Prev Minors BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "minors|rp|Prev Minors Con": {
@@ -2997,12 +2997,12 @@
       "worst": -40
     },
     "minors|sp|BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "minors|sp|Con": {
@@ -3046,12 +3046,12 @@
       "worst": 0.15
     },
     "minors|sp|Minors BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "minors|sp|Minors Con": {
@@ -3111,12 +3111,12 @@
       "worst": 89
     },
     "minors|sp|Prev Minors BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "minors|sp|Prev Minors Con": {
@@ -3325,12 +3325,12 @@
       "worst": -40
     },
     "playoffs|rp|BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "playoffs|rp|Con": {
@@ -3374,12 +3374,12 @@
       "worst": 0.15
     },
     "playoffs|rp|Playoff BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "playoffs|rp|Playoff Con": {
@@ -3487,12 +3487,12 @@
       "worst": -40
     },
     "playoffs|sp|BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "playoffs|sp|Con": {
@@ -3536,12 +3536,12 @@
       "worst": 0.15
     },
     "playoffs|sp|Playoff BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "playoffs|sp|Playoff Con": {
@@ -3742,12 +3742,12 @@
       "worst": -40
     },
     "spring|rp|BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "spring|rp|Con": {
@@ -3791,12 +3791,12 @@
       "worst": 0.15
     },
     "spring|rp|Spring BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "spring|rp|Spring Con": {
@@ -3904,12 +3904,12 @@
       "worst": -40
     },
     "spring|sp|BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "spring|sp|Con": {
@@ -3953,12 +3953,12 @@
       "worst": 0.15
     },
     "spring|sp|Spring BB%": {
-      "best": 0.05,
+      "best": 0.06,
       "fmt": "pct",
-      "gold": 0.04,
+      "gold": 0.05,
       "higher_is_better": false,
-      "neutral_hi": 0.08,
-      "neutral_lo": 0.09,
+      "neutral_hi": 0.09,
+      "neutral_lo": 0.095,
       "worst": 0.13
     },
     "spring|sp|Spring Con": {
