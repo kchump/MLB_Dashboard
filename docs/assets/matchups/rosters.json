@@ -200,7 +200,6 @@
     "Heston Kjerstad": "BAL",
     "Hunter Feduccia": "LAD",
     "Hunter Goodman": "COL",
-    "Hyeseong Kim": "LAD",
     "Ian Happ": "CHC",
     "Ildemaro Vargas": "ARI",
     "Isaac Collins": "KC",
@@ -803,7 +802,6 @@
       "Enrique Hernandez",
       "Freddie Freeman",
       "Hunter Feduccia",
-      "Hyeseong Kim",
       "Josue De Paula",
       "Kyle Tucker",
       "Max Muncy",
@@ -1329,6 +1327,7 @@
     "Justin Bruihl": "STL",
     "Justin Hagenman": "NYM",
     "Justin Martinez": "ARI",
+    "Justin Wrobleski": "LAD",
     "Kade Strowd": "ARI",
     "Kenley Jansen": "DET",
     "Kevin Ginkel": "ARI",
@@ -1413,7 +1412,6 @@
     "Seranthony Dominguez": "SEA",
     "Seth Johnson": "ATH",
     "Seth Lonsway": "SF",
-    "Shane Drohan": "MIL",
     "Shawn Armstrong": "CLE",
     "Spencer Bivens": "KC",
     "Spencer Miles": "TOR",
@@ -1682,6 +1680,7 @@
       "Edgardo Henriquez",
       "Edwin Diaz",
       "Evan Phillips",
+      "Justin Wrobleski",
       "Kris Bubic",
       "Roki Sasaki",
       "Tanner Scott"
@@ -1712,7 +1711,6 @@
       "DL Hall",
       "JoJo Romero",
       "Kyle Harrison",
-      "Shane Drohan",
       "Trevor Megill"
     ],
     "MIN": [
@@ -2023,7 +2021,6 @@
     "Jose Soriano": "TOR",
     "Julian Aguiar": "CHC",
     "Justin Verlander": "DET",
-    "Justin Wrobleski": "LAD",
     "Kade Anderson": "SEA",
     "Kade Morris": "ATH",
     "Kai-Wei Teng": "HOU",
@@ -2282,7 +2279,6 @@
     ],
     "LAD": [
       "Blake Snell",
-      "Justin Wrobleski",
       "Shohei Ohtani",
       "Tarik Skubal",
       "Tyler Glasnow",
