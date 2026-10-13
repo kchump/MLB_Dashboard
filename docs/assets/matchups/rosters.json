@@ -123,7 +123,6 @@
     "Curtis Mead": "BOS",
     "DaShawn Keirsey Jr.": "ATL",
     "Dane Myers": "CIN",
-    "Daniel Schneemann": "CLE",
     "Danny Jansen": "TEX",
     "Dansby Swanson": "CHC",
     "Darell Hernaiz": "ATH",
@@ -686,7 +685,6 @@
       "Austin Hedges",
       "Brayan Rocchio",
       "Chase DeLauter",
-      "Daniel Schneemann",
       "David Fry",
       "Jo Adell",
       "Jose Ramirez",
@@ -1165,6 +1163,7 @@
     "Brent Suter": "ATL",
     "Brock Burke": "CIN",
     "Brock Stewart": "LAD",
+    "Brody Hopkins": "TB",
     "Brooks Raley": "PHI",
     "Bryan Abreu": "HOU",
     "Bryan Baker": "TB",
@@ -1242,7 +1241,6 @@
     "Felix Bautista": "BAL",
     "Gabe Speier": "SEA",
     "Garrett Acton": "MIN",
-    "Garrett Cleavinger": "TB",
     "Garrett Hawkins": "SD",
     "Garrett Whitlock": "BOS",
     "Gavin Collyer": "TEX",
@@ -1413,6 +1411,7 @@
     "Seth Johnson": "ATH",
     "Seth Lonsway": "SF",
     "Shawn Armstrong": "CLE",
+    "Slade Cecconi": "CLE",
     "Spencer Bivens": "KC",
     "Spencer Miles": "TOR",
     "Steven Cruz": "KC",
@@ -1600,6 +1599,7 @@
       "Hunter Gaddis",
       "Matt Festa",
       "Shawn Armstrong",
+      "Slade Cecconi",
       "Tim Herrin"
     ],
     "COL": [
@@ -1845,10 +1845,10 @@
       "Ryne Stanek"
     ],
     "TB": [
+      "Brody Hopkins",
       "Bryan Baker",
       "Cam Booser",
       "Cole Sulser",
-      "Garrett Cleavinger",
       "Kevin Kelly",
       "Steven Matz",
       "Tyler Wells"
