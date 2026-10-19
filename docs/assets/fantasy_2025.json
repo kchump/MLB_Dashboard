@@ -860561,6 +860561,28 @@
         "team": "ATH"
       },
       {
+        "All": 19.0,
+        "BB%": 0.0,
+        "Con": 78.75,
+        "Days +/-": 1.0,
+        "Disc": 5.85,
+        "IP": 0.2,
+        "K": 1.0,
+        "K%": 0.2,
+        "Own%": 6.15,
+        "Stf": 26.12,
+        "Strike%": 0.7140000000000001,
+        "SwStr%": 0.14300000000000002,
+        "Velo": 98.0,
+        "WHIP": 4.5,
+        "name": "Daniel Espino",
+        "person_key": "daniel espino",
+        "pitch_role": "FLEX",
+        "role": "sp",
+        "sort_bucket": 0,
+        "team": "CLE"
+      },
+      {
         "All": -23.84,
         "BB%": 0.14800000000000002,
         "Con": 12.98,
